@@ -17,10 +17,17 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Compro Website PRD](./products/09_COMPRO_PRD.md)
-- [Compro Website Spec](./products/10_COMPRO_SPEC.md)
-- [Careers Module PRD](./products/11_CAREERS_PRD.md)
-- [Careers Module Spec](./products/12_CAREERS_SPEC.md)
+- [Product Docs Index](./docs/products/README.md) — **123 source docs**
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (35 files)
+  - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
+  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (31 files)
+  - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
+  - [TJ](./docs/products/tj/00_INDEX.md) (6 files)
+  - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 DOCX)
+- [Compro PRD Summary](./products/09_COMPRO_PRD.md)
+- [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
+- [Careers PRD Summary](./products/11_CAREERS_PRD.md)
+- [Careers Spec Summary](./products/12_CAREERS_SPEC.md)
 
 ### Setup & Contributing
 - [Start Here](./guidline/START_HERE.md)
@@ -44,7 +51,14 @@ company-wiki/
 ├── SETUP_GUIDE.md         # Panduan setup repository
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
-├── products/              # PRD & spesifikasi produk
+│   ├── 01-08...           # Company & technical docs
+│   └── products/          # Source docs per produk (123 files)
+│       ├── dntech/
+│       ├── dnpeople-erp/
+│       ├── nearwork/
+│       ├── threads-automation/
+│       └── tj/
+├── products/              # PRD & spec summary (09-12)
 ├── templates/             # Template dokumen
 ├── images/                # Screenshot & aset visual
 ├── diagrams/              # Diagram arsitektur
@@ -63,4 +77,3 @@ Confidential — DN Tech Internal Documentation
 ---
 
 *Last Updated: July 8, 2026*
-# company-wiki

@@ -47,6 +47,9 @@ build/
 secrets/
 *.pem
 *.key
+*credentials*
+*recovery-codes*
+*.csv
 
 # Backup files
 *.bak

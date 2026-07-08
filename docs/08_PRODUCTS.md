@@ -35,21 +35,32 @@ DN Tech membangun dan mengoperasikan produk digital internal yang juga menjadi s
 
 ```
 DN Tech Products
-├── 🌐 Company Profile Website (Compro)
+├── 🌐 Company Profile Website (Compro)     → docs/products/dntech/
 │   ├── Public marketing site (dntech.id)
 │   ├── Admin CMS dashboard
 │   ├── Lead generation & analytics
-│   └── Email automation system
+│   └── Email automation system (v5)
 │
-├── 💼 Careers Module
+├── 💼 Careers Module                         → (part of dntech)
 │   ├── Job listings page
 │   ├── Application form
 │   └── Admin career management
 │
-└── 🏢 DN People ERP (Future)
-    ├── HR & Payroll
-    ├── Finance & Accounting
-    └── Project Management
+├── 🏢 DN People ERP                          → docs/products/dnpeople-erp/
+│   ├── HR & Payroll
+│   ├── Finance & Accounting (Indonesia)
+│   └── Project Management
+│
+├── 📍 Nearwork                               → docs/products/nearwork/
+│   ├── Location-based platform
+│   ├── Billing & subscriptions
+│   └── Monorepo architecture
+│
+├── 🤖 Threads Automation                     → docs/products/threads-automation/
+│   └── Social media automation tool
+│
+└── 📋 TJ                                     → docs/products/tj/
+    └── Internal project
 ```
 
 ---
@@ -103,8 +114,9 @@ DN Tech Products
 
 | Dokumen | File |
 |---------|------|
-| PRD | [09_COMPRO_PRD.md](../products/09_COMPRO_PRD.md) |
-| Technical Spec | [10_COMPRO_SPEC.md](../products/10_COMPRO_SPEC.md) |
+| PRD Summary | [09_COMPRO_PRD.md](../products/09_COMPRO_PRD.md) |
+| Spec Summary | [10_COMPRO_SPEC.md](../products/10_COMPRO_SPEC.md) |
+| **Source Docs (35 files)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
 
 ### Version History
 
@@ -168,18 +180,46 @@ DN Tech Products
 
 | Aspek | Detail |
 |-------|--------|
-| Status | In Development |
+| Status | **In Development** |
 | Target | SME & Enterprise di Indonesia |
 | Modules | HR, Payroll, Finance, Inventory, Project Mgmt |
-| Repo | Separate repository (`ERP/`) |
+| Docs | [48 files →](./products/dnpeople-erp/00_INDEX.md) |
 
-### Planned Features
+**Key documents:**
+- [PRD](./products/dnpeople-erp/Docs/01-PRD-ERP-System.md)
+- [SRS](./products/dnpeople-erp/Docs/02-SRS-ERP-System.md)
+- [SDD](./products/dnpeople-erp/Docs/03-SDD-ERP-System.md)
+- [V3 Enterprise PRD](./products/dnpeople-erp/Docs/v3/PRD-V3-DNPEOPLE-ENTERPRISE.md)
+- [Phase 1 Checklist](./products/dnpeople-erp/update/PHASE-1-EXECUTION-CHECKLIST.md)
 
-- [ ] Employee management & attendance
-- [ ] Payroll automation (Indonesia tax compliance)
-- [ ] General ledger & financial reporting
-- [ ] Inventory & procurement
-- [ ] Multi-company support
+### Nearwork
+
+| Aspek | Detail |
+|-------|--------|
+| Status | **In Development** |
+| Type | Location-based platform |
+| Docs | [31 files →](./products/nearwork/00_INDEX.md) |
+
+**Key documents:**
+- [V2 PRD](./products/nearwork/docs/NEARWORK_V2_PRD.md)
+- [V2 SRS](./products/nearwork/docs/NEARWORK_V2_SRS.md)
+- [V2 SDD](./products/nearwork/docs/NEARWORK_V2_SDD.md)
+- [Design System](./products/nearwork/docs/NEARWORK_V2_DESIGN_SYSTEM.md)
+
+### Threads Automation
+
+| Aspek | Detail |
+|-------|--------|
+| Status | **Planned** |
+| Type | Social media automation |
+| Docs | [4 files →](./products/threads-automation/00_INDEX.md) |
+
+### TJ
+
+| Aspek | Detail |
+|-------|--------|
+| Status | **In Development** |
+| Docs | [6 files →](./products/tj/00_INDEX.md) |
 
 ---
 
@@ -210,6 +250,7 @@ DN Tech Products
 
 ## 📄 Related Documents
 
+- [Product Docs Index](./products/README.md) — All 123 source documents
 - [Company Overview](./02_COMPANY_OVERVIEW.md)
 - [Tech Stack](./05_TECH_STACK.md)
 - [Architecture](./06_ARCHITECTURE.md)

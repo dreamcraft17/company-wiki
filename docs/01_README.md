@@ -71,6 +71,8 @@ Company Wiki adalah **single source of truth** untuk informasi perusahaan, stand
 
 ## Dokumentasi Produk
 
+### Portfolio & Summary
+
 | # | Dokumen | Tipe |
 |---|---------|------|
 | 08 | [Products](./08_PRODUCTS.md) | Portfolio produk |
@@ -78,6 +80,19 @@ Company Wiki adalah **single source of truth** untuk informasi perusahaan, stand
 | 10 | [Compro Spec](../products/10_COMPRO_SPEC.md) | Technical Specification |
 | 11 | [Careers PRD](../products/11_CAREERS_PRD.md) | Product Requirements |
 | 12 | [Careers Spec](../products/12_CAREERS_SPEC.md) | Technical Specification |
+
+### Source Documentation (by Product)
+
+Semua docs dari repository `dozer/` — [Product Docs Index](./products/README.md)
+
+| Product | Index | Files | Status |
+|---------|-------|-------|--------|
+| DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 35 | Production |
+| DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development |
+| Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 31 | In Development |
+| Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |
+| TJ | [tj/](./products/tj/00_INDEX.md) | 6 | In Development |
+| Propose (Entro LY) | [propose/](./products/propose/00_INDEX.md) | 1 DOCX | Proposal |
 
 ---
 
