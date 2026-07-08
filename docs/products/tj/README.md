@@ -137,7 +137,9 @@ npm run lint     # ESLint
 | [fitur.md](./fitur.md) | Daftar fitur lengkap |
 | [audit.md](./audit.md) | Audit teknis & checklist go-live |
 | [changelog.md](./changelog.md) | Riwayat versi |
+| [docs/PRD.md](./docs/PRD.md) | Panduan Product Requirements (PRD) |
 | [docs/go-live-checklist.md](./docs/go-live-checklist.md) | Checklist admin & deploy |
+| [current-implementation.md](./current-implementation.md) | Snapshot implementasi aktual |
 
 ---
 

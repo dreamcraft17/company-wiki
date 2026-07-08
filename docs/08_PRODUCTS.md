@@ -59,8 +59,8 @@ DN Tech Products
 ├── 🤖 Threads Automation                     → docs/products/threads-automation/
 │   └── Social media automation tool
 │
-└── 📋 TJ                                     → docs/products/tj/
-    └── Internal project
+└── ⚖️ Trusted Jurist (TJ)                     → docs/products/tj/
+    └── Law firm company profile website
 ```
 
 ---
@@ -214,12 +214,18 @@ DN Tech Products
 | Type | Social media automation |
 | Docs | [4 files →](./products/threads-automation/00_INDEX.md) |
 
-### TJ
+### Trusted Jurist (TJ)
 
 | Aspek | Detail |
 |-------|--------|
-| Status | **In Development** |
-| Docs | [6 files →](./products/tj/00_INDEX.md) |
+| Nama | Trusted Jurist Law Firm — Company Profile |
+| URL | https://trustedjurist.co.id |
+| Status | **Go-live readiness** (v0.2.0) |
+| Type | Law firm marketing / company profile |
+| Stack | Next.js 16 + React 19 + Tailwind v4 + Resend |
+| Docs | [9 files →](./products/tj/00_INDEX.md) |
+| PRD | [docs/PRD.md](./products/tj/docs/PRD.md) |
+| Current impl | [current-implementation.md](./products/tj/current-implementation.md) |
 
 ---
 

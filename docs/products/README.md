@@ -17,10 +17,10 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 31 files | In Development | `web/nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
-| **TJ** | [tj/](./tj/00_INDEX.md) | 6 files | In Development | `tj` |
+| **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 9 files | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 
-**Total: 123 markdown + 1 DOCX + 2 ZIP archives**
+**Total: 126 markdown + 1 DOCX + 2 ZIP archives**
 
 ---
 
@@ -59,7 +59,7 @@ docs/products/
 ├── dnpeople-erp/              # ERP System
 ├── nearwork/                  # Nearwork Platform
 ├── threads-automation/        # Threads Automation Tool
-├── tj/                        # TJ Project
+├── tj/                        # Trusted Jurist Law Firm website
 └── propose/                   # Entro LY proposal (DOCX)
 
 images/                        # Logo & assets per produk

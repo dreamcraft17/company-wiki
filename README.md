@@ -24,7 +24,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (31 files)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
-  - [TJ](./docs/products/tj/00_INDEX.md) (6 files)
+  - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (9 files)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 DOCX)
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)

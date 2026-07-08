@@ -91,7 +91,7 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 | DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development |
 | Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 31 | In Development |
 | Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |
-| TJ | [tj/](./products/tj/00_INDEX.md) | 6 | In Development |
+| Trusted Jurist (TJ) | [tj/](./products/tj/00_INDEX.md) | 9 | Go-live readiness |
 | Propose (Entro LY) | [propose/](./products/propose/00_INDEX.md) | 1 DOCX | Proposal |
 
 ---
