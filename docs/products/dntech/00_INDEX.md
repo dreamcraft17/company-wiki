@@ -1,10 +1,11 @@
 # DN Tech Compro — Documentation Index
 
 **Product**: DN Tech Company Profile Website  
-**Source**: `dozer/web/dntech`  
+**Repository**: `web/dntech`  
 **URL**: https://dntech.id  
 **Status**: Production (v5)  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -112,4 +113,4 @@
 
 ---
 
-*Synced from: `dozer/web/dntech`*
+*Last Updated: July 8, 2026*

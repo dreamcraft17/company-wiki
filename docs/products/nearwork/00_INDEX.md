@@ -1,9 +1,10 @@
 # Nearwork — Documentation Index
 
 **Product**: Nearwork Platform  
-**Source**: `dozer/web/nextwork`  
+**Repository**: `web/nextwork`  
 **Status**: In Development  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -86,4 +87,4 @@
 
 ---
 
-*Synced from: `dozer/web/nextwork`*
+*Last Updated: July 8, 2026*

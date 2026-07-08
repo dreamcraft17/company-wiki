@@ -4,7 +4,7 @@
 **Document Version**: 1.0  
 **Last Updated**: July 8, 2026  
 **Status**: Published  
-**Owner**: VP Product / HR
+**Owner**: Dozer
 
 ---
 

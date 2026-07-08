@@ -3,7 +3,7 @@
 **Document Version**: 1.0  
 **Last Updated**: July 8, 2026  
 **Status**: Template  
-**Owner**: CTO / Tech Lead
+**Owner**: Dozer
 
 ---
 

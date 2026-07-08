@@ -1,9 +1,10 @@
 # DN People ERP — Documentation Index
 
 **Product**: DN People ERP System  
-**Source**: `dozer/ERP`  
+**Repository**: `ERP`  
 **Status**: In Development  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -81,4 +82,4 @@
 
 ---
 
-*Synced from: `dozer/ERP`*
+*Last Updated: July 8, 2026*

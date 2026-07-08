@@ -3,7 +3,7 @@
 **Document Version**: 1.0  
 **Last Updated**: July 8, 2026  
 **Status**: Published  
-**Owner**: VP Product / Documentation Lead
+**Owner**: Dozer
 
 ---
 
@@ -83,7 +83,7 @@ Company Wiki adalah **single source of truth** untuk informasi perusahaan, stand
 
 ### Source Documentation (by Product)
 
-Semua docs dari repository `dozer/` — [Product Docs Index](./products/README.md)
+Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index](./products/README.md).
 
 | Product | Index | Files | Status |
 |---------|-------|-------|--------|

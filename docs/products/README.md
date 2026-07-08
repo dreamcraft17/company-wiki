@@ -3,22 +3,22 @@
 **Document Version**: 1.0  
 **Last Updated**: July 8, 2026  
 **Status**: Published  
-**Owner**: Documentation Lead
+**Owner**: Dozer
 
 ---
 
-Semua dokumentasi produk DN Tech dikelompokkan di folder ini. File di-copy dari repository source di `/Users/dozer-entropi/dozer/`.
+Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 ## 📦 Products
 
-| Product | Folder | Docs | Status | Source Repo |
-|---------|--------|------|--------|-------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 35 files | Production | `dozer/web/dntech` |
-| **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development | `dozer/ERP` |
-| **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 31 files | In Development | `dozer/web/nextwork` |
-| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `dozer/auto` |
-| **TJ** | [tj/](./tj/00_INDEX.md) | 6 files | In Development | `dozer/tj` |
-| **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `dozer/propose` |
+| Product | Folder | Docs | Status | Repository |
+|---------|--------|------|--------|------------|
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 35 files | Production | `web/dntech` |
+| **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development | `ERP` |
+| **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 31 files | In Development | `web/nextwork` |
+| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
+| **TJ** | [tj/](./tj/00_INDEX.md) | 6 files | In Development | `tj` |
+| **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 
 **Total: 123 markdown + 1 DOCX + 2 ZIP archives**
 
@@ -56,30 +56,16 @@ Dokumen ringkasan per produk ada di folder `products/`:
 docs/products/
 ├── README.md                  # ← Anda di sini
 ├── dntech/                    # Company Profile Website
-│   ├── 00_INDEX.md
-│   ├── README.md
-│   ├── docs/                  # v1–v5, deployment, status
-│   └── PRD/                   # Original PRD/SRS/SDD
 ├── dnpeople-erp/              # ERP System
-│   ├── 00_INDEX.md
-│   ├── Docs/                  # 25 core documents
-│   ├── update/                # Phase 1 execution docs
-│   └── README.md
 ├── nearwork/                  # Nearwork Platform
-│   ├── 00_INDEX.md
-│   ├── docs/                  # V2 PRD/SRS/SDD + guides
-│   └── updated/               # Latest V2 revisions
 ├── threads-automation/        # Threads Automation Tool
-│   └── 00_INDEX.md
-└── tj/                        # TJ Project
-    └── 00_INDEX.md
+├── tj/                        # TJ Project
 └── propose/                   # Entro LY proposal (DOCX)
-    └── 00_INDEX.md
 
 images/                        # Logo & assets per produk
-├── dntech/logo.png
-├── nearwork/logo*.svg/png
-└── erp/logo.png, hero.png
+├── dntech/
+├── nearwork/
+└── erp/
 ```
 
 ---

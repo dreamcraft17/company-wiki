@@ -1,9 +1,10 @@
 # Propose — Documentation Index
 
 **Product**: Entro LY Admin Ledger Report  
-**Source**: `dozer/propose`  
+**Repository**: `propose`  
 **Status**: Proposal  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -17,4 +18,4 @@
 
 ---
 
-*Synced from: `dozer/propose`*
+*Last Updated: July 8, 2026*

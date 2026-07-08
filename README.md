@@ -2,6 +2,8 @@
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
+**Owner**: Dozer
+
 ## 📚 Daftar Isi
 
 ### Company
@@ -57,7 +59,8 @@ company-wiki/
 │       ├── dnpeople-erp/
 │       ├── nearwork/
 │       ├── threads-automation/
-│       └── tj/
+│       ├── tj/
+│       └── propose/
 ├── products/              # PRD & spec summary (09-12)
 ├── templates/             # Template dokumen
 ├── images/                # Screenshot & aset visual

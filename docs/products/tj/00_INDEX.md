@@ -1,9 +1,10 @@
 # TJ — Documentation Index
 
 **Product**: TJ Project  
-**Source**: `dozer/tj`  
+**Repository**: `tj`  
 **Status**: In Development  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -20,4 +21,4 @@
 
 ---
 
-*Synced from: `dozer/tj`*
+*Last Updated: July 8, 2026*

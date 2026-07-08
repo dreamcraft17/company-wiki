@@ -716,7 +716,7 @@ Status V4:
 
 #### 7. Build warning root lockfile
 
-Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di `/Users/dozer-entropi/package-lock.json`, sementara project juga punya `frontend/package-lock.json`.
+Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di parent directory, sementara project juga punya `frontend/package-lock.json`.
 
 Dampak:
 

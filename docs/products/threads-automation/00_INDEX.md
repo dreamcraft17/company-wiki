@@ -1,9 +1,10 @@
 # Threads Automation — Documentation Index
 
 **Product**: Threads Automation Tool  
-**Source**: `dozer/auto`  
+**Repository**: `auto`  
 **Status**: Planned  
-**Last Synced**: July 8, 2026
+**Owner**: Dozer  
+**Last Updated**: July 8, 2026
 
 ---
 
@@ -18,4 +19,4 @@
 
 ---
 
-*Synced from: `dozer/auto`*
+*Last Updated: July 8, 2026*
