@@ -539,3 +539,26 @@ Everything else is noise.
 **Owner:** Dozer (Founder & CEO)  
 **Date:** Juli 2026  
 **Version:** Homepage Redesign PRD v1 (Indonesia Edition - Simplified)
+
+---
+
+## Implementation Status (Jul 9, 2026)
+
+| PRD Section | Code | Live on homepage |
+|-------------|------|------------------|
+| Hero | `HomeHero` | ✅ |
+| Layanan | `HomeServices` | ✅ |
+| Proses kerja | `HomeProcess` | ✅ |
+| Kenapa pilih kami | `HomeAdvantages` | ✅ |
+| Tech stack | `HomeTechStack` | 🔒 Hidden (product decision) |
+| Portfolio | `HomePortfolio` | ✅ |
+| Tim | `HomeTeam` | 🔒 Hidden — use `/team`, `/careers` |
+| Testimoni | `HomeTestimonials` | ✅ |
+| FAQ | `HomeFaq` | ✅ |
+| Harga & paket | `HomePricing` | ✅ (UMKM pricing Jul 9 malam) |
+| CTA kontak | `HomeContactCta` | ✅ |
+| Footer | `Footer` | ✅ (redesign terpisah) |
+
+**CMS:** `SiteSettings.homeContent` · **Defaults:** `frontend/src/lib/homepage-content.ts` · **Seed:** `backend/scripts/seed-homepage.ts`
+
+**Pricing defaults (Jul 9 malam):** Custom dari Rp 25 juta · Konsultasi Rp 150.000/jam · Maintenance Rp 2 juta/bulan · MVP FAQ Rp 50–150 juta.

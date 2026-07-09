@@ -4,8 +4,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** Branding section v2 — 100% spec alignment (Jul 9 sore)  
-**Rentang Jul 9:** `fb1a72b`…`0f6877c` + branding rollout — button fix, about CMS, branding `rlogo2`, favicon, admin toast, branding sections  
+**Commit referensi terbaru:** Homepage PRD Indonesia Edition + tuning harga & section (Jul 9 malam)  
+**Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
 **Commit sebelumnya:** `352140f` — V2.1 design remediation  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
 **Status working tree:** ✅ Clean (sync dengan `origin/main`)
@@ -51,6 +51,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Branding section full (Jul 9) | ✅ | API `/branding/*`, homepage 6 section branding, admin `/admin/branding` |
 | Branding spec 100% (Jul 9) | ✅ | Prisma models dedicated, admin CRUD `/admin/branding/*`, testimonials carousel, seed script |
 | Footer redesign (Jul 9) | ✅ | Layout horizontal putih; `FooterBrand` wordmark; tanpa newsletter di footer |
+| Homepage PRD Indonesia (Jul 9) | ✅ | Section direct-market; `homeContent` CMS; komponen `components/homepage/*` |
+| Homepage tuning (Jul 9 malam) | ✅ | Tech stack & tim disembunyikan di beranda; harga paket diturunkan (UMKM) |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -206,6 +208,44 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 
 **File:** `components/common/Footer.tsx`, `components/layout/FooterBrand.tsx` · `LogoDark.tsx` kini untuk admin/dark chrome saja (bukan footer publik).
 
+### Homepage PRD Indonesia Edition (9 Jul 2026)
+
+Implementasi penuh per `company-wiki/.../DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md` — tone direct, tanpa fluff, fokus startup & UMKM.
+
+| Area | Implementasi |
+|------|--------------|
+| Hero | `HomeHero` — CTA 30 menit + portfolio; copy dari settings / `homeContent` |
+| Layanan | `HomeServices` — max 6 dari API atau default PRD |
+| Proses kerja | `HomeProcess` — 6 langkah bernomor |
+| Kenapa pilih kami | `HomeAdvantages` — 6 kartu |
+| Portfolio | `HomePortfolio` — case studies API atau coming soon |
+| Testimoni | `HomeTestimonials` — API atau coming soon |
+| FAQ | `HomeFaq` — accordion; CMS `/faq` atau default PRD |
+| Harga & paket | `HomePricing` — 3 paket transparan |
+| CTA kontak | `HomeContactCta` — email, telepon, Calendly |
+| CMS | `SiteSettings.homeContent` (JSON) + admin Pengaturan Situs |
+| Seed | `backend/scripts/seed-homepage.ts` |
+
+**Section disembunyikan di beranda (komponen tetap ada di codebase):**
+
+| Section | Alasan | Halaman alternatif |
+|---------|--------|-------------------|
+| Tech stack (`HomeTechStack`) | Permintaan produk — tidak perlu di fold utama | — |
+| Tim & hiring (`HomeTeam`) | Permintaan produk — profil tim tidak di homepage | `/team`, `/careers` |
+
+**Harga default (UMKM-friendly, Jul 9 malam):**
+
+| Paket | Harga |
+|-------|-------|
+| Custom project | Mulai **Rp 25 juta** (1–4 bulan) |
+| Hourly consulting | Mulai **Rp 150.000/jam** |
+| Maintenance | Mulai **Rp 2 juta/bulan** |
+| FAQ development | Landing/fitur sederhana dari Rp 25 juta; MVP Rp 50–150 juta |
+
+> Override via Admin → Pengaturan → **Konten Beranda (JSON)** atau edit FAQ di admin.
+
+**Menggantikan di homepage:** section branding lama (`BrandStats`, `BrandStory`, `CoreValues`, `CompetitiveAdvantages`, blog preview, newsletter) — modul branding admin tetap ada untuk halaman lain jika diperlukan.
+
 ---
 
 ## 3. Website Publik
@@ -228,21 +268,23 @@ Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources` **masih ada** ta
 
 ### Homepage (`/`)
 
-| Section | Implementasi |
-|---------|--------------|
-| Hero | Solid `bg-blue-900`, tagline & deskripsi dari settings |
-| Statistik | `BrandStats` dari `GET /branding/stats` |
-| Brand Story | `BrandStory` dari `GET /branding/content` |
-| Core Values | `CoreValues` dari `GET /branding/values` |
-| Competitive Advantages | `CompetitiveAdvantages` dari `GET /branding/advantages` |
-| Layanan | Max 6 dari API — hidden jika kosong |
-| Blog preview | 4 artikel + estimasi waktu baca |
-| Tim spotlight | `TeamSpotlight` dari `GET /branding/team` |
-| Testimonials | `BrandTestimonials` dari `GET /branding/testimonials` |
-| Newsletter | Form langganan |
-| CTA akhir | "Siap mengembangkan proyek Anda?" → `/contact` |
+| Section | Status | Implementasi |
+|---------|--------|--------------|
+| Hero | ✅ | `HomeHero` — PRD Indonesia Edition |
+| Layanan | ✅ | `HomeServices` — API atau default 6 kartu |
+| Proses kerja | ✅ | `HomeProcess` |
+| Kenapa pilih kami | ✅ | `HomeAdvantages` |
+| Tech stack | 🔒 Hidden | `HomeTechStack` — tidak dirender di `page.tsx` |
+| Portfolio | ✅ | `HomePortfolio` |
+| Tim & hiring | 🔒 Hidden | `HomeTeam` — gunakan `/team`, `/careers` |
+| Testimoni | ✅ | `HomeTestimonials` |
+| FAQ | ✅ | `HomeFaq` |
+| Harga & paket | ✅ | `HomePricing` |
+| CTA kontak | ✅ | `HomeContactCta` |
 
-**Dihapus dari homepage:** ROI calculator, testimonials, case studies, client logos hardcode, BookDemo section.
+**Tidak lagi di homepage:** `BrandStats`, `BrandStory`, `CoreValues`, blog preview, newsletter, branding carousel lama.
+
+**Halaman terpisah masih aktif:** `/team`, `/careers`, `/blog`, `/case-studies`, modul branding admin.
 
 ### Halaman Layanan
 
@@ -551,7 +593,9 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/app/admin/branding/values/page.tsx` | Admin core values CRUD |
 | `frontend/src/app/admin/branding/advantages/page.tsx` | Admin competitive advantages CRUD |
 | `frontend/src/app/admin/branding/stats/page.tsx` | Admin stats CRUD |
-| `frontend/src/components/branding/TeamSpotlightSection.tsx` | Team spotlight fetch wrapper |
+| `frontend/src/lib/homepage-content.ts` | Default PRD Indonesia + `resolveHomeContent()` |
+| `frontend/src/components/homepage/*` | Section beranda PRD (Hero, Services, Process, dll.) |
+| `backend/scripts/seed-homepage.ts` | Seed tagline, `homeContent`, FAQ default |
 | `frontend/public/rlogo2.png` | Logo resmi DN Tech |
 | `frontend/src/app/icon.png` | Favicon 32×32 (dari rlogo2) |
 | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` | Lazy client loader untuk modal exit intent |

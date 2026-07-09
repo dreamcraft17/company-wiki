@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: footer redesign + branding v2 — 100% PRD/SRS/SDD branding alignment
+**Latest commit**: homepage PRD Indonesia + org structure + pricing tune (Jul 9 malam)
 
 ---
 
@@ -32,6 +32,7 @@
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
 | [fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md](./fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md) | **Hotfix** — button text, tailwind-merge, branding (✅ resolved) |
+| [branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md](./branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) | **Homepage PRD** — Indonesia Edition (✅ implemented) |
 | [frontend-README.md](./frontend-README.md) | Frontend setup |
 
 ---
@@ -138,7 +139,10 @@
 | Hotfix & polish (Jul 9) | ✅ Button href + tailwind-merge; `rlogo2` branding; `/about` CMS; admin toast |
 | Branding rollout (Jul 9 sore) | ✅ API `/branding/*`, homepage section branding, admin `/admin/branding` |
 | Branding spec 100% (Jul 9) | ✅ Prisma models dedicated, admin CRUD `/api/v1/admin/branding/*`, carousel testimonials, seed script |
-| Hero branding | ✅ `HeroBrand` tipografi — tanpa logo PNG di `bg-blue-900` |
+| Footer redesign (Jul 9) | ✅ Horizontal putih, `FooterBrand` |
+| Homepage PRD Indonesia (Jul 9) | ✅ `components/homepage/*`, `homeContent` CMS |
+| Homepage tuning (Jul 9 malam) | ✅ Tech stack & tim hidden; harga UMKM |
+| Org wiki (Jul 9) | ✅ `04_ORGANIZATION.md` — CEO + Finance terisi; posisi lain vacant (—) |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |

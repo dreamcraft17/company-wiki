@@ -12,7 +12,9 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | V3 refinements | Implemented | Exit intent fix, logo variants, mobile nav polish, form accessibility |
 | Jul 9 polish | Implemented | Button href fix, about CMS live, `rlogo2` branding, hero wordmark, admin toast |
 | Footer redesign (Jul 9) | Implemented | Putih, layout horizontal, `FooterBrand` wordmark, tanpa newsletter di footer |
-| Branding section rollout | Implemented | Prisma branding models + public/admin branding API + homepage sections + admin CRUD pages |
+| Homepage PRD Indonesia (Jul 9) | Implemented | Direct-market homepage; `homeContent` CMS; `components/homepage/*` |
+| Homepage tuning (Jul 9 malam) | Implemented | Tech stack & tim hidden on homepage; UMKM-friendly pricing |
+| Branding section rollout | Implemented | Prisma branding models + admin API (legacy homepage sections; modul admin tetap) |
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
@@ -20,13 +22,15 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 
-Latest implementation reference: Jul 9 branding v2 — 100% PRD/SRS/SDD alignment (dedicated models + `/admin/branding/*` CRUD + carousel testimonials).
+Latest implementation reference: Jul 9 — Homepage PRD Indonesia Edition + footer redesign + harga UMKM-friendly.
 
-**Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** di samping logo (`LogoLight` / `FooterBrand`).
+**Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
-**Footer:** `components/common/Footer.tsx` — background putih, link horizontal 2 baris, CTA Konsultasi Gratis, kontak dari CMS. Newsletter hanya di section homepage, bukan di footer.
+**Homepage:** PRD [Indonesia Edition](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) — hero, layanan, proses, keunggulan, portfolio, FAQ, harga, CTA. **Hidden di beranda:** tech stack, tim (tetap di `/team`, `/careers`). Default harga: custom dari **Rp 25 juta**, konsultasi **Rp 150rb/jam**, maintenance **Rp 2 juta/bulan**.
 
-**Branding section:** Homepage memuat `BrandStats`, `BrandStory`, `CoreValues`, `CompetitiveAdvantages`, `TeamSpotlightSection`, dan `BrandTestimonials` dengan fetch mandiri ke `GET /api/v1/branding/*`. Admin dikelola via `GET/PUT/POST/PATCH/DELETE /api/v1/admin/branding/*`.
+**Footer:** `components/common/Footer.tsx` — putih, link horizontal, CTA Konsultasi Gratis.
+
+**Branding admin (legacy):** API `/branding/*` dan `/admin/branding/*` tetap tersedia; section branding lama tidak lagi di homepage utama.
 
 ## Tech Stack
 

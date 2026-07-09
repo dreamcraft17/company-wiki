@@ -31,8 +31,8 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN People ERP** | `9bf15e2` | V3 implementation status matrix — 392 tests, 27 modules, Enterprise hub |
-| **DN Tech Compro** | `local` | Jul 9 malam — footer redesign (putih, horizontal links, `FooterBrand`); branding v2 100% |
-| **company-wiki** | — | Sync dntech docs Jul 9 malam (footer + branding status) |
+| **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
+| **company-wiki** | `2c6cddd+` | Org structure (CEO + Finance); homepage PRD doc + sync status |
 
 ---
 

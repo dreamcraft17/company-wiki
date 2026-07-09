@@ -277,6 +277,7 @@ Didefinisikan di V2 tapi hampir tidak muncul di kode — dead token.
 | Multi-step contact form | step indicator green/blue solid |
 | Logo components | `LogoLight` / `FooterBrand` — wordmark **DN Tech.id**; `LogoDark` admin saja |
 | Hero branding | `HeroBrand.tsx` — tipografi; bukan logo PNG di hero biru |
+| Homepage PRD Indonesia | `components/homepage/*` — tech stack & tim **hidden** di beranda |
 | Lucide icons | konsisten di nav, cards, admin |
 
 ---
