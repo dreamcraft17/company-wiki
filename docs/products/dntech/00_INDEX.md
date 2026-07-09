@@ -133,6 +133,8 @@
 |-------|--------|
 | PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
+| Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
+| Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
 

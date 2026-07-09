@@ -4,8 +4,10 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** V2.1 design remediation  
-**Status build terakhir:** ✅ `npm run build` frontend sukses
+**Commit referensi terbaru:** `352140f` — feat(design): V2.1 remediation across frontend  
+**Commit docs desain:** `1d2c2cc` — DESIGN_SUMMARY + design_audit  
+**Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
+**Status working tree:** ✅ Clean (sync dengan `origin/main`)
 
 ---
 
@@ -40,6 +42,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Database | ✅ | PostgreSQL + Prisma ORM |
 | Data demo | ✅ | Dihapus — seed hanya bootstrap admin |
 | Design V2 | ✅ | Solid color, tanpa gradient/glassmorphism |
+| Design V2.1 | ✅ | Remediation audit — UI kit, palet unified, mandat CEO/Tech Lead |
+| Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
 | PRD V3 (refinement) | ✅ | Exit intent, logo variants, mobile nav, form accessibility |
@@ -80,7 +84,7 @@ Implementasi berdasarkan `docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md`.
 | StickyCTA | `frontend/src/components/layout/StickyCTA.tsx` | Mobile CTA blue-900 |
 | TrustBadges | `frontend/src/components/layout/TrustBadges.tsx` | Section "Mengapa Memilih Kami" |
 | TeamSpotlight | `frontend/src/components/layout/TeamSpotlight.tsx` | Avatar solid (bukan gradient) |
-| ExitIntentModal | `frontend/src/components/interactive/ExitIntentModal.tsx` | V3: trigger top-edge exit intent, max 1x/session, skip mobile |
+| ExitIntentModal | `frontend/src/components/interactive/ExitIntentModal.tsx` | V3 exit intent; V2.1 refactor ke `Modal` component |
 | ExitIntent hook | `frontend/src/hooks/useExitIntent.ts` | Session flag, `beforeunload`, `visibilitychange`, focus restore |
 | Alert | `frontend/src/components/ui/Alert.tsx` | 4 variants, aria role |
 | Badge | `frontend/src/components/ui/Badge.tsx` | Tag/chip solid colors |
@@ -110,7 +114,17 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 - [x] Exit intent memakai `Modal` component
 - [x] Semua inline alert utama → `Alert` component (contact, newsletter, quiz, ROI, settings, login)
 
-**Dokumentasi:** [docs/DESIGN_SUMMARY.md](./DESIGN_SUMMARY.md) · [docs/design_audit.md](./design_audit.md) · [design/IMPLEMENTATION.md](../design/IMPLEMENTATION.md)
+**Verifikasi V2.1 (grep codebase, 9 Jul 2026):**
+
+| Check | Hasil |
+|-------|-------|
+| `gradient-to-*` | ✅ 0 |
+| `backdrop-blur` | ✅ 0 |
+| `shadow-xl` / `shadow-2xl` | ✅ 0 |
+| `slate-*` | ✅ 0 |
+| `components/ui/index.ts` barrel | ✅ Alert, Badge, Button, Card, Input, Modal |
+
+**Dokumentasi:** [docs/DESIGN_SUMMARY.md](./DESIGN_SUMMARY.md) · [docs/design_audit.md](./design_audit.md) · [design/IMPLEMENTATION.md](../design/IMPLEMENTATION.md) · [design/DN-TECH-DESIGN-V2.1-SDD.md](../design/DN-TECH-DESIGN-V2.1-SDD.md)
 
 **Deviasi yang masih disengaja:**
 - Avatar tim: inisial (menunggu foto CMS)
@@ -446,6 +460,15 @@ File email: `backend/src/services/EmailService.ts`
 | `backend/scripts/clear-content.ts` | Hapus konten demo dari DB |
 | `docs/PROJECT-OVERVIEW.md` | Dokumentasi lengkap proyek |
 | `docs/V2/` | PRD, Design System, SEO Guide V2 |
+| `design/` | V2.1 remediation PRD, SDD, SRS, Action Plan, IMPLEMENTATION |
+| `frontend/src/lib/design-tokens.ts` | Token TS mirror (primary, secondary, spacing) |
+| `frontend/src/components/ui/Alert.tsx` | Alert 4 variants (V2.1) |
+| `frontend/src/components/ui/Badge.tsx` | Badge chip solid colors (V2.1) |
+| `frontend/src/components/ui/Modal.tsx` | Modal flat border dialog (V2.1) |
+| `frontend/src/components/ui/index.ts` | Barrel export UI kit (V2.1) |
+| `frontend/src/components/cards/PortfolioCard.tsx` | Kartu portofolio tanpa gradient (V2.1) |
+| `docs/DESIGN_SUMMARY.md` | Ringkasan desain + mandat leadership |
+| `docs/design_audit.md` | Audit desain + status pasca-V2.1 |
 
 ---
 
@@ -739,7 +762,7 @@ Status V4:
 
 #### 7. Build warning root lockfile
 
-Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di `/Users/dozer-entropi/package-lock.json`, sementara project juga punya `frontend/package-lock.json`.
+Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di parent directory, sementara project juga punya `frontend/package-lock.json`.
 
 Dampak:
 
@@ -788,6 +811,16 @@ Setelah deploy, pastikan:
 - [ ] Newsletter subscribe → confirm email → welcome email
 - [ ] `/admin/email-logs` menampilkan status pengiriman
 
+### Design V2.1 (setelah deploy)
+
+- [ ] `/portfolio` — kartu tanpa gradient; fallback `bg-blue-900/10` atau gambar CMS
+- [ ] `/case-studies/[slug]` — hero solid atau overlay `bg-black/45`; tanpa `backdrop-blur`
+- [ ] `/admin/login` — form flat border; error pakai `Alert`
+- [ ] Admin sidebar — `bg-blue-900` (bukan slate)
+- [ ] Form kontak / newsletter / quiz — success & error pakai `Alert`
+- [ ] Exit intent — modal flat border via `Modal` component
+- [ ] Grep production artifact: 0 `gradient-to-*`, 0 `backdrop-blur`
+
 ---
 
 ## 17. Referensi Dokumen
@@ -810,6 +843,12 @@ Setelah deploy, pastikan:
 | [`docs/v5/DN-TECH-V5-IMPLEMENTATION-GUIDE.md`](./v5/DN-TECH-V5-IMPLEMENTATION-GUIDE.md) | Panduan implementasi V5 |
 | [`docs/v5/DN-TECH-V5-SUMMARY.md`](./v5/DN-TECH-V5-SUMMARY.md) | Ringkasan V5 |
 | [`docs/DEPLOYMENT-PRODUCTION.md`](./DEPLOYMENT-PRODUCTION.md) | Panduan deploy |
+| [`docs/DESIGN_SUMMARY.md`](./DESIGN_SUMMARY.md) | Ringkasan desain V2 + mandat CEO/Tech Lead |
+| [`docs/design_audit.md`](./design_audit.md) | Audit desain + status pasca-V2.1 |
+| [`design/IMPLEMENTATION.md`](../design/IMPLEMENTATION.md) | Status mapping design → kode |
+| [`design/DN-TECH-DESIGN-V2.1-PRD.md`](../design/DN-TECH-DESIGN-V2.1-PRD.md) | PRD remediation V2.1 |
+| [`design/DN-TECH-DESIGN-V2.1-SDD.md`](../design/DN-TECH-DESIGN-V2.1-SDD.md) | SDD implementasi V2.1 |
+| [`design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md`](../design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md) | Quick action plan V2.1 |
 
 ---
 
