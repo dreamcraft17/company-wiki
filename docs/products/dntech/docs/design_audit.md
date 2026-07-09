@@ -275,7 +275,8 @@ Didefinisikan di V2 tapi hampir tidak muncul di kode — dead token.
 | Trust badges / sticky CTA | solid colors |
 | Footer | gray palette, CMS-driven |
 | Multi-step contact form | step indicator green/blue solid |
-| Logo components | `LogoLight`/`LogoDark` — no PNG dark bg |
+| Logo components | `LogoLight`/`LogoDark` — `rlogo2.png`; navbar + teks **DN Tech.id** |
+| Hero branding | `HeroBrand.tsx` — tipografi; bukan logo PNG di hero biru |
 | Lucide icons | konsisten di nav, cards, admin |
 
 ---
@@ -347,6 +348,7 @@ frontend/src/
 | 9 Jul 2026 | Initial design audit — static review V2 compliance |
 | 9 Jul 2026 | Tambah mandat leadership CEO + Tech Lead (solid color, anti glassmorphism / AI look) |
 | 9 Jul 2026 | V2.1 remediation complete — semua P0/P1 resolved, skor 9/10 |
+| 9 Jul 2026 | Branding `rlogo2`, favicon, navbar wordmark, hero typographic `HeroBrand` |
 
 ---
 

@@ -101,9 +101,12 @@ NEXT_PUBLIC_SITE_URL=https://www.dntech.id
 Atau jika Nginx proxy `/api` ke backend di domain yang sama:
 
 ```env
-NEXT_PUBLIC_API_URL=https://www.dntech.id/api/v1
+# Pastikan path /api benar-benar di-proxy ke backend — jika 404, gunakan subdomain api:
+NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1
 NEXT_PUBLIC_SITE_URL=https://www.dntech.id
 ```
+
+> **Penting:** `https://www.dntech.id/api/v1` atau `https://dntech.id/api` sering mengembalikan 404. Gunakan `https://api.dntech.id/api/v1` untuk build production agar `/about` dan halaman CMS lain fetch data dengan benar.
 
 ```bash
 npm install

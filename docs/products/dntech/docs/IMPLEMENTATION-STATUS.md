@@ -4,8 +4,9 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `fb1a72b` — fix(ui): button text + modal close  
-**Commit sebelumnya:** `ecf9eb2` — IMPLEMENTATION-STATUS V2.1 · `352140f` — V2.1 design remediation  
+**Commit referensi terbaru:** `0f6877c` — hero typographic wordmark (Jul 9 siang)  
+**Rentang Jul 9:** `fb1a72b`…`0f6877c` — button fix, about CMS, branding `rlogo2`, favicon, admin toast  
+**Commit sebelumnya:** `352140f` — V2.1 design remediation  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
 **Status working tree:** ✅ Clean (sync dengan `origin/main`)
 
@@ -43,7 +44,10 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Data demo | ✅ | Dihapus — seed hanya bootstrap admin |
 | Design V2 | ✅ | Solid color, tanpa gradient/glassmorphism |
 | Design V2.1 | ✅ | Remediation audit — UI kit, palet unified, mandat CEO/Tech Lead |
-| Hotfix button text (Jul 9) | ✅ | `Button href` — perbaiki `<Link><Button>` invalid HTML |
+| Hotfix button text (Jul 9) | ✅ | `Button href` + `tailwind-merge` + variant `inverse` |
+| Branding `rlogo2` (Jul 9) | ✅ | Logo PNG navbar/footer/admin; favicon 32px; hero tipografi |
+| About CMS live (Jul 9) | ✅ | Client fetch + `force-dynamic`; visi/misi dari `aboutContent` |
+| Admin UX (Jul 9) | ✅ | Toast simpan settings + validasi JSON |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -139,10 +143,34 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 | Hero / CTA tombol kosong | `<Link><Button>` = HTML tidak valid (`<a><button>`) | `Button` mendukung prop `href` → render sebagai `<Link>` |
 | Modal X tidak responsif | Layout + event handling | `Modal`: Escape key, `stopPropagation`, close `shrink-0` |
 | Footer "Langganan" terpotong | Flex shrink pada tombol | `NewsletterForm` compact: `shrink-0 whitespace-nowrap` |
+| Tombol putih tanpa teks (CSS) | `cn()` tanpa `tailwind-merge` → `text-white` + `text-blue-900` bentrok | `tailwind-merge` di `utils.ts` + variant `inverse` / `outline-on-dark` |
 
 **File utama:** `components/ui/Button.tsx`, `Modal.tsx`, `page.tsx` (hero), `NewsletterForm.tsx`, `ExitIntentModal.tsx` + 10 halaman CTA lainnya.
 
 **Referensi:** [company-wiki fix doc](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md)
+
+### Polish — About, Branding & Admin (9 Jul 2026, siang)
+
+| Area | Perubahan | File / commit |
+|------|-----------|---------------|
+| `/about` kosong di web | SSR cache + API URL salah; fetch client-side | `AboutPageContent.tsx`, `getApiBaseUrl()` — `c8b9b3c` |
+| Logo resmi | `rlogo2.png` menggantikan placeholder teks DN | `Logo.tsx`, `LogoLight`, `LogoDark` — `3c6fa94` |
+| Favicon tab | 32×32 + 180×180 dari `rlogo2` | `app/icon.png`, `app/apple-icon.png` — `748c203` |
+| Navbar wordmark | Teks **DN Tech.id** di samping logo | `LogoLight.tsx` — `f8edac1` |
+| Hero beranda | Hapus logo bulat di `bg-blue-900`; pakai `HeroBrand` tipografi | `HeroBrand.tsx`, `page.tsx` — `0f6877c` |
+| Admin simpan | Toast sukses/error + validasi JSON (tidak silent fail) | `Toast.tsx`, `admin/settings/page.tsx` — `ae64b6b` |
+| Cache bust | `POST /api/revalidate` setelah simpan settings (opsional env) | `api/revalidate/route.ts` — `7e69b5a` |
+
+**Asset branding:**
+
+| File | Pemakaian |
+|------|-----------|
+| `frontend/public/rlogo2.png` | Logo utama (navbar, footer, admin, OG fallback) |
+| `frontend/public/icon.png` | Favicon 32×32 |
+| `frontend/public/apple-icon.png` | Apple touch icon |
+| `frontend/public/logo.png` | Legacy — tidak dipakai UI publik |
+
+**Env production wajib:** `NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1` (bukan `dntech.id/api` — 404).
 
 ---
 
@@ -208,7 +236,7 @@ Proses kerja: `frontend/src/lib/service-process.ts`
 
 | Halaman | Fitur |
 |---------|-------|
-| `/about` | Story, mission, vision, values, achievements dari `SiteSettings.aboutContent` (JSON) |
+| `/about` | Story, mission, vision, values, achievements dari `SiteSettings.aboutContent` (JSON); **client fetch** agar selalu fresh |
 | `/team` | Profil tim dari DB, empty state, schema `Person` JSON-LD |
 
 ### Kontak & Thank You
@@ -466,8 +494,14 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/lib/read-time.ts` | Estimasi waktu baca artikel |
 | `frontend/src/lib/service-process.ts` | 5 langkah proses layanan V2 |
 | `frontend/src/hooks/useExitIntent.ts` | Hook exit intent V3 |
-| `frontend/src/components/branding/LogoLight.tsx` | Logo navbar/light background |
-| `frontend/src/components/branding/LogoDark.tsx` | Logo hero/footer/dark background |
+| `frontend/src/components/branding/LogoLight.tsx` | Navbar: `rlogo2.png` + teks **DN Tech.id** |
+| `frontend/src/components/branding/LogoDark.tsx` | Footer & dark bg: `rlogo2.png` |
+| `frontend/src/components/layout/HeroBrand.tsx` | Hero beranda: wordmark tipografi (tanpa logo PNG) |
+| `frontend/src/components/content/AboutPageContent.tsx` | Halaman about — fetch CMS client-side |
+| `frontend/src/components/ui/Toast.tsx` | Notifikasi admin (simpan settings) |
+| `frontend/src/app/api/revalidate/route.ts` | Bust cache Next setelah update settings |
+| `frontend/public/rlogo2.png` | Logo resmi DN Tech |
+| `frontend/src/app/icon.png` | Favicon 32×32 (dari rlogo2) |
 | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` | Lazy client loader untuk modal exit intent |
 | `frontend/src/components/interactive/ThankYouRedirect.tsx` | Auto-redirect thank-you → blog |
 | `backend/scripts/clear-content.ts` | Hapus konten demo dari DB |
@@ -518,8 +552,10 @@ Implementasi berdasarkan dokumen di `docs/v3/`.
 | Exit intent hook | ✅ | `frontend/src/hooks/useExitIntent.ts` |
 | Exit modal UI | ✅ | `frontend/src/components/interactive/ExitIntentModal.tsx` |
 | Lazy loader modal | ✅ | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` |
-| Logo navbar | ✅ | `frontend/src/components/branding/LogoLight.tsx`, `Header.tsx` |
-| Logo hero/footer | ✅ | `frontend/src/components/branding/LogoDark.tsx`, homepage, `Footer.tsx` |
+| Logo navbar | ✅ | `LogoLight.tsx` — `rlogo2.png` + **DN Tech.id** |
+| Logo footer / admin | ✅ | `LogoDark.tsx` / `Logo.tsx` — `rlogo2.png` |
+| Hero beranda | ✅ | `HeroBrand.tsx` — tipografi; **bukan** logo PNG di `bg-blue-900` |
+| Favicon | ✅ | `app/icon.png`, metadata `layout.tsx` |
 | Mobile nav close on link click | ✅ | Sudah ada dan dipertahankan di `Header.tsx` |
 | Form accessibility | ✅ | `Input.tsx`, `MultiStepForm.tsx` |
 | Env rollback modal | ✅ | `NEXT_PUBLIC_ENABLE_EXIT_MODAL=false` |
@@ -833,6 +869,15 @@ Setelah deploy, pastikan:
 - [ ] Form kontak / newsletter / quiz — success & error pakai `Alert`
 - [ ] Exit intent — modal flat border via `Modal` component
 - [ ] Grep production artifact: 0 `gradient-to-*`, 0 `backdrop-blur`
+
+### Jul 9 polish (setelah deploy)
+
+- [ ] Navbar: logo `rlogo2` + teks **DN Tech.id**
+- [ ] Hero: wordmark kecil + H1 tagline (tanpa lingkaran logo)
+- [ ] Favicon tab browser = logo DN Tech (hard refresh jika cache lama)
+- [ ] `/about` — visi & misi tampil setelah isi `aboutContent` di admin
+- [ ] Admin settings — toast hijau saat simpan berhasil
+- [ ] `NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1` di build production
 
 ---
 

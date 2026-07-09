@@ -52,6 +52,7 @@ import { Button, Alert, Badge, Modal, Card, Input } from '@/components/ui';
 | Admin sidebar | `bg-blue-900` unified with public brand |
 | Exit intent | `Modal` component |
 | Multi-step contact | `Alert` info banner |
+| Branding (Jul 9) | `rlogo2.png` logo; `HeroBrand` typographic hero; favicon |
 
 ---
 

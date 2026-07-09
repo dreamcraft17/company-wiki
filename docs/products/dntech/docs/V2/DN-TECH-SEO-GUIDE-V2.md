@@ -342,7 +342,7 @@ for Next.js project setup"
   "@type": "Organization",
   "name": "DN Tech",
   "url": "https://dntech.id",
-  "logo": "https://dntech.id/logo.png",
+  "logo": "https://dntech.id/rlogo2.png",
   "description": "Software development house providing custom app development and tech consulting",
   "address": {
     "@type": "PostalAddress",

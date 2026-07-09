@@ -80,7 +80,9 @@ DN Tech Products
 ### Fitur Utama
 
 **Public Website:**
-- Homepage dengan hero, stats, services, blog, testimonials
+- Homepage dengan hero tipografi (`HeroBrand`), stats, services, blog, testimonials
+- Logo resmi `rlogo2.png` + wordmark **DN Tech.id** di navbar
+- Halaman about — visi/misi dari CMS `aboutContent` (client fetch)
 - Services listing & detail pages
 - Portfolio / case studies
 - Blog dengan SEO metadata & JSON-LD

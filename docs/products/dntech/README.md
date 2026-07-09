@@ -10,6 +10,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Admin CMS | Implemented | Services, blog, team, FAQ, careers, leads, analytics, settings, users |
 | PRD/Design/SEO V2 | Implemented | Solid color design system, Indonesian copy, startup/SME positioning |
 | V3 refinements | Implemented | Exit intent fix, logo variants, mobile nav polish, form accessibility |
+| Jul 9 polish | Implemented | Button href fix, about CMS live, `rlogo2` branding, hero wordmark, admin toast |
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
@@ -17,7 +18,9 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 
-Latest implementation reference: `c3b862f` — `Implement v3 UX refinements`.
+Latest implementation reference: `0f6877c` — hero typographic wordmark + Jul 9 branding/about polish.
+
+**Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar menampilkan **DN Tech.id** di samping logo.
 
 ## Tech Stack
 

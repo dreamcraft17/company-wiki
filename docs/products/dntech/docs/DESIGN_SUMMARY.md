@@ -237,6 +237,22 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 
 ---
 
+## 11. Branding & Identitas Visual (Jul 9, 2026)
+
+| Area | Implementasi |
+|------|--------------|
+| Logo resmi | `frontend/public/rlogo2.png` — navbar, footer, admin, OG |
+| Navbar | `LogoLight.tsx` — gambar + teks **DN Tech.id** |
+| Footer | `LogoDark.tsx` — gambar saja |
+| Favicon | `app/icon.png` (32×32), `app/apple-icon.png` (180×180) |
+| Hero beranda | `HeroBrand.tsx` — wordmark tipografi kecil + H1 tagline CMS; **tanpa** logo PNG di `bg-blue-900` |
+
+**Alasan hero tanpa logo PNG:** logo bulat putih di background biru gelap kontras buruk dan redundan dengan headline — wordmark tipografi lebih clean dan selaras mandat solid/minimal.
+
+**Legacy:** `logo.png` masih di `public/` tapi tidak dipakai UI publik.
+
+---
+
 ## 10. Rekomendasi Prioritas
 
 | # | Aksi | Status |

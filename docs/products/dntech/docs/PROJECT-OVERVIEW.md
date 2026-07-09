@@ -379,7 +379,10 @@ dntech/
 │
 ├── frontend/                   # Next.js app
 │   ├── public/
-│   │   └── logo.png            # Logo situs
+│   │   ├── rlogo2.png          # Logo resmi (navbar, footer, admin, OG)
+│   │   ├── icon.png            # Favicon 32×32
+│   │   ├── apple-icon.png      # Apple touch icon
+│   │   └── logo.png            # Legacy — tidak dipakai UI publik
 │   └── src/
 │       ├── app/
 │       │   ├── (public)/       # Halaman website publik

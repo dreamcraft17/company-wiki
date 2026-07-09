@@ -402,11 +402,13 @@ pm2 restart dntech-web
 
 ---
 
-**Status:** 🔴 URGENT (UI broken)  
-**Effort:** 30 min (3 file fixes)  
-**Difficulty:** Easy (copy-paste + connect handlers)
+**Status:** ✅ Resolved (Jul 9, 2026)
 
-**Resolved:** Root cause was invalid `<Link><Button>` nesting. Fixed via `Button href` prop across frontend. Build verified.
+**Resolved (fase 1):** Root cause was invalid `<Link><Button>` nesting. Fixed via `Button href` prop across frontend. Build verified.
+
+**Resolved (fase 2 — tailwind-merge):** Teks tombol hero masih putih di atas putih karena `cn()` tidak merge class Tailwind. Fix: `tailwind-merge` di `utils.ts`; variant `inverse` dan `outline-on-dark` pada `Button.tsx`.
+
+**Resolved (fase 3 — branding & CMS):** Logo `rlogo2.png`, favicon, navbar wordmark, hero `HeroBrand`, `/about` client fetch, admin toast.
 
 ---
 
