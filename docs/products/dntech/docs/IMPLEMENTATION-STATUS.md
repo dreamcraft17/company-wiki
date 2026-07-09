@@ -2,12 +2,10 @@
 
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
-**Terakhir diperbarui:** 8 Juli 2026  
+**Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `65b3efc` (koreksi footer dokumen ke DN Tech)  
-**Commit implementasi V4:** `1d5db05` (Implement v4 performance optimizations)  
-**Status build terakhir:** ✅ `npm run build` frontend sukses tanpa dependency Google Fonts, ✅ `npm run build` backend sukses, ✅ `npm run lint` frontend sukses  
-**Status working tree saat update:** ✅ Clean
+**Commit referensi terbaru:** V2.1 design remediation  
+**Status build terakhir:** ✅ `npm run build` frontend sukses
 
 ---
 
@@ -84,7 +82,10 @@ Implementasi berdasarkan `docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md`.
 | TeamSpotlight | `frontend/src/components/layout/TeamSpotlight.tsx` | Avatar solid (bukan gradient) |
 | ExitIntentModal | `frontend/src/components/interactive/ExitIntentModal.tsx` | V3: trigger top-edge exit intent, max 1x/session, skip mobile |
 | ExitIntent hook | `frontend/src/hooks/useExitIntent.ts` | Session flag, `beforeunload`, `visibilitychange`, focus restore |
-| LogoLight / LogoDark | `frontend/src/components/branding/*.tsx` | Logo markup tanpa PNG background gelap |
+| Alert | `frontend/src/components/ui/Alert.tsx` | 4 variants, aria role |
+| Badge | `frontend/src/components/ui/Badge.tsx` | Tag/chip solid colors |
+| Modal | `frontend/src/components/ui/Modal.tsx` | Flat border dialog |
+| PortfolioCard | `frontend/src/components/cards/PortfolioCard.tsx` | CMS image atau solid fallback |
 
 ### Anti-pattern yang dihapus
 
@@ -93,6 +94,28 @@ Implementasi berdasarkan `docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md`.
 - [x] Gradient avatar tim
 - [x] Shadow berat di card (`shadow-lg`, `hover:shadow-md`)
 - [x] Warna primary lama `#2563eb` → diganti `#1E3A8A`
+
+### V2.1 Remediation (9 Jul 2026)
+
+Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lead:
+
+- [x] Gradient placeholder dihapus dari portfolio & case studies
+- [x] `backdrop-blur` dihapus dari case study detail
+- [x] `shadow-xl` dihapus dari admin login (flat border)
+- [x] Link accent distandarkan ke `text-blue-900`
+- [x] Komponen baru: `Alert`, `Badge`, `Modal` + barrel `components/ui/index.ts`
+- [x] `PortfolioCard`, `design-tokens.ts`, `prefers-reduced-motion` di globals.css
+- [x] Admin sidebar: `bg-blue-900` (bukan slate-900)
+- [x] Palet `slate-*` → `gray-*` di seluruh frontend
+- [x] Exit intent memakai `Modal` component
+- [x] Semua inline alert utama → `Alert` component (contact, newsletter, quiz, ROI, settings, login)
+
+**Dokumentasi:** [docs/DESIGN_SUMMARY.md](./DESIGN_SUMMARY.md) · [docs/design_audit.md](./design_audit.md) · [design/IMPLEMENTATION.md](../design/IMPLEMENTATION.md)
+
+**Deviasi yang masih disengaja:**
+- Avatar tim: inisial (menunggu foto CMS)
+- Font: system stack (trade-off performa V4)
+- Dark mode: belum (V2.2+)
 
 ---
 
@@ -716,7 +739,7 @@ Status V4:
 
 #### 7. Build warning root lockfile
 
-Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di parent directory, sementara project juga punya `frontend/package-lock.json`.
+Sebelum V4, Next menampilkan warning bahwa workspace root terdeteksi dari lockfile di `/Users/dozer-entropi/package-lock.json`, sementara project juga punya `frontend/package-lock.json`.
 
 Dampak:
 

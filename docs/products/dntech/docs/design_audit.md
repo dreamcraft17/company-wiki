@@ -5,6 +5,8 @@ Audit desain visual dan konsistensi styling codebase **DN Tech** (`frontend/`).
 | | |
 |---|---|
 | **Tanggal audit** | 9 Juli 2026 |
+| **Remediation selesai** | 9 Juli 2026 (V2.1) |
+| **Status** | ✅ Resolved — P0/P1 implemented |
 | **Scope** | Public website + admin dashboard + shared UI components |
 | **Baseline** | [DN-TECH-DESIGN-SYSTEM-V2.md](./V2/DN-TECH-DESIGN-SYSTEM-V2.md) |
 | **Ringkasan eksekutif** | [DESIGN_SUMMARY.md](./DESIGN_SUMMARY.md) |
@@ -26,18 +28,42 @@ Rujukan lengkap: [DESIGN_SUMMARY.md §0](./DESIGN_SUMMARY.md#0-mandat-leadership
 
 ---
 
-## Ringkasan Eksekutif
+---
+
+## Status Pasca-Implementasi V2.1 (9 Jul 2026)
+
+Semua temuan **P0 dan P1** telah diperbaiki di `frontend/src/`. Verifikasi:
+
+| Check | Hasil |
+|-------|-------|
+| `gradient-to-*` | ✅ 0 di codebase |
+| `backdrop-blur` | ✅ 0 |
+| `shadow-xl` / `shadow-2xl` | ✅ 0 |
+| `slate-*` | ✅ 0 (diganti `gray-*` atau `blue-900` admin) |
+| `text-blue-600` / `bg-blue-600` CTA | ✅ distandarkan `blue-900` |
+| UI kit | ✅ Alert, Badge, Modal, PortfolioCard |
+| Inline alerts | ✅ ContactForm, Newsletter, Quiz, ROI, Settings, login, MultiStep |
+
+**Skor desain setelah fix:** ~9/10 (naik dari 7/10). Sisa P2: foto tim real via CMS, dark mode V2.2+.
+
+Rujukan implementasi: [design/IMPLEMENTATION.md](../design/IMPLEMENTATION.md)
+
+---
+
+## Ringkasan Eksekutif (awal audit — arsip)
+
+> Catatan: paragraf di bawah ini mencatat kondisi **sebelum** V2.1. Lihat [Status Pasca-Implementasi](#status-pasca-implementasi-v21-9-jul-2026) untuk kondisi terkini.
 
 Desain **halaman inti** (homepage, services, contact, header/footer) sudah **compliant** dengan mandat leadership dan Design System V2: solid colors, flat cards, touch-friendly forms, palet blue-900 / teal-600 — **tanpa** glassmorphism atau estetika AI-generik di area tersebut.
 
-Namun **~30% halaman & komponen secondary** masih memakai pola yang **bertentangan dengan mandat CEO/Tech Lead** — gradient placeholder (AI-template look), `backdrop-blur`, serta inkonsistensi token (`slate-*` vs `gray-*`, `blue-600` bukan `blue-900`). **Admin dashboard** menggunakan visual language terpisah (`slate-900` sidebar) yang belum didokumentasikan di V2.
+**Sebelum V2.1**, ~30% halaman secondary memakai gradient placeholder dan dual palette — **sudah diperbaiki**.
 
-| Severity | Jumlah temuan |
-|----------|---------------|
-| 🔴 High (melanggar mandat leadership + V2) | 4 |
-| 🟠 Medium (inkonsistensi token) | 6 |
-| 🟡 Low (debt / improvement) | 8 |
-| ✅ Compliant areas | 12 |
+| Severity (awal) | Jumlah | Status V2.1 |
+|-----------------|--------|-------------|
+| 🔴 High | 4 | ✅ Resolved |
+| 🟠 Medium | 6 | ✅ Resolved |
+| 🟡 Low | 8 | 🟡 Partial (foto tim, dark mode = P2) |
+| ✅ Compliant | 12 | ✅ Expanded |
 
 ---
 
@@ -320,6 +346,7 @@ frontend/src/
 |---------|-----------|
 | 9 Jul 2026 | Initial design audit — static review V2 compliance |
 | 9 Jul 2026 | Tambah mandat leadership CEO + Tech Lead (solid color, anti glassmorphism / AI look) |
+| 9 Jul 2026 | V2.1 remediation complete — semua P0/P1 resolved, skor 9/10 |
 
 ---
 

@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: `1d2c2cc` — design summary, design audit, CEO/Tech Lead mandate
+**Latest commit**: `352140f` — V2.1 design remediation fully implemented
 
 ---
 
@@ -36,6 +36,15 @@
 ---
 
 ## Version History (v1 → v5)
+
+### Design V2.1 Remediation (Jul 2026)
+| File | Topik |
+|------|-------|
+| [design/IMPLEMENTATION.md](./design/IMPLEMENTATION.md) | **Status implementasi** design → kode |
+| [design/DN-TECH-DESIGN-V2.1-PRD.md](./design/DN-TECH-DESIGN-V2.1-PRD.md) | PRD remediation |
+| [design/DN-TECH-DESIGN-V2.1-SDD.md](./design/DN-TECH-DESIGN-V2.1-SDD.md) | SDD + code snippets |
+| [design/DN-TECH-DESIGN-V2.1-SRS.md](./design/DN-TECH-DESIGN-V2.1-SRS.md) | System requirements |
+| [design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md](./design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md) | Quick action plan |
 
 ### V2 — Design System & SEO
 | File | Topik |

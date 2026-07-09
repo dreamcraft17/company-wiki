@@ -118,7 +118,7 @@ DN Tech Products
 | Spec Summary | [10_COMPRO_SPEC.md](../products/10_COMPRO_SPEC.md) |
 | **Source Docs (37 files)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
 | Design summary | [DESIGN_SUMMARY.md](./products/dntech/docs/DESIGN_SUMMARY.md) |
-| Design audit | [design_audit.md](./products/dntech/docs/design_audit.md) |
+| Design system (V2.1) | [design/IMPLEMENTATION.md](./products/dntech/design/IMPLEMENTATION.md) |
 
 ### Version History
 

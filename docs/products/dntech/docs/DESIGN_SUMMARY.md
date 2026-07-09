@@ -195,63 +195,58 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 
 ---
 
-## 8. Kekurangan (Weaknesses)
+## 8. Kekurangan (Weaknesses) — pasca V2.1
 
-### Inkonsistensi palet & pattern
+### ✅ Diperbaiki (Jul 2026)
 
-| Masalah | Lokasi |
-|---------|--------|
-| **Gradient placeholder** portfolio/case study | `CaseStudyCard.tsx`, `portfolio/page.tsx`, `portfolio/[slug]/page.tsx`, `case-studies/[slug]/page.tsx` — `from-blue-500 to-indigo-600` melanggar V2 |
-| **Dual color system** public vs admin | Public `gray-*` + `blue-900` vs admin `slate-*` — terasa seperti dua produk berbeda |
-| **`blue-600` vs `blue-900`** | Beberapa link/card masih `text-blue-600` (case study) bukan `blue-900` |
-| **`shadow-xl`** | Admin login form — melanggar flat card guideline |
+| Masalah (dulu) | Status |
+|----------------|--------|
+| Gradient placeholder portfolio/case study | ✅ `PortfolioCard` + solid fallback |
+| Dual palette slate vs gray | ✅ Unified `gray-*` + admin `blue-900` |
+| `blue-600` vs `blue-900` | ✅ Distandarkan |
+| `shadow-xl` admin login | ✅ Flat border |
+| UI kit minimal (3 komponen) | ✅ Alert, Badge, Modal + barrel export |
+| Inline alerts tersebar | ✅ Refactor ke `Alert` component |
+| Tanpa `design-tokens.ts` | ✅ Ditambahkan |
 
-### Cakupan komponen terbatas
-- Hanya **3 file** di `components/ui/` — tidak ada `Badge`, `Alert`, `Modal`, `Tabs`, `Breadcrumb` terstandar.
-- Banyak halaman secondary (quiz, ROI, testimonials, FAQ) memakai **inline Tailwind** tanpa komponen bersama.
-- **Tidak ada design tokens TS** terpusat (berbeda dengan project TJ yang punya `design-tokens.ts`).
+### Masih terbuka (P2 / V2.2+)
 
-### Imagery & placeholder
-- Avatar tim: **inisial di lingkaran solid** `bg-blue-900` — OK sebagai fallback, tapi belum memenuhi guideline "real photos".
-- Portfolio/case study: **gradient block** sebagai pengganti thumbnail nyata.
-
-### Fitur desain belum ada
-- **Dark mode** — belum (direncanakan V2.1+).
-- **Storybook / Figma** — tidak ada single source visual di luar kode.
-- **Animasi scroll** — tidak ada fade-in terstandar (hanya exit intent & carousel).
-- **Typography scale** tidak di-token-kan — bergantung class Tailwind per halaman.
-
-### Dokumentasi vs kode
-- `IMPLEMENTATION-STATUS.md` menyatakan gradient avatar dihapus, tapi **gradient masih ada** di portfolio/case study cards.
-- Design system V2 menyebut Inter via Google Fonts; implementasi memakai **system stack** saja (trade-off performa V4 — acceptable, tapi perlu dicatat).
+| Masalah | Catatan |
+|---------|---------|
+| Avatar tim inisial | Menunggu upload foto via CMS media |
+| Dark mode | Direncanakan V2.2+ |
+| Storybook / Figma | Belum ada |
+| Animasi scroll terstandar | Hanya exit intent & carousel |
+| Font system stack vs Inter Google Fonts | Trade-off performa V4 — disengaja |
+| Tabs, Breadcrumb komponen | Belum diekstrak (nice-to-have) |
 
 ---
 
-## 9. Ringkasan Skor (estimasi)
+## 9. Ringkasan Skor (pasca V2.1)
 
-| Dimensi | Skor | Catatan |
-|---------|------|---------|
-| Konsistensi homepage & core pages | **8/10** | Solid, on-brand |
-| Konsistensi seluruh site | **6/10** | Portfolio/case study & beberapa secondary pages |
-| Aksesibilitas | **7/10** | Form bagus; perlu audit kontras penuh |
-| Komponen & reusability | **5/10** | UI kit minimal |
-| Admin vs public cohesion | **5/10** | Slate admin terpisah |
-| Dokumentasi | **9/10** | V2 spec lengkap; gap kecil vs kode |
+| Dimensi | Sebelum | Sesudah | Catatan |
+|---------|---------|---------|---------|
+| Konsistensi homepage & core | 8/10 | **9/10** | Solid, on-brand |
+| Konsistensi seluruh site | 6/10 | **9/10** | Portfolio/case study fixed |
+| Aksesibilitas | 7/10 | **8/10** | Alert aria, form tetap kuat |
+| Komponen & reusability | 5/10 | **8/10** | 7 komponen UI + cards |
+| Admin vs public cohesion | 5/10 | **8/10** | Sidebar blue-900 |
+| Dokumentasi | 9/10 | **9/10** | Audit + IMPLEMENTATION synced |
 
-**Overall design maturity: ~7/10** — production-ready untuk compro utama, butuh hardening di secondary pages dan admin unification.
+**Overall design maturity: ~9/10** — production-ready, mandat CEO/Tech Lead enforced di kode.
 
 ---
 
 ## 10. Rekomendasi Prioritas
 
-| # | Aksi | Effort |
+| # | Aksi | Status |
 |---|------|--------|
-| 1 | Ganti gradient placeholder portfolio → solid `bg-blue-900/10` + ikon atau gambar CMS | Rendah |
-| 2 | Standarisasi link accent ke `blue-900` di semua halaman | Rendah |
-| 3 | Ekstrak `Badge`, `Alert`, `Modal` ke `components/ui/` | Sedang |
-| 4 | Samakan admin palette ke blue-900 sidebar (atau dokumentasikan dual-theme) | Sedang |
-| 5 | Tambah `design-tokens.ts` + Storybook | Sedang–tinggi |
-| 6 | Upload foto tim real via media CMS | Konten |
+| 1 | Ganti gradient placeholder portfolio | ✅ Done |
+| 2 | Standarisasi link `blue-900` | ✅ Done |
+| 3 | Ekstrak Alert, Badge, Modal | ✅ Done |
+| 4 | Samakan admin palette | ✅ Done |
+| 5 | `design-tokens.ts` | ✅ Done |
+| 6 | Upload foto tim real via media CMS | ⏳ Konten (P2) |
 
 ---
 

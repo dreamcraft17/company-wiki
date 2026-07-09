@@ -31,7 +31,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN People ERP** | `9bf15e2` | V3 implementation status matrix — 392 tests, 27 modules, Enterprise hub |
-| **DN Tech Compro** | `1d2c2cc` | Design summary + audit — mandat solid color, anti glassmorphism / AI look |
+| **DN Tech Compro** | `352140f` | V2.1 design remediation — UI kit, solid colors, audit resolved |
 | **company-wiki** | — | Sync docs TJ, Nearwork audit, ERP status, index updates |
 
 ---
