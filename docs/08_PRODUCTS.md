@@ -1,7 +1,7 @@
 # Product Portfolio
 
 **Document Version**: 1.0  
-**Last Updated**: July 8, 2026  
+**Last Updated**: July 9, 2026  
 **Status**: Published  
 **Owner**: Dozer
 
@@ -180,10 +180,12 @@ DN Tech Products
 
 | Aspek | Detail |
 |-------|--------|
-| Status | **In Development** |
+| Status | **In Development** — V3 Phase 5–8 ~85% coded |
 | Target | SME & Enterprise di Indonesia |
-| Modules | HR, Payroll, Finance, Inventory, Project Mgmt |
+| Modules | HR, Payroll, Finance, Inventory, Project Mgmt, Compliance, LMS, Platform |
+| Tests | 392 unit tests · 27 backend modules · Enterprise V3 hub |
 | Docs | [48 files →](./products/dnpeople-erp/00_INDEX.md) |
+| Blocker | Live AWS deploy, SOC 2, production API keys |
 
 **Key documents:**
 - [PRD](./products/dnpeople-erp/Docs/01-PRD-ERP-System.md)
@@ -198,13 +200,15 @@ DN Tech Products
 |-------|--------|
 | Status | **In Development** |
 | Type | Location-based platform |
-| Docs | [31 files →](./products/nearwork/00_INDEX.md) |
+| Security | Audit Jul 2026 — auth baik; critical: public credentials, webhook signatures |
+| Docs | [32 files →](./products/nearwork/00_INDEX.md) |
 
 **Key documents:**
 - [V2 PRD](./products/nearwork/docs/NEARWORK_V2_PRD.md)
 - [V2 SRS](./products/nearwork/docs/NEARWORK_V2_SRS.md)
 - [V2 SDD](./products/nearwork/docs/NEARWORK_V2_SDD.md)
 - [Design System](./products/nearwork/docs/NEARWORK_V2_DESIGN_SYSTEM.md)
+- [Security Audit 2026-07-08](./products/nearwork/SECURITY_AUDIT_2026-07-08.md)
 
 ### Threads Automation
 
@@ -220,11 +224,13 @@ DN Tech Products
 |-------|--------|
 | Nama | Trusted Jurist Law Firm — Company Profile |
 | URL | https://trustedjurist.co.id |
-| Status | **Go-live readiness** (v0.2.0) |
+| Status | **Go-live readiness** (v0.2.0) — design system ✅ |
 | Type | Law firm marketing / company profile |
 | Stack | Next.js 16 + React 19 + Tailwind v4 + Resend |
-| Docs | [9 files →](./products/tj/00_INDEX.md) |
+| Docs | [12 files →](./products/tj/00_INDEX.md) |
 | PRD | [docs/PRD.md](./products/tj/docs/PRD.md) |
+| Features | [docs/FEATURES.md](./products/tj/docs/FEATURES.md) |
+| Design system | [design/IMPLEMENTATION.md](./products/tj/design/IMPLEMENTATION.md) |
 | Current impl | [current-implementation.md](./products/tj/current-implementation.md) |
 
 ---
@@ -256,7 +262,7 @@ DN Tech Products
 
 ## 📄 Related Documents
 
-- [Product Docs Index](./products/README.md) — All 123 source documents
+- [Product Docs Index](./products/README.md) — All ~140 source documents
 - [Company Overview](./02_COMPANY_OVERVIEW.md)
 - [Tech Stack](./05_TECH_STACK.md)
 - [Architecture](./06_ARCHITECTURE.md)
@@ -265,4 +271,4 @@ DN Tech Products
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 9, 2026*

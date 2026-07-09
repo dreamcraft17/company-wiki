@@ -1,7 +1,7 @@
 # DN Tech Company Wiki — Index
 
 **Document Version**: 1.0  
-**Last Updated**: July 8, 2026  
+**Last Updated**: July 9, 2026  
 **Status**: Published  
 **Owner**: Dozer
 
@@ -87,11 +87,11 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 
 | Product | Index | Files | Status |
 |---------|-------|-------|--------|
-| DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 35 | Production |
-| DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development |
-| Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 31 | In Development |
+| DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 35 | Production (v5) |
+| DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development (V3 ~85%) |
+| Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 32 | In Development |
 | Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |
-| Trusted Jurist (TJ) | [tj/](./products/tj/00_INDEX.md) | 9 | Go-live readiness |
+| Trusted Jurist (TJ) | [tj/](./products/tj/00_INDEX.md) | 12 | Go-live readiness |
 | Propose (Entro LY) | [propose/](./products/propose/00_INDEX.md) | 1 DOCX | Proposal |
 
 ---
@@ -116,4 +116,4 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 9, 2026*

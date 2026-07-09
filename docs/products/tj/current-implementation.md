@@ -9,7 +9,7 @@ Snapshot implementasi aktual website company profile **Trusted Jurist Law Firm**
 | **Versi** | `0.2.0` |
 | **Status** | Go-live readiness — kode siap staging; konten & env production menunggu konfirmasi admin |
 | **Domain target** | `https://trustedjurist.co.id` |
-| **Tanggal dokumen** | 8 Juli 2026 |
+| **Tanggal dokumen** | 9 Juli 2026 |
 | **Bahasa UI** | Bahasa Indonesia |
 
 ---
@@ -24,8 +24,8 @@ Sudah berjalan          Menunggu admin
 7 halaman + 404         Nomor telepon / WhatsApp resmi
 Backend form (Resend)   Env production (API keys)
 Privacy policy          Nama universitas founder
-SEO assets lengkap      Deploy + DNS cutover
-Design system           Peta kantor (Google Maps)
+Design system ✅        Deploy + DNS cutover
+SEO assets lengkap      Peta kantor (Google Maps)
 ```
 
 ---
@@ -86,19 +86,22 @@ tj/
 │   │   ├── opengraph-image.tsx · icon.tsx
 │   ├── components/
 │   │   ├── home/                   # 8 chapter homepage
-│   │   ├── layout/                 # Navbar, Footer
-│   │   ├── editorial/ · motion/ · ui/
-│   │   ├── ContactForm.tsx         # Client form → /api/contact
+│   │   ├── layout/                 # Navbar, Footer, HeroSection, PageIntro, Sections
+│   │   ├── editorial/ · motion/
+│   │   ├── ui/                     # Button, Input, Card, Alert, Badge, FormControls, …
+│   │   ├── ContactForm.tsx         # Client form → /api/contact (design kit)
 │   │   └── RecaptchaScript.tsx
 │   ├── lib/
 │   │   ├── data.ts                 # Konten + CONTACT_CONFIG
 │   │   ├── constants.ts            # SITE_CONFIG, FOOTER_LEGAL
+│   │   ├── design-tokens.ts        # TS tokens (mahogany/brass/parchment)
 │   │   ├── contact/                # validate, sanitize, rate-limit, recaptcha, email
 │   │   ├── seo.ts · motion.ts · typography.ts · utils.ts
 │   │   └── recaptcha-client.ts
 │   ├── styles/                     # globals.css, typography.css
 │   └── types/index.ts
-├── public/                         # Default Next assets (boilerplate masih ada)
+├── tailwind.config.js              # Design tokens (Tailwind extend)
+├── design/                         # Reference pack (00–06) + IMPLEMENTATION.md
 ├── .env.example
 ├── package.json                    # version 0.2.0
 └── docs/go-live-checklist.md
@@ -153,8 +156,18 @@ Section berurutan:
 - Robots: allow `/`, disallow `/api/`
 - JSON-LD `LegalService` di root layout
 
-### Desain
-- Tokens: navy `#121c2b`, gold `#8a7340`, cream `#f7f4ef`
+### Desain & design system
+
+**Status:** ✅ Fully wired (commit `d0e5382`, 9 Jul 2026) — detail di [design/IMPLEMENTATION.md](./design/IMPLEMENTATION.md)
+
+| Layer | Implementasi |
+|-------|--------------|
+| Tokens | mahogany `#121c2b`, brass `#8a7340`, parchment `#f7f4ef` — CSS vars + `design-tokens.ts` + `tailwind.config.js` |
+| Fonts | Cormorant Garamond + Manrope via `next/font` |
+| UI kit | `Button`, `Input`, `Textarea`, `Select`, `Checkbox`, `Radio`, `Card`, `Alert`, `Badge`, `Divider`, design cards |
+| Layout | `HeroSection`, `PageIntro`, `ContentSection`, `GridSection`, `TwoColumnSection`, `Breadcrumb` |
+| Pages | `/`, `/about`, `/team`, `/practice-areas`, `/contact`, `/careers` |
+
 - Tipografi token via `lib/typography.ts` + CSS
 - Framer Motion: reveal, stagger, page transition
 - `prefers-reduced-motion` di `globals.css`
@@ -248,6 +261,8 @@ curl -X POST http://localhost:3000/api/contact \
 | [audit.md](./audit.md) | Audit teknis v2.0 |
 | [changelog.md](./changelog.md) | Riwayat versi |
 | [docs/PRD.md](./docs/PRD.md) | Panduan Product Requirements |
+| [docs/FEATURES.md](./docs/FEATURES.md) | Fitur lengkap + tech stack |
+| [design/IMPLEMENTATION.md](./design/IMPLEMENTATION.md) | Status design system |
 | [docs/go-live-checklist.md](./docs/go-live-checklist.md) | Checklist deploy |
 | [AGENTS.md](./AGENTS.md) | Catatan untuk AI agent |
 

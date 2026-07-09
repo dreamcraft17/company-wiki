@@ -1,10 +1,11 @@
 # Nearwork — Documentation Index
 
 **Product**: Nearwork Platform  
-**Repository**: `web/nextwork`  
+**Repository**: `nextwork` → [github.com/dreamcraft17/freelance-web-startup](https://github.com/dreamcraft17/freelance-web-startup)  
 **Status**: In Development  
 **Owner**: Dozer  
-**Last Updated**: July 8, 2026
+**Last Updated**: July 9, 2026  
+**Latest commit**: `d40ea19` — security audit report (2026-07-08)
 
 ---
 
@@ -77,14 +78,32 @@
 
 ---
 
+## Security
+
+| File | Topik |
+|------|-------|
+| [SECURITY_AUDIT_2026-07-08.md](./SECURITY_AUDIT_2026-07-08.md) | **Audit keamanan statis** — temuan critical & rekomendasi 7/30 hari |
+| [audit.md](./audit.md) | Audit report (legacy) |
+| [credential.example.md](./credential.example.md) | Credential template |
+
+### Ringkasan audit Jul 2026
+
+| Area | Status |
+|------|--------|
+| Auth (bcrypt, JWT HttpOnly, CSRF) | ✅ Baik |
+| Credential di `public/logo/` | 🔴 Critical — hapus & rotate |
+| Midtrans webhook signature | 🔴 Critical — wajib verifikasi |
+| Stripe webhook | 🟠 High — gunakan official SDK |
+| Seed admin default | 🟠 High — lock di staging/prod |
+
+---
+
 ## Operations
 
 | File | Topik |
 |------|-------|
 | [docs/deploy-checklist.md](./docs/deploy-checklist.md) | Deploy checklist |
-| [audit.md](./audit.md) | Audit report |
-| [credential.example.md](./credential.example.md) | Credential template |
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 9, 2026*

@@ -1,11 +1,12 @@
 # DN Tech Compro — Documentation Index
 
 **Product**: DN Tech Company Profile Website  
-**Repository**: `web/dntech`  
+**Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id  
 **Status**: Production (v5)  
 **Owner**: Dozer  
-**Last Updated**: July 8, 2026
+**Last Updated**: July 9, 2026  
+**Latest commit**: `d9d534e` — email SMTP hotfix + troubleshooting docs
 
 ---
 
@@ -113,4 +114,17 @@
 
 ---
 
-*Last Updated: July 8, 2026*
+## Status Terkini (Jul 2026)
+
+| Aspek | Status |
+|-------|--------|
+| PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
+| V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
+| Production build | ✅ Frontend + backend |
+| Performance V4 | ✅ Debounce, streaming, image opt, cache |
+
+Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md)
+
+---
+
+*Last Updated: July 9, 2026*

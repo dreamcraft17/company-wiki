@@ -1,10 +1,11 @@
 # DN People ERP — Documentation Index
 
 **Product**: DN People ERP System  
-**Repository**: `ERP`  
-**Status**: In Development  
+**Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
+**Status**: In Development — V3 Phase 5–8 ~85% coded (MVP+)  
 **Owner**: Dozer  
-**Last Updated**: July 8, 2026
+**Last Updated**: July 9, 2026  
+**Latest commit**: `9bf15e2` — V3 implementation status matrix update
 
 ---
 
@@ -82,4 +83,21 @@
 
 ---
 
-*Last Updated: July 8, 2026*
+## Status Terkini (Jul 2026)
+
+| Metrik | Nilai |
+|--------|-------|
+| Backend modules | **27** domain + `platform/` |
+| Unit tests | **392** passed · **84** suites |
+| Frontend pages | **30** (+ Enterprise V3 hub `/enterprise`) |
+| Migrations | **15** files (`0000`–`0014`) |
+| SRS V3 Phase 5–8 | ~**85%** coded (MVP+) |
+| Production deploy | 🟡 Templates ready — butuh AWS + live keys |
+
+**Blocker utama:** live infra (AWS creds), SOC 2 audit, App Store, API keys production.
+
+Detail lengkap: [Docs/v3/IMPLEMENTATION-STATUS.md](./Docs/v3/IMPLEMENTATION-STATUS.md)
+
+---
+
+*Last Updated: July 9, 2026*

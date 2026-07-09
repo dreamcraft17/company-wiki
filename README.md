@@ -19,12 +19,12 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Product Docs Index](./docs/products/README.md) — **123 source docs**
+- [Product Docs Index](./docs/products/README.md) — **~140 source docs**
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (35 files)
   - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
-  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (31 files)
+  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (32 files)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
-  - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (9 files)
+  - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (12 files)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 DOCX)
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
@@ -54,7 +54,7 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (123 files)
+│   └── products/          # Source docs per produk (~140 files)
 │       ├── dntech/
 │       ├── dnpeople-erp/
 │       ├── nearwork/
