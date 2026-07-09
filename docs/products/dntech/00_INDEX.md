@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: `d9d534e` — email SMTP hotfix + troubleshooting docs
+**Latest commit**: `1d2c2cc` — design summary, design audit, CEO/Tech Lead mandate
 
 ---
 
@@ -28,6 +28,8 @@
 | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Technical project overview |
 | [docs/DNTECH-COMPANY-PROFILE.md](./docs/DNTECH-COMPANY-PROFILE.md) | Full technical documentation |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Current implementation status |
+| [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
+| [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
 | [frontend-README.md](./frontend-README.md) | Frontend setup |
 
@@ -38,6 +40,8 @@
 ### V2 — Design System & SEO
 | File | Topik |
 |------|-------|
+| [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | Ringkasan desain + mandat CEO/Tech Lead (solid color, anti AI-look) |
+| [docs/design_audit.md](./docs/design_audit.md) | Audit file-per-file & checklist compliance |
 | [docs/V2/INDEX-PRD-V2.md](./docs/V2/INDEX-PRD-V2.md) | V2 index |
 | [docs/V2/DN-TECH-PRD-V2.md](./docs/V2/DN-TECH-PRD-V2.md) | PRD v2 |
 | [docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md](./docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md) | Design system |
@@ -123,7 +127,7 @@
 | Production build | ✅ Frontend + backend |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
 
-Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md)
+Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md)
 
 ---
 

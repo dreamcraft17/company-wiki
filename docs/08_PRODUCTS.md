@@ -116,7 +116,9 @@ DN Tech Products
 |---------|------|
 | PRD Summary | [09_COMPRO_PRD.md](../products/09_COMPRO_PRD.md) |
 | Spec Summary | [10_COMPRO_SPEC.md](../products/10_COMPRO_SPEC.md) |
-| **Source Docs (35 files)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
+| **Source Docs (37 files)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
+| Design summary | [DESIGN_SUMMARY.md](./products/dntech/docs/DESIGN_SUMMARY.md) |
+| Design audit | [design_audit.md](./products/dntech/docs/design_audit.md) |
 
 ### Version History
 
@@ -262,7 +264,7 @@ DN Tech Products
 
 ## 📄 Related Documents
 
-- [Product Docs Index](./products/README.md) — All ~140 source documents
+- [Product Docs Index](./products/README.md) — All ~142 source documents
 - [Company Overview](./02_COMPANY_OVERVIEW.md)
 - [Tech Stack](./05_TECH_STACK.md)
 - [Architecture](./06_ARCHITECTURE.md)

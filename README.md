@@ -19,8 +19,8 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Product Docs Index](./docs/products/README.md) — **~140 source docs**
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (35 files)
+- [Product Docs Index](./docs/products/README.md) — **~142 source docs**
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (37 files)
   - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (32 files)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
