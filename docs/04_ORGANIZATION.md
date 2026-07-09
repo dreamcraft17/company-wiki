@@ -1,7 +1,7 @@
 # Organization Structure
 
 **Document Version**: 1.0  
-**Last Updated**: July 8, 2026  
+**Last Updated**: July 9, 2026  
 **Status**: Published  
 **Owner**: Dozer
 
@@ -31,13 +31,18 @@
    ┌──────▼──────┐     ┌──────▼──────┐     ┌──────▼──────┐
    │  Technology │     │   Product   │     │  Operations │
    │    (CTO)    │     │ (VP Product)│     │    (COO)    │
+   │      —      │     │      —      │     │      —      │
    └──────┬──────┘     └──────┬──────┘     └──────┬──────┘
           │                    │                    │
    ┌──────┴──────┐     ┌──────┴──────┐     ┌──────┴──────┐
    │ Engineering │     │   Design    │     │  HR & Admin │
    │   DevOps    │     │  Marketing  │     │   Finance   │
-   └─────────────┘     └─────────────┘     └─────────────┘
+   └─────────────┘     └─────────────┘     │(Nur Annisa  │
+                                            │  Sofyan)    │
+                                            └─────────────┘
 ```
+
+> **Catatan:** Struktur jabatan leadership tetap berlaku. Saat ini yang sudah terisi namanya: **CEO** (Dozer) dan **Finance** (Nur Annisa Sofyan). Posisi lain (CTO, VP Product, Head of Design, Head of Sales, COO) masih **vacant** — ditandai **—** sampai ada penunjukan resmi.
 
 ---
 
@@ -46,12 +51,14 @@
 | Role | Nama | Tanggung Jawab |
 |------|------|----------------|
 | **CEO** | Dozer | Strategi perusahaan, business development, arsitektur teknis |
-| **CTO** | Sarah | Engineering leadership, tech stack, infrastructure |
+| **CTO** | — | Engineering leadership, tech stack, infrastructure |
 | **VP Product** | — | Product roadmap, PRD, stakeholder management |
-| **Head of Design** | Maya | UI/UX, design system, brand identity |
-| **Head of Sales** | Budi | Client acquisition, partnerships, proposals |
+| **Head of Design** | — | UI/UX, design system, brand identity |
+| **Head of Sales** | — | Client acquisition, partnerships, proposals |
+| **COO** | — | Operasional, HR, admin |
+| **Finance** | Nur Annisa Sofyan | Keuangan, invoicing, budgeting, compliance |
 
-> Catatan: Tim sedang dalam fase growth. Posisi VP Product akan diisi sesuai kebutuhan scaling.
+> Tim sedang dalam fase growth. Posisi dengan nama **—** akan diisi sesuai kebutuhan scaling.
 
 ---
 
@@ -137,12 +144,13 @@ Detail RBAC: [Architecture](./06_ARCHITECTURE.md#keamanan--rbac)
 ## Reporting Lines
 
 ```
-CEO
-├── CTO → Engineering Team, DevOps
-├── VP Product → Product Team, Documentation
-├── Head of Design → Design Team
-├── Head of Sales → Marketing, Client Success
-└── COO → HR, Finance, Admin
+CEO (Dozer)
+├── CTO (—) → Engineering Team, DevOps
+├── VP Product (—) → Product Team, Documentation
+├── Head of Design (—) → Design Team
+├── Head of Sales (—) → Marketing, Client Success
+└── COO (—) → HR, Admin
+    └── Finance (Nur Annisa Sofyan)
 ```
 
 ### Communication Channels
@@ -192,4 +200,4 @@ Detail modul careers: [Careers PRD](../products/11_CAREERS_PRD.md)
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 9, 2026*
