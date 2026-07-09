@@ -53,6 +53,7 @@ import { Button, Alert, Badge, Modal, Card, Input } from '@/components/ui';
 | Exit intent | `Modal` component |
 | Multi-step contact | `Alert` info banner |
 | Branding (Jul 9) | `rlogo2.png` logo; `HeroBrand` typographic hero; favicon |
+| Footer (Jul 9 malam) | `FooterBrand` + horizontal links; putih; tanpa newsletter di footer |
 
 ---
 

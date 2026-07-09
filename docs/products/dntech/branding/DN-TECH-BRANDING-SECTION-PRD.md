@@ -450,7 +450,7 @@ ke success kami, bukan cuma closing deal."
 8. Services Section (existing)
 9. [NEW] Testimonials/Social Proof (3 carousel or cards)
 10. Newsletter Signup (existing)
-11. Footer (existing)
+11. Footer (`FooterBrand` wordmark, horizontal links, white bg — Jul 9 redesign)
 ```
 
 ---

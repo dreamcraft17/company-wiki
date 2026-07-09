@@ -50,6 +50,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Admin UX (Jul 9) | ✅ | Toast simpan settings + validasi JSON |
 | Branding section full (Jul 9) | ✅ | API `/branding/*`, homepage 6 section branding, admin `/admin/branding` |
 | Branding spec 100% (Jul 9) | ✅ | Prisma models dedicated, admin CRUD `/admin/branding/*`, testimonials carousel, seed script |
+| Footer redesign (Jul 9) | ✅ | Layout horizontal putih; `FooterBrand` wordmark; tanpa newsletter di footer |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -87,7 +88,8 @@ Implementasi berdasarkan `docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md`.
 | Card | `frontend/src/components/ui/Card.tsx` | Flat border, tanpa shadow berat |
 | Input / Select / Textarea | `frontend/src/components/ui/Input.tsx` | Focus blue-900, min-height 48px, aria error |
 | Header | `frontend/src/components/common/Header.tsx` | Sticky solid white, tanpa backdrop-blur |
-| Footer | `frontend/src/components/common/Footer.tsx` | Kontak & tagline dari settings |
+| Footer | `frontend/src/components/common/Footer.tsx` | Putih, link horizontal 2 baris, CTA, kontak inline dari settings |
+| FooterBrand | `frontend/src/components/layout/FooterBrand.tsx` | Logo kecil + teks **DN Tech.id** (bukan logo bulat besar) |
 | StickyCTA | `frontend/src/components/layout/StickyCTA.tsx` | Mobile CTA blue-900 |
 | TrustBadges | `frontend/src/components/layout/TrustBadges.tsx` | Section "Mengapa Memilih Kami" |
 | TeamSpotlight | `frontend/src/components/layout/TeamSpotlight.tsx` | Avatar solid (bukan gradient) |
@@ -144,7 +146,7 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 |-------|------------|-----|
 | Hero / CTA tombol kosong | `<Link><Button>` = HTML tidak valid (`<a><button>`) | `Button` mendukung prop `href` → render sebagai `<Link>` |
 | Modal X tidak responsif | Layout + event handling | `Modal`: Escape key, `stopPropagation`, close `shrink-0` |
-| Footer "Langganan" terpotong | Flex shrink pada tombol | `NewsletterForm` compact: `shrink-0 whitespace-nowrap` |
+| Footer "Langganan" terpotong | Flex shrink pada tombol | `NewsletterForm` compact: `shrink-0 whitespace-nowrap` (homepage saja; **footer Jul 9 malam** — newsletter dihapus dari footer) |
 | Tombol putih tanpa teks (CSS) | `cn()` tanpa `tailwind-merge` → `text-white` + `text-blue-900` bentrok | `tailwind-merge` di `utils.ts` + variant `inverse` / `outline-on-dark` |
 
 **File utama:** `components/ui/Button.tsx`, `Modal.tsx`, `page.tsx` (hero), `NewsletterForm.tsx`, `ExitIntentModal.tsx` + 10 halaman CTA lainnya.
@@ -185,6 +187,24 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 | Navigasi admin | Menu sidebar "Branding" | `frontend/src/components/admin/AdminSidebar.tsx` |
 
 **Catatan desain (update v2):** tetap patuh V2.1 (solid, no gradient/glass); source of truth branding kini memakai model dedicated (`BrandContent`, `CoreValue`, `CompetitiveAdvantage`, `Stat`) + mapping terkontrol untuk team/testimonials existing.
+
+### Footer Redesign (9 Jul 2026, malam)
+
+| Sebelum (ditolak) | Sesudah |
+|-------------------|---------|
+| `bg-gray-900` gelap + `LogoDark` logo bulat besar | `bg-white` + `border-t` — selaras header |
+| 3 kolom vertikal (logo+newsletter \| PERUSAHAAN \| LAYANAN) | Brand + tagline + CTA; link **horizontal** 2 baris |
+| Newsletter compact di footer | Newsletter **hanya** di section homepage (`NewsletterForm`) |
+| Logo PNG besar di background gelap | `FooterBrand` — logo `sm` + wordmark **DN Tech.id** |
+
+**Layout footer saat ini:**
+
+1. Bar atas — `FooterBrand` + tagline CMS (kiri), tombol **Konsultasi Gratis** (kanan)
+2. Navigasi — primary links (Beranda, Layanan, Tentang, Blog, Kontak) + secondary links (Studi Kasus, FAQ, dll.)
+3. Kontak inline — email · telepon · alamat dari `SiteSettings`
+4. Bar bawah — copyright + Syarat & Ketentuan / Kebijakan Privasi
+
+**File:** `components/common/Footer.tsx`, `components/layout/FooterBrand.tsx` · `LogoDark.tsx` kini untuk admin/dark chrome saja (bukan footer publik).
 
 ---
 
@@ -512,7 +532,8 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/lib/service-process.ts` | 5 langkah proses layanan V2 |
 | `frontend/src/hooks/useExitIntent.ts` | Hook exit intent V3 |
 | `frontend/src/components/branding/LogoLight.tsx` | Navbar: `rlogo2.png` + teks **DN Tech.id** |
-| `frontend/src/components/branding/LogoDark.tsx` | Footer & dark bg: `rlogo2.png` |
+| `frontend/src/components/branding/LogoDark.tsx` | Admin / dark bg: `rlogo2.png` (bukan footer publik) |
+| `frontend/src/components/layout/FooterBrand.tsx` | Footer wordmark kecil + **DN Tech.id** |
 | `frontend/src/components/layout/HeroBrand.tsx` | Hero beranda: wordmark tipografi (tanpa logo PNG) |
 | `frontend/src/components/branding/BrandStats.tsx` | Statistik branding beranda |
 | `frontend/src/components/branding/BrandStory.tsx` | Section cerita brand |
@@ -584,7 +605,8 @@ Implementasi berdasarkan dokumen di `docs/v3/`.
 | Exit modal UI | ✅ | `frontend/src/components/interactive/ExitIntentModal.tsx` |
 | Lazy loader modal | ✅ | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` |
 | Logo navbar | ✅ | `LogoLight.tsx` — `rlogo2.png` + **DN Tech.id** |
-| Logo footer / admin | ✅ | `LogoDark.tsx` / `Logo.tsx` — `rlogo2.png` |
+| Logo footer | ✅ | `FooterBrand.tsx` — logo `sm` + **DN Tech.id** (putih, horizontal layout) |
+| Logo admin | ✅ | `LogoDark.tsx` / `Logo.tsx` — `rlogo2.png` |
 | Hero beranda | ✅ | `HeroBrand.tsx` — tipografi; **bukan** logo PNG di `bg-blue-900` |
 | Favicon | ✅ | `app/icon.png`, metadata `layout.tsx` |
 | Mobile nav close on link click | ✅ | Sudah ada dan dipertahankan di `Header.tsx` |

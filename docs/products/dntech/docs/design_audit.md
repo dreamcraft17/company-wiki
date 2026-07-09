@@ -273,9 +273,9 @@ Didefinisikan di V2 tapi hampir tidak muncul di kode — dead token.
 | Focus states | ring `blue-900/20` pada inputs |
 | Exit intent modal | white card, blue CTA — no glass |
 | Trust badges / sticky CTA | solid colors |
-| Footer | gray palette, CMS-driven |
+| Footer | `bg-white`, link horizontal, `FooterBrand`, CMS kontak — tanpa newsletter |
 | Multi-step contact form | step indicator green/blue solid |
-| Logo components | `LogoLight`/`LogoDark` — `rlogo2.png`; navbar + teks **DN Tech.id** |
+| Logo components | `LogoLight` / `FooterBrand` — wordmark **DN Tech.id**; `LogoDark` admin saja |
 | Hero branding | `HeroBrand.tsx` — tipografi; bukan logo PNG di hero biru |
 | Lucide icons | konsisten di nav, cards, admin |
 

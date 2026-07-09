@@ -396,7 +396,7 @@ dntech/
 │       │   ├── common/         # Header, Footer, Logo
 │       │   ├── forms/          # Form components
 │       │   ├── interactive/    # Quiz, ROI, Exit intent
-│       │   ├── layout/         # Trust badges, sticky CTA
+│       │   ├── layout/         # FooterBrand, HeroBrand, trust badges, sticky CTA
 │       │   ├── seo/            # JsonLd, Analytics
 │       │   └── ui/             # Button, Input, Card
 │       ├── contexts/           # AuthContext

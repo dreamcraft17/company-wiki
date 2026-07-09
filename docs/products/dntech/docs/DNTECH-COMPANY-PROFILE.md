@@ -492,9 +492,13 @@ Konten HTML di-render via `dangerouslySetInnerHTML` (dikelola dari admin setting
 - CTA "Get Started"
 
 **Footer** (`components/common/Footer.tsx`):
-- Company info, contact details
-- Link groups: Company, Services, Legal
-- Social media links
+- Background putih, border-top — selaras header
+- `FooterBrand`: logo kecil + wordmark **DN Tech.id**
+- Bar atas: tagline CMS + CTA **Konsultasi Gratis**
+- Link navigasi horizontal (2 baris: primary + secondary)
+- Kontak inline (email, telepon, alamat) dari settings
+- Copyright + legal links (Syarat & Ketentuan, Kebijakan Privasi)
+- **Tidak** ada newsletter di footer (hanya di section homepage)
 
 **Page Tracker** (`components/common/PageTracker.tsx`):
 - Otomatis track page view ke analytics saat navigasi (kecuali `/admin/*`)

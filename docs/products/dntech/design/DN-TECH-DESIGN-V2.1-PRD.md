@@ -205,7 +205,7 @@ bg-gradient-to-br from-blue-500 to-indigo-600
 
 **Affected files:**
 1. `frontend/src/components/cards/CaseStudyCard.tsx` — line ~50
-2. `frontend/src/components/layout/Footer.tsx` — line ~80 (review)
+2. `frontend/src/components/common/Footer.tsx` — horizontal link layout, `text-blue-900` hover
 3. `frontend/src/app/(public)/blog/page.tsx` — line ~40 (review)
 
 **Acceptance criteria:**

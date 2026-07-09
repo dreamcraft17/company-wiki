@@ -861,7 +861,7 @@ import { TeamSpotlight } from '@/components/branding/TeamSpotlight';
 import { Testimonials } from '@/components/branding/Testimonials';
 import { Services } from '@/components/sections/Services';
 import { Newsletter } from '@/components/sections/Newsletter';
-import { Footer } from '@/components/layout/Footer';
+import { Footer } from '@/components/common/Footer';
 
 export default function HomePage() {
   return (

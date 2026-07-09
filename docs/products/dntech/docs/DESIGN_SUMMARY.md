@@ -139,7 +139,7 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 | Komponen | Styling |
 |----------|---------|
 | **Header** | Sticky white, `border-b`, active link `bg-blue-50 text-blue-900` |
-| **Footer** | Gray tones, kontak dari CMS settings |
+| **Footer** | Putih (`bg-white`), link horizontal 2 baris, CTA Konsultasi Gratis, kontak inline dari CMS |
 | **Hero** | Solid `bg-blue-900 text-white` — **bukan** gradient |
 | **StickyCTA** | Mobile-only CTA bar blue-900 |
 | **ExitIntentModal** | White card, blue-900 CTA (V3) |
@@ -241,13 +241,15 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 
 | Area | Implementasi |
 |------|--------------|
-| Logo resmi | `frontend/public/rlogo2.png` — navbar, footer, admin, OG |
+| Logo resmi | `frontend/public/rlogo2.png` — navbar, admin, OG |
 | Navbar | `LogoLight.tsx` — gambar + teks **DN Tech.id** |
-| Footer | `LogoDark.tsx` — gambar saja |
+| Footer | `FooterBrand.tsx` — logo kecil + teks **DN Tech.id**; layout horizontal putih |
 | Favicon | `app/icon.png` (32×32), `app/apple-icon.png` (180×180) |
 | Hero beranda | `HeroBrand.tsx` — wordmark tipografi kecil + H1 tagline CMS; **tanpa** logo PNG di `bg-blue-900` |
 
 **Alasan hero tanpa logo PNG:** logo bulat putih di background biru gelap kontras buruk dan redundan dengan headline — wordmark tipografi lebih clean dan selaras mandat solid/minimal.
+
+**Alasan footer tanpa `LogoDark` / `bg-gray-900`:** pola 3-kolom gelap + logo bulat besar + newsletter di footer terasa template generik; footer putih dengan link horizontal dan wordmark kecil selaras navbar & mandat V2.1.
 
 **Legacy:** `logo.png` masih di `public/` tapi tidak dipakai UI publik.
 

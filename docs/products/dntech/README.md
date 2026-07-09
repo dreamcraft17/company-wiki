@@ -11,6 +11,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | PRD/Design/SEO V2 | Implemented | Solid color design system, Indonesian copy, startup/SME positioning |
 | V3 refinements | Implemented | Exit intent fix, logo variants, mobile nav polish, form accessibility |
 | Jul 9 polish | Implemented | Button href fix, about CMS live, `rlogo2` branding, hero wordmark, admin toast |
+| Footer redesign (Jul 9) | Implemented | Putih, layout horizontal, `FooterBrand` wordmark, tanpa newsletter di footer |
 | Branding section rollout | Implemented | Prisma branding models + public/admin branding API + homepage sections + admin CRUD pages |
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
@@ -21,7 +22,9 @@ Production-ready company profile website for DN Tech with a public marketing sit
 
 Latest implementation reference: Jul 9 branding v2 — 100% PRD/SRS/SDD alignment (dedicated models + `/admin/branding/*` CRUD + carousel testimonials).
 
-**Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar menampilkan **DN Tech.id** di samping logo.
+**Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** di samping logo (`LogoLight` / `FooterBrand`).
+
+**Footer:** `components/common/Footer.tsx` — background putih, link horizontal 2 baris, CTA Konsultasi Gratis, kontak dari CMS. Newsletter hanya di section homepage, bukan di footer.
 
 **Branding section:** Homepage memuat `BrandStats`, `BrandStory`, `CoreValues`, `CompetitiveAdvantages`, `TeamSpotlightSection`, dan `BrandTestimonials` dengan fetch mandiri ke `GET /api/v1/branding/*`. Admin dikelola via `GET/PUT/POST/PATCH/DELETE /api/v1/admin/branding/*`.
 

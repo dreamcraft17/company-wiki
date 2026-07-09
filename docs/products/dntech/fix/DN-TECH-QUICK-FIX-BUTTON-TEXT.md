@@ -192,6 +192,8 @@ import { X } from 'lucide-react'; // Add this if missing
 
 ## Issue 3: Footer Button Text Missing
 
+> **Update 9 Jul 2026 (malam):** Footer publik telah di-redesign — newsletter & tombol "Langganan" **dihapus** dari footer. Newsletter tetap di section homepage. Footer sekarang memakai `FooterBrand` + layout horizontal putih. Issue di bawah ini adalah konteks historis hotfix sebelum redesign.
+
 ### Problem
 ```
 ❌ Tombol "Langganan" di footer kosong (no text)

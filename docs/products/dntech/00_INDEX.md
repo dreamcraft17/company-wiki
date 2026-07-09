@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: branding v2 local changes (post `8f4e2eb`) — 100% PRD/SRS/SDD branding alignment
+**Latest commit**: footer redesign + branding v2 — 100% PRD/SRS/SDD branding alignment
 
 ---
 

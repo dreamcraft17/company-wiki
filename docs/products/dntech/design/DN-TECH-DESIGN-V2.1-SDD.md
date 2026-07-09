@@ -332,7 +332,7 @@ grep -r "text-blue-600" frontend/src --include="*.tsx" --include="*.ts"
 **Output (example):**
 ```
 components/cards/CaseStudyCard.tsx: text-blue-600
-components/layout/Footer.tsx: text-blue-600
+components/common/Footer.tsx: text-blue-900 hover
 app/(public)/blog/page.tsx: text-blue-600
 ```
 
