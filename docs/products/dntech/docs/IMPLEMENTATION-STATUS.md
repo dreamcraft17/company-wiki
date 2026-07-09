@@ -4,8 +4,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `352140f` — feat(design): V2.1 remediation across frontend  
-**Commit docs desain:** `1d2c2cc` — DESIGN_SUMMARY + design_audit  
+**Commit referensi terbaru:** `fb1a72b` — fix(ui): button text + modal close  
+**Commit sebelumnya:** `ecf9eb2` — IMPLEMENTATION-STATUS V2.1 · `352140f` — V2.1 design remediation  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
 **Status working tree:** ✅ Clean (sync dengan `origin/main`)
 
@@ -43,6 +43,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Data demo | ✅ | Dihapus — seed hanya bootstrap admin |
 | Design V2 | ✅ | Solid color, tanpa gradient/glassmorphism |
 | Design V2.1 | ✅ | Remediation audit — UI kit, palet unified, mandat CEO/Tech Lead |
+| Hotfix button text (Jul 9) | ✅ | `Button href` — perbaiki `<Link><Button>` invalid HTML |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -130,6 +131,18 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 - Avatar tim: inisial (menunggu foto CMS)
 - Font: system stack (trade-off performa V4)
 - Dark mode: belum (V2.2+)
+
+### Hotfix — Button Text & Modal Close (9 Jul 2026)
+
+| Issue | Root cause | Fix |
+|-------|------------|-----|
+| Hero / CTA tombol kosong | `<Link><Button>` = HTML tidak valid (`<a><button>`) | `Button` mendukung prop `href` → render sebagai `<Link>` |
+| Modal X tidak responsif | Layout + event handling | `Modal`: Escape key, `stopPropagation`, close `shrink-0` |
+| Footer "Langganan" terpotong | Flex shrink pada tombol | `NewsletterForm` compact: `shrink-0 whitespace-nowrap` |
+
+**File utama:** `components/ui/Button.tsx`, `Modal.tsx`, `page.tsx` (hero), `NewsletterForm.tsx`, `ExitIntentModal.tsx` + 10 halaman CTA lainnya.
+
+**Referensi:** [company-wiki fix doc](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md)
 
 ---
 

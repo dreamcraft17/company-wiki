@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: `352140f` — V2.1 design remediation fully implemented
+**Latest commit**: `fb1a72b` — hotfix button text + modal close
 
 ---
 
@@ -31,6 +31,7 @@
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
+| [fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md](./fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md) | **Hotfix** — button text + modal close (✅ implemented) |
 | [frontend-README.md](./frontend-README.md) | Frontend setup |
 
 ---
@@ -134,6 +135,7 @@
 | PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
 | Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
+| Hotfix button text (Jul 9) | ✅ `Button href` — hero, footer, modal close |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
