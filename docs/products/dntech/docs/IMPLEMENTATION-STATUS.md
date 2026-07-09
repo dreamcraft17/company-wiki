@@ -4,8 +4,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `0f6877c` — hero typographic wordmark (Jul 9 siang)  
-**Rentang Jul 9:** `fb1a72b`…`0f6877c` — button fix, about CMS, branding `rlogo2`, favicon, admin toast  
+**Commit referensi terbaru:** Branding section rollout (Jul 9 sore, post `0f6877c`)  
+**Rentang Jul 9:** `fb1a72b`…`0f6877c` + branding rollout — button fix, about CMS, branding `rlogo2`, favicon, admin toast, branding sections  
 **Commit sebelumnya:** `352140f` — V2.1 design remediation  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
 **Status working tree:** ✅ Clean (sync dengan `origin/main`)
@@ -48,6 +48,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Branding `rlogo2` (Jul 9) | ✅ | Logo PNG navbar/footer/admin; favicon 32px; hero tipografi |
 | About CMS live (Jul 9) | ✅ | Client fetch + `force-dynamic`; visi/misi dari `aboutContent` |
 | Admin UX (Jul 9) | ✅ | Toast simpan settings + validasi JSON |
+| Branding section full (Jul 9) | ✅ | API `/branding/*`, homepage 6 section branding, admin `/admin/branding` |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -172,6 +173,18 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 
 **Env production wajib:** `NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1` (bukan `dntech.id/api` — 404).
 
+### Branding Section Rollout (9 Jul 2026, sore)
+
+| Area | Implementasi | File |
+|------|---------------|------|
+| API publik branding | `GET /branding/content|values|advantages|team|testimonials|stats` | `backend/src/routes/branding.ts`, `backend/src/index.ts` |
+| Data layer frontend | Fetch + cache branding API | `frontend/src/lib/branding.ts` |
+| Homepage section baru | `BrandStats`, `BrandStory`, `CoreValues`, `CompetitiveAdvantages`, `TeamSpotlight`, `BrandTestimonials` | `frontend/src/app/(public)/page.tsx` + `components/branding/*` |
+| Admin branding CMS | Kelola story, mission, values, advantages, stats | `frontend/src/app/admin/branding/page.tsx` |
+| Navigasi admin | Menu sidebar "Branding" | `frontend/src/components/admin/AdminSidebar.tsx` |
+
+**Catatan desain:** tetap patuh V2.1 (solid, no gradient/glass); source of truth branding disatukan via `SiteSettings` + modul team/testimonials existing.
+
 ---
 
 ## 3. Website Publik
@@ -197,11 +210,14 @@ Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources` **masih ada** ta
 | Section | Implementasi |
 |---------|--------------|
 | Hero | Solid `bg-blue-900`, tagline & deskripsi dari settings |
-| Statistik | Dari `SiteSettings.homeStats` — hidden jika kosong |
+| Statistik | `BrandStats` dari `GET /branding/stats` |
+| Brand Story | `BrandStory` dari `GET /branding/content` |
+| Core Values | `CoreValues` dari `GET /branding/values` |
+| Competitive Advantages | `CompetitiveAdvantages` dari `GET /branding/advantages` |
 | Layanan | Max 6 dari API — hidden jika kosong |
-| Mengapa Memilih Kami | Dari `SiteSettings.trustBadges` |
 | Blog preview | 4 artikel + estimasi waktu baca |
-| Tim preview | `TeamSpotlight` max 4 anggota |
+| Tim spotlight | `TeamSpotlight` dari `GET /branding/team` |
+| Testimonials | `BrandTestimonials` dari `GET /branding/testimonials` |
 | Newsletter | Form langganan |
 | CTA akhir | "Siap mengembangkan proyek Anda?" → `/contact` |
 
@@ -497,9 +513,17 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/components/branding/LogoLight.tsx` | Navbar: `rlogo2.png` + teks **DN Tech.id** |
 | `frontend/src/components/branding/LogoDark.tsx` | Footer & dark bg: `rlogo2.png` |
 | `frontend/src/components/layout/HeroBrand.tsx` | Hero beranda: wordmark tipografi (tanpa logo PNG) |
+| `frontend/src/components/branding/BrandStats.tsx` | Statistik branding beranda |
+| `frontend/src/components/branding/BrandStory.tsx` | Section cerita brand |
+| `frontend/src/components/branding/CoreValues.tsx` | Grid core values |
+| `frontend/src/components/branding/CompetitiveAdvantages.tsx` | Section why choose us |
+| `frontend/src/components/branding/BrandTestimonials.tsx` | Testimonials beranda |
 | `frontend/src/components/content/AboutPageContent.tsx` | Halaman about — fetch CMS client-side |
 | `frontend/src/components/ui/Toast.tsx` | Notifikasi admin (simpan settings) |
 | `frontend/src/app/api/revalidate/route.ts` | Bust cache Next setelah update settings |
+| `frontend/src/lib/branding.ts` | Helper fetch/cache endpoint branding |
+| `backend/src/routes/branding.ts` | Router API branding publik |
+| `frontend/src/app/admin/branding/page.tsx` | Admin branding CMS |
 | `frontend/public/rlogo2.png` | Logo resmi DN Tech |
 | `frontend/src/app/icon.png` | Favicon 32×32 (dari rlogo2) |
 | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` | Lazy client loader untuk modal exit intent |

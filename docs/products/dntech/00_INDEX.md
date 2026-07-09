@@ -136,6 +136,7 @@
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
 | Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
 | Hotfix & polish (Jul 9) | ✅ Button href + tailwind-merge; `rlogo2` branding; `/about` CMS; admin toast |
+| Branding rollout (Jul 9 sore) | ✅ API `/branding/*`, homepage section branding, admin `/admin/branding` |
 | Hero branding | ✅ `HeroBrand` tipografi — tanpa logo PNG di `bg-blue-900` |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend |

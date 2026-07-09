@@ -253,6 +253,19 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 
 ---
 
+## 12. Branding Section Architecture (Jul 9, 2026)
+
+| Layer | Implementasi |
+|------|---------------|
+| Public API | `/api/v1/branding/*` untuk content, values, advantages, team, testimonials, stats |
+| Homepage composition | Hero → `BrandStats` → `BrandStory` → `CoreValues` → `CompetitiveAdvantages` → `TeamSpotlight` → `BrandTestimonials` |
+| CMS source | `SiteSettings.aboutContent`, `trustBadges`, `homeStats`, plus modul team/testimonials existing |
+| Admin UX | Halaman `/admin/branding` untuk kelola semua blok branding utama |
+
+**Prinsip visual tetap:** solid surfaces, border-driven cards, typography-first hierarchy, tanpa gradient/glassmorphism.
+
+---
+
 ## 10. Rekomendasi Prioritas
 
 | # | Aksi | Status |

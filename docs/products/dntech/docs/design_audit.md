@@ -349,6 +349,7 @@ frontend/src/
 | 9 Jul 2026 | Tambah mandat leadership CEO + Tech Lead (solid color, anti glassmorphism / AI look) |
 | 9 Jul 2026 | V2.1 remediation complete — semua P0/P1 resolved, skor 9/10 |
 | 9 Jul 2026 | Branding `rlogo2`, favicon, navbar wordmark, hero typographic `HeroBrand` |
+| 9 Jul 2026 | Branding section rollout — API `/branding/*`, homepage section architecture, admin `/admin/branding` |
 
 ---
 

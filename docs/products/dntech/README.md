@@ -11,6 +11,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | PRD/Design/SEO V2 | Implemented | Solid color design system, Indonesian copy, startup/SME positioning |
 | V3 refinements | Implemented | Exit intent fix, logo variants, mobile nav polish, form accessibility |
 | Jul 9 polish | Implemented | Button href fix, about CMS live, `rlogo2` branding, hero wordmark, admin toast |
+| Branding section rollout | Implemented | Public `/branding` API, homepage brand sections, admin branding page |
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
@@ -18,9 +19,11 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 
-Latest implementation reference: `0f6877c` — hero typographic wordmark + Jul 9 branding/about polish.
+Latest implementation reference: Jul 9 branding rollout (post `0f6877c`) — public branding endpoints + homepage section architecture + admin branding CMS.
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar menampilkan **DN Tech.id** di samping logo.
+
+**Branding section:** Homepage kini memuat `BrandStats`, `BrandStory`, `CoreValues`, `CompetitiveAdvantages`, `TeamSpotlight`, dan `BrandTestimonials` dari API `GET /api/v1/branding/*`.
 
 ## Tech Stack
 
