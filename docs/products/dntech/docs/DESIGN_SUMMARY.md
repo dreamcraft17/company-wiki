@@ -257,10 +257,11 @@ Breakpoints (mobile-first): `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280
 
 | Layer | Implementasi |
 |------|---------------|
+| Data layer | Prisma models dedicated: `BrandContent`, `CoreValue`, `CompetitiveAdvantage`, `Stat` |
 | Public API | `/api/v1/branding/*` untuk content, values, advantages, team, testimonials, stats |
 | Homepage composition | Hero → `BrandStats` → `BrandStory` → `CoreValues` → `CompetitiveAdvantages` → `TeamSpotlight` → `BrandTestimonials` |
 | CMS source | `SiteSettings.aboutContent`, `trustBadges`, `homeStats`, plus modul team/testimonials existing |
-| Admin UX | Halaman `/admin/branding` untuk kelola semua blok branding utama |
+| Admin UX | `/admin/branding` + subpages `/values`, `/advantages`, `/stats` dengan endpoint CRUD `/api/v1/admin/branding/*` |
 
 **Prinsip visual tetap:** solid surfaces, border-driven cards, typography-first hierarchy, tanpa gradient/glassmorphism.
 

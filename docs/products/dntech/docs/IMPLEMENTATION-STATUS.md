@@ -4,7 +4,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 
 **Terakhir diperbarui:** 9 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** Branding section rollout (Jul 9 sore, post `0f6877c`)  
+**Commit referensi terbaru:** Branding section v2 — 100% spec alignment (Jul 9 sore)  
 **Rentang Jul 9:** `fb1a72b`…`0f6877c` + branding rollout — button fix, about CMS, branding `rlogo2`, favicon, admin toast, branding sections  
 **Commit sebelumnya:** `352140f` — V2.1 design remediation  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
@@ -49,6 +49,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | About CMS live (Jul 9) | ✅ | Client fetch + `force-dynamic`; visi/misi dari `aboutContent` |
 | Admin UX (Jul 9) | ✅ | Toast simpan settings + validasi JSON |
 | Branding section full (Jul 9) | ✅ | API `/branding/*`, homepage 6 section branding, admin `/admin/branding` |
+| Branding spec 100% (Jul 9) | ✅ | Prisma models dedicated, admin CRUD `/admin/branding/*`, testimonials carousel, seed script |
 | Design maturity (estimasi) | ✅ | ~9/10 — lihat [design_audit.md](./design_audit.md) |
 | Konten real | ✅ | Semua konten dari DB via admin |
 | PRD V2 (teknis) | ✅ | ~85–90% fitur kode selesai |
@@ -183,7 +184,7 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 | Admin branding CMS | Kelola story, mission, values, advantages, stats | `frontend/src/app/admin/branding/page.tsx` |
 | Navigasi admin | Menu sidebar "Branding" | `frontend/src/components/admin/AdminSidebar.tsx` |
 
-**Catatan desain:** tetap patuh V2.1 (solid, no gradient/glass); source of truth branding disatukan via `SiteSettings` + modul team/testimonials existing.
+**Catatan desain (update v2):** tetap patuh V2.1 (solid, no gradient/glass); source of truth branding kini memakai model dedicated (`BrandContent`, `CoreValue`, `CompetitiveAdvantage`, `Stat`) + mapping terkontrol untuk team/testimonials existing.
 
 ---
 
@@ -521,9 +522,15 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/components/content/AboutPageContent.tsx` | Halaman about — fetch CMS client-side |
 | `frontend/src/components/ui/Toast.tsx` | Notifikasi admin (simpan settings) |
 | `frontend/src/app/api/revalidate/route.ts` | Bust cache Next setelah update settings |
-| `frontend/src/lib/branding.ts` | Helper fetch/cache endpoint branding |
+| `frontend/src/lib/branding.ts` | Helper fetch/cache endpoint branding (legacy helper) |
 | `backend/src/routes/branding.ts` | Router API branding publik |
-| `frontend/src/app/admin/branding/page.tsx` | Admin branding CMS |
+| `backend/src/routes/admin-branding.ts` | Router admin CRUD branding (`/api/v1/admin/branding/*`) |
+| `backend/scripts/seed-branding.ts` | Seed data branding awal |
+| `frontend/src/app/admin/branding/page.tsx` | Admin brand content |
+| `frontend/src/app/admin/branding/values/page.tsx` | Admin core values CRUD |
+| `frontend/src/app/admin/branding/advantages/page.tsx` | Admin competitive advantages CRUD |
+| `frontend/src/app/admin/branding/stats/page.tsx` | Admin stats CRUD |
+| `frontend/src/components/branding/TeamSpotlightSection.tsx` | Team spotlight fetch wrapper |
 | `frontend/public/rlogo2.png` | Logo resmi DN Tech |
 | `frontend/src/app/icon.png` | Favicon 32×32 (dari rlogo2) |
 | `frontend/src/components/interactive/ExitIntentModalLoader.tsx` | Lazy client loader untuk modal exit intent |

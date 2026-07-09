@@ -31,8 +31,8 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN People ERP** | `9bf15e2` | V3 implementation status matrix — 392 tests, 27 modules, Enterprise hub |
-| **DN Tech Compro** | `local` | Jul 9 sore — full branding rollout: API `/branding/*`, homepage brand sections, admin `/admin/branding` |
-| **company-wiki** | — | Sync dntech docs Jul 9 sore (branding rollout + status/design updates) |
+| **DN Tech Compro** | `local` | Jul 9 sore — branding v2 100%: dedicated models, `/admin/branding/*` CRUD, homepage sections, carousel testimonials |
+| **company-wiki** | — | Sync dntech docs Jul 9 sore (branding v2 100% + status/design updates) |
 
 ---
 

@@ -94,7 +94,7 @@ DN Tech Products
 
 **Admin Dashboard:**
 - JWT login dengan RBAC (4 roles)
-- CRUD: services, portfolio, blog, team, testimonials, FAQ, careers + halaman khusus `/admin/branding`
+- CRUD: services, portfolio, blog, team, testimonials, FAQ, careers + branding CRUD penuh (`/admin/branding`, `/admin/branding/values`, `/admin/branding/advantages`, `/admin/branding/stats`)
 - Lead management dengan status workflow & CSV export
 - Media library upload
 - Analytics dashboard

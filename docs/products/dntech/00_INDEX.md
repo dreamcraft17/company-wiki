@@ -6,7 +6,7 @@
 **Status**: Production (v5)  
 **Owner**: Dozer  
 **Last Updated**: July 9, 2026  
-**Latest commit**: `0f6877c` — hero typographic wordmark + branding polish (Jul 9)
+**Latest commit**: branding v2 local changes (post `8f4e2eb`) — 100% PRD/SRS/SDD branding alignment
 
 ---
 
@@ -137,6 +137,7 @@
 | Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
 | Hotfix & polish (Jul 9) | ✅ Button href + tailwind-merge; `rlogo2` branding; `/about` CMS; admin toast |
 | Branding rollout (Jul 9 sore) | ✅ API `/branding/*`, homepage section branding, admin `/admin/branding` |
+| Branding spec 100% (Jul 9) | ✅ Prisma models dedicated, admin CRUD `/api/v1/admin/branding/*`, carousel testimonials, seed script |
 | Hero branding | ✅ `HeroBrand` tipografi — tanpa logo PNG di `bg-blue-900` |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend |
