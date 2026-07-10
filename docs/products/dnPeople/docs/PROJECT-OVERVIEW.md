@@ -1,8 +1,8 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** MVP 4.0 (enterprise core)  
-**Status:** Active Development  
+**Version:** MVP 4.0  
+**Status:** MVP 1–4 Done  
 **Repository:** `dnpeople`  
 **Owner:** Dozer  
 **Last Updated:** July 10, 2026
@@ -25,8 +25,8 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 |-----------|--------|--------|
 | MVP 1 | Q3 2026 | **Done** |
 | MVP 2 | Q4 2026 | **Done** |
-| MVP 3 | Q1 2027 | **Done (core)** |
-| MVP 4 | Q2 2027 | **Done (core)** |
+| MVP 3 | Q1 2027 | **Done** |
+| MVP 4 | Q2 2027 | **Done** |
 
 ## Stack
 

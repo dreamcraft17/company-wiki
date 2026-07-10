@@ -2,7 +2,7 @@
 
 **Version:** 4.0  
 **Last Updated:** July 10, 2026  
-**Referensi:** SDD v3.1 · Status: MVP 1–4 core
+**Referensi:** SDD v3.1 · Status: MVP 1–4 Done
 
 ---
 
@@ -37,7 +37,7 @@ Setiap request authenticated membawa `companyId` (JWT atau API key). Semua query
    - Bearer `dnp_…` → verify API key hash → company-scoped `COMPANY_ADMIN` context
 4. `requirePermission` / `requireRole` enforce RBAC
 5. Account lockout setelah 5 failed login (30 menit)
-6. SSO: config IdP disimpan (`SsoConfig`); full OAuth/SAML handshake masih stub
+6. SSO: Google + Microsoft OAuth + SAML ACS (`SsoConfig`); JIT provisioning user EMPLOYEE
 
 ## Domain Modules
 
@@ -60,7 +60,7 @@ Setiap request authenticated membawa `companyId` (JWT atau API key). Semua query
 Shift, overtime (+ payroll), claims, loans, geofence, corrections, documents, announcements, surveys API, calendar/holidays, approval inbox, advanced reports.
 
 ### MVP 3 — Strategic HR
-Recruitment ATS, onboarding, performance/KPI, training/career, assets, offboarding, policies/disciplinary, helpdesk, rule-based AI assistant, analytics.
+Recruitment ATS + public careers portal, onboarding, performance/KPI, training/career, assets, offboarding, policies/disciplinary, helpdesk, LLM + rule-based AI assistant, analytics.
 
 ### MVP 4 — Enterprise
 | Module | Responsibility |
@@ -69,7 +69,7 @@ Recruitment ATS, onboarding, performance/KPI, training/career, assets, offboardi
 | Integrations | API keys, webhooks, provider configs |
 | Workflows | Multi-step approval definitions + resolve |
 | Branding | White-label colors/name/logo |
-| SSO | IdP config (OAuth/SAML) |
+| SSO | Google/Microsoft OAuth + SAML ACS + JIT |
 | Custom Reports | Builder + run against data sources |
 | Security | Row-level `DataAccessRule` + effective scope |
 | AI Enterprise | Document templates + recruitment screening |
@@ -100,17 +100,14 @@ net = gross − bpjs − pph21
 - Password hashed bcrypt (cost 12); API keys hashed bcrypt
 - Zod validation on write endpoints
 - RBAC permission matrix di `utils/auth.ts` (MVP 1–4 permissions)
-- Row-level rules (`/security`) — resolver ready; enforce per-query bertahap
+- Row-level rules (`/security`) — enforced on list queries (employees, attendance, leave, claims, loans, OT, corrections, permissions, payroll)
 
-## Still planned / polish
+## Optional next
 
+- SAML XML-DSig verification
 - Redis session / cache
 - Refresh token rotation
-- File storage (S3/MinIO) untuk dokumen & payslip PDF
-- Full SSO IdP handshake + JIT provisioning
-- Enforce row-level filters on all list queries
-- Email / WebSocket notifications
-- LLM-powered assistant (saat ini rule-based)
+- Unit / integration tests + CI/CD
 
 ---
 

@@ -199,7 +199,21 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 | GET/PUT | `/branding` | settings:* | White-label branding |
 | GET | `/branding/public/:companyId` | — | Public branding for login |
 | GET/PUT | `/sso` | settings:* | SSO IdP config |
-| POST | `/sso/initiate` | settings:view | Handshake stub |
+| GET | `/sso/google/start` | — | Start Google OAuth (`?companyId=`) |
+| GET | `/sso/google/callback` | — | OAuth callback → redirect frontend |
+| GET | `/sso/microsoft/start` | — | Start Microsoft OAuth |
+| GET | `/sso/microsoft/callback` | — | Microsoft callback → JWT |
+| GET | `/sso/saml/start` | — | SAML AuthnRequest redirect |
+| GET/POST | `/sso/saml/acs` | — | SAML Assertion Consumer Service |
+| GET | `/sso/saml/metadata` | — | SP metadata XML |
+| POST | `/sso/initiate` | settings:view | Return startUrl for configured provider |
+| GET | `/careers/:companyKey` | — | Public open jobs |
+| GET | `/careers/:companyKey/jobs/:jobId` | — | Public job detail |
+| POST | `/careers/:companyKey/jobs/:jobId/apply` | — | Public apply |
+| POST | `/uploads` | auth | Binary upload (local disk atau S3) |
+| GET | `/payroll/:id/payslip.pdf` | payroll | Payslip PDF |
+| GET | `/attendance/qr/today` | attendance:view | Daily office QR token |
+| POST | `/assistant/ask` | auth | LLM atau rule-based HR Q&A |
 | GET/POST | `/custom-reports` | reports:* | Report builder |
 | GET | `/custom-reports/sources` | reports:view | Available data sources |
 | POST | `/custom-reports/:id/run` | reports:view | Execute report |

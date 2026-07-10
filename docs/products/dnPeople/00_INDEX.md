@@ -63,8 +63,8 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 |-----|-------|--------|
 | 1 | Employee, org, attendance, leave, payroll, dashboard, RBAC, audit | **Done** |
 | 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done** |
-| 3 | Recruitment, onboarding, performance, training, assets, offboarding, helpdesk, AI assistant | **Done (core)** |
-| 4 | Multi-company, SSO, integrations, white-label | **Done (core)** |
+| 3 | Recruitment, onboarding, performance, training, assets, offboarding, helpdesk, AI assistant | **Done** |
+| 4 | Multi-company, SSO, integrations, white-label | **Done** |
 
 ---
 

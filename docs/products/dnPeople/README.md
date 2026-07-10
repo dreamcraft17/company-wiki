@@ -4,7 +4,7 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 
 | | |
 |---|---|
-| Status | MVP 1–4 core implemented |
+| Status | MVP 1–4 implemented |
 | Spec | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
 | Docs | [docs/](./docs/) |
 | Last Updated | July 10, 2026 |
@@ -34,17 +34,17 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 - Laporan lanjutan (turnover, lembur, cuti)
 
 ### MVP 3
-- Rekrutmen ATS, onboarding checklist
-- Performance review + KPI/OKR
+- Rekrutmen ATS + portal karir publik `/careers`
+- Onboarding checklist, performance review + KPI/OKR
 - Training, career path, aset
 - Resign/offboarding, helpdesk, kebijakan & disiplin
-- AI HR assistant (rule-based) + analytics
+- AI HR assistant (LLM + rule-based) + analytics
 
 ### MVP 4
 - Multi-company platform + org hierarchy
 - Custom workflows & advanced approval rules
 - API keys, webhooks/integrations
-- SSO config (OAuth/SAML stub), white-label branding
+- SSO Google/Microsoft/SAML + JIT, white-label branding
 - Custom reports builder, row-level security
 - AI document generator + AI recruitment screening
 

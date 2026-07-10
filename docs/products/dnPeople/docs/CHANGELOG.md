@@ -11,13 +11,31 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - Multi-company platform console (`/platform`) + organization links
 - Custom workflows + advanced approval rules resolve
 - API keys (`dnp_…`) with Bearer auth + integrations/webhooks
-- SSO config (OAuth Google/Microsoft, SAML) + initiate stub
+- SSO config (OAuth Google/Microsoft, SAML) + Google OAuth handshake + JIT
 - Custom reports builder (save + run)
 - AI document generator (HR letter templates)
 - AI recruitment screening (single + batch)
-- Row-level data access rules + effective scope
+- Row-level data access rules + effective scope (employees, attendance, leave)
 - White-label company branding (incl. public endpoint)
 - Frontend pages for all MVP 4 modules above
+
+### Added — Polish (post-MVP core)
+
+- Survey dedicated UI (`/surveys`)
+- Local file upload (`POST /uploads`) + documents wiring
+- Payslip PDF download
+- Email notifications (SMTP / console fallback) on leave + payroll
+- Public careers portal (`/careers`, `GET/POST /careers/...`)
+- Attendance QR (daily office token) + selfie + GPS clock-in UI
+- Login Google SSO callback (`?sso=` / `?sso_error=`)
+
+### Added — MVP 4 complete
+
+- Microsoft OAuth handshake + JIT
+- SAML 2.0 AuthnRequest / ACS / SP metadata + JIT
+- Row-level list filters: claims, loans, overtime, corrections, permissions, payroll
+- LLM assistant (OpenAI-compatible) with rule-based fallback
+- Optional S3/MinIO object storage for uploads
 
 ---
 

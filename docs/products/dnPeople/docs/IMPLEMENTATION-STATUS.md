@@ -9,8 +9,8 @@
 |-----|--------|--------|
 | MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** |
 | MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
-| MVP 3 | Strategic HR (recruitment, performance, training…) | **Done (core)** |
-| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done (core)** |
+| MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
+| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** |
 
 **Typecheck:** Backend ✅ · Frontend ✅
 
@@ -24,7 +24,7 @@
 | Company register / profile | Done |
 | Org (dept, position, level, location) | Done |
 | Employee master + tax info | Done |
-| Attendance clock in/out | Done |
+| Attendance clock in/out | Done | Manual / GPS / QR / Selfie |
 | Leave types, balance, approve | Done |
 | Permissions (WFH/izin) | Done |
 | Payroll BPJS + PPh 21 | Done |
@@ -46,10 +46,13 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Geofence attendance | Done |
 | Attendance corrections | Done |
 | Documents + announcements | Done |
-| Surveys API | Done (UI dedicated still polish) |
+| Surveys API | Done | Dedicated UI `/surveys` |
 | Calendar / holidays | Done |
 | Approval inbox + rules | Done |
 | Advanced reports | Done |
+| File upload | Done | Local disk **atau** S3/MinIO (`S3_*`) |
+| Payslip PDF | Done | `GET /payroll/:id/payslip.pdf` |
+| Email notifications | Done | SMTP atau console log |
 
 Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports`
 
@@ -59,18 +62,39 @@ Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `
 
 | Fitur | Status | Catatan |
 |-------|--------|---------|
-| Recruitment & ATS | Done | Jobs, candidates, pipeline |
-| Onboarding | Done | Checklist default |
-| Performance / KPI | Done | Cycles, reviews, OKR |
-| Training & career | Done | Enroll + paths |
-| Assets | Done | Assign / return |
-| Offboarding | Done | Resign → return assets |
-| Policies / disciplinary | Done | |
-| Helpdesk | Done | Tickets |
-| AI HR Assistant | Done | Rule-based |
-| Advanced analytics | Done | `/reports/analytics` |
+| Recruitment & ATS | Done | Jobs, candidates, pipeline, status workflow, AI screen (MVP 4) |
+| Public careers portal | Done | `/careers` — kandidat apply tanpa login |
+| Onboarding | Done | Plan + checklist default + complete task |
+| Performance / KPI | Done | Cycles, generate reviews, self/manager score, KPI/OKR |
+| Training & career | Done | Programs, enroll, career paths |
+| Assets | Done | CRUD, assign / return |
+| Offboarding | Done | Resign request → approve → complete + auto return assets |
+| Policies / disciplinary | Done | Kebijakan + SP/warning/suspension |
+| Helpdesk | Done | Ticket create, assign, resolve |
+| AI HR Assistant | Done | LLM + rule-based fallback |
+| Advanced analytics | Done | `/reports/analytics` + UI cards |
 
-Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/offboarding` `/helpdesk` `/policies` `/assistant`
+Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/offboarding` `/helpdesk` `/policies` `/assistant` `/careers`
+
+### Verifikasi MVP 3 (10 Juli 2026)
+
+| Modul PRD | API | UI | Verdict |
+|-----------|-----|-----|---------|
+| Recruitment & ATS | `/recruitment` | `/recruitment` | ✅ Full |
+| Employee Onboarding | `/onboarding` | `/onboarding` | ✅ Full |
+| Performance Management | `/performance` | `/performance` | ✅ Full |
+| KPI & OKR | `/performance/kpis` | `/performance` | ✅ Full |
+| Training & Development | `/training` | `/training` | ✅ Full |
+| Career Path | `/training/career-paths` | `/training` | ✅ Full |
+| Disciplinary Action | `/policies/disciplinary` | `/policies` | ✅ Full |
+| Company Policy | `/policies` | `/policies` | ✅ Full |
+| Asset Management | `/assets` | `/assets` | ✅ Full |
+| Resignation & Offboarding | `/offboarding` | `/offboarding` | ✅ Full |
+| HR Helpdesk | `/helpdesk` | `/helpdesk` | ✅ Full |
+| AI HR Assistant | `/assistant/ask` | `/assistant` | ✅ Full |
+| Advanced Analytics | `/reports/analytics` | `/reports` | ✅ Full |
+
+**Kesimpulan MVP 3:** **Done (full)** — semua modul PRD punya API + halaman UI + alur CRUD/approval inti. Pinjaman/kasbon ada di MVP 2 (`/loans`).
 
 ---
 
@@ -82,11 +106,11 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 | Custom Workflows | Done | Multi-step + activate per module |
 | Advanced Approval Rules | Done | Amount-based + workflow resolve |
 | API & Integrations | Done | API keys `dnp_…` + webhooks + test |
-| SSO (SAML/OAuth) | Partial | Config + initiate stub |
+| SSO (SAML/OAuth) | Done | Google + Microsoft OAuth + SAML ACS/JIT |
 | Custom Reports Builder | Done | Save + run |
 | AI Document Generator | Done | Offer, SP, SK, resign |
 | AI Recruitment Screening | Done | Single + batch |
-| Advanced Security (row RBAC) | Done | Rules + effective-scope |
+| Advanced Security (row RBAC) | Done | Rules + list enforce (employees, attendance, leave, claims, loans, OT, corrections, permissions, payroll) |
 | White-label | Done | Branding + public endpoint |
 
 ### Frontend routes MVP 4
@@ -101,25 +125,24 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 /integrations (+ /api-keys, /:id/test)
 /workflows (+ /:id/activate, /resolve/:module)
 /branding (+ /public/:companyId)
-/sso (+ /initiate)
+/sso (+ /google|microsoft|saml start+callback/acs, config)
 /custom-reports (+ /sources, /:id/run)
 /security/access-rules (+ /effective-scope/:resource)
 /ai/documents/generate
 /ai/recruitment/screen|screen-batch
+/assistant/ask  (llm | rule-based)
+/uploads  (local | s3)
 ```
 
 Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
 
 ---
 
-## Partial / polish (lintas MVP)
+## Optional next (bukan blocker MVP 4)
 
-- Full OAuth/SAML handshake + JIT provisioning
-- Enforce row-level filters on all list queries
-- Survey dedicated UI, binary file upload (S3/MinIO)
-- Payslip PDF + email notifications
-- LLM-powered assistant + public careers portal
+- SAML XML-DSig full signature verification
 - Unit / integration tests + CI/CD
+- Redis session / rate-limit store
 
 ---
 
