@@ -48,20 +48,24 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 - Custom reports builder, row-level security
 - AI document generator + AI recruitment screening
 
-## Quick Start
+## Quick Start (tanpa Docker)
 
-### 1. Database
+Database = **Supabase Session pooler**. Tidak perlu Docker.
+
+### 1. Backend `.env`
 
 ```bash
-cd dnpeople
-docker compose up -d
+cd dnpeople/backend
+cp .env.example .env
 ```
 
-### 2. Backend
+Isi password di `DATABASE_URL` (lihat [docs/SUPABASE.md](./docs/SUPABASE.md)):
+
+```env
+DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require&schema=public"
+```
 
 ```bash
-cd backend
-cp .env.example .env
 npm install
 npx prisma db push
 npm run db:seed
@@ -70,7 +74,7 @@ npm run dev
 
 API: `http://localhost:4100`
 
-### 3. Frontend
+### 2. Frontend
 
 ```bash
 cd frontend
@@ -79,6 +83,9 @@ npm install
 npm run dev
 ```
 
+App: `http://localhost:3001`
+
+> Opsional saja: `docker compose up -d` jika ingin Postgres lokal di port `5433` — bukan requirement.
 App: `http://localhost:3001`
 
 ## Akun Demo (setelah seed)

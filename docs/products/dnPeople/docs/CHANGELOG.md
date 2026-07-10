@@ -79,8 +79,9 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ## Unreleased
 
 ### Docs
-- Panduan koneksi Supabase (`docs/SUPABASE.md`)
+- Panduan koneksi Supabase (`docs/SUPABASE.md`) — default **tanpa Docker** + Session pooler
 - Panduan instalasi VPS Nginx/PM2/TLS (`docs/VPS.md`)
+- Quick start README / DEPLOYMENT mengutamakan Supabase `.env`
 
 ### Planned
 - Survey dedicated UI page

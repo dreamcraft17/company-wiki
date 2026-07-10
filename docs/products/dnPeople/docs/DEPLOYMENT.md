@@ -20,40 +20,48 @@
 
 - Node.js 20+
 - npm
-- Untuk lokal: Docker & Docker Compose (PostgreSQL + Redis), **atau** project Supabase
+- **Database:** project Supabase (disarankan, **tanpa Docker**) — lihat [SUPABASE.md](./SUPABASE.md)  
+  Opsional: Docker Compose hanya jika ingin Postgres lokal
 
-> Setelah pull schema MVP 4, selalu jalankan `npx prisma db push` (atau migrate) sebelum seed/dev.
+> Setelah pull schema, jalankan `npx prisma db push` sebelum seed/dev.
 
-## Local Development
+## Local Development (tanpa Docker — default)
 
 ```bash
-# 1. Infra (Postgres lokal) — skip jika pakai Supabase
-cd dnpeople
-docker compose up -d
-
-# 2. Backend
-cd backend
+# 1. Backend → isi DATABASE_URL Supabase Session pooler di .env
+cd dnpeople/backend
 cp .env.example .env
-# DATABASE_URL lokal :5433  ATAU  string Supabase (lihat SUPABASE.md)
+# Edit .env: ganti YOUR_PASSWORD (lihat docs/SUPABASE.md)
 npm install
 npx prisma generate
 npx prisma db push
 npm run db:seed
 npm run dev          # http://localhost:4100
 
-# 3. Frontend
+# 2. Frontend
 cd ../frontend
 cp .env.example .env.local
 npm install
 npm run dev          # http://localhost:3001
 ```
 
+Tidak perlu `docker compose up`. Redis di compose belum dipakai.
+
+### Opsional: Postgres lokal via Docker
+
+```bash
+cd dnpeople
+docker compose up -d
+# lalu di backend/.env:
+# DATABASE_URL="postgresql://dnpeople:dnpeople@localhost:5433/dnpeople?schema=public"
+```
+
 ### Environment
 
-**Backend `.env`**
+**Backend `.env` (Supabase — tanpa Docker)**
 
 ```env
-DATABASE_URL="postgresql://dnpeople:dnpeople@localhost:5433/dnpeople?schema=public"
+DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require&schema=public"
 JWT_SECRET="change-me-in-production"
 JWT_EXPIRES_IN="24h"
 PORT=4100
@@ -61,13 +69,7 @@ FRONTEND_URL="http://localhost:3001"
 TRUST_PROXY=false
 ```
 
-Supabase (contoh):
-
-```env
-DATABASE_URL="postgresql://postgres:PASSWORD@db.REF.supabase.co:5432/postgres?sslmode=require&schema=public"
-FRONTEND_URL="https://app.yourdomain.com"
-TRUST_PROXY=1
-```
+Detail field host/user: [SUPABASE.md](./SUPABASE.md).
 
 **Frontend `.env.local`**
 
@@ -80,7 +82,6 @@ Production:
 ```env
 NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
 ```
-
 ### Demo accounts (setelah seed)
 
 | Role | Email | Password |

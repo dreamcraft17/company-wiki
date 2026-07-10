@@ -3,68 +3,136 @@
 **Last Updated:** July 10, 2026  
 **Stack:** Prisma + PostgreSQL (Supabase managed)
 
-dnPeople memakai PostgreSQL biasa lewat `DATABASE_URL`. Supabase cocok sebagai DB production/staging tanpa menjalankan Postgres di VPS.
+> **Default lokal (tanpa Docker):** pakai Supabase Session pooler. Tidak perlu `docker compose` / Postgres lokal.
+
+dnPeople hanya butuh `DATABASE_URL` PostgreSQL. Redis di `docker-compose.yml` **belum dipakai** runtime — boleh diabaikan.
 
 ---
 
-## 1. Buat project Supabase
+## Cara konek (tanpa Docker) — ringkas
+
+### 1. Ambil string dari Supabase
+
+Dashboard → **Connect** → pilih **Session pooler** (Shared), **bukan** Direct.
+
+Untuk project dnPeople saat ini:
+
+| Field | Value |
+|-------|-------|
+| Host | `aws-1-ap-northeast-2.pooler.supabase.com` |
+| Port | `5432` |
+| Database | `postgres` |
+| User | `postgres.bikhnyqslizcckusiyrg` |
+
+URI:
+
+```text
+postgresql://postgres.bikhnyqslizcckusiyrg:[YOUR-PASSWORD]@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres
+```
+
+### 2. Isi `backend/.env`
+
+```bash
+cd dnpeople/backend
+cp .env.example .env
+# edit .env — ganti YOUR_PASSWORD
+```
+
+Isi minimal:
+
+```env
+DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require&schema=public"
+JWT_SECRET="ganti-secret-lokal-minimal-32-char"
+JWT_EXPIRES_IN="24h"
+PORT=4100
+FRONTEND_URL="http://localhost:3001"
+TRUST_PROXY=false
+```
+
+Catatan `.env`:
+
+- Tambahkan `?sslmode=require&schema=public` (Supabase wajib SSL)
+- Password dengan `@` `#` dll. → percent-encode (`@` → `%40`)
+- File `.env` **jangan di-commit** (sudah di `.gitignore`)
+- `.env.example` hanya placeholder `YOUR_PASSWORD`
+
+### 3. Sync schema + seed + jalanin API
+
+```bash
+cd dnpeople/backend
+npm install
+npx prisma generate
+npx prisma db push
+npm run db:seed          # opsional — demo admin/budi
+npm run dev              # http://localhost:4100
+```
+
+### 4. Frontend
+
+```bash
+cd dnpeople/frontend
+cp .env.example .env.local
+# NEXT_PUBLIC_API_URL=http://localhost:4100/api/v1
+npm install
+npm run dev              # http://localhost:3001
+```
+
+Login demo (setelah seed): `admin@dnpeople.id` / `Admin123!`
+
+---
+
+## Kenapa Session pooler, bukan Direct?
+
+| Mode | Host | Catatan |
+|------|------|---------|
+| **Session pooler (pakai ini)** | `aws-1-ap-northeast-2.pooler.supabase.com:5432` | IPv4, cocok laptop/VPS tanpa Docker |
+| Direct | `db.bikhnyqslizcckusiyrg.supabase.co:5432` | Sering **IPv6-only** → error `P1001` |
+
+User pooler = `postgres.<project-ref>` (bukan `postgres` saja).
+
+---
+
+## 1. Buat project Supabase (project baru)
 
 1. Buka [https://supabase.com](https://supabase.com) → **New project**
-2. Pilih org, nama project (mis. `dnpeople-prod`), region terdekat (Singapore / Jakarta jika tersedia)
-3. Set **Database password** kuat — simpan di password manager
-4. Tunggu project siap (~1–2 menit)
+2. Set **Database password** — simpan di password manager
+3. **Connect** → **Session pooler** → copy URI ke `DATABASE_URL`
+4. Jangan menebak region host (`aws-0-…` vs `aws-1-…`) — selalu copy dari dashboard
+
+### Project dnPeople (sudah ada)
+
+```env
+DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require&schema=public"
+```
+
+Direct (hanya jika jaringan Anda support IPv6):
+
+```env
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@db.bikhnyqslizcckusiyrg.supabase.co:5432/postgres?sslmode=require&schema=public"
+```
+
+### Agent Skills (opsional)
+
+```bash
+cd dnpeople
+npx skills add supabase/agent-skills
+```
+
+Terpasang di: `.agents/skills/supabase` dan `.agents/skills/supabase-postgres-best-practices`.
 
 ---
 
-## 2. Ambil connection string
+## 2. Mode connection (referensi)
 
-Di dashboard Supabase:
+| Mode | Kapan | Host tipikal |
+|------|-------|--------------|
+| **Session pooler** | Dev lokal tanpa Docker, VPS IPv4, `db push` / seed | `aws-1-<region>.pooler.supabase.com:5432` |
+| **Transaction pooler** | Serverless / banyak koneksi singkat | pooler `:6543` + `pgbouncer=true` |
+| **Direct** | Mesin dengan IPv6 / IPv4 add-on Supabase | `db.<ref>.supabase.co:5432` |
 
-**Project Settings → Database → Connection string**
+### Pola dual-URL (opsional)
 
-Pilih mode yang sesuai:
-
-| Mode | Kapan dipakai | Port / host tipikal |
-|------|---------------|---------------------|
-| **URI (Direct)** | Migrasi Prisma, `db push`, seed, admin tools | `db.<ref>.supabase.co:5432` |
-| **Transaction pooler (Supavisor)** | App runtime (API Express) di serverless / banyak koneksi | `aws-0-<region>.pooler.supabase.com:6543` |
-| **Session pooler** | Alternatif jika IPv6/direct bermasalah dari VPS | pooler `:5432` |
-
-### Format Direct (disarankan untuk Prisma migrate / push)
-
-```env
-DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@db.YOUR_PROJECT_REF.supabase.co:5432/postgres?sslmode=require&schema=public"
-```
-
-### Format Pooler (disarankan untuk runtime API di production)
-
-```env
-DATABASE_URL="postgresql://postgres.YOUR_PROJECT_REF:YOUR_PASSWORD@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true&sslmode=require&schema=public"
-```
-
-> Ganti `YOUR_PASSWORD` (URL-encode karakter khusus: `@` → `%40`, `#` → `%23`, dll.).  
-> Region host pooler mengikuti project Anda — copy dari dashboard, jangan menebak.
-
-### Pola dual-URL (opsional, best practice)
-
-Prisma mendukung `directUrl` untuk migrate saat `url` memakai pooler. Jika ingin pola ini, ubah `schema.prisma`:
-
-```prisma
-datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")       // pooler (runtime)
-  directUrl = env("DIRECT_URL")         // direct :5432 (migrate)
-}
-```
-
-Lalu di `.env`:
-
-```env
-DATABASE_URL="postgresql://postgres.REF:PASS@...pooler.supabase.com:6543/postgres?pgbouncer=true&sslmode=require&schema=public"
-DIRECT_URL="postgresql://postgres:PASS@db.REF.supabase.co:5432/postgres?sslmode=require&schema=public"
-```
-
-Schema repo saat ini hanya memakai `url = env("DATABASE_URL")`. Untuk mulai cepat, pakai **Direct URL** saja di `DATABASE_URL` sampai traffic tinggi.
+Jika runtime pakai transaction pooler, Prisma bisa pakai `directUrl` untuk migrate. Schema repo saat ini hanya `url = env("DATABASE_URL")` — Session pooler saja sudah cukup.
 
 ---
 
@@ -72,100 +140,49 @@ Schema repo saat ini hanya memakai `url = env("DATABASE_URL")`. Untuk mulai cepa
 
 **Project Settings → Database → Network Restrictions**
 
-- Dev lokal: izinkan IP Anda, atau sementara **Allow all** (0.0.0.0/0) hanya untuk setup
-- Production: allowlist IP VPS saja
-- Pastikan **SSL** aktif (`sslmode=require`)
+- Dev: izinkan IP Anda, atau sementara allow all saat setup
+- Production: allowlist IP VPS
+- SSL wajib (`sslmode=require`)
 
 ---
 
-## 4. Hubungkan dari mesin lokal / CI
+## 4. Migrasi schema
 
 ```bash
-cd dnpeople/backend
-cp .env.example .env
-# Edit DATABASE_URL → string Supabase (direct + sslmode=require)
-# Edit JWT_SECRET → secret production
-
-npm install
-npx prisma generate
-npx prisma db push
-# Opsional demo data (jangan di production customer):
-# npm run db:seed
+npx prisma db push          # cepat (dev / first deploy)
+# nanti production:
+# npx prisma migrate deploy
 ```
 
-Cek koneksi:
-
-```bash
-npx prisma db pull --print
-# atau
-node -e "const {PrismaClient}=require('@prisma/client'); const p=new PrismaClient(); p.\$queryRaw\`select 1\`.then(console.log).finally(()=>p.\$disconnect())"
-```
+Jangan `db:seed` di production customer kecuali bootstrap sengaja.
 
 ---
 
-## 5. Backend `.env` contoh (Supabase)
+## 5. Troubleshooting
 
-```env
-DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@db.YOUR_REF.supabase.co:5432/postgres?sslmode=require&schema=public"
-JWT_SECRET="ganti-dengan-random-32-chars-minimum"
-JWT_EXPIRES_IN="24h"
-PORT=4100
-FRONTEND_URL="https://app.yourdomain.com"
-TRUST_PROXY=1
-```
-
-Frontend tidak perlu kredensial Supabase — hanya memanggil API:
-
-```env
-NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
-```
+| Gejala | Perbaikan |
+|--------|-----------|
+| `P1001 Can't reach database` | Pakai **Session pooler**, bukan Direct; cek password & region host dari dashboard |
+| `tenant/user … not found` | User harus `postgres.<project-ref>`; host harus region yang benar (`aws-1-ap-northeast-2` untuk project ini) |
+| `P1011` / SSL error | Tambah `?sslmode=require` |
+| Password gagal parse | Percent-encode karakter khusus |
+| Masih pakai Docker? | Opsional saja — `docker compose up -d` lalu `DATABASE_URL` ke `localhost:5433`. **Tidak wajib.** |
 
 ---
 
-## 6. Migrasi schema
+## 6. Keamanan
 
-**Dev / first deploy:**
-
-```bash
-npx prisma db push
-```
-
-**Production yang lebih aman (setelah migrate history ada):**
-
-```bash
-npx prisma migrate deploy
-```
-
-Jangan jalankan `db:seed` di production kecuali bootstrap admin yang disengaja.
-
----
-
-## 7. Troubleshooting
-
-| Gejala | Penyebab umum | Perbaikan |
-|--------|---------------|-----------|
-| `P1001 Can't reach database` | IP diblokir / password salah / salah host | Cek Network Restrictions, password, copy ulang URI |
-| `P1011 TLS` / SSL error | `sslmode` hilang | Tambah `?sslmode=require` |
-| `prepared statement already exists` | Pooler transaction + Prisma tanpa `pgbouncer=true` | Pakai direct untuk migrate, atau `?pgbouncer=true` di pooler URL |
-| Timeout dari VPS | IPv6-only / firewall | Coba **Session mode** pooler, atau enable IPv4 add-on Supabase |
-| Password dengan `@` gagal parse | Karakter khusus di URL | URL-encode password |
-
----
-
-## 8. Keamanan
-
-- Jangan commit `.env` / connection string
-- Rotate DB password jika bocor
-- Pakai role terbatas jika memungkinkan (bukan hanya `postgres` superuser jangka panjang)
-- Backup: aktifkan Point-in-Time Recovery di Supabase plan yang mendukung
+- Jangan commit `.env` / password
+- Rotate password jika pernah ter-expose di chat/commit
+- Backup: aktifkan PITR di plan Supabase yang mendukung
 - Supabase Auth / Storage **tidak** dipakai dnPeople MVP — hanya Postgres
 
 ---
 
 ## Lihat juga
 
-- [DEPLOYMENT.md](./DEPLOYMENT.md) — overview deploy
-- [VPS.md](./VPS.md) — instal API + frontend di VPS (DB tetap bisa Supabase)
+- [DEPLOYMENT.md](./DEPLOYMENT.md) — overview (tanpa Docker = Supabase)
+- [VPS.md](./VPS.md) — install API/frontend di VPS
 - [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ---
