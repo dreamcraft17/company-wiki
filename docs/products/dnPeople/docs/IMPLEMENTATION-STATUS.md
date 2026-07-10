@@ -90,7 +90,7 @@ Frontend: `/org` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/docum
 
 | Fitur | Status | Catatan |
 |-------|--------|---------|
-| Recruitment & ATS | Done | Jobs, candidates, pipeline, status workflow, AI screen (MVP 4) |
+| Recruitment & ATS | Done | Jobs, candidates, pipeline, interview/offer UI, AI screen |
 | Public careers portal | Done | `/careers` — kandidat apply tanpa login |
 | Onboarding | Done | Plan + checklist default + complete task |
 | Performance / KPI | Done | Cycles, generate reviews, self/manager score, KPI/OKR |
