@@ -1,9 +1,11 @@
 # dnPeople HRIS - Software Design Document (SDD)
 
 **Version:** 3.0  
-**Last Updated:** July 2026  
-**Status:** Active Development  
+**Last Updated:** July 10, 2026  
+**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
 **Architects:** DN Tech Engineering Team
+
+> **Implementation architecture:** [../docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) · Status: [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · Index: [../00_INDEX.md](../00_INDEX.md)
 
 ---
 

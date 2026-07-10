@@ -1,7 +1,7 @@
 # Product Portfolio
 
-**Document Version**: 1.0  
-**Last Updated**: July 9, 2026  
+**Document Version**: 1.1  
+**Last Updated**: July 10, 2026  
 **Status**: Published  
 **Owner**: Dozer
 
@@ -13,7 +13,8 @@
 - [Product Map](#product-map)
 - [Company Profile Website](#company-profile-website)
 - [Careers Module](#careers-module)
-- [Future Products](#future-products)
+- [dnPeople HRIS](#dnpeople-hris)
+- [Future Products / In Development](#future-products--in-development)
 - [Product Lifecycle](#product-lifecycle)
 
 ---
@@ -46,10 +47,14 @@ DN Tech Products
 │   ├── Application form
 │   └── Admin career management
 │
+├── 👥 dnPeople HRIS                          → docs/products/dnPeople/
+│   ├── Employee DB, org, attendance, leave
+│   ├── Payroll Indonesia (BPJS + PPh 21)
+│   └── Repo: dnpeople (Express + Next.js)
+│
 ├── 🏢 DN People ERP                          → docs/products/dnpeople-erp/
-│   ├── HR & Payroll
-│   ├── Finance & Accounting (Indonesia)
-│   └── Project Management
+│   ├── Full ERP (HR + Finance + Inventory…)
+│   └── Repo: ERP (NestJS) — produk terpisah
 │
 ├── 📍 Nearwork                               → docs/products/nearwork/
 │   ├── Location-based platform
@@ -178,7 +183,44 @@ DN Tech Products
 
 ---
 
-## Future Products
+## dnPeople HRIS
+
+### Ringkasan
+
+| Aspek | Detail |
+|-------|--------|
+| Nama | dnPeople HRIS |
+| Status | **MVP 1 core implemented** (scaffold) |
+| Target | Startup & UMKM Indonesia (30–200 karyawan) |
+| Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL |
+| Repository | `dnpeople` |
+| Docs | [12 files →](./products/dnPeople/00_INDEX.md) |
+
+### Fitur MVP 1
+
+- Employee database + struktur organisasi
+- Absensi clock in/out
+- Cuti & izin + workflow approval
+- Payroll lokal (BPJS Kesehatan/TK + PPh 21)
+- Dashboard HR (admin) & self-service (employee)
+- RBAC 5 role + audit trail
+
+### Dokumentasi
+
+| Dokumen | File |
+|---------|------|
+| Index | [dnPeople/00_INDEX.md](./products/dnPeople/00_INDEX.md) |
+| PRD | [dnpeople-prd.md](./products/dnPeople/PRD/dnpeople-prd.md) |
+| SRS | [dnpeople-srs.md](./products/dnPeople/PRD/dnpeople-srs.md) |
+| SDD | [dnpeople-sdd.md](./products/dnPeople/PRD/dnpeople-sdd.md) |
+| Implementation Status | [IMPLEMENTATION-STATUS.md](./products/dnPeople/docs/IMPLEMENTATION-STATUS.md) |
+| API | [API.md](./products/dnPeople/docs/API.md) |
+
+> **Catatan:** Berbeda dari DN People ERP di bawah — produk & repo terpisah.
+
+---
+
+## Future Products / In Development
 
 ### DN People ERP
 
@@ -266,7 +308,8 @@ DN Tech Products
 
 ## 📄 Related Documents
 
-- [Product Docs Index](./products/README.md) — All ~142 source documents
+- [Product Docs Index](./products/README.md) — All ~151 source documents
+- [dnPeople HRIS Index](./products/dnPeople/00_INDEX.md)
 - [Company Overview](./02_COMPANY_OVERVIEW.md)
 - [Tech Stack](./05_TECH_STACK.md)
 - [Architecture](./06_ARCHITECTURE.md)
@@ -275,4 +318,4 @@ DN Tech Products
 
 ---
 
-*Last Updated: July 9, 2026*
+*Last Updated: July 10, 2026*

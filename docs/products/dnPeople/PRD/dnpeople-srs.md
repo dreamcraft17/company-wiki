@@ -1,9 +1,11 @@
 # dnPeople HRIS - Software Requirements Specification (SRS)
 
 **Version:** 3.0  
-**Last Updated:** July 2026  
-**Status:** Active Development  
+**Last Updated:** July 10, 2026  
+**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
 **Prepared by:** DN Tech Engineering
+
+> **Implementation:** [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · API live: [../docs/API.md](../docs/API.md) · Index: [../00_INDEX.md](../00_INDEX.md)
 
 ---
 

@@ -1,9 +1,11 @@
 # dnPeople HRIS - Product Requirements Document (PRD)
 
 **Version:** 3.0  
-**Last Updated:** July 2026  
-**Status:** Active Development  
+**Last Updated:** July 10, 2026  
+**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
 **Product Owner:** Dozer (DN Tech CEO)
+
+> **Implementation:** Lihat [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · [../00_INDEX.md](../00_INDEX.md) · kode di folder `dnpeople/`
 
 ---
 
@@ -13,7 +15,8 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 
 **Target Launch:** Q3 2026  
 **MVP Scope:** Employee Database, Attendance, Leave, Payroll, Payslip, Reports  
-**Full Product:** 30 modul + AI HR Assistant
+**Full Product:** 30 modul + AI HR Assistant  
+**Repo:** `dnpeople` (Express + Next.js) — **bukan** sama dengan `ERP/` (DN People ERP NestJS)
 
 ---
 

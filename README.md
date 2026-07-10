@@ -19,8 +19,9 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Product Docs Index](./docs/products/README.md) — **~142 source docs**
+- [Product Docs Index](./docs/products/README.md) — **~151 source docs**
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (37 files)
+  - [dnPeople HRIS](./docs/products/dnPeople/00_INDEX.md) (12 files) — MVP 1
   - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (32 files)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
@@ -54,9 +55,10 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (~140 files)
+│   └── products/          # Source docs per produk (~151 files)
 │       ├── dntech/
-│       ├── dnpeople-erp/
+│       ├── dnPeople/      # HRIS (repo dnpeople)
+│       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
 │       ├── nearwork/
 │       ├── threads-automation/
 │       ├── tj/
@@ -79,4 +81,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 10, 2026*

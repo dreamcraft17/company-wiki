@@ -1,7 +1,7 @@
 # DN Tech Company Wiki — Index
 
-**Document Version**: 1.0  
-**Last Updated**: July 9, 2026  
+**Document Version**: 1.1  
+**Last Updated**: July 10, 2026  
 **Status**: Published  
 **Owner**: Dozer
 
@@ -88,6 +88,7 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 | Product | Index | Files | Status |
 |---------|-------|-------|--------|
 | DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 37 | Production (v5) |
+| dnPeople HRIS | [dnPeople/](./products/dnPeople/00_INDEX.md) | 12 | MVP 1 core implemented |
 | DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development (V3 ~85%) |
 | Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 32 | In Development |
 | Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |
@@ -116,4 +117,4 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 
 ---
 
-*Last Updated: July 9, 2026*
+*Last Updated: July 10, 2026*
