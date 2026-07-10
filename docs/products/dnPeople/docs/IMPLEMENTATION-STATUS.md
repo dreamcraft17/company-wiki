@@ -40,6 +40,12 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Fitur | Status |
 |-------|--------|
 | Shift + assignment | Done |
+| Shift swap + rotation + pay differential | Done | Swap request, `/assignments/rotate`, `payMultiplier` |
+| WiFi check-in | Done | `allowedWifiSsids` on work location |
+| Bulk attendance corrections | Done | `POST /corrections/bulk`, `/bulk-approve` |
+| Contract email reminders | Done | Scheduler + manual trigger |
+| Payroll on calendar | Done | Scheduled day + payroll runs |
+| Polling (surveys) | Done | `kind: poll` + choice questions |
 | Overtime (+ payroll) | Done |
 | Claims / reimbursement | Done |
 | Loans (kasbon) | Done |
@@ -54,7 +60,22 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Payslip PDF | Done | `GET /payroll/:id/payslip.pdf` |
 | Email notifications | Done | SMTP atau console log |
 
-Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports`
+Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`
+
+### Verifikasi MVP 2 (10 Juli 2026)
+
+| Fitur gap audit | API | UI | Verdict |
+|-----------------|-----|-----|---------|
+| Shift swap | `/shifts/swap-requests` | `/shifts` | ✅ Full |
+| Shift rotation | `/shifts/assignments/rotate` | `/shifts` | ✅ Full |
+| Pay differential | `payMultiplier` on shift | `/shifts` | ✅ Full |
+| WiFi check-in | `WIFI` + `wifiSsid` | `/attendance` | ✅ Full |
+| Bulk corrections | `/corrections/bulk` | `/corrections` | ✅ Full |
+| Contract reminders | `/documents/contracts/send-reminders` | `/documents` | ✅ Full |
+| Payroll calendar | `/calendar` payroll events | `/calendar` | ✅ Full |
+| Quick polling | `kind: poll` | `/surveys` | ✅ Full |
+
+**Kesimpulan MVP 2:** **Done (full)** — semua gap audit tertutup dengan API + UI.
 
 ---
 
