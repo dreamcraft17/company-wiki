@@ -14,7 +14,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 12 files | MVP 1 + MVP 2 core implemented | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 12 files | MVP 1–4 core implemented | `dnpeople` |
 | **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development (V3 ~85%) | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
@@ -29,7 +29,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnPeople HRIS** | — | Repo `dnpeople/` MVP 1 + docs sync (API, arch, deploy, status) |
+| **dnPeople HRIS** | — | MVP 1–4 core (`dnpeople` 0.4.0) + docs/PRD status sync |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN People ERP** | `9bf15e2` | V3 implementation status matrix — 392 tests, 27 modules, Enterprise hub |

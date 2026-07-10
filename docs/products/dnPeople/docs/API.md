@@ -1,8 +1,10 @@
-# dnPeople — API Reference (MVP 1)
+# dnPeople — API Reference
 
 **Base URL (dev):** `http://localhost:4100/api/v1`  
-**Auth:** `Authorization: Bearer <access_token>`  
+**Auth:** `Authorization: Bearer <access_token>` **atau** `Bearer dnp_<api_key>`  
 **Response shape:** `{ success, data, pagination?, error?, timestamp }`
+
+> Detail tabel di bawah = **MVP 1 core**. Ringkasan endpoint **MVP 2–3** dan **MVP 4** ada di bagian akhir dokumen.
 
 ---
 
@@ -153,6 +155,67 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 | Method | Path | Deskripsi |
 |--------|------|-----------|
 | GET | `/health` | `{ status, service, timestamp }` (di root, bukan `/api/v1`) |
+
+---
+
+## MVP 2–3 (ringkas)
+
+| Prefix | Modul |
+|--------|-------|
+| `/shifts` | Shift & assignment |
+| `/overtime` | Lembur + approve |
+| `/corrections` | Koreksi absensi |
+| `/claims` | Klaim/reimbursement |
+| `/loans` | Pinjaman/kasbon |
+| `/documents` | Dokumen perusahaan |
+| `/announcements` | Pengumuman |
+| `/surveys` | Survey API |
+| `/calendar` | Kalender & holidays |
+| `/approvals` | Inbox + approval rules |
+| `/recruitment` | Jobs, candidates, applications |
+| `/onboarding` | Onboarding plans |
+| `/performance` | Cycles, reviews, KPIs |
+| `/training` | Programs + career paths |
+| `/assets` | Asset assign/return |
+| `/offboarding` | Resign workflow |
+| `/helpdesk` | Tickets |
+| `/policies` | Kebijakan + disciplinary |
+| `/assistant/ask` | AI HR assistant (rule-based) |
+| `/reports/analytics` | Advanced analytics |
+
+## MVP 4 Enterprise
+
+| Method | Path | Permission | Deskripsi |
+|--------|------|------------|-----------|
+| GET/POST | `/platform/companies` | SUPER_ADMIN | List / create tenant |
+| GET | `/platform/org-tree` | SUPER_ADMIN | Companies + parent/child links |
+| POST/DELETE | `/platform/org-links` | SUPER_ADMIN | Link subsidiaries |
+| GET/POST/DELETE | `/integrations/api-keys` | integrations:* | API keys (`dnp_…`, plain once) |
+| GET/POST/PATCH | `/integrations` | integrations:* | Webhook/Slack/etc |
+| POST | `/integrations/:id/test` | integrations:* | Test webhook delivery |
+| GET/POST/PATCH | `/workflows` | workflows:* | Custom approval workflows |
+| POST | `/workflows/:id/activate` | workflows:* | One active per module |
+| GET | `/workflows/resolve/:module` | workflows:view | Resolve steps (workflow or rules) |
+| GET/PUT | `/branding` | settings:* | White-label branding |
+| GET | `/branding/public/:companyId` | — | Public branding for login |
+| GET/PUT | `/sso` | settings:* | SSO IdP config |
+| POST | `/sso/initiate` | settings:view | Handshake stub |
+| GET/POST | `/custom-reports` | reports:* | Report builder |
+| GET | `/custom-reports/sources` | reports:view | Available data sources |
+| POST | `/custom-reports/:id/run` | reports:view | Execute report |
+| GET/POST/PATCH/DELETE | `/security/access-rules` | settings:* | Row-level RBAC |
+| GET | `/security/effective-scope/:resource` | settings:view | Effective scope for caller |
+| POST | `/ai/documents/generate` | documents:* | AI HR letter templates |
+| POST | `/ai/recruitment/screen` | recruitment:* | Screen one application |
+| POST | `/ai/recruitment/screen-batch` | recruitment:* | Screen all APPLIED/SCREENING |
+
+### API key usage
+
+```http
+Authorization: Bearer dnp_<secret>
+```
+
+Key dibuat via `POST /integrations/api-keys` (plain text hanya sekali). Prefix disimpan; hash bcrypt di DB.
 
 ---
 

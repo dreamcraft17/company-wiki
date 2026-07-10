@@ -1,94 +1,125 @@
 # dnPeople — Implementation Status
 
 > Terakhir diperbarui: **10 Juli 2026**  
-> Referensi: PRD/SRS/SDD v3.0 di `company-wiki/docs/products/dnPeople/PRD/`
+> Referensi: PRD/SRS/SDD **v3.1** · Repo version **0.4.0**
 
 ## Ringkasan
 
 | MVP | Target | Status |
 |-----|--------|--------|
-| MVP 1 (Q3 2026) | Employee DB, org, attendance, leave, payroll, dashboard, RBAC, audit | **Done** |
-| MVP 2 (Q4 2026) | Shift, OT, claim, loan, advanced attendance, docs, announcements, calendar, approvals, reports | **Done (core)** |
-| MVP 3 | Recruitment, onboarding, performance, training | Not started |
-| MVP 4 | Analytics, integrations, mobile, multi-company | Not started |
+| MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** |
+| MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
+| MVP 3 | Strategic HR (recruitment, performance, training…) | **Done (core)** |
+| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done (core)** |
 
-**Typecheck:** Backend ✅ · Frontend ✅ (Juli 10, 2026)
+**Typecheck:** Backend ✅ · Frontend ✅
 
 ---
 
-## MVP 1 — Modul
+## MVP 1 — Core HR
 
-| Area | Status |
-|------|--------|
-| Auth JWT + RBAC + lockout | Done |
-| Employee CRUD + tax info | Done |
-| Org (dept/position/level/location) | Done |
+| Fitur | Status |
+|-------|--------|
+| Auth JWT + RBAC 5 roles | Done |
+| Company register / profile | Done |
+| Org (dept, position, level, location) | Done |
+| Employee master + tax info | Done |
 | Attendance clock in/out | Done |
-| Leave + permissions | Done |
+| Leave types, balance, approve | Done |
+| Permissions (WFH/izin) | Done |
 | Payroll BPJS + PPh 21 | Done |
-| Dashboard + basic reports + audit | Done |
+| Dashboard + basic reports | Done |
+| Audit trail | Done |
+
+Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payroll`
 
 ---
 
-## MVP 2 — Modul
+## MVP 2 — Extended Ops
+
+| Fitur | Status |
+|-------|--------|
+| Shift + assignment | Done |
+| Overtime (+ payroll) | Done |
+| Claims / reimbursement | Done |
+| Loans (kasbon) | Done |
+| Geofence attendance | Done |
+| Attendance corrections | Done |
+| Documents + announcements | Done |
+| Surveys API | Done (UI dedicated still polish) |
+| Calendar / holidays | Done |
+| Approval inbox + rules | Done |
+| Advanced reports | Done |
+
+Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports`
+
+---
+
+## MVP 3 — Strategic HR
 
 | Fitur | Status | Catatan |
 |-------|--------|---------|
-| Shift management + assignment | Done | API + UI admin |
-| Overtime request & approval | Done | Multiplier weekday/weekend/holiday; masuk payroll |
-| Reimbursement / claim | Done | Approve → include payroll → PAID |
-| Employee loan (kasbon) | Done | Cicilan auto-deduct saat finalize payroll |
-| Advanced attendance (GPS/geofence) | Done | Validasi radius work location; method GPS/QR/SELFIE |
-| Attendance correction workflow | Done | Approve menulis ulang attendance record |
-| Document management | Done | Company docs + contract expiry reminder |
-| Internal announcements | Done | Pin + priority |
-| Employee engagement (survey) | Done | API create/publish/respond/results (UI minimal via API) |
-| Advanced reports | Done | Turnover, overtime by dept, leave usage |
-| Calendar HR | Done | Holidays, leave, shifts, birthdays, contracts |
-| Approval workflow inbox | Done | Unified inbox + approval rules CRUD |
-| National holiday calendar | Done | `/calendar/holidays` |
+| Recruitment & ATS | Done | Jobs, candidates, pipeline |
+| Onboarding | Done | Checklist default |
+| Performance / KPI | Done | Cycles, reviews, OKR |
+| Training & career | Done | Enroll + paths |
+| Assets | Done | Assign / return |
+| Offboarding | Done | Resign → return assets |
+| Policies / disciplinary | Done | |
+| Helpdesk | Done | Tickets |
+| AI HR Assistant | Done | Rule-based |
+| Advanced analytics | Done | `/reports/analytics` |
 
-### Partial / next polish
-
-| Item | Catatan |
-|------|---------|
-| Survey UI page | API ready; frontend page belum dedicated |
-| File upload binary | URL-based (bukan multipart S3) |
-| QR/selfie capture UI | Field API siap; kamera/QR scanner belum |
-| Email notifications | Belum |
-| Export Excel/PDF | Belum |
+Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/offboarding` `/helpdesk` `/policies` `/assistant`
 
 ---
 
-## API surface (MVP 2 baru)
+## MVP 4 — Enterprise
+
+| Fitur | Status | Catatan |
+|-------|--------|---------|
+| Multi-company support | Done | `/platform` SUPER_ADMIN + org links |
+| Custom Workflows | Done | Multi-step + activate per module |
+| Advanced Approval Rules | Done | Amount-based + workflow resolve |
+| API & Integrations | Done | API keys `dnp_…` + webhooks + test |
+| SSO (SAML/OAuth) | Partial | Config + initiate stub |
+| Custom Reports Builder | Done | Save + run |
+| AI Document Generator | Done | Offer, SP, SK, resign |
+| AI Recruitment Screening | Done | Single + batch |
+| Advanced Security (row RBAC) | Done | Rules + effective-scope |
+| White-label | Done | Branding + public endpoint |
+
+### Frontend routes MVP 4
+
+`/platform` `/integrations` `/workflows` `/branding` `/sso` `/security` `/custom-reports` `/ai-docs`  
+(+ AI Screen di `/recruitment`)
+
+### API surface MVP 4
 
 ```
-/shifts, /shifts/assignments
-/overtime
-/corrections
-/claims
-/loans
-/documents/company|employee|contracts/expiring
-/announcements
-/surveys
-/calendar, /calendar/holidays
-/approvals/inbox, /approvals/rules
-/reports/turnover|overtime|leave-usage
+/platform/companies|org-tree|org-links
+/integrations (+ /api-keys, /:id/test)
+/workflows (+ /:id/activate, /resolve/:module)
+/branding (+ /public/:companyId)
+/sso (+ /initiate)
+/custom-reports (+ /sources, /:id/run)
+/security/access-rules (+ /effective-scope/:resource)
+/ai/documents/generate
+/ai/recruitment/screen|screen-batch
 ```
 
-## Frontend routes (MVP 2)
-
-`/approvals` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/reports`
+Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
 
 ---
 
-## Cara verifikasi
+## Partial / polish (lintas MVP)
 
-```bash
-cd dnpeople && docker compose up -d
-cd backend && npx prisma db push && npm run db:seed && npm run dev
-cd frontend && npm run dev
-```
+- Full OAuth/SAML handshake + JIT provisioning
+- Enforce row-level filters on all list queries
+- Survey dedicated UI, binary file upload (S3/MinIO)
+- Payslip PDF + email notifications
+- LLM-powered assistant + public careers portal
+- Unit / integration tests + CI/CD
 
 ---
 

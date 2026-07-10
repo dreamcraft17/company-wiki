@@ -1,11 +1,11 @@
 # dnPeople HRIS - Software Design Document (SDD)
 
-**Version:** 3.0  
+**Version:** 3.1  
 **Last Updated:** July 10, 2026  
-**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
+**Status:** Active Development — **MVP 1–4 core implemented** in repo `dnpeople`  
 **Architects:** DN Tech Engineering Team
 
-> **Implementation architecture:** [../docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) · Status: [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · Index: [../00_INDEX.md](../00_INDEX.md)
+> **Implementation architecture:** [../docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) · Status: [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · Snapshot: [../current-implementation.md](../current-implementation.md) · Index: [../00_INDEX.md](../00_INDEX.md)
 
 ---
 
@@ -1882,3 +1882,4 @@ VALUES (
 | 1.0 | 2024-06-01 | Initial SDD |
 | 2.0 | 2025-01-15 | Added frontend architecture |
 | 3.0 | 2026-07-09 | Complete redesign for dnPeople |
+| 3.1 | 2026-07-10 | Status sync: MVP 1–4 core; auth = JWT + API keys; multi-tenant platform |

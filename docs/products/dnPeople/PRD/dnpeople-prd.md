@@ -1,11 +1,11 @@
 # dnPeople HRIS - Product Requirements Document (PRD)
 
-**Version:** 3.0  
+**Version:** 3.1  
 **Last Updated:** July 10, 2026  
-**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
+**Status:** Active Development — **MVP 1–4 core implemented** in repo `dnpeople`  
 **Product Owner:** Dozer (DN Tech CEO)
 
-> **Implementation:** Lihat [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · [../00_INDEX.md](../00_INDEX.md) · kode di folder `dnpeople/`
+> **Implementation:** Lihat [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · [../current-implementation.md](../current-implementation.md) · [../00_INDEX.md](../00_INDEX.md) · kode di folder `dnpeople/`
 
 ---
 
@@ -13,8 +13,9 @@
 
 dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yang mengelola lifecycle karyawan dari recruitment hingga offboarding. Dirancang untuk startup, UMKM, dan perusahaan menengah di Indonesia dengan fitur payroll lokal (BPJS, PPh 21, THR) dan workflow approval yang fleksibel.
 
-**Target Launch:** Q3 2026  
-**MVP Scope:** Employee Database, Attendance, Leave, Payroll, Payslip, Reports  
+**Target Launch:** Q3 2026 (MVP 1) — **shipped core through MVP 4 (enterprise)** as of July 2026  
+**MVP Scope (original):** Employee Database, Attendance, Leave, Payroll, Payslip, Reports  
+**Implemented now:** MVP 1–4 core (ops, strategic HR, multi-company, integrations, SSO config, white-label, AI docs/screening)  
 **Full Product:** 30 modul + AI HR Assistant  
 **Repo:** `dnpeople` (Express + Next.js) — **bukan** sama dengan `ERP/` (DN People ERP NestJS)
 
@@ -654,7 +655,9 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 
 ## 8. Release Roadmap
 
-### MVP 1 (Q3 2026) - Core HR Functions
+> **Implementation note (July 10, 2026):** Core modules for MVP 1–4 are implemented in `dnpeople/` (version **0.4.0**). Dates below remain commercial/GTM targets; engineering status = **Done (core)** with polish items listed in [IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md).
+
+### MVP 1 (Q3 2026) - Core HR Functions — **Done**
 **Target:** 50 customers, 5K+ total employees
 
 **Included Modules:**
@@ -671,9 +674,9 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - Audit Trail & Access Control
 - Company Profile Setup
 
-**Release Date:** September 2026
+**Release Date:** September 2026 · **Code status:** Done
 
-### MVP 2 (Q4 2026) - Extended Operations
+### MVP 2 (Q4 2026) - Extended Operations — **Done**
 **Target:** 150 customers, 20K+ total employees
 
 **Added Modules:**
@@ -690,9 +693,9 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - Calendar HR (integrated shifts, payroll, events)
 - Approval Workflow Engine
 
-**Release Date:** December 2026
+**Release Date:** December 2026 · **Code status:** Done
 
-### MVP 3 (Q1-Q2 2027) - Strategic HR
+### MVP 3 (Q1-Q2 2027) - Strategic HR — **Done (core)**
 **Target:** 300 customers, 50K+ total employees
 
 **Added Modules:**
@@ -711,9 +714,9 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - AI HR Assistant (basic)
 - Advanced Analytics
 
-**Release Date:** June 2027
+**Release Date:** June 2027 · **Code status:** Done (core)
 
-### MVP 4 (Q3-Q4 2027) - Enterprise Features
+### MVP 4 (Q3-Q4 2027) - Enterprise Features — **Done (core)**
 **Target:** 500 customers, 100K+ total employees
 
 **Added Modules:**
@@ -728,7 +731,7 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - Advanced Security (RBAC per data row)
 - White-label capability
 
-**Release Date:** December 2027
+**Release Date:** December 2027 · **Code status:** Done (core) — SSO handshake & full row-level enforce still polish
 
 ---
 
@@ -829,3 +832,12 @@ Per-user, per-month SaaS model with module selection
 - **CAC:** Customer Acquisition Cost
 - **LTV:** Lifetime Value
 - **NPS:** Net Promoter Score
+
+---
+
+## Document History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 3.0 | 2026-07-09 | Spec baseline v3 |
+| 3.1 | 2026-07-10 | Status sync: MVP 1–4 core implemented in `dnpeople` 0.4.0 |

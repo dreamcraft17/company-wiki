@@ -1,11 +1,11 @@
 # dnPeople HRIS - Software Requirements Specification (SRS)
 
-**Version:** 3.0  
+**Version:** 3.1  
 **Last Updated:** July 10, 2026  
-**Status:** Active Development — MVP 1 core implemented in repo `dnpeople`  
+**Status:** Active Development — **MVP 1–4 core implemented** in repo `dnpeople`  
 **Prepared by:** DN Tech Engineering
 
-> **Implementation:** [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · API live: [../docs/API.md](../docs/API.md) · Index: [../00_INDEX.md](../00_INDEX.md)
+> **Implementation:** [../docs/IMPLEMENTATION-STATUS.md](../docs/IMPLEMENTATION-STATUS.md) · API live: [../docs/API.md](../docs/API.md) · Snapshot: [../current-implementation.md](../current-implementation.md) · Index: [../00_INDEX.md](../00_INDEX.md)
 
 ---
 
@@ -20,7 +20,8 @@ This document specifies detailed functional and technical requirements for dnPeo
 - Specify data models and validation rules
 
 ### Scope
-- MVP 1 scope (Attendance, Leave, Payroll, Dashboard, Reports)
+- Original SRS depth: MVP 1 (Attendance, Leave, Payroll, Dashboard, Reports)
+- **Implemented in code (July 2026):** MVP 1–4 core — see IMPLEMENTATION-STATUS for gaps (e.g. full SSO handshake, LLM assistant)
 - Technical implementation details
 - Performance requirements
 - Security & compliance requirements
@@ -1547,3 +1548,4 @@ DATADOG_SITE=datadoghq.com
 | 1.0 | 2024-06-01 | Dozer | Initial SRS creation |
 | 2.0 | 2025-01-15 | Dozer | Added MVP 2 features (shift, overtime, reimbursement) |
 | 3.0 | 2026-07-09 | Dozer | Updated for dnPeople v3, added detailed specs |
+| 3.1 | 2026-07-10 | Dozer | Status sync: MVP 1–4 core implemented (`dnpeople` 0.4.0) |

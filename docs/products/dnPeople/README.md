@@ -1,11 +1,11 @@
 # dnPeople
 
-Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — implementasi **MVP 1** berdasarkan PRD, SRS, dan SDD v3.0.
+Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — implementasi **MVP 1–4** berdasarkan PRD, SRS, dan SDD v3.1.
 
 | | |
 |---|---|
-| Status | MVP 1 + MVP 2 core implemented |
-| Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
+| Status | MVP 1–4 core implemented |
+| Spec | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
 | Docs | [docs/](./docs/) |
 | Last Updated | July 10, 2026 |
 
@@ -16,8 +16,8 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | Frontend | Next.js 16, React 19, Tailwind CSS 4 |
 | Backend | Express 5, TypeScript, Prisma |
 | Database | PostgreSQL 16 |
-| Cache | Redis 7 (siap, belum dipakai di MVP 1) |
-| Auth | JWT + RBAC |
+| Cache | Redis 7 (reserved, belum dipakai runtime) |
+| Auth | JWT + API keys + RBAC |
 
 ## Fitur
 
@@ -32,6 +32,21 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 - Dokumen, pengumuman, kalender HR, holiday
 - Approval inbox terpadu
 - Laporan lanjutan (turnover, lembur, cuti)
+
+### MVP 3
+- Rekrutmen ATS, onboarding checklist
+- Performance review + KPI/OKR
+- Training, career path, aset
+- Resign/offboarding, helpdesk, kebijakan & disiplin
+- AI HR assistant (rule-based) + analytics
+
+### MVP 4
+- Multi-company platform + org hierarchy
+- Custom workflows & advanced approval rules
+- API keys, webhooks/integrations
+- SSO config (OAuth/SAML stub), white-label branding
+- Custom reports builder, row-level security
+- AI document generator + AI recruitment screening
 
 ## Quick Start
 
@@ -83,7 +98,7 @@ App: `http://localhost:3001`
 | Deployment | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
-| PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
+| PRD / SRS / SDD | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
 
 ## Catatan Produk
 

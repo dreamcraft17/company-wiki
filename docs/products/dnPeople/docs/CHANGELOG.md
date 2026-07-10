@@ -4,6 +4,41 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [0.4.0] — 2026-07-10
+
+### Added — MVP 4 Enterprise
+
+- Multi-company platform console (`/platform`) + organization links
+- Custom workflows + advanced approval rules resolve
+- API keys (`dnp_…`) with Bearer auth + integrations/webhooks
+- SSO config (OAuth Google/Microsoft, SAML) + initiate stub
+- Custom reports builder (save + run)
+- AI document generator (HR letter templates)
+- AI recruitment screening (single + batch)
+- Row-level data access rules + effective scope
+- White-label company branding (incl. public endpoint)
+- Frontend pages for all MVP 4 modules above
+
+---
+
+## [0.3.0] — 2026-07-10
+
+### Added — MVP 3 Strategic HR
+
+- Recruitment ATS (jobs, candidates, application pipeline)
+- Onboarding plans with default checklist
+- Performance cycles, reviews, KPI/OKR
+- Training programs, enrollments, career paths
+- Asset assign/return
+- Resignation & offboarding (auto return assets)
+- Company policies + disciplinary actions
+- HR helpdesk tickets
+- Rule-based AI HR assistant
+- Advanced analytics report endpoint + UI cards
+- Frontend pages for all MVP 3 modules
+
+---
+
 ## [0.2.0] — 2026-07-10
 
 ### Added — MVP 2 Extended Operations
@@ -47,7 +82,9 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - Binary file upload (S3/MinIO)
 - QR/selfie camera capture UI
 - Payslip PDF + email notifications
-- Recruitment / onboarding / performance (MVP 3)
+- LLM-powered assistant + public careers portal
+- Full SSO IdP handshake + JIT provisioning
+- Enforce row-level filters on all list queries
 - Unit / integration tests + CI/CD
 
 ---

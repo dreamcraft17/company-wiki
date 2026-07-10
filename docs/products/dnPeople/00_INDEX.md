@@ -2,10 +2,10 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople`  
-**Status**: MVP 1 + MVP 2 core implemented  
+**Status**: MVP 1–4 core implemented  
 **Owner**: Dozer  
 **Last Updated**: July 10, 2026  
-**Spec Version**: PRD/SRS/SDD v3.0
+**Spec Version**: PRD/SRS/SDD v3.1
 
 ---
 
@@ -13,9 +13,9 @@
 
 | File | Topik |
 |------|-------|
-| [PRD/dnpeople-prd.md](./PRD/dnpeople-prd.md) | **PRD** — Product Requirements Document v3.0 |
-| [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.0 |
-| [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.0 |
+| [PRD/dnpeople-prd.md](./PRD/dnpeople-prd.md) | **PRD** — Product Requirements Document v3.1 |
+| [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.1 |
+| [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
 
 ## Implementation Docs (synced from repo)
 
@@ -24,7 +24,7 @@
 | [README.md](./README.md) | Project overview & quick start |
 | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Ringkasan produk & struktur |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem |
-| [docs/API.md](./docs/API.md) | Referensi API MVP 1 |
+| [docs/API.md](./docs/API.md) | Referensi API MVP 1–4 |
 | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Local & production setup |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
@@ -34,7 +34,7 @@
 
 ## Ringkas Produk
 
-HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2 (shift, lembur, klaim, pinjaman, geofence, dokumen, kalender, approval inbox).
+HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2–4: ops lanjutan, strategic HR, dan enterprise (multi-company, SSO, integrations, white-label).
 
 | | |
 |---|---|
@@ -60,9 +60,9 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 | MVP | Scope | Status |
 |-----|-------|--------|
 | 1 | Employee, org, attendance, leave, payroll, dashboard, RBAC, audit | **Done** |
-| 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done (core)** |
-| 3 | Recruitment, onboarding, performance, training | Planned |
-| 4 | Analytics, integrations, mobile, multi-company | Planned |
+| 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done** |
+| 3 | Recruitment, onboarding, performance, training, assets, offboarding, helpdesk, AI assistant | **Done (core)** |
+| 4 | Multi-company, SSO, integrations, white-label | **Done (core)** |
 
 ---
 

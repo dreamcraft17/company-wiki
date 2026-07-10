@@ -1,6 +1,7 @@
 # dnPeople — Deployment Guide
 
-**Last Updated:** July 10, 2026
+**Last Updated:** July 10, 2026  
+**Applies to:** MVP 1–4 (schema includes enterprise tables)
 
 ---
 
@@ -9,6 +10,8 @@
 - Node.js 20+
 - Docker & Docker Compose (PostgreSQL + Redis)
 - npm
+
+> Setelah pull schema MVP 4, selalu jalankan `npx prisma db push` (atau migrate) sebelum seed/dev.
 
 ## Local Development
 
@@ -21,6 +24,7 @@ docker compose up -d
 cd backend
 cp .env.example .env
 npm install
+npx prisma generate
 npx prisma db push
 npm run db:seed
 npm run dev          # http://localhost:4100
@@ -70,6 +74,9 @@ NEXT_PUBLIC_API_URL=http://localhost:4100/api/v1
 - [ ] Seed **tidak** dijalankan di production (kecuali bootstrap admin terkontrol)
 - [ ] Rate limit & CORS diverifikasi
 - [ ] Monitoring `/health`
+- [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
+- [ ] SSO secrets tidak di-commit; isi via env/secret manager saat handshake live
+- [ ] White-label: logo URL memakai CDN/HTTPS
 
 ### Contoh PM2
 

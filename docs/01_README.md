@@ -88,7 +88,7 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 | Product | Index | Files | Status |
 |---------|-------|-------|--------|
 | DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 37 | Production (v5) |
-| dnPeople HRIS | [dnPeople/](./products/dnPeople/00_INDEX.md) | 12 | MVP 1 core implemented |
+| dnPeople HRIS | [dnPeople/](./products/dnPeople/00_INDEX.md) | 12 | MVP 1–4 core implemented |
 | DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development (V3 ~85%) |
 | Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 32 | In Development |
 | Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |

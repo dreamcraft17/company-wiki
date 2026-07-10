@@ -190,20 +190,18 @@ DN Tech Products
 | Aspek | Detail |
 |-------|--------|
 | Nama | dnPeople HRIS |
-| Status | **MVP 1 + MVP 2 core implemented** (scaffold) |
+| Status | **MVP 1–4 core implemented** |
 | Target | Startup & UMKM Indonesia (30–200 karyawan) |
 | Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL |
 | Repository | `dnpeople` |
 | Docs | [12 files →](./products/dnPeople/00_INDEX.md) |
 
-### Fitur MVP 1
+### Fitur (MVP 1–4 core)
 
-- Employee database + struktur organisasi
-- Absensi clock in/out
-- Cuti & izin + workflow approval
-- Payroll lokal (BPJS Kesehatan/TK + PPh 21)
-- Dashboard HR (admin) & self-service (employee)
-- RBAC 5 role + audit trail
+- **MVP 1:** Employee DB, org, absensi, cuti/izin, payroll (BPJS + PPh 21), dashboard, RBAC, audit
+- **MVP 2:** Shift, lembur, klaim, pinjaman, geofence, dokumen, kalender, approval inbox
+- **MVP 3:** ATS, onboarding, performance/KPI, training, aset, offboarding, helpdesk, AI assistant
+- **MVP 4:** Multi-company, workflows, API keys/integrations, SSO config, white-label, custom reports, AI docs/screening, row-level security
 
 ### Dokumentasi
 

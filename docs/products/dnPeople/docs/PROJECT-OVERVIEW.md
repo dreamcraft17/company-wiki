@@ -1,7 +1,7 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** MVP 1.0 (scaffold)  
+**Version:** MVP 4.0 (enterprise core)  
 **Status:** Active Development  
 **Repository:** `dnpeople`  
 **Owner:** Dozer  
@@ -11,9 +11,9 @@
 
 ## Apa itu dnPeople?
 
-dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Fokus MVP 1: database karyawan, absensi, cuti/izin, payroll lokal (BPJS + PPh 21), dashboard HR, RBAC, dan audit trail.
+dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), dan enterprise (MVP 4: multi-company, integrations, SSO config, white-label, custom reports, AI docs/screening).
 
-> **Bukan** sama dengan [DN People ERP](../../dnpeople-erp/00_INDEX.md) (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD v3.0 di company-wiki.
+> **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
 
 ## Visi
 
@@ -23,10 +23,10 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
-| MVP 1 | Q3 2026 | Core implemented |
-| MVP 2 | Q4 2026 | Not started |
-| MVP 3 | Q1 2027 | Not started |
-| MVP 4 | Q2 2027 | Not started |
+| MVP 1 | Q3 2026 | **Done** |
+| MVP 2 | Q4 2026 | **Done** |
+| MVP 3 | Q1 2027 | **Done (core)** |
+| MVP 4 | Q2 2027 | **Done (core)** |
 
 ## Stack
 
@@ -37,7 +37,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | ORM | Prisma 6 | — |
 | Database | PostgreSQL 16 | 5433 |
 | Cache | Redis 7 (reserved) | 6380 |
-| Auth | JWT + RBAC (5 roles) | — |
+| Auth | JWT + API keys + RBAC (5 roles) | — |
 
 ## Struktur Repo
 
@@ -47,13 +47,13 @@ dnpeople/
 │   ├── prisma/schema.prisma
 │   ├── prisma/seed.ts
 │   └── src/
-│       ├── routes/          # auth, employees, attendance, leave, …
+│       ├── routes/          # auth … platform, integrations, workflows, ai
 │       ├── services/        # attendance, leave, payroll, audit
-│       ├── lib/payroll.ts   # BPJS + PPh 21
-│       └── middleware/auth.ts
+│       ├── lib/             # payroll, apiKey, screening, documents
+│       └── middleware/auth.ts  # JWT + API key
 ├── frontend/
 │   └── src/
-│       ├── app/(app)/       # dashboard, employees, attendance, leave, …
+│       ├── app/(app)/       # dashboard … platform, integrations, branding
 │       ├── app/login/
 │       ├── components/
 │       └── lib/api.ts
@@ -66,19 +66,19 @@ dnpeople/
 
 | Role | Akses utama |
 |------|-------------|
-| SUPER_ADMIN | Multi-company (planned) |
-| COMPANY_ADMIN | Full company HR + settings |
-| MANAGER | Approval cuti/izin, view team |
-| FINANCE | Payroll & reports |
+| SUPER_ADMIN | Multi-company platform (`/platform`) |
+| COMPANY_ADMIN | Full company HR + settings + enterprise modules |
+| MANAGER | Approval, view team, workflows:view |
+| FINANCE | Payroll, claims, loans, reports |
 | EMPLOYEE | Self-service absensi, cuti, slip gaji |
 
 ## Dokumentasi Terkait
 
 | Dokumen | Lokasi |
 |---------|--------|
-| PRD v3.0 | [../PRD/dnpeople-prd.md](../PRD/dnpeople-prd.md) |
-| SRS v3.0 | [../PRD/dnpeople-srs.md](../PRD/dnpeople-srs.md) |
-| SDD v3.0 | [../PRD/dnpeople-sdd.md](../PRD/dnpeople-sdd.md) |
+| PRD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-prd.md` |
+| SRS v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-srs.md` |
+| SDD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-sdd.md` |
 | Implementation Status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
 | API Reference | [API.md](./API.md) |
 | Architecture | [ARCHITECTURE.md](./ARCHITECTURE.md) |
