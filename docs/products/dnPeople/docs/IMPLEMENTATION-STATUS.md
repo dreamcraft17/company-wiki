@@ -31,7 +31,7 @@
 | Dashboard + basic reports | Done |
 | Audit trail | Done |
 
-Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payroll`
+Frontend: `/dashboard` `/employees` `/org` `/attendance` `/leave` `/permissions` `/payroll`
 
 ---
 
@@ -49,6 +49,13 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Overtime (+ payroll) | Done |
 | Claims / reimbursement | Done |
 | Loans (kasbon) | Done |
+| Company / org settings | Done | UI `/org` — dept, posisi, level, lokasi (geofence + WiFi) |
+| Employee CRUD | Done | UI create/edit di `/employees` |
+| Pay differential in payroll | Done | `payMultiplier` → tunjangan shift di payroll run |
+| Attendance/leave payroll deduction | Done | Potongan absen + cuti unpaid |
+| Leave/permission → attendance | Done | Auto-sync saat approve |
+| Employee documents UI | Done | Tab karyawan di `/documents` |
+| Attendance report UI | Done | Ringkasan + export CSV di `/reports` |
 | Geofence attendance | Done |
 | Attendance corrections | Done |
 | Documents + announcements | Done |
@@ -60,7 +67,7 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Payslip PDF | Done | `GET /payroll/:id/payslip.pdf` |
 | Email notifications | Done | SMTP atau console log |
 
-Frontend: `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`
+Frontend: `/org` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`
 
 ### Verifikasi MVP 2 (10 Juli 2026)
 
