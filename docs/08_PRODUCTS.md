@@ -213,6 +213,8 @@ DN Tech Products
 | SDD | [dnpeople-sdd.md](./products/dnPeople/PRD/dnpeople-sdd.md) |
 | Implementation Status | [IMPLEMENTATION-STATUS.md](./products/dnPeople/docs/IMPLEMENTATION-STATUS.md) |
 | API | [API.md](./products/dnPeople/docs/API.md) |
+| Supabase | [SUPABASE.md](./products/dnPeople/docs/SUPABASE.md) |
+| VPS install | [VPS.md](./products/dnPeople/docs/VPS.md) |
 
 > **Catatan:** Berbeda dari DN People ERP di bawah — produk & repo terpisah.
 

@@ -10,6 +10,8 @@
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Arsitektur MVP 1–4 |
 | [API.md](./API.md) | Referensi API (MVP 1 detail + MVP 4 enterprise) |
 | [DEPLOYMENT.md](./DEPLOYMENT.md) | Setup lokal & production checklist |
+| [SUPABASE.md](./SUPABASE.md) | Koneksi database Supabase (PostgreSQL) |
+| [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP |
 | [CHANGELOG.md](./CHANGELOG.md) | Riwayat versi (0.1.0 → 0.4.0) |
 | [../README.md](../README.md) | Quick start |

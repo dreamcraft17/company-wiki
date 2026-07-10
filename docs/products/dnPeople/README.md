@@ -96,6 +96,8 @@ App: `http://localhost:3001`
 | Architecture | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) |
 | API Reference | [docs/API.md](./docs/API.md) |
 | Deployment | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) |
+| **Supabase (DB)** | [docs/SUPABASE.md](./docs/SUPABASE.md) |
+| **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | PRD / SRS / SDD | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |

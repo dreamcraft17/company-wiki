@@ -78,6 +78,11 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Docs
+- Panduan koneksi Supabase (`docs/SUPABASE.md`)
+- Panduan instalasi VPS Nginx/PM2/TLS (`docs/VPS.md`)
+
+### Planned
 - Survey dedicated UI page
 - Binary file upload (S3/MinIO)
 - QR/selfie camera capture UI

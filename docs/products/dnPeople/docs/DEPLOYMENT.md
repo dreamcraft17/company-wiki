@@ -5,24 +5,36 @@
 
 ---
 
+## Panduan terkait
+
+| Panduan | Isi |
+|---------|-----|
+| [SUPABASE.md](./SUPABASE.md) | Koneksi PostgreSQL managed di Supabase |
+| [VPS.md](./VPS.md) | Instal API + frontend di VPS (Nginx, PM2, TLS) |
+
+**Rekomendasi production:** DB di Supabase + app di VPS (lihat kedua panduan di atas).
+
+---
+
 ## Prerequisites
 
 - Node.js 20+
-- Docker & Docker Compose (PostgreSQL + Redis)
 - npm
+- Untuk lokal: Docker & Docker Compose (PostgreSQL + Redis), **atau** project Supabase
 
 > Setelah pull schema MVP 4, selalu jalankan `npx prisma db push` (atau migrate) sebelum seed/dev.
 
 ## Local Development
 
 ```bash
-# 1. Infra
+# 1. Infra (Postgres lokal) — skip jika pakai Supabase
 cd dnpeople
 docker compose up -d
 
 # 2. Backend
 cd backend
 cp .env.example .env
+# DATABASE_URL lokal :5433  ATAU  string Supabase (lihat SUPABASE.md)
 npm install
 npx prisma generate
 npx prisma db push
@@ -49,10 +61,24 @@ FRONTEND_URL="http://localhost:3001"
 TRUST_PROXY=false
 ```
 
+Supabase (contoh):
+
+```env
+DATABASE_URL="postgresql://postgres:PASSWORD@db.REF.supabase.co:5432/postgres?sslmode=require&schema=public"
+FRONTEND_URL="https://app.yourdomain.com"
+TRUST_PROXY=1
+```
+
 **Frontend `.env.local`**
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:4100/api/v1
+```
+
+Production:
+
+```env
+NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
 ```
 
 ### Demo accounts (setelah seed)
@@ -62,23 +88,23 @@ NEXT_PUBLIC_API_URL=http://localhost:4100/api/v1
 | Company Admin | admin@dnpeople.id | Admin123! |
 | Employee | budi@dnpeople.id | Employee123! |
 
-## Production Checklist (draft)
+## Production Checklist
 
+- [ ] Ikuti [SUPABASE.md](./SUPABASE.md) atau Postgres hardened di VPS
+- [ ] Ikuti [VPS.md](./VPS.md) untuk Nginx + PM2 + TLS
 - [ ] Ganti `JWT_SECRET` kuat (32+ chars)
 - [ ] `FRONTEND_URL` = domain production (comma-separated jika multi)
 - [ ] `TRUST_PROXY=1` di belakang Nginx
-- [ ] PostgreSQL managed / volume backup
 - [ ] HTTPS only (TLS terminate di Nginx/Caddy)
 - [ ] `npm run build` backend + frontend
-- [ ] Process manager: PM2 atau Docker
 - [ ] Seed **tidak** dijalankan di production (kecuali bootstrap admin terkontrol)
 - [ ] Rate limit & CORS diverifikasi
 - [ ] Monitoring `/health`
 - [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
-- [ ] SSO secrets tidak di-commit; isi via env/secret manager saat handshake live
+- [ ] SSO secrets tidak di-commit
 - [ ] White-label: logo URL memakai CDN/HTTPS
 
-### Contoh PM2
+### Contoh PM2 (ringkas)
 
 ```bash
 # Backend
@@ -89,6 +115,8 @@ pm2 start dist/index.js --name dnpeople-api
 cd frontend && npm ci && npm run build
 pm2 start npm --name dnpeople-web -- start
 ```
+
+Detail lengkap: [VPS.md](./VPS.md).
 
 ### Nginx (sketch)
 
@@ -110,17 +138,21 @@ server {
 
 ## Database Migrations
 
-MVP 1 memakai `prisma db push` untuk kecepatan iterasi. Sebelum production hard-launch, pindah ke:
+Dev / first deploy memakai `prisma db push`. Sebelum production hard-launch, pindah ke:
 
 ```bash
 npx prisma migrate dev --name init
 npx prisma migrate deploy
 ```
 
+Dengan Supabase, lihat catatan pooler vs direct di [SUPABASE.md](./SUPABASE.md).
+
 ## Verifikasi
 
 ```bash
 curl http://localhost:4100/health
+# production:
+curl https://api.yourdomain.com/health
 
 curl -X POST http://localhost:4100/api/v1/auth/login \
   -H 'Content-Type: application/json' \

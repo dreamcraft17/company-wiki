@@ -26,6 +26,8 @@
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem |
 | [docs/API.md](./docs/API.md) | Referensi API MVP 1–4 |
 | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Local & production setup |
+| [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
+| [docs/VPS.md](./docs/VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
 | [current-implementation.md](./current-implementation.md) | Snapshot implementasi aktual |
