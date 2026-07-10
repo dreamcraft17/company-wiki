@@ -4,6 +4,23 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [0.2.0] — 2026-07-10
+
+### Added — MVP 2 Extended Operations
+
+- Shift management & employee assignment
+- Overtime (rate 1.5x/2x/3x) + payroll integration
+- Reimbursement/claims + loan (kasbon) with payroll deduction
+- Geofence attendance validation + check-in methods
+- Attendance correction workflow
+- Company documents + contract expiry reminders
+- Announcements, surveys API, HR calendar, holidays
+- Unified approval inbox + approval rules
+- Advanced reports: turnover, overtime by dept, leave usage
+- Frontend pages for all MVP 2 modules above
+
+---
+
 ## [0.1.0] — 2026-07-10
 
 ### Added — MVP 1 scaffold
@@ -19,20 +36,19 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ### Notes
 
-- Redis container reserved; belum dipakai di runtime MVP 1
-- Geo-fencing radius validation, payslip PDF, email, refresh token → MVP 2+
+- Redis container reserved; belum dipakai di runtime
 - Bukan fork dari `ERP/` (DN People ERP NestJS)
 
 ---
 
 ## Unreleased
 
-- Recruitment, onboarding, performance (MVP 2)
-- Document upload & CSV import
-- Payslip PDF generation
-- National holiday calendar
-- Unit / integration tests
-- CI/CD pipeline
+- Survey dedicated UI page
+- Binary file upload (S3/MinIO)
+- QR/selfie camera capture UI
+- Payslip PDF + email notifications
+- Recruitment / onboarding / performance (MVP 3)
+- Unit / integration tests + CI/CD
 
 ---
 

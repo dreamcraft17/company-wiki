@@ -190,7 +190,7 @@ DN Tech Products
 | Aspek | Detail |
 |-------|--------|
 | Nama | dnPeople HRIS |
-| Status | **MVP 1 core implemented** (scaffold) |
+| Status | **MVP 1 + MVP 2 core implemented** (scaffold) |
 | Target | Startup & UMKM Indonesia (30–200 karyawan) |
 | Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL |
 | Repository | `dnpeople` |

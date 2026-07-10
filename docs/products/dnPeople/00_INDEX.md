@@ -2,7 +2,7 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople`  
-**Status**: MVP 1 core implemented (scaffold)  
+**Status**: MVP 1 + MVP 2 core implemented  
 **Owner**: Dozer  
 **Last Updated**: July 10, 2026  
 **Spec Version**: PRD/SRS/SDD v3.0
@@ -34,7 +34,7 @@
 
 ## Ringkas Produk
 
-HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), dashboard, RBAC, audit.
+HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2 (shift, lembur, klaim, pinjaman, geofence, dokumen, kalender, approval inbox).
 
 | | |
 |---|---|
@@ -59,10 +59,10 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 
 | MVP | Scope | Status |
 |-----|-------|--------|
-| 1 | Employee, org, attendance, leave, payroll, dashboard, RBAC, audit | **Core done** |
-| 2 | Recruitment, onboarding, performance, training | Planned |
-| 3 | Asset, expense, documents | Planned |
-| 4 | Analytics, integrations, mobile | Planned |
+| 1 | Employee, org, attendance, leave, payroll, dashboard, RBAC, audit | **Done** |
+| 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done (core)** |
+| 3 | Recruitment, onboarding, performance, training | Planned |
+| 4 | Analytics, integrations, mobile, multi-company | Planned |
 
 ---
 

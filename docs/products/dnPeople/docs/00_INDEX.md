@@ -1,8 +1,7 @@
-# dnPeople — Docs Index
+# dnPeople — Docs Index (repo)
 
 **Last Updated:** July 10, 2026  
-**Parent index:** [../00_INDEX.md](../00_INDEX.md)  
-**Source of truth kode:** repo `dnpeople/docs/`
+**Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 | File | Deskripsi |
 |------|-----------|
@@ -12,11 +11,21 @@
 | [DEPLOYMENT.md](./DEPLOYMENT.md) | Setup & deploy |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix fitur |
 | [CHANGELOG.md](./CHANGELOG.md) | Versi |
+| [../README.md](../README.md) | Quick start |
 
-## Spec
+## Spec (company-wiki)
 
 | Spec | Path |
 |------|------|
-| PRD | [../PRD/dnpeople-prd.md](../PRD/dnpeople-prd.md) |
-| SRS | [../PRD/dnpeople-srs.md](../PRD/dnpeople-srs.md) |
-| SDD | [../PRD/dnpeople-sdd.md](../PRD/dnpeople-sdd.md) |
+| PRD | `company-wiki/docs/products/dnPeople/PRD/dnpeople-prd.md` |
+| SRS | `company-wiki/docs/products/dnPeople/PRD/dnpeople-srs.md` |
+| SDD | `company-wiki/docs/products/dnPeople/PRD/dnpeople-sdd.md` |
+| Wiki Index | `company-wiki/docs/products/dnPeople/00_INDEX.md` |
+
+## Sync ke wiki
+
+```bash
+cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/
+cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
+# Lalu sesuaikan link relatif di wiki jika perlu
+```

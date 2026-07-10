@@ -13,7 +13,7 @@
 
 dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Fokus MVP 1: database karyawan, absensi, cuti/izin, payroll lokal (BPJS + PPh 21), dashboard HR, RBAC, dan audit trail.
 
-> **Bukan** sama dengan [DN People ERP](../../dnpeople-erp/00_INDEX.md) (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD v3.0.
+> **Bukan** sama dengan [DN People ERP](../../dnpeople-erp/00_INDEX.md) (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD v3.0 di company-wiki.
 
 ## Visi
 
@@ -84,7 +84,6 @@ dnpeople/
 | Architecture | [ARCHITECTURE.md](./ARCHITECTURE.md) |
 | Deployment | [DEPLOYMENT.md](./DEPLOYMENT.md) |
 | Changelog | [CHANGELOG.md](./CHANGELOG.md) |
-| Index | [../00_INDEX.md](../00_INDEX.md) |
 
 ---
 

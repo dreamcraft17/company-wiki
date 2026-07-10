@@ -2,48 +2,41 @@
 
 **Date:** July 10, 2026  
 **Repo:** `dnpeople`  
-**Version:** 0.1.0 (MVP 1 scaffold)
+**Version:** 0.2.0 (MVP 1 + MVP 2)
 
 ---
 
-## Apa yang sudah hidup di kode
+## MVP 1 — live
 
-### Backend (`dnpeople/backend`)
+Auth, employees, org, attendance, leave, permissions, payroll (BPJS/PPh 21), dashboard, reports dasar, audit.
 
-- Express 5 API di `/api/v1`
-- Prisma schema multi-tenant (`companyId` scope)
-- Routes: auth, companies, org, employees, attendance, leave, permissions, payroll, dashboard, reports, audit
-- Services: attendance, leave, payroll, audit
-- Payroll lib: BPJS Kesehatan, BPJS TK, PPh 21
-- Seed: company demo + admin + 1 employee + leave balances
+## MVP 2 — live
 
-### Frontend (`dnpeople/frontend`)
+| Module | Backend | Frontend |
+|--------|---------|----------|
+| Shifts | ✅ | ✅ `/shifts` |
+| Overtime | ✅ (+ payroll) | ✅ `/overtime` |
+| Claims | ✅ (+ payroll) | ✅ `/claims` |
+| Loans | ✅ (+ payroll deduct) | ✅ `/loans` |
+| Geofence attendance | ✅ | partial (API fields) |
+| Attendance correction | ✅ | ✅ `/corrections` |
+| Documents + contract expiry | ✅ | ✅ `/documents` |
+| Announcements | ✅ | ✅ `/announcements` |
+| Surveys | ✅ API | API only |
+| Calendar + holidays | ✅ | ✅ `/calendar` |
+| Approval inbox | ✅ | ✅ `/approvals` |
+| Advanced reports | ✅ | ✅ `/reports` |
 
-| Route | Fungsi |
-|-------|--------|
-| `/login` | JWT login |
-| `/dashboard` | Admin KPIs / employee self |
-| `/employees` | List karyawan (admin) |
-| `/attendance` | Clock in/out + riwayat |
-| `/leave` | Ajukan / approve cuti |
-| `/permissions` | Ajukan / approve izin |
-| `/payroll` | Run / finalize / payslip view |
+## Stack
 
-### Infra
+Next.js 16 · Express 5 · Prisma · PostgreSQL (`:5433`) · API `:4100` · Web `:3001`
 
-- `docker-compose.yml` — Postgres 16 (`5433`), Redis 7 (`6380`)
-- Typecheck backend & frontend: passing
+## Demo
 
-## Belum / Partial
+- `admin@dnpeople.id` / `Admin123!`
+- `budi@dnpeople.id` / `Employee123!`
 
-- Docker CLI belum tersedia di beberapa environment lokal — butuh Docker Desktop untuk `compose up`
-- Geo-fence radius validation
-- Payslip PDF, email, refresh token, Redis runtime
-- Modul MVP 2–4 (lihat IMPLEMENTATION-STATUS)
-
-## Cara sync docs
-
-Saat mengubah docs di repo `dnpeople/docs/`, salin ke wiki:
+## Sync docs
 
 ```bash
 cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/

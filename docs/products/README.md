@@ -14,7 +14,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 12 files | MVP 1 core implemented | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 12 files | MVP 1 + MVP 2 core implemented | `dnpeople` |
 | **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development (V3 ~85%) | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
