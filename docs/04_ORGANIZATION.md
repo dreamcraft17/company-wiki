@@ -59,7 +59,7 @@
 | **Finance** | Nur Annisa Sofyan | Keuangan, invoicing, budgeting, compliance |
 
 > Tim sedang dalam fase growth. Posisi dengan nama **—** akan diisi sesuai kebutuhan scaling.
-
+pm
 ---
 
 ## Departemen

@@ -1,0 +1,75 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1980 >>
+stream
+BT /F1 18 Tf 1 0 0 1 50 545 Tm (PT. Entropi Global Martech) Tj ET
+BT /F1 12 Tf 1 0 0 1 50 523 Tm (PAYSLIP / SLIP GAJI) Tj ET
+BT /F1 10 Tf 1 0 0 1 50 505 Tm (Periode: Juli 2026) Tj ET
+BT /F1 10 Tf 1 0 0 1 50 475 Tm (Nama: Admin HRIS) Tj ET
+BT /F1 10 Tf 1 0 0 1 50 459 Tm (Nomor Karyawan: EMP001) Tj ET
+BT /F1 10 Tf 1 0 0 1 50 443 Tm (Departemen: Human Resources) Tj ET
+BT /F1 10 Tf 1 0 0 1 360 475 Tm (Jabatan: HR Manager) Tj ET
+BT /F1 10 Tf 1 0 0 1 360 459 Tm (NPWP: -) Tj ET
+BT /F1 10 Tf 1 0 0 1 360 443 Tm (BPJS Health: -) Tj ET
+BT /F1 12 Tf 1 0 0 1 50 411 Tm (Pendapatan) Tj ET
+50 263 350 132 re S
+275 395 m 275 263 l S
+BT /F1 10 Tf 1 0 0 1 58 380 Tm (Komponen) Tj ET
+BT /F1 10 Tf 1 0 0 1 283 380 Tm (Nominal) Tj ET
+50 373 m 400 373 l S
+BT /F1 9 Tf 1 0 0 1 58 358 Tm (Gaji Pokok) Tj ET
+BT /F1 9 Tf 1 0 0 1 283 358 Tm (Rp 6.000.000) Tj ET
+50 351 m 400 351 l S
+BT /F1 9 Tf 1 0 0 1 58 336 Tm (Test) Tj ET
+BT /F1 9 Tf 1 0 0 1 283 336 Tm (Rp 6.000.000) Tj ET
+50 329 m 400 329 l S
+BT /F1 9 Tf 1 0 0 1 58 314 Tm (parkir) Tj ET
+BT /F1 9 Tf 1 0 0 1 283 314 Tm (Rp 300.000) Tj ET
+50 307 m 400 307 l S
+BT /F1 9 Tf 1 0 0 1 58 292 Tm (makanan) Tj ET
+BT /F1 9 Tf 1 0 0 1 283 292 Tm (Rp 1.500.000) Tj ET
+50 285 m 400 285 l S
+BT /F1 10 Tf 1 0 0 1 58 270 Tm (Gross Salary) Tj ET
+BT /F1 10 Tf 1 0 0 1 283 270 Tm (Rp 13.800.000) Tj ET
+BT /F1 12 Tf 1 0 0 1 442 411 Tm (Potongan) Tj ET
+442 329 350 66 re S
+667 395 m 667 329 l S
+BT /F1 10 Tf 1 0 0 1 450 380 Tm (Komponen) Tj ET
+BT /F1 10 Tf 1 0 0 1 675 380 Tm (Nominal) Tj ET
+442 373 m 792 373 l S
+BT /F1 9 Tf 1 0 0 1 450 358 Tm (Potongan) Tj ET
+BT /F1 9 Tf 1 0 0 1 675 358 Tm (Rp 0) Tj ET
+442 351 m 792 351 l S
+BT /F1 10 Tf 1 0 0 1 450 336 Tm (Total Potongan) Tj ET
+BT /F1 10 Tf 1 0 0 1 675 336 Tm (Rp 0) Tj ET
+442 95 350 56 re S
+BT /F1 10 Tf 1 0 0 1 455 130 Tm (Pro-rata Factor: 1) Tj ET
+BT /F1 12 Tf 1 0 0 1 455 108 Tm (NET SALARY / TAKE HOME PAY: Rp 13.800.000) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 45 Tm (Dokumen ini dibuat otomatis oleh sistem.) Tj ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2343
+%%EOF
