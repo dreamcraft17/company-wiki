@@ -7,7 +7,7 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | Status | MVP 1–4 implemented |
 | Spec | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
 | Docs | [docs/](./docs/) |
-| Last Updated | July 11, 2026 |
+| Last Updated | July 12, 2026 |
 
 ## Stack
 
@@ -25,11 +25,11 @@ Frontend dnPeople menggunakan pendekatan mobile-first:
 
 - Mobile header dengan navigation drawer pada layar kecil dan sidebar persisten di desktop
 - Grid, form, card, serta action row menyesuaikan lebar viewport
-- Tabel data menggunakan horizontal scrolling lokal agar halaman tidak overflow
+- Seluruh 17 tabel pada 16 halaman memenuhi lebar card di desktop dan menggunakan horizontal scrolling lokal di mobile
 - Portal karier publik dan form lamaran responsif
 - Target sentuh utama disesuaikan untuk penggunaan mobile
 
-Validasi terakhir 11 Juli 2026: TypeScript lulus, ESLint tanpa error, dan production build berhasil untuk seluruh 43 route.
+Validasi terakhir 12 Juli 2026: TypeScript lulus, ESLint tanpa error, production build berhasil untuk seluruh 43 route, dan seluruh tabel telah diaudit untuk desktop serta mobile.
 
 ## Fitur
 
