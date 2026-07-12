@@ -42,6 +42,53 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 
 ## Available now
 
+### Feature inventory by module
+
+| Module | Available features | Main API surface | Web UI | Status |
+|--------|--------------------|------------------|--------|--------|
+| Authentication | Login, registration, current session, account lockout, TOTP MFA, Google/Microsoft OAuth, SAML/JIT, API-key authentication | `/auth`, `/sso`, `/integrations/api-keys` | `/login`, `/sso`, `/integrations` | Available |
+| Company & organization | Company profile/work schedule, departments, positions, levels, work locations, geofence, WiFi SSID, organization tree | `/companies`, `/org` | `/org` | Available |
+| Employee master | CRUD, search, pagination, Excel/CSV import, department/position/location/type/status filters, soft delete | `/employees` | `/employees` | Available |
+| Employee lifecycle | Family, dependant, education, emergency contact, bank, tax, contract/probation dates, status history, probation review | `/employees/:id/*` | Employee lifecycle panel | Available |
+| Account & roles | Create linked account, assign HR/Manager/Finance/Employee, random one-time temporary password, audited role changes | `/employees/:id/access` | Employee lifecycle panel | Available |
+| Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync | `/attendance` | `/attendance` | Available |
+| Attendance correction | Mandatory evidence, original/corrected values, submit, approve/reject, bulk correction/approval | `/corrections` | `/corrections` | Available |
+| Shift | Shift CRUD, daily assignment, company/employee validation, rotation, swap request/approval, pay multiplier | `/shifts` | `/shifts` | Available |
+| Leave | Types, balances, request, overlap/balance validation, approval, auto-sick policy, carry-forward/expiry, replacement/handover | `/leave` | `/leave` | Available |
+| Permission | Late arrival, early leave, WFH, business trip/other request, approval and attendance synchronization | `/permissions` | `/permissions` | Available |
+| Approval inbox | Consolidated leave, permission, overtime, correction, claim and loan approvals with role/department scope | `/approvals` | `/approvals` | Available |
+| Payroll configuration | Tax methods, BPJS/JHT/JP rates/caps, working-day divisor, overtime policy, loan ratio, claim policy | `/payroll-settings/configuration` | `/payroll-settings` | Available |
+| Salary components/templates | Earnings, deductions, employer contributions, effective-dated employee items, department/position templates | `/payroll-settings/components`, `/templates` | `/payroll-settings` | Available |
+| Payroll processing | Batch monthly calculation, preview/detail, finalize, paid status, attendance/leave/shift/overtime/claim/loan integration | `/payroll` | `/payroll` | Available |
+| Tax & BPJS | Complete PTKP variants, progressive/versioned tax brackets, gross/net/gross-up, employee/employer contribution breakdown | `/payroll-settings/tax-rates`, `/payroll` | `/payroll-settings`, `/payroll` | Available |
+| Proration & THR | Join/exit proration, configurable divisor, eligible-day explanation, full-month cap, annual THR generation | `/payroll`, `/payroll/thr/run` | `/payroll` | Available |
+| Payslip | 12-month employee portal, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/:id/verify` | `/payroll` | Available |
+| Overtime | Employee request, configurable weekday/weekend/holiday multiplier, approval, automatic payroll inclusion | `/overtime` | `/overtime` | Available |
+| Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
+| Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
+| Employee loans | Simulation, affordability ratio, one-active-loan policy, Manager/Finance approval, installments/payroll deduction | `/loans` | `/loans` | Available |
+| Dashboard | Role-aware headcount, department/type/status breakdowns, attendance, pending approvals, payroll, contract/probation and birthdays | `/dashboard` | `/dashboard` | Available |
+| Reports | Attendance/leave/payroll detail, pattern/peak analysis, turnover trend/risk, Excel/PDF, bank upload and tax/YTD export | `/reports` | `/reports` | Available |
+| Recruitment/ATS | Jobs, public publication, online application/CV, candidates, ranking, pipeline, interviews, bulk communication | `/recruitment`, `/careers` | `/recruitment`, `/careers` | Available |
+| Digital offer | Offer creation/delivery, expiry, public view, accept/reject, consent signature, tamper evidence, auto-hire | `/recruitment`, `/careers/offer/:token` | `/recruitment`, `/careers/offer/:token` | Available |
+| Onboarding | Auto/default/custom plans, document/training/equipment/culture/probation tasks, buddy, scoped completion | `/onboarding` | `/onboarding` | Available |
+| Performance & KPI | Cycles, generated reviews, self/manager/final score, KPI/OKR progress, idempotent KPI bonus generation | `/performance` | `/performance` | Available |
+| Training & career | Programs, enrollments/completion and career-path records | `/training` | `/training` | Available |
+| Assets | Asset inventory, assignment, return and offboarding return support | `/assets` | `/assets` | Available |
+| Offboarding | Resignation request/approval/completion and asset-return workflow | `/offboarding` | `/offboarding` | Available |
+| Documents | Company/employee documents, version metadata, upload/download and contract reminders | `/documents`, `/uploads` | `/documents` | Available |
+| Policy & discipline | Company policies, publication/acknowledgement-related records and disciplinary actions | `/policies` | `/policies` | Available |
+| Helpdesk | Employee ticket, assignment, status and resolution workflow | `/helpdesk` | `/helpdesk` | Available |
+| Communication | Announcements, surveys, polls, HR calendar/holidays, persistent/email/browser notifications | `/announcements`, `/surveys`, `/calendar`, `/notifications` | Matching pages + header notification center | Available |
+| AI helpers | HR assistant with LLM/rule fallback, HR document generation and recruitment screening | `/assistant`, `/ai` | `/assistant`, `/ai-docs`, `/recruitment` | Available with provider configuration |
+| Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
+| Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
+| Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
+| Branding | App name, logo, colors and public company branding | `/branding` | `/branding` | Available |
+| Custom reports | Source definitions, saved report configuration and report execution | `/custom-reports` | `/custom-reports` | Available |
+| Security administration | Row-level rules, effective-scope inspection, audit filters/export and MFA controls | `/security`, `/audit`, `/auth/mfa` | `/security`, `/audit` | Available |
+| Operations/NFR | Health/readiness, Prometheus, Sentry, backup/restore, clean migrations, DB verification and load-test CI | `/health`, `/ready`, `/metrics` | Operational tooling | Available; production acceptance required |
+
 ### Core employee lifecycle
 
 - Company, department, position, level, work location, manager hierarchy and organization tree.
