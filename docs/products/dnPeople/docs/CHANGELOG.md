@@ -4,6 +4,53 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## Unreleased
+
+### Added — PRD completion hardening
+
+- Employee lifecycle data: family, education, contacts, bank/tax information, status history, contract/probation review, and automatic permanent conversion
+- Configurable payroll settings, templates, versioned tax rates, variable compensation, employer contributions, PTKP variants, BPJS, and gross/net/gross-up methods
+- Landscape password-protected payslip with earning/deduction tables, detailed proration, branding, digital signature, and verification endpoint
+- Server-side Excel/PDF exports for attendance, leave, payroll, bank upload, tax, and turnover analysis
+- Digital recruitment offer acceptance/rejection with e-signature and automatic employee/onboarding creation
+- Leave carry-forward/expiry processing, replacement assignment, persistent notification center, and browser notifications
+- Daily database backup workflow, restore tooling, readiness probe, Prometheus metrics, and clean Prisma baseline migration
+
+### Security
+
+- AES-256-GCM field encryption with key rotation for salary, NPWP, and bank information; legacy migration script included
+- Salary values are separated by RBAC and encrypted payloads are never returned by employee APIs
+- Global mutation/sensitive-access audit middleware with redaction and CSV export
+- PostgreSQL audit records are append-only through an update/delete prevention trigger
+- Selfie attendance uses a provider-neutral liveness/face-match adapter and fails closed in production when no verifier is configured
+- Attendance correction requires evidence and records original/corrected values plus approver in the audit trail
+- Clock-out records early leave against company or assigned-shift schedule
+
+### Verification
+
+- Backend TypeScript and frontend TypeScript checks pass
+- Backend automated suite passes 13/13 tests covering payroll, tax, proration, encryption, encrypted salary, signatures, metrics, and biometric verification
+- Prisma schema validation and client generation pass
+
+### Changed — Mobile-first frontend
+
+- Application shell kini menggunakan mobile header dan navigation drawer pada layar kecil; sidebar tetap persisten di desktop
+- Spacing konten, card, form, action row, dan grid disesuaikan secara responsif untuk viewport mobile
+- Seluruh tabel aplikasi dapat digeser horizontal tanpa membuat halaman melebar
+- Audit 17 tabel pada 16 halaman: tabel kembali memenuhi lebar card di desktop dan scroll tetap dibatasi pada area tabel di mobile
+- Wrapper overflow ditambahkan pada tabel Dashboard dan Reports; aturan global `display: block` yang membuat tabel menyusut telah dihapus
+- Target sentuh tombol utama diperbesar dan overflow horizontal global dicegah
+- Halaman portal karier publik ikut dioptimalkan untuk layar kecil
+
+### Validation
+
+- Frontend TypeScript check lulus
+- Next.js production build lulus untuk seluruh 43 route
+- ESLint configuration diperbaiki; lint berjalan tanpa error
+- Verifikasi ulang 12 Juli 2026: TypeScript, ESLint, dan production build 43 route lulus
+
+---
+
 ## [0.4.0] — 2026-07-10
 
 ### Added — MVP 4 Enterprise
@@ -94,7 +141,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
-## Unreleased
+## Previous Unreleased Notes
 
 ### Docs
 - Panduan koneksi Supabase (`docs/SUPABASE.md`) — default **tanpa Docker** + Session pooler
@@ -113,4 +160,4 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 11, 2026*

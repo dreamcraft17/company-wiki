@@ -1,6 +1,6 @@
 # dnPeople — Deployment Guide
 
-**Last Updated:** July 10, 2026  
+**Last Updated:** July 12, 2026
 **Applies to:** MVP 1–4 (schema includes enterprise tables)
 
 ---
@@ -23,7 +23,7 @@
 - **Database:** project Supabase (disarankan, **tanpa Docker**) — lihat [SUPABASE.md](./SUPABASE.md)  
   Opsional: Docker Compose hanya jika ingin Postgres lokal
 
-> Setelah pull schema, jalankan `npx prisma db push` sebelum seed/dev.
+> Deployment baru memakai migration baseline dan `npx prisma migrate deploy`. `db push` hanya untuk prototyping lokal tanpa data penting.
 
 ## Local Development (tanpa Docker — default)
 
@@ -34,7 +34,7 @@ cp .env.example .env
 # Edit .env: ganti YOUR_PASSWORD (lihat docs/SUPABASE.md)
 npm install
 npx prisma generate
-npx prisma db push
+npx prisma migrate deploy
 npm run db:seed
 npm run dev          # http://localhost:4100
 
@@ -67,6 +67,12 @@ JWT_EXPIRES_IN="24h"
 PORT=4100
 FRONTEND_URL="http://localhost:3001"
 TRUST_PROXY=false
+FIELD_ENCRYPTION_KEYS="current-64-char-secret,previous-rotation-secret"
+METRICS_TOKEN="strong-observability-token"
+BIOMETRIC_VERIFIER_URL="https://biometric-provider.example/verify"
+BIOMETRIC_VERIFIER_TOKEN="provider-secret"
+BIOMETRIC_MIN_CONFIDENCE=0.8
+CONTRACT_REMINDERS_ENABLED=true
 ```
 
 Detail field host/user: [SUPABASE.md](./SUPABASE.md).
@@ -101,6 +107,11 @@ NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
 - [ ] Seed **tidak** dijalankan di production (kecuali bootstrap admin terkontrol)
 - [ ] Rate limit & CORS diverifikasi
 - [ ] Monitoring `/health`
+- [ ] Readiness `/ready` dan metrics `/metrics` terhubung ke monitoring
+- [ ] `FIELD_ENCRYPTION_KEYS` kuat, disimpan di secret manager, dan diuji rotasinya
+- [ ] Migrasi data sensitif legacy dijalankan sekali dengan `npm run security:migrate-fields`
+- [ ] Provider biometrik dikonfigurasi; production sengaja menolak selfie check-in tanpa verifier
+- [ ] Workflow backup harian berhasil dan restore drill dilakukan berkala
 - [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
 - [ ] SSO secrets tidak di-commit
 - [ ] White-label: logo URL memakai CDN/HTTPS
@@ -139,12 +150,32 @@ server {
 
 ## Database Migrations
 
-Dev / first deploy memakai `prisma db push`. Sebelum production hard-launch, pindah ke:
+Clean database dan production deploy:
 
 ```bash
-npx prisma migrate dev --name init
-npx prisma migrate deploy
+npm run db:migrate
 ```
+
+Database lama yang sebelumnya dibuat dengan `db push` harus di-baseline satu kali setelah diverifikasi cocok dengan schema:
+
+```bash
+npx prisma migrate resolve --applied 20260712000000_baseline
+npx prisma migrate status
+```
+
+## Backup & Disaster Recovery
+
+Workflow `.github/workflows/backup.yml` berjalan harian menggunakan secret `BACKUP_DATABASE_URL`. Jika `BACKUP_S3_URI` diisi, dump dan checksum juga dikirim ke object storage dengan server-side encryption.
+
+```bash
+# Backup manual
+DATABASE_URL="..." BACKUP_DIR=./backups npm run db:backup
+
+# Restore drill ke database kosong/non-production
+ALLOW_RESTORE=true DATABASE_URL="..." npm run db:restore -- ../backups/dnpeople-YYYYMMDDTHHMMSSZ.dump
+```
+
+Setiap backup memakai format custom PostgreSQL dan checksum SHA-256. Restore wajib eksplisit memakai `ALLOW_RESTORE=true` dan diakhiri pemeriksaan status migration.
 
 Dengan Supabase, lihat catatan pooler vs direct di [SUPABASE.md](./SUPABASE.md).
 
@@ -154,6 +185,8 @@ Dengan Supabase, lihat catatan pooler vs direct di [SUPABASE.md](./SUPABASE.md).
 curl http://localhost:4100/health
 # production:
 curl https://api.yourdomain.com/health
+curl https://api.yourdomain.com/ready
+curl -H "Authorization: Bearer $METRICS_TOKEN" https://api.yourdomain.com/metrics
 
 curl -X POST http://localhost:4100/api/v1/auth/login \
   -H 'Content-Type: application/json' \
@@ -162,4 +195,4 @@ curl -X POST http://localhost:4100/api/v1/auth/login \
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 12, 2026*

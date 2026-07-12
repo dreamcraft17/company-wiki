@@ -72,6 +72,11 @@
 | POST | `/employees` | employees:* | Create (+ optional user account) |
 | PATCH | `/employees/:id` | employees:* | Update |
 | DELETE | `/employees/:id` | employees:* | Soft-delete (RESIGNED) |
+| GET/POST | `/employees/:id/family` | employees:view/* | Data keluarga |
+| GET/POST | `/employees/:id/educations` | employees:view/* | Pendidikan |
+| GET | `/employees/:id/status-history` | employees:view | Riwayat status |
+| POST | `/employees/:id/status-transition` | employees:* | Transisi status kontrak/kerja |
+| GET/POST | `/employees/:id/probation-reviews` | employees:view/* | Evaluasi probation |
 
 Query: `?search=&departmentId=&status=&page=&pageSize=`
 
@@ -87,8 +92,10 @@ Query: `?search=&departmentId=&status=&page=&pageSize=`
 | GET | `/attendance` | attendance:view / self | List riwayat |
 | GET | `/attendance/summary` | attendance:view | Ringkasan bulanan |
 | GET | `/attendance/employee/:id` | attendance:view | Per karyawan |
+| GET | `/attendance/qr/today` | attendance:view | QR harian bertanda tangan |
+| POST | `/attendance/offline-sync` | attendance:self | Sinkronisasi antrean offline |
 
-Clock-in body (optional): `{ latitude, longitude, location, workMode }`
+Clock-in body: `{ latitude?, longitude?, location?, workMode?, checkInMethod?, selfieUrl?, qrToken?, wifiSsid? }`. Metode `SELFIE` menjalankan liveness/face-match provider; clock-out menghasilkan penanda `earlyLeave`.
 
 ---
 
@@ -102,6 +109,10 @@ Clock-in body (optional): `{ latitude, longitude, location, workMode }`
 | POST | `/leave` | leave:self | Ajukan cuti |
 | POST | `/leave/:id/approve` | leave:approve | Setujui |
 | POST | `/leave/:id/reject` | leave:approve | Tolak |
+| GET | `/leave/coworkers` | leave:self | Kandidat pengganti |
+| GET | `/leave/coverage/mine` | leave:self | Assignment pengganti |
+| POST | `/leave/coverage/:id/acknowledge` | leave:self | Konfirmasi handover |
+| POST | `/leave/admin/process-year` | leave:* | Carry-forward dan expiry tahunan |
 
 ---
 
@@ -128,6 +139,11 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 | POST | `/payroll/run` | payroll:* | Batch hitung `{ year, month }` |
 | POST | `/payroll/:id/finalize` | payroll:* | Finalisasi + buat payslip |
 | POST | `/payroll/:id/pay` | payroll:* | Tandai PAID |
+| GET | `/payroll/:id/payslip.pdf` | payroll:view / payslips:self | Payslip landscape terlindungi password |
+| GET | `/payroll/:id/verify` | payroll:view / payslips:self | Verifikasi signature/hash payslip |
+| GET/PATCH | `/payroll-settings/configuration` | payroll:view/* | Pajak, BPJS, proration, overtime, loan policy |
+| GET/POST | `/payroll-settings/templates` | payroll:view/* | Template komponen gaji |
+| GET/POST | `/payroll-settings/tax-rates` | payroll:view/* | Tarif pajak berversi |
 
 ---
 

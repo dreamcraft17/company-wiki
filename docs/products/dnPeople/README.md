@@ -5,9 +5,9 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | | |
 |---|---|
 | Status | MVP 1–4 implemented |
-| Spec | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
+| Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
-| Last Updated | July 12, 2026 |
+| Last Updated | July 10, 2026 |
 
 ## Stack
 
@@ -18,18 +18,6 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | Database | PostgreSQL 16 |
 | Cache | Redis 7 (reserved, belum dipakai runtime) |
 | Auth | JWT + API keys + RBAC |
-
-## Web experience
-
-Frontend dnPeople menggunakan pendekatan mobile-first:
-
-- Mobile header dengan navigation drawer pada layar kecil dan sidebar persisten di desktop
-- Grid, form, card, serta action row menyesuaikan lebar viewport
-- Seluruh 17 tabel pada 16 halaman memenuhi lebar card di desktop dan menggunakan horizontal scrolling lokal di mobile
-- Portal karier publik dan form lamaran responsif
-- Target sentuh utama disesuaikan untuk penggunaan mobile
-
-Validasi terakhir 12 Juli 2026: TypeScript lulus, ESLint tanpa error, production build berhasil untuk seluruh 43 route, dan seluruh tabel telah diaudit untuk desktop serta mobile.
 
 ## Fitur
 
@@ -46,7 +34,7 @@ Validasi terakhir 12 Juli 2026: TypeScript lulus, ESLint tanpa error, production
 - Laporan lanjutan (turnover, lembur, cuti)
 
 ### MVP 3
-- Rekrutmen ATS + portal karir publik `/careers`
+- Rekrutmen ATS + portal karir `/careers`
 - Onboarding checklist, performance review + KPI/OKR
 - Training, career path, aset
 - Resign/offboarding, helpdesk, kebijakan & disiplin
@@ -119,7 +107,7 @@ App: `http://localhost:3001`
 | **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
-| PRD / SRS / SDD | [00_INDEX.md](./00_INDEX.md) · [PRD/](./PRD/) |
+| PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 
 ## Catatan Produk
 
