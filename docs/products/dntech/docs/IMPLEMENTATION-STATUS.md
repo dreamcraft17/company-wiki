@@ -28,9 +28,10 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 12. [Implementasi V3](#12-implementasi-v3)
 13. [Implementasi V4](#13-implementasi-v4)
 14. [Implementasi V5](#14-implementasi-v5)
-15. [Audit Performa: Kenapa Web Lambat](#15-audit-performa-kenapa-web-lambat)
-16. [Checklist Verifikasi Cepat](#16-checklist-verifikasi-cepat)
-17. [Referensi Dokumen](#17-referensi-dokumen)
+15. [Implementasi V6 — Modul Produk](#15-implementasi-v6--modul-produk)
+16. [Audit Performa: Kenapa Web Lambat](#16-audit-performa-kenapa-web-lambat)
+17. [Checklist Verifikasi Cepat](#17-checklist-verifikasi-cepat)
+18. [Referensi Dokumen](#18-referensi-dokumen)
 
 ---
 
@@ -59,6 +60,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | PRD V3 (refinement) | ✅ | Exit intent, logo variants, mobile nav, form accessibility |
 | PRD V4 (performance) | ✅ | Search debounce, deferred scripts, cached settings, streaming homepage, image optimization, backend cache, font/build fix |
 | PRD V5 (email) | ✅ | SMTP nodemailer, templates, retry/logging, newsletter confirm/unsubscribe, admin email logs |
+| V6 Modul Produk (Jul 12) | ✅ | Content type `Product` paralel dengan `Service`; public `/products`, `/products/[slug]`; admin CRUD `/admin/products`; nav "Produk" terpisah dari "Layanan"; DB push ke production belum dijalankan |
 | Footer dokumen `.md` | ✅ | Semua Markdown memiliki footer `Property of DN Tech - PT. Dozer Napitupulu Technology . 2026` |
 | Production build | ✅ | Frontend + backend build sukses |
 | Lint full repo | ✅ | Frontend lint sukses tanpa error/warning |
@@ -295,6 +297,15 @@ Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources` **masih ada** ta
 
 Proses kerja: `frontend/src/lib/service-process.ts`
 
+### Halaman Produk (V6)
+
+| Halaman | Fitur |
+|---------|-------|
+| `/products` | List produk aktif dari DB, filter kategori, search |
+| `/products/[slug]` | Deskripsi, fitur produk, FAQ accordion, artikel terkait, produk terkait, CTA "Hubungi Kami" |
+
+Menu "Produk" berdiri sendiri di nav publik (`Header.tsx`), sejajar dengan "Layanan" — bukan dropdown/submenu. Tidak memakai proses kerja 5 langkah atau Calendly embed milik Layanan (alur konsultasi jasa tidak relevan untuk produk).
+
 ### Blog
 
 | Fitur | File |
@@ -431,7 +442,7 @@ File: `frontend/src/components/seo/JsonLd.tsx`
 
 ### Schema (`backend/prisma/schema.prisma`)
 
-**Model utama:** User, Service, PortfolioItem, BlogPost, TeamMember, Testimonial, Faq, Career, FormSubmission, SiteSettings, Media, AnalyticsEvent, NewsletterSubscriber, QuizSubmission, dll.
+**Model utama:** User, Service, Product, PortfolioItem, BlogPost, TeamMember, Testimonial, Faq, Career, FormSubmission, SiteSettings, Media, AnalyticsEvent, NewsletterSubscriber, QuizSubmission, dll.
 
 **Field baru / diperbarui:**
 
@@ -462,6 +473,7 @@ File clear: `backend/scripts/clear-content.ts`
 | Prefix | Fungsi |
 |--------|--------|
 | `/api/v1/services` | Layanan publik |
+| `/api/v1/products` | Produk publik (V6) |
 | `/api/v1/blog` | Artikel publik |
 | `/api/v1/team` | Tim |
 | `/api/v1/faq` | FAQ |
@@ -492,6 +504,7 @@ Semua halaman admin sudah ada dan mendukung konten real:
 | `/admin/dashboard` | Metrik leads & traffic |
 | `/admin/analytics` | Conversion funnel |
 | `/admin/services` | CRUD layanan |
+| `/admin/products` | CRUD produk (V6) |
 | `/admin/portfolio` | CRUD portfolio/studi kasus |
 | `/admin/blog` | CRUD blog (draft/published/scheduled) |
 | `/admin/team` | CRUD tim |
@@ -612,6 +625,13 @@ File email: `backend/src/services/EmailService.ts`
 | `frontend/src/components/cards/PortfolioCard.tsx` | Kartu portofolio tanpa gradient (V2.1) |
 | `docs/DESIGN_SUMMARY.md` | Ringkasan desain + mandat leadership |
 | `docs/design_audit.md` | Audit desain + status pasca-V2.1 |
+| `backend/src/routes/products.ts` | Router publik produk (list + detail by slug) (V6) |
+| `backend/prisma/schema.prisma` (`Product` model) | Content type produk, field identik `Service` (V6) |
+| `frontend/src/app/(public)/products/page.tsx` | Listing produk publik (V6) |
+| `frontend/src/app/(public)/products/[slug]/page.tsx` | Detail produk publik (V6) |
+| `frontend/src/app/admin/products/page.tsx` | Admin CRUD produk (V6) |
+| `frontend/src/types/index.ts` (`Product` interface) | Tipe TS produk (V6) |
+| `frontend/src/components/seo/JsonLd.tsx` (`productSchema`) | JSON-LD schema.org Product (V6) |
 
 ---
 
@@ -781,7 +801,48 @@ Implementasi berdasarkan dokumen di `docs/v5/`.
 
 ---
 
-## 15. Audit Performa: Kenapa Web Lambat
+## 15. Implementasi V6 — Modul Produk
+
+Menambahkan content type "Produk" yang berdiri sendiri, terpisah dari "Layanan" — sesuai permintaan agar situs punya nav khusus produk selain jasa/layanan. Dibangun dengan meniru struktur `Service` yang sudah production-ready secara 1:1 (model data, route publik, admin CRUD, halaman frontend), bukan pola baru.
+
+### Scope V6 yang sudah masuk ke codebase
+
+| Area | Status | File |
+|------|--------|------|
+| Model `Product` (field identik `Service`) | ✅ | `backend/prisma/schema.prisma` |
+| Relasi `User.products` | ✅ | `backend/prisma/schema.prisma` |
+| Route publik `GET /products`, `GET /products/:slug` | ✅ | `backend/src/routes/products.ts` |
+| Admin CRUD `/admin/products` (+ `:id`, `/reorder`) | ✅ | `backend/src/routes/admin.ts` |
+| Mount route di app | ✅ | `backend/src/index.ts` |
+| Produk masuk sitewide search (`type: 'product'`) | ✅ | `backend/src/routes/search.ts` |
+| Halaman publik list + detail | ✅ | `frontend/src/app/(public)/products/**` |
+| Halaman admin CRUD | ✅ | `frontend/src/app/admin/products/page.tsx` |
+| Nav "Produk" terpisah dari "Layanan" (flat, bukan dropdown) | ✅ | `frontend/src/components/common/Header.tsx` |
+| Sidebar admin "Produk" | ✅ | `frontend/src/components/admin/AdminSidebar.tsx` |
+| Tipe TS `Product` | ✅ | `frontend/src/types/index.ts` |
+| JSON-LD `productSchema` + `PAGE_SEO.products` | ✅ | `frontend/src/components/seo/JsonLd.tsx`, `frontend/src/lib/seo.ts` |
+| Produk masuk `sitemap.xml` | ✅ | `frontend/src/app/sitemap.ts` |
+
+### Keputusan desain
+
+- **Nav flat, bukan dropdown** — codebase tidak punya pola dropdown/submenu sama sekali sebelumnya; menambah "Produk" sebagai item nav baru yang sejajar "Layanan" konsisten dengan pola yang ada dan sesuai preferensi yang dikonfirmasi.
+- **Parity penuh dengan `Service`** — field model, alur CRUD admin, dan cache/permission (`requireWrite`, `logActivity`, `cacheService`) sama persis, supaya tidak ada dua pola berbeda untuk dua content type yang serupa.
+- **Halaman detail produk lebih sederhana dari layanan** — tidak memakai `SERVICE_PROCESS_STEPS` atau `CalendlyEmbed`, karena keduanya memodelkan alur konsultasi penjualan jasa yang tidak relevan untuk produk siap pakai.
+
+### Verifikasi terakhir V6
+
+| Check | Hasil | Catatan |
+|-------|-------|---------|
+| `npx prisma generate` | ✅ Sukses | Schema-only, tanpa koneksi DB |
+| `npm run build` / `tsc --noEmit` backend | ✅ Sukses | |
+| `tsc --noEmit` frontend | ✅ Sukses | |
+| `npm run build` frontend | ✅ Sukses | Route `/products`, `/products/[slug]`, `/admin/products` ter-generate |
+| Backend boot test lokal | ✅ Sukses | `/health` merespons setelah mount route baru |
+| `npx prisma db push` ke production | ⏳ Belum dijalankan | Tabel `products` belum ada di DB production — perlu dijalankan pemilik repo sebelum `/admin/products` bisa menyimpan data |
+
+---
+
+## 16. Audit Performa: Kenapa Web Lambat
 
 Audit ini awalnya adalah hasil review kode dan build, bukan hasil Lighthouse lab run. Kolom status menunjukkan kondisi setelah implementasi V4.
 
@@ -931,7 +992,7 @@ Status V4:
 
 ---
 
-## 16. Checklist Verifikasi Cepat
+## 17. Checklist Verifikasi Cepat
 
 Setelah deploy, pastikan:
 
@@ -978,7 +1039,7 @@ Setelah deploy, pastikan:
 
 ---
 
-## 17. Referensi Dokumen
+## 18. Referensi Dokumen
 
 | Dokumen | Isi |
 |---------|-----|

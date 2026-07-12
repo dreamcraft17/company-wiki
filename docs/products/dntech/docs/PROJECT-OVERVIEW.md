@@ -153,6 +153,8 @@ Semua halaman berada di `frontend/src/app/(public)/`.
 | `/` | Beranda — hero, statistik, layanan, studi kasus, testimoni, blog, kalkulator ROI, newsletter |
 | `/services` | Daftar layanan |
 | `/services/[slug]` | Detail layanan + artikel terkait |
+| `/products` | Daftar produk (V6, terpisah dari Layanan) |
+| `/products/[slug]` | Detail produk + artikel terkait |
 | `/portfolio` | Daftar portfolio |
 | `/portfolio/[slug]` | Detail portfolio |
 | `/case-studies` | Studi kasus (alias portfolio aktif) |
@@ -208,6 +210,7 @@ Semua halaman admin berada di `frontend/src/app/admin/`.
 | `/admin/dashboard` | Ringkasan metrik |
 | `/admin/analytics` | Traffic, konversi, device breakdown |
 | `/admin/services` | CRUD layanan |
+| `/admin/products` | CRUD produk (V6) |
 | `/admin/portfolio` | CRUD portfolio / studi kasus |
 | `/admin/blog` | CRUD artikel blog + publish |
 | `/admin/team` | CRUD anggota tim |
@@ -234,6 +237,7 @@ Database: **PostgreSQL**
 |-------|-------|-----------|
 | `User` | `users` | Admin users + RBAC |
 | `Service` | `services` | Layanan perusahaan |
+| `Product` | `products` | Produk perusahaan (V6, terpisah dari Layanan) |
 | `PortfolioItem` | `portfolio_items` | Portfolio & studi kasus |
 | `BlogPost` | `blog_posts` | Artikel blog |
 | `TeamMember` | `team_members` | Profil tim |
@@ -322,6 +326,8 @@ Health check: `GET /health`
 |--------|----------|-----------|
 | GET | `/services` | Daftar layanan aktif |
 | GET | `/services/:slug` | Detail layanan |
+| GET | `/products` | Daftar produk aktif (V6) |
+| GET | `/products/:slug` | Detail produk (V6) |
 | GET | `/portfolio` | Daftar portfolio |
 | GET | `/portfolio/:slug` | Detail portfolio |
 | GET | `/case-studies` | Daftar studi kasus |
@@ -355,7 +361,7 @@ Health check: `GET /health`
 
 Prefix: `/admin/*` — memerlukan header `Authorization: Bearer <token>`
 
-CRUD tersedia untuk: services, portfolio, blog, team, testimonials, faqs, careers, media, leads, settings, users, analytics.
+CRUD tersedia untuk: services, products, portfolio, blog, team, testimonials, faqs, careers, media, leads, settings, users, analytics.
 
 ---
 
@@ -548,14 +554,14 @@ Panduan lengkap: [`docs/DEPLOYMENT-PRODUCTION.md`](./DEPLOYMENT-PRODUCTION.md)
    - Konten About (JSON)
    - Calendly, GA, Crisp Chat
 4. Tambahkan konten via menu admin:
-   - Layanan → Blog → Portfolio → Tim → Testimoni → FAQ → Karier
-5. Publish blog & aktifkan layanan/portfolio
+   - Layanan → Produk → Blog → Portfolio → Tim → Testimoni → FAQ → Karier
+5. Publish blog & aktifkan layanan/produk/portfolio
 
 ### Status Konten
 
 | Tipe | Status publik |
 |------|---------------|
-| Service, Portfolio | `active` = tampil di website |
+| Service, Product, Portfolio | `active` = tampil di website |
 | Blog | `published` = tampil di website |
 | Career, FAQ, Team | `active` = tampil |
 
@@ -604,7 +610,7 @@ Jika SendGrid tidak dikonfigurasi, email di-log ke console (development mode).
 
 - Meta tags dinamis per halaman (`buildMetadata`)
 - Open Graph & Twitter Cards
-- JSON-LD structured data (Organization, LocalBusiness, Article, FAQ, Service, Breadcrumb)
+- JSON-LD structured data (Organization, LocalBusiness, Article, FAQ, Service, Product, Breadcrumb)
 - Dynamic `sitemap.xml`
 - `robots.txt`
 - Canonical URLs
@@ -682,6 +688,6 @@ Konten     : 100% dari database via admin — tanpa data demo hardcoded
 
 ---
 
-*Terakhir diperbarui: Juni 2026*
+*Terakhir diperbarui: 12 Juli 2026*
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

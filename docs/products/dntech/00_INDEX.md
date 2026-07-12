@@ -3,10 +3,10 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id  
-**Status**: Production (v5)  
+**Status**: Production (v5) + Modul Produk v6 (belum di-push ke DB production)  
 **Owner**: Dozer  
-**Last Updated**: July 9, 2026  
-**Latest commit**: homepage PRD Indonesia + org structure + pricing tune (Jul 9 malam)
+**Last Updated**: July 12, 2026  
+**Latest commit**: Modul Produk (V6) — content type terpisah dari Layanan, public + admin CRUD, nav baru
 
 ---
 
@@ -133,6 +133,7 @@
 
 | Aspek | Status |
 |-------|--------|
+| Modul Produk (V6, Jul 12) | ✅ Content type `Product` terpisah dari `Service`; `/products`, `/admin/products`, nav "Produk" sejajar "Layanan"; DB push ke production belum dijalankan |
 | PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
 | Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
@@ -151,4 +152,4 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 
 ---
 
-*Last Updated: July 9, 2026*
+*Last Updated: July 12, 2026*

@@ -17,6 +17,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Branding section rollout | Implemented | Prisma branding models + admin API (legacy homepage sections; modul admin tetap) |
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
+| V6 Produk module (Jul 12) | Implemented | New `Product` content type parallel to Services — public `/products` + `/products/[slug]`, admin CRUD `/admin/products`, sitewide search, sitemap; DB push to production pending |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
 | Backend build | Passing | `npm run build` succeeds |
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
@@ -46,6 +47,7 @@ Latest implementation reference: Jul 9 — Homepage PRD Indonesia Edition + foot
 
 - Homepage with hero, real stats, services, blog preview, team preview, newsletter, and CTA
 - Services listing and detail pages with process steps, FAQ, related articles, Calendly CTA
+- Products listing and detail pages (separate nav item from Services) with features, related products, FAQ, contact CTA
 - Blog with categories, pagination, reading time, SEO metadata, JSON-LD
 - About, team, contact, FAQ, careers, resources, portfolio/case studies, testimonials
 - Contact lead form with multi-step validation, duplicate email check, consent, thank-you flow
@@ -57,7 +59,7 @@ Latest implementation reference: Jul 9 — Homepage PRD Indonesia Edition + foot
 ### Admin Dashboard
 
 - JWT login and RBAC roles: `SuperAdmin`, `ContentManager`, `Editor`, `Viewer`
-- CRUD for services, portfolio/case studies, blog, team, testimonials, FAQ, careers
+- CRUD for services, products, portfolio/case studies, blog, team, testimonials, FAQ, careers
 - Lead management with status updates, notes, duplicate check, CSV export
 - Media library upload
 - Analytics overview and conversion tracking
