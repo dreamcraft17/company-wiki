@@ -13,6 +13,7 @@
 | [SUPABASE.md](./SUPABASE.md) | Koneksi database Supabase (PostgreSQL) |
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP |
+| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk menyusun PRD/SRS berikutnya |
 | [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
 | [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, dependency audit, dan performance |
 | [CHANGELOG.md](./CHANGELOG.md) | Riwayat versi (0.1.0 → 0.4.0) |

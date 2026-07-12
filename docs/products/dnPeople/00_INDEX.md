@@ -29,6 +29,7 @@
 | [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
 | [docs/VPS.md](./docs/VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
+| [current-implementation.md](./current-implementation.md) | Baseline kanonik untuk PRD/SRS berikutnya |
 | [docs/PRD-COMPLIANCE-MATRIX.md](./docs/PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
 | [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, audit dependency, dan performance |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
