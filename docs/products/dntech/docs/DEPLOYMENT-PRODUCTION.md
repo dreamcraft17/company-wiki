@@ -116,6 +116,8 @@ pm2 restart dntech-web   # atau: pm2 start npm --name dntech-web -- start
 
 Verifikasi di browser DevTools → Network: request harus ke `https://api.dntech.id/...`, **bukan** `localhost:4000`.
 
+> **Penting — `output: standalone`:** `next.config.ts` memakai `output: 'standalone'` (dibutuhkan Dockerfile). `next start` **tidak kompatibel** dengan mode ini dan akan memunculkan warning `"next start" does not work with "output: standalone"` di PM2 log. Perbaikan: `npm run build` sekarang otomatis menjalankan `postbuild` yang menyalin `public/` dan `.next/static` ke `.next/standalone/`, dan `npm start` menjalankan `node .next/standalone/server.js` langsung — jadi command PM2 di atas (`pm2 restart dntech-web` / `pm2 start npm --name dntech-web -- start`) tidak perlu diubah, hanya perlu `npm run build` ulang setelah pull perbaikan ini agar `postbuild` membuat folder `.next/standalone/` yang lengkap.
+
 ## 6. Nginx (contoh)
 
 **Frontend** — `www.dntech.id` → `:3000`:
