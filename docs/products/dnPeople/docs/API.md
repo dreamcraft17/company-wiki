@@ -72,6 +72,7 @@
 | POST | `/employees` | employees:* | Create (+ optional user account) |
 | PATCH | `/employees/:id` | employees:* | Update |
 | DELETE | `/employees/:id` | employees:* | Soft-delete (RESIGNED) |
+| PUT | `/employees/:id/access` | settings:* | Buat akun atau ubah role HR/Manager/Finance/Employee; password sementara hanya tampil sekali |
 | GET/POST | `/employees/:id/family` | employees:view/* | Data keluarga |
 | GET/POST | `/employees/:id/educations` | employees:view/* | Pendidikan |
 | GET | `/employees/:id/status-history` | employees:view | Riwayat status |

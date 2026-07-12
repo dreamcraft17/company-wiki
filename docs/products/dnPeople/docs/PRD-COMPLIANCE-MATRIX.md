@@ -4,34 +4,34 @@
 
 | PRD story / requirement | Status | Remaining completion gate |
 |---|---|---|
-| 1.1 Employee database | In progress | Contact/bank CRUD UI, location filter, integration tests |
-| 1.2 Employee status tracking | In progress | Lifecycle schema/API/UI added; contract/probation scheduler tests pending |
+| 1.1 Employee database | Implemented | Contact/bank/tax/family/education UI, filters, encrypted salary, and account-role management implemented; API integration evidence pending |
+| 1.2 Employee status tracking | Implemented | Lifecycle schema/API/UI, reminders, probation review and auto-conversion implemented; scheduler integration test pending |
 | 2.1 Basic attendance | In progress | Early-leave detection and offline sync implemented; integration evidence pending |
 | 2.2 Advanced attendance | In progress | Provider-neutral liveness/face-match with production fail-closed implemented; provider UAT pending |
 | 2.3 Attendance correction | In progress | Evidence and before/after approval audit implemented; integration test pending |
-| 2.4 Shift management | Partial | Scheduling-conflict enforcement and tests |
-| 3.1 Leave request/approval | Partial | Expiration automation and notification coverage |
-| 3.2 Permission management | Partial | Realtime/mobile notification delivery |
-| 3.3 Leave calendar/report | Partial | Filters, peak analysis, export, replacement assignments |
-| 4.1 Payroll setup | Partial | Tax/BPJS settings, templates, commission/bonus rules |
-| 4.2 Monthly payroll | Partial | Breakdown tests and proration edge-case hardening |
-| 4.3 Tax/BPJS compliance | Partial | Complete PTKP, annual reconciliation/export, versioned rates |
-| 4.4 Payslip | Partial | E-signature, PDF password, 12-month portal, full branding |
-| 4.5 Overtime/bonus | Partial | Bonus input/rules and KPI integration |
-| 4.6 Claims | Partial | Category policy limits and receipt-required enforcement |
-| 4.7 Employee loans | Partial | Affordability policy and simulation UI |
-| 5.1 HR dashboard | Partial | Full breakdown, reminders, charts |
-| 5.2 Attendance report | Partial | Employee/date filters, pattern analysis, Excel/PDF |
-| 5.3 Payroll report | Partial | Components, tax/BPJS, department, bank/YTD exports |
-| 5.4 Leave report | Partial | Peak/future analysis and Excel/PDF |
-| 5.5 Turnover analysis | Partial | Department/reason/trend/predictive views |
-| 6.1 RBAC | In progress | Salary separation implemented; complete access-matrix tests pending |
+| 2.4 Shift management | Implemented | Unique daily assignment, tenant/active-employee validation, rotation, swap approval and pay differential implemented; route integration test pending |
+| 3.1 Leave request/approval | Implemented | Balance checks, approval, auto-sick policy, carry-forward/expiry scheduler and notifications implemented |
+| 3.2 Permission management | Implemented | Approval, attendance sync, persistent/browser notifications implemented; native push remains mobile-app scope |
+| 3.3 Leave calendar/report | Implemented | Filters, peak analysis, Excel/PDF and replacement/coverage assignment implemented |
+| 4.1 Payroll setup | Implemented | Tax/BPJS settings, idempotent templates, versioned rates, bonus/commission implemented |
+| 4.2 Monthly payroll | Implemented | Attendance/leave/overtime/claim/loan/variable compensation and proration implemented with unit tests |
+| 4.3 Tax/BPJS compliance | Implemented | Complete PTKP, versioned rates, annual/YTD and tax exports implemented |
+| 4.4 Payslip | Implemented | Landscape table PDF, password, 12-month portal, branding and signature verification implemented |
+| 4.5 Overtime/bonus | Implemented | Configurable overtime, bonus/commission and idempotent KPI-to-payroll bonus workflow implemented |
+| 4.6 Claims | Implemented | Per-category daily/monthly limits and receipt-required enforcement implemented |
+| 4.7 Employee loans | Implemented | Affordability, active-loan policy, simulation UI and dual approval implemented |
+| 5.1 HR dashboard | Implemented | Headcount breakdown, attendance, approvals, contracts and birthdays implemented |
+| 5.2 Attendance report | Implemented | Employee/date filters, patterns and Excel/PDF implemented |
+| 5.3 Payroll report | Implemented | Component/tax/BPJS/department detail, bank upload and YTD exports implemented |
+| 5.4 Leave report | Implemented | Peak/future analysis and Excel/PDF implemented |
+| 5.5 Turnover analysis | Implemented | Department/reason/trend and heuristic risk views implemented |
+| 6.1 RBAC | Implemented | HR role without payroll, Finance payroll access, account role workflow, salary separation and automated access-matrix tests implemented |
 | 6.2 Security/privacy | In progress | Salary/NPWP/bank encryption, key rotation, backup/restore tooling implemented; production drills pending |
 | 6.3 Audit/compliance | In progress | Redacted global audit, CSV export, and immutable DB trigger implemented; retention/export integration tests pending |
-| 7.1 Recruitment | Partial | Bulk actions and offer workflow/document delivery |
-| 7.2 Onboarding | Partial | E-sign, probation linkage, automatic conversion workflow |
-| SRS testing | In progress | 13 backend unit/security tests pass; integration, system, performance, UAT evidence pending |
-| SDD deployment/NFR | Partial | Backup, restore drill, metrics/Sentry, load test, scaling evidence |
+| 7.1 Recruitment | Implemented | Bulk actions, digital offer delivery, public accept/reject and tamper-evident e-sign implemented |
+| 7.2 Onboarding | Implemented | Auto-plan from accepted offer, docs/training/equipment checklist, scoped task completion, probation review and conversion implemented |
+| SRS testing | In progress | 21 backend unit/security tests, clean-schema DB verification and 1,000-user load test implemented; full browser UAT evidence pending |
+| SDD deployment/NFR | Implemented | Backup/restore tooling, Prometheus, Sentry redaction, readiness/liveness, CI migration verification and 1,000-concurrent p95 gate implemented |
 
 ## Mandatory completion evidence
 

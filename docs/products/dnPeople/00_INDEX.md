@@ -4,7 +4,7 @@
 **Repository**: `dnpeople`  
 **Status**: MVP 1–4 core implemented  
 **Owner**: Dozer  
-**Last Updated**: July 10, 2026  
+**Last Updated**: July 12, 2026
 **Spec Version**: PRD/SRS/SDD v3.1
 
 ---
@@ -29,6 +29,8 @@
 | [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
 | [docs/VPS.md](./docs/VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
+| [docs/PRD-COMPLIANCE-MATRIX.md](./docs/PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
+| [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, audit dependency, dan performance |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
 | [current-implementation.md](./current-implementation.md) | Snapshot implementasi aktual |
 
@@ -77,4 +79,4 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 12, 2026*

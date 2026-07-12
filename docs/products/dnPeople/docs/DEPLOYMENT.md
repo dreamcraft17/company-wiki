@@ -72,6 +72,11 @@ METRICS_TOKEN="strong-observability-token"
 BIOMETRIC_VERIFIER_URL="https://biometric-provider.example/verify"
 BIOMETRIC_VERIFIER_TOKEN="provider-secret"
 BIOMETRIC_MIN_CONFIDENCE=0.8
+SENTRY_DSN="https://public-key@o0.ingest.sentry.io/project-id"
+SENTRY_ENVIRONMENT="production"
+SENTRY_TRACES_SAMPLE_RATE=0.05
+APP_RELEASE="dnpeople@release-sha"
+HTTP_BACKLOG=2048
 CONTRACT_REMINDERS_ENABLED=true
 ```
 
@@ -111,6 +116,8 @@ NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
 - [ ] `FIELD_ENCRYPTION_KEYS` kuat, disimpan di secret manager, dan diuji rotasinya
 - [ ] Migrasi data sensitif legacy dijalankan sekali dengan `npm run security:migrate-fields`
 - [ ] Provider biometrik dikonfigurasi; production sengaja menolak selfie check-in tanpa verifier
+- [ ] `SENTRY_DSN`, environment, release, dan sampling dikonfigurasi; event uji dipastikan tidak mengandung PII
+- [ ] Reverse proxy memakai keep-alive dan OS listen backlog mendukung target concurrency
 - [ ] Workflow backup harian berhasil dan restore drill dilakukan berkala
 - [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
 - [ ] SSO secrets tidak di-commit

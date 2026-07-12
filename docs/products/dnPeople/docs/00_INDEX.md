@@ -1,6 +1,6 @@
 # dnPeople — Docs Index (repo)
 
-**Last Updated:** July 10, 2026  
+**Last Updated:** July 12, 2026
 **Status:** MVP 1–4 core implemented  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
@@ -13,6 +13,8 @@
 | [SUPABASE.md](./SUPABASE.md) | Koneksi database Supabase (PostgreSQL) |
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP |
+| [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
+| [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, dependency audit, dan performance |
 | [CHANGELOG.md](./CHANGELOG.md) | Riwayat versi (0.1.0 → 0.4.0) |
 | [../README.md](../README.md) | Quick start |
 
@@ -36,4 +38,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 12, 2026*

@@ -12,7 +12,7 @@
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
 | MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** |
 
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **13/13** ✅ · Prisma validate ✅
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **21/21** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
 
 ### PRD completion hardening — 12 Juli 2026
 
@@ -27,6 +27,8 @@
 | Recruitment | Bulk pipeline action, digital offer, accept/reject e-sign, auto employee + onboarding |
 | Security | AES-256-GCM salary/NPWP/bank, key rotation, salary RBAC, global redacted audit, immutable audit DB trigger |
 | Operations | Baseline migration, daily backup workflow, restore script, readiness, Prometheus metrics |
+| RBAC | Role HR tanpa payroll, Finance khusus payroll, pengelolaan role akun teraudit, navigasi role-aware |
+| NFR | Sentry redacted, database constraint test, load CI 1.000 concurrent users dengan p95 <2 detik |
 
 ### Frontend mobile-first
 

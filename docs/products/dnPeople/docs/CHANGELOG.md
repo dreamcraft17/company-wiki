@@ -15,6 +15,10 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - Digital recruitment offer acceptance/rejection with e-signature and automatic employee/onboarding creation
 - Leave carry-forward/expiry processing, replacement assignment, persistent notification center, and browser notifications
 - Daily database backup workflow, restore tooling, readiness probe, Prometheus metrics, and clean Prisma baseline migration
+- First-class HR role without payroll access, audited employee account-role management, and role-aware navigation
+- KPI achievement to pending payroll bonus generation with duplicate prevention
+- CI database constraint verification and 1,000-concurrent-user performance gate
+- Optional Sentry error tracking with credential, salary, NPWP, bank, cookie and token redaction
 
 ### Security
 
@@ -29,8 +33,10 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ### Verification
 
 - Backend TypeScript and frontend TypeScript checks pass
-- Backend automated suite passes 13/13 tests covering payroll, tax, proration, encryption, encrypted salary, signatures, metrics, and biometric verification
+- Backend automated suite passes 21/21 tests covering payroll, tax, proration, encryption, encrypted salary, signatures, RBAC, telemetry redaction, safe spreadsheet parsing/export, metrics, and biometric verification
 - Prisma schema validation and client generation pass
+- Production dependency audit passes with 0 known vulnerabilities after replacing vulnerable SheetJS/XLSX
+- Load acceptance passes 5,000 requests at 1,000 logical concurrent users: 0 failures and p95 55.71 ms on the verification host
 
 ### Changed — Mobile-first frontend
 
