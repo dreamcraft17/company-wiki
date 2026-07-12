@@ -2,7 +2,7 @@
 
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
-**Terakhir diperbarui:** 9 Juli 2026  
+**Terakhir diperbarui:** 12 Juli 2026  
 **Branch:** `main`  
 **Commit referensi terbaru:** Homepage PRD Indonesia Edition + tuning harga & section (Jul 9 malam)  
 **Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
@@ -29,9 +29,10 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 13. [Implementasi V4](#13-implementasi-v4)
 14. [Implementasi V5](#14-implementasi-v5)
 15. [Implementasi V6 — Modul Produk](#15-implementasi-v6--modul-produk)
-16. [Audit Performa: Kenapa Web Lambat](#16-audit-performa-kenapa-web-lambat)
-17. [Checklist Verifikasi Cepat](#17-checklist-verifikasi-cepat)
-18. [Referensi Dokumen](#18-referensi-dokumen)
+16. [Implementasi V7 — Product Section PRD (dnPeople Flagship)](#16-implementasi-v7--product-section-prd-dnpeople-flagship)
+17. [Audit Performa: Kenapa Web Lambat](#17-audit-performa-kenapa-web-lambat)
+18. [Checklist Verifikasi Cepat](#18-checklist-verifikasi-cepat)
+19. [Referensi Dokumen](#19-referensi-dokumen)
 
 ---
 
@@ -61,6 +62,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | PRD V4 (performance) | ✅ | Search debounce, deferred scripts, cached settings, streaming homepage, image optimization, backend cache, font/build fix |
 | PRD V5 (email) | ✅ | SMTP nodemailer, templates, retry/logging, newsletter confirm/unsubscribe, admin email logs |
 | V6 Modul Produk (Jul 12) | ✅ | Content type `Product` paralel dengan `Service`; public `/products`, `/products/[slug]`; admin CRUD `/admin/products`; nav "Produk" terpisah dari "Layanan"; DB push ke production belum dijalankan |
+| V7 Product Section PRD (Jul 12) | ✅ | `Product` diperluas: pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap, multi-CTA; halaman dnPeople lengkap; seed `db:seed-dnpeople`; DB push + seed ke production belum dijalankan |
 | Footer dokumen `.md` | ✅ | Semua Markdown memiliki footer `Property of DN Tech - PT. Dozer Napitupulu Technology . 2026` |
 | Production build | ✅ | Frontend + backend build sukses |
 | Lint full repo | ✅ | Frontend lint sukses tanpa error/warning |
@@ -842,7 +844,74 @@ Menambahkan content type "Produk" yang berdiri sendiri, terpisah dari "Layanan" 
 
 ---
 
-## 16. Audit Performa: Kenapa Web Lambat
+## 16. Implementasi V7 — Product Section PRD (dnPeople Flagship)
+
+Memperluas model `Product` generik dari V6 menjadi halaman produk marketing-grade untuk dnPeople: pricing tiers, fitur per kategori, use case per segmen, integrasi, tabel perbandingan kompetitor, testimoni, roadmap, dan multi-CTA. Referensi: `company-wiki/docs/products/dntech/PRD/DN-TECH-PRODUCT-SECTION-PRD.md`.
+
+**Keputusan desain kunci:** PRD mengusulkan "rich JSON editor / form builder" dengan drag-drop di admin. Codebase ini tidak punya pola seperti itu di manapun — pola yang sudah ada dan production-proven untuk konten JSON bebas-bentuk adalah `admin/settings/page.tsx` (textarea JSON pretty-printed + `parseJsonField` helper, tanpa validasi zod mendalam di backend). Implementasi ini meniru pola itu persis, bukan membangun library editor baru.
+
+### Kolom baru di model `Product` (semua nullable/additive)
+
+| Kolom | Tipe | Kegunaan |
+|-------|------|----------|
+| `tagline` | String? | Sub-judul pendek di hero |
+| `heroImage`, `heroAlt` | String? | Gambar hero + alt text |
+| `logoUrl` | String? | Logo produk |
+| `screenshotUrls` | Json? | Array URL screenshot |
+| `keywords`, `canonical` | String? | SEO tambahan |
+| `featured` | Boolean | Tandai produk unggulan di listing |
+| `publishedAt` | DateTime? | Tanggal publish (pola sama seperti `BlogPost`) |
+| `launchStatus` | String? | `launched` \| `beta` \| `coming_soon` |
+| `freemiumEnabled`, `freeLimit`, `trialDays` | Boolean/String?/Int? | Info tier gratis |
+| `customerCount` | String? | Social proof, contoh `"500+"` |
+| `techStack` | Json? | Array teknologi (opsional) |
+| `pricingTiers` | Json? | Array tier harga (id, name, pricing, features, cta) |
+| `integrations` | Json? | Array integrasi (name, category, status, url) |
+| `useCases` | Json? | Array segmen use case + testimoni + CTA per segmen |
+| `testimonials` | Json? | Array testimoni |
+| `caseStudies` | Json? | Array studi kasus (opsional) |
+| `comparisonTable` | Json? | `{ competitors: string[], rows: [...] }` |
+| `roadmap` | Json? | Array `{ quarter, status, features }` |
+| `primaryCta`, `secondaryCtas` | Json? | CTA utama + alternatif |
+| `pricingCalcUrl`, `demoUrl` | String? | Link kalkulator harga & booking demo |
+| `longFormContent` | String? (Text) | Konten panjang/markdown opsional |
+| `faq` | Json? | FAQ khusus produk ini (fallback ke `/faq` global jika kosong) |
+
+`features` (sudah ada sejak V6) sekarang mendukung dua bentuk: flat `[{title, description}]` (produk sederhana) atau grouped `[{category, icon, features: [{name, description}]}]` (dnPeople) — dideteksi otomatis di frontend, tanpa migrasi.
+
+### Scope V7 yang sudah masuk ke codebase
+
+| Area | Status | File |
+|------|--------|------|
+| Kolom baru di `Product` model | ✅ | `backend/prisma/schema.prisma` |
+| `productSchema` admin diperlebar (scalar tervalidasi, JSON longgar) | ✅ | `backend/src/routes/admin.ts` |
+| Field baru di `select` list publik | ✅ | `backend/src/routes/products.ts` |
+| Seed dnPeople (5 pricing tier, 5 kategori fitur, 6 integrasi, 3 use case, 3 testimoni, comparison table, roadmap 4 quarter) | ✅ | `backend/scripts/seed-dnpeople-product.ts`, `npm run db:seed-dnpeople` |
+| Tipe TS diperluas (`PricingTier`, `ProductFeatureGroup`, `UseCaseSegment`, dll) | ✅ | `frontend/src/types/index.ts` |
+| Admin form 8 section (Info Dasar, SEO, Media & CTA, Pricing, Fitur & Use Case, Integrasi & Perbandingan, Sosial Proof, Roadmap & FAQ, Status & Publishing) | ✅ | `frontend/src/app/admin/products/page.tsx` |
+| List publik: tagline, badge unggulan, "Mulai dari Rp X" | ✅ | `frontend/src/app/(public)/products/page.tsx` |
+| Detail publik: Use Cases, Pricing Tiers, Integrations, Comparison Table, Testimonials, Roadmap, FAQ produk-spesifik, bottom CTA band — semua render kondisional | ✅ | `frontend/src/app/(public)/products/[slug]/page.tsx` |
+| `formatCurrencyIDR` helper | ✅ | `frontend/src/lib/utils.ts` |
+
+### Di luar scope (alasan di plan implementasi)
+
+- Section "Value Proposition" — tidak ada field data di PRD sendiri (`[From copywriting]`), tidak ada yang bisa di-wire.
+- Rich/WYSIWYG atau drag-drop JSON builder — sengaja dihindari, memakai pola JSON-textarea yang sudah ada.
+- Upload widget untuk `heroImage`/`logoUrl`/`screenshotUrls` — tetap text/JSON URL biasa, konsisten dengan `iconUrl` yang sudah ada.
+
+### Verifikasi terakhir V7
+
+| Check | Hasil | Catatan |
+|-------|-------|---------|
+| `npx prisma generate` | ✅ Sukses | Schema-only |
+| `tsc --noEmit` backend | ✅ Sukses | |
+| `tsc --noEmit` + `npm run build` frontend | ✅ Sukses | `/products`, `/products/[slug]`, `/admin/products` ter-generate |
+| Backend boot test lokal | ✅ Sukses | `/health` 200; `/products` 500 hanya karena tidak ada Postgres lokal di mesin dev, bukan bug kode |
+| `npx prisma db push` + `npm run db:seed-dnpeople` ke production | ⏳ Belum dijalankan | Perlu dijalankan pemilik repo sebelum halaman `/products/dnpeople` menampilkan data lengkap |
+
+---
+
+## 17. Audit Performa: Kenapa Web Lambat
 
 Audit ini awalnya adalah hasil review kode dan build, bukan hasil Lighthouse lab run. Kolom status menunjukkan kondisi setelah implementasi V4.
 
@@ -992,7 +1061,7 @@ Status V4:
 
 ---
 
-## 17. Checklist Verifikasi Cepat
+## 18. Checklist Verifikasi Cepat
 
 Setelah deploy, pastikan:
 
@@ -1039,7 +1108,7 @@ Setelah deploy, pastikan:
 
 ---
 
-## 18. Referensi Dokumen
+## 19. Referensi Dokumen
 
 | Dokumen | Isi |
 |---------|-----|

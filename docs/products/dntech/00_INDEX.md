@@ -3,10 +3,10 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id  
-**Status**: Production (v5) + Modul Produk v6 (belum di-push ke DB production)  
+**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 (belum di-push/seed ke DB production)  
 **Owner**: Dozer  
 **Last Updated**: July 12, 2026  
-**Latest commit**: Modul Produk (V6) — content type terpisah dari Layanan, public + admin CRUD, nav baru
+**Latest commit**: Product Section PRD (V7) — pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap untuk halaman dnPeople
 
 ---
 
@@ -133,6 +133,7 @@
 
 | Aspek | Status |
 |-------|--------|
+| Product Section PRD (V7, Jul 12) | ✅ `Product` diperluas — pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap, multi-CTA; seed dnPeople via `db:seed-dnpeople`; DB push + seed ke production belum dijalankan |
 | Modul Produk (V6, Jul 12) | ✅ Content type `Product` terpisah dari `Service`; `/products`, `/admin/products`, nav "Produk" sejajar "Layanan"; DB push ke production belum dijalankan |
 | PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |

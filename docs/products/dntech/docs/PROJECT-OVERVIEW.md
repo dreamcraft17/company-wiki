@@ -237,7 +237,7 @@ Database: **PostgreSQL**
 |-------|-------|-----------|
 | `User` | `users` | Admin users + RBAC |
 | `Service` | `services` | Layanan perusahaan |
-| `Product` | `products` | Produk perusahaan (V6, terpisah dari Layanan) |
+| `Product` | `products` | Produk perusahaan (V6, terpisah dari Layanan); V7 menambah pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap, multi-CTA (lihat `docs/IMPLEMENTATION-STATUS.md` §16) |
 | `PortfolioItem` | `portfolio_items` | Portfolio & studi kasus |
 | `BlogPost` | `blog_posts` | Artikel blog |
 | `TeamMember` | `team_members` | Profil tim |

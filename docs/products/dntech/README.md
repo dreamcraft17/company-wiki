@@ -18,12 +18,13 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | V6 Produk module (Jul 12) | Implemented | New `Product` content type parallel to Services — public `/products` + `/products/[slug]`, admin CRUD `/admin/products`, sitewide search, sitemap; DB push to production pending |
+| V7 Product Section PRD (Jul 12) | Implemented | dnPeople flagship product page — pricing tiers, features by category, use cases, integrations, comparison table, testimonials, roadmap, multi-CTA; seed via `db:seed-dnpeople`; DB push + seed to production pending |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
 | Backend build | Passing | `npm run build` succeeds |
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 
-Latest implementation reference: Jul 9 — Homepage PRD Indonesia Edition + footer redesign + harga UMKM-friendly.
+Latest implementation reference: Jul 12 — Product Section PRD (dnPeople flagship page: pricing, features, use cases, integrations, comparison, testimonials, roadmap).
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
