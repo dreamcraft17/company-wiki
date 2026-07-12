@@ -1,7 +1,7 @@
 # dnPeople — Implementation Status
 
 > Terakhir diperbarui: **12 Juli 2026**
-> Referensi: PRD/SRS/SDD **v3.1** · Repo version **0.4.0**
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4** (competitive alignment, Module 1–2) · Repo version **0.5.0**
 
 ## Ringkasan
 
@@ -11,6 +11,8 @@
 | MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
 | MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** |
+| MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
+| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **21/21** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
 
@@ -205,6 +207,34 @@ Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
 
 ---
 
+## MVP 5 — Talent Development (PRD v4 Module 1–2 foundation)
+
+| Fitur | Status | Catatan |
+|-------|--------|---------|
+| Competency framework + versioning | Done | Clone framework/competency/role-mapping via `new-version` |
+| Competency library + bulk import | Done | Excel/CSV import, proficiency-level JSON per skala |
+| Role-competency mapping | Done | Required level, importance weight, development priority |
+| Competency assessment (self/manager/peer/360) | Done | Draft → submit → approve; employee self-service dibuka (`talent:self`) |
+| Gap analysis | Done | Priority-ranked (`gap × importanceWeight`), dipakai employee & untuk auto-generate IDP |
+| Individual Development Plan (IDP) | Done | Idempotent auto-generate goal dari gap, goal tracking, review recompute completion |
+| LMS dasar | Done | Program + module, enroll (self/assigned), completion tracking, sertifikat otomatis, transcript |
+| 9-box matrix & succession planning | Not started | PRD v4 Module 3 — butuh data performance matang, roadmap Q4 2026 |
+| Internal career marketplace & rotation | Not started | PRD v4 Module 4 |
+| Earned wage access (EWA) | Not started | PRD v4 Module 5 — butuh partner bank |
+| Salary benchmarking | Not started | PRD v4 Module 6 — butuh sumber data market eksternal |
+| Industry-specific package (manufaktur/retail) | Not started | PRD v4 Module 7–8 |
+
+Frontend: `/talent` `/idp` `/lms`
+
+### Catatan implementasi
+
+- Model data (`CompetencyFramework`, `Competency`, `RoleCompetency`, `CompetencyAssessment(+Item)`, `IndividualDevelopmentPlan`, `IdpGoal`, `IdpLearningPath`, `IdpReview`, `LearningProgram(+Competency)`, `LearningModule`, `LearningEnrollment`, `LearningModuleCompletion`) sudah ada di `schema.prisma` dari upaya sebelumnya; pass ini menyelesaikan pemasangan router (`competencies.ts` di-mount, `idp.ts`/`lms.ts` baru dibuat), memperbaiki akses self-service `EMPLOYEE` yang sebelumnya selalu 403, dan menambahkan halaman frontend.
+- RBAC `talent:*`/`lms:*`/`talent:self`/`lms:self` per role sudah didefinisikan di `utils/auth.ts` sejak sebelumnya; tidak ada perubahan permission matrix pada pass ini.
+- Migrasi tabel talent belum dijalankan oleh assistant di database dev bersama (Supabase) — dijalankan langsung oleh pemilik repo (`prisma db push`) di VPS/lingkungan masing-masing sebelum endpoint ini bisa dipakai.
+- Backend `tsc --noEmit` bersih dan server boot-tested lokal; frontend `next build` sukses dengan 47 route (termasuk `/talent`, `/idp`, `/lms`).
+
+---
+
 ## External production dependencies
 
 - Set `BIOMETRIC_VERIFIER_URL` dan token provider untuk liveness/face-match production.
@@ -214,4 +244,4 @@ Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
 
 ---
 
-*Last Updated: July 11, 2026*
+*Last Updated: July 12, 2026*

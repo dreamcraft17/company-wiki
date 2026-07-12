@@ -6,6 +6,14 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Added — Talent Development (PRD v4 Module 1–2 foundation)
+
+- Mounted the previously-built but never-registered competency framework/library/role-mapping/assessment API (`/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments`)
+- Fixed employee self-service access: self-assessment, own gap analysis, and own draft submit/edit no longer require `talent:view`/`talent:assess` and work under `talent:self`
+- New Individual Development Plan API (`/idps`) with idempotent auto-generation of goals from competency gaps, goal status tracking, and progress review that recomputes plan completion
+- New basic LMS API (`/lms`) — course/program with ordered modules, self or manager-assigned enrollment, per-module completion tracking, automatic completion percentage/final score, certificate issuance, and personal transcript
+- New frontend pages `/talent`, `/idp`, `/lms` and matching navigation entries
+
 ### Added — PRD completion hardening
 
 - Employee lifecycle data: family, education, contacts, bank/tax information, status history, contract/probation review, and automatic permanent conversion

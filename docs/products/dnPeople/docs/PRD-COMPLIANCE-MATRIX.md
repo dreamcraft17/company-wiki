@@ -33,6 +33,22 @@
 | SRS testing | In progress | 21 backend unit/security tests, clean-schema DB verification and 1,000-user load test implemented; full browser UAT evidence pending |
 | SDD deployment/NFR | Implemented | Backup/restore tooling, Prometheus, Sentry redaction, readiness/liveness, CI migration verification and 1,000-concurrent p95 gate implemented |
 
+### PRD v4 (competitive alignment) — Module 1–2
+
+| PRD v4 story / requirement | Status | Remaining completion gate |
+|---|---|---|
+| 1.1 Competency framework management | Implemented | Framework/competency CRUD, versioning, role mapping, bulk import implemented; migration to shared dev DB pending (owner runs `prisma db push`) |
+| 1.2 Competency assessment | Implemented | Self/manager/peer/360 assessment, draft/submit/approve, gap analysis implemented; employee self-service permission gap fixed this pass |
+| 2.1 IDP creation & management | Implemented | Template-free manual + auto-generate-from-gap creation, goal tracking, review with idempotent generation key implemented |
+| 2.2 Learning path & skill building (LMS basic) | Implemented | Program/module CRUD, enrollment, module completion, certificate, transcript implemented; mandatory-course enforcement and bonus-eligibility tie-in not implemented |
+| 3.1 Automated 9-box matrix | Not started | Roadmap — PRD v4 Module 3, needs mature performance-review history |
+| 3.2 Succession planning & readiness | Not started | Roadmap — PRD v4 Module 3 |
+| 4.1 Internal career marketplace | Not started | Roadmap — PRD v4 Module 4 |
+| 4.2 Rotation & cross-functional programs | Not started | Roadmap — PRD v4 Module 4 |
+| 5.1 Earned wage access | Not started | Roadmap — PRD v4 Module 5, needs banking partner |
+| 6.1 Salary benchmarking | Not started | Roadmap — PRD v4 Module 6, needs external market data source |
+| 7–8 Industry-specific (manufacturing/retail) | Not started | Roadmap — PRD v4 Module 7–8 |
+
 ## Mandatory completion evidence
 
 - Prisma schema validates and deployment migration applies on a clean PostgreSQL database.

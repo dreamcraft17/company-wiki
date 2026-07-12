@@ -2,7 +2,7 @@
 
 **Snapshot date:** 12 July 2026
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis
-**Specification baseline:** PRD/SRS/SDD v3.1
+**Specification baseline:** PRD/SRS/SDD v3.1, plus PRD v4 (competitive alignment) Module 1–2 foundation
 
 ## How to use this document
 
@@ -36,7 +36,7 @@ When writing the next PRD:
 | `HR` | Employee lifecycle and HR operations without payroll/salary access |
 | `MANAGER` | Department/team views and operational approvals; no payroll |
 | `FINANCE` | Payroll, claims, loans, finance reports and related employee references |
-| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips, training and helpdesk |
+| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips, training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment |
 
 Row-level access supports `all`, `department`, `self`, and `custom` scopes. Company isolation and employee ownership checks are backend requirements; hiding navigation is not considered authorization.
 
@@ -88,6 +88,9 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 | Custom reports | Source definitions, saved report configuration and report execution | `/custom-reports` | `/custom-reports` | Available |
 | Security administration | Row-level rules, effective-scope inspection, audit filters/export and MFA controls | `/security`, `/audit`, `/auth/mfa` | `/security`, `/audit` | Available |
 | Operations/NFR | Health/readiness, Prometheus, Sentry, backup/restore, clean migrations, DB verification and load-test CI | `/health`, `/ready`, `/metrics` | Operational tooling | Available; production acceptance required |
+| Competency framework & assessment | Framework/competency library with versioning, role-competency mapping, self/manager/peer/360 assessment, submit/approve workflow, gap analysis, bulk import | `/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments` | `/talent` | Available (PRD v4 Module 1) |
+| Individual Development Plan (IDP) | IDP CRUD, idempotent auto-generate goals from competency gap, goal tracking, progress review | `/idps` | `/idp` | Available (PRD v4 Module 2) |
+| Learning Management System (LMS) | Course/program + module CRUD, self/manager enrollment, module completion tracking, automatic certificate, transcript | `/lms` | `/lms` | Available (PRD v4 Module 2, basic) |
 
 ### Core employee lifecycle
 
@@ -132,6 +135,16 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 - Performance cycles, self/manager reviews, KPI/OKR tracking and payroll bonus handoff.
 - Training programs/enrolment, career paths, asset assignment/return, policies and disciplinary actions.
 - Resignation/offboarding, helpdesk, surveys/polls, announcements, HR calendar and AI assistant/document helpers.
+
+### Talent development (PRD v4 foundation)
+
+- Competency framework versioning (`new-version` clones competencies + role mappings), competency library with proficiency-level JSON, Excel/CSV bulk import.
+- Role-competency mapping with required level, importance weighting and development-priority flag.
+- Self/manager/peer/360 competency assessment with draft/submit/approve lifecycle; employees can self-assess and view their own gap analysis (`talent:self` scope), managers/HR/admin see team-wide data (`talent:view`/`talent:*`).
+- Gap analysis is priority-ranked (`gap × importanceWeight`) and reused to auto-generate IDP goals.
+- IDP creation with idempotent auto-generation of goals from the top competency gaps for an employee's position, goal status/progress tracking, and periodic review that recomputes plan completion.
+- LMS course/program with ordered modules, self-enroll or manager-assigned enrollment, per-module completion, automatic completion percentage/final score, certificate code and expiry, and a personal transcript endpoint.
+- Not yet built: 9-box matrix, succession planning, internal career marketplace/rotation programs, earned wage access, salary benchmarking, and manufacturing/retail vertical packages — these remain PRD v4 roadmap items (Q4 2026 and later).
 
 ### Dashboard, reporting and enterprise
 
@@ -183,6 +196,11 @@ These are not safe to mark “production accepted” solely from repository code
 - Legally certified third-party e-sign provider; current signatures are consent-based and tamper-evident.
 - Guaranteed 99.9% SLA without production infrastructure, monitoring, incident response and support operations.
 - Fully automated predictive HR decisions; turnover risk is heuristic and must remain human-reviewed.
+- 9-box talent matrix and succession planning/readiness scoring (PRD v4 Module 3).
+- Internal career marketplace, rotation and cross-functional mobility programs (PRD v4 Module 4).
+- Earned wage access (EWA) and salary benchmarking against external market data (PRD v4 Modules 5–6).
+- Manufacturing/retail vertical configuration packages — complex shift incentives, tips/service charge handling, high-volume hiring flows (PRD v4 Modules 7–8).
+- Talent-development database tables were declared in the schema before this pass but only migrated to the shared dev database as part of this rollout; deployment must run `prisma db push`/`migrate deploy` before the new endpoints are usable in any environment.
 
 ## Requirements for the next PRD
 

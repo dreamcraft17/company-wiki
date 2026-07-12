@@ -167,6 +167,54 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 
 ---
 
+## Talent Development (PRD v4 — Module 1 & 2)
+
+### Competency framework & assessment
+
+| Method | Path | Permission | Deskripsi |
+|--------|------|------------|-----------|
+| GET/POST | `/competency-frameworks` | talent:view / talent:* | List/buat framework kompetensi (`?status=`) |
+| PATCH/DELETE | `/competency-frameworks/:id` | talent:* | Update / archive |
+| POST | `/competency-frameworks/:id/new-version` | talent:* | Clone framework + kompetensi + role mapping ke versi baru |
+| GET/POST | `/competencies` | talent:view / talent:* | List/buat kompetensi (`?frameworkId=&category=&search=`) |
+| PATCH/DELETE | `/competencies/:id` | talent:* | Update / soft-deactivate |
+| GET | `/competencies/gap-analysis/:employeeId` | talent:view atau self | Gap current vs required, priority-ranked |
+| POST | `/competencies/bulk-import` | talent:* | Import Excel/CSV (`multipart/form-data`, field `file` + `frameworkId`) |
+| GET/POST | `/role-competencies` | talent:view / talent:* | Mapping posisi ↔ kompetensi (`requiredLevel`, `importanceWeight`, `developmentPriority`) |
+| DELETE | `/role-competencies/:id` | talent:* | Hapus mapping |
+| GET/POST | `/competency-assessments` | talent:view/self, talent:assess/self | List/buat assessment (`SELF`/`MANAGER`/`PEER`/`360`) |
+| PATCH | `/competency-assessments/:id` | pemilik draft | Edit item assessment berstatus `DRAFT` |
+| POST | `/competency-assessments/:id/submit` | pemilik draft | Submit untuk approval |
+| POST | `/competency-assessments/:id/approve` | talent:* | Approve assessment `SUBMITTED` |
+
+Self-service: `EMPLOYEE` (permission `talent:self`) dapat melihat/membuat assessment `SELF` miliknya sendiri dan gap analysis dirinya sendiri tanpa `talent:view`/`talent:assess`.
+
+### Individual Development Plan (IDP)
+
+| Method | Path | Permission | Deskripsi |
+|--------|------|------------|-----------|
+| GET | `/idps` | talent:view / self | List IDP (`?employeeId=`); employee hanya melihat miliknya |
+| POST | `/idps` | talent:* / MANAGER | Buat IDP; `autoGenerateFromGaps: true` men-generate goal dari gap kompetensi teratas, idempotent per `employeeId+startDate+endDate` |
+| GET | `/idps/:id` | talent:view / self | Detail + goals + review |
+| PATCH | `/idps/:id` | talent:* / MANAGER | Update status/tanggal/target posisi |
+| POST | `/idps/:id/goals` | talent:* / MANAGER | Tambah goal |
+| PATCH | `/idps/goals/:goalId` | talent:* / MANAGER / pemilik IDP | Update status & completion goal |
+| POST | `/idps/:id/review` | talent:* / MANAGER | Catat review, recompute `completionPercentage` IDP |
+
+### Learning Management System (LMS)
+
+| Method | Path | Permission | Deskripsi |
+|--------|------|------------|-----------|
+| GET | `/lms/programs` | ✓ (company-scoped) | Katalog course (`?status=&difficultyLevel=&search=`) |
+| POST | `/lms/programs` | lms:* | Buat course + modules nested |
+| PATCH | `/lms/programs/:id` | lms:* | Update/publish/archive |
+| POST | `/lms/programs/:id/modules` | lms:* | Tambah modul |
+| GET/POST | `/lms/enrollments` | lms:self / lms:view / lms:assign / lms:* | List/daftarkan enrollment (self-enroll atau manager assign) |
+| PATCH | `/lms/enrollments/:id/complete-module` | pemilik enrollment / talent-manager | Catat penyelesaian modul; auto-hitung `completionPercentage`/`finalScore`, generate sertifikat saat 100% & lulus `passingScore` |
+| GET | `/lms/transcript/:employeeId` | lms:view / self | Riwayat course selesai + sertifikat |
+
+---
+
 ## Health
 
 | Method | Path | Deskripsi |
@@ -265,4 +313,4 @@ Key dibuat via `POST /integrations/api-keys` (plain text hanya sekali). Prefix d
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 12, 2026*

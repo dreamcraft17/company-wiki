@@ -2,10 +2,10 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople`  
-**Status**: MVP 1–4 core implemented  
+**Status**: MVP 1–4 core implemented + PRD v4 Talent Development foundation (Module 1–2)
 **Owner**: Dozer  
 **Last Updated**: July 12, 2026
-**Spec Version**: PRD/SRS/SDD v3.1
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4 (competitive alignment)
 
 ---
 
@@ -16,6 +16,7 @@
 | [PRD/dnpeople-prd.md](./PRD/dnpeople-prd.md) | **PRD** — Product Requirements Document v3.1 |
 | [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.1 |
 | [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
+| [PRD/dnpeople-prd-v4-competitive.md](./PRD/dnpeople-prd-v4-competitive.md) | **PRD v4** — Competitive Alignment Edition (vs Mekari Talenta) |
 
 ## Implementation Docs (synced from repo)
 
@@ -39,7 +40,7 @@
 
 ## Ringkas Produk
 
-HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2–4: ops lanjutan, strategic HR, dan enterprise (multi-company, SSO, integrations, white-label).
+HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2–4: ops lanjutan, strategic HR, dan enterprise (multi-company, SSO, integrations, white-label). PRD v4 menambahkan fondasi talent development (competency framework, IDP, LMS dasar) untuk bersaing dengan Mekari Talenta.
 
 | | |
 |---|---|
@@ -68,6 +69,8 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 | 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done** |
 | 3 | Recruitment, onboarding, performance, training, assets, offboarding, helpdesk, AI assistant | **Done** |
 | 4 | Multi-company, SSO, integrations, white-label | **Done** |
+| 5 (PRD v4 Module 1–2) | Competency framework, competency assessment, IDP, LMS dasar | **Done** |
+| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
 ---
 

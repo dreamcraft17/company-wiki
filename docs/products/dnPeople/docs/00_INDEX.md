@@ -1,7 +1,7 @@
 # dnPeople — Docs Index (repo)
 
 **Last Updated:** July 12, 2026
-**Status:** MVP 1–4 core implemented  
+**Status:** MVP 1–4 core implemented + PRD v4 Talent Development foundation (Module 1–2)
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 | File | Deskripsi |

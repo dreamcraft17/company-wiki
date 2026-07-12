@@ -1,13 +1,13 @@
 # dnPeople
 
-Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — implementasi **MVP 1–4** berdasarkan PRD, SRS, dan SDD v3.1.
+Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — implementasi **MVP 1–4** berdasarkan PRD, SRS, dan SDD v3.1, plus fondasi Talent Development dari PRD v4 (competitive alignment).
 
 | | |
 |---|---|
-| Status | MVP 1–4 implemented |
+| Status | MVP 1–4 implemented + PRD v4 Talent Development foundation (Module 1–2) |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
-| Last Updated | July 10, 2026 |
+| Last Updated | July 12, 2026 |
 
 ## Stack
 
@@ -47,6 +47,13 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 - SSO Google/Microsoft/SAML + JIT, white-label branding
 - Custom reports builder, row-level security
 - AI document generator + AI recruitment screening
+
+### PRD v4 — Talent Development (foundation)
+- Competency framework, competency library, role-competency mapping, versioning
+- Competency assessment (self/manager/peer/360), gap analysis per employee
+- Individual Development Plan (IDP) dengan auto-generate goal dari competency gap, review progress
+- LMS dasar: course/program, module, enrollment, completion tracking, sertifikat otomatis, transcript
+- Belum termasuk: 9-box matrix, succession planning, internal career marketplace, earned wage access, salary benchmarking, paket industri (roadmap Q4 2026+)
 
 ## Quick Start (tanpa Docker)
 
