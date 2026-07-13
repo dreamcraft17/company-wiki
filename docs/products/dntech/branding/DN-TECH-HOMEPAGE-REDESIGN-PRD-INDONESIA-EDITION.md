@@ -376,7 +376,7 @@ Bahas kebutuhan, timeline, budget. No obligation.
 
 ATAU:
 
-📧 Email: hello@dntech.id
+📧 Email: info@dntech.id
 💬 WhatsApp: +62 812-XXXX-XXXX
 🔗 LinkedIn: [Dozer profile]
 ```
@@ -395,7 +395,7 @@ ATAU:
 
 ```
 GENERAL
-[ ] Email: hello@dntech.id ✅
+[ ] Email: info@dntech.id ✅
 [ ] Phone / WhatsApp: +62 812-XXXX-XXXX
 [ ] Office address (if ada)
 [ ] LinkedIn: [profile]
