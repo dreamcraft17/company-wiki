@@ -69,6 +69,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Lint full repo | ✅ | Frontend lint sukses tanpa error/warning |
 | Performance audit awal | ✅ | Bottleneck utama sudah ditangani di V4; perlu Lighthouse/field verification setelah deploy |
 | Loading UX global (Jul 13) | ✅ | Route fallback public/admin/root, overlay request API concurrency-safe, indikator sesi dan initial CRUD |
+| Public products API hotfix (Jul 13) | ✅ | Listing/detail SSR memakai resolver bersama; production menolak localhost dan log fetch failure |
 
 ---
 
@@ -1133,6 +1134,26 @@ Komponen utama:
 - `frontend/src/lib/loading-events.ts`
 
 Verifikasi: TypeScript ✅ · ESLint 0 error/warning ✅ · Next.js production build 48 route ✅.
+
+### Hotfix produk publik tidak tampil
+
+Gejala production: produk aktif terlihat di admin, tetapi `/products` menampilkan empty state. Verifikasi menunjukkan endpoint `https://api.dntech.id/api/v1/products` mengembalikan produk aktif, sedangkan server-rendered HTML tetap berisi daftar kosong.
+
+Root cause:
+
+- admin memakai `getApiBaseUrl()`;
+- halaman produk publik sebelumnya membaca `NEXT_PUBLIC_API_URL` langsung;
+- `.env.local` build berisi URL localhost;
+- kegagalan SSR fetch ditelan dan dikonversi menjadi array kosong.
+
+Perbaikan:
+
+- listing dan detail produk memakai resolver API yang sama;
+- production otomatis menolak `localhost`/`127.0.0.1` dan memakai `https://api.dntech.id/api/v1`;
+- konfigurasi lama `https://dntech.id/api/...` tetap dinormalisasi ke subdomain API;
+- fetch failure dicatat di server log agar tidak lagi terlihat seperti data kosong biasa.
+
+Deployment frontend wajib menjalankan build ulang karena `NEXT_PUBLIC_*` dibake ke artifact.
 
 ---
 

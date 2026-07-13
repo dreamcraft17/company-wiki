@@ -24,6 +24,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 | Loading UX (Jul 13) | Implemented | Route-level loading fallback, global API overlay, admin session/CRUD loading; concurrency-safe and accessible |
+| Public product API hotfix (Jul 13) | Implemented | SSR product pages share the normalized API resolver; production localhost/misrouted URL falls back to `api.dntech.id` |
 
 Latest implementation reference: Jul 12 — Product Section PRD (dnPeople flagship page: pricing, features, use cases, integrations, comparison, testimonials, roadmap).
 

@@ -108,6 +108,8 @@ NEXT_PUBLIC_SITE_URL=https://www.dntech.id
 
 > **Penting:** `https://www.dntech.id/api/v1` atau `https://dntech.id/api` sering mengembalikan 404. Gunakan `https://api.dntech.id/api/v1` untuk build production agar `/about` dan halaman CMS lain fetch data dengan benar.
 
+Resolver API frontend juga memiliki pengaman production: nilai `localhost`/`127.0.0.1` otomatis diarahkan ke `https://api.dntech.id/api/v1`, dan URL lama pada domain utama dinormalisasi ke subdomain API. Listing serta detail produk publik memakai resolver yang sama dengan admin. Pengaman ini bukan pengganti konfigurasi deployment yang benar; tetap set `.env.local` seperti di atas dan rebuild frontend karena nilai `NEXT_PUBLIC_*` tertanam saat build.
+
 ```bash
 npm install
 npm run build
@@ -172,6 +174,7 @@ location /api/ {
 - [ ] JWT_SECRET diganti random
 - [ ] `frontend/.env.local` → `NEXT_PUBLIC_API_URL` production
 - [ ] Frontend **rebuild** setelah ubah `.env.local`
+- [ ] `/products` dan satu detail produk aktif tampil setelah rebuild
 - [ ] Backend `FRONTEND_URL` mencakup `https://dntech.id` dan `https://www.dntech.id`
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
