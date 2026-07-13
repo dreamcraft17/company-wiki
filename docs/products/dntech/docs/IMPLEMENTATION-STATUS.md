@@ -2,7 +2,7 @@
 
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
-**Terakhir diperbarui:** 12 Juli 2026  
+**Terakhir diperbarui:** 13 Juli 2026
 **Branch:** `main`  
 **Commit referensi terbaru:** Homepage PRD Indonesia Edition + tuning harga & section (Jul 9 malam)  
 **Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
@@ -32,7 +32,8 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 16. [Implementasi V7 — Product Section PRD (dnPeople Flagship)](#16-implementasi-v7--product-section-prd-dnpeople-flagship)
 17. [Audit Performa: Kenapa Web Lambat](#17-audit-performa-kenapa-web-lambat)
 18. [Checklist Verifikasi Cepat](#18-checklist-verifikasi-cepat)
-19. [Referensi Dokumen](#19-referensi-dokumen)
+19. [Loading UX Global](#19-loading-ux-global)
+20. [Referensi Dokumen](#20-referensi-dokumen)
 
 ---
 
@@ -67,6 +68,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Production build | ✅ | Frontend + backend build sukses |
 | Lint full repo | ✅ | Frontend lint sukses tanpa error/warning |
 | Performance audit awal | ✅ | Bottleneck utama sudah ditangani di V4; perlu Lighthouse/field verification setelah deploy |
+| Loading UX global (Jul 13) | ✅ | Route fallback public/admin/root, overlay request API concurrency-safe, indikator sesi dan initial CRUD |
 
 ---
 
@@ -1108,7 +1110,33 @@ Setelah deploy, pastikan:
 
 ---
 
-## 19. Referensi Dokumen
+## 19. Loading UX Global
+
+Implementasi 13 Juli 2026 memastikan aplikasi selalu memberi feedback visual ketika navigasi atau request data masih berjalan.
+
+| Area | Implementasi |
+|------|---------------|
+| Initial application load | `app/loading.tsx` menampilkan full-screen branded loader |
+| Public route navigation | `(public)/loading.tsx` menyediakan Suspense fallback instan |
+| Admin route navigation | `admin/loading.tsx` menampilkan fallback di area panel admin |
+| Session validation | Admin layout memakai `PageLoading` dengan label pemeriksaan sesi |
+| Client API request | `apiFetch` dan `apiFetchPaginated` memicu overlay global |
+| Parallel request | Counter request memastikan overlay baru hilang setelah seluruh request selesai |
+| Fast request | Delay 180 ms mencegah flicker pada request yang selesai cepat |
+| Initial CRUD fetch | Tabel admin menampilkan “Memuat data...” sebelum empty state |
+| Accessibility | `role=status`, `aria-live`, label eksplisit, serta dukungan reduced motion global |
+
+Komponen utama:
+
+- `frontend/src/components/ui/PageLoading.tsx`
+- `frontend/src/components/ui/GlobalLoadingIndicator.tsx`
+- `frontend/src/lib/loading-events.ts`
+
+Verifikasi: TypeScript ✅ · ESLint 0 error/warning ✅ · Next.js production build 48 route ✅.
+
+---
+
+## 20. Referensi Dokumen
 
 | Dokumen | Isi |
 |---------|-----|
