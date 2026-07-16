@@ -1,17 +1,19 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** MVP 4.0 (enterprise core)
+**Version:** MVP 5.0 (enterprise core + Talent Development foundation)
 **Status:** Active Development
 **Repository:** `dnpeople`  
 **Owner:** Dozer  
-**Last Updated:** July 10, 2026
+**Last Updated:** July 16, 2026
 
 ---
 
 ## Apa itu dnPeople?
 
-dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), dan enterprise (MVP 4: multi-company, integrations, SSO config, white-label, custom reports, AI docs/screening).
+dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), enterprise (MVP 4: multi-company, integrations, SSO, white-label, custom reports, AI docs/screening), serta fondasi Talent Development (MVP 5: competency, assessment, gap analysis, IDP, dan LMS dasar).
+
+Codebase saat ini memiliki **46 halaman web**, **45 modul route backend**, dan **88 model Prisma**. Status per fitur dan dependency production tersedia di [Feature Catalog](./FEATURE-CATALOG.md).
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
 
@@ -27,6 +29,8 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | MVP 2 | Q4 2026 | **Done** |
 | MVP 3 | Q1 2027 | **Done (core)** |
 | MVP 4 | Q2 2027 | **Done (core)** |
+| MVP 5 — PRD v4 Module 1–2 | Q3 2027 | **Done (foundation)** |
+| PRD v4 Module 3–8 | Q4 2027+ | **Roadmap** |
 
 ## Stack
 
@@ -37,7 +41,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | ORM | Prisma 6 | — |
 | Database | PostgreSQL 16 | 5433 |
 | Cache | Redis 7 (reserved) | 6380 |
-| Auth | JWT + API keys + RBAC (5 roles) | — |
+| Auth | JWT + API keys + RBAC (6 roles) | — |
 
 ## Struktur Repo
 
@@ -68,6 +72,7 @@ dnpeople/
 |------|-------------|
 | SUPER_ADMIN | Multi-company platform (`/platform`) |
 | COMPANY_ADMIN | Full company HR + settings + enterprise modules |
+| HR | Employee lifecycle, HR operations, recruitment, dan talent; tanpa payroll/salary |
 | MANAGER | Approval, view team, workflows:view |
 | FINANCE | Payroll, claims, loans, reports |
 | EMPLOYEE | Self-service absensi, cuti, slip gaji |
@@ -80,6 +85,7 @@ dnpeople/
 | SRS v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-srs.md` |
 | SDD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-sdd.md` |
 | Implementation Status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
+| Feature Catalog | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
 | API Reference | [API.md](./API.md) |
 | Architecture | [ARCHITECTURE.md](./ARCHITECTURE.md) |
 | Deployment | [DEPLOYMENT.md](./DEPLOYMENT.md) |
@@ -87,4 +93,4 @@ dnpeople/
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 16, 2026*

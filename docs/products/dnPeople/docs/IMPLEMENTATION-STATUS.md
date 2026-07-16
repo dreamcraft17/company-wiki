@@ -1,6 +1,6 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **12 Juli 2026**
+> Terakhir diperbarui: **16 Juli 2026**
 > Referensi: PRD/SRS/SDD **v3.1** + PRD **v4** (competitive alignment, Module 1–2) · Repo version **0.5.0**
 
 ## Ringkasan
@@ -16,7 +16,7 @@
 
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **21/21** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
 
-### PRD completion hardening — 12 Juli 2026
+### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 16 Juli 2026
 
 | Area | Implementasi terbaru |
 |------|----------------------|
@@ -43,7 +43,7 @@
 | Public careers | Done | Listing dan application form responsif |
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 
-Verifikasi 12 Juli 2026: TypeScript ✅ · production build 43 route ✅ · ESLint 0 error. Audit tabel memastikan tidak ada lagi aturan global yang mengubah tabel menjadi `display: block`; Dashboard dan Reports kini memiliki wrapper overflow tersendiri.
+Verifikasi baseline 12 Juli 2026: TypeScript ✅ · ESLint 0 error. Audit codebase 16 Juli 2026 menghitung **46 page route frontend**, **45 modul route backend**, dan **88 model Prisma**. Audit tabel memastikan tidak ada lagi aturan global yang mengubah tabel menjadi `display: block`; Dashboard dan Reports memiliki wrapper overflow tersendiri.
 
 ---
 
@@ -51,7 +51,7 @@ Verifikasi 12 Juli 2026: TypeScript ✅ · production build 43 route ✅ · ESLi
 
 | Fitur | Status |
 |-------|--------|
-| Auth JWT + RBAC 5 roles | Done |
+| Auth JWT + RBAC 6 roles | Done | `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, `EMPLOYEE` |
 | Company register / profile | Done |
 | Org (dept, position, level, location) | Done |
 | Employee master + tax info | Done |
@@ -244,4 +244,4 @@ Frontend: `/talent` `/idp` `/lms`
 
 ---
 
-*Last Updated: July 12, 2026*
+*Last Updated: July 16, 2026*

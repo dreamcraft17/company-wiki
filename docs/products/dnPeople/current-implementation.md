@@ -1,6 +1,6 @@
 # dnPeople — Current Implementation Baseline
 
-**Snapshot date:** 12 July 2026
+**Snapshot date:** 16 July 2026
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis
 **Specification baseline:** PRD/SRS/SDD v3.1, plus PRD v4 (competitive alignment) Module 1–2 foundation
 
@@ -18,9 +18,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 44 production routes; mobile-first shell and locally scrollable data tables |
-| Backend | Express 5 + TypeScript REST API under `/api/v1` |
-| Data | PostgreSQL 16 + Prisma; deployment migrations are mandatory |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 46 page routes; mobile-first shell and locally scrollable data tables |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; 45 route modules |
+| Data | PostgreSQL 16 + Prisma with 88 models; deployment migrations are mandatory |
 | Authentication | JWT, API key, TOTP MFA, Google/Microsoft OAuth, SAML configuration/JIT |
 | Storage | Local upload or S3-compatible object storage |
 | Email | SMTP with development fallback |
@@ -169,7 +169,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current automated evidence: 21/21 backend tests pass; frontend production build covers 44 routes; acceptance load profile uses 5,000 requests and 1,000 logical concurrent users with a p95 threshold below two seconds.
+Current recorded automated evidence: 21/21 backend tests pass; the current frontend contains 46 page routes; acceptance load profile uses 5,000 requests and 1,000 logical concurrent users with a p95 threshold below two seconds. Re-run the build and test suites before treating these figures as release evidence.
 
 ## Production/UAT gates
 
@@ -218,6 +218,7 @@ Every new or changed story should state:
 
 ## Source references
 
+- [Complete feature catalog](./docs/FEATURE-CATALOG.md)
 - [Implementation status](./IMPLEMENTATION-STATUS.md)
 - [PRD compliance matrix](./PRD-COMPLIANCE-MATRIX.md)
 - [Security & NFR evidence](./SECURITY-NFR-EVIDENCE.md)

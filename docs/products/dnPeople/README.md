@@ -7,7 +7,7 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | Status | MVP 1–4 implemented + PRD v4 Talent Development foundation (Module 1–2) |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
-| Last Updated | July 12, 2026 |
+| Last Updated | July 16, 2026 |
 
 ## Stack
 
@@ -20,6 +20,8 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 | Auth | JWT + API keys + RBAC |
 
 ## Fitur
+
+Snapshot codebase saat ini mencakup **46 halaman web**, **45 modul route backend**, dan **88 model Prisma**. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure
@@ -113,6 +115,7 @@ App: `http://localhost:3001`
 | **Supabase (DB)** | [docs/SUPABASE.md](./docs/SUPABASE.md) |
 | **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
+| **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 

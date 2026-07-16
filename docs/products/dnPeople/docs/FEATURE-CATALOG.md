@@ -1,0 +1,271 @@
+# dnPeople — Feature Catalog
+
+**Snapshot:** 16 July 2026
+**Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
+**Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
+
+## Cara membaca
+
+| Status | Arti |
+|--------|------|
+| **Available** | UI dan API/alur inti tersedia di codebase. Tetap memerlukan deployment, konfigurasi, dan UAT customer. |
+| **Conditional** | Implementasi tersedia, tetapi fungsi production bergantung provider, kredensial, data, atau acceptance eksternal. |
+| **Roadmap** | Belum menjadi fitur produk saat ini; jangan dijanjikan sebagai fitur existing. |
+
+Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMPLOYEE`. Akses final tetap ditentukan permission backend serta row scope `all`, `department`, `self`, atau `custom`.
+
+## Ringkasan produk
+
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **46 halaman frontend**, **45 modul route backend**, **88 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise administration.
+
+## 1. Identity, authentication, dan access control
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Login dan session | JWT login, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
+| Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
+| Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
+| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/security`, `/auth/mfa/*` | Available |
+| OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
+| SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
+| API-key authentication | Scoped key `dnp_…`, revoke, last-used tracking | Admin/integrator | `/integrations`, `/integrations/api-keys` | Available |
+| Role management | Membuat linked account, assign role, temporary password sekali tampil | Company admin | Employee lifecycle panel | Available |
+| RBAC | Enam role dan permission per resource/action | Semua role | Backend authorization | Available |
+| Row-level access | Scope all/department/self/custom dan effective-scope inspection | Admin/manager | `/security` | Available |
+| Tenant isolation | Company scoping pada data dan relasi | Semua role | Seluruh API | Available |
+
+## 2. Company, organization, dan employee master
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Profil perusahaan | Identitas company, jam kerja, jadwal dan konfigurasi dasar | Company admin/HR | Company API | Available |
+| Departemen | CRUD departemen dan hierarchy | Admin/HR | `/org` | Available |
+| Posisi/jabatan | CRUD posisi dan mapping organisasi | Admin/HR | `/org` | Available |
+| Level/grade | CRUD level karyawan | Admin/HR | `/org` | Available |
+| Lokasi kerja | Alamat, koordinat, radius geofence, SSID WiFi | Admin/HR | `/org` | Available |
+| Organization tree | Struktur manager, unit, posisi, dan link antar-company | Admin/HR | `/org`, `/platform` | Available |
+| Employee CRUD | Tambah, lihat, ubah, pencarian, pagination, soft delete | Admin/HR | `/employees` | Available |
+| Import karyawan | Excel/CSV bulk import dengan validasi | Admin/HR | `/employees` | Available |
+| Filter employee | Departemen, posisi, lokasi, employment type, status | Admin/HR/manager | `/employees` | Available |
+| Data personal | Identitas, alamat/kontak, employment detail | HR/employee sesuai scope | Employee panel | Available |
+| Family dan dependant | Anggota keluarga dan tanggungan | HR/employee sesuai scope | Employee lifecycle API/UI | Available |
+| Pendidikan | Riwayat pendidikan | HR/employee sesuai scope | Employee lifecycle API/UI | Available |
+| Emergency contact | Kontak darurat | HR/employee sesuai scope | Employee lifecycle API/UI | Available |
+| Bank dan pajak | Rekening, NPWP, PTKP dan data payroll terkait | HR/Finance sesuai izin | Employee lifecycle API/UI | Available |
+| Kontrak dan probation | Tanggal kontrak/probation, review, reminder, conversion | HR/manager | Employee lifecycle panel | Available |
+| Status history | Riwayat perubahan status employment | HR | Employee lifecycle panel | Available |
+| Enkripsi field sensitif | AES-256-GCM untuk salary, NPWP, dan nomor rekening; key rotation | Platform/security | Backend/data | Available |
+
+## 3. Attendance, shift, leave, dan permission
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Clock-in/out | Absensi masuk/keluar dan status hari ini | Employee | `/attendance` | Available |
+| Metode absensi | Manual/cepat, GPS, QR, selfie, dan WiFi | Employee | `/attendance` | Available |
+| Geofence | Validasi koordinat dan radius lokasi kerja | Employee/admin | Attendance + organization | Available |
+| WiFi attendance | Validasi SSID kantor | Employee/admin | Attendance + organization | Available |
+| Selfie/liveness | Adapter face-match/liveness dan production fail-closed | Employee/admin | Attendance API | Conditional — biometric provider |
+| Work mode | Pencatatan office/WFH dan konteks kerja | Employee/HR | `/attendance` | Available |
+| Late/early leave | Deteksi terlambat dan pulang cepat | Employee/HR | `/attendance`, reports | Available |
+| Offline attendance | Queue lokal dan endpoint sinkronisasi | Employee | `/attendance` | Available |
+| Attendance history/summary | Riwayat, ringkasan dan filter periode | Employee/HR/manager | `/attendance` | Available |
+| Koreksi absensi | Request dengan bukti wajib dan nilai before/after | Employee/HR | `/corrections` | Available |
+| Bulk correction/approval | Koreksi dan approval massal | HR/manager | `/corrections` | Available |
+| Shift master | CRUD jam shift dan pay multiplier | Admin/HR | `/shifts` | Available |
+| Shift assignment | Satu assignment employee per hari dengan validasi tenant/status | Admin/HR | `/shifts` | Available |
+| Rotasi shift | Penjadwalan rotasi karyawan | Admin/HR | `/shifts` | Available |
+| Shift swap | Request tukar shift dan approval | Employee/manager | `/shifts` | Available |
+| Leave type | Paid/unpaid type, policy dan auto-approve sick leave | Admin/HR | `/leave` | Available |
+| Leave balance | Saldo, deduction, overlap validation | Employee/HR | `/leave` | Available |
+| Leave request/approval | Submit, approve/reject dan approval scope | Semua role terkait | `/leave`, `/approvals` | Available |
+| Carry-forward/expiry | Proses tahunan, carry-forward dan kedaluwarsa saldo | HR | Leave admin API | Available |
+| Replacement/handover | Rekan pengganti, coverage dan acknowledgement | Employee/manager | `/leave` | Available |
+| Permission | Izin terlambat, pulang awal, WFH, perjalanan dinas, lainnya | Employee/manager | `/permissions` | Available |
+| Attendance synchronization | Approval cuti/izin memperbarui catatan attendance | HR/system | Leave/permission service | Available |
+| Overtime | Request, approval/reject, weekday/weekend/holiday multiplier | Employee/manager | `/overtime` | Available |
+| Overtime to payroll | Lembur approved otomatis masuk payroll period | Finance/payroll admin | Payroll service | Available |
+
+## 4. Payroll, tax, benefits, dan employee finance
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Payroll configuration | Working-day divisor, tax method, BPJS, overtime, claim/loan policy | Company admin/Finance | `/payroll-settings` | Available |
+| Salary component | Earning, deduction, employer contribution, effective date | Company admin/Finance | `/payroll-settings` | Available |
+| Payroll template | Template berdasar departemen/posisi dan idempotent application | Company admin/Finance | `/payroll-settings` | Available |
+| Employee component | Komponen recurring/period-specific per karyawan | Finance | `/payroll-settings` | Available |
+| PPh 21 | PTKP lengkap, tax bracket versioning, gross/net/gross-up | Finance | Payroll settings/service | Available |
+| BPJS | Kesehatan, JHT, JP; rate/cap employee dan employer | Finance | Payroll settings/service | Available |
+| Monthly payroll | Batch calculate, preview/detail, finalize, paid status | Finance/admin | `/payroll` | Available |
+| Payroll inputs | Attendance, unpaid leave, shift premium, overtime, claim, loan, variable pay | Finance/system | Payroll service | Available |
+| Proration | Join/exit mid-period, divisor, eligible days, full-month cap, explanation | Finance/employee | `/payroll`, payslip | Available |
+| THR | Annual THR generation | Finance/admin | `/payroll/thr/run` | Available |
+| Bonus dan commission | Variable compensation, approval, period assignment, paid tracking | Finance/admin | `/payroll-settings` | Available |
+| KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
+| Payslip portal | Employee melihat payslip 12 bulan miliknya | Employee | `/payroll` | Available |
+| Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
+| Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/:id/verify` | Available |
+| Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
+| Claim category/policy | Kategori, limit harian/bulanan, receipt wajib | Admin/Finance | `/claims` | Available |
+| Reimbursement claim | Submit bukti, multi-step approval, paid/payroll inclusion | Employee/manager/Finance | `/claims`, `/approvals` | Available |
+| Loan simulation | Simulasi cicilan dan affordability ratio | Employee/Finance | `/loans` | Available |
+| Employee loan | One-active-loan policy, Manager/Finance approval, payroll deduction | Employee/manager/Finance | `/loans`, `/approvals` | Available |
+| Bank upload/reconciliation | Export data transfer/reconciliation payroll | Finance | `/reports` | Available; bukan eksekusi transfer |
+| Tax/YTD export | Payroll/tax detail dan year-to-date export | Finance | `/reports` | Available |
+
+## 5. Recruitment dan onboarding
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Job requisition/posting | CRUD lowongan, publish, close | HR/recruiter | `/recruitment` | Available |
+| Public career portal | Listing company/job tanpa login | Candidate | `/careers/*` | Available |
+| Online application | Form lamaran dan upload CV | Candidate | `/careers/[companyKey]/[jobId]` | Available |
+| Candidate database | Kandidat dan application records | HR/recruiter | `/recruitment` | Available |
+| ATS pipeline | Status workflow dan bulk status action | HR/recruiter | `/recruitment` | Available |
+| Interview data | Schedule/detail interview dalam pipeline | HR/recruiter/manager | `/recruitment` | Available |
+| Candidate communication | Komunikasi bulk/status notification | HR/recruiter | Recruitment service | Conditional — SMTP |
+| AI screening | Single/batch screening dan ranking helper | HR/recruiter | `/recruitment`, `/ai/recruitment/*` | Conditional — LLM provider; rule fallback |
+| Digital offer | Generate/send offer, expiry dan public token | HR/candidate | `/recruitment`, `/careers/offer/[token]` | Available |
+| Offer acceptance | Accept/reject, consent signature dan tamper evidence | Candidate | Public offer page | Available |
+| Auto-hire | Accepted offer membuat employee dan onboarding | HR/system | Recruitment service | Available |
+| Onboarding plan | Default/custom plan dan buddy | HR | `/onboarding` | Available |
+| Onboarding checklist | Dokumen, training, equipment, culture, probation task | HR/owner task | `/onboarding` | Available |
+| Scoped completion | Penyelesaian task oleh owner yang sesuai | HR/manager/employee | `/onboarding` | Available |
+
+## 6. Performance, competency, IDP, dan learning
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Performance cycle | Membuat cycle dan generate review | HR | `/performance` | Available |
+| Performance review | Self score, manager score, final score | Employee/manager/HR | `/performance` | Available |
+| KPI dan OKR | Target, progress, score dan bonus handoff | Employee/manager/HR | `/performance` | Available |
+| Training program | Program, enrollment, start/complete | HR/employee | `/training` | Available |
+| Career path record | Jalur karier dan requirement | HR/employee | `/training` | Available |
+| Competency framework | CRUD, versioning dan clone mapping | HR/admin | `/talent` | Available |
+| Competency library | Definisi kompetensi dan proficiency levels | HR/admin | `/talent` | Available |
+| Competency import | Bulk Excel/CSV | HR/admin | `/talent` | Available |
+| Role-competency mapping | Required level, importance weight, priority | HR/admin | `/talent` | Available |
+| Competency assessment | Self/manager/peer/360, draft-submit-approve | Employee/manager/HR | `/talent` | Available |
+| Gap analysis | Gap × importance ranking per employee/role | Employee/manager/HR | `/talent` | Available |
+| IDP | Manual CRUD dan plan period/status | Employee/manager/HR | `/idp` | Available |
+| IDP auto-generation | Idempotent goals dari top competency gaps | Employee/manager/HR | `/idp` | Available |
+| IDP goal/review | Goal status/progress dan review completion | Employee/manager/HR | `/idp` | Available |
+| LMS program/module | Program dan ordered learning module | HR/admin | `/lms` | Available (basic) |
+| LMS enrollment | Self-enroll atau assigned enrollment | Employee/manager | `/lms` | Available (basic) |
+| Learning progress | Module completion, percentage, final score | Employee/manager | `/lms` | Available (basic) |
+| Certificate/transcript | Certificate code/expiry dan personal transcript | Employee/HR | `/lms` | Available (basic) |
+
+## 7. Employee services dan workplace operations
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Asset inventory | CRUD aset dan status | HR/admin | `/assets` | Available |
+| Asset assignment/return | Serah-terima dan pengembalian termasuk offboarding | HR/employee | `/assets`, `/offboarding` | Available |
+| Resignation | Employee request, approve/reject, complete | Employee/manager/HR | `/offboarding` | Available |
+| Offboarding workflow | Checklist dan asset-return support | HR/employee | `/offboarding` | Available |
+| Company documents | Upload/list/delete dokumen perusahaan | HR/employee sesuai izin | `/documents` | Available |
+| Employee documents | Upload/list dokumen employee | HR/employee sesuai scope | `/documents` | Available |
+| Contract reminders | Kontrak expiring dan trigger reminder | HR | `/documents` | Conditional — SMTP |
+| Policies | CRUD/publish kebijakan perusahaan | HR/employee | `/policies` | Available |
+| Discipline | Warning/SP/suspension records | HR/manager | `/policies` | Available |
+| Helpdesk | Create ticket, assignment, status, resolution | Employee/HR | `/helpdesk` | Available |
+
+## 8. Communication dan engagement
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Announcements | Publish dan konsumsi pengumuman | HR/semua role | `/announcements` | Available |
+| Survey | Form pertanyaan dan response | HR/employee | `/surveys` | Available |
+| Poll | Quick poll dan choice question | HR/employee | `/surveys` | Available |
+| HR calendar | Event HR, holiday dan payroll schedule | Semua role | `/calendar` | Available |
+| Notification center | Persistent unread/read notification di header | Semua role | Header, `/notifications` | Available |
+| Browser notification | Permission dan notification browser | Semua role | Web Notification API | Conditional — browser permission |
+| Email notification | Workflow email melalui SMTP | Semua role | Backend mailer | Conditional — SMTP |
+
+## 9. Dashboard, analytics, dan reporting
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Role-aware dashboard | Data sesuai role/scope | Semua role | `/dashboard` | Available |
+| Workforce dashboard | Total/active, department/type/status breakdown | HR/admin/manager | `/dashboard` | Available |
+| Operational dashboard | Attendance, pending approval, contracts, probation, birthday | HR/manager | `/dashboard` | Available |
+| Payroll dashboard | Payroll period/status yang diizinkan | Finance/admin | `/dashboard` | Available |
+| Attendance report | Detail, date/employee filter, pattern analysis, Excel/PDF | HR/manager | `/reports` | Available |
+| Leave report | Detail, peak/future analysis, Excel/PDF | HR/manager | `/reports` | Available |
+| Payroll report | Component, tax, BPJS, department, bank dan YTD | Finance/admin | `/reports` | Available |
+| Turnover analytics | Trend, department, reason, heuristic risk | HR/admin | `/reports` | Available; human review wajib |
+| Custom reports | Source definition, saved config dan execution | Enterprise admin | `/custom-reports` | Available |
+| Spreadsheet safety | Formula-injection protection untuk import/export | Admin/Finance | Reporting/import layer | Available |
+
+## 10. Approval, workflow, AI, dan integrations
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Approval inbox | Cuti, izin, lembur, koreksi, claim, loan | Manager/HR/Finance | `/approvals` | Available |
+| Approval rules | Rule berdasarkan module, role, amount | Admin | `/approvals` | Available |
+| Custom workflow | Multi-step workflow CRUD dan activation | Enterprise admin | `/workflows` | Available |
+| Workflow resolution | Resolve workflow aktif per module/context | System/admin | Workflow API | Available |
+| AI HR assistant | Tanya jawab HR dengan LLM/rule fallback | Semua role | `/assistant` | Conditional — LLM untuk hasil generatif |
+| AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
+| Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
+| Test delivery | Menguji konfigurasi integration/webhook | Enterprise admin | `/integrations` | Available framework |
+| Upload storage | Local disk atau S3-compatible storage | System/admin | `/uploads` | Conditional — storage config |
+
+## 11. Platform, branding, security, dan operations
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Multi-company console | Company listing dan platform visibility | Super admin | `/platform` | Available |
+| Organization links | Relasi/hierarchy antar-company | Super admin | `/platform` | Available |
+| White-label branding | App name, logo, color dan public branding | Company admin | `/branding` | Available |
+| Audit trail | Actor/action/resource, filter, export, before/after redacted | Admin/auditor | `/audit` | Available |
+| Immutable audit | Append-only PostgreSQL enforcement | Platform/security | Database | Available |
+| Sensitive-data redaction | Password/token/secret/PII tidak masuk log/telemetry | Platform/security | Backend | Available |
+| Health/readiness | Liveness dan DB readiness terpisah | Operations | `/health`, `/ready` | Available |
+| Metrics | Prometheus metrics | Operations | `/metrics` | Available |
+| Error telemetry | Redacted Sentry integration | Operations | Backend/frontend | Conditional — Sentry config |
+| Backup/restore | Daily backup workflow dan restore tooling | Operations | Deployment scripts | Conditional — storage/restore drill |
+| CI quality gates | Typecheck, tests, migration/DB control dan load-test workflow | Engineering | CI | Available |
+| Responsive web | Mobile drawer, responsive forms/cards, local table scroll | Semua role | Seluruh web app | Available |
+| Header actions | Notification dan logout di header/navbar kanan | Semua role | App shell | Available |
+
+## 12. Fitur yang belum tersedia (roadmap boundary)
+
+| Fitur roadmap | Status/catatan |
+|---------------|----------------|
+| Native Android/iOS | Roadmap; produk saat ini mobile-first web |
+| 9-box talent matrix | Roadmap PRD v4 Module 3 |
+| Succession planning/readiness | Roadmap PRD v4 Module 3 |
+| Internal career marketplace | Roadmap PRD v4 Module 4 |
+| Rotation/cross-functional program | Roadmap PRD v4 Module 4; berbeda dari rotasi shift yang sudah tersedia |
+| Earned wage access | Roadmap PRD v4 Module 5; membutuhkan partner bank |
+| External salary benchmarking | Roadmap PRD v4 Module 6; membutuhkan sumber market data |
+| Manufacturing vertical package | Roadmap PRD v4 Module 7 |
+| Retail vertical package | Roadmap PRD v4 Module 8 |
+| Direct bank transfer execution | Belum tersedia; saat ini export/upload/reconciliation data |
+| Direct DJP/BPJS submission | Belum tersedia |
+| Named accounting ledger integration | Belum tersedia |
+| Certified third-party e-sign | Belum tersedia; offer memakai consent + tamper evidence |
+| Automated predictive HR decision | Tidak tersedia; turnover risk hanya heuristic decision support |
+
+## 13. Production/UAT dependencies
+
+Fitur berstatus Available berarti implementasi ada, bukan otomatis production-accepted. Go-live perlu memverifikasi:
+
+- migrasi database terbaru, tenant isolation, permission matrix, dan sample data;
+- biometric provider, consent, retention, liveness dan false-match acceptance;
+- IdP SAML/OAuth, SMTP, browser notification, S3/object storage dan Sentry;
+- encryption-key rotation, backup restore drill, RPO/RTO dan audit retention;
+- format bank/tax sesuai target customer;
+- browser UAT bertanda tangan untuk HR, Manager, Finance, dan Employee;
+- authenticated load test terhadap volume data production.
+
+## Referensi source of truth
+
+- [Current implementation baseline](./CURRENT-IMPLEMENTATION.md)
+- [Implementation status](./IMPLEMENTATION-STATUS.md)
+- [PRD compliance matrix](./PRD-COMPLIANCE-MATRIX.md)
+- [API reference](./API.md)
+- [Security and NFR evidence](./SECURITY-NFR-EVIDENCE.md)
+- Source code: `frontend/src/app`, `frontend/src/components/AppShell.tsx`, `backend/src/routes`, `backend/src/utils/auth.ts`, dan `backend/prisma/schema.prisma`
+
+Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog sebelum menyatakan fitur sebagai existing.

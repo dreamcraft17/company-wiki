@@ -4,7 +4,7 @@
 **Repository**: `dnpeople`  
 **Status**: MVP 1–4 core implemented + PRD v4 Talent Development foundation (Module 1–2)
 **Owner**: Dozer  
-**Last Updated**: July 12, 2026
+**Last Updated**: July 16, 2026
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4 (competitive alignment)
 
 ---
@@ -30,6 +30,7 @@
 | [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
 | [docs/VPS.md](./docs/VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
+| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap per domain |
 | [current-implementation.md](./current-implementation.md) | Baseline kanonik untuk PRD/SRS berikutnya |
 | [docs/PRD-COMPLIANCE-MATRIX.md](./docs/PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
 | [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, audit dependency, dan performance |
@@ -41,6 +42,8 @@
 ## Ringkas Produk
 
 HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2–4: ops lanjutan, strategic HR, dan enterprise (multi-company, SSO, integrations, white-label). PRD v4 menambahkan fondasi talent development (competency framework, IDP, LMS dasar) untuk bersaing dengan Mekari Talenta.
+
+Snapshot implementasi: **46 halaman web**, **45 modul route backend**, **88 model Prisma**, dan **6 role**. Lihat [Feature Catalog](./docs/FEATURE-CATALOG.md) untuk status Available, Conditional, dan Roadmap.
 
 | | |
 |---|---|
@@ -83,4 +86,4 @@ HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJ
 
 ---
 
-*Last Updated: July 12, 2026*
+*Last Updated: July 16, 2026*
