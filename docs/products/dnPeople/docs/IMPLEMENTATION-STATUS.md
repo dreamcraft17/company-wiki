@@ -43,7 +43,7 @@
 | Public careers | Done | Listing dan application form responsif |
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 
-Verifikasi baseline 12 Juli 2026: TypeScript ✅ · ESLint 0 error. Audit codebase 16 Juli 2026 menghitung **46 page route frontend**, **45 modul route backend**, dan **88 model Prisma**. Audit tabel memastikan tidak ada lagi aturan global yang mengubah tabel menjadi `display: block`; Dashboard dan Reports memiliki wrapper overflow tersendiri.
+Verifikasi baseline 12 Juli 2026: TypeScript ✅ · ESLint 0 error. Audit codebase 16 Juli 2026 menghitung **48 page route frontend**, **48 modul route backend**, dan **99 model Prisma**. Audit tabel memastikan tidak ada lagi aturan global yang mengubah tabel menjadi `display: block`; Dashboard dan Reports memiliki wrapper overflow tersendiri.
 
 ---
 

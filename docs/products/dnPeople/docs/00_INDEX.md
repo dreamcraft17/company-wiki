@@ -1,7 +1,7 @@
 # dnPeople — Docs Index (repo)
 
 **Last Updated:** July 16, 2026
-**Status:** MVP 1–4 core implemented + PRD v4 Talent Development foundation (Module 1–2)
+**Status:** PRD v6 enterprise multi-tenant implemented
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 | File | Deskripsi |
@@ -15,6 +15,7 @@
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap per domain |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Implementasi subscription tier, billing, feature gating, dan migration v5 |
+| [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Implementasi isolation, tenant identity, SCIM, scoped RBAC, quota, dan branding v6 |
 | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk menyusun PRD/SRS berikutnya |
 | [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
 | [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, dependency audit, dan performance |

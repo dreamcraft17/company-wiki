@@ -18,9 +18,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 46 page routes; mobile-first shell and locally scrollable data tables |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 48 page routes; mobile-first shell and locally scrollable data tables |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; 45 route modules |
-| Data | PostgreSQL 16 + Prisma with 88 models; deployment migrations are mandatory |
+| Data | PostgreSQL 16 + Prisma with 99 models; deployment migrations are mandatory |
 | Authentication | JWT, API key, TOTP MFA, Google/Microsoft OAuth, SAML configuration/JIT |
 | Storage | Local upload or S3-compatible object storage |
 | Email | SMTP with development fallback |
@@ -154,6 +154,10 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 - API keys, webhooks/integration configuration, custom approval workflows and custom reports.
 - White-label branding, SSO configuration and row-level data access rules.
 - Mobile navigation drawer; notification and logout actions are in the right-side header/navbar, not the sidebar.
+- PRD v6 adds verified-domain tenant discovery, POOL/SILO/BRIDGE control-plane policy,
+  per-tenant SSO/JIT configuration, organization hierarchy, user-specific organization/department/
+  location scopes, tenant-scoped SCIM Users/Groups, quota/usage monitoring, isolation breach audit,
+  custom-domain branding metadata, and `/tenant-management`.
 
 ## Security, compliance and NFR invariants
 
@@ -169,7 +173,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: 21/21 backend tests pass; the current frontend contains 46 page routes; acceptance load profile uses 5,000 requests and 1,000 logical concurrent users with a p95 threshold below two seconds. Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 49 routes. Re-run the build and test suites before treating these figures as release evidence.
 
 ## Production/UAT gates
 

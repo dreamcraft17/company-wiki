@@ -1,6 +1,6 @@
 # dnPeople — Feature Catalog
 
-**Snapshot:** 16 July 2026
+**Snapshot:** 17 July 2026
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
 
@@ -12,11 +12,11 @@
 | **Conditional** | Implementasi tersedia, tetapi fungsi production bergantung provider, kredensial, data, atau acceptance eksternal. |
 | **Roadmap** | Belum menjadi fitur produk saat ini; jangan dijanjikan sebagai fitur existing. |
 
-Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMPLOYEE`. Akses final tetap ditentukan permission backend serta row scope `all`, `department`, `self`, atau `custom`.
+Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMPLOYEE`. Akses final tetap ditentukan permission backend serta role scope `all`, `organization`, `department`, `location`, `self`, atau `custom`.
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **46 halaman frontend**, **45 modul route backend**, **88 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise administration.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **48 halaman frontend**, **48 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
 
 ## 1. Identity, authentication, dan access control
 
@@ -28,11 +28,14 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/security`, `/auth/mfa/*` | Available |
 | OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
 | SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
+| Tenant discovery | Routing tenant dari verified email domain atau custom hostname sebelum login | Semua role | `/tenants/discover` | Available |
+| Per-tenant IdP policy | SAML/OIDC/Google/Microsoft, audience, enforce-SSO, default role dan JIT policy per tenant | Enterprise admin | `/sso` | Conditional — IdP credentials/UAT |
+| SCIM 2.0 | Tenant-token-scoped Users/Groups provisioning dan deprovisioning | Enterprise/IdP | `/scim/v2/:tenantId/*` | Available; IdP UAT required |
 | API-key authentication | Scoped key `dnp_…`, revoke, last-used tracking | Admin/integrator | `/integrations`, `/integrations/api-keys` | Available |
 | Role management | Membuat linked account, assign role, temporary password sekali tampil | Company admin | Employee lifecycle panel | Available |
 | RBAC | Enam role dan permission per resource/action | Semua role | Backend authorization | Available |
-| Row-level access | Scope all/department/self/custom dan effective-scope inspection | Admin/manager | `/security` | Available |
-| Tenant isolation | Company scoping pada data dan relasi | Semua role | Seluruh API | Available |
+| Row-level access | Scope all/organization/department/location/self/custom dan effective-scope inspection | Admin/manager | `/security`, `/tenants/role-scopes` | Available |
+| Tenant isolation | POOL/SILO/BRIDGE policy, tier enforcement, context guard dan blocked-attempt audit | Semua role | Seluruh API, `/tenant-management` | Conditional — dedicated SILO database provisioning/routing is an operational deployment step |
 
 ## 2. Company, organization, dan employee master
 
@@ -44,6 +47,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Level/grade | CRUD level karyawan | Admin/HR | `/org` | Available |
 | Lokasi kerja | Alamat, koordinat, radius geofence, SSID WiFi | Admin/HR | `/org` | Available |
 | Organization tree | Struktur manager, unit, posisi, dan link antar-company | Admin/HR | `/org`, `/platform` | Available |
+| Legal organization units | Hierarki unit/legal entity dalam tenant, policy cross-org, employee assignment | Admin/HR | `/tenant-management`, `/tenants/organizations` | Available |
 | Employee CRUD | Tambah, lihat, ubah, pencarian, pagination, soft delete | Admin/HR | `/employees` | Available |
 | Import karyawan | Excel/CSV bulk import dengan validasi | Admin/HR | `/employees` | Available |
 | Filter employee | Departemen, posisi, lokasi, employment type, status | Admin/HR/manager | `/employees` | Available |
@@ -217,6 +221,10 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Multi-company console | Company listing dan platform visibility | Super admin | `/platform` | Available |
 | Organization links | Relasi/hierarchy antar-company | Super admin | `/platform` | Available |
 | White-label branding | App name, logo, color dan public branding | Company admin | `/branding` | Available |
+| Custom tenant domain | Verified hostname, DNS CNAME metadata, tenant discovery, favicon/email/legal links | Enterprise admin | `/branding`, `/tenants/branding/domain` | Available; DNS/TLS operational |
+| Tenant quota | Employee, API/day, storage, concurrent users, query timeout dan request/minute limits | Enterprise admin | `/tenant-management`, `/tenants/quota` | Available |
+| Tenant usage monitoring | Daily API/employee/storage usage, quota status dan per-tenant rate enforcement | Admin/operations | `/tenants/quota` | Available |
+| Isolation audit | Cross-tenant header attempt blocking dan dedicated tenant audit log | Security/auditor | `/tenants/audit` | Available |
 | Audit trail | Actor/action/resource, filter, export, before/after redacted | Admin/auditor | `/audit` | Available |
 | Immutable audit | Append-only PostgreSQL enforcement | Platform/security | Database | Available |
 | Sensitive-data redaction | Password/token/secret/PII tidak masuk log/telemetry | Platform/security | Backend | Available |
