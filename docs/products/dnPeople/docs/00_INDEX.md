@@ -14,6 +14,7 @@
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap per domain |
+| [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Implementasi subscription tier, billing, feature gating, dan migration v5 |
 | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk menyusun PRD/SRS berikutnya |
 | [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
 | [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, dependency audit, dan performance |
