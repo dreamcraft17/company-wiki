@@ -43,7 +43,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | Backend | Express 5, TypeScript, Zod | 4100 |
 | ORM | Prisma 6 | — |
 | Database | PostgreSQL 16 | 5433 |
-| Cache | Redis 7 (reserved) | 6380 |
+| Cache | — (removed unused Redis) | — |
 | Auth | JWT + API keys + RBAC (6 roles) | — |
 
 ## Struktur Repo

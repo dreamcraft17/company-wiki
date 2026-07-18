@@ -5,7 +5,7 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Tanggal:** 18 Juli 2026  
 **Tujuan:** Mengatasi 3 P0 + 5 P1 + performance bugs dari audit  
-**Status:** **Implemented** di codebase (18 Juli 2026) — lihat CHANGELOG / IMPLEMENTATION-STATUS
+**Status:** **Implemented** di codebase (18–19 Juli 2026) — P0/P1/P2 v8.0 closed; lihat CHANGELOG
 
 ---
 

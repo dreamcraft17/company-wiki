@@ -12,20 +12,14 @@
 ## High-Level
 
 ```
-┌─────────────┐   JWT / API key   ┌─────────────┐     Prisma     ┌────────────┐
-│  Next.js    │ ────────────────► │  Express    │ ─────────────► │ PostgreSQL │
-│  :3001      │ ◄──────────────── │  API :4100  │                │ (Supabase) │
-└─────────────┘     JSON/REST     └─────────────┘                └────────────┘
-                                         │
-                                         │ (reserved)
-                                         ▼
-                                   ┌──────────┐
-                                   │  Redis   │
-                                   │  :6380   │
-                                   └──────────┘
+┌─────────────┐   cookie/JWT/API key  ┌─────────────┐     Prisma     ┌────────────┐
+│  Next.js    │ ─────────────────────► │  Express    │ ─────────────► │ PostgreSQL │
+│  :3001      │ ◄───────────────────── │  API :4100  │                │ (Supabase) │
+└─────────────┘     JSON/REST         └─────────────┘                └────────────┘
+   │ rewrite /api/v1 ───────────────────────────────────┘
 ```
 
-**Codebase snapshot:** 49 frontend pages · 49 backend route modules · 99 Prisma models · 24 backend tests · CI (`.github/workflows/ci.yml`).
+**Codebase snapshot:** 50 frontend pages · 50+ backend route modules · 101 Prisma models · 29 backend tests · CI (`.github/workflows/ci.yml`).
 
 ## Multi-Tenancy
 
@@ -40,12 +34,12 @@ Setiap request authenticated membawa `companyId` (JWT atau API key). Semua query
 
 ## Auth Flow
 
-1. `POST /auth/login` → tenant discovery → bcrypt → optional MFA TOTP → JWT (`sub`, `email`, `role`, `companyId`)
+1. `POST /auth/login` → tenant discovery → bcrypt → optional MFA TOTP → JWT + httpOnly cookie `dnpeople_session`
 2. Discovery: verified domain, custom hostname, atau user history; unresolved → `company_not_found` + picker payload
 3. SSO tenants: `status: "sso_required"` + provider start URL (Google / Microsoft / SAML + JIT)
-4. Client menyimpan token di `localStorage` (`dnpeople_token`); default session ~30 menit
-5. Middleware `authenticate`: Bearer JWT atau API key `dnp_…`
-6. `requirePermission` / `requireRole` + row-scope rules (`/security`)
+4. Primary session: httpOnly cookie; client may keep short-lived token in `sessionStorage` for Bearer fallback
+5. Middleware `authenticate`: Bearer JWT, session cookie, query `access_token`, atau API key `dnp_…`
+6. `requirePermission` / `requireRole` + API-key scopes + row-scope rules (`/security`)
 7. Account lockout setelah 5 failed login (30 menit)
 8. Staff accounts: `/staff-accounts` untuk create/link/reset password akun login
 
@@ -107,13 +101,12 @@ net = gross − bpjs − pph21 ± THR / proration / unpaid leave
 | SSO Google/Microsoft/SAML + JIT | Done | Needs IdP credentials |
 | File uploads / documents | Done | Local disk; S3/MinIO optional |
 | LLM assistant | Done | Rule-based always; LLM if API key set |
-| Email / notifications | Done | SMTP if configured |
+| Email / notifications | Done | SMTP + outbox retry |
 | Biometric attendance | Adapter ready | Fail-closed without provider |
-| Redis session/cache | Reserved | Not wired at runtime |
+| Redis | Removed | Not used (PRD v8.0) |
 
 ## Still planned / polish
 
-- Redis session / cache wiring
 - Refresh token rotation
 - Enforce row-level filters on **all** list queries
 - Native mobile app

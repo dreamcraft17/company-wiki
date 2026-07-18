@@ -36,7 +36,7 @@
 | Next.js / React | `16.2.9` / `19.2.4` |
 | Express / Prisma | `^5.1.0` / `^6.9.0` |
 | CI | `.github/workflows/ci.yml` + `backup.yml` |
-| Redis | In `docker-compose.yml` — **not used** by app runtime |
+| Redis | **Removed** from docker-compose (PRD v8.0 P2-R02) |
 
 ---
 
@@ -53,7 +53,13 @@
 | B06 | P1 | Import concurrency | **Fixed** — UI Idempotency-Key + server file-hash fallback |
 | B07 | P1 | Offline sync overwrite | **Fixed** — fill-empty only |
 | B08 | P1 | Upload MIME OR-ext | **Fixed** — MIME + magic bytes |
-| P02 | P1 | Unbounded reports | **Fixed** — `take: 1000` |
+| P02 | P1 | Unbounded report exports | **Fixed** — cap 1000 + stream xlsx + async jobs/email |
+| B09 | P2 | JWT in localStorage | **Fixed** — httpOnly cookie + sessionStorage fallback + Next rewrite |
+| P05 | P2 | Missing DB indexes | **Fixed** — migration `20260719000000_*` |
+| B10 | P2 | Error UI inconsistency | **Fixed** — shared `Alert` on key pages |
+| B11 | P2 | Email no retry | **Fixed** — retries + `email_outbox` scheduler |
+| R02 | P2 | Unused Redis | **Fixed** — removed from compose |
+| AC-1.4 | P1 | Signed payslip URL | **Fixed** — HMAC link TTL 24h |
 
 ### Residual / ops (not code P0)
 

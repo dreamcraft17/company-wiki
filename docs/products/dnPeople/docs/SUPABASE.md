@@ -5,7 +5,7 @@
 
 > **Default lokal (tanpa Docker):** pakai Supabase Session pooler. Tidak perlu `docker compose` / Postgres lokal.
 
-dnPeople hanya butuh `DATABASE_URL` PostgreSQL. Redis di `docker-compose.yml` **belum dipakai** runtime — boleh diabaikan.
+dnPeople hanya butuh `DATABASE_URL` PostgreSQL. Redis **tidak** dipakai (dihapus dari compose, PRD v8.0 P2-R02).
 
 ---
 

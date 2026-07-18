@@ -7,11 +7,11 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, 
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | PRD v5–v8.0 implemented in code; operational IdP/SMTP/S3/biometric acceptance Conditional |
+| Status | PRD v5–v8.0 implemented in code (incl. P2 hardening); operational IdP/SMTP/S3/biometric acceptance Conditional |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
-| UpdatedAt | July 18, 2026 |
-| Inventory | 50 pages · 50 routes · 99 models · 28 tests |
+| UpdatedAt | July 19, 2026 |
+| Inventory | 50 pages · 50+ routes · 101 models · 29 tests |
 
 ## Stack
 
@@ -20,7 +20,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, 
 | Frontend | Next.js 16, React 19, Tailwind CSS 4 |
 | Backend | Express 5, TypeScript, Prisma |
 | Database | PostgreSQL 16 |
-| Cache | Redis 7 (reserved, belum dipakai runtime) |
+| Cache | — (Redis removed; unused) |
 | Auth | JWT + API keys + RBAC |
 
 ## Fitur

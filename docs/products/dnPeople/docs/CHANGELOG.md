@@ -4,6 +4,24 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — PRD v8.0 complete remaining (P1-P02 + P2)
+
+### Added
+- Async report export jobs (`POST /reports/jobs`, status + download) + email when ready
+- Signed payslip links (`POST /payroll/:id/payslip-link`, `GET /payroll/signed-payslip/:token`, TTL 24h)
+- Email outbox + retry scheduler (`email_outbox`, 3 immediate retries then queue)
+- httpOnly session cookie `dnpeople_session` + Next.js `/api/v1` rewrite for same-origin cookies
+- Shared `Alert` UI component; MFA/login/reports use it
+- DB indexes (payroll status, audit action/createdAt, payslip, OT/claim/loan) + migration
+
+### Changed
+- Report Excel streams to response; bank/tax exports capped at 1000 rows
+- JWT token stored in `sessionStorage` (not `localStorage`); cookie is primary auth
+- Removed unused Redis service from `docker-compose.yml`
+
+### Fixed
+- P1-P02 / P2-B09 / P2-P05 / P2-B10 / P2-B11 / P2-R02 / AC-1.4 signed URL
+
 ## [2026-07-18] — PRD v8.0 follow-up (B06 UI + P01 adjustments batch)
 
 ### Fixed
