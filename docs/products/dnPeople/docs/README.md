@@ -1,18 +1,17 @@
 # dnPeople
 
-Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, Talent Development PRD v4, subscription v5, Enterprise Multi-Tenant PRD v6, seamless tenant discovery login PRD v6.1, attendance Excel PRD v7.0, dan security/stability PRD v8.0.
+Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v10.0** (ops & launch readiness artefacts).
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | PRD v5–v8.0 implemented in code (incl. P2 hardening); operational IdP/SMTP/S3/biometric acceptance Conditional |
+| Status | PRD v5–v10.0 code artefacts done; IdP/SMTP/S3/biometric + Datadog/PagerDuty/DNS Conditional |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
 | UpdatedAt | July 19, 2026 |
-| Inventory | 50 pages · 51 routes · 101 models · 31 tests |
-| HEAD | `a8b1882` |
+| Inventory | ~54 pages · ~52 routes · 101 models · 32 tests |
 
 ## Stack
 
@@ -26,7 +25,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, 
 
 ## Fitur
 
-Snapshot codebase saat ini mencakup **50 halaman web**, **51 modul route backend**, **101 model Prisma**, dan **31** backend tests. Login sudah auto-discover tenant tanpa input Company ID; session memakai httpOnly cookie. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), dan [Implementation Status](./docs/IMPLEMENTATION-STATUS.md).
+Snapshot codebase saat ini mencakup **~54 halaman web**, **~52 modul route backend**, **101 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing MVP di `/welcome`. Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Implementation Status](./docs/IMPLEMENTATION-STATUS.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure
@@ -83,6 +82,12 @@ Snapshot codebase saat ini mencakup **50 halaman web**, **51 modul route backend
 - httpOnly session cookie (SSO tanpa JWT di URL); MFA QR di `/settings/mfa`; Slip Gaji untuk semua role
 - Attendance import Idempotency-Key; report export cap + async jobs; signed payslip links; email outbox
 - Detail: [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) · [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md)
+
+### PRD v9–v10 — Launch readiness
+
+- Tenant API quota hard-limit, password reset, billing pay-now, OpenAPI/Swagger
+- Ops: `/alive` + enriched health/ready/metrics, backup verify/restore-drill, k6 auth loadtest, Datadog stub + alert runbooks
+- Privacy export + legal templates; marketing `/welcome`
 
 ## Quick Start (tanpa Docker)
 

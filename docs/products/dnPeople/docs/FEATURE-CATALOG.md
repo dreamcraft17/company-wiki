@@ -6,8 +6,8 @@
 **UpdatedAt:** July 19, 2026  
 
 
-**Snapshot:** 19 July 2026 (HEAD `a8b1882`)  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v8.0** (security & stability)  
+**Snapshot:** 19 July 2026 (PRD v10.0 ops pass)  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v10.0**  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -24,7 +24,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **50 halaman frontend**, **51 modul route backend**, **101 model Prisma**, **31** backend unit tests, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration. Auth session memakai httpOnly cookie `dnpeople_session` (SSO tidak lagi menaruh JWT di URL).
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~54 halaman frontend**, **~52 modul route backend**, **101 model Prisma**, **32** backend unit tests, mobile-first web shell, marketing MVP `/welcome`, dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
 
 ## 1. Identity, authentication, dan access control
 
@@ -263,6 +263,9 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | CI quality gates | Typecheck, tests, migration/DB control dan load-test workflow | Engineering | CI | Available |
 | OpenAPI / Swagger | Spec inti + Swagger UI CDN | Integrator | `/api/v1/openapi.json`, `/api/v1/docs` | Available — PRD v9.0 |
 | Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
+| Privacy / UU PDP export | Export data pribadi, deletion request, daftar processors | Employee/HR/Admin | `/privacy/*`, `docs/legal/` | Available — PRD v10.0 |
+| Ops observability | `/alive`, enriched `/health`/`/ready`, Prometheus histogram + rate_limit + payroll_jobs | Operations | `/metrics`, `ops/` | Available — PRD v10.0; Datadog account Conditional |
+| Marketing landing MVP | Hero, pricing tiers, FAQ singkat, legal links | Publik | `/welcome`, `/legal/*` | Available — PRD v10.0; DNS Conditional |
 | Responsive web | Mobile drawer, responsive forms/cards, local table scroll | Semua role | Seluruh web app | Available |
 | Header actions | Notification dan logout di header/navbar kanan | Semua role | App shell | Available |
 
@@ -316,4 +319,5 @@ Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog 
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 19, 2026 |
-| HEAD | `a8b1882` |
+| HEAD | `af3e412`+ |
+| Spec | PRD v4–v10.0 |

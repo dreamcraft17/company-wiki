@@ -1,0 +1,58 @@
+# Alert rule definitions for Datadog / Alertmanager — PRD v10.0 FR-OPS-002
+# Import into Datadog Monitors UI or convert to terraform/API.
+# Thresholds match SRS AC-2.1
+
+monitors:
+  - id: api-latency-p95-warning
+    name: API latency p95 warning
+    query: "avg:dnpeople.http_request_duration_seconds{*} by {*}"
+    # Prefer histogram quantile in Datadog UI: p95 > 1s warning, > 2s critical
+    thresholds:
+      warning: 1.0
+      critical: 2.0
+    notify: ['pagerduty:dnpeople-production', 'slack:#incidents']
+
+  - id: error-rate
+    name: HTTP 5xx error rate
+    description: errors / requests over 5m
+    thresholds:
+      warning: 0.01
+      critical: 0.05
+    notify: ['pagerduty:dnpeople-production']
+
+  - id: rate-limit-burst
+    name: Rate limit exceeded burst
+    metric: rate_limit_exceeded_total
+    thresholds:
+      warning: 50
+      critical: 200
+    window: 5m
+
+  - id: backup-stale
+    name: Backup verification failed / stale
+    description: Trigger from CI or verify-backup.sh cron exit != 0
+    severity: critical
+    notify: ['pagerduty:dnpeople-production', 'email:ops@dnpeople.id']
+
+  - id: payment-webhook-failures
+    name: Payment webhook failures
+    description: >5 failed subscription webhook events / hour
+    severity: critical
+    notify: ['pagerduty:dnpeople-production']
+
+  - id: disk-usage
+    name: Host disk usage
+    thresholds:
+      warning: 80
+      critical: 90
+    source: system.disk.in_use
+
+pagerduty:
+  service: dnpeople-production
+  escalation:
+    - after_minutes: 0
+      target: primary-oncall
+    - after_minutes: 15
+      target: secondary-oncall
+    - after_minutes: 30
+      target: manager

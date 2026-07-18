@@ -1,11 +1,11 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **19 Juli 2026** (PRD v8.0 security & stability — full acceptance wiring)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v8.0** · Repo version **1.0.0** · HEAD **`a8b1882`**
+> Terakhir diperbarui: **19 Juli 2026** (PRD **v10.0** operations & launch readiness artefacts)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v10.0** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v8.0:** [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v10.0:** [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
 ## Ringkasan
 
@@ -20,11 +20,13 @@
 | PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
 | PRD v7.0 | Attendance Excel manual import | **Done** (v8.0: idempotency key + `attendance:*` scope) |
 | PRD v8.0 | Security & stability (audit P0/P1 + P2 hardening + UI wiring) | **Done** |
+| PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
+| PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
-**Inventory:** 50 frontend pages · 51 backend route modules · 101 Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **31/31** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Conditional — code P0/P1/P2 from Jul 18–19 addressed; still need ops UAT (IdP/SMTP/S3/biometric) + signed UAT.
+**Inventory:** ~54 frontend pages · ~52 backend route modules · 101 Prisma models  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **32/32** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** Conditional — code through v10.0 artefacts shipped; still need Datadog/PagerDuty wiring, signed restore drill, pen-test, DNS/GTM, beta UAT.
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
@@ -289,6 +291,22 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 ### Masih conditional (ops / UAT)
 
 - IdP/SCIM production, SMTP, S3 malware/lifecycle, biometric vendor UAT, signed browser UAT
+- Datadog/PagerDuty accounts live, signed restore drill, external pen-test, DNS dnpeople.id, ticketing Helpscout/Zendesk, beta 10–20 customers
+
+---
+
+## PRD v10.0 — Operations artefacts (19 Juli 2026)
+
+| Area | Status | Catatan |
+|------|--------|---------|
+| `/alive` `/health` `/ready` `/metrics` enriched | Done | Histogram, rate_limit, payroll_jobs |
+| Backup verify + restore-drill scripts | Done | `scripts/verify-backup.sh`, `restore-drill.sh` |
+| k6 authenticated loadtest | Done | `scripts/loadtest/authenticated-scenario.js` |
+| Privacy export API | Done | `/api/v1/privacy/*` |
+| Legal + incident + pen-test scope docs | Done | `docs/legal/`, `SECURITY-INCIDENT-RESPONSE.md` |
+| Alert rules + runbooks | Done | `ops/alerting`, `ops/runbooks` |
+| Datadog compose stub | Done | `ops/datadog/` — needs API key |
+| Marketing `/welcome` | Done | MVP in-app; full website Conditional |
 
 ---
 
@@ -312,7 +330,7 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 19, 2026 |
-| HEAD | `a8b1882` |
+| Spec | PRD v4–v10.0 |
 | Audit | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

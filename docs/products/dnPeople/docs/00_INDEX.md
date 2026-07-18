@@ -4,9 +4,9 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 19, 2026  
-**Status:** PRD v5–v8.0 implemented (subscription, multi-tenant, discovery login, attendance Excel, security/stability + acceptance wiring)  
-**Codebase:** 50 pages · 51 routes · 101 models · 31 tests  
-**HEAD:** `a8b1882`  
+**Status:** PRD v5–v10.0 (ops/launch readiness artefacts in repo; SaaS accounts Conditional)  
+**Codebase:** 50+ pages · 51+ routes · 101+ models · 32+ tests  
+**HEAD:** see `git rev-parse --short HEAD`  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 | File | Deskripsi |
@@ -22,10 +22,18 @@
 | [USER-GUIDE.md](./USER-GUIDE.md) | Panduan pengguna (launch) |
 | [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) | Panduan admin / implementer |
 | [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md) | FAQ & troubleshooting |
+| [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) | Troubleshooting guide |
+| [INTEGRATIONS.md](./INTEGRATIONS.md) | API keys, webhooks, OpenAPI |
+| [SECURITY.md](./SECURITY.md) | Security customer-facing |
+| [COMPLIANCE.md](./COMPLIANCE.md) | BPJS / PPh / UU PDP |
+| [SECURITY-INCIDENT-RESPONSE.md](./SECURITY-INCIDENT-RESPONSE.md) | Incident response &lt;72h |
+| [PENTEST-SCOPE.md](./PENTEST-SCOPE.md) | Scope pen-test eksternal |
 | [CUSTOMER-ONBOARDING-PLAYBOOK.md](./CUSTOMER-ONBOARDING-PLAYBOOK.md) | Onboarding 10 langkah |
 | [SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md) | SLA & support |
 | [UU-PDP-COMPLIANCE-CHECKLIST.md](./UU-PDP-COMPLIANCE-CHECKLIST.md) | Checklist UU PDP |
 | [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
+| [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** ops & launch |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Subscription tier, billing, feature gating |
 | [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Isolation, SCIM, scoped RBAC, quota |
 | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk PRD berikutnya |

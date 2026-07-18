@@ -4,6 +4,21 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — PRD v10.0 operations & launch readiness (code/docs)
+
+### Added
+- `/alive`, enriched `/health` (version/uptime) + `/ready` checks object
+- Prometheus metrics: histogram, rate_limit, payroll_jobs, labeled requests
+- Privacy API: `/privacy/export`, `/deletion-request`, `/processors`
+- Backup `verify-backup.sh` + `restore-drill.sh`; k6 authenticated loadtest
+- Ops: Datadog compose profile, alert-rules.yaml, incident runbooks
+- Legal templates (Privacy/Terms/DPA), pen-test scope, incident response
+- Marketing `/welcome` + `/legal/*`; expanded FAQ/troubleshooting/compliance docs
+- Spec PRD/SRS/SDD v10.0 mirrored into `docs/PRD/`
+
+### Note
+- Datadog/PagerDuty account wiring, live pen-test, and domain DNS remain ops Conditional
+
 ## [2026-07-19] — PRD v9.0 launch-readiness code pass
 
 ### Added

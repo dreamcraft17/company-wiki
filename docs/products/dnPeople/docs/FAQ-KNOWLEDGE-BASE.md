@@ -34,6 +34,44 @@ A: Unduhan membutuhkan login. Link “Bagikan Link” hanya berlaku 24 jam.
 **Q: Bagaimana bayar invoice?**  
 A: `/billing` → tombol Xendit/Stripe/Manual pada invoice DRAFT/SENT/OVERDUE.
 
+**Q: Berapa harga dnPeople?**  
+A: Starter ~Rp20.000/karyawan/bulan; Professional ~Rp25.000; Business/Enterprise sesuai paket — lihat `/billing` atau sales@dnpeople.id.
+
+**Q: Bisa ganti paket?**  
+A: Ya, upgrade/cancel/reactivate di `/billing`.
+
+## Karyawan & organisasi
+
+**Q: Bagaimana menambah karyawan?**  
+A: `/employees` → tambah manual atau import Excel/CSV.
+
+**Q: Bagaimana ubah struktur departemen?**  
+A: `/org` (Admin/HR).
+
+## Cuti
+
+**Q: Bagaimana ajukan cuti?**  
+A: `/leave` → pilih jenis, tanggal, alasan → submit ke approval.
+
+**Q: Saldo cuti dari mana?**  
+A: Leave balance per tahun; carry-forward sesuai policy company.
+
+## Compliance
+
+**Q: Apa itu PPh 21 / BPJS?**  
+A: Pajak penghasilan karyawan dan jaminan sosial — dihitung otomatis di payroll (lihat `docs/COMPLIANCE.md`).
+
+**Q: Data apa yang disimpan?**  
+A: Data HR operasional; field sensitif dienkripsi. Privacy: `docs/legal/PRIVACY-POLICY.md`. Export: `GET /api/v1/privacy/export`.
+
+## Support
+
+**Q: Bagaimana hubungi support?**  
+A: support@dnpeople.id — SLA di `docs/SLA-SUPPORT-POLICY.md` (target respons < 24 jam bisnis).
+
+**Q: Bagaimana data dilindungi?**  
+A: RBAC, enkripsi, audit, MFA, file ber-auth — lihat `docs/SECURITY.md`.
+
 ## API
 
 **Q: Di mana dokumentasi API?**  
@@ -50,3 +88,5 @@ A: Global 200 req/menit atau kuota tenant (RPM / 10k per hari). Naikkan kuota di
 | 403 | Role/permission atau API key scope |
 | 423 | Akun terkunci — tunggu atau admin unlock |
 | Import 5MB+ | Perkecil file atau pecah batch |
+
+Lihat juga: [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)

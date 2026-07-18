@@ -1,12 +1,12 @@
 # dnPeople — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `a8b1882`  
+**HEAD:** `af3e412`+ (PRD v10.0 ops pass pending commit)  
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis  
-**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, PRD/SRS/SDD v7.0 attendance Excel manual import, and **PRD/SRS/SDD v8.0 security & stability**  
+**Specification baseline:** PRD/SRS/SDD v3.1 through **v10.0** (operations & launch readiness), including v8.0 security/stability and v9.0 acceptance wiring  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
 
-**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — P0/P1 code defects remediated in PRD v8.0; ops UAT gates remain.
+**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — P0/P1 remediated in v8.0; v9–v10 ops artefacts in repo; SaaS/DNS/pen-test Conditional.
 
 ## How to use this document
 
@@ -22,15 +22,17 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **50** production routes; mobile-first shell and locally scrollable data tables |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **51** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **101** models (incl. `ReportExportJob`, `EmailOutbox`); deployment migrations are mandatory |
-| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer fallback; legacy localStorage purged); API key with **enforced scopes**; TOTP MFA (`/settings/mfa` + QR); zero-Company-ID tenant discovery; SSO/password auto-routing; Google/Microsoft OAuth; SAML/OIDC; JIT; tenant-scoped SCIM — SSO success sets cookie (no JWT in redirect URL) |
-| Storage | Local upload or S3-compatible object storage; files served only via authenticated `GET /api/v1/files/...` (PRD v8.0 B01); upload magic-byte + MIME validation |
-| Email | SMTP with development fallback + **email outbox** retry queue |
-| Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
-| Deployment | VPS/container compatible, Nginx/PM2 guidance, daily database backup workflow; Redis **removed** (unused) |
-| Automated evidence | Backend **31/31** unit tests; TypeScript clean |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~54** production routes (incl. `/welcome`, `/legal/*`, `/reset-password`, `/settings/mfa`); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~52** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **101** models; deployment migrations are mandatory |
+| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); **forgot/reset password (1h)** |
+| Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
+| Email | SMTP + email outbox retry queue |
+| Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs); optional Sentry; Datadog agent **compose stub** in `ops/datadog/` |
+| Ops artefacts | Backup verify + restore-drill scripts; k6 authenticated loadtest; alert-rules + incident runbooks; legal Privacy/Terms/DPA templates |
+| Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
+| Deployment | VPS/container; Redis removed; marketing MVP at `/welcome` |
+| Automated evidence | Backend **32/32** unit tests; TypeScript clean |
 ## Roles and access boundary
 
 | Role | Current access intent |
@@ -232,6 +234,20 @@ Full detail: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.
 | P2 | — | Cookie session, email outbox, signed payslip, indexes, Alert UI, Redis removal | **Fixed** — Jul 19 commits |
 
 Ops UAT gates below remain required before production-accepted.
+
+## PRD v9.0 / v10.0 — launch readiness (repo)
+
+| Area | Status |
+|------|--------|
+| Tenant daily API hard-limit (10k) + RPM | **Done** in `authenticate` |
+| Password reset 1h + billing pay-now + OpenAPI | **Done** (v9.0) |
+| `/alive` `/health` `/ready` enriched metrics | **Done** (v10.0) |
+| Backup verify + restore-drill + k6 auth script | **Done** (scripts) |
+| Privacy export + legal templates + incident plan | **Done** (docs + API) |
+| Marketing `/welcome` MVP | **Done** (in-app; DNS Conditional) |
+| Datadog/PagerDuty live accounts | **Conditional** (ops) |
+| Signed restore drill + external pen-test | **Conditional** (ops) |
+
 ## Production/UAT gates
 
 These are not safe to mark “production accepted” solely from repository code:

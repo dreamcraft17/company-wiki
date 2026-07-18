@@ -1,0 +1,21 @@
+# Datadog OpenMetrics scrape of dnPeople /metrics
+# Mount as conf.d/openmetrics.d/conf.yaml
+init_config:
+
+instances:
+  - openmetrics_endpoint: ${DD_PROMETHEUS_URL:-http://host.docker.internal:4100/metrics}
+    namespace: dnpeople
+    metrics:
+      - http_requests_total
+      - http_requests_errors_total
+      - http_request_duration_seconds
+      - rate_limit_exceeded_total
+      - payroll_jobs_total
+      - db_connections_active
+      - db_connections_waiting
+      - dnpeople_uptime_seconds
+      - dnpeople_http_requests_total
+      - dnpeople_http_errors_total
+    tags:
+      - service:dnpeople-api
+      - env:${DD_ENV:-dev}

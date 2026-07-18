@@ -280,11 +280,22 @@ Self-service: `EMPLOYEE` (permission `talent:self`) dapat melihat/membuat assess
 
 ---
 
-## Health
+## Health & observability
 
 | Method | Path | Deskripsi |
 |--------|------|-----------|
-| GET | `/health` | `{ status, service, timestamp }` (di root, bukan `/api/v1`) |
+| GET | `/alive` | Liveness probe — plain `ok` (root) |
+| GET | `/health` | `{ status, service, version, uptime, timestamp }` (root) |
+| GET | `/ready` | `{ ready, checks: { database, smtp, s3 } }` — 503 jika DB gagal |
+| GET | `/metrics` | Prometheus text (opsional `Authorization: Bearer METRICS_TOKEN`) |
+
+## Privacy (UU PDP)
+
+| Method | Path | Auth | Deskripsi |
+|--------|------|------|-----------|
+| GET | `/privacy/export` | ✓ | Export data pribadi (gaji redacted); `?employeeId=` untuk HR/Admin |
+| POST | `/privacy/deletion-request` | ✓ | Catat permintaan hapus → offboarding |
+| GET | `/privacy/processors` | ✓ settings | Daftar sub-processor + retensi |
 
 ---
 

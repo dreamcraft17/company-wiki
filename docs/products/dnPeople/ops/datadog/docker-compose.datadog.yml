@@ -1,0 +1,26 @@
+# Optional Datadog agent profile — PRD v10.0 SDD Part 1
+# Usage:
+#   export DD_API_KEY=...
+#   docker compose --profile datadog up -d
+#
+# Scrapes host API /metrics (override DD_PROMETHEUS_URL if needed).
+
+services:
+  datadog:
+    profiles: ['datadog']
+    image: gcr.io/datadoghq/agent:7
+    container_name: dnpeople-datadog
+    environment:
+      DD_API_KEY: ${DD_API_KEY:?set DD_API_KEY}
+      DD_SITE: ${DD_SITE:-datadoghq.com}
+      DD_HOSTNAME: ${DD_HOSTNAME:-dnpeople-local}
+      DD_LOGS_ENABLED: 'false'
+      DD_APM_ENABLED: 'false'
+      DD_PROCESS_AGENT_ENABLED: 'true'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - ./ops/datadog/conf.d:/etc/datadog-agent/conf.d/openmetrics.d:ro
+    pid: host
+    restart: unless-stopped
