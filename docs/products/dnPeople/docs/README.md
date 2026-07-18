@@ -11,7 +11,8 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, 
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
 | UpdatedAt | July 19, 2026 |
-| Inventory | 50 pages · 50+ routes · 101 models · 29 tests |
+| Inventory | 50 pages · 51 routes · 101 models · 31 tests |
+| HEAD | `a8b1882` |
 
 ## Stack
 
@@ -25,7 +26,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, 
 
 ## Fitur
 
-Snapshot codebase saat ini mencakup **50 halaman web**, **50 modul route backend**, dan **99 model Prisma**. Login sudah auto-discover tenant tanpa input Company ID. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md).
+Snapshot codebase saat ini mencakup **50 halaman web**, **51 modul route backend**, **101 model Prisma**, dan **31** backend tests. Login sudah auto-discover tenant tanpa input Company ID; session memakai httpOnly cookie. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), dan [Implementation Status](./docs/IMPLEMENTATION-STATUS.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure
@@ -75,6 +76,13 @@ Snapshot codebase saat ini mencakup **50 halaman web**, **50 modul route backend
 - Panel admin/HR di `/attendance`: download template `.xlsx`, dry-run validation, preview, confirm import, histori upload
 - API `/attendance/template/download`, `/attendance/import`, `/attendance/imports` — company isolation, role guard, `MANUAL_UPLOAD` source
 - UI admin Excel-first; generator QR kantor di halaman admin disembunyikan (API `GET /attendance/qr/today` tetap ada untuk kompatibilitas employee QR scan)
+
+### PRD v8.0 — Security & stability
+
+- Auth file downloads (`/api/v1/files`), enforced API-key scopes, atomic/idempotent payroll finalize, batched payroll adjustments
+- httpOnly session cookie (SSO tanpa JWT di URL); MFA QR di `/settings/mfa`; Slip Gaji untuk semua role
+- Attendance import Idempotency-Key; report export cap + async jobs; signed payslip links; email outbox
+- Detail: [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) · [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md)
 
 ## Quick Start (tanpa Docker)
 
@@ -133,6 +141,7 @@ App: `http://localhost:3001`
 | **Supabase (DB)** | [docs/SUPABASE.md](./docs/SUPABASE.md) |
 | **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
+| **Current Implementation** | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) |
 | **Audit (fitur/bug/perf)** | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
@@ -153,4 +162,4 @@ Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 19, 2026 |

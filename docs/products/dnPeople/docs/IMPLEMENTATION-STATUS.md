@@ -1,11 +1,11 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **18 Juli 2026** (PRD v8.0 security & stability)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v8.0** · Repo version **1.0.0**
+> Terakhir diperbarui: **19 Juli 2026** (PRD v8.0 security & stability — full acceptance wiring)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v8.0** · Repo version **1.0.0** · HEAD **`a8b1882`**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026  
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v8.0:** [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v8.0:** [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
 ## Ringkasan
 
@@ -14,30 +14,31 @@
 | MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** (v8.0: atomic finalize + batch payroll) |
 | MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
-| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** (v8.0: API-key scopes + secured uploads) |
+| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** (v8.0: API-key scopes + secured uploads + cookie session) |
 | MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
 | PRD v5 | Subscription tier gating & billing | **Done** (ops acceptance Conditional) |
 | PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
-| PRD v7.0 | Attendance Excel manual import | **Done** (v8.0: idempotency key) |
-| PRD v8.0 | Security & stability (audit P0/P1) | **Done** |
+| PRD v7.0 | Attendance Excel manual import | **Done** (v8.0: idempotency key + `attendance:*` scope) |
+| PRD v8.0 | Security & stability (audit P0/P1 + P2 hardening + UI wiring) | **Done** |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **28/28** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Conditional — code P0s from Jul 18 audit addressed; still need ops UAT (IdP/SMTP/S3/biometric) + signed UAT.
+**Inventory:** 50 frontend pages · 51 backend route modules · 101 Prisma models  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **31/31** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** Conditional — code P0/P1/P2 from Jul 18–19 addressed; still need ops UAT (IdP/SMTP/S3/biometric) + signed UAT.
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
 | Area | Implementasi terbaru |
 |------|----------------------|
 | Employee lifecycle | Family, education, contact, bank/tax, status history, contract/probation review, reminders, auto-conversion |
-| Payroll | Configuration UI/API, templates, tax-rate versions, complete PTKP, BPJS, gross/net/gross-up, variable compensation, employer contribution |
-| Payslip | Inline Company/Super Admin preview, landscape tabel pendapatan/potongan, rincian proration, password PDF, branding, signature + verification |
-| Attendance | Early-leave detection, provider adapter liveness/face-match, production fail-closed, correction evidence + before/after audit |
+| Payroll | Configuration UI/API, templates, tax-rate versions, complete PTKP, BPJS, gross/net/gross-up, variable compensation, employer contribution, **batched run**, **atomic/idempotent finalize** |
+| Payslip | Employee + admin in-app preview, landscape PDF (auth + `PAYSLIP_DOWNLOAD`), signed link 24h, branding, signature + verification |
+| Attendance | Early-leave detection, provider adapter liveness/face-match, production fail-closed, correction evidence + before/after audit, Excel import + Idempotency-Key |
 | Leave | Carry-forward/expiry, annual processing, replacement/coverage assignment, notifications |
-| Reports | Attendance/leave/payroll detail, Excel/PDF, bank upload, tax, turnover trend/risk |
+| Reports | Attendance/leave/payroll detail, Excel/PDF (cap 1000), async bank/tax jobs + poll UI, turnover trend/risk |
 | Recruitment | Bulk pipeline action, digital offer, accept/reject e-sign, auto employee + onboarding |
-| Security | AES-256-GCM salary/NPWP/bank, key rotation, salary RBAC, global redacted audit, immutable audit DB trigger |
-| Operations | Baseline migration, daily backup workflow, restore script, readiness, Prometheus metrics |
+| Security | AES-256-GCM salary/NPWP/bank, key rotation, salary RBAC, global redacted audit, immutable audit DB trigger, httpOnly session cookie, enforced API-key scopes |
+| Operations | Baseline migration, daily backup workflow, restore script, readiness, Prometheus metrics, email outbox, DB indexes (payroll/audit/payslip/OT/claim/loan) |
 | RBAC | Role HR tanpa payroll, Finance khusus payroll, pengelolaan role akun teraudit, navigasi role-aware |
 | NFR | Sentry redacted, database constraint test, load CI 1.000 concurrent users dengan p95 <2 detik |
 
@@ -51,8 +52,9 @@
 | Data tables | Done | 17 tabel di 16 halaman memenuhi lebar card pada desktop; horizontal scrolling lokal pada mobile |
 | Public careers | Done | Listing dan application form responsif |
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
+| Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend production build 49 routes ✅. Codebase memiliki **49 page frontend**, **49 modul route backend**, dan **99 model Prisma**.
+Verifikasi 19 Juli 2026: TypeScript ✅ · backend tests **31/31** ✅. Codebase memiliki **50 page frontend**, **51 modul route backend**, dan **101 model Prisma**.
 
 ---
 
@@ -60,7 +62,7 @@ Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend p
 
 | Fitur | Status |
 |-------|--------|
-| Auth JWT + RBAC 6 roles | Done | `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, `EMPLOYEE` |
+| Auth JWT + RBAC 6 roles | Done | `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, `EMPLOYEE`; httpOnly cookie session |
 | Central staff account management | Done | Standalone/linked account, role, activation, reset password, audit |
 | Company register / profile | Done |
 | Org (dept, position, level, location) | Done |
@@ -114,11 +116,11 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Surveys API | Done | Dedicated UI `/surveys` |
 | Calendar / holidays | Done |
 | Approval inbox + rules | Done |
-| Advanced reports | Done |
-| File upload | Done | Local disk **atau** S3/MinIO (`S3_*`) |
-| Payslip preview + PDF | Done | `/payroll` preview untuk employee (own) + admin; PDF auth; signed link 24 jam |
+| Advanced reports | Done | Cap 1000 + async `/reports/jobs` + UI poll/download |
+| File upload | Done | Local disk **atau** S3/MinIO (`S3_*`); unduh hanya via `/api/v1/files` + auth |
+| Payslip preview + PDF | Done | `/payroll` preview untuk employee (own) + admin; PDF auth; signed link 24 jam; audit `PAYSLIP_DOWNLOAD` |
 | MFA TOTP | Done | API `/auth/mfa/*` + UI `/settings/mfa` (semua role) + QR |
-| Email notifications | Done | SMTP atau console log |
+| Email notifications | Done | SMTP + email outbox retry; report-job ready mail |
 
 Frontend: `/org` `/audit` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`
 
@@ -214,9 +216,11 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 /ai/recruitment/screen|screen-batch
 /assistant/ask  (llm | rule-based)
 /uploads → local disk | S3 (unduh hanya via /api/v1/files + auth)
+/reports/jobs (+ status, download)
+/payroll/:id/payslip-link · /payroll/signed-payslip/:token
 ```
 
-Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
+Auth: JWT httpOnly cookie **`dnpeople_session`** dan/atau Bearer (sessionStorage) **atau** API key `dnp_…` dengan scopes enforced.
 
 ---
 
@@ -244,11 +248,11 @@ Frontend: `/talent` `/idp` `/lms`
 - Model data (`CompetencyFramework`, `Competency`, `RoleCompetency`, `CompetencyAssessment(+Item)`, `IndividualDevelopmentPlan`, `IdpGoal`, `IdpLearningPath`, `IdpReview`, `LearningProgram(+Competency)`, `LearningModule`, `LearningEnrollment`, `LearningModuleCompletion`) sudah ada di `schema.prisma` dari upaya sebelumnya; pass ini menyelesaikan pemasangan router (`competencies.ts` di-mount, `idp.ts`/`lms.ts` baru dibuat), memperbaiki akses self-service `EMPLOYEE` yang sebelumnya selalu 403, dan menambahkan halaman frontend.
 - RBAC `talent:*`/`lms:*`/`talent:self`/`lms:self` per role sudah didefinisikan di `utils/auth.ts` sejak sebelumnya; tidak ada perubahan permission matrix pada pass ini.
 - Migrasi tabel talent belum dijalankan oleh assistant di database dev bersama (Supabase) — dijalankan langsung oleh pemilik repo (`prisma db push`) di VPS/lingkungan masing-masing sebelum endpoint ini bisa dipakai.
-- Backend `tsc --noEmit` bersih dan server boot-tested lokal; frontend `next build` sukses dengan 49 route (termasuk `/talent`, `/idp`, `/lms`, `/staff-accounts`, `/billing`).
+- Backend `tsc --noEmit` bersih; frontend inventory **50** routes (termasuk `/talent`, `/idp`, `/lms`, `/staff-accounts`, `/billing`, `/settings/mfa`).
 
 ---
 
-## Audit 18 Juli 2026 — remediation (PRD v8.0)
+## Audit 18–19 Juli 2026 — remediation (PRD v8.0)
 
 Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · Spec: [PRD v8.0](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md)
 
@@ -256,19 +260,31 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 
 | ID | Area | Fix |
 |----|------|-----|
-| B01 | Security | Public `express.static('/uploads')` dihapus; `GET /api/v1/files/*` + `GET /payroll/:id/payslip.pdf` ber-auth + audit |
-| B02 | Security | API key `scopes` di-enforce (default deny; `*` = admin) |
-| B03 | Payroll | Finalize atomic via `updateMany({ status: DRAFT })` dalam transaksi |
-| P01 | Performance | Payroll run batch OT/claims/loans/variables (bukan N+1) |
+| B01 | Security | Public `express.static('/uploads')` dihapus; `GET /api/v1/files/*` + `GET /payroll/:id/payslip.pdf` ber-auth + audit `PAYSLIP_DOWNLOAD` |
+| B02 | Security | API key `scopes` di-enforce (default deny; `*` = admin; `resource:*` wajib untuk wildcard action) |
+| B03 | Payroll | Finalize atomic via `updateMany({ status: DRAFT })`; re-finalize already FINALIZED → **200** |
+| P01 | Performance | Payroll run batch OT/claims/loans/variables **dan** attendance/leave/shift |
 
 ### P1 — Fixed in v8.0
 
 | ID | Area | Fix |
 |----|------|-----|
-| B04 | UX | Nav “Slip Gaji” (`/payroll`) untuk semua role; employee → `/payroll/my` |
-| B05 | UX | `/settings/mfa` untuk semua user |
-| B06–B08 | Attendance / upload | Import idempotency-key; offline sync tidak overwrite clock; upload magic-byte + MIME |
-| P02 | Performance | Report export capped 1000 rows |
+| B04 | UX | Nav “Slip Gaji” (`/payroll`) untuk semua role; employee preview + `/payroll/my` |
+| B05 | UX | `/settings/mfa` + QR untuk semua user; `/security` redirect |
+| B06–B08 | Attendance / upload | Import Idempotency-Key / file hash; offline sync fill-empty; upload magic-byte + MIME; import butuh `attendance:*` |
+| P02 | Performance | Report export capped 1000 rows + stream XLSX + async jobs |
+
+### P2 / acceptance wiring — Fixed Jul 19
+
+| Area | Fix |
+|------|-----|
+| Session | httpOnly `dnpeople_session`; SSO set cookie (no JWT in URL); sessionStorage (bukan localStorage) |
+| Payslip share | Signed URL 24h + UI “Bagikan Link” |
+| Reports UI | Job list + poll 4s + unduh |
+| Email | Outbox + retry scheduler |
+| Indexes | Migration payroll/audit/payslip/OT/claim/loan + `EmailOutbox` / `ReportExportJob` |
+| Infra | Redis dihapus dari compose (unused) |
+| Tests | `v8Acceptance.test.ts` — **31/31** pass |
 
 ### Masih conditional (ops / UAT)
 
@@ -281,20 +297,22 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 - Set `BIOMETRIC_VERIFIER_URL` dan token provider untuk liveness/face-match production.
 - Simpan `FIELD_ENCRYPTION_KEYS` di secret manager dan jalankan `npm run security:migrate-fields` sekali untuk data legacy.
 - Konfigurasikan `BACKUP_DATABASE_URL` dan, bila digunakan, `BACKUP_S3_URI`; lakukan restore drill berkala.
+- Jalankan `npx prisma migrate deploy` (termasuk migrasi indeks/outbox/export v8.0) sebelum go-live.
 - Native mobile app tetap roadmap terpisah; web saat ini mobile-first dan attendance memiliki offline queue/sync.
 - Ops UAT gates tetap wajib sebelum klaim production-accepted.
 
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: July 19, 2026*
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 19, 2026 |
+| HEAD | `a8b1882` |
 | Audit | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

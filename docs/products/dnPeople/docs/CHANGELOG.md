@@ -4,6 +4,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Docs sync: feature / current / implementation baseline
+
+### Changed
+- `FEATURE-CATALOG.md`, `CURRENT-IMPLEMENTATION.md`, `IMPLEMENTATION-STATUS.md` diselaraskan ke HEAD `a8b1882` (50 pages · 51 routes · 101 models · 31 tests)
+- Index, PROJECT-OVERVIEW, README mencantumkan PRD v8.0 acceptance wiring dan inventory akurat
+
 ## [2026-07-19] — PRD v8.0 acceptance wiring (UI + SSO + idempotent finalize)
 
 ### Fixed

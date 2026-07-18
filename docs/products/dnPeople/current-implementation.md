@@ -1,8 +1,8 @@
 # Current Implementation
 
-Dokumen ini dipindah ke:
+Dokumen kanonik dipindah ke:
 
 → [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)
 
-**UpdatedAt:** July 18, 2026  
+**Snapshot:** 19 July 2026 · HEAD `a8b1882` · PRD v8.0 complete  
 **Owner:** Dozer (CEO + Tech Lead) · **Brand:** DnPeople

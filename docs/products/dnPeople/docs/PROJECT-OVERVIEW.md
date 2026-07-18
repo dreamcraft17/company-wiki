@@ -1,14 +1,15 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD v7.0 (enterprise multi-tenant + seamless tenant discovery login + attendance Excel manual import)  
-**Status:** Active Development  
+**Version:** PRD v8.0 (security & stability on top of v7.0 attendance Excel + enterprise multi-tenant)  
+**Status:** Active Development — code complete through PRD v8.0; ops UAT Conditional  
 **Repository:** `dnpeople`  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 18, 2026  
-**Last Updated:** July 18, 2026
+**UpdatedAt:** July 19, 2026  
+**Last Updated:** July 19, 2026
+**HEAD:** `a8b1882`
 
 ---
 
@@ -16,7 +17,7 @@
 
 dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), enterprise (MVP 4: multi-company, integrations, SSO, white-label, custom reports, AI docs/screening), serta fondasi Talent Development (MVP 5: competency, assessment, gap analysis, IDP, dan LMS dasar).
 
-Codebase saat ini memiliki **49 halaman web**, **49 modul route backend**, dan **99 model Prisma**. Login memakai auto tenant discovery tanpa input Company ID, dan administrasi akun login staff tersedia sebagai menu terpisah `/staff-accounts`. Status per fitur dan dependency production tersedia di [Feature Catalog](./FEATURE-CATALOG.md).
+Codebase saat ini memiliki **50 halaman web**, **51 modul route backend**, **101 model Prisma**, dan **31** backend unit tests. Login memakai auto tenant discovery tanpa input Company ID; session httpOnly cookie `dnpeople_session`; administrasi akun login staff tersedia sebagai menu terpisah `/staff-accounts`. Status per fitur dan dependency production tersedia di [Feature Catalog](./FEATURE-CATALOG.md) dan baseline [Current Implementation](./CURRENT-IMPLEMENTATION.md).
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
 
@@ -88,12 +89,14 @@ dnpeople/
 | SRS v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-srs.md` |
 | SDD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-sdd.md` |
 | Implementation Status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
+| Current Implementation | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) |
 | Feature Catalog | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
 | API Reference | [API.md](./API.md) |
 | Architecture | [ARCHITECTURE.md](./ARCHITECTURE.md) |
 | Deployment | [DEPLOYMENT.md](./DEPLOYMENT.md) |
 | Changelog | [CHANGELOG.md](./CHANGELOG.md) |
+| PRD v8.0 | [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) |
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: July 19, 2026*

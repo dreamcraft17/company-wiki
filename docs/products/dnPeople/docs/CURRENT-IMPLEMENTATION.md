@@ -1,12 +1,12 @@
 # dnPeople — Current Implementation Baseline
 
-**Snapshot date:** 18 July 2026  
-**HEAD:** `73a730b`  
+**Snapshot date:** 19 July 2026  
+**HEAD:** `a8b1882`  
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis  
-**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, and PRD/SRS/SDD v7.0 attendance Excel manual import  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026  
+**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, PRD/SRS/SDD v7.0 attendance Excel manual import, and **PRD/SRS/SDD v8.0 security & stability**  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
 
-**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — 3 P0 / 5 P1 bugs, payroll N+1 P0 perf; see open defects below.
+**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — P0/P1 code defects remediated in PRD v8.0; ops UAT gates remain.
 
 ## How to use this document
 
@@ -22,15 +22,15 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; 49 production routes; mobile-first shell and locally scrollable data tables |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with 99 models; deployment migrations are mandatory |
-| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer fallback), API key with **enforced scopes**, TOTP MFA (`/settings/mfa`), zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
-| Storage | Local upload or S3-compatible object storage; files served only via authenticated `GET /api/v1/files/...` (PRD v8.0 B01) |
-| Email | SMTP with development fallback |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **50** production routes; mobile-first shell and locally scrollable data tables |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **51** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **101** models (incl. `ReportExportJob`, `EmailOutbox`); deployment migrations are mandatory |
+| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer fallback; legacy localStorage purged); API key with **enforced scopes**; TOTP MFA (`/settings/mfa` + QR); zero-Company-ID tenant discovery; SSO/password auto-routing; Google/Microsoft OAuth; SAML/OIDC; JIT; tenant-scoped SCIM — SSO success sets cookie (no JWT in redirect URL) |
+| Storage | Local upload or S3-compatible object storage; files served only via authenticated `GET /api/v1/files/...` (PRD v8.0 B01); upload magic-byte + MIME validation |
+| Email | SMTP with development fallback + **email outbox** retry queue |
 | Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
-| Deployment | VPS/container compatible, Nginx/PM2 guidance, daily database backup workflow |
-
+| Deployment | VPS/container compatible, Nginx/PM2 guidance, daily database backup workflow; Redis **removed** (unused) |
+| Automated evidence | Backend **31/31** unit tests; TypeScript clean |
 ## Roles and access boundary
 
 | Role | Current access intent |
@@ -73,14 +73,14 @@ never be written to audit logs or telemetry.
 
 | Module | Available features | Main API surface | Web UI | Status |
 |--------|--------------------|------------------|--------|--------|
-| Authentication | Login without Company ID, verified-domain/user-history/custom-domain tenant discovery, SSO/password auto-routing, company picker fallback, registration, current session, account lockout, TOTP MFA, Google/Microsoft OAuth, SAML/JIT, API-key authentication | `/auth`, `/sso`, `/tenants/discover`, `/integrations/api-keys` | `/login`, `/sso`, `/integrations` | Available |
+| Authentication | Login without Company ID, verified-domain/user-history/custom-domain tenant discovery, SSO/password auto-routing, company picker fallback, registration, current session, account lockout, TOTP MFA + QR, Google/Microsoft OAuth, SAML/JIT, API-key with enforced scopes, httpOnly session cookie | `/auth`, `/sso`, `/tenants/discover`, `/integrations/api-keys` | `/login`, `/sso`, `/integrations`, `/settings/mfa` | Available |
 | Company & organization | Company profile/work schedule, departments, positions, levels, work locations, geofence, WiFi SSID, organization tree | `/companies`, `/org` | `/org` | Available |
 | Employee master | CRUD, search, pagination, Excel/CSV import, department/position/location/type/status filters, soft delete | `/employees` | `/employees` | Available |
 | Employee lifecycle | Family, dependant, education, emergency contact, bank, tax, contract/probation dates, status history, probation review | `/employees/:id/*` | Employee lifecycle panel | Available |
 | Account & roles | Central account list/search, standalone or linked account creation, HR/Manager/Finance/Employee role, activation, reset password, one-time temporary password, audited changes | `/staff-accounts`, `/employees/:id/access` | `/staff-accounts`, employee lifecycle panel | Available |
 | Enterprise tenant administration | POOL/SILO/BRIDGE policy, tenant discovery, organization units, scoped roles, quota/usage and isolation audit | `/tenants` | `/tenant-management` | Available; physical SILO provisioning is operational |
 | SCIM provisioning | Tenant-token-scoped Users and Groups provisioning/deactivation | `/scim/v2/:tenantId` | IdP integration | Available; IdP conformance UAT required |
-| Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync, Excel template download, dry-run validation/preview, confirmed manual upload import and import history | `/attendance` | `/attendance` | Available |
+| Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync (fill-empty), Excel template/dry-run/confirm import with Idempotency-Key and import history | `/attendance` | `/attendance` | Available |
 | Attendance correction | Mandatory evidence, original/corrected values, submit, approve/reject, bulk correction/approval | `/corrections` | `/corrections` | Available |
 | Shift | Shift CRUD, daily assignment, company/employee validation, rotation, swap request/approval, pay multiplier | `/shifts` | `/shifts` | Available |
 | Leave | Types, balances, request, overlap/balance validation, approval, auto-sick policy, carry-forward/expiry, replacement/handover | `/leave` | `/leave` | Available |
@@ -88,16 +88,16 @@ never be written to audit logs or telemetry.
 | Approval inbox | Consolidated leave, permission, overtime, correction, claim and loan approvals with role/department scope | `/approvals` | `/approvals` | Available |
 | Payroll configuration | Tax methods, BPJS/JHT/JP rates/caps, working-day divisor, overtime policy, loan ratio, claim policy | `/payroll-settings/configuration` | `/payroll-settings` | Available |
 | Salary components/templates | Earnings, deductions, employer contributions, effective-dated employee items, department/position templates | `/payroll-settings/components`, `/templates` | `/payroll-settings` | Available |
-| Payroll processing | Batch monthly calculation, preview/detail, finalize, paid status, inline Company/Super Admin payslip preview, attendance/leave/shift/overtime/claim/loan integration | `/payroll` | `/payroll` | Available |
+| Payroll processing | Batched monthly calculation (OT/claims/loans/variables/attendance/leave/shift), preview/detail, atomic finalize (idempotent if already FINALIZED), paid status, admin + employee payslip preview | `/payroll` | `/payroll` | Available |
 | Tax & BPJS | Complete PTKP variants, progressive/versioned tax brackets, gross/net/gross-up, employee/employer contribution breakdown | `/payroll-settings/tax-rates`, `/payroll` | `/payroll-settings`, `/payroll` | Available |
 | Proration & THR | Join/exit proration, configurable divisor, eligible-day explanation, full-month cap, annual THR generation | `/payroll`, `/payroll/thr/run` | `/payroll` | Available |
-| Payslip | 12-month employee portal, Company/Super Admin in-app preview without PDF download, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/verify/:payslipId` | `/payroll` | Available |
+| Payslip | 12-month employee portal, in-app preview, landscape password PDF (auth + `PAYSLIP_DOWNLOAD` audit), signed link TTL 24h, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/:id/payslip-link`, `/payroll/signed-payslip/:token`, `/payroll/verify/:payslipId` | `/payroll` | Available |
 | Overtime | Employee request, configurable weekday/weekend/holiday multiplier, approval, automatic payroll inclusion | `/overtime` | `/overtime` | Available |
 | Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
 | Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
 | Employee loans | Simulation, affordability ratio, one-active-loan policy, Manager/Finance approval, installments/payroll deduction | `/loans` | `/loans` | Available |
 | Dashboard | Role-aware headcount, department/type/status breakdowns, attendance, pending approvals, payroll, contract/probation and birthdays | `/dashboard` | `/dashboard` | Available |
-| Reports | Attendance/leave/payroll detail, pattern/peak analysis, turnover trend/risk, Excel/PDF, bank upload and tax/YTD export | `/reports` | `/reports` | Available |
+| Reports | Attendance/leave/payroll detail, pattern/peak analysis, turnover trend/risk, Excel/PDF (1000-row cap), async bank/tax export jobs with poll/download UI, email when ready | `/reports`, `/reports/jobs*` | `/reports` | Available |
 | Recruitment/ATS | Jobs, public publication, online application/CV, candidates, ranking, pipeline, interviews, bulk communication | `/recruitment`, `/careers` | `/recruitment`, `/careers` | Available |
 | Digital offer | Offer creation/delivery, expiry, public view, accept/reject, consent signature, tamper evidence, auto-hire | `/recruitment`, `/careers/offer/:token` | `/recruitment`, `/careers/offer/:token` | Available |
 | Onboarding | Auto/default/custom plans, document/training/equipment/culture/probation tasks, buddy, scoped completion | `/onboarding` | `/onboarding` | Available |
@@ -105,7 +105,7 @@ never be written to audit logs or telemetry.
 | Training & career | Programs, enrollments/completion and career-path records | `/training` | `/training` | Available |
 | Assets | Asset inventory, assignment, return and offboarding return support | `/assets` | `/assets` | Available |
 | Offboarding | Resignation request/approval/completion and asset-return workflow | `/offboarding` | `/offboarding` | Available |
-| Documents | Company/employee documents, version metadata, upload/download and contract reminders | `/documents`, `/uploads` | `/documents` | Available |
+| Documents | Company/employee documents, version metadata, upload/download (auth file route) and contract reminders | `/documents`, `/uploads`, `/files` | `/documents` | Available |
 | Policy & discipline | Company policies, publication/acknowledgement-related records and disciplinary actions | `/policies` | `/policies` | Available |
 | Helpdesk | Employee ticket, assignment, status and resolution workflow | `/helpdesk` | `/helpdesk` | Available |
 | Communication | Announcements, surveys, polls, HR calendar/holidays, persistent/email/browser notifications | `/announcements`, `/surveys`, `/calendar`, `/notifications` | Matching pages + header notification center | Available |
@@ -118,7 +118,7 @@ never be written to audit logs or telemetry.
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
 | Branding | App name, logo, colors and public company branding | `/branding` | `/branding` | Available |
 | Custom reports | Source definitions, saved report configuration and report execution | `/custom-reports` | `/custom-reports` | Available |
-| Security administration | Row-level rules, effective-scope inspection, audit filters/export and MFA controls | `/security`, `/audit`, `/auth/mfa` | `/security`, `/audit` | Available |
+| Security administration | Row-level rules, effective-scope inspection, audit filters/export and MFA controls (`/settings/mfa`) | `/security`, `/audit`, `/auth/mfa` | `/security` → `/settings/mfa`, `/audit` | Available |
 | Operations/NFR | Health/readiness, Prometheus, Sentry, backup/restore, clean migrations, DB verification and load-test CI | `/health`, `/ready`, `/metrics` | Operational tooling | Available; production acceptance required |
 | Competency framework & assessment | Framework/competency library with versioning, role-competency mapping, self/manager/peer/360 assessment, submit/approve workflow, gap analysis, bulk import | `/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments` | `/talent` | Available (PRD v4 Module 1) |
 | Individual Development Plan (IDP) | IDP CRUD, idempotent auto-generate goals from competency gap, goal tracking, progress review | `/idps` | `/idp` | Available (PRD v4 Module 2) |
@@ -151,14 +151,15 @@ never be written to audit logs or telemetry.
 - Idempotent template application with component effective dates.
 - Configurable BPJS health/JHT/JP employee and employer rates/caps.
 - Versioned PTKP/tax brackets and `GROSS`, `NET`, `GROSS_UP` tax methods.
-- Monthly payroll using attendance, unpaid leave, overtime, shift premium, claims, loans and variable compensation.
+- Monthly payroll using attendance, unpaid leave, overtime, shift premium, claims, loans and variable compensation — **batched** queries (PRD v8.0 P01), not N+1 per employee.
 - Mid-period join/exit proration with explicit divisor, eligible days and full-month cap.
 - THR, bonus, commission and KPI-to-pending-payroll-bonus generation.
 - Claim category limits, daily/monthly policies and mandatory receipt rules.
 - Loan simulation, affordability/active-loan validation, Manager/Finance approval and payroll deduction.
-- In-app payslip preview for Company/Super Admin plus landscape password-protected payslip PDF with earning/deduction tables, branding, proration explanation and tamper-evident signature verification.
-- Employee payslip portal and payroll, tax, bank upload and YTD reporting.
-
+- **Atomic finalize** claims `DRAFT` rows via `updateMany` in a transaction; concurrent finalize conflicts; already-`FINALIZED` is idempotent HTTP 200.
+- In-app payslip preview for Company/Super Admin **and** employees (own slips); landscape password-protected PDF with earning/deduction tables, branding, proration explanation and tamper-evident signature verification; authenticated download audited as `PAYSLIP_DOWNLOAD`.
+- **Signed payslip URLs** (24h TTL) for shareable download without long-lived session in the link.
+- Employee payslip portal; payroll/tax/bank/YTD reporting with **1000-row export caps** and **async report jobs** (`ReportExportJob`) with UI poll/download and email-outbox notification.
 ### Recruitment, onboarding and strategic HR
 
 - Job postings, public career pages, candidate application/CV upload and ATS pipeline.
@@ -212,25 +213,25 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: 28/28 backend tests pass; the current frontend production build contains 50 routes (`/settings/mfa` added). Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: **31/31** backend tests pass; frontend inventory **50** pages; backend **51** route modules; Prisma **101** models. Re-run the build and test suites before treating these figures as release evidence.
 
-## Audit remediation (PRD v8.0) — Jul 18, 2026
+## Audit remediation (PRD v8.0) — Jul 18–19, 2026
 
 Full detail: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · Spec: [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md).
 
 | ID | Sev | Summary | Status |
 |----|-----|---------|--------|
 | B01 | P0 | Public `/uploads` static — payslips may be guessable | **Fixed** — auth file route + payslip PDF audit |
-| B02 | P0 | API key scopes not enforced (always COMPANY_ADMIN) | **Fixed** — scope assert on `requirePermission` |
-| B03 | P0 | Payroll finalize race can double-apply loan installments | **Fixed** — atomic `updateMany` claim |
-| P01 | P0 | Payroll run N+1 queries per employee | **Fixed** — batched OT/claims/loans/variables |
-| B04 | P1 | Employee nav hides payslip portal | **Fixed** — Slip Gaji nav for all |
-| B05 | P1 | MFA UI admin-only | **Fixed** — `/settings/mfa` |
-| B06–B08 | P1 | Import concurrency, offline-sync race, upload MIME spoof | **Fixed** |
-| P02 | P1 | Unbounded report exports | **Fixed** — 1000-row cap |
+| B02 | P0 | API key scopes not enforced (always COMPANY_ADMIN) | **Fixed** — scope assert; `resource:*` required for wildcard action |
+| B03 | P0 | Payroll finalize race can double-apply loan installments | **Fixed** — atomic `updateMany` claim; re-finalize → 200 |
+| P01 | P0 | Payroll run N+1 queries per employee | **Fixed** — batched OT/claims/loans/variables + attendance/leave/shift |
+| B04 | P1 | Employee nav hides payslip portal | **Fixed** — Slip Gaji nav for all + employee preview |
+| B05 | P1 | MFA UI admin-only | **Fixed** — `/settings/mfa` + QR; `/security` redirects |
+| B06–B08 | P1 | Import concurrency, offline-sync race, upload MIME spoof | **Fixed** — Idempotency-Key / file hash; fill-empty sync; magic bytes |
+| P02 | P1 | Unbounded report exports | **Fixed** — 1000-row cap + async jobs + stream XLSX |
+| P2 | — | Cookie session, email outbox, signed payslip, indexes, Alert UI, Redis removal | **Fixed** — Jul 19 commits |
 
 Ops UAT gates below remain required before production-accepted.
-
 ## Production/UAT gates
 
 These are not safe to mark “production accepted” solely from repository code:

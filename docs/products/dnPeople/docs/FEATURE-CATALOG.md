@@ -3,11 +3,12 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 18, 2026  
+**UpdatedAt:** July 19, 2026  
 
 
-**Snapshot:** 18 July 2026 (HEAD `73a730b`)  
-**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md)  
+**Snapshot:** 19 July 2026 (HEAD `a8b1882`)  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v8.0** (security & stability)  
+**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
 
@@ -23,22 +24,22 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **49 halaman frontend**, **49 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **50 halaman frontend**, **51 modul route backend**, **101 model Prisma**, **31** backend unit tests, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration. Auth session memakai httpOnly cookie `dnpeople_session` (SSO tidak lagi menaruh JWT di URL).
 
 ## 1. Identity, authentication, dan access control
 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
-| Login dan session | Email/password login tanpa input Company ID, SSO/password auto-routing, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
+| Login dan session | Email/password tanpa Company ID; session httpOnly cookie `dnpeople_session` + sessionStorage Bearer fallback; Next `/api/v1` rewrite same-origin; logout membersihkan cookie + storage | Semua role | `/login`, `/auth` | Available — PRD v8.0 |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
-| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/settings/mfa`, `/auth/mfa/*` | Available — PRD v8.0 |
-| OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
-| SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
+| MFA TOTP | Setup (QR), verifikasi, enable/disable; `/security` mengarahkan ke MFA | Semua role | `/settings/mfa`, `/auth/mfa/*` | Available — PRD v8.0 |
+| OAuth | Login Google dan Microsoft; sukses SSO set cookie (bukan JWT di query URL) | Semua role | `/sso` | Conditional — provider credentials |
+| SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning; cookie session setelah ACS | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
 | Tenant discovery | Routing tenant dari verified email domain, custom hostname, atau user history; fallback company picker untuk edge case | Semua role | `/tenants/discover`, `/auth/login` | Available |
 | Per-tenant IdP policy | SAML/OIDC/Google/Microsoft, audience, enforce-SSO, default role dan JIT policy per tenant | Enterprise admin | `/sso` | Conditional — IdP credentials/UAT |
 | SCIM 2.0 | Tenant-token-scoped Users/Groups provisioning dan deprovisioning | Enterprise/IdP | `/scim/v2/:tenantId/*` | Available; IdP UAT required |
-| API-key authentication | Scoped key `dnp_…`, revoke, last-used tracking | Admin/integrator | `/integrations`, `/integrations/api-keys` | Available |
+| API-key authentication | Scoped key `dnp_…` dengan enforce scopes (default deny; `*` = admin; `resource:*` wajib untuk wildcard action); revoke, last-used | Admin/integrator | `/integrations`, `/integrations/api-keys` | Available — PRD v8.0 |
 | Role management | Membuat linked account, assign role, temporary password sekali tampil | Company admin | Employee lifecycle panel | Available |
 | Akun staff terpusat | List/search akun, buat akun standalone/linked employee, role, aktivasi, dan reset password | Company admin | `/staff-accounts` | Available |
 | RBAC | Enam role dan permission per resource/action | Semua role | Backend authorization | Available |
@@ -80,9 +81,9 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Selfie/liveness | Adapter face-match/liveness dan production fail-closed | Employee/admin | Attendance API | Conditional — biometric provider |
 | Work mode | Pencatatan office/WFH dan konteks kerja | Employee/HR | `/attendance` | Available |
 | Late/early leave | Deteksi terlambat dan pulang cepat | Employee/HR | `/attendance`, reports | Available |
-| Offline attendance | Queue lokal dan endpoint sinkronisasi | Employee | `/attendance` | Available |
+| Offline attendance | Queue lokal dan sync fill-empty (tidak overwrite jam yang sudah ada) | Employee | `/attendance` | Available — PRD v8.0 |
 | Attendance history/summary | Riwayat, ringkasan dan filter periode | Employee/HR/manager | `/attendance` | Available |
-| Excel manual attendance import | Template `.xlsx`, employee list, dry-run validation, preview, confirm import, `MANUAL_UPLOAD` source dan audit-backed recent uploads | SUPER_ADMIN/COMPANY_ADMIN/HR | `/attendance`, `/attendance/import*` | Available |
+| Excel manual attendance import | Template `.xlsx`, dry-run, preview, confirm; `Idempotency-Key` (header atau hash file); scope API key `attendance:*`; `MANUAL_UPLOAD` + audit history | SUPER_ADMIN/COMPANY_ADMIN/HR | `/attendance`, `/attendance/import*` | Available — PRD v7.0 + v8.0 |
 | Koreksi absensi | Request dengan bukti wajib dan nilai before/after | Employee/HR | `/corrections` | Available |
 | Bulk correction/approval | Koreksi dan approval massal | HR/manager | `/corrections` | Available |
 | Shift master | CRUD jam shift dan pay multiplier | Admin/HR | `/shifts` | Available |
@@ -109,14 +110,15 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Employee component | Komponen recurring/period-specific per karyawan | Finance | `/payroll-settings` | Available |
 | PPh 21 | PTKP lengkap, tax bracket versioning, gross/net/gross-up | Finance | Payroll settings/service | Available |
 | BPJS | Kesehatan, JHT, JP; rate/cap employee dan employer | Finance | Payroll settings/service | Available |
-| Monthly payroll | Batch calculate, preview/detail, finalize, paid status, inline admin payslip preview | Finance/admin | `/payroll` | Available |
+| Monthly payroll | Batch calculate (batched OT/claims/loans/variables/attendance/leave/shift), preview/detail, **atomic finalize** (`DRAFT`→`FINALIZED`), idempotent re-finalize → 200, paid status | Finance/admin | `/payroll` | Available — PRD v8.0 |
 | Payroll inputs | Attendance, unpaid leave, shift premium, overtime, claim, loan, variable pay | Finance/system | Payroll service | Available |
 | Proration | Join/exit mid-period, divisor, eligible days, full-month cap, explanation | Finance/employee | `/payroll`, payslip | Available |
 | THR | Annual THR generation | Finance/admin | `/payroll/thr/run` | Available |
 | Bonus dan commission | Variable compensation, approval, period assignment, paid tracking | Finance/admin | `/payroll-settings` | Available |
 | KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
-| Payslip portal | Employee melihat payslip miliknya (API `/payroll/my`); nav Slip Gaji untuk semua role; admin preview | Employee + Finance/admin | `/payroll` | Available — PRD v8.0 |
-| Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
+| Payslip portal | Nav Slip Gaji semua role; employee `/payroll/my` + in-app “Lihat Slip”; admin inline preview | Employee + Finance/admin | `/payroll` | Available — PRD v8.0 |
+| Payslip PDF | Landscape, password, tabel earning/deduction, branding; download ber-auth + audit `PAYSLIP_DOWNLOAD` | Employee/Finance | `/payroll/:id/payslip.pdf` | Available — PRD v8.0 |
+| Signed payslip link | Generate link TTL 24 jam (`POST …/payslip-link`); unduh via `GET /payroll/signed-payslip/:token`; UI “Bagikan Link” | Finance/admin | `/payroll` | Available — PRD v8.0 |
 | Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/verify/:payslipId` | Available |
 | Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
 | Claim category/policy | Kategori, limit harian/bulanan, receipt wajib | Admin/Finance | `/claims` | Available |
@@ -203,12 +205,13 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Workforce dashboard | Total/active, department/type/status breakdown | HR/admin/manager | `/dashboard` | Available |
 | Operational dashboard | Attendance, pending approval, contracts, probation, birthday | HR/manager | `/dashboard` | Available |
 | Payroll dashboard | Payroll period/status yang diizinkan | Finance/admin | `/dashboard` | Available |
-| Attendance report | Detail, date/employee filter, pattern analysis, Excel/PDF | HR/manager | `/reports` | Available |
-| Leave report | Detail, peak/future analysis, Excel/PDF | HR/manager | `/reports` | Available |
-| Payroll report | Component, tax, BPJS, department, bank dan YTD | Finance/admin | `/reports` | Available |
+| Attendance report | Detail, date/employee filter, pattern analysis, Excel/PDF (cap 1000 baris) | HR/manager | `/reports` | Available — PRD v8.0 |
+| Leave report | Detail, peak/future analysis, Excel/PDF (cap 1000 baris) | HR/manager | `/reports` | Available — PRD v8.0 |
+| Payroll report | Component, tax, BPJS, department, bank dan YTD (cap 1000) | Finance/admin | `/reports` | Available — PRD v8.0 |
+| Async report export jobs | Queue bank/tax export (`POST /reports/jobs`), status poll, download saat ready + email outbox | Finance/admin | `/reports` | Available — PRD v8.0 |
 | Turnover analytics | Trend, department, reason, heuristic risk | HR/admin | `/reports` | Available; human review wajib |
 | Custom reports | Source definition, saved config dan execution | Enterprise admin | `/custom-reports` | Available |
-| Spreadsheet safety | Formula-injection protection untuk import/export | Admin/Finance | Reporting/import layer | Available |
+| Spreadsheet safety | Formula-injection protection; upload magic-byte + MIME validation | Admin/Finance | Reporting/import/upload | Available — PRD v8.0 |
 
 ## 10. Approval, workflow, AI, dan integrations
 
@@ -222,7 +225,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
 | Test delivery | Menguji konfigurasi integration/webhook | Enterprise admin | `/integrations` | Available framework |
-| Upload storage | Local disk atau S3; unduh hanya via auth `GET /files/...` (bukan public `/uploads`) | System/admin | `/api/v1/files`, `/uploads` POST | Available — PRD v8.0 |
+| Upload storage | Local disk atau S3; unduh hanya via auth `GET /api/v1/files/...` (tidak ada public `express.static('/uploads')`); magic-byte + MIME | System/admin | `/api/v1/files`, `/uploads` POST | Available — PRD v8.0 |
+| Email outbox | Antrian email + retry (3 immediate lalu queue); notifikasi report job siap | System | `email_outbox` scheduler | Available — PRD v8.0 |
 
 ## 10b. Subscription & billing (PRD v5)
 
@@ -300,3 +304,13 @@ Fitur berstatus Available berarti implementasi ada, bukan otomatis production-ac
 - Source code: `frontend/src/app`, `frontend/src/components/AppShell.tsx`, `backend/src/routes`, `backend/src/utils/auth.ts`, dan `backend/prisma/schema.prisma`
 
 Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog sebelum menyatakan fitur sebagai existing.
+
+---
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| UpdatedAt | July 19, 2026 |
+| HEAD | `a8b1882` |

@@ -3,9 +3,10 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 18, 2026  
-**Status:** PRD v5–v8.0 implemented (subscription, multi-tenant, discovery login, attendance Excel, security/stability)  
-**Codebase:** 50 pages · 50 routes · 99 models · 28 tests  
+**UpdatedAt:** July 19, 2026  
+**Status:** PRD v5–v8.0 implemented (subscription, multi-tenant, discovery login, attendance Excel, security/stability + acceptance wiring)  
+**Codebase:** 50 pages · 51 routes · 101 models · 31 tests  
+**HEAD:** `a8b1882`  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 | File | Deskripsi |
@@ -48,4 +49,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: July 19, 2026*

@@ -6,9 +6,10 @@
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: July 18, 2026  
+**UpdatedAt**: July 19, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v8.0  
-**Codebase**: 50 frontend pages · 50 backend route modules · 99 Prisma models · 28 tests
+**Codebase**: 50 frontend pages · 51 backend route modules · 101 Prisma models · 31 tests  
+**HEAD**: `a8b1882`
 
 ---
 
@@ -30,19 +31,19 @@
 |------|-------|
 | [README.md](./README.md) | Project overview & quick start |
 | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Ringkasan produk & struktur |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem (v7.0) |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem |
 | [docs/API.md](./docs/API.md) | Referensi API termasuk `/subscription` |
 | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Local & production setup |
 | [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
 | [docs/VPS.md](./docs/VPS.md) | Install VPS |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Status implementasi terkini |
-| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur (+ billing/subscription) |
-| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot implementasi + open defects |
+| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur (+ billing/subscription + v8.0) |
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot implementasi kanonik (HEAD) |
 | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) | **Audit fitur / bug / performa (18 Jul 2026)** |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Changelog |
 | [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Security NFR evidence |
 
-## Status Terkini (18 Juli 2026)
+## Status Terkini (19 Juli 2026)
 
 | Aspek | Status |
 |-------|--------|
@@ -51,17 +52,17 @@
 | Subscription (PRD v5) | ✅ `/billing` + `/subscription/*` |
 | Enterprise multi-tenant (PRD v6) | ✅ Tenant policy, SCIM, quota, audit |
 | Seamless login discovery (v6.1) | ✅ Domain / hostname / history; SSO redirect |
-| Attendance Excel import (v7.0) | ✅ Template + dry-run + confirm + history |
-| Security & stability (v8.0) | ✅ Uploads auth, API scopes, atomic finalize, batch payroll, MFA/payslip nav |
+| Attendance Excel import (v7.0) | ✅ Template + dry-run + confirm + history + Idempotency-Key |
+| Security & stability (v8.0) | ✅ Uploads auth, API scopes, atomic finalize, batch payroll, cookie session, MFA/payslip, signed links, report jobs |
 | Admin office QR UI | ❌ Removed from admin page; API tetap |
 | Staff accounts | ✅ `/staff-accounts` |
 | MFA TOTP, THR, employee Excel import, offline attendance | ✅ |
-| Admin payslip preview | ✅ Inline preview |
+| Admin + employee payslip preview | ✅ Inline preview + signed share link |
 | CI | ✅ `.github/workflows/ci.yml` |
-| Audit fitur/bug/performa (18 Jul) | ✅ P0/P1 remediated in PRD v8.0 — lihat [AUDIT](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
+| Audit fitur/bug/performa (18 Jul) | ✅ P0/P1/P2 remediated in PRD v8.0 — lihat [AUDIT](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | Production IdP / SMTP / S3 / biometrics | Conditional |
 
-Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)
+Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)
 
 ---
 
@@ -70,6 +71,7 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 19, 2026 |
+| HEAD | `a8b1882` |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
