@@ -4,10 +4,13 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 
 | | |
 |---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
 | Status | MVP 1–4 implemented + PRD v4 Talent Development foundation (Module 1–2) |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
-| Last Updated | July 16, 2026 |
+| UpdatedAt | July 18, 2026 |
 
 ## Stack
 
@@ -125,4 +128,13 @@ dnPeople **bukan** sama dengan repo `ERP/` (DN People ERP NestJS). Ini produk HR
 
 ## Lisensi
 
-Proprietary — DN Tech / Dozer
+Proprietary — DN Tech © 2026
+
+Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| UpdatedAt | July 18, 2026 |

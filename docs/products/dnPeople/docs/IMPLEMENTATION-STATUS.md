@@ -22,7 +22,7 @@
 |------|----------------------|
 | Employee lifecycle | Family, education, contact, bank/tax, status history, contract/probation review, reminders, auto-conversion |
 | Payroll | Configuration UI/API, templates, tax-rate versions, complete PTKP, BPJS, gross/net/gross-up, variable compensation, employer contribution |
-| Payslip | Landscape, tabel pendapatan/potongan, rincian proration, password PDF, branding, signature + verification |
+| Payslip | Inline Company/Super Admin preview, landscape tabel pendapatan/potongan, rincian proration, password PDF, branding, signature + verification |
 | Attendance | Early-leave detection, provider adapter liveness/face-match, production fail-closed, correction evidence + before/after audit |
 | Leave | Carry-forward/expiry, annual processing, replacement/coverage assignment, notifications |
 | Reports | Attendance/leave/payroll detail, Excel/PDF, bank upload, tax, turnover trend/risk |
@@ -106,7 +106,7 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Approval inbox + rules | Done |
 | Advanced reports | Done |
 | File upload | Done | Local disk **atau** S3/MinIO (`S3_*`) |
-| Payslip PDF | Done | `GET /payroll/:id/payslip.pdf` |
+| Payslip preview + PDF | Done | `/payroll` inline Company/Super Admin preview + `GET /payroll/:id/payslip.pdf` |
 | Email notifications | Done | SMTP atau console log |
 
 Frontend: `/org` `/audit` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`

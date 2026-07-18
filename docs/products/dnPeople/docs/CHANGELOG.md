@@ -14,6 +14,11 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - `/login` now shows only email/password, handles SSO redirects from the backend, and opens the fallback company picker only when discovery cannot resolve the tenant
 - Login discovery, SSO redirect, success, and failure paths write tenant audit metadata without password/token payloads
 
+### Added — Payroll admin payslip preview
+
+- Company/Super Admin can open an inline payslip preview from `/payroll` for finalized or paid payroll records without downloading the PDF
+- Preview groups earning/employer contribution and deduction components while preserving the existing password-protected PDF download for official archive/distribution
+
 ### Added — Central staff account administration
 
 - Separate `/staff-accounts` navigation and administration page for company owners

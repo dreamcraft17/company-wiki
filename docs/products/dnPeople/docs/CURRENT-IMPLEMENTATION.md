@@ -84,10 +84,10 @@ never be written to audit logs or telemetry.
 | Approval inbox | Consolidated leave, permission, overtime, correction, claim and loan approvals with role/department scope | `/approvals` | `/approvals` | Available |
 | Payroll configuration | Tax methods, BPJS/JHT/JP rates/caps, working-day divisor, overtime policy, loan ratio, claim policy | `/payroll-settings/configuration` | `/payroll-settings` | Available |
 | Salary components/templates | Earnings, deductions, employer contributions, effective-dated employee items, department/position templates | `/payroll-settings/components`, `/templates` | `/payroll-settings` | Available |
-| Payroll processing | Batch monthly calculation, preview/detail, finalize, paid status, attendance/leave/shift/overtime/claim/loan integration | `/payroll` | `/payroll` | Available |
+| Payroll processing | Batch monthly calculation, preview/detail, finalize, paid status, inline Company/Super Admin payslip preview, attendance/leave/shift/overtime/claim/loan integration | `/payroll` | `/payroll` | Available |
 | Tax & BPJS | Complete PTKP variants, progressive/versioned tax brackets, gross/net/gross-up, employee/employer contribution breakdown | `/payroll-settings/tax-rates`, `/payroll` | `/payroll-settings`, `/payroll` | Available |
 | Proration & THR | Join/exit proration, configurable divisor, eligible-day explanation, full-month cap, annual THR generation | `/payroll`, `/payroll/thr/run` | `/payroll` | Available |
-| Payslip | 12-month employee portal, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/:id/verify` | `/payroll` | Available |
+| Payslip | 12-month employee portal, Company/Super Admin in-app preview without PDF download, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/:id/verify` | `/payroll` | Available |
 | Overtime | Employee request, configurable weekday/weekend/holiday multiplier, approval, automatic payroll inclusion | `/overtime` | `/overtime` | Available |
 | Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
 | Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
@@ -148,7 +148,7 @@ never be written to audit logs or telemetry.
 - THR, bonus, commission and KPI-to-pending-payroll-bonus generation.
 - Claim category limits, daily/monthly policies and mandatory receipt rules.
 - Loan simulation, affordability/active-loan validation, Manager/Finance approval and payroll deduction.
-- Landscape password-protected payslip with earning/deduction tables, branding, proration explanation and tamper-evident signature verification.
+- In-app payslip preview for Company/Super Admin plus landscape password-protected payslip PDF with earning/deduction tables, branding, proration explanation and tamper-evident signature verification.
 - Employee payslip portal and payroll, tax, bank upload and YTD reporting.
 
 ### Recruitment, onboarding and strategic HR

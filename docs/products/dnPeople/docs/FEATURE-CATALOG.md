@@ -100,13 +100,13 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Employee component | Komponen recurring/period-specific per karyawan | Finance | `/payroll-settings` | Available |
 | PPh 21 | PTKP lengkap, tax bracket versioning, gross/net/gross-up | Finance | Payroll settings/service | Available |
 | BPJS | Kesehatan, JHT, JP; rate/cap employee dan employer | Finance | Payroll settings/service | Available |
-| Monthly payroll | Batch calculate, preview/detail, finalize, paid status | Finance/admin | `/payroll` | Available |
+| Monthly payroll | Batch calculate, preview/detail, finalize, paid status, inline admin payslip preview | Finance/admin | `/payroll` | Available |
 | Payroll inputs | Attendance, unpaid leave, shift premium, overtime, claim, loan, variable pay | Finance/system | Payroll service | Available |
 | Proration | Join/exit mid-period, divisor, eligible days, full-month cap, explanation | Finance/employee | `/payroll`, payslip | Available |
 | THR | Annual THR generation | Finance/admin | `/payroll/thr/run` | Available |
 | Bonus dan commission | Variable compensation, approval, period assignment, paid tracking | Finance/admin | `/payroll-settings` | Available |
 | KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
-| Payslip portal | Employee melihat payslip 12 bulan miliknya | Employee | `/payroll` | Available |
+| Payslip portal | Employee melihat payslip 12 bulan miliknya; Company/Super Admin dapat preview slip karyawan tanpa download PDF | Employee, Company/Super Admin | `/payroll` | Available |
 | Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
 | Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/:id/verify` | Available |
 | Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
