@@ -18,7 +18,7 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 50 production routes; mobile-first shell and locally scrollable data tables |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 49 production routes; mobile-first shell and locally scrollable data tables |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
 | Data | PostgreSQL 16 + Prisma with 99 models; deployment migrations are mandatory |
 | Authentication | JWT, API key, TOTP MFA, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
@@ -204,7 +204,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 50 routes. Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 49 routes. Re-run the build and test suites before treating these figures as release evidence.
 
 ## Production/UAT gates
 

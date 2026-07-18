@@ -56,7 +56,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Branding `rlogo2` (Jul 9) | ✅ | Logo PNG navbar/footer/admin; favicon 32px; hero tipografi |
 | About CMS live (Jul 9) | ✅ | Client fetch + `force-dynamic`; visi/misi dari `aboutContent` |
 | Admin UX (Jul 9) | ✅ | Toast simpan settings + validasi JSON |
-| Branding section full (Jul 9) | ✅ | API `/branding/*`, homepage 6 section branding, admin `/admin/branding` |
+| Branding section full (Jul 9) | ✅ | API `/branding/*` + admin `/admin/branding` (section branding **tidak** lagi di homepage; diganti Indonesia Edition) |
 | Branding spec 100% (Jul 9) | ✅ | Prisma models dedicated, admin CRUD `/admin/branding/*`, testimonials carousel, seed script |
 | Footer redesign (Jul 9) | ✅ | Layout horizontal putih; `FooterBrand` wordmark; tanpa newsletter di footer |
 | Homepage PRD Indonesia (Jul 9) | ✅ | Section direct-market; `homeContent` CMS; komponen `components/homepage/*` |
@@ -143,8 +143,8 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 | Check | Hasil |
 |-------|-------|
 | `gradient-to-*` | ✅ 0 |
-| `backdrop-blur` | ✅ 0 |
-| `shadow-xl` / `shadow-2xl` | ✅ 0 |
+| `backdrop-blur` (design surfaces) | ✅ Header/case-study bersih; Loading UX overlay (Jul 13) boleh pakai blur |
+| `shadow-xl` (admin login) | ✅ Flat border; overlay loading boleh shadow |
 | `slate-*` | ✅ 0 |
 | `components/ui/index.ts` barrel | ✅ Alert, Badge, Button, Card, Input, Modal |
 
@@ -161,7 +161,7 @@ Implementasi penuh per `design/DN-TECH-DESIGN-V2.1-SDD.md` + mandat CEO/Tech Lea
 |-------|------------|-----|
 | Hero / CTA tombol kosong | `<Link><Button>` = HTML tidak valid (`<a><button>`) | `Button` mendukung prop `href` → render sebagai `<Link>` |
 | Modal X tidak responsif | Layout + event handling | `Modal`: Escape key, `stopPropagation`, close `shrink-0` |
-| Footer "Langganan" terpotong | Flex shrink pada tombol | `NewsletterForm` compact: `shrink-0 whitespace-nowrap` (homepage saja; **footer Jul 9 malam** — newsletter dihapus dari footer) |
+| Footer "Langganan" terpotong | Flex shrink pada tombol | Newsletter dihapus dari footer; `NewsletterForm` aktif di `/resources` |
 | Tombol putih tanpa teks (CSS) | `cn()` tanpa `tailwind-merge` → `text-white` + `text-blue-900` bentrok | `tailwind-merge` di `utils.ts` + variant `inverse` / `outline-on-dark` |
 
 **File utama:** `components/ui/Button.tsx`, `Modal.tsx`, `page.tsx` (hero), `NewsletterForm.tsx`, `ExitIntentModal.tsx` + 10 halaman CTA lainnya.
@@ -263,21 +263,22 @@ Implementasi penuh per `company-wiki/.../DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA
 
 ## 3. Website Publik
 
-### Navigasi (V2 — startup-focused)
+### Navigasi (current)
 
-Menu utama yang ditampilkan:
+Menu utama header (**6 item**):
 
 | Route | Label |
 |-------|-------|
 | `/` | Beranda |
 | `/services` | Layanan |
+| `/products` | Produk |
 | `/about` | Tentang |
 | `/blog` | Blog |
 | `/contact` | Kontak |
 
 CTA header: **"Konsultasi Gratis"**
 
-Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources` **masih ada** tapi **tidak** di nav utama (sesuai V2 P2/P3).
+Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources`, `/team`, `/careers` **masih ada** tapi **tidak** di nav utama.
 
 ### Homepage (`/`)
 
@@ -721,7 +722,7 @@ Implementasi berdasarkan dokumen di `docs/v4/`.
 | GA defer until idle | ✅ | `frontend/src/components/seo/AnalyticsLoader.tsx` |
 | Crisp defer until interaction | ✅ | `frontend/src/components/interactive/CrispChatLoader.tsx` |
 | Page tracking defer until idle | ✅ | `frontend/src/components/common/PageTracker.tsx` |
-| Homepage streaming | ✅ | `frontend/src/app/(public)/page.tsx` |
+| Homepage parallel fetch + cache | ✅ | `frontend/src/app/(public)/page.tsx` — settings/services/case-studies/faq/testimonials (tanpa Suspense blog/team) |
 | `next/image` migration | ✅ | Blog detail, team page, team spotlight, case study detail, admin media |
 | Image remote patterns + AVIF/WebP | ✅ | `frontend/next.config.ts` |
 | Build root warning fix | ✅ | `frontend/next.config.ts` (`turbopack.root`) |
@@ -733,12 +734,12 @@ Implementasi berdasarkan dokumen di `docs/v4/`.
 
 ### Perilaku performa saat ini
 
-- Homepage initial render hanya menunggu settings + services; blog dan team preview stream lewat `Suspense`.
+- Homepage Indonesia Edition fetch paralel: settings + services + case-studies + FAQ + branding testimonials (tanpa blog/team preview; tidak ada `Suspense` streaming section).
 - `getPublicSettings()` memakai React `cache()` sehingga server components dalam satu render tidak fetch settings berulang.
 - GA baru dimount saat browser idle; Crisp baru dimuat setelah interaksi user.
 - Search header menunggu 300ms setelah user berhenti mengetik dan membatalkan request sebelumnya.
-- Public API `services`, `blog`, `team`, dan `settings` punya memory TTL cache.
-- Admin mutation untuk service, blog, team, dan settings membersihkan cache supaya konten publik tidak stale terlalu lama.
+- Public API `services`, `blog`, `team`, `products`, dan `settings` punya memory TTL cache.
+- Admin mutation untuk service, blog, team, products, dan settings membersihkan cache supaya konten publik tidak stale terlalu lama.
 - Build frontend tidak lagi membutuhkan `fonts.googleapis.com`.
 
 ### Verifikasi terakhir V4
@@ -928,7 +929,7 @@ Audit ini awalnya adalah hasil review kode dan build, bukan hasil Lighthouse lab
 
 | Prioritas | Temuan | Status V4 |
 |-----------|--------|-----------|
-| P0 | Homepage SSR menunggu beberapa request API | ✅ Ditangani dengan Suspense streaming + cache |
+| P0 | Homepage SSR menunggu beberapa request API | ✅ Ditangani dengan parallel fetch + cache (homepage tidak lagi load blog/team) |
 | P0 | `settings` di-fetch lebih dari sekali | ✅ Ditangani server cache + props ke loader |
 | P1 | Client loader melakukan request tambahan setelah hydration | ✅ GA/Crisp tidak fetch settings lagi |
 | P1 | Third-party scripts GA/Crisp dimuat terlalu awal | ✅ GA idle, Crisp first interaction |
@@ -950,13 +951,12 @@ Sebelum V4, homepage menjalankan:
 - `GET /team`
 - `GET /settings`
 
-Semua request memang diparalelkan dengan `Promise.all`, tapi halaman server-render tetap harus menunggu semuanya selesai untuk menghasilkan HTML.
+Sebelum V4, homepage juga menunggu blog + team. Setelah Homepage Indonesia Edition (Jul 9):
 
-Status V4:
-
-- Blog dan team preview sudah dipindah ke async section dalam `Suspense`.
-- Initial render homepage hanya menunggu settings + services.
+- Blog/team preview **dihapus** dari homepage (tim tetap di `/team`).
+- Homepage menunggu parallel fetch: settings, services, case-studies, FAQ, testimonials.
 - Backend public endpoints sudah memakai memory TTL cache.
+- Halaman `/products` memakai resolver API resilient (Jul 13 hotfix).
 
 #### 2. `settings` di-fetch berulang
 
@@ -1076,7 +1076,8 @@ Setelah deploy, pastikan:
 
 - [ ] `npx prisma db push` sukses (field `timeline`, `level`, `benefits`)
 - [ ] `npm run build` backend & frontend sukses
-- [ ] Homepage tanpa gradient, nav 5 item
+- [ ] Homepage tanpa gradient, nav 6 item (termasuk Produk)
+- [ ] `/products` dan detail produk aktif (setelah `db push` + `db:seed-dnpeople` production)
 - [ ] Form kontak 3 langkah + consent
 - [ ] Tidak ada email/telepon fake di footer
 - [ ] `/case-studies` empty state (bukan data demo)

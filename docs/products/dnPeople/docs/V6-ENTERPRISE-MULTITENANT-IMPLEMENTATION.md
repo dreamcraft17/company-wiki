@@ -69,7 +69,7 @@ deployment operations and must complete before marking a tenant physically isola
 - Prisma format and validation: pass.
 - Backend TypeScript build: pass.
 - Backend automated tests: 24/24 pass.
-- Frontend production build: pass, 50 routes.
+- Frontend production build: pass, 49 routes.
 
 Production acceptance additionally requires an IdP SCIM conformance run, SSO signature/audience
 tests, DNS/TLS validation, SILO migration rehearsal, load testing, and backup/restore drills.

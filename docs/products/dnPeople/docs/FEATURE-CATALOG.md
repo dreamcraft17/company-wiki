@@ -1,5 +1,11 @@
 # dnPeople — Feature Catalog
 
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DnPeople  
+**UpdatedAt:** July 18, 2026  
+
+
 **Snapshot:** 17 July 2026
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -16,7 +22,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **50 halaman frontend**, **49 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **49 halaman frontend**, **49 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
 
 ## 1. Identity, authentication, dan access control
 

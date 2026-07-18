@@ -24,7 +24,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Homepage PRD Indonesia (Jul 9) | Implemented | Direct-market homepage; `homeContent` CMS; `components/homepage/*` |
 | Homepage tuning (Jul 9 malam) | Implemented | Tech stack & tim hidden on homepage; UMKM-friendly pricing |
 | Branding section rollout | Implemented | Prisma branding models + admin API (legacy homepage sections; modul admin tetap) |
-| V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, streaming homepage, Next Image, font/build fix |
+| V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, parallel homepage fetch, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | V6 Produk module (Jul 12) | Implemented | New `Product` content type parallel to Services — public `/products` + `/products/[slug]`, admin CRUD `/admin/products`, sitewide search, sitemap; DB push to production pending |
 | V7 Product Section PRD (Jul 12) | Implemented | dnPeople flagship product page — pricing tiers, features by category, use cases, integrations, comparison table, testimonials, roadmap, multi-CTA; seed via `db:seed-dnpeople`; DB push + seed to production pending |
@@ -40,7 +40,7 @@ Latest implementation reference: Jul 16 — dnPeople product seed copy update (`
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
-**Homepage:** PRD [Indonesia Edition](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) — hero, layanan, proses, keunggulan, portfolio, FAQ, harga, CTA. **Hidden di beranda:** tech stack, tim (tetap di `/team`, `/careers`). Default harga: custom dari **Rp 25 juta**, konsultasi **Rp 150rb/jam**, maintenance **Rp 2 juta/bulan**.
+**Homepage:** PRD [Indonesia Edition](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) — hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA. **Hidden di beranda:** tech stack, tim (tetap di `/team`, `/careers`). Default harga: custom dari **Rp 25 juta**, konsultasi **Rp 150rb/jam**, maintenance **Rp 2 juta/bulan**.
 
 **Footer:** `components/common/Footer.tsx` — putih, link horizontal, CTA Konsultasi Gratis.
 
@@ -59,7 +59,7 @@ Latest implementation reference: Jul 16 — dnPeople product seed copy update (`
 
 ### Public Website
 
-- Homepage Indonesia Edition: hero, layanan, proses, keunggulan, portfolio, FAQ, harga, CTA (`homeContent` CMS)
+- Homepage Indonesia Edition: hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA (`homeContent` CMS)
 - Tech stack & tim **hidden** on homepage (tetap di `/team`, `/careers`); newsletter tidak di footer
 - Services listing and detail pages with process steps, FAQ, related articles, Calendly CTA
 - Products listing and detail pages (separate nav from Services) — V7 flagship fields for dnPeople
@@ -294,7 +294,7 @@ V4 implemented the main performance fixes identified in the audit. Remaining wor
 
 Implemented items:
 
-- Homepage streams non-critical blog/team sections with `Suspense`.
+- Homepage parallel-fetches settings/services/case-studies/FAQ/testimonials (no blog/team Suspense streaming).
 - Public settings use server cache and are passed to GA/Crisp loaders.
 - GA loads when the browser is idle; Crisp loads on first user interaction.
 - Public images and admin media previews use `next/image`.

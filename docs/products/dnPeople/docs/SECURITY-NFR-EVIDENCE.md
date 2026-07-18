@@ -13,7 +13,7 @@ This document records reproducible engineering evidence. Production-provider acc
 | Frontend type safety | `npx tsc --noEmit` | Pass |
 | Backend build | `npm run build` | Pass |
 | Frontend production build | `npm run build` | Pass, 44 routes |
-| Unit/security tests | `npm test` | 21/21 pass |
+| Unit/security tests | `npm test` | 24/24 pass |
 | Dependency security | `npm audit --omit=dev` | 0 known vulnerabilities |
 | Prisma validation | `npx prisma validate` | Pass |
 | Clean database migration | CI `database-schema` | PostgreSQL 16 migration + schema diff gate |

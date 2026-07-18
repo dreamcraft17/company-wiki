@@ -1,13 +1,13 @@
 # dnPeople
 
-Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — implementasi **MVP 1–4** berdasarkan PRD, SRS, dan SDD v3.1, plus fondasi Talent Development dari PRD v4 (competitive alignment).
+Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, Talent Development PRD v4, subscription v5, Enterprise Multi-Tenant PRD v6, dan seamless tenant discovery login PRD v6.1.
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | MVP 1–4 implemented + PRD v4 Talent Development foundation (Module 1–2) |
+| Status | PRD v6 enterprise multi-tenant implemented; operational integrations require production acceptance |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
 | UpdatedAt | July 18, 2026 |
@@ -24,7 +24,7 @@ Sistem HRIS (Human Resource Information System) untuk perusahaan Indonesia — i
 
 ## Fitur
 
-Snapshot codebase saat ini mencakup **46 halaman web**, **45 modul route backend**, dan **88 model Prisma**. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md).
+Snapshot codebase saat ini mencakup **49 halaman web**, **49 modul route backend**, dan **99 model Prisma**. Login sudah auto-discover tenant tanpa input Company ID. Status detail setiap kapabilitas—termasuk dependency production dan batas roadmap—tersedia di [Feature Catalog](./docs/FEATURE-CATALOG.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure
@@ -60,6 +60,15 @@ Snapshot codebase saat ini mencakup **46 halaman web**, **45 modul route backend
 - LMS dasar: course/program, module, enrollment, completion tracking, sertifikat otomatis, transcript
 - Belum termasuk: 9-box matrix, succession planning, internal career marketplace, earned wage access, salary benchmarking, paket industri (roadmap Q4 2026+)
 
+### PRD v5–v6 — Subscription & Enterprise Multi-Tenant
+
+- Lima subscription tier, billing, invoice, payment adapter, server-side feature gating, dan grace/freeze mode
+- POOL/SILO/BRIDGE tenant policy, verified-domain discovery, isolation guard, dan tenant audit
+- Per-tenant SSO/JIT, SCIM 2.0 Users/Groups, organization hierarchy, dan scoped RBAC
+- Tenant quota/usage monitoring serta white-label custom-domain metadata
+- Admin UI `/billing`, `/platform`, dan `/tenant-management`
+- Menu `/staff-accounts` untuk membuat akun login staff standalone/linked employee, role, status aktif, dan reset password
+
 ## Quick Start (tanpa Docker)
 
 Database = **Supabase Session pooler**. Tidak perlu Docker.
@@ -79,7 +88,7 @@ DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-
 
 ```bash
 npm install
-npx prisma db push
+npm run db:migrate
 npm run db:seed
 npm run dev
 ```

@@ -1,7 +1,9 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **16 Juli 2026**
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4** (competitive alignment, Module 1–2) · Repo version **0.5.0**
+> Terakhir diperbarui: **18 Juli 2026**
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v6.1** · Repo version **1.0.0**
+>
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
 
 ## Ringkasan
 
@@ -12,11 +14,13 @@
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
 | MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** |
 | MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
+| PRD v5 | Subscription tier gating & billing | **Done** (ops acceptance Conditional) |
+| PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **21/21** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **24/24** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
 
-### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 16 Juli 2026
+### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
 | Area | Implementasi terbaru |
 |------|----------------------|
@@ -43,7 +47,7 @@
 | Public careers | Done | Listing dan application form responsif |
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 
-Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend production build 50 routes ✅. Codebase memiliki **50 page frontend**, **49 modul route backend**, dan **99 model Prisma**.
+Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend production build 49 routes ✅. Codebase memiliki **49 page frontend**, **49 modul route backend**, dan **99 model Prisma**.
 
 ---
 
@@ -233,7 +237,7 @@ Frontend: `/talent` `/idp` `/lms`
 - Model data (`CompetencyFramework`, `Competency`, `RoleCompetency`, `CompetencyAssessment(+Item)`, `IndividualDevelopmentPlan`, `IdpGoal`, `IdpLearningPath`, `IdpReview`, `LearningProgram(+Competency)`, `LearningModule`, `LearningEnrollment`, `LearningModuleCompletion`) sudah ada di `schema.prisma` dari upaya sebelumnya; pass ini menyelesaikan pemasangan router (`competencies.ts` di-mount, `idp.ts`/`lms.ts` baru dibuat), memperbaiki akses self-service `EMPLOYEE` yang sebelumnya selalu 403, dan menambahkan halaman frontend.
 - RBAC `talent:*`/`lms:*`/`talent:self`/`lms:self` per role sudah didefinisikan di `utils/auth.ts` sejak sebelumnya; tidak ada perubahan permission matrix pada pass ini.
 - Migrasi tabel talent belum dijalankan oleh assistant di database dev bersama (Supabase) — dijalankan langsung oleh pemilik repo (`prisma db push`) di VPS/lingkungan masing-masing sebelum endpoint ini bisa dipakai.
-- Backend `tsc --noEmit` bersih dan server boot-tested lokal; frontend `next build` sukses dengan 47 route (termasuk `/talent`, `/idp`, `/lms`).
+- Backend `tsc --noEmit` bersih dan server boot-tested lokal; frontend `next build` sukses dengan 49 route (termasuk `/talent`, `/idp`, `/lms`, `/staff-accounts`, `/billing`).
 
 ---
 

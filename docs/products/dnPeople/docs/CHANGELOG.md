@@ -4,6 +4,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-18] — Docs & inventory sync
+
+### Changed
+- Documentation aligned to current codebase: **49** frontend pages, **49** route modules, **99** Prisma models, **24** backend tests, package **1.0.0**
+- Architecture rewritten for PRD v5–v6.1 (SSO+JIT implemented; discovery login; MFA; staff-accounts)
+
 ## Unreleased
 
 ### Added — PRD v6.1 seamless tenant discovery login
@@ -61,7 +67,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ### Verification
 
 - Backend TypeScript and frontend TypeScript checks pass
-- Backend automated suite passes 21/21 tests covering payroll, tax, proration, encryption, encrypted salary, signatures, RBAC, telemetry redaction, safe spreadsheet parsing/export, metrics, and biometric verification
+- Backend automated suite passes 24/24 tests covering payroll, tax, proration, encryption, encrypted salary, signatures, RBAC, telemetry redaction, safe spreadsheet parsing/export, metrics, and biometric verification
 - Prisma schema validation and client generation pass
 - Production dependency audit passes with 0 known vulnerabilities after replacing vulnerable SheetJS/XLSX
 - Load acceptance passes 5,000 requests at 1,000 logical concurrent users: 0 failures and p95 55.71 ms on the verification host
@@ -79,9 +85,9 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ### Validation
 
 - Frontend TypeScript check lulus
-- Next.js production build lulus untuk seluruh 43 route
+- Next.js production build lulus untuk seluruh 49 route
 - ESLint configuration diperbaiki; lint berjalan tanpa error
-- Verifikasi ulang 12 Juli 2026: TypeScript, ESLint, dan production build 43 route lulus
+- Verifikasi ulang 12 Juli 2026: TypeScript, ESLint, dan production build 49 route lulus
 
 ---
 

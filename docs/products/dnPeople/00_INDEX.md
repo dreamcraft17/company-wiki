@@ -1,11 +1,14 @@
 # dnPeople HRIS — Documentation Index
 
 **Product**: dnPeople — Human Resource Information System  
-**Repository**: `dnpeople`  
-**Status**: MVP 1–4 core implemented + PRD v4 Talent Development foundation (Module 1–2)
-**Owner**: Dozer  
-**Last Updated**: July 16, 2026
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4 (competitive alignment)
+**Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
+**Status**: MVP 1–5 + PRD v5 subscription + PRD v6 enterprise multi-tenant + v6.1 seamless login discovery **implemented**  
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: DnPeople  
+**UpdatedAt**: July 18, 2026  
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v6.1  
+**Codebase**: 49 frontend pages · 49 backend route modules · 99 Prisma models · 24 tests
 
 ---
 
@@ -24,66 +27,41 @@
 |------|-------|
 | [README.md](./README.md) | Project overview & quick start |
 | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Ringkasan produk & struktur |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem |
-| [docs/API.md](./docs/API.md) | Referensi API MVP 1–4 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur sistem (v6.1) |
+| [docs/API.md](./docs/API.md) | Referensi API |
 | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Local & production setup |
 | [docs/SUPABASE.md](./docs/SUPABASE.md) | Koneksi database Supabase |
-| [docs/VPS.md](./docs/VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
-| [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status fitur |
-| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap per domain |
-| [current-implementation.md](./current-implementation.md) | Baseline kanonik untuk PRD/SRS berikutnya |
-| [docs/PRD-COMPLIANCE-MATRIX.md](./docs/PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria PRD/SRS/SDD |
-| [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Bukti security, migration, audit dependency, dan performance |
-| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
-| [current-implementation.md](./current-implementation.md) | Snapshot implementasi aktual |
+| [docs/VPS.md](./docs/VPS.md) | Install VPS |
+| [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Status implementasi terkini |
+| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur existing / conditional / roadmap |
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot implementasi |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Changelog |
+| [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Security NFR evidence |
+
+## Status Terkini (18 Juli 2026)
+
+| Aspek | Status |
+|-------|--------|
+| MVP 1–4 | ✅ Done |
+| Talent Development foundation (PRD v4 M1–2) | ✅ `/talent`, `/idp`, `/lms` |
+| Subscription (PRD v5) | ✅ Billing + feature gating |
+| Enterprise multi-tenant (PRD v6) | ✅ Tenant policy, SCIM, quota, audit |
+| Seamless login discovery (v6.1) | ✅ Domain / hostname / history; SSO redirect |
+| Staff accounts | ✅ `/staff-accounts` |
+| MFA TOTP, THR, Excel import, offline attendance | ✅ |
+| Admin payslip preview | ✅ Inline preview (Jul 18) |
+| CI | ✅ `.github/workflows/ci.yml` |
+| Production IdP / SMTP / S3 / biometrics | Conditional — needs ops credentials |
+
+Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)
 
 ---
-
-## Ringkas Produk
-
-HRIS untuk startup/UMKM Indonesia: employee DB, absensi, cuti/izin, payroll (BPJS + PPh 21), plus MVP 2–4: ops lanjutan, strategic HR, dan enterprise (multi-company, SSO, integrations, white-label). PRD v4 menambahkan fondasi talent development (competency framework, IDP, LMS dasar) untuk bersaing dengan Mekari Talenta.
-
-Snapshot implementasi: **46 halaman web**, **45 modul route backend**, **88 model Prisma**, dan **6 role**. Lihat [Feature Catalog](./docs/FEATURE-CATALOG.md) untuk status Available, Conditional, dan Roadmap.
 
 | | |
 |---|---|
-| Stack | Next.js 16 · React 19 · Express 5 · Prisma · PostgreSQL 16 |
-| Dev ports | Frontend `:3001` · API `:4100` · Postgres `:5433` |
-| Demo admin | `admin@dnpeople.id` / `Admin123!` |
-| Demo employee | `budi@dnpeople.id` / `Employee123!` |
-| Repository | `dnpeople` (folder Dozer) |
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| UpdatedAt | July 18, 2026 |
 
-### Beda dengan DN People ERP
-
-| | dnPeople HRIS | DN People ERP |
-|---|---------------|---------------|
-| Repo | `dnpeople` | `ERP` |
-| Docs | [dnPeople/](./00_INDEX.md) | [dnpeople-erp/](../dnpeople-erp/00_INDEX.md) |
-| Stack | Express + Next.js | NestJS + TypeORM |
-| Fokus | HRIS (HR lifecycle) | Full ERP (HR + Finance + Inventory + …) |
-
----
-
-## MVP Roadmap
-
-| MVP | Scope | Status |
-|-----|-------|--------|
-| 1 | Employee, org, attendance, leave, payroll, dashboard, RBAC, audit | **Done** |
-| 2 | Shift, OT, claim, loan, geofence, docs, announcements, calendar, approvals, reports | **Done** |
-| 3 | Recruitment, onboarding, performance, training, assets, offboarding, helpdesk, AI assistant | **Done** |
-| 4 | Multi-company, SSO, integrations, white-label | **Done** |
-| 5 (PRD v4 Module 1–2) | Competency framework, competency assessment, IDP, LMS dasar | **Done** |
-| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
-
----
-
-## Related
-
-- [Product Docs Index](../README.md)
-- [Product Portfolio](../../08_PRODUCTS.md)
-- [DN People ERP](../dnpeople-erp/00_INDEX.md) — produk terpisah
-- Source of truth kode: repo `dnpeople/`
-
----
-
-*Last Updated: July 16, 2026*
+Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
