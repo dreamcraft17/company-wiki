@@ -32,7 +32,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Login dan session | Email/password login tanpa input Company ID, SSO/password auto-routing, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
-| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role (API); UI saat ini admin-gated di `/security` | `/security`, `/auth/mfa/*` | Available* — fix nav (audit B05) |
+| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/settings/mfa`, `/auth/mfa/*` | Available — PRD v8.0 |
 | OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
 | SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
 | Tenant discovery | Routing tenant dari verified email domain, custom hostname, atau user history; fallback company picker untuk edge case | Semua role | `/tenants/discover`, `/auth/login` | Available |
@@ -115,7 +115,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | THR | Annual THR generation | Finance/admin | `/payroll/thr/run` | Available |
 | Bonus dan commission | Variable compensation, approval, period assignment, paid tracking | Finance/admin | `/payroll-settings` | Available |
 | KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
-| Payslip portal | Employee melihat payslip 12 bulan miliknya (API `/payroll/my`); Company/Super Admin preview; **nav employee masih admin-only** | Employee, Company/Super Admin | `/payroll` | Available* — fix nav (audit B04) |
+| Payslip portal | Employee melihat payslip miliknya (API `/payroll/my`); nav Slip Gaji untuk semua role; admin preview | Employee + Finance/admin | `/payroll` | Available — PRD v8.0 |
 | Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
 | Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/verify/:payslipId` | Available |
 | Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
@@ -222,7 +222,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
 | Test delivery | Menguji konfigurasi integration/webhook | Enterprise admin | `/integrations` | Available framework |
-| Upload storage | Local disk atau S3-compatible storage | System/admin | `/uploads` | Conditional — storage config |
+| Upload storage | Local disk atau S3; unduh hanya via auth `GET /files/...` (bukan public `/uploads`) | System/admin | `/api/v1/files`, `/uploads` POST | Available — PRD v8.0 |
 
 ## 10b. Subscription & billing (PRD v5)
 

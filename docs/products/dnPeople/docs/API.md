@@ -337,7 +337,8 @@ Self-service: `EMPLOYEE` (permission `talent:self`) dapat melihat/membuat assess
 | GET | `/careers/:companyKey` | — | Public open jobs |
 | GET | `/careers/:companyKey/jobs/:jobId` | — | Public job detail |
 | POST | `/careers/:companyKey/jobs/:jobId/apply` | — | Public apply |
-| POST | `/uploads` | auth | Binary upload (local disk atau S3) |
+| POST | `/uploads` | auth | Binary upload (local disk atau S3); validasi ekstensi + MIME + magic bytes |
+| GET | `/files/*` | auth | Unduh file terautentikasi (company-scoped); payslip path butuh payroll/payslip scope |
 | GET | `/payroll/:id/payslip.pdf` | payroll | Payslip PDF |
 | GET | `/payroll/verify/:payslipId` | payroll | Verifikasi signature payslip |
 | GET | `/attendance/qr/today` | attendance:view | Daily office QR token (API tetap; admin UI generator dihapus Jul 18) |

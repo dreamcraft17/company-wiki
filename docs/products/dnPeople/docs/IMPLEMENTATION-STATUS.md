@@ -1,28 +1,29 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **18 Juli 2026** (audit fitur/bug/performa)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v7.0** · Repo version **1.0.0** · HEAD **`73a730b`**
+> Terakhir diperbarui: **18 Juli 2026** (PRD v8.0 security & stability)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v8.0** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v8.0:** [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md)
 
 ## Ringkasan
 
 | MVP | Target | Status |
 |-----|--------|--------|
-| MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** (open P0: payroll finalize race, payroll N+1) |
+| MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** (v8.0: atomic finalize + batch payroll) |
 | MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
-| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** (open P0: API-key scopes, public `/uploads`) |
+| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** (v8.0: API-key scopes + secured uploads) |
 | MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
 | PRD v5 | Subscription tier gating & billing | **Done** (ops acceptance Conditional) |
 | PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
-| PRD v7.0 | Attendance Excel manual import | **Done** (P1: import concurrency / memory) |
+| PRD v7.0 | Attendance Excel manual import | **Done** (v8.0: idempotency key) |
+| PRD v8.0 | Security & stability (audit P0/P1) | **Done** |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **24/24** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** ❌ Blocked by audit **P0** (B01–B03, P01) until fixed + UAT signed.
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **28/28** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** Conditional — code P0s from Jul 18 audit addressed; still need ops UAT (IdP/SMTP/S3/biometric) + signed UAT.
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
@@ -212,7 +213,7 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 /ai/documents/generate
 /ai/recruitment/screen|screen-batch
 /assistant/ask  (llm | rule-based)
-/uploads  (local | s3)
+/uploads → local disk | S3 (unduh hanya via /api/v1/files + auth)
 ```
 
 Auth: JWT Bearer **atau** API key `dnp_…` (Bearer).
@@ -247,35 +248,31 @@ Frontend: `/talent` `/idp` `/lms`
 
 ---
 
-## Audit 18 Juli 2026 — open defects & performance
+## Audit 18 Juli 2026 — remediation (PRD v8.0)
 
-Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · HEAD `73a730b`
+Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · Spec: [PRD v8.0](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md)
 
-### P0 (blokir go-live)
+### P0 — Fixed in v8.0
 
-| ID | Area | Ringkasan |
-|----|------|-----------|
-| B01 | Security | `/uploads` public static — risiko paparan payslip |
-| B02 | Security | API key `scopes` tidak di-enforce |
-| B03 | Payroll | Finalize race → loan installment bisa double |
-| P01 | Performance | Payroll run N+1 query per karyawan |
+| ID | Area | Fix |
+|----|------|-----|
+| B01 | Security | Public `express.static('/uploads')` dihapus; `GET /api/v1/files/*` + `GET /payroll/:id/payslip.pdf` ber-auth + audit |
+| B02 | Security | API key `scopes` di-enforce (default deny; `*` = admin) |
+| B03 | Payroll | Finalize atomic via `updateMany({ status: DRAFT })` dalam transaksi |
+| P01 | Performance | Payroll run batch OT/claims/loans/variables (bukan N+1) |
 
-### P1 (produk / correctness)
+### P1 — Fixed in v8.0
 
-| ID | Area | Ringkasan |
-|----|------|-----------|
-| B04 | UX | Nav employee menyembunyikan portal slip gaji |
-| B05 | UX | MFA UI hanya admin |
-| B06–B08 | Attendance / upload | Import concurrency, offline-sync race, MIME spoof |
-| P02–P04 | Performance | Report/list unbounded; Excel import memory |
+| ID | Area | Fix |
+|----|------|-----|
+| B04 | UX | Nav “Slip Gaji” (`/payroll`) untuk semua role; employee → `/payroll/my` |
+| B05 | UX | `/settings/mfa` untuk semua user |
+| B06–B08 | Attendance / upload | Import idempotency-key; offline sync tidak overwrite clock; upload magic-byte + MIME |
+| P02 | Performance | Report export capped 1000 rows |
 
-### Prioritas perbaikan (disarankan)
+### Masih conditional (ops / UAT)
 
-1. Authz uploads + API-key scopes  
-2. Atomic payroll finalize + batch payroll run  
-3. Employee payslip + MFA nav  
-4. Cap report exports + import idempotency  
-5. Integration tests untuk import / finalize / scopes  
+- IdP/SCIM production, SMTP, S3 malware/lifecycle, biometric vendor UAT, signed browser UAT
 
 ---
 
@@ -285,7 +282,8 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 - Simpan `FIELD_ENCRYPTION_KEYS` di secret manager dan jalankan `npm run security:migrate-fields` sekali untuk data legacy.
 - Konfigurasikan `BACKUP_DATABASE_URL` dan, bila digunakan, `BACKUP_S3_URI`; lakukan restore drill berkala.
 - Native mobile app tetap roadmap terpisah; web saat ini mobile-first dan attendance memiliki offline queue/sync.
-- **Selesaikan audit P0** sebelum mengklaim production-accepted.
+- Ops UAT gates tetap wajib sebelum klaim production-accepted.
+
 
 ---
 

@@ -2,13 +2,13 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5 subscription + PRD v6 multi-tenant + v6.1 discovery login + **PRD v7.0 attendance Excel** implemented  
+**Status**: MVP 1–5 + PRD v5–**v8.0** (security & stability) implemented  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
 **UpdatedAt**: July 18, 2026  
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v7.0  
-**Codebase**: 49 frontend pages · 49 backend route modules · 99 Prisma models · 24 tests · HEAD `a345e4b`
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v8.0  
+**Codebase**: 50 frontend pages · 50 backend route modules · 99 Prisma models · 28 tests
 
 ---
 
@@ -20,6 +20,9 @@
 | [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.1 |
 | [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
 | [PRD/dnpeople-prd-v4-competitive.md](./PRD/dnpeople-prd-v4-competitive.md) | **PRD v4** — Competitive Alignment Edition |
+| [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) | **PRD v8.0** — Security & stability fixes |
+| [PRD/dnpeople-srs-v8.0-security-stability-id.md](./PRD/dnpeople-srs-v8.0-security-stability-id.md) | **SRS v8.0** |
+| [PRD/dnpeople-sdd-v8.0-security-stability-id.md](./PRD/dnpeople-sdd-v8.0-security-stability-id.md) | **SDD v8.0** |
 
 ## Implementation Docs (synced from repo)
 
@@ -49,12 +52,13 @@
 | Enterprise multi-tenant (PRD v6) | ✅ Tenant policy, SCIM, quota, audit |
 | Seamless login discovery (v6.1) | ✅ Domain / hostname / history; SSO redirect |
 | Attendance Excel import (v7.0) | ✅ Template + dry-run + confirm + history |
+| Security & stability (v8.0) | ✅ Uploads auth, API scopes, atomic finalize, batch payroll, MFA/payslip nav |
 | Admin office QR UI | ❌ Removed from admin page; API tetap |
 | Staff accounts | ✅ `/staff-accounts` |
 | MFA TOTP, THR, employee Excel import, offline attendance | ✅ |
 | Admin payslip preview | ✅ Inline preview |
 | CI | ✅ `.github/workflows/ci.yml` |
-| Audit fitur/bug/performa (18 Jul) | ⚠️ 3 P0 open — lihat [AUDIT](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
+| Audit fitur/bug/performa (18 Jul) | ✅ P0/P1 remediated in PRD v8.0 — lihat [AUDIT](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | Production IdP / SMTP / S3 / biometrics | Conditional |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)

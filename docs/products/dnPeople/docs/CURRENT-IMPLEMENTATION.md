@@ -26,7 +26,7 @@ When writing the next PRD:
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
 | Data | PostgreSQL 16 + Prisma 6 with 99 models; deployment migrations are mandatory |
 | Authentication | JWT (localStorage today), API key (scopes stored but **not enforced** — audit B02), TOTP MFA API, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
-| Storage | Local upload or S3-compatible object storage; **`/uploads` currently public static** (audit B01) |
+| Storage | Local upload or S3-compatible object storage; files served only via authenticated `GET /api/v1/files/...` (PRD v8.0 B01) |
 | Email | SMTP with development fallback |
 | Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
 | Deployment | VPS/container compatible, Nginx/PM2 guidance, daily database backup workflow |
@@ -212,24 +212,24 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 49 routes. Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: 28/28 backend tests pass; the current frontend production build contains 50 routes (`/settings/mfa` added). Re-run the build and test suites before treating these figures as release evidence.
 
-## Open defects from Jul 18 audit (must track)
+## Audit remediation (PRD v8.0) — Jul 18, 2026
 
-Full detail: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md).
+Full detail: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · Spec: [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md).
 
 | ID | Sev | Summary | Status |
 |----|-----|---------|--------|
-| B01 | P0 | Public `/uploads` static — payslips may be guessable | Open |
-| B02 | P0 | API key scopes not enforced (always COMPANY_ADMIN) | Open |
-| B03 | P0 | Payroll finalize race can double-apply loan installments | Open |
-| P01 | P0 | Payroll run N+1 queries per employee | Open |
-| B04 | P1 | Employee nav hides payslip portal | Open |
-| B05 | P1 | MFA UI admin-only despite catalog “all roles” | Open |
-| B06–B08 | P1 | Attendance import concurrency, offline-sync race, upload MIME spoof | Open |
-| P02–P04 | P1 | Unbounded reports/lists; Excel import memory | Open |
+| B01 | P0 | Public `/uploads` static — payslips may be guessable | **Fixed** — auth file route + payslip PDF audit |
+| B02 | P0 | API key scopes not enforced (always COMPANY_ADMIN) | **Fixed** — scope assert on `requirePermission` |
+| B03 | P0 | Payroll finalize race can double-apply loan installments | **Fixed** — atomic `updateMany` claim |
+| P01 | P0 | Payroll run N+1 queries per employee | **Fixed** — batched OT/claims/loans/variables |
+| B04 | P1 | Employee nav hides payslip portal | **Fixed** — Slip Gaji nav for all |
+| B05 | P1 | MFA UI admin-only | **Fixed** — `/settings/mfa` |
+| B06–B08 | P1 | Import concurrency, offline-sync race, upload MIME spoof | **Fixed** |
+| P02 | P1 | Unbounded report exports | **Fixed** — 1000-row cap |
 
-Do **not** mark production-accepted until B01–B03 are fixed and UAT gates below are signed.
+Ops UAT gates below remain required before production-accepted.
 
 ## Production/UAT gates
 

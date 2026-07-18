@@ -4,6 +4,25 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-18] — PRD v8.0 security & stability
+
+### Fixed
+- **B01:** Hapus public `express.static('/uploads')`; file via `GET /api/v1/files/*` (auth + company scope); payslip download diaudit
+- **B02:** Enforce API key `scopes` (default deny; `*` = admin); `requirePermission` memanggil `assertApiKeyScope`
+- **B03:** Payroll finalize atomic (`updateMany` status DRAFT → FINALIZED) — cegah double loan installment
+- **P01:** Payroll run batch query OT/claims/loans/variables
+- **B04/B05:** Nav Slip Gaji untuk employee; halaman `/settings/mfa` untuk semua user
+- **B06–B08:** Attendance import `Idempotency-Key`; offline sync tidak overwrite jam; upload validasi magic byte + MIME
+- **P02:** Cap export laporan 1000 baris
+
+### Added
+- Spec PRD/SRS/SDD v8.0 (repo + company-wiki mirror)
+- Unit tests API scopes + upload validation (28 total)
+
+### Changed
+- Frontend `fileUrl()` mengarah ke `/api/v1/files/...` dengan `access_token`
+- Docs: IMPLEMENTATION-STATUS, CURRENT-IMPLEMENTATION, AUDIT, indexes
+
 ## [2026-07-18] — PRD v7.0 attendance Excel + docs sync
 
 ### Added
