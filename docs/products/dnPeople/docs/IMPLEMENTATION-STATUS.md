@@ -116,8 +116,8 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Approval inbox + rules | Done |
 | Advanced reports | Done |
 | File upload | Done | Local disk **atau** S3/MinIO (`S3_*`) |
-| Payslip preview + PDF | Done* | `/payroll` inline Company/Super Admin preview + `GET /payroll/:id/payslip.pdf`; *employee portal API ada tapi nav admin-only (audit B04) |
-| MFA TOTP | Done* | API `/auth/mfa/*`; *UI `/security` admin-gated (audit B05) |
+| Payslip preview + PDF | Done | `/payroll` preview untuk employee (own) + admin; PDF auth; signed link 24 jam |
+| MFA TOTP | Done | API `/auth/mfa/*` + UI `/settings/mfa` (semua role) + QR |
 | Email notifications | Done | SMTP atau console log |
 
 Frontend: `/org` `/audit` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`

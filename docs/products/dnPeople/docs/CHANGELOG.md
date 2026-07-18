@@ -4,6 +4,21 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — PRD v8.0 acceptance wiring (UI + SSO + idempotent finalize)
+
+### Fixed
+- SSO sets httpOnly cookie (JWT tidak lagi di query URL)
+- Token/user tidak lagi di localStorage (sessionStorage + cookie)
+- Finalize idempotent: sudah FINALIZED → 200 (bukan 409)
+- Import attendance membutuhkan `attendance:*` (bukan view)
+- Audit payslip action = `PAYSLIP_DOWNLOAD`
+
+### Added
+- UI: bagikan signed payslip link; report job list + poll + unduh
+- MFA QR code di `/settings/mfa`; `/security` mengarahkan ke sana
+- Employee “Lihat Slip” preview
+- Acceptance unit tests v8
+
 ## [2026-07-19] — PRD v8.0 complete remaining (P1-P02 + P2)
 
 ### Added

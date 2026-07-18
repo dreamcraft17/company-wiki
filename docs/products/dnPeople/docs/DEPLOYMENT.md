@@ -1,7 +1,7 @@
 # dnPeople — Deployment Guide
 
-**Last Updated:** July 12, 2026
-**Applies to:** MVP 1–4 (schema includes enterprise tables)
+**Last Updated:** July 17, 2026
+**Applies to:** MVP 1–5
 
 ---
 
@@ -33,8 +33,7 @@ cd dnpeople/backend
 cp .env.example .env
 # Edit .env: ganti YOUR_PASSWORD (lihat docs/SUPABASE.md)
 npm install
-npx prisma generate
-npx prisma migrate deploy
+npm run db:migrate
 npm run db:seed
 npm run dev          # http://localhost:4100
 
@@ -45,7 +44,7 @@ npm install
 npm run dev          # http://localhost:3001
 ```
 
-Tidak perlu `docker compose up`. Redis di compose belum dipakai.
+Tidak perlu Redis. `docker compose up` hanya menjalankan PostgreSQL lokal bila dipakai.
 
 ### Opsional: Postgres lokal via Docker
 
@@ -166,9 +165,24 @@ npm run db:migrate
 Database lama yang sebelumnya dibuat dengan `db push` harus di-baseline satu kali setelah diverifikasi cocok dengan schema:
 
 ```bash
+# Backup database lebih dahulu, lalu dari dnpeople/backend:
+npm ci
+npx prisma generate
 npx prisma migrate resolve --applied 20260712000000_baseline
+npm run db:migrate
 npx prisma migrate status
 ```
+
+Perintah `resolve` hanya mencatat migration baseline sebagai sudah diterapkan; perintah ini tidak
+menghapus atau membuat ulang tabel. Migration setelah baseline—termasuk constraint audit/attendance,
+role HR, dan subscription v5—tetap dijalankan oleh `db:migrate`.
+
+Jangan menandai migration `20260716000000_subscription_tier_gating` sebagai applied sebelum SQL-nya
+benar-benar diterapkan. Migration tersebut sudah membuat dan mengisi subscription untuk perusahaan
+legacy, sehingga `subscription:migrate-v5` hanya diperlukan sebagai recovery/idempotent data repair.
+
+Jangan menjalankan `db:seed` saat update production. Seed berisi akun dan data demo; gunakan hanya
+untuk development atau bootstrap yang memang disengaja.
 
 ## Backup & Disaster Recovery
 
@@ -202,4 +216,4 @@ curl -X POST http://localhost:4100/api/v1/auth/login \
 
 ---
 
-*Last Updated: July 12, 2026*
+*Last Updated: July 17, 2026*

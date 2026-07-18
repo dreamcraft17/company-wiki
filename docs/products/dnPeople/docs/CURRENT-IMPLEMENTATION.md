@@ -25,7 +25,7 @@ When writing the next PRD:
 | Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; 49 production routes; mobile-first shell and locally scrollable data tables |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
 | Data | PostgreSQL 16 + Prisma 6 with 99 models; deployment migrations are mandatory |
-| Authentication | JWT (localStorage today), API key (scopes stored but **not enforced** — audit B02), TOTP MFA API, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
+| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer fallback), API key with **enforced scopes**, TOTP MFA (`/settings/mfa`), zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
 | Storage | Local upload or S3-compatible object storage; files served only via authenticated `GET /api/v1/files/...` (PRD v8.0 B01) |
 | Email | SMTP with development fallback |
 | Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
@@ -40,7 +40,7 @@ When writing the next PRD:
 | `HR` | Employee lifecycle and HR operations without payroll/salary access |
 | `MANAGER` | Department/team views and operational approvals; no payroll |
 | `FINANCE` | Payroll, claims, loans, finance reports and related employee references |
-| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips (**API** `/payroll/my`; **nav currently admin-only** — audit B04), training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment; MFA API available but **UI on `/security` is admin-gated** (audit B05) |
+| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips (`/payroll` nav + `/payroll/my`), training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment; MFA via `/settings/mfa` |
 
 Row-level access supports `all`, `organization`, `department`, `location`, `self`, and `custom` scopes. Company isolation and employee ownership checks are backend requirements; hiding navigation is not considered authorization.
 
