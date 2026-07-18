@@ -3,8 +3,12 @@
 
 **Date:** Juli 2026  
 **Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id)  
+**UpdatedAt:** July 18, 2026  
 **Market:** Indonesia (startups & UMKM)  
-**Positioning:** Simple, direct, no fluff. Local software house yang bisa deliver.
+**Positioning:** Simple, direct, no fluff. Local software house yang bisa deliver.  
+**Status:** ✅ Implemented (Jul 9) — tech stack & tim hidden on homepage
 
 ---
 

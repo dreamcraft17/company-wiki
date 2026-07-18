@@ -1,5 +1,10 @@
 # Production Deployment (Ubuntu + PostgreSQL)
 
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id)  
+**UpdatedAt:** July 18, 2026  
+
 ## 1. PostgreSQL
 
 ```bash
@@ -176,5 +181,12 @@ location /api/ {
 - [ ] Frontend **rebuild** setelah ubah `.env.local`
 - [ ] `/products` dan satu detail produk aktif tampil setelah rebuild
 - [ ] Backend `FRONTEND_URL` mencakup `https://dntech.id` dan `https://www.dntech.id`
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

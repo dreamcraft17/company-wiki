@@ -3,9 +3,13 @@
 
 **Date:** Juli 2026  
 **Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id) · Product brand: DnPeople  
+**UpdatedAt:** July 18, 2026  
 **Product:** dnPeople HRIS (v1.0)  
 **Use case:** Showcase produk dengan detailed pricing tiers, features, integrations, use cases  
-**Reference:** V6 codebase + copywriting dnPeople
+**Reference:** V6 codebase + copywriting dnPeople  
+**Status:** ✅ Implemented (V7, Jul 12) + seed copy refresh (Jul 16); production DB push + seed pending
 
 ---
 

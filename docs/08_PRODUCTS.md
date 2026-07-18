@@ -1,9 +1,12 @@
 # Product Portfolio
 
-**Document Version**: 1.1  
-**Last Updated**: July 10, 2026  
+**Document Version**: 1.2  
+**Last Updated**: July 18, 2026  
 **Status**: Published  
-**Owner**: Dozer
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: DN Tech (DN Tech.id)  
+**UpdatedAt**: July 18, 2026
 
 ---
 
@@ -77,34 +80,38 @@ DN Tech Products
 | Aspek | Detail |
 |-------|--------|
 | Nama | DN Tech Company Profile Website |
-| URL | https://dntech.id |
-| Status | **Production** |
-| Version | v5 (Email System) |
-| Stack | Next.js 16 + Express 5 + PostgreSQL |
+| URL | https://dntech.id · https://api.dntech.id |
+| Status | **Production** (v5 email) + v6 Produk + v7 Product Section; DB push/seed products production pending |
+| Version | v7 (Product Section / dnPeople flagship) |
+| Stack | Next.js 16.2.9 + React 19.2.4 + Express 5 + PostgreSQL |
+| Owner | Dozer (CEO + Tech Lead) |
+| Brand | DN Tech (DN Tech.id) |
 
 ### Fitur Utama
 
 **Public Website:**
-- Homepage dengan hero tipografi (`HeroBrand`) + section branding penuh (stats, story, values, advantages, team, testimonials)
-- Logo resmi `rlogo2.png` + wordmark **DN Tech.id** di navbar
-- Halaman about — visi/misi dari CMS `aboutContent` (client fetch)
+- Homepage Indonesia Edition (`components/homepage/*`, `homeContent` CMS) — hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA
+- Tech stack & tim **hidden** di beranda (tetap di `/team`, `/careers`); newsletter tidak di footer
+- Logo resmi `rlogo2.png` + wordmark **DN Tech.id** di navbar / footer
+- Halaman about — visi/misi dari CMS `aboutContent`
 - Services listing & detail pages
+- Products listing & detail (`/products`, V7 dnPeople flagship fields)
 - Portfolio / case studies
 - Blog dengan SEO metadata & JSON-LD
 - About, team, contact, FAQ, careers
 - Multi-step contact form dengan validasi
-- Solution quiz, ROI calculator, newsletter
+- Solution quiz, ROI calculator, newsletter (bukan di footer)
 - Exit intent modal, Calendly integration
-- Sitewide search
+- Sitewide search + global loading UX (Jul 13)
 
 **Admin Dashboard:**
 - JWT login dengan RBAC (4 roles)
-- CRUD: services, portfolio, blog, team, testimonials, FAQ, careers + branding CRUD penuh (`/admin/branding`, `/admin/branding/values`, `/admin/branding/advantages`, `/admin/branding/stats`)
+- CRUD: services, **products**, portfolio, blog, team, testimonials, FAQ, careers + branding CRUD (`/admin/branding/*`)
 - Lead management dengan status workflow & CSV export
 - Media library upload
 - Analytics dashboard
-- Email log monitoring
-- Site settings (company info, SEO, legal, integrations)
+- Email log monitoring (SMTP V5)
+- Site settings (company info, SEO, legal, integrations, homepage copy)
 - User management (SuperAdmin)
 
 ### Success Metrics
@@ -136,6 +143,9 @@ DN Tech Products
 | v3 | Jul 2026 | UX refinement |
 | v4 | Jul 2026 | Performance optimization |
 | v5 | Jul 2026 | Email system (SMTP) |
+| v6 | Jul 12, 2026 | Modul Produk (`/products`, admin CRUD) |
+| v7 | Jul 12, 2026 | Product Section PRD — dnPeople flagship |
+| Jul 13–16 | 2026 | Loading UX, product API hotfix, seed copy refresh |
 
 ---
 
@@ -190,18 +200,26 @@ DN Tech Products
 | Aspek | Detail |
 |-------|--------|
 | Nama | dnPeople HRIS |
-| Status | **MVP 1–4 core implemented** |
+| Brand | DnPeople |
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Status | **MVP 1–5 + PRD v5 subscription + PRD v6 multi-tenant + v6.1 tenant discovery implemented** |
 | Target | Startup & UMKM Indonesia (30–200 karyawan) |
-| Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL |
+| Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL (Supabase) |
+| Codebase | 49 halaman · 49 route modules · 99 model Prisma · 24 tests |
 | Repository | `dnpeople` |
-| Docs | [12 files →](./products/dnPeople/00_INDEX.md) |
+| Docs | [→](./products/dnPeople/00_INDEX.md) |
+| UpdatedAt | July 18, 2026 |
 
-### Fitur (MVP 1–4 core)
+### Fitur
 
-- **MVP 1:** Employee DB, org, absensi, cuti/izin, payroll (BPJS + PPh 21), dashboard, RBAC, audit
-- **MVP 2:** Shift, lembur, klaim, pinjaman, geofence, dokumen, kalender, approval inbox
-- **MVP 3:** ATS, onboarding, performance/KPI, training, aset, offboarding, helpdesk, AI assistant
-- **MVP 4:** Multi-company, workflows, API keys/integrations, SSO config, white-label, custom reports, AI docs/screening, row-level security
+- **MVP 1:** Employee DB, org, absensi, cuti/izin, payroll (BPJS + PPh 21 + THR), dashboard, RBAC, audit
+- **MVP 2:** Shift/swap, lembur, klaim, pinjaman, geofence/WiFi, koreksi bulk, dokumen, kalender, approval inbox
+- **MVP 3:** ATS + careers, onboarding, performance/KPI, training, aset, offboarding, helpdesk, AI assistant
+- **MVP 4:** Multi-company, workflows, API keys/integrations, SSO+JIT, white-label, custom reports, AI docs/screening, row-level security
+- **PRD v4 Talent:** Competency, assessment, IDP, LMS dasar (`/talent`, `/idp`, `/lms`)
+- **PRD v5–v6:** Subscription/billing, tenant policy, SCIM, quota, staff-accounts, seamless login discovery
+- **Ops extras:** MFA TOTP, Excel employee import, offline attendance sync, admin payslip preview
 
 ### Dokumentasi
 
@@ -212,6 +230,7 @@ DN Tech Products
 | SRS | [dnpeople-srs.md](./products/dnPeople/PRD/dnpeople-srs.md) |
 | SDD | [dnpeople-sdd.md](./products/dnPeople/PRD/dnpeople-sdd.md) |
 | Implementation Status | [IMPLEMENTATION-STATUS.md](./products/dnPeople/docs/IMPLEMENTATION-STATUS.md) |
+| Feature Catalog | [FEATURE-CATALOG.md](./products/dnPeople/docs/FEATURE-CATALOG.md) |
 | API | [API.md](./products/dnPeople/docs/API.md) |
 | Supabase | [SUPABASE.md](./products/dnPeople/docs/SUPABASE.md) |
 | VPS install | [VPS.md](./products/dnPeople/docs/VPS.md) |
@@ -318,4 +337,13 @@ DN Tech Products
 
 ---
 
-*Last Updated: July 10, 2026*
+*Last Updated: July 18, 2026*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
+
+Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

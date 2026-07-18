@@ -2,11 +2,13 @@
 
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
-**URL**: https://dntech.id  
-**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 (belum di-push/seed ke DB production)  
-**Owner**: Dozer  
-**Last Updated**: July 12, 2026  
-**Latest commit**: Product Section PRD (V7) — pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap untuk halaman dnPeople
+**URL**: https://dntech.id · https://api.dntech.id  
+**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 + Loading UX / product API hotfix (Jul 13) + seed copy (Jul 16); DB push + `db:seed-dnpeople` ke production masih pending  
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: DN Tech (DN Tech.id)  
+**UpdatedAt**: July 18, 2026  
+**Latest commit**: `f1c7dca` — dnPeople product seed copy (Jul 16)
 
 ---
 
@@ -33,7 +35,8 @@
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
 | [fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md](./fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md) | **Hotfix** — button text, tailwind-merge, branding (✅ resolved) |
 | [branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md](./branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) | **Homepage PRD** — Indonesia Edition (✅ implemented) |
-| [frontend-README.md](./frontend-README.md) | Frontend setup |
+| [PRD/DN-TECH-PRODUCT-SECTION-PRD.md](./PRD/DN-TECH-PRODUCT-SECTION-PRD.md) | **Product Section PRD** — dnPeople flagship (✅ implemented V7) |
+| [frontend-README.md](./frontend-README.md) | Frontend setup (scaffold) |
 
 ---
 
@@ -133,24 +136,33 @@
 
 | Aspek | Status |
 |-------|--------|
+| dnPeople seed copy (Jul 16) | ✅ Refresh copy seed (`f1c7dca`); `db:seed-dnpeople` production masih pending |
+| Loading UX + product API hotfix (Jul 13) | ✅ Route loading, global API overlay; SSR products resolver + fallback `api.dntech.id` |
 | Product Section PRD (V7, Jul 12) | ✅ `Product` diperluas — pricing tiers, fitur per kategori, use case, integrasi, comparison table, testimoni, roadmap, multi-CTA; seed dnPeople via `db:seed-dnpeople`; DB push + seed ke production belum dijalankan |
 | Modul Produk (V6, Jul 12) | ✅ Content type `Product` terpisah dari `Service`; `/products`, `/admin/products`, nav "Produk" sejajar "Layanan"; DB push ke production belum dijalankan |
 | PRD V5 (email system) | ✅ SMTP nodemailer, templates, retry/logging |
 | V5 hotfix (Jul 8) | ✅ `EmailService` fix + 3 troubleshooting guides |
 | Design V2.1 remediation | ✅ UI kit, palet unified, mandat CEO/Tech Lead (~9/10) |
 | Hotfix & polish (Jul 9) | ✅ Button href + tailwind-merge; `rlogo2` branding; `/about` CMS; admin toast |
-| Branding rollout (Jul 9 sore) | ✅ API `/branding/*`, homepage section branding, admin `/admin/branding` |
+| Branding rollout (Jul 9 sore) | ✅ API `/branding/*` + admin `/admin/branding` (section branding **tidak** di homepage; diganti Indonesia Edition) |
 | Branding spec 100% (Jul 9) | ✅ Prisma models dedicated, admin CRUD `/api/v1/admin/branding/*`, carousel testimonials, seed script |
 | Footer redesign (Jul 9) | ✅ Horizontal putih, `FooterBrand` |
 | Homepage PRD Indonesia (Jul 9) | ✅ `components/homepage/*`, `homeContent` CMS |
 | Homepage tuning (Jul 9 malam) | ✅ Tech stack & tim hidden; harga UMKM |
 | Org wiki (Jul 9) | ✅ `04_ORGANIZATION.md` — CEO + Finance terisi; posisi lain vacant (—) |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
-| Production build | ✅ Frontend + backend |
+| Production build | ✅ Frontend + backend (Next.js 16.2.9 / React 19.2.4) |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md)
 
 ---
 
-*Last Updated: July 12, 2026*
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
+
+Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

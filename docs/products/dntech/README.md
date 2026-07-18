@@ -2,12 +2,21 @@
 
 Production-ready company profile website for DN Tech with a public marketing site, admin CMS, lead generation, analytics, and SEO foundations.
 
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
+| Repo | [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech) |
+| Live | https://dntech.id · https://api.dntech.id |
+
 ## Current Status
 
 | Area | Status | Notes |
 |------|--------|-------|
 | Public website | Implemented | Content is database/admin-driven, no fake demo content |
-| Admin CMS | Implemented | Services, blog, team, FAQ, careers, leads, analytics, settings, users |
+| Admin CMS | Implemented | Services, products, portfolio, blog, team, FAQ, careers, leads, analytics, branding, email logs, settings, users |
 | PRD/Design/SEO V2 | Implemented | Solid color design system, Indonesian copy, startup/SME positioning |
 | V3 refinements | Implemented | Exit intent fix, logo variants, mobile nav polish, form accessibility |
 | Jul 9 polish | Implemented | Button href fix, about CMS live, `rlogo2` branding, hero wordmark, admin toast |
@@ -19,14 +28,15 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | V6 Produk module (Jul 12) | Implemented | New `Product` content type parallel to Services — public `/products` + `/products/[slug]`, admin CRUD `/admin/products`, sitewide search, sitemap; DB push to production pending |
 | V7 Product Section PRD (Jul 12) | Implemented | dnPeople flagship product page — pricing tiers, features by category, use cases, integrations, comparison table, testimonials, roadmap, multi-CTA; seed via `db:seed-dnpeople`; DB push + seed to production pending |
-| Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency |
+| Loading UX (Jul 13) | Implemented | Route-level loading fallback, global API overlay, admin session/CRUD loading; concurrency-safe and accessible |
+| Public product API hotfix (Jul 13) | Implemented | SSR product pages share the normalized API resolver; production localhost/misrouted URL falls back to `api.dntech.id` |
+| dnPeople seed copy (Jul 16) | Implemented | Seed script copy refresh (`f1c7dca`); production `db:seed-dnpeople` still pending |
+| Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency (Next.js 16.2.9, React 19.2.4) |
 | Backend build | Passing | `npm run build` succeeds |
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
-| Loading UX (Jul 13) | Implemented | Route-level loading fallback, global API overlay, admin session/CRUD loading; concurrency-safe and accessible |
-| Public product API hotfix (Jul 13) | Implemented | SSR product pages share the normalized API resolver; production localhost/misrouted URL falls back to `api.dntech.id` |
 
-Latest implementation reference: Jul 12 — Product Section PRD (dnPeople flagship page: pricing, features, use cases, integrations, comparison, testimonials, roadmap).
+Latest implementation reference: Jul 16 — dnPeople product seed copy update (`f1c7dca`); prior Jul 13 Loading UX + public product API hotfix.
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
@@ -38,25 +48,28 @@ Latest implementation reference: Jul 12 — Product Section PRD (dnPeople flagsh
 
 ## Tech Stack
 
-- **Frontend:** Next.js 16, React 19, Tailwind CSS
-- **Backend:** Node.js, Express, TypeScript
+- **Frontend:** Next.js 16.2.9, React 19.2.4, Tailwind CSS
+- **Backend:** Node.js, Express 5, TypeScript, Prisma 6
 - **Database:** PostgreSQL, Prisma ORM
 - **Auth:** JWT with role-based access control
+- **Email:** SMTP (nodemailer) via `mx8.mailspace.id:465`
 - **Deployment:** PM2/Nginx or Docker Compose
 
 ## Key Features
 
 ### Public Website
 
-- Homepage with hero, real stats, services, blog preview, team preview, newsletter, and CTA
+- Homepage Indonesia Edition: hero, layanan, proses, keunggulan, portfolio, FAQ, harga, CTA (`homeContent` CMS)
+- Tech stack & tim **hidden** on homepage (tetap di `/team`, `/careers`); newsletter tidak di footer
 - Services listing and detail pages with process steps, FAQ, related articles, Calendly CTA
-- Products listing and detail pages (separate nav item from Services) with features, related products, FAQ, contact CTA
+- Products listing and detail pages (separate nav from Services) — V7 flagship fields for dnPeople
 - Blog with categories, pagination, reading time, SEO metadata, JSON-LD
 - About, team, contact, FAQ, careers, resources, portfolio/case studies, testimonials
 - Contact lead form with multi-step validation, duplicate email check, consent, thank-you flow
 - Automated transactional emails for leads, forms, newsletter, careers, and quiz follow-up
 - Sitewide search from the header
 - Exit intent modal V3: desktop top-edge trigger, max once per session, mobile disabled
+- Global loading UX: route fallbacks + API overlay (Jul 13)
 - SEO: sitemap, robots.txt, canonical metadata, Open Graph, structured data
 
 ### Admin Dashboard
@@ -226,6 +239,8 @@ Public endpoints:
 |--------|----------|-------------|
 | `GET` | `/services` | Active services |
 | `GET` | `/services/:slug` | Service detail |
+| `GET` | `/products` | Active products (V6/V7) |
+| `GET` | `/products/:slug` | Product detail (V6/V7) |
 | `GET` | `/blog` | Blog list |
 | `GET` | `/blog/:slug` | Blog detail |
 | `GET` | `/team` | Team members |
@@ -262,8 +277,13 @@ dntech/
 ├── docs/
 │   ├── V2/
 │   ├── v3/
+│   ├── v4/
+│   ├── v5/
 │   ├── IMPLEMENTATION-STATUS.md
+│   ├── PROJECT-OVERVIEW.md
 │   └── DEPLOYMENT-PRODUCTION.md
+├── design/
+├── PRD/
 ├── docker-compose.yml
 └── README.md
 ```
@@ -300,3 +320,10 @@ Implemented items:
 Proprietary - DN Tech © 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |

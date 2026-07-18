@@ -2,6 +2,10 @@
 
 **Status:** ✅ Fully wired into production app (`frontend/src/`)  
 **Date:** 9 Juli 2026  
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id)  
+**UpdatedAt:** July 18, 2026  
 **Source:** `design/DN-TECH-DESIGN-V2.1-*.md` + mandat CEO/Tech Lead (solid color, anti glassmorphism / AI look)
 
 ---

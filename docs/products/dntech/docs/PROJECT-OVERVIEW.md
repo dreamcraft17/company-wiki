@@ -2,6 +2,11 @@
 
 Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektur, tech stack, fitur, database, API, dan panduan operasional.
 
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id)  
+**UpdatedAt:** July 18, 2026  
+
 ---
 
 ## Daftar Isi
@@ -595,12 +600,13 @@ Panduan lengkap: [`docs/DEPLOYMENT-PRODUCTION.md`](./DEPLOYMENT-PRODUCTION.md)
 
 | Integrasi | Konfigurasi | Fungsi |
 |-----------|-------------|--------|
-| **SendGrid** | `SENDGRID_API_KEY` di backend `.env` | Email konfirmasi form & quiz follow-up |
+| **SMTP (V5, primary)** | `SMTP_HOST` / `SMTP_USER` / `SMTP_PASSWORD` (`mx8.mailspace.id:465`) | Email transactional: leads, newsletter, careers, quiz |
+| **SendGrid (legacy)** | `SENDGRID_API_KEY` di backend `.env` | Fallback opsional jika SMTP belum dikonfigurasi |
 | **Google Analytics** | Admin settings → `googleAnalyticsId` | Tracking traffic |
 | **Crisp Chat** | Admin settings → `crispWebsiteId` | Live chat widget |
 | **Calendly** | Admin settings → `calendlyUrl` | Jadwal demo di halaman kontak |
 
-Jika SendGrid tidak dikonfigurasi, email di-log ke console (development mode).
+Jika SMTP/SendGrid tidak dikonfigurasi, email di-log ke console (development mode). Lihat `docs/v5/` dan `docs/IMPLEMENTATION-STATUS.md` §14.
 
 ---
 
@@ -678,16 +684,25 @@ pm2 restart dntech-web
 
 ```
 Proyek     : Website company profile + CMS admin untuk DN Tech
-Stack      : Next.js 16 + Express 5 + PostgreSQL + Prisma
+Stack      : Next.js 16.2.9 + React 19.2.4 + Express 5 + PostgreSQL + Prisma
 Bahasa UI  : Indonesia | Mata uang: IDR
 Repo       : https://github.com/dreamcraft17/dntech
 Production : dntech.id | api.dntech.id
 Admin      : /admin/login
 Konten     : 100% dari database via admin — tanpa data demo hardcoded
+Owner      : Dozer (CEO + Tech Lead)
+Brand      : DN Tech (DN Tech.id)
 ```
 
 ---
 
-*Terakhir diperbarui: 12 Juli 2026*
+*Terakhir diperbarui: 18 Juli 2026*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

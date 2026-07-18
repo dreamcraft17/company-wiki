@@ -2,13 +2,18 @@
 
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
-**Terakhir diperbarui:** 13 Juli 2026
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DN Tech (DN Tech.id)  
+**UpdatedAt:** July 18, 2026  
+
+**Terakhir diperbarui:** 18 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** Homepage PRD Indonesia Edition + tuning harga & section (Jul 9 malam)  
+**Commit referensi terbaru:** `f1c7dca` — dnPeople product seed copy (Jul 16)  
+**Sebelumnya:** Loading UX global + public product API hotfix (Jul 13); Product Section PRD V7 (Jul 12)  
 **Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
-**Commit sebelumnya:** `352140f` — V2.1 design remediation  
-**Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9)  
-**Status working tree:** ✅ Clean (sync dengan `origin/main`)
+**Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9 / React 19.2.4)  
+**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `f1c7dca`)
 
 ---
 
@@ -70,6 +75,7 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 | Performance audit awal | ✅ | Bottleneck utama sudah ditangani di V4; perlu Lighthouse/field verification setelah deploy |
 | Loading UX global (Jul 13) | ✅ | Route fallback public/admin/root, overlay request API concurrency-safe, indikator sesi dan initial CRUD |
 | Public products API hotfix (Jul 13) | ✅ | Listing/detail SSR memakai resolver bersama; production menolak localhost dan log fetch failure |
+| dnPeople seed copy (Jul 16) | ✅ | Refresh copy di `scripts/seed-dnpeople-product.ts` (`f1c7dca`); jalankan `db:seed-dnpeople` di production masih pending |
 
 ---
 
@@ -1187,5 +1193,12 @@ Deployment frontend wajib menjalankan build ulang karena `NEXT_PUBLIC_*` dibake 
 ---
 
 *Dokumen ini hanya mencatat implementasi teknis yang sudah selesai. Untuk konten marketing (artikel blog, foto tim, GA4 setup), lihat checklist operasional di `docs/V2/README-V2-CHANGES.md`.*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
