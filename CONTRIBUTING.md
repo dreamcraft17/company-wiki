@@ -67,6 +67,7 @@ code .
 - [ ] Verify formatting dengan preview
 - [ ] Spell-check
 - [ ] Consistent dengan style guide
+- [ ] Untuk product docs, update index dan mirror terkait bila ada
 
 ### Step 4: Commit Changes
 
@@ -130,6 +131,41 @@ git branch -d docs/add/database-migration-guide
 # Delete remote feature branch
 git push origin --delete docs/add/database-migration-guide
 ```
+
+---
+
+## 🔄 Product Docs Sync
+
+Produk yang punya repository aplikasi sendiri harus menjaga company-wiki sebagai source navigasi dan baseline bisnis. Saat mengubah dokumentasi produk, pastikan file di wiki tidak tertinggal dari implementasi aplikasi.
+
+### dnPeople HRIS
+
+dnPeople memakai dua lokasi dokumentasi aktif:
+
+| Lokasi | Fungsi |
+|--------|--------|
+| `dnpeople/docs/` | Dokumentasi yang ikut repo aplikasi |
+| `company-wiki/docs/products/dnPeople/docs/` | Mirror dokumentasi produk untuk wiki |
+| `company-wiki/docs/products/dnPeople/PRD/` | PRD/SRS/SDD dan PRD versi baru |
+
+Checklist saat update dnPeople:
+
+- [ ] Mirror dokumen dari `dnpeople/docs/` ke `company-wiki/docs/products/dnPeople/docs/` jika isinya memang harus sama.
+- [ ] Pastikan `CURRENT-IMPLEMENTATION.md` di kedua lokasi identik bila baseline produk berubah.
+- [ ] Update `FEATURE-CATALOG.md`, `IMPLEMENTATION-STATUS.md`, `PRD-COMPLIANCE-MATRIX.md`, `API.md`, dan `CHANGELOG.md` untuk fitur baru atau perubahan kontrak.
+- [ ] Update `company-wiki/docs/products/README.md` bila jumlah file, status produk, atau latest update berubah.
+- [ ] Update root `company-wiki/README.md` bila ringkasan produk utama atau total source docs berubah.
+- [ ] Jangan menandai fitur sebagai production accepted jika masih bergantung deployment, provider credentials, migration, atau UAT customer.
+
+### Current Baseline Rule
+
+`CURRENT-IMPLEMENTATION.md` adalah baseline untuk PRD berikutnya. Isinya harus menjelaskan perilaku yang sudah ada, bukan rencana. Untuk perubahan besar seperti tenant discovery, SSO, account administration, payroll, security, atau tenant isolation, tambahkan:
+
+- status implementasi,
+- API/UI surface,
+- security atau audit invariant,
+- production/UAT gate yang masih tersisa,
+- tanggal snapshot terbaru.
 
 ---
 
@@ -330,6 +366,8 @@ Sebelum submit PR, pastikan:
 - [ ] Spelling & grammar checked
 - [ ] Consistent dengan style guide
 - [ ] Related documents linked
+- [ ] Product index/root README updated when counts or status changed
+- [ ] Product mirror checked when editing docs mirrored from an app repo
 - [ ] No sensitive information
 - [ ] Screenshots/diagrams have alt text
 - [ ] Version bumped (kalau major change)
@@ -430,6 +468,7 @@ Sebelum submit PR, pastikan:
 - Always use pull requests
 - Add only source files
 - Keep Last Updated date current
+- Keep product docs mirrors and indexes current
 ```
 
 ---
@@ -621,6 +660,7 @@ Before submitting PR:
 - [ ] Style guide followed
 - [ ] Last Updated date set
 - [ ] Related docs linked
+- [ ] Product docs mirror/index updated if applicable
 - [ ] Commit message clear
 - [ ] PR description filled
 - [ ] No merge conflicts
@@ -628,5 +668,5 @@ Before submitting PR:
 
 ---
 
-*Last Updated: July 8, 2026*  
+*Last Updated: July 18, 2026*
 *For: DN Tech Company Wiki Contributors*
