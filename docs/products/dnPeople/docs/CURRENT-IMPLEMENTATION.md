@@ -130,7 +130,7 @@ never be written to audit logs or telemetry.
 
 - Manual, GPS/geofence, QR, selfie/liveness-provider and office-WiFi clock-in.
 - Clock-out, work mode, lateness, early-leave marker, offline queue and synchronization.
-- PRD v7.0 Excel/manual attendance flow for SUPER_ADMIN, COMPANY_ADMIN and HR: server-generated `.xlsx` template with employee list/instructions, upload dry-run validation, preview summary, all-or-nothing confirmed import, `MANUAL_UPLOAD` source marker and audit-backed recent upload history.
+- PRD v7.0 Excel/manual attendance flow for SUPER_ADMIN, COMPANY_ADMIN and HR: admin attendance UI is Excel-first, with server-generated `.xlsx` template, employee list/instructions, upload dry-run validation, preview summary, all-or-nothing confirmed import, `MANUAL_UPLOAD` source marker and audit-backed recent upload history. Legacy QR/mobile attendance APIs remain available for compatibility but are not the primary admin UI.
 - Attendance correction with mandatory evidence, approval, bulk operations and before/after audit.
 - Shift CRUD, one assignment per employee/day, active-company validation, rotation, swap approval and pay multiplier.
 - Leave type/balance, paid/unpaid leave, automatic sick-leave policy, overlap/balance validation and approval.
