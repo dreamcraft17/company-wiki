@@ -1,7 +1,7 @@
 # dnPeople — Implementation Status
 
 > Terakhir diperbarui: **18 Juli 2026**
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v6.1** · Repo version **1.0.0**
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v7.0** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
 
@@ -16,6 +16,7 @@
 | MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
 | PRD v5 | Subscription tier gating & billing | **Done** (ops acceptance Conditional) |
 | PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
+| PRD v7.0 | Attendance Excel manual import | **Done** |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **24/24** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
@@ -61,6 +62,7 @@ Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend p
 | Org (dept, position, level, location) | Done |
 | Employee master + tax info | Done |
 | Attendance clock in/out | Done | Manual / GPS / QR / Selfie |
+| Attendance Excel import | Done | Template download, dry-run validation/preview, confirm import, audit-backed recent uploads |
 | Leave types, balance, approve | Done |
 | Permissions (WFH/izin) | Done |
 | Payroll BPJS + PPh 21 | Done |

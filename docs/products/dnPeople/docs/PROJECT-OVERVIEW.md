@@ -1,7 +1,7 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD v6.1 (enterprise multi-tenant + seamless tenant discovery login)
+**Version:** PRD v7.0 (enterprise multi-tenant + seamless tenant discovery login + attendance Excel manual import)
 **Status:** Active Development
 **Repository:** `dnpeople`  
 **Owner:** Dozer  

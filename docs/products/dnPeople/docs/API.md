@@ -152,8 +152,13 @@ Query: `?search=&departmentId=&status=&page=&pageSize=`
 | GET | `/attendance/employee/:id` | attendance:view | Per karyawan |
 | GET | `/attendance/qr/today` | attendance:view | QR harian bertanda tangan |
 | POST | `/attendance/offline-sync` | attendance:self | Sinkronisasi antrean offline |
+| GET | `/attendance/template/download` | attendance:view + SUPER_ADMIN/COMPANY_ADMIN/HR | Download template Excel Attendance/Instructions/Employee List |
+| POST | `/attendance/import` | attendance:view + SUPER_ADMIN/COMPANY_ADMIN/HR | Upload `.xlsx`, dry-run validate/preview atau confirm import |
+| GET | `/attendance/imports` | attendance:view + SUPER_ADMIN/COMPANY_ADMIN/HR | Recent import history dari audit log |
 
 Clock-in body: `{ latitude?, longitude?, location?, workMode?, checkInMethod?, selfieUrl?, qrToken?, wifiSsid? }`. Metode `SELFIE` menjalankan liveness/face-match provider; clock-out menghasilkan penanda `earlyLeave`.
+
+Excel attendance import memakai `multipart/form-data` dengan field `file` dan `dryRun=true|false`. Template wajib memakai sheet `Attendance` dan header `Employee ID`, `Date`, `Clock-In`, `Clock-Out`, `Status`, `Notes`. Server memvalidasi `.xlsx` asli, ukuran ≤5 MB, employee dalam tenant, format tanggal `YYYY-MM-DD`, jam `HH:MM`/`H:MM AM/PM`, durasi 15 menit–24 jam, status `PRESENT|ABSENT|LATE|SICK`, tanggal tidak future/lebih dari 90 hari, dan tidak ada duplikat employee+tanggal di file maupun database. Confirm import menyimpan record dengan `checkInMethod=MANUAL_UPLOAD` dan histori import di audit log. List `/attendance` menerima filter tambahan `sourceType=MANUAL_UPLOAD` dan `status=PRESENT|ABSENT|LATE|SICK`.
 
 ---
 

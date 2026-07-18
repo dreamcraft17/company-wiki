@@ -2,7 +2,7 @@
 
 **Snapshot date:** 18 July 2026
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis
-**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, and PRD v6.1 seamless tenant discovery login
+**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, and PRD/SRS/SDD v7.0 attendance Excel manual import
 
 ## How to use this document
 
@@ -76,7 +76,7 @@ never be written to audit logs or telemetry.
 | Account & roles | Central account list/search, standalone or linked account creation, HR/Manager/Finance/Employee role, activation, reset password, one-time temporary password, audited changes | `/staff-accounts`, `/employees/:id/access` | `/staff-accounts`, employee lifecycle panel | Available |
 | Enterprise tenant administration | POOL/SILO/BRIDGE policy, tenant discovery, organization units, scoped roles, quota/usage and isolation audit | `/tenants` | `/tenant-management` | Available; physical SILO provisioning is operational |
 | SCIM provisioning | Tenant-token-scoped Users and Groups provisioning/deactivation | `/scim/v2/:tenantId` | IdP integration | Available; IdP conformance UAT required |
-| Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync | `/attendance` | `/attendance` | Available |
+| Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync, Excel template download, dry-run validation/preview, confirmed manual upload import and import history | `/attendance` | `/attendance` | Available |
 | Attendance correction | Mandatory evidence, original/corrected values, submit, approve/reject, bulk correction/approval | `/corrections` | `/corrections` | Available |
 | Shift | Shift CRUD, daily assignment, company/employee validation, rotation, swap request/approval, pay multiplier | `/shifts` | `/shifts` | Available |
 | Leave | Types, balances, request, overlap/balance validation, approval, auto-sick policy, carry-forward/expiry, replacement/handover | `/leave` | `/leave` | Available |
@@ -130,6 +130,7 @@ never be written to audit logs or telemetry.
 
 - Manual, GPS/geofence, QR, selfie/liveness-provider and office-WiFi clock-in.
 - Clock-out, work mode, lateness, early-leave marker, offline queue and synchronization.
+- PRD v7.0 Excel/manual attendance flow for SUPER_ADMIN, COMPANY_ADMIN and HR: server-generated `.xlsx` template with employee list/instructions, upload dry-run validation, preview summary, all-or-nothing confirmed import, `MANUAL_UPLOAD` source marker and audit-backed recent upload history.
 - Attendance correction with mandatory evidence, approval, bulk operations and before/after audit.
 - Shift CRUD, one assignment per employee/day, active-company validation, rotation, swap approval and pay multiplier.
 - Leave type/balance, paid/unpaid leave, automatic sick-leave policy, overlap/balance validation and approval.

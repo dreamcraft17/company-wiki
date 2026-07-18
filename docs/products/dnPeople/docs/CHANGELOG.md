@@ -12,6 +12,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Added — PRD v7.0 attendance Excel manual import
+
+- `/attendance` now includes an HR/Admin Excel attendance panel: template download, `.xlsx` upload, dry-run validation, summary/preview, confirm import, and recent upload history
+- Backend adds `/attendance/template/download`, `/attendance/import`, and `/attendance/imports` with company isolation, role guard, 5 MB `.xlsx` validation, duplicate checks, all-or-nothing import, `MANUAL_UPLOAD` source marker, and audit log metadata
+- Excel template contains `Attendance`, `Instructions`, and `Employee List` sheets with status dropdown and tenant employee references
+
 ### Added — PRD v6.1 seamless tenant discovery login
 
 - `/auth/login` now discovers tenant automatically from verified email domain, custom hostname, or user history without requiring visible Company ID input

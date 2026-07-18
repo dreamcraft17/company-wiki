@@ -80,6 +80,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Late/early leave | Deteksi terlambat dan pulang cepat | Employee/HR | `/attendance`, reports | Available |
 | Offline attendance | Queue lokal dan endpoint sinkronisasi | Employee | `/attendance` | Available |
 | Attendance history/summary | Riwayat, ringkasan dan filter periode | Employee/HR/manager | `/attendance` | Available |
+| Excel manual attendance import | Template `.xlsx`, employee list, dry-run validation, preview, confirm import, `MANUAL_UPLOAD` source dan audit-backed recent uploads | SUPER_ADMIN/COMPANY_ADMIN/HR | `/attendance`, `/attendance/import*` | Available |
 | Koreksi absensi | Request dengan bukti wajib dan nilai before/after | Employee/HR | `/corrections` | Available |
 | Bulk correction/approval | Koreksi dan approval massal | HR/manager | `/corrections` | Available |
 | Shift master | CRUD jam shift dan pay multiplier | Admin/HR | `/shifts` | Available |
