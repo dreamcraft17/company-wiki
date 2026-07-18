@@ -19,6 +19,13 @@
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP/PRD |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap |
+| [USER-GUIDE.md](./USER-GUIDE.md) | Panduan pengguna (launch) |
+| [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) | Panduan admin / implementer |
+| [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md) | FAQ & troubleshooting |
+| [CUSTOMER-ONBOARDING-PLAYBOOK.md](./CUSTOMER-ONBOARDING-PLAYBOOK.md) | Onboarding 10 langkah |
+| [SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md) | SLA & support |
+| [UU-PDP-COMPLIANCE-CHECKLIST.md](./UU-PDP-COMPLIANCE-CHECKLIST.md) | Checklist UU PDP |
+| [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Subscription tier, billing, feature gating |
 | [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Isolation, SCIM, scoped RBAC, quota |
 | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk PRD berikutnya |

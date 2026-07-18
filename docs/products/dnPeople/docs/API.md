@@ -1,7 +1,8 @@
 # dnPeople — API Reference
 
 **Base URL (dev):** `http://localhost:4100/api/v1`  
-**Auth:** `Authorization: Bearer <access_token>` **atau** `Bearer dnp_<api_key>`  
+**Auth:** httpOnly cookie `dnpeople_session` **atau** `Authorization: Bearer <jwt|dnp_…>`  
+**OpenAPI:** [`/api/v1/openapi.json`](http://localhost:4100/api/v1/openapi.json) · Swagger UI [`/api/v1/docs`](http://localhost:4100/api/v1/docs)  
 **Response shape:** `{ success, data, pagination?, error?, timestamp }`
 
 > Detail tabel di bawah mencakup core API; endpoint enterprise v6 dan SCIM diringkas di bagian akhir.
@@ -14,7 +15,9 @@
 |--------|------|------|-----------|
 | POST | `/auth/login` | — | Login email/password tanpa Company ID; backend auto-discover tenant, route SSO/password, atau tampilkan picker |
 | POST | `/auth/register` | — | Register perusahaan + COMPANY_ADMIN |
-| POST | `/auth/logout` | ✓ | Logout (client-side token clear) |
+| POST | `/auth/forgot-password` | — | Minta tautan reset (email, TTL 1 jam; selalu 200) |
+| POST | `/auth/reset-password` | — | Konsumsi token reset sekali pakai |
+| POST | `/auth/logout` | ✓ | Logout + clear cookie |
 | GET | `/auth/me` | ✓ | Profil user + employee + company |
 
 ### Login body

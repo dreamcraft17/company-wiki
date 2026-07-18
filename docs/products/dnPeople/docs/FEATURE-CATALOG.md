@@ -31,6 +31,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Login dan session | Email/password tanpa Company ID; session httpOnly cookie `dnpeople_session` + sessionStorage Bearer fallback; Next `/api/v1` rewrite same-origin; logout membersihkan cookie + storage | Semua role | `/login`, `/auth` | Available — PRD v8.0 |
+| Forgot / reset password | Self-service email reset; token hashed TTL **1 jam** sekali pakai | Semua role | `/login`, `/reset-password`, `/auth/forgot-password` | Available — PRD v9.0 |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
 | MFA TOTP | Setup (QR), verifikasi, enable/disable; `/security` mengarahkan ke MFA | Semua role | `/settings/mfa`, `/auth/mfa/*` | Available — PRD v8.0 |
@@ -239,7 +240,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
 | Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
 | Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
-| Payment adapter | Adapter pembayaran (provider-specific) | Company admin | `/subscription` | Conditional — payment provider |
+| Payment adapter | Adapter pembayaran Xendit/Stripe + UI Bayar di `/billing`; webhook provider | Company admin | `/subscription`, `/billing` | Conditional — provider credentials |
 
 ## 11. Platform, branding, security, dan operations
 
@@ -260,6 +261,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Error telemetry | Redacted Sentry integration | Operations | Backend/frontend | Conditional — Sentry config |
 | Backup/restore | Daily backup workflow dan restore tooling | Operations | Deployment scripts | Conditional — storage/restore drill |
 | CI quality gates | Typecheck, tests, migration/DB control dan load-test workflow | Engineering | CI | Available |
+| OpenAPI / Swagger | Spec inti + Swagger UI CDN | Integrator | `/api/v1/openapi.json`, `/api/v1/docs` | Available — PRD v9.0 |
+| Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
 | Responsive web | Mobile drawer, responsive forms/cards, local table scroll | Semua role | Seluruh web app | Available |
 | Header actions | Notification dan logout di header/navbar kanan | Semua role | App shell | Available |
 

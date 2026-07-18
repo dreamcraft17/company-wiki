@@ -4,6 +4,18 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — PRD v9.0 launch-readiness code pass
+
+### Added
+- Tenant daily API hard-limit (default 10k) enforced on every authenticated request
+- Self-service forgot/reset password (token TTL 1 jam) + UI `/reset-password`
+- Billing pay-now (Xendit / Stripe / Manual) di `/billing`
+- OpenAPI JSON + Swagger UI (`/api/v1/openapi.json`, `/api/v1/docs`)
+- Customer docs: USER-GUIDE, ADMIN-GUIDE, FAQ, onboarding playbook, SLA, UU PDP checklist, restore drill runbook
+
+### Changed
+- Planning docs v9.0 di company-wiki diselaraskan (v8.0 marked done)
+
 ## [2026-07-19] — Docs sync: feature / current / implementation baseline
 
 ### Changed
