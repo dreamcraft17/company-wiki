@@ -1,8 +1,12 @@
 # dnPeople — Current Implementation Baseline
 
-**Snapshot date:** 18 July 2026
-**Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis
-**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, and PRD/SRS/SDD v7.0 attendance Excel manual import
+**Snapshot date:** 18 July 2026  
+**HEAD:** `73a730b`  
+**Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis  
+**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, PRD v6.1 seamless tenant discovery login, and PRD/SRS/SDD v7.0 attendance Excel manual import  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026  
+
+**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — 3 P0 / 5 P1 bugs, payroll N+1 P0 perf; see open defects below.
 
 ## How to use this document
 
@@ -18,11 +22,11 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 49 production routes; mobile-first shell and locally scrollable data tables |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; 49 production routes; mobile-first shell and locally scrollable data tables |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma with 99 models; deployment migrations are mandatory |
-| Authentication | JWT, API key, TOTP MFA, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
-| Storage | Local upload or S3-compatible object storage |
+| Data | PostgreSQL 16 + Prisma 6 with 99 models; deployment migrations are mandatory |
+| Authentication | JWT (localStorage today), API key (scopes stored but **not enforced** — audit B02), TOTP MFA API, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
+| Storage | Local upload or S3-compatible object storage; **`/uploads` currently public static** (audit B01) |
 | Email | SMTP with development fallback |
 | Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
 | Deployment | VPS/container compatible, Nginx/PM2 guidance, daily database backup workflow |
@@ -36,7 +40,7 @@ When writing the next PRD:
 | `HR` | Employee lifecycle and HR operations without payroll/salary access |
 | `MANAGER` | Department/team views and operational approvals; no payroll |
 | `FINANCE` | Payroll, claims, loans, finance reports and related employee references |
-| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips, training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment |
+| `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips (**API** `/payroll/my`; **nav currently admin-only** — audit B04), training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment; MFA API available but **UI on `/security` is admin-gated** (audit B05) |
 
 Row-level access supports `all`, `organization`, `department`, `location`, `self`, and `custom` scopes. Company isolation and employee ownership checks are backend requirements; hiding navigation is not considered authorization.
 
@@ -210,6 +214,23 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 
 Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 49 routes. Re-run the build and test suites before treating these figures as release evidence.
 
+## Open defects from Jul 18 audit (must track)
+
+Full detail: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md).
+
+| ID | Sev | Summary | Status |
+|----|-----|---------|--------|
+| B01 | P0 | Public `/uploads` static — payslips may be guessable | Open |
+| B02 | P0 | API key scopes not enforced (always COMPANY_ADMIN) | Open |
+| B03 | P0 | Payroll finalize race can double-apply loan installments | Open |
+| P01 | P0 | Payroll run N+1 queries per employee | Open |
+| B04 | P1 | Employee nav hides payslip portal | Open |
+| B05 | P1 | MFA UI admin-only despite catalog “all roles” | Open |
+| B06–B08 | P1 | Attendance import concurrency, offline-sync race, upload MIME spoof | Open |
+| P02–P04 | P1 | Unbounded reports/lists; Excel import memory | Open |
+
+Do **not** mark production-accepted until B01–B03 are fixed and UAT gates below are signed.
+
 ## Production/UAT gates
 
 These are not safe to mark “production accepted” solely from repository code:
@@ -257,6 +278,7 @@ Every new or changed story should state:
 
 ## Source references
 
+- [Feature / bug / performance audit (18 Jul 2026)](./AUDIT-FEATURE-BUG-PERFORMANCE.md)
 - [Complete feature catalog](./FEATURE-CATALOG.md)
 - [Implementation status](./IMPLEMENTATION-STATUS.md)
 - [PRD compliance matrix](./PRD-COMPLIANCE-MATRIX.md)

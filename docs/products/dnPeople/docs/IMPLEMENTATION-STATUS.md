@@ -1,25 +1,28 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **18 Juli 2026**
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v7.0** · Repo version **1.0.0**
+> Terakhir diperbarui: **18 Juli 2026** (audit fitur/bug/performa)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v7.0** · Repo version **1.0.0** · HEAD **`73a730b`**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026  
+>
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md)
 
 ## Ringkasan
 
 | MVP | Target | Status |
 |-----|--------|--------|
-| MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** |
+| MVP 1 | Core HR (employee, attendance, leave, payroll) | **Done** (open P0: payroll finalize race, payroll N+1) |
 | MVP 2 | Extended ops (shift, OT, claim, loan, calendar…) | **Done** |
 | MVP 3 | Strategic HR (recruitment, performance, training…) | **Done** |
-| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** |
+| MVP 4 | Enterprise (multi-company, SSO, integrations) | **Done** (open P0: API-key scopes, public `/uploads`) |
 | MVP 5 (PRD v4 Module 1–2) | Talent Development foundation (competency, IDP, LMS basic) | **Done** |
 | PRD v5 | Subscription tier gating & billing | **Done** (ops acceptance Conditional) |
 | PRD v6 / v6.1 | Enterprise multi-tenant + seamless login discovery | **Done** (IdP/SCIM Conditional) |
-| PRD v7.0 | Attendance Excel manual import | **Done** |
+| PRD v7.0 | Attendance Excel manual import | **Done** (P1: import concurrency / memory) |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
 
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **24/24** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **24/24** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** ❌ Blocked by audit **P0** (B01–B03, P01) until fixed + UAT signed.
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
@@ -112,7 +115,8 @@ Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payr
 | Approval inbox + rules | Done |
 | Advanced reports | Done |
 | File upload | Done | Local disk **atau** S3/MinIO (`S3_*`) |
-| Payslip preview + PDF | Done | `/payroll` inline Company/Super Admin preview + `GET /payroll/:id/payslip.pdf` |
+| Payslip preview + PDF | Done* | `/payroll` inline Company/Super Admin preview + `GET /payroll/:id/payslip.pdf`; *employee portal API ada tapi nav admin-only (audit B04) |
+| MFA TOTP | Done* | API `/auth/mfa/*`; *UI `/security` admin-gated (audit B05) |
 | Email notifications | Done | SMTP atau console log |
 
 Frontend: `/org` `/audit` `/shifts` `/overtime` `/claims` `/loans` `/corrections` `/documents` `/announcements` `/calendar` `/approvals` `/reports` `/surveys`
@@ -243,13 +247,56 @@ Frontend: `/talent` `/idp` `/lms`
 
 ---
 
+## Audit 18 Juli 2026 — open defects & performance
+
+Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · HEAD `73a730b`
+
+### P0 (blokir go-live)
+
+| ID | Area | Ringkasan |
+|----|------|-----------|
+| B01 | Security | `/uploads` public static — risiko paparan payslip |
+| B02 | Security | API key `scopes` tidak di-enforce |
+| B03 | Payroll | Finalize race → loan installment bisa double |
+| P01 | Performance | Payroll run N+1 query per karyawan |
+
+### P1 (produk / correctness)
+
+| ID | Area | Ringkasan |
+|----|------|-----------|
+| B04 | UX | Nav employee menyembunyikan portal slip gaji |
+| B05 | UX | MFA UI hanya admin |
+| B06–B08 | Attendance / upload | Import concurrency, offline-sync race, MIME spoof |
+| P02–P04 | Performance | Report/list unbounded; Excel import memory |
+
+### Prioritas perbaikan (disarankan)
+
+1. Authz uploads + API-key scopes  
+2. Atomic payroll finalize + batch payroll run  
+3. Employee payslip + MFA nav  
+4. Cap report exports + import idempotency  
+5. Integration tests untuk import / finalize / scopes  
+
+---
+
 ## External production dependencies
 
 - Set `BIOMETRIC_VERIFIER_URL` dan token provider untuk liveness/face-match production.
 - Simpan `FIELD_ENCRYPTION_KEYS` di secret manager dan jalankan `npm run security:migrate-fields` sekali untuk data legacy.
 - Konfigurasikan `BACKUP_DATABASE_URL` dan, bila digunakan, `BACKUP_S3_URI`; lakukan restore drill berkala.
 - Native mobile app tetap roadmap terpisah; web saat ini mobile-first dan attendance memiliki offline queue/sync.
+- **Selesaikan audit P0** sebelum mengklaim production-accepted.
 
 ---
 
 *Last Updated: July 18, 2026*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| UpdatedAt | July 18, 2026 |
+| Audit | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) |
+
+Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

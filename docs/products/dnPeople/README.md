@@ -133,6 +133,7 @@ App: `http://localhost:3001`
 | **Supabase (DB)** | [docs/SUPABASE.md](./docs/SUPABASE.md) |
 | **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
 | Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
+| **Audit (fitur/bug/perf)** | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |

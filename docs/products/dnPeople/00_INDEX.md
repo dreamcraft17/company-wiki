@@ -34,7 +34,8 @@
 | [docs/VPS.md](./docs/VPS.md) | Install VPS |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Status implementasi terkini |
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur (+ billing/subscription) |
-| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot implementasi |
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot implementasi + open defects |
+| [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) | **Audit fitur / bug / performa (18 Jul 2026)** |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Changelog |
 | [docs/SECURITY-NFR-EVIDENCE.md](./docs/SECURITY-NFR-EVIDENCE.md) | Security NFR evidence |
 
@@ -53,6 +54,7 @@
 | MFA TOTP, THR, employee Excel import, offline attendance | ✅ |
 | Admin payslip preview | ✅ Inline preview |
 | CI | ✅ `.github/workflows/ci.yml` |
+| Audit fitur/bug/performa (18 Jul) | ⚠️ 3 P0 open — lihat [AUDIT](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | Production IdP / SMTP / S3 / biometrics | Conditional |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)

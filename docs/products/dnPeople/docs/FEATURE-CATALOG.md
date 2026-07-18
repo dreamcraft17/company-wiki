@@ -6,7 +6,8 @@
 **UpdatedAt:** July 18, 2026  
 
 
-**Snapshot:** 18 July 2026 (HEAD `a345e4b`)
+**Snapshot:** 18 July 2026 (HEAD `73a730b`)  
+**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
 
@@ -31,7 +32,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Login dan session | Email/password login tanpa input Company ID, SSO/password auto-routing, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
-| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/security`, `/auth/mfa/*` | Available |
+| MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role (API); UI saat ini admin-gated di `/security` | `/security`, `/auth/mfa/*` | Available* — fix nav (audit B05) |
 | OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
 | SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
 | Tenant discovery | Routing tenant dari verified email domain, custom hostname, atau user history; fallback company picker untuk edge case | Semua role | `/tenants/discover`, `/auth/login` | Available |
@@ -114,7 +115,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | THR | Annual THR generation | Finance/admin | `/payroll/thr/run` | Available |
 | Bonus dan commission | Variable compensation, approval, period assignment, paid tracking | Finance/admin | `/payroll-settings` | Available |
 | KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
-| Payslip portal | Employee melihat payslip 12 bulan miliknya; Company/Super Admin dapat preview slip karyawan tanpa download PDF | Employee, Company/Super Admin | `/payroll` | Available |
+| Payslip portal | Employee melihat payslip 12 bulan miliknya (API `/payroll/my`); Company/Super Admin preview; **nav employee masih admin-only** | Employee, Company/Super Admin | `/payroll` | Available* — fix nav (audit B04) |
 | Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
 | Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/verify/:payslipId` | Available |
 | Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
