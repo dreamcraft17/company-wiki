@@ -4,6 +4,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-18] — PRD v8.0 follow-up (B06 UI + P01 adjustments batch)
+
+### Fixed
+- Attendance import UI mengirim `Idempotency-Key` (hash file); backend selalu derive key dari file bila header kosong
+- Payroll run batch attendance/leave/shift adjustments (hilangkan sisa N+1 per karyawan)
+
 ## [2026-07-18] — PRD v8.0 security & stability
 
 ### Fixed

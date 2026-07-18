@@ -47,10 +47,10 @@
 | B01 | P0 | Public `/uploads` static | **Fixed** — removed static; `GET /api/v1/files/*` + payslip PDF auth/audit |
 | B02 | P0 | API key always COMPANY_ADMIN | **Fixed** — `apiScopes` + `assertApiKeyScope` |
 | B03 | P0 | Finalize race / double loan | **Fixed** — `updateMany` where DRAFT inside tx |
-| P01 | P0 | Payroll run N+1 | **Fixed** — batch fetch by `employeeId IN (...)` |
+| P01 | P0 | Payroll run N+1 | **Fixed** — batch OT/claims/loans/variables + attendance/leave/shift |
 | B04 | P1 | Employee payslip nav | **Fixed** — Slip Gaji `/payroll` for all |
 | B05 | P1 | MFA admin-only | **Fixed** — `/settings/mfa` |
-| B06 | P1 | Import concurrency | **Fixed** — `Idempotency-Key` / body key |
+| B06 | P1 | Import concurrency | **Fixed** — UI Idempotency-Key + server file-hash fallback |
 | B07 | P1 | Offline sync overwrite | **Fixed** — fill-empty only |
 | B08 | P1 | Upload MIME OR-ext | **Fixed** — MIME + magic bytes |
 | P02 | P1 | Unbounded reports | **Fixed** — `take: 1000` |
