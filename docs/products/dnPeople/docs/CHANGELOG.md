@@ -6,6 +6,21 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Added — PRD v6.1 seamless tenant discovery login
+
+- `/auth/login` now discovers tenant automatically from verified email domain, custom hostname, or user history without requiring visible Company ID input
+- Active SSO tenants return `status: "sso_required"` with provider start redirect; password tenants return `status: "success"` with dashboard redirect metadata
+- Unresolved domains return `status: "company_not_found"` plus a company picker payload for rare fallback flows
+- `/login` now shows only email/password, handles SSO redirects from the backend, and opens the fallback company picker only when discovery cannot resolve the tenant
+- Login discovery, SSO redirect, success, and failure paths write tenant audit metadata without password/token payloads
+
+### Added — Central staff account administration
+
+- Separate `/staff-accounts` navigation and administration page for company owners
+- Tenant-scoped account list/search and standalone or employee-linked login creation
+- HR/Manager/Finance/Employee role assignment, activation/deactivation, and password reset
+- Generated temporary passwords are displayed once; administrator/self-protection and audit logging are enforced
+
 ### Added — Talent Development (PRD v4 Module 1–2 foundation)
 
 - Mounted the previously-built but never-registered competency framework/library/role-mapping/assessment API (`/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments`)

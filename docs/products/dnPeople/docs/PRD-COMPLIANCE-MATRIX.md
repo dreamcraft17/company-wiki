@@ -25,7 +25,7 @@
 | 5.3 Payroll report | Implemented | Component/tax/BPJS/department detail, bank upload and YTD exports implemented |
 | 5.4 Leave report | Implemented | Peak/future analysis and Excel/PDF implemented |
 | 5.5 Turnover analysis | Implemented | Department/reason/trend and heuristic risk views implemented |
-| 6.1 RBAC | Implemented | HR role without payroll, Finance payroll access, account role workflow, salary separation and automated access-matrix tests implemented |
+| 6.1 RBAC | Implemented | HR role without payroll, Finance payroll access, centralized staff-account role/status/password workflow, salary separation and automated access-matrix tests implemented |
 | 6.2 Security/privacy | In progress | Salary/NPWP/bank encryption, key rotation, backup/restore tooling implemented; production drills pending |
 | 6.3 Audit/compliance | In progress | Redacted global audit, CSV export, and immutable DB trigger implemented; retention/export integration tests pending |
 | 7.1 Recruitment | Implemented | Bulk actions, digital offer delivery, public accept/reject and tamper-evident e-sign implemented |
@@ -48,6 +48,15 @@
 | 5.1 Earned wage access | Not started | Roadmap — PRD v4 Module 5, needs banking partner |
 | 6.1 Salary benchmarking | Not started | Roadmap — PRD v4 Module 6, needs external market data source |
 | 7–8 Industry-specific (manufacturing/retail) | Not started | Roadmap — PRD v4 Module 7–8 |
+
+### PRD v6.1 — Seamless tenant discovery login
+
+| PRD v6.1 requirement | Status | Remaining completion gate |
+|---|---|---|
+| Zero Company ID login | Implemented | `/login` hides Company ID and `/auth/login` resolves tenant server-side |
+| SSO/password auto-routing | Implemented | Active SSO tenants return `sso_required`; password tenants return JWT success response |
+| Company picker fallback | Implemented | Unresolved domains return picker payload and UI selection replays login with selected tenant |
+| Login audit redaction | Implemented | Tenant audit metadata stores domain/method/provider/reason without password/token payloads |
 
 ## Mandatory completion evidence
 

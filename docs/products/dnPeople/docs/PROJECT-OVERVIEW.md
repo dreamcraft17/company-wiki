@@ -1,11 +1,11 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** MVP 5.0 (enterprise core + Talent Development foundation)
+**Version:** PRD v6.1 (enterprise multi-tenant + seamless tenant discovery login)
 **Status:** Active Development
 **Repository:** `dnpeople`  
 **Owner:** Dozer  
-**Last Updated:** July 16, 2026
+**Last Updated:** July 17, 2026
 
 ---
 
@@ -13,7 +13,7 @@
 
 dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), enterprise (MVP 4: multi-company, integrations, SSO, white-label, custom reports, AI docs/screening), serta fondasi Talent Development (MVP 5: competency, assessment, gap analysis, IDP, dan LMS dasar).
 
-Codebase saat ini memiliki **48 halaman web**, **48 modul route backend**, dan **99 model Prisma**. Status per fitur dan dependency production tersedia di [Feature Catalog](./FEATURE-CATALOG.md).
+Codebase saat ini memiliki **50 halaman web**, **49 modul route backend**, dan **99 model Prisma**. Login memakai auto tenant discovery tanpa input Company ID, dan administrasi akun login staff tersedia sebagai menu terpisah `/staff-accounts`. Status per fitur dan dependency production tersedia di [Feature Catalog](./FEATURE-CATALOG.md).
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
 

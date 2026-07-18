@@ -43,7 +43,7 @@
 | Public careers | Done | Listing dan application form responsif |
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 
-Verifikasi baseline 12 Juli 2026: TypeScript ✅ · ESLint 0 error. Audit codebase 16 Juli 2026 menghitung **48 page route frontend**, **48 modul route backend**, dan **99 model Prisma**. Audit tabel memastikan tidak ada lagi aturan global yang mengubah tabel menjadi `display: block`; Dashboard dan Reports memiliki wrapper overflow tersendiri.
+Verifikasi 18 Juli 2026: TypeScript ✅ · backend tests 24/24 ✅ · frontend production build 50 routes ✅. Codebase memiliki **50 page frontend**, **49 modul route backend**, dan **99 model Prisma**.
 
 ---
 
@@ -52,6 +52,7 @@ Verifikasi baseline 12 Juli 2026: TypeScript ✅ · ESLint 0 error. Audit codeba
 | Fitur | Status |
 |-------|--------|
 | Auth JWT + RBAC 6 roles | Done | `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, `EMPLOYEE` |
+| Central staff account management | Done | Standalone/linked account, role, activation, reset password, audit |
 | Company register / profile | Done |
 | Org (dept, position, level, location) | Done |
 | Employee master + tax info | Done |
@@ -175,7 +176,8 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 | Custom Workflows | Done | Multi-step + activate per module |
 | Advanced Approval Rules | Done | Amount-based + workflow resolve |
 | API & Integrations | Done | API keys `dnp_…` + webhooks + test |
-| SSO (SAML/OAuth) | Done | Google + Microsoft OAuth + SAML ACS/JIT |
+| SSO (SAML/OAuth) | Done | Google + Microsoft OAuth + SAML ACS/JIT; login auto-routes active-SSO tenants without Company ID input |
+| Login tenant discovery v6.1 | Done | `/login` only asks email/password; `/auth/login` resolves verified domain/custom hostname/user history and returns SSO redirect, password token, or company picker |
 | Custom Reports Builder | Done | Save + run |
 | AI Document Generator | Done | Offer, SP, SK, resign |
 | AI Recruitment Screening | Done | Single + batch |

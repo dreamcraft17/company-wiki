@@ -4,7 +4,7 @@
 **Auth:** `Authorization: Bearer <access_token>` **atau** `Bearer dnp_<api_key>`  
 **Response shape:** `{ success, data, pagination?, error?, timestamp }`
 
-> Detail tabel di bawah = **MVP 1 core**. Ringkasan endpoint **MVP 2–3** dan **MVP 4** ada di bagian akhir dokumen.
+> Detail tabel di bawah mencakup core API; endpoint enterprise v6 dan SCIM diringkas di bagian akhir.
 
 ---
 
@@ -12,7 +12,7 @@
 
 | Method | Path | Auth | Deskripsi |
 |--------|------|------|-----------|
-| POST | `/auth/login` | — | Login (email, password, optional companyId) |
+| POST | `/auth/login` | — | Login email/password tanpa Company ID; backend auto-discover tenant, route SSO/password, atau tampilkan picker |
 | POST | `/auth/register` | — | Register perusahaan + COMPANY_ADMIN |
 | POST | `/auth/logout` | ✓ | Logout (client-side token clear) |
 | GET | `/auth/me` | ✓ | Profil user + employee + company |
@@ -21,6 +21,48 @@
 
 ```json
 { "email": "admin@dnpeople.id", "password": "Admin123!" }
+```
+
+`companyId` hanya dikirim saat user memilih tenant dari fallback company picker:
+
+```json
+{ "email": "admin@dnpeople.id", "password": "Admin123!", "companyId": "tenant-uuid" }
+```
+
+### Login responses
+
+Email/password tenant:
+
+```json
+{
+  "status": "success",
+  "access_token": "jwt",
+  "token": "jwt",
+  "redirectUrl": "/dashboard",
+  "user": { "id": "user-id", "email": "admin@dnpeople.id", "companyId": "tenant-uuid" }
+}
+```
+
+SSO tenant:
+
+```json
+{
+  "status": "sso_required",
+  "redirect": "https://api.example.com/api/v1/sso/saml/start?companyId=tenant-uuid",
+  "companyId": "tenant-uuid",
+  "provider": "SAML"
+}
+```
+
+Unresolved tenant:
+
+```json
+{
+  "status": "company_not_found",
+  "showPicker": true,
+  "message": "Mana company Anda?",
+  "companies": [{ "id": "tenant-uuid", "name": "Company A", "domain": "company-a.com" }]
+}
 ```
 
 ### Register body
@@ -43,6 +85,21 @@
 |--------|------|------------|-----------|
 | GET | `/companies` | settings:view | Detail perusahaan |
 | PATCH | `/companies` | settings:* | Update profil & jam kerja |
+
+---
+
+## Staff Accounts
+
+| Method | Path | Permission | Deskripsi |
+|--------|------|------------|-----------|
+| GET | `/staff-accounts` | settings:* | List/search akun login tenant |
+| GET | `/staff-accounts/available-employees` | settings:* | Karyawan yang belum memiliki akun |
+| POST | `/staff-accounts` | settings:* | Buat akun standalone atau linked employee |
+| PATCH | `/staff-accounts/:id` | settings:* | Ubah role atau status aktif |
+| POST | `/staff-accounts/:id/reset-password` | settings:* | Reset password dan tampilkan temporary password sekali |
+
+Akun `SUPER_ADMIN` dan `COMPANY_ADMIN` dilindungi dari perubahan melalui endpoint staff.
+Admin juga tidak dapat menonaktifkan atau mengubah role akunnya sendiri.
 
 ---
 
@@ -297,6 +354,33 @@ Authorization: Bearer dnp_<secret>
 Key dibuat via `POST /integrations/api-keys` (plain text hanya sekali). Prefix disimpan; hash bcrypt di DB.
 
 ---
+
+## PRD v6 Enterprise Multi-Tenant
+
+| Method | Path | Auth | Deskripsi |
+|--------|------|------|-----------|
+| POST | `/tenants/discover` | — | Tenant discovery dari email domain atau hostname |
+| GET | `/tenants/branding/domain` | — | Branding berdasarkan verified custom domain |
+| GET | `/tenants/current` | ✓ | Isolation, SSO, branding, dan quota tenant aktif |
+| PATCH | `/tenants/isolation` | settings:* | Ubah POOL/SILO/BRIDGE policy |
+| GET/POST/PATCH | `/tenants/organizations[/:id]` | org:* | Hierarki organisasi internal |
+| GET | `/tenants/role-scopes` | settings:view | Daftar scope user |
+| PUT | `/tenants/role-scopes/:userId` | settings:* | Upsert scope organisasi/departemen/lokasi |
+| GET/PATCH | `/tenants/quota` | settings:* | Usage status dan quota policy |
+| GET | `/tenants/audit` | audit:view | Audit tenant/isolation |
+| POST | `/tenants/scim-tokens` | settings:* | Membuat secret SCIM sekali tampil |
+
+SCIM menggunakan base URL terpisah dari `/api/v1`:
+
+```text
+/scim/v2/:tenantId/Users
+/scim/v2/:tenantId/Users/:userId
+/scim/v2/:tenantId/Groups
+/scim/v2/:tenantId/Groups/:groupId
+```
+
+Endpoint SCIM menerima tenant-specific bearer token dan mengembalikan
+`application/scim+json`. `DELETE Users` melakukan deactivation agar histori HR tetap terjaga.
 
 ## Error Codes (umum)
 

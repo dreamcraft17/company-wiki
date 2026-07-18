@@ -16,23 +16,24 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **48 halaman frontend**, **48 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **50 halaman frontend**, **49 modul route backend**, **99 model Prisma**, mobile-first web shell, dan domain fitur dari core HR sampai talent development serta enterprise tenant administration.
 
 ## 1. Identity, authentication, dan access control
 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
-| Login dan session | JWT login, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
+| Login dan session | Email/password login tanpa input Company ID, SSO/password auto-routing, current session, configurable session age, logout | Semua role | `/login`, `/auth` | Available |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |
 | MFA TOTP | Setup, verifikasi, enable/disable MFA | Semua role | `/security`, `/auth/mfa/*` | Available |
 | OAuth | Login Google dan Microsoft | Semua role | `/sso` | Conditional — provider credentials |
 | SAML SSO + JIT | Konfigurasi IdP, ACS, just-in-time user provisioning | Enterprise admin | `/sso`, `/sso/saml/*` | Conditional — IdP UAT |
-| Tenant discovery | Routing tenant dari verified email domain atau custom hostname sebelum login | Semua role | `/tenants/discover` | Available |
+| Tenant discovery | Routing tenant dari verified email domain, custom hostname, atau user history; fallback company picker untuk edge case | Semua role | `/tenants/discover`, `/auth/login` | Available |
 | Per-tenant IdP policy | SAML/OIDC/Google/Microsoft, audience, enforce-SSO, default role dan JIT policy per tenant | Enterprise admin | `/sso` | Conditional — IdP credentials/UAT |
 | SCIM 2.0 | Tenant-token-scoped Users/Groups provisioning dan deprovisioning | Enterprise/IdP | `/scim/v2/:tenantId/*` | Available; IdP UAT required |
 | API-key authentication | Scoped key `dnp_…`, revoke, last-used tracking | Admin/integrator | `/integrations`, `/integrations/api-keys` | Available |
 | Role management | Membuat linked account, assign role, temporary password sekali tampil | Company admin | Employee lifecycle panel | Available |
+| Akun staff terpusat | List/search akun, buat akun standalone/linked employee, role, aktivasi, dan reset password | Company admin | `/staff-accounts` | Available |
 | RBAC | Enam role dan permission per resource/action | Semua role | Backend authorization | Available |
 | Row-level access | Scope all/organization/department/location/self/custom dan effective-scope inspection | Admin/manager | `/security`, `/tenants/role-scopes` | Available |
 | Tenant isolation | POOL/SILO/BRIDGE policy, tier enforcement, context guard dan blocked-attempt audit | Semua role | Seluruh API, `/tenant-management` | Conditional — dedicated SILO database provisioning/routing is an operational deployment step |

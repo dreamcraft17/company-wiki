@@ -1,8 +1,8 @@
 # dnPeople — Current Implementation Baseline
 
-**Snapshot date:** 16 July 2026
+**Snapshot date:** 18 July 2026
 **Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis
-**Specification baseline:** PRD/SRS/SDD v3.1, plus PRD v4 (competitive alignment) Module 1–2 foundation
+**Specification baseline:** PRD/SRS/SDD v3.1, PRD v4 Talent Development foundation, PRD v5 subscription tiers, PRD v6 enterprise multi-tenancy, and PRD v6.1 seamless tenant discovery login
 
 ## How to use this document
 
@@ -18,10 +18,10 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 48 page routes; mobile-first shell and locally scrollable data tables |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; 45 route modules |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind; 50 production routes; mobile-first shell and locally scrollable data tables |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; 49 route modules plus tenant-scoped SCIM `/scim/v2` |
 | Data | PostgreSQL 16 + Prisma with 99 models; deployment migrations are mandatory |
-| Authentication | JWT, API key, TOTP MFA, Google/Microsoft OAuth, SAML configuration/JIT |
+| Authentication | JWT, API key, TOTP MFA, zero-Company-ID tenant discovery login, SSO/password auto-routing, Google/Microsoft OAuth, SAML/OIDC configuration, JIT, and tenant-scoped SCIM |
 | Storage | Local upload or S3-compatible object storage |
 | Email | SMTP with development fallback |
 | Observability | `/health`, `/ready`, Prometheus `/metrics`, optional redacted Sentry telemetry |
@@ -38,7 +38,30 @@ When writing the next PRD:
 | `FINANCE` | Payroll, claims, loans, finance reports and related employee references |
 | `EMPLOYEE` | Self-service records, requests, attendance, documents, payslips, training and helpdesk, plus self competency assessment/gap analysis, own IDP, and LMS enrollment |
 
-Row-level access supports `all`, `department`, `self`, and `custom` scopes. Company isolation and employee ownership checks are backend requirements; hiding navigation is not considered authorization.
+Row-level access supports `all`, `organization`, `department`, `location`, `self`, and `custom` scopes. Company isolation and employee ownership checks are backend requirements; hiding navigation is not considered authorization.
+
+## Login and tenant discovery baseline
+
+The login surface is intentionally minimal for end users. `/login` asks for email and password only;
+Company ID is not a normal input. `/auth/login` performs server-side tenant discovery in this order:
+
+1. Verified email domain from `Company.verifiedDomains`.
+2. Verified custom hostname from tenant branding metadata.
+3. Existing active user history for the submitted email.
+4. Fallback company picker payload when no tenant can be resolved.
+
+Current `/auth/login` response modes:
+
+| Mode | Trigger | Response intent |
+|------|---------|-----------------|
+| `success` | Tenant resolved and no active SSO policy | Return JWT, user payload, and `/dashboard` redirect metadata |
+| `mfa_required` | Password valid and user MFA is enabled | Return pending MFA token; final token is issued after MFA verification |
+| `sso_required` | Tenant has active SSO policy | Return IdP start redirect and provider metadata |
+| `company_not_found` | Discovery cannot resolve a tenant | Return picker-safe company list; frontend retries login with selected `companyId` |
+
+Login audit records store tenant discovery method, email domain, provider/reason metadata, and
+blocked state only. Passwords, JWTs, raw IdP payloads, client secrets, and temporary passwords must
+never be written to audit logs or telemetry.
 
 ## Available now
 
@@ -46,11 +69,13 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 
 | Module | Available features | Main API surface | Web UI | Status |
 |--------|--------------------|------------------|--------|--------|
-| Authentication | Login, registration, current session, account lockout, TOTP MFA, Google/Microsoft OAuth, SAML/JIT, API-key authentication | `/auth`, `/sso`, `/integrations/api-keys` | `/login`, `/sso`, `/integrations` | Available |
+| Authentication | Login without Company ID, verified-domain/user-history/custom-domain tenant discovery, SSO/password auto-routing, company picker fallback, registration, current session, account lockout, TOTP MFA, Google/Microsoft OAuth, SAML/JIT, API-key authentication | `/auth`, `/sso`, `/tenants/discover`, `/integrations/api-keys` | `/login`, `/sso`, `/integrations` | Available |
 | Company & organization | Company profile/work schedule, departments, positions, levels, work locations, geofence, WiFi SSID, organization tree | `/companies`, `/org` | `/org` | Available |
 | Employee master | CRUD, search, pagination, Excel/CSV import, department/position/location/type/status filters, soft delete | `/employees` | `/employees` | Available |
 | Employee lifecycle | Family, dependant, education, emergency contact, bank, tax, contract/probation dates, status history, probation review | `/employees/:id/*` | Employee lifecycle panel | Available |
-| Account & roles | Create linked account, assign HR/Manager/Finance/Employee, random one-time temporary password, audited role changes | `/employees/:id/access` | Employee lifecycle panel | Available |
+| Account & roles | Central account list/search, standalone or linked account creation, HR/Manager/Finance/Employee role, activation, reset password, one-time temporary password, audited changes | `/staff-accounts`, `/employees/:id/access` | `/staff-accounts`, employee lifecycle panel | Available |
+| Enterprise tenant administration | POOL/SILO/BRIDGE policy, tenant discovery, organization units, scoped roles, quota/usage and isolation audit | `/tenants` | `/tenant-management` | Available; physical SILO provisioning is operational |
+| SCIM provisioning | Tenant-token-scoped Users and Groups provisioning/deactivation | `/scim/v2/:tenantId` | IdP integration | Available; IdP conformance UAT required |
 | Attendance | Clock-in/out, manual/GPS/QR/selfie/WiFi, geofence, work mode, late/early leave, today/history/summary, offline sync | `/attendance` | `/attendance` | Available |
 | Attendance correction | Mandatory evidence, original/corrected values, submit, approve/reject, bulk correction/approval | `/corrections` | `/corrections` | Available |
 | Shift | Shift CRUD, daily assignment, company/employee validation, rotation, swap request/approval, pay multiplier | `/shifts` | `/shifts` | Available |
@@ -98,7 +123,7 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
 - Employee CRUD/import with department, position, location, employment type, contract and probation filters.
 - Family, dependants, education, regular/emergency contacts, tax information and bank accounts.
 - Status history, contract transition, probation review, reminders and approved conversion to permanent.
-- Audited employee account creation and role assignment; random temporary password is displayed once.
+- Central tenant-scoped staff account administration plus employee-linked account creation, activation, role assignment, and password reset; generated temporary passwords are displayed once.
 - Salary, NPWP and account number stored using AES-256-GCM field encryption with key rotation support.
 
 ### Attendance, shift, leave and permission
@@ -158,12 +183,18 @@ Row-level access supports `all`, `department`, `self`, and `custom` scopes. Comp
   per-tenant SSO/JIT configuration, organization hierarchy, user-specific organization/department/
   location scopes, tenant-scoped SCIM Users/Groups, quota/usage monitoring, isolation breach audit,
   custom-domain branding metadata, and `/tenant-management`.
+- PRD v6.1 refines login UX: end users enter only email and password; backend discovers the
+  tenant automatically from verified domain, custom hostname, or user history, routes active-SSO
+  tenants to the IdP, validates password tenants directly, and shows a company picker only when
+  tenant discovery cannot resolve the company.
 
 ## Security, compliance and NFR invariants
 
 The next PRD must preserve these unless it supplies an explicit replacement and migration plan:
 
 - No plaintext salary, NPWP, account number, password, token, secret or API key in API logs/telemetry.
+- Generated staff temporary passwords are returned only on creation/reset and never written to audit payloads.
+- Company/Super Admin accounts and the acting admin account cannot be modified through staff-account administration.
 - HR cannot access payroll or salary; Finance cannot mutate employee master data without an explicit new permission.
 - Audit records are append-only at PostgreSQL level and sensitive audit payloads are redacted.
 - Attendance correction evidence is mandatory at API and database levels.
@@ -173,7 +204,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 49 routes. Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: 24/24 backend tests pass; the current frontend production build contains 50 routes. Re-run the build and test suites before treating these figures as release evidence.
 
 ## Production/UAT gates
 
@@ -204,7 +235,7 @@ These are not safe to mark “production accepted” solely from repository code
 - Internal career marketplace, rotation and cross-functional mobility programs (PRD v4 Module 4).
 - Earned wage access (EWA) and salary benchmarking against external market data (PRD v4 Modules 5–6).
 - Manufacturing/retail vertical configuration packages — complex shift incentives, tips/service charge handling, high-volume hiring flows (PRD v4 Modules 7–8).
-- Talent-development database tables were declared in the schema before this pass but only migrated to the shared dev database as part of this rollout; deployment must run `prisma db push`/`migrate deploy` before the new endpoints are usable in any environment.
+- Physical SILO database provisioning, tenant data copy/cutover, secret rotation, restore drill, and failback remain infrastructure operations; selecting SILO policy alone is not proof of physical isolation.
 
 ## Requirements for the next PRD
 
