@@ -1,11 +1,11 @@
 # dnPeople — Architecture
 
-**Version:** 6.1  
+**Version:** 7.0  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 18, 2026  
-**Referensi:** SDD v3.1 · PRD v4–v6.1 · Status: MVP 1–5 + subscription + enterprise multi-tenant implemented
+**Referensi:** SDD v3.1 · PRD v4–v7.0 · Status: MVP 1–5 + subscription + enterprise multi-tenant + attendance Excel import implemented
 
 ---
 
@@ -67,7 +67,10 @@ Platform, integrations (API keys/webhooks), workflows (multi-step), branding, SS
 Competency framework/library/role-mapping/assessment, gap analysis, IDP, LMS basic (`/talent`, `/idp`, `/lms`).
 
 ### PRD v5–v6 — Subscription & Multi-Tenant
-Billing UI, platform/tenant-management, SCIM, quota, custom domain metadata.
+Billing UI (`/billing`), platform/tenant-management, SCIM, quota, custom domain metadata.
+
+### PRD v7.0 — Attendance Excel
+Admin/HR Excel import pipeline (`/attendance/template/download`, `/import`, `/imports`); `MANUAL_UPLOAD` records; admin UI Excel-first (office QR generator UI removed).
 
 ## Payroll Engine
 

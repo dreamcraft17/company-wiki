@@ -252,4 +252,4 @@ Frontend: `/talent` `/idp` `/lms`
 
 ---
 
-*Last Updated: July 16, 2026*
+*Last Updated: July 18, 2026*

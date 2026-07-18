@@ -1,16 +1,17 @@
 # dnPeople
 
-Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, Talent Development PRD v4, subscription v5, Enterprise Multi-Tenant PRD v6, dan seamless tenant discovery login PRD v6.1.
+Sistem HRIS multi-tenant untuk perusahaan Indonesia — implementasi MVP 1–4, Talent Development PRD v4, subscription v5, Enterprise Multi-Tenant PRD v6, seamless tenant discovery login PRD v6.1, dan attendance Excel manual import PRD v7.0.
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | PRD v6 enterprise multi-tenant implemented; operational integrations require production acceptance |
+| Status | PRD v5–v7.0 implemented in code; operational IdP/SMTP/S3/biometric acceptance Conditional |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) |
 | UpdatedAt | July 18, 2026 |
+| HEAD | `a345e4b` — 49 pages · 49 routes · 99 models · 24 tests |
 
 ## Stack
 
@@ -69,6 +70,12 @@ Snapshot codebase saat ini mencakup **49 halaman web**, **49 modul route backend
 - Admin UI `/billing`, `/platform`, dan `/tenant-management`
 - Menu `/staff-accounts` untuk membuat akun login staff standalone/linked employee, role, status aktif, dan reset password
 
+### PRD v7.0 — Attendance Excel manual import
+
+- Panel admin/HR di `/attendance`: download template `.xlsx`, dry-run validation, preview, confirm import, histori upload
+- API `/attendance/template/download`, `/attendance/import`, `/attendance/imports` — company isolation, role guard, `MANUAL_UPLOAD` source
+- UI admin Excel-first; generator QR kantor di halaman admin disembunyikan (API `GET /attendance/qr/today` tetap ada untuk kompatibilitas employee QR scan)
+
 ## Quick Start (tanpa Docker)
 
 Database = **Supabase Session pooler**. Tidak perlu Docker.
@@ -107,7 +114,6 @@ npm run dev
 App: `http://localhost:3001`
 
 > Opsional saja: `docker compose up -d` jika ingin Postgres lokal di port `5433` — bukan requirement.
-App: `http://localhost:3001`
 
 ## Akun Demo (setelah seed)
 

@@ -42,12 +42,19 @@ Base path: `/api/v1/subscription`
 
 ## Deployment
 
+Database baru atau database yang sudah mempunyai Prisma migration history:
+
 ```bash
 cd backend
+npm ci
 npm run db:migrate
-npm run subscription:migrate-v5
-npm run db:seed
+npm run build
 ```
+
+Database production legacy yang sebelumnya dikelola dengan `prisma db push` harus mengikuti prosedur
+baseline satu kali di [DEPLOYMENT.md](./DEPLOYMENT.md#database-migrations) sebelum `db:migrate`.
+Migration v5 sudah melakukan backfill subscription secara idempotent. Jangan menjalankan `db:seed`
+pada update production.
 
 Configure at least one billing provider in `backend/.env`; without provider credentials, manual bank-transfer instructions remain available.
 
@@ -57,6 +64,6 @@ Configure at least one billing provider in `backend/.env`; without provider cred
 - Backend TypeScript build: pass.
 - Backend automated tests: 24/24 pass.
 - Frontend ESLint: 0 errors (pre-existing hook dependency warnings remain).
-- Frontend production build: pass, 48 routes.
+- Frontend production build: pass, 49 routes.
 
 Production acceptance still requires provider sandbox/live credentials, signed webhook delivery tests, SMTP deliverability, staging migration rehearsal, backup/restore drill, and customer UAT. These are external operational gates, not code gaps.

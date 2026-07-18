@@ -6,7 +6,7 @@
 **UpdatedAt:** July 18, 2026  
 
 
-**Snapshot:** 17 July 2026
+**Snapshot:** 18 July 2026 (HEAD `a345e4b`)
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
 
@@ -72,7 +72,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Clock-in/out | Absensi masuk/keluar dan status hari ini | Employee | `/attendance` | Available |
-| Metode absensi | Manual/cepat, GPS, QR, selfie, dan WiFi | Employee | `/attendance` | Available |
+| Metode absensi | Manual/cepat, GPS, QR, selfie, dan WiFi (employee self-service) | Employee | `/attendance` | Available |
+| Admin office QR panel | Generator QR kantor di UI admin | Admin/HR | `/attendance` | Removed from admin UI (Jul 18); API `GET /attendance/qr/today` tetap ada |
 | Geofence | Validasi koordinat dan radius lokasi kerja | Employee/admin | Attendance + organization | Available |
 | WiFi attendance | Validasi SSID kantor | Employee/admin | Attendance + organization | Available |
 | Selfie/liveness | Adapter face-match/liveness dan production fail-closed | Employee/admin | Attendance API | Conditional — biometric provider |
@@ -115,7 +116,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | KPI bonus | Idempotent generation dari performance ke pending payroll bonus | HR/Finance | Performance/payroll | Available |
 | Payslip portal | Employee melihat payslip 12 bulan miliknya; Company/Super Admin dapat preview slip karyawan tanpa download PDF | Employee, Company/Super Admin | `/payroll` | Available |
 | Payslip PDF | Landscape, password, tabel earning/deduction, branding | Employee/Finance | `/payroll/:id/payslip.pdf` | Available |
-| Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/:id/verify` | Available |
+| Payslip verification | Signature/tamper-evidence verification | Employee/auditor | `/payroll/verify/:payslipId` | Available |
 | Bukti potong | Dokumen PPh 21 per employee | Finance/employee | Payroll API | Available |
 | Claim category/policy | Kategori, limit harian/bulanan, receipt wajib | Admin/Finance | `/claims` | Available |
 | Reimbursement claim | Submit bukti, multi-step approval, paid/payroll inclusion | Employee/manager/Finance | `/claims`, `/approvals` | Available |
@@ -221,6 +222,19 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
 | Test delivery | Menguji konfigurasi integration/webhook | Enterprise admin | `/integrations` | Available framework |
 | Upload storage | Local disk atau S3-compatible storage | System/admin | `/uploads` | Conditional — storage config |
+
+## 10b. Subscription & billing (PRD v5)
+
+| Fitur | Kapabilitas | Pengguna utama | Surface | Status |
+|-------|-------------|----------------|---------|--------|
+| Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE | Company admin | `/billing`, `/subscription/tiers` | Available |
+| Invoices | List/detail invoice subscription | Company admin | `/billing` | Available |
+| Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |
+| Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
+| Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
+| Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
+| Payment adapter | Adapter pembayaran (provider-specific) | Company admin | `/subscription` | Conditional — payment provider |
 
 ## 11. Platform, branding, security, dan operations
 

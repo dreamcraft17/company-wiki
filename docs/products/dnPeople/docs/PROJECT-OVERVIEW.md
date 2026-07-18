@@ -1,10 +1,13 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD v7.0 (enterprise multi-tenant + seamless tenant discovery login + attendance Excel manual import)
-**Status:** Active Development
+**Version:** PRD v7.0 (enterprise multi-tenant + seamless tenant discovery login + attendance Excel manual import)  
+**Status:** Active Development  
 **Repository:** `dnpeople`  
-**Owner:** Dozer  
+**Owner:** Dozer (CEO + Tech Lead)  
+**Company:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand:** DnPeople  
+**UpdatedAt:** July 18, 2026  
 **Last Updated:** July 18, 2026
 
 ---

@@ -1,7 +1,9 @@
 # dnPeople — Security & NFR Verification Evidence
 
-**Verification date:** 12 July 2026
-**Scope:** PRD/SRS/SDD v3.1 completion hardening
+**Verification date:** 18 July 2026
+**Scope:** PRD/SRS/SDD v3.1 completion hardening + PRD v5–v7.0 inventory
+
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
 
 This document records reproducible engineering evidence. Production-provider acceptance and business UAT remain deployment gates and must not be inferred from local/CI results.
 
@@ -12,7 +14,7 @@ This document records reproducible engineering evidence. Production-provider acc
 | Backend type safety | `npx tsc --noEmit` | Pass |
 | Frontend type safety | `npx tsc --noEmit` | Pass |
 | Backend build | `npm run build` | Pass |
-| Frontend production build | `npm run build` | Pass, 44 routes |
+| Frontend production build | `npm run build` | Pass, 49 routes |
 | Unit/security tests | `npm test` | 24/24 pass |
 | Dependency security | `npm audit --omit=dev` | 0 known vulnerabilities |
 | Prisma validation | `npx prisma validate` | Pass |

@@ -203,7 +203,7 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 | POST | `/payroll/:id/finalize` | payroll:* | Finalisasi + buat payslip |
 | POST | `/payroll/:id/pay` | payroll:* | Tandai PAID |
 | GET | `/payroll/:id/payslip.pdf` | payroll:view / payslips:self | Payslip landscape terlindungi password |
-| GET | `/payroll/:id/verify` | payroll:view / payslips:self | Verifikasi signature/hash payslip |
+| GET | `/payroll/verify/:payslipId` | payroll:view / payslips:self | Verifikasi signature/hash payslip |
 | GET/PATCH | `/payroll-settings/configuration` | payroll:view/* | Pajak, BPJS, proration, overtime, loan policy |
 | GET/POST | `/payroll-settings/templates` | payroll:view/* | Template komponen gaji |
 | GET/POST | `/payroll-settings/tax-rates` | payroll:view/* | Tarif pajak berversi |
@@ -339,7 +339,8 @@ Self-service: `EMPLOYEE` (permission `talent:self`) dapat melihat/membuat assess
 | POST | `/careers/:companyKey/jobs/:jobId/apply` | — | Public apply |
 | POST | `/uploads` | auth | Binary upload (local disk atau S3) |
 | GET | `/payroll/:id/payslip.pdf` | payroll | Payslip PDF |
-| GET | `/attendance/qr/today` | attendance:view | Daily office QR token |
+| GET | `/payroll/verify/:payslipId` | payroll | Verifikasi signature payslip |
+| GET | `/attendance/qr/today` | attendance:view | Daily office QR token (API tetap; admin UI generator dihapus Jul 18) |
 | POST | `/assistant/ask` | auth | LLM atau rule-based HR Q&A |
 | GET/POST | `/custom-reports` | reports:* | Report builder |
 | GET | `/custom-reports/sources` | reports:view | Available data sources |
@@ -357,6 +358,26 @@ Authorization: Bearer dnp_<secret>
 ```
 
 Key dibuat via `POST /integrations/api-keys` (plain text hanya sekali). Prefix disimpan; hash bcrypt di DB.
+
+---
+
+## PRD v5 Subscription & Billing
+
+Base path: `/api/v1/subscription` · UI: `/billing`
+
+| Method | Path | Deskripsi |
+|--------|------|-----------|
+| GET | `/subscription/current` | Current subscription, features, access mode, invoices |
+| GET | `/subscription/features` | Effective feature access |
+| GET | `/subscription/invoices` | Invoice history |
+| POST | `/subscription/invoices/:id/payment` | Stripe / Xendit / manual payment |
+| GET | `/subscription/audit` | Subscription change history |
+| POST | `/subscription/upgrade` | Change tier + prorated invoice |
+| POST | `/subscription/cancel` | Cancel with grace/freeze |
+| POST | `/subscription/reactivate` | Reactivate cancelled/suspended |
+| PUT | `/subscription/features` | Super-admin feature overrides |
+| POST | `/subscription/webhooks/stripe` | Stripe webhook |
+| POST | `/subscription/webhooks/xendit` | Xendit webhook |
 
 ---
 
@@ -402,4 +423,11 @@ Endpoint SCIM menerima tenant-specific bearer token dan mengembalikan
 
 ---
 
-*Last Updated: July 12, 2026*
+*Last Updated: July 18, 2026*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| UpdatedAt | July 18, 2026 |

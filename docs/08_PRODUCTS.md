@@ -203,7 +203,7 @@ DN Tech Products
 | Brand | DnPeople |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Status | **MVP 1–5 + PRD v5 subscription + PRD v6 multi-tenant + v6.1 tenant discovery implemented** |
+| Status | **MVP 1–5 + PRD v5–v7.0 implemented** (subscription, multi-tenant, discovery login, attendance Excel) |
 | Target | Startup & UMKM Indonesia (30–200 karyawan) |
 | Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL (Supabase) |
 | Codebase | 49 halaman · 49 route modules · 99 model Prisma · 24 tests |
@@ -218,8 +218,9 @@ DN Tech Products
 - **MVP 3:** ATS + careers, onboarding, performance/KPI, training, aset, offboarding, helpdesk, AI assistant
 - **MVP 4:** Multi-company, workflows, API keys/integrations, SSO+JIT, white-label, custom reports, AI docs/screening, row-level security
 - **PRD v4 Talent:** Competency, assessment, IDP, LMS dasar (`/talent`, `/idp`, `/lms`)
-- **PRD v5–v6:** Subscription/billing, tenant policy, SCIM, quota, staff-accounts, seamless login discovery
-- **Ops extras:** MFA TOTP, Excel employee import, offline attendance sync, admin payslip preview
+- **PRD v5–v6:** Subscription/billing (`/billing`), tenant policy, SCIM, quota, staff-accounts, seamless login discovery
+- **PRD v7.0:** Attendance Excel manual import (template, dry-run, confirm, history); admin UI Excel-first
+- **Ops extras:** MFA TOTP, employee Excel import, offline attendance sync, admin payslip preview
 
 ### Dokumentasi
 

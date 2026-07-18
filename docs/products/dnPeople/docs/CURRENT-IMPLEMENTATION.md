@@ -87,7 +87,7 @@ never be written to audit logs or telemetry.
 | Payroll processing | Batch monthly calculation, preview/detail, finalize, paid status, inline Company/Super Admin payslip preview, attendance/leave/shift/overtime/claim/loan integration | `/payroll` | `/payroll` | Available |
 | Tax & BPJS | Complete PTKP variants, progressive/versioned tax brackets, gross/net/gross-up, employee/employer contribution breakdown | `/payroll-settings/tax-rates`, `/payroll` | `/payroll-settings`, `/payroll` | Available |
 | Proration & THR | Join/exit proration, configurable divisor, eligible-day explanation, full-month cap, annual THR generation | `/payroll`, `/payroll/thr/run` | `/payroll` | Available |
-| Payslip | 12-month employee portal, Company/Super Admin in-app preview without PDF download, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/:id/verify` | `/payroll` | Available |
+| Payslip | 12-month employee portal, Company/Super Admin in-app preview without PDF download, landscape password PDF, earnings/deductions tables, branding, proration, signature verification | `/payroll/my`, `/payroll/:id/payslip.pdf`, `/payroll/verify/:payslipId` | `/payroll` | Available |
 | Overtime | Employee request, configurable weekday/weekend/holiday multiplier, approval, automatic payroll inclusion | `/overtime` | `/overtime` | Available |
 | Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
 | Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
@@ -108,6 +108,9 @@ never be written to audit logs or telemetry.
 | AI helpers | HR assistant with LLM/rule fallback, HR document generation and recruitment screening | `/assistant`, `/ai` | `/assistant`, `/ai-docs`, `/recruitment` | Available with provider configuration |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze | `/subscription` | `/billing` | Available; payment provider Conditional |
+| Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
+| Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
 | Branding | App name, logo, colors and public company branding | `/branding` | `/branding` | Available |
 | Custom reports | Source definitions, saved report configuration and report execution | `/custom-reports` | `/custom-reports` | Available |
