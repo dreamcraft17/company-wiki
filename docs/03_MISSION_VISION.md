@@ -1,9 +1,12 @@
 # Mission & Vision
 
-**Document Version**: 1.0  
-**Last Updated**: July 8, 2026  
+**Document Version**: 1.1  
+**Last Updated**: July 18, 2026  
 **Status**: Published  
-**Owner**: Dozer
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: DN Tech (DN Tech.id)  
+**UpdatedAt**: July 18, 2026  
 
 ---
 
@@ -74,15 +77,19 @@ Code quality, security, performance, dan dokumentasi adalah non-negotiable — b
 - [x] Launch company profile website production (dntech.id)
 - [x] Implementasi email system & lead automation
 - [x] Setup company wiki internal
+- [x] Modul Produk + Product Section (dnPeople flagship di `/products`)
+- [x] dnPeople HRIS codebase MVP 1–5 + PRD v5–v7.0 (ops acceptance Conditional)
 - [ ] Capai 1.000+ monthly unique visitors
 - [ ] Generate 20+ qualified leads per bulan
+- [ ] Production go-live acceptance dnPeople (IdP/SMTP/S3/UAT)
 
 ### Jangka Menengah (2027)
 
-- [ ] Expand product portfolio (ERP module launch)
-- [ ] Build dedicated sales & marketing team
+- [ ] Expand product portfolio (DN People ERP module launch)
+- [ ] Build dedicated sales & marketing team (isi Head of Sales / COO)
 - [ ] Establish partnership dengan 3+ enterprise clients
 - [ ] Achieve 99.5% uptime SLA
+- [ ] Hire CTO dedicated (lepas dual-hat CEO + Tech Lead)
 
 ### Jangka Panjang (2028+)
 
@@ -119,4 +126,13 @@ Code quality, security, performance, dan dokumentasi adalah non-negotiable — b
 
 ---
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 18, 2026*
+
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
+
+Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

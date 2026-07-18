@@ -149,7 +149,7 @@
 | Footer redesign (Jul 9) | ✅ Horizontal putih, `FooterBrand` |
 | Homepage PRD Indonesia (Jul 9) | ✅ `components/homepage/*`, `homeContent` CMS |
 | Homepage tuning (Jul 9 malam) | ✅ Tech stack & tim hidden; harga UMKM |
-| Org wiki (Jul 9) | ✅ `04_ORGANIZATION.md` — CEO + Finance terisi; posisi lain vacant (—) |
+| Org wiki (Jul 18) | ✅ `02_COMPANY_OVERVIEW` + `04_ORGANIZATION` diselaraskan — CEO+Tech Lead (Dozer), Finance (Nur Annisa Sofyan); produk termasuk dnPeople |
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend (Next.js 16.2.9 / React 19.2.4) |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |

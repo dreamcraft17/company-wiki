@@ -1,9 +1,12 @@
 # Organization Structure
 
-**Document Version**: 1.0  
-**Last Updated**: July 9, 2026  
+**Document Version**: 1.1  
+**Last Updated**: July 18, 2026  
 **Status**: Published  
-**Owner**: Dozer
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: DN Tech (DN Tech.id)  
+**UpdatedAt**: July 18, 2026  
 
 ---
 
@@ -24,6 +27,7 @@
                         ┌─────────────┐
                         │     CEO     │
                         │   (Dozer)   │
+                        │ + Tech Lead │
                         └──────┬──────┘
                                │
           ┌────────────────────┼────────────────────┐
@@ -42,7 +46,10 @@
                                             └─────────────┘
 ```
 
-> **Catatan:** Struktur jabatan leadership tetap berlaku. Saat ini yang sudah terisi namanya: **CEO** (Dozer) dan **Finance** (Nur Annisa Sofyan). Posisi lain (CTO, VP Product, Head of Design, Head of Sales, COO) masih **vacant** — ditandai **—** sampai ada penunjukan resmi.
+> **Sumber kebenaran nama & jabatan:** hanya nama yang tercantum di tabel Leadership di bawah yang resmi.  
+> Saat ini terisi: **CEO + Tech Lead** (Dozer) dan **Finance** (Nur Annisa Sofyan).  
+> Posisi CTO, VP Product, Head of Design, Head of Sales, COO masih **vacant** (—).  
+> Profil perusahaan ringkas: [Company Overview](./02_COMPANY_OVERVIEW.md).
 
 ---
 
@@ -50,7 +57,7 @@
 
 | Role | Nama | Tanggung Jawab |
 |------|------|----------------|
-| **CEO** | Dozer | Strategi perusahaan, business development, arsitektur teknis |
+| **CEO + Tech Lead** | Dozer | Strategi perusahaan, business development, arsitektur teknis, quality engineering (sementara memegang Tech Lead sampai CTO terisi) |
 | **CTO** | — | Engineering leadership, tech stack, infrastructure |
 | **VP Product** | — | Product roadmap, PRD, stakeholder management |
 | **Head of Design** | — | UI/UX, design system, brand identity |
@@ -58,20 +65,21 @@
 | **COO** | — | Operasional, HR, admin |
 | **Finance** | Nur Annisa Sofyan | Keuangan, invoicing, budgeting, compliance |
 
-> Tim sedang dalam fase growth. Posisi dengan nama **—** akan diisi sesuai kebutuhan scaling.
-pm
+> Tim dalam fase growth. Posisi **—** diisi sesuai kebutuhan scaling. Jangan mengisi nama fiktif di wiki atau website.
+
 ---
 
 ## Departemen
 
 ### Technology (Engineering)
 
-**Fokus**: Pengembangan software, infrastruktur, dan quality assurance.
+**Fokus**: Pengembangan software, infrastruktur, dan quality assurance.  
+**Interim lead**: CEO + Tech Lead (Dozer) sampai CTO terisi.
 
 | Sub-team | Fungsi |
 |----------|--------|
 | Frontend | Next.js, React, UI implementation |
-| Backend | Express API, database, integrations |
+| Backend | Express/Nest API, database, integrations |
 | DevOps | Deployment, CI/CD, monitoring |
 | QA | Testing, performance audit |
 
@@ -87,11 +95,14 @@ pm
 | UX Research | User interviews, analytics insights |
 | Documentation | Wiki, API docs, onboarding guides |
 
+Produk aktif: Company Profile (dntech.id), **dnPeople HRIS**, Careers module — lihat [Products](./08_PRODUCTS.md).
+
 ### Design
 
 **Fokus**: Visual design, design system, dan brand consistency.
 
 - Design system V2: solid colors, Indonesian copy, startup/SME positioning
+- Brand publik: **DN Tech.id** (`rlogo2` + wordmark)
 - Tools: Figma, Tailwind CSS design tokens
 - Deliverables: mockups, component library, style guide
 
@@ -99,20 +110,21 @@ pm
 
 **Fokus**: HR, finance, admin, dan client success.
 
-| Sub-team | Fungsi |
-|----------|--------|
-| HR | Recruitment, onboarding, culture |
-| Finance | Invoicing, budgeting, compliance |
-| Client Success | Post-delivery support, account management |
+| Sub-team | Fungsi | Status |
+|----------|--------|--------|
+| HR | Recruitment, onboarding, culture | Vacant lead |
+| Finance | Invoicing, budgeting, compliance | **Nur Annisa Sofyan** |
+| Client Success | Post-delivery support, account management | Vacant |
 
 ### Marketing & Sales
 
 **Fokus**: Brand visibility, lead generation, dan client acquisition.
 
-- Website content management via Admin CMS
+- Website content management via Admin CMS (dntech.id)
 - SEO optimization (id_ID locale)
 - Lead tracking via admin dashboard
 - Email automation (info@dntech.id)
+- Product showcase: `/products` (dnPeople flagship)
 
 ---
 
@@ -122,13 +134,13 @@ pm
 
 | Role | Level | Key Responsibilities |
 |------|-------|---------------------|
-| Tech Lead | Senior | Architecture decisions, code review, mentoring |
+| Tech Lead | Senior | Architecture decisions, code review, mentoring *(saat ini dipegang CEO)* |
 | Full Stack Developer | Mid-Senior | Feature development end-to-end |
 | Frontend Developer | Mid | UI components, responsive design, SEO |
 | Backend Developer | Mid | API, database, security, integrations |
 | DevOps Engineer | Mid | Infrastructure, deployment, monitoring |
 
-### Admin CMS Roles (Internal)
+### Admin CMS Roles (dntech.com / dntech.id)
 
 | Role | Akses | Permissions |
 |------|-------|-------------|
@@ -144,13 +156,14 @@ Detail RBAC: [Architecture](./06_ARCHITECTURE.md#keamanan--rbac)
 ## Reporting Lines
 
 ```
-CEO (Dozer)
+CEO + Tech Lead (Dozer)
 ├── CTO (—) → Engineering Team, DevOps
+│     └── (interim: report langsung ke CEO + Tech Lead)
 ├── VP Product (—) → Product Team, Documentation
 ├── Head of Design (—) → Design Team
 ├── Head of Sales (—) → Marketing, Client Success
 └── COO (—) → HR, Admin
-    └── Finance (Nur Annisa Sofyan)
+      └── Finance (Nur Annisa Sofyan)
 ```
 
 ### Communication Channels
@@ -161,6 +174,7 @@ CEO (Dozer)
 | Slack #documentation | Wiki updates & reviews |
 | Slack #general | Company announcements |
 | GitHub Issues | Bug reports, feature requests |
+| Email info@dntech.id | Company / sales inquiries |
 | Email docs@dntech.id | Documentation questions |
 
 ---
@@ -185,7 +199,7 @@ Detail modul careers: [Careers PRD](../products/11_CAREERS_PRD.md)
 
 - [ ] Akses GitHub organization
 - [ ] Setup development environment ([Dev Guidelines](./07_DEV_GUIDELINES.md))
-- [ ] Baca company wiki (docs 01–08)
+- [ ] Baca company wiki (docs 01–08), terutama [Company Overview](./02_COMPANY_OVERVIEW.md) + dokumen ini
 - [ ] Intro meeting dengan team lead
 - [ ] First task assignment (small, well-scoped)
 
@@ -195,9 +209,17 @@ Detail modul careers: [Careers PRD](../products/11_CAREERS_PRD.md)
 
 - [Company Overview](./02_COMPANY_OVERVIEW.md)
 - [Mission & Vision](./03_MISSION_VISION.md)
+- [Products](./08_PRODUCTS.md)
 - [Dev Guidelines](./07_DEV_GUIDELINES.md)
 - [Careers PRD](../products/11_CAREERS_PRD.md)
 
 ---
 
-*Last Updated: July 9, 2026*
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DN Tech (DN Tech.id) |
+| UpdatedAt | July 18, 2026 |
+
+Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
