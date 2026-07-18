@@ -275,6 +275,10 @@ company-wiki/
 ├── docs/
 │   ├── 01_README.md
 │   ├── 02_COMPANY_OVERVIEW.md
+│   ├── products/          # Product source docs index and per-product folders
+│   │   ├── README.md      # 187 markdown + 1 DOCX + 4 ZIP archives
+│   │   ├── dnPeople/      # HRIS docs, PRD v6.1 status, current baseline mirror
+│   │   └── ...
 │   └── ...
 ├── products/
 │   ├── 09_COMPRO_PRD.md
@@ -344,6 +348,27 @@ git commit -m "ci: Add GitHub Actions workflow"
 ---
 
 ## 🎯 Common Tasks
+
+### Update dnPeople Product Docs
+
+```bash
+# 1. Edit implementation docs in app repo
+code ../dnpeople/docs/CURRENT-IMPLEMENTATION.md
+
+# 2. Mirror docs that must stay identical
+cp ../dnpeople/docs/CURRENT-IMPLEMENTATION.md docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md
+cp ../dnpeople/docs/FEATURE-CATALOG.md docs/products/dnPeople/docs/FEATURE-CATALOG.md
+
+# 3. Verify mirror
+diff -u ../dnpeople/docs/CURRENT-IMPLEMENTATION.md docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md
+
+# 4. Update product indexes when status/counts changed
+code docs/products/README.md README.md CONTRIBUTING.md
+```
+
+Use this for dnPeople changes that affect PRD baseline, feature catalog, API contract,
+implementation status, or release evidence. `CURRENT-IMPLEMENTATION.md` should describe
+shipped behavior only.
 
 ### Add New Documentation
 
@@ -467,6 +492,8 @@ git clone https://[token]@github.com/user/company-wiki.git
 - **ALWAYS** preview markdown before commit
 - **ALWAYS** write descriptive commit messages
 - **ALWAYS** pull before starting new work
+- **ALWAYS** update product indexes when product doc counts/status change
+- **ALWAYS** keep dnPeople mirror docs aligned when changing `dnpeople/docs`
 - **NEVER** force push to main branch
 - **ALWAYS** use feature branches
 
@@ -483,6 +510,7 @@ git clone https://[token]@github.com/user/company-wiki.git
 | "Merge conflicts" | Open file, resolve manually |
 | "Preview not showing" | Install Markdown extension |
 | "Can't push" | Run `git pull` first |
+| dnPeople wiki docs differ | Run `diff -u ../dnpeople/docs/CURRENT-IMPLEMENTATION.md docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md` and mirror intentionally |
 
 ### Resources:
 - SETUP_GUIDE.md (Full setup)
@@ -533,4 +561,4 @@ git reset --soft HEAD~1 │ Undo last commit
 
 **Print this page or save as favorite for quick reference!** 📌
 
-*Last Updated: July 8, 2026*
+*Last Updated: July 18, 2026*

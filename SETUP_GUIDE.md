@@ -14,6 +14,7 @@ Panduan step-by-step untuk membuat dan mengatur `company-wiki` repository di VS 
 5. [Git Workflow](#git-workflow)
 6. [Publish ke GitHub](#publish-ke-github)
 7. [Maintenance & Update](#maintenance--update)
+8. [Product Docs Maintenance](#product-docs-maintenance)
 
 ---
 
@@ -170,7 +171,16 @@ company-wiki/
 │   ├── 05_TECH_STACK.md
 │   ├── 06_ARCHITECTURE.md
 │   ├── 07_DEV_GUIDELINES.md
-│   └── 08_PRODUCTS.md
+│   ├── 08_PRODUCTS.md
+│   └── products/
+│       ├── README.md
+│       ├── dnPeople/
+│       ├── dnpeople-erp/
+│       ├── dntech/
+│       ├── nearwork/
+│       ├── threads-automation/
+│       ├── tj/
+│       └── propose/
 ├── products/
 │   ├── 09_COMPRO_PRD.md
 │   ├── 10_COMPRO_SPEC.md
@@ -189,7 +199,7 @@ company-wiki/
 
 ```bash
 # Dalam VS Code terminal
-mkdir -p docs products templates images diagrams archive
+mkdir -p docs/products products templates images diagrams archive
 
 # Verify
 ls -la
@@ -496,6 +506,17 @@ code products/13_NEW_PRODUCT_PRD.md
 
 ## Maintenance & Update
 
+### Current Repository Snapshot
+
+Per 18 July 2026, repository wiki sudah memiliki:
+
+- root `README.md` sebagai master index,
+- `docs/products/README.md` sebagai product documentation index,
+- 187 markdown files,
+- 1 DOCX proposal,
+- 4 ZIP archives,
+- dnPeople HRIS docs sampai PRD v6.1 enterprise multi-tenant + seamless login.
+
 ### Regular Tasks
 
 **Weekly:**
@@ -558,6 +579,47 @@ git push -u origin feature/major-documentation-update
 
 # Di GitHub: Buat Pull Request → Review → Merge ke main
 ```
+
+---
+
+## Product Docs Maintenance
+
+### dnPeople Mirror Workflow
+
+dnPeople punya dokumentasi aktif di repo aplikasi dan mirror di company-wiki. Saat fitur dnPeople berubah, update dua sisi dengan sengaja.
+
+| Source | Mirror |
+|--------|--------|
+| `dnpeople/docs/CURRENT-IMPLEMENTATION.md` | `company-wiki/docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md` |
+| `dnpeople/docs/FEATURE-CATALOG.md` | `company-wiki/docs/products/dnPeople/docs/FEATURE-CATALOG.md` |
+| `dnpeople/docs/API.md` | `company-wiki/docs/products/dnPeople/docs/API.md` |
+| `dnpeople/docs/IMPLEMENTATION-STATUS.md` | `company-wiki/docs/products/dnPeople/docs/IMPLEMENTATION-STATUS.md` |
+| `dnpeople/docs/PRD-COMPLIANCE-MATRIX.md` | `company-wiki/docs/products/dnPeople/docs/PRD-COMPLIANCE-MATRIX.md` |
+
+Contoh sync:
+
+```bash
+cp ../dnpeople/docs/CURRENT-IMPLEMENTATION.md docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md
+diff -u ../dnpeople/docs/CURRENT-IMPLEMENTATION.md docs/products/dnPeople/docs/CURRENT-IMPLEMENTATION.md
+```
+
+Update juga index jika status atau jumlah dokumen berubah:
+
+```bash
+code README.md docs/products/README.md
+```
+
+### Current Implementation Baseline
+
+`CURRENT-IMPLEMENTATION.md` dipakai sebagai baseline untuk PRD berikutnya. Isi dokumen harus mewakili fitur yang sudah ada, termasuk:
+
+- API/UI surface,
+- role dan access boundary,
+- security/audit invariant,
+- production atau UAT gate,
+- snapshot date terbaru.
+
+Jangan memindahkan roadmap atau ide PRD baru ke current baseline sebelum implementasi benar-benar tersedia.
 
 ---
 
@@ -776,5 +838,6 @@ git checkout <commit-hash>^ -- docs/deleted-file.md
 
 ---
 
-*Created: July 8, 2026*  
+*Created: July 8, 2026*
+*Last Updated: July 18, 2026*
 *For: DN Tech Company Wiki Setup*
