@@ -1,8 +1,8 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `a4b63c9`  
-**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + mobile-first web UI (Expo native on hold)  
+**HEAD:** `3cff9ac`  
+**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + mobile-first web + V3 module-page wiring (Expo on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  

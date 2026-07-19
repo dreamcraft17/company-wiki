@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `a4b63c9`  
+**Branch:** `main` · HEAD `3cff9ac`  
 **Status:** Phase 0–4 production architecture ✅  
 
 > **Purpose:** Technical architecture, data design, infrastructure topology, scalability strategy untuk dnCore. Dokumen ini adalah source of truth untuk engineering implementation decisions.

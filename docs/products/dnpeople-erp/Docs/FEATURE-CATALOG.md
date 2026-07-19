@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** HEAD `a4b63c9` · Mobile-first web UI · Expo native on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
+**Snapshot:** HEAD `3cff9ac` · V3 module wiring + mobile-first web · Expo on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 

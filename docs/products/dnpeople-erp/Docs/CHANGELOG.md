@@ -4,6 +4,15 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Docs sync to HEAD `3cff9ac` (V3 module wiring)
+
+### Changed
+- SSOT + PRD/SDD/SRS + wiki indexes → tip `3cff9ac` (feature `a4b63c9`)
+- Narrative: V3 wired into Analytics / Documents / Workflows / Integrations
+- Inventory unchanged: **404** tests / **86** suites · **84** entities · **17** migrations
+
+---
+
 ## [2026-07-19] — Wire V3 APIs into module pages + mobile table polish
 
 ### Added

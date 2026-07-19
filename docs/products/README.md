@@ -15,7 +15,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
-| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 + mobile-first web · Expo on hold (`a37b297`) · 404 tests / 86 suites | `ERP` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | v1.0 + mobile-first web + V3 module wiring · Expo on hold (`3968167`) · 404/86 | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -29,9 +29,9 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnCore (ERP)** | `a37b297` | V3 module wiring + mobile-first web (`a37b297`); Expo native **on hold** — **404** tests / **86** suites · **84** entities · **17** migrations |
+| **dnCore (ERP)** | `3968167` | V3 module wiring (`a4b63c9`) + mobile-first web; Expo **on hold** — **404** tests / **86** suites · **84** entities · **17** migrations |
 | **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
-| **TJ** | `a37b297` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
+| **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
 | **company-wiki** | — | dnCore docs mirror + products index refreshed |

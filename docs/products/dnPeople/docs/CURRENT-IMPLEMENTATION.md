@@ -1,12 +1,17 @@
 # dnPeople — Current Implementation Baseline
 
-**Snapshot date:** 19 July 2026  
-**HEAD:** `af3e412`+ (PRD v10.0 ops pass pending commit)  
-**Purpose:** source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis  
-**Specification baseline:** PRD/SRS/SDD v3.1 through **v10.0** (operations & launch readiness), including v8.0 security/stability and v9.0 acceptance wiring  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
+| Metadata | Value |
+|----------|-------|
+| Snapshot date | 19 July 2026 |
+| HEAD | `af3e412`+ — PRD v10.0 ops pass pending commit |
+| Purpose | Source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v10.0** (operations & launch readiness), including v8.0 security/stability and v9.0 acceptance wiring |
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | DnPeople |
+| Updated at | July 19, 2026 |
 
-**Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026) — P0/P1 remediated in v8.0; v9–v10 ops artefacts in repo; SaaS/DNS/pen-test Conditional.
+> **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026). P0/P1 issues were remediated in v8.0; v9–v10 operations artefacts are in repo; SaaS/DNS/pen-test remain Conditional.
 
 ## How to use this document
 
@@ -33,6 +38,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Deployment | VPS/container; Redis removed; marketing MVP at `/welcome` |
 | Automated evidence | Backend **32/32** unit tests; TypeScript clean |
+
 ## Roles and access boundary
 
 | Role | Current access intent |

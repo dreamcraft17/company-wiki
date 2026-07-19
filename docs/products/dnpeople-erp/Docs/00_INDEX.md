@@ -6,6 +6,7 @@
 **UpdatedAt:** July 19, 2026  
 **Inventory:** 30 pages · 27 modules · 84 entities · 17 migrations · 404 tests  
 **Phone path:** mobile-first web SPA · Expo native **on hold**  
+**Latest:** V3 wired into Analytics/Documents/Workflows/Integrations (`a4b63c9`) · tip `3cff9ac`  
 
 > **Bukan** HRIS `dnPeople`. Wiki mirror: `company-wiki/docs/products/dnpeople-erp/`
 

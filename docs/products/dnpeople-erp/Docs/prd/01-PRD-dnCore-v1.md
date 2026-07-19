@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `a4b63c9`  
+**Branch:** `main` · HEAD `3cff9ac`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
 
 ---
@@ -327,13 +327,13 @@ DN Tech (Platform umbrella)
 | **1.0.2** | 19 Jul 2026 | Phase 5 hardening (`2aaf9f9`): Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests |
 | **1.0.3** | 19 Jul 2026 | Phase 6 mobile foundation: push tokens, biometric, offline cache, Approvals/Orders tabs — **404** tests |
 | **1.0.4** | 19 Jul 2026 | Mobile-first web UI (`63b43df`); Expo native **on hold** |
-| **1.0.5** | 19 Jul 2026 | Wire V3 endpoints into Analytics/Documents/Workflows/Integrations pages |
+| **1.0.5** | 19 Jul 2026 | Wire V3 endpoints into Analytics/Documents/Workflows/Integrations (`a4b63c9`) |
 
 ---
 
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
-**Implementation status:** Mobile-first web UI ✅ · Expo native ⏸️ on hold · AWS/Stripe live Conditional · HEAD `a4b63c9`  
+**Implementation status:** V3 module wiring ✅ · Mobile-first web ✅ · Expo ⏸️ on hold · AWS/Stripe Conditional · HEAD `3cff9ac`  
 
 ---
 
