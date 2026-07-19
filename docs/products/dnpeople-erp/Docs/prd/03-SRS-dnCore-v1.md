@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `29853f2`  
+**Branch:** `main` · HEAD `63b43df`  
 **Status:** Phase 0–4 implementation complete ✅ · Phase 5–8 roadmap specified 📋  
 
 > **Purpose:** Detailed functional + non-functional requirements untuk dnCore. Dokumen ini menguraikan "apa yang harus dibangun" pada level implementasi.
@@ -907,8 +907,8 @@
 | **Keyboard navigation** | WCAG 2.1 AA | Tab order, arrow keys, enter to submit |
 | **Contrast ratio** | WCAG 2.1 AA (4.5:1 text) | MUI color tokens, enforced via design system |
 | **Localization** | 15 locales | React context i18n, RTL support for Arabic |
-| **Offline support** | MVP only | Phase 6: IndexedDB cache for Expo |
-| **Mobile responsiveness** | <600px width | Tailwind responsive (sm, md, lg breakpoints) |
+| **Offline support** | Web N/A · Expo foundation paused | Expo offline cache on hold with native app |
+| **Mobile responsiveness** | <900px (`md`) | MUI drawer + scroll tables + responsive KPI grids (Jul 2026) |
 
 ### 2.7 Maintainability
 

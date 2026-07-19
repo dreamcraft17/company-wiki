@@ -5,7 +5,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `29853f2`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `63b43df`
 
 | Metrik | Nilai |
 |--------|-------|
@@ -15,7 +15,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 | TypeORM entities | **84** |
 | DB migrations | `0000`–`0016` (**17** files) |
 | Locales | **15** languages |
-| Mobile | Expo Phase 6 foundation (tabs, offline, biometric, push) |
+| Mobile web | Responsive SPA (drawer &lt;md, scroll tables) · Expo native **on hold** |
 
 > **Bukan** produk HRIS `dnPeople` (Express/Next). Spec: [`Docs/prd/`](./Docs/prd/) · Baseline: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md)
 
@@ -27,7 +27,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 |-------|-----------|
 | Backend | NestJS 10, TypeScript, PostgreSQL 15, TypeORM, JWT |
 | Frontend | React 19, Vite, Redux Toolkit, MUI, Tailwind, **Recharts** |
-| Mobile | React Native / **Expo** (Phase 6 foundation) |
+| Mobile web | MUI responsive breakpoints · Expo `/mobile` **on hold** |
 | Cache | Redis |
 | Queue | RabbitMQ (event-driven GL integration) |
 | Search | Elasticsearch |

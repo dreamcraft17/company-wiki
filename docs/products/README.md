@@ -15,7 +15,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
-| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 + Phase 6 mobile foundation (`29853f2`) · 404 tests / 86 suites | `ERP` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 + mobile-first web (Expo on hold) (`29853f2`) · 404 tests / 86 suites | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -29,7 +29,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnCore (ERP)** | `29853f2` | Phase 6 mobile foundation — Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests / **85** suites |
+| **dnCore (ERP)** | `29853f2` | mobile-first web (Expo on hold) — Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests / **85** suites |
 | **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |

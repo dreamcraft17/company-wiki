@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `2aaf9f9`  
+**Branch:** `main` · HEAD `63b43df`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
 
 ---
@@ -146,7 +146,8 @@ DN Tech (Platform umbrella)
 | **Compliance** | ✅ Available | SAK-EP, e-Faktur, PPh 21, UU PDP, GDPR export/erasure, audit trail |
 | **Scalability** | ✅ Available (infra-ready) | K8s Helm templates, Terraform IaC, load test scripts ready |
 | **Testing** | ✅ Available | 404 unit tests (86 suites), E2E Cypress 15 specs, ≥60% coverage gate |
-| **Mobile** | 🟡 Conditional | Phase 6 foundation (tabs, offline, biometric, push); full parity remaining |
+| **Mobile web** | ✅ Available | Responsive SPA (drawer, scroll tables, KPI) |
+| **Mobile Expo** | ⏸️ On hold | Foundation in `/mobile`; native expansion paused |
 
 ---
 
@@ -167,7 +168,7 @@ DN Tech (Platform umbrella)
 | Phase | Timeline | Focus | Effort | Status |
 |-------|----------|-------|--------|--------|
 | **Phase 5: Go-Live & Production Hardening** | Q3 2026 (Aug–Sep) | AWS credentials + live deploy, Stripe/DocuSign/SMTP keys, load test prod-size data, UAT per role, mobile App Store | 2–3 weeks | 🟡 Conditional |
-| **Phase 6: Mobile Native GA** | Q4 2026 (Oct–Dec) | Full module parity Expo, offline sync, push notifications, biometric auth, App Store release | 6–8 weeks | 🟡 In progress (foundation ✅) |
+| **Phase 6: Mobile Native GA** | Q4 2026 (Oct–Dec) | Full module parity Expo, offline sync, push, biometric, App Store | 6–8 weeks | ⏸️ **On hold** (use mobile-first web) |
 | **Phase 7: Advanced Analytics & AI** | Q1 2027 (Jan–Mar) | FastAPI microservice (Prophet forecasting), what-if scenarios, anomaly root cause, AI dashboard, copilot queries | 8–12 weeks | 📋 Planned |
 | **Phase 8: Enterprise Tier-2** | Q2 2027 (Apr–Jun) | Full microservices split, OCR documents, LMS depth, Azure AD/SAML SSO, white-label partner portal, multi-region | 12–16 weeks | 📋 Planned |
 
@@ -325,12 +326,13 @@ DN Tech (Platform umbrella)
 | **1.0.1** | 19 Jul 2026 | Implementation closed in repo: plans Free–Enterprise, SO inventory reserve, retention purge, outbound webhooks, ops scripts, dnCore brand surfaces |
 | **1.0.2** | 19 Jul 2026 | Phase 5 hardening (`2aaf9f9`): Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests |
 | **1.0.3** | 19 Jul 2026 | Phase 6 mobile foundation: push tokens, biometric, offline cache, Approvals/Orders tabs — **404** tests |
+| **1.0.4** | 19 Jul 2026 | Mobile-first web UI; Expo native work **on hold** |
 
 ---
 
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
-**Implementation status:** Phase 6 mobile foundation coded · AWS/Stripe/App Store Conditional · HEAD `29853f2`  
+**Implementation status:** Phase 6 mobile foundation coded · AWS/Stripe/App Store Conditional · HEAD `63b43df`  
 
 ---
 

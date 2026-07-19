@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** Phase 6 mobile foundation · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
+**Snapshot:** Mobile-first web UI · Expo native on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -95,8 +95,9 @@
 | Integration gallery | Slack, Zapier, Shopify, JIRA, shipping | Conditional — API keys |
 | Ops backup monitor | Cron + restore-test log + local drill script | Conditional — AWS RDS/S3 |
 | Compliance retention | Policies + real purge | Available |
-| Mobile Expo | Tabs + offline cache + biometric + push register | Available · Conditional — store |
-| Mobile push tokens | Register/unregister + Expo fan-out | Available |
+| Mobile-first web | Responsive drawer shell, scrollable tables, KPI grids | Available |
+| Mobile Expo | Tabs + offline + biometric + push (foundation) | **On hold** — not expanding |
+| Mobile push tokens | Register/unregister + Expo fan-out (API ready) | Available · unused while Expo held |
 
 ## 8. Roadmap boundary
 

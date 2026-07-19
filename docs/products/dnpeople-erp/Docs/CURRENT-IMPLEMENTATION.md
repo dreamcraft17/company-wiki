@@ -1,7 +1,7 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `29853f2`  
+**HEAD:** `63b43df`  
 **Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** implementation  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
@@ -29,10 +29,19 @@
 | Tenant | Row-level `tenantId`; optional schema-per-tenant |
 | Webhooks | Outbound HMAC (`X-dnCore-Signature`) + 3× retry/DLQ for sales/PO/invoice/GL/workflow events |
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
-| Mobile | Expo Phase 6 foundation — tabs, offline cache, biometric, push |
+| Mobile web | Responsive SPA shell (drawer + scroll tables) · Expo native **on hold** |
 | Automated evidence | **404** unit tests · **86** suites · coverage gate ≥60% |
 
-## Phase 6 mobile foundation (19 Jul 2026)
+## Mobile-first web UI (19 Jul 2026)
+
+| Area | Change |
+|------|--------|
+| Shell | Temporary drawer + hamburger &lt; `md`; permanent sidebar on desktop |
+| Tables | `CrudTable` + `ScrollableTable` horizontal scroll |
+| KPI grids | Sales / Inventory / Manufacturing / HR / Projects / Dashboard responsive |
+| Expo native | **On hold** — Phase 6 foundation remains in `/mobile` but not actively expanded |
+
+## Phase 6 mobile foundation (19 Jul 2026) — Expo **ON HOLD**
 
 | Area | Change |
 |------|--------|
@@ -76,7 +85,7 @@
 |------|-------|
 | AWS apply | Terraform ready; needs credentials |
 | Stripe / Slack / Shopify / JNE live keys | Adapters coded |
-| App Store submit | EAS profiles ready · Phase 6 parity remaining |
+| App Store submit | **On hold** (Expo native paused); use mobile-first web |
 | SOC 2 Type II | Process Phase 8 |
 
 ## Ops scripts (SDD §11)

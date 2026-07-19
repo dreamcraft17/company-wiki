@@ -4,6 +4,19 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Mobile-first web UI (Expo native on hold)
+
+### Added
+- Responsive `Layout`: temporary drawer + hamburger below `md`
+- `CrudTable` / `ScrollableTable` horizontal scroll on narrow viewports
+- Responsive KPI grids (Sales, Inventory, Manufacturing, HR, Projects, Dashboard)
+
+### Changed
+- **Expo / native app work put on hold**; Phase 6 mobile foundation remains in repo but not expanded
+- Prefer mobile-first **web SPA** for phone usage
+
+---
+
 ## [2026-07-19] — Phase 6 mobile foundation (push, biometric, offline tabs)
 
 ### Added
