@@ -11,7 +11,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 |--------|-------|
 | Backend modules | **27** domain + `platform/` |
 | Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
-| Unit tests | **394** (84 suites) · coverage **≥60%** |
+| Unit tests | **397** (85 suites) · coverage **≥60%** |
 | TypeORM entities | **83** |
 | DB migrations | `0000`–`0015` (**16** files) |
 | Locales | **15** languages |

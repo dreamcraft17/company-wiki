@@ -4,6 +4,19 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Phase 5 go-live hardening (retry, digest, k6, security)
+
+### Added
+- Stripe `payment_failed` → retry queue (3× backoff) + `/billing/payment-retry`
+- Digest emails wired to `EmailService` + `POST /notifications/digest/send-now`
+- `scripts/load-test/k6-authenticated.js`, `scripts/security-acceptance.sh`
+- Cypress `role-uat.cy.ts` + dnCore smoke rebrand
+
+### Verified
+- Backend unit tests: **397 passed / 85 suites**
+
+---
+
 ## [2026-07-19] — dnCore remaining gaps closed (Shopify SO, shipping, quota, ops)
 
 ### Added

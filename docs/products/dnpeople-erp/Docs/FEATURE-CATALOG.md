@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** dnCore PRD v1.0 complete (in-repo) · **394** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
+**Snapshot:** dnCore Phase 5 hardening · **397** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -28,7 +28,8 @@
 | Plans Free→Enterprise | Seat + module + storage quota | Available |
 | Module access guard | Path interceptor by plan | Available |
 | GDPR tools | Export, consent, erasure | Available |
-| Billing / Stripe | Checkout + local upgrade fallback | Conditional — live Stripe |
+| Billing / Stripe | Checkout + **failed-payment retry** + local upgrade | Conditional — live Stripe |
+| Email digest | Daily digest via EmailService (SMTP or console) | Available |
 | White-label / partner | Platform layer V3 | Available · MVP+ |
 
 ## 2. Finance & tax (Indonesia)

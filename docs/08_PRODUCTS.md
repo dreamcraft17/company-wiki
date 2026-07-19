@@ -250,7 +250,7 @@ DN Tech Products
 | Brand | dnCore · complementary to dnPeople HRIS |
 | Target | SME & mid-market Indonesia |
 | Modules | 27 domain modules (Finance, Sales, SC, Mfg, HR subset, CRM, Workflow, LMS, …) |
-| Tests | **394** unit tests · 30 pages · 16 migrations |
+| Tests | **397** unit tests · 30 pages · 16 migrations |
 | Docs | [Index →](./products/dnpeople-erp/00_INDEX.md) |
 | Blocker | Live AWS deploy, production vendor keys, App Store, SOC 2 |
 

@@ -15,7 +15,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
-| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 full in-repo (`189506d`) · 394 tests | `ERP` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 + Phase 5 hardening (`189506d`) · 397 tests | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -29,7 +29,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnCore (ERP)** | `189506d` | PRD v1.0 full in-repo — plans/quota, Shopify→SO, shipping, webhook retry/DLQ, Grafana, TF Phase-5, **394** tests |
+| **dnCore (ERP)** | `189506d` | PRD v1.0 full in-repo — plans/quota, Shopify→SO, shipping, webhook retry/DLQ, Grafana, TF Phase-5, **397** tests |
 | **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |

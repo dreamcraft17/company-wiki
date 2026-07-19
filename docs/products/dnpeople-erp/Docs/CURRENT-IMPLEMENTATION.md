@@ -30,7 +30,17 @@
 | Webhooks | Outbound HMAC (`X-dnCore-Signature`) + 3× retry/DLQ for sales/PO/invoice/GL/workflow events |
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile | Expo MVP (`/mobile`) — dnCore branded |
-| Automated evidence | **394** unit tests · **84** suites · coverage gate ≥60% |
+| Automated evidence | **397** unit tests · **85** suites · coverage gate ≥60% |
+
+## Phase 5 go-live hardening (19 Jul 2026)
+
+| Area | Change |
+|------|--------|
+| Stripe payment retry | `invoice.payment_failed` → schedule 3× backoff + `/billing/payment-retry` |
+| Daily digest | Cron + `POST /notifications/digest/send-now` → EmailService |
+| k6 authenticated | `scripts/load-test/k6-authenticated.js` (P95 &lt;500ms stages to 100 VU) |
+| Security acceptance | `scripts/security-acceptance.sh` |
+| Cypress | dnCore smoke + `role-uat.cy.ts` |
 
 ## dnCore v1.0 completion (19 Jul 2026 — full in-repo)
 
@@ -68,7 +78,8 @@
 | Retention purge | `scripts/purge-old-data.sh` |
 | Restore drill | `scripts/restore-drill.sh` |
 | Smoke / checklist | `scripts/production-smoke.sh`, `production-checklist.sh` |
-| Load smoke | `scripts/load-test.sh` |
+| Load smoke | `scripts/load-test.sh` · `scripts/load-test/k6-authenticated.js` |
+| Security acceptance | `scripts/security-acceptance.sh` |
 | Incident runbook | `Docs/incident-response.md` |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
