@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `3cff9ac`  
+**Branch:** `main` · HEAD `fdc12c2`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
 
 ---
@@ -19,7 +19,7 @@
 | **Produk inti** | Finance + Supply Chain + Manufacturing + HR (payroll subset) + CRM + Workflow + Reporting + Analytics |
 | **Pasar target** | SME (50–500 employees), mid-market yang ingin unified business system + Indonesia compliance |
 | **Positioning** | "Core of your business" — modular, honest pricing, no fake metrics, production-grade architecture |
-| **Scope** | 27 domain modules · 30 frontend pages · 84 database entities · 404 unit tests · 15 locales |
+| **Scope** | 27 domain modules · 30 frontend pages · 86 database entities · 408 unit tests · 15 locales |
 | **Go-to-market** | Q3 2026 soft launch + Q4 2026 public (conditional AWS live credentials) |
 
 **Key differentiator vs Mekari Talenta / SAP S/4HANA:**
@@ -145,7 +145,7 @@ DN Tech (Platform umbrella)
 | **Reliability** | ✅ Available | Health probes (DB, Redis), graceful shutdown, error boundary UI |
 | **Compliance** | ✅ Available | SAK-EP, e-Faktur, PPh 21, UU PDP, GDPR export/erasure, audit trail |
 | **Scalability** | ✅ Available (infra-ready) | K8s Helm templates, Terraform IaC, load test scripts ready |
-| **Testing** | ✅ Available | 404 unit tests (86 suites), E2E Cypress 15 specs, ≥60% coverage gate |
+| **Testing** | ✅ Available | 408 unit tests (88 suites), E2E Cypress 15 specs, ≥60% coverage gate |
 | **Mobile web** | ✅ Available | Responsive SPA (drawer, scroll tables, KPI) |
 | **Mobile Expo** | ⏸️ On hold | Foundation in `/mobile`; native expansion paused |
 
@@ -170,7 +170,7 @@ DN Tech (Platform umbrella)
 | **Phase 5: Go-Live & Production Hardening** | Q3 2026 (Aug–Sep) | AWS credentials + live deploy, Stripe/DocuSign/SMTP keys, load test prod-size data, UAT per role, mobile App Store | 2–3 weeks | 🟡 Conditional |
 | **Phase 6: Mobile Native GA** | Q4 2026 (Oct–Dec) | Full module parity Expo, offline sync, push, biometric, App Store | 6–8 weeks | ⏸️ **On hold** (use mobile-first web) |
 | **Phase 7: Advanced Analytics & AI** | Q1 2027 (Jan–Mar) | FastAPI microservice (Prophet forecasting), what-if scenarios, anomaly root cause, AI dashboard, copilot queries | 8–12 weeks | 📋 Planned |
-| **Phase 8: Enterprise Tier-2** | Q2 2027 (Apr–Jun) | Full microservices split, OCR documents, LMS depth, Azure AD/SAML SSO, white-label partner portal, multi-region | 12–16 weeks | 📋 Planned |
+| **Phase 8: Enterprise Tier-2** | Q2 2027 (Apr–Jun) | Full microservices split, OCR documents, LMS depth, Azure AD/SAML SSO, white-label partner portal, multi-region | 12–16 weeks | 🟡 In-repo MVP+ (revenue share + reseller done; split/multi-region still roadmap) |
 
 ### 5.3 Release Cadence
 
@@ -237,7 +237,7 @@ DN Tech (Platform umbrella)
 | **P95 API response time** | <500ms | Benchmarked at 200–400ms (dev) |
 | **DB query P95** | <100ms | Indexed, monitored via Prometheus |
 | **Frontend build size** | <500KB gzip | Currently ~450KB |
-| **Unit test coverage** | ≥60% | ✅ 60%+ (404 tests, 86 suites) |
+| **Unit test coverage** | ≥60% | ✅ 60%+ (408 tests, 88 suites) |
 | **E2E test pass rate** | 100% | ✅ 15 Cypress specs green |
 | **Deployment frequency** | Weekly | CI ready, pending live credentials |
 | **Mean time to recovery (MTTR)** | <30 min | Runbooks ready, health probes active |
@@ -328,12 +328,13 @@ DN Tech (Platform umbrella)
 | **1.0.3** | 19 Jul 2026 | Phase 6 mobile foundation: push tokens, biometric, offline cache, Approvals/Orders tabs — **404** tests |
 | **1.0.4** | 19 Jul 2026 | Mobile-first web UI (`63b43df`); Expo native **on hold** |
 | **1.0.5** | 19 Jul 2026 | Wire V3 endpoints into Analytics/Documents/Workflows/Integrations (`a4b63c9`) |
+| **1.0.6** | 19 Jul 2026 | Phase 8 in-repo close-out: revenue share, reseller, copilot/ETL/DocuSign/OCR — **408** tests |
 
 ---
 
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
-**Implementation status:** V3 module wiring ✅ · Mobile-first web ✅ · Expo ⏸️ on hold · AWS/Stripe Conditional · HEAD `3cff9ac`  
+**Implementation status:** Phase 8 in-repo gaps closed (MVP+) · Expo on hold · AWS/live keys Conditional  
 
 ---
 

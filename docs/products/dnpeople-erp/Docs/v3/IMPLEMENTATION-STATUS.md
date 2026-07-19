@@ -2,7 +2,7 @@
 
 **Terakhir diperbarui:** 19 Juli 2026  
 **Product brand:** dnCore  
-**Branch:** `main` · **Latest commit:** `3cff9ac`  
+**Branch:** `main` · **Latest commit:** `fdc12c2`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
@@ -20,8 +20,8 @@
 |---------|------------------------|-------------------------|
 | Backend modules | 24 (23 domain + industry) | **27 domain** + `platform/` |
 | DB migrations | `0000`–`0013` (14 files) | **`0000`–`0016` (17 files)** |
-| Unit tests | 390 (83 suites) | **404 (86 suites)** ✅ |
-| Frontend pages | 29 | **30** (+ Enterprise V3 hub) |
+| Unit tests | 390 (83 suites) | **408 (88 suites)** ✅ |
+| Frontend pages | 29 | **31** (+ Enterprise + Reseller) |
 | SRS V3 Phase 5–8 (kode) | ~5% scaffold | **~85% coded (MVP+)** |
 | Production live deploy | 🟡 templates ready | 🟡 **unchanged** — butuh AWS + live keys |
 
@@ -45,7 +45,7 @@
 
 | Metrik | Nilai |
 |--------|-------|
-| Unit tests | **404** passed · **86** suites |
+| Unit tests | **408** passed · **88** suites |
 | Coverage gate | **≥60%** (CI) |
 | Backend modules | **27** di `backend/src/modules/` |
 | Platform layer | `partner/`, `white-label/`, `etl/`, registry |
@@ -122,7 +122,7 @@
 | White-label branding | ✅ | `/api/v1/platform/white-label` | ✅ Logo, colors, domain flag |
 | ETL pipeline admin | ✅ | `/api/v1/platform/etl/*` | 🟡 |
 
-**Belum coded:** Marketplace revenue share billing (Stripe Connect), reseller admin dashboard penuh.
+**Closed in-repo:** Marketplace revenue share (Connect/MOCK) + reseller admin dashboard. Live Stripe Connect keys still Conditional.
 
 ---
 
@@ -146,10 +146,10 @@ Halaman modul `/analytics`, `/documents`, `/workflows`, `/integrations` sudah di
 | SOC 2 Type II | 📋 | Doc 24 scaffold |
 | Kemenkeu e-Faktur **live** | 🟡 | `EFakturService` stub — butuh production API keys |
 | Apple / Google App Store | 🟡 | Expo + `eas.json` ready |
-| Stripe marketplace revenue share | 📋 | Stripe integration ada, revenue split belum |
+| Stripe marketplace revenue share | ✅ MVP | Ledger + purchase API · Connect when keyed else MOCK |
 | FastAPI ML microservice | 📋 | Opsional — ensemble ML sudah in-process |
-| DocuSign / advanced e-sign | 📋 | Local e-sign MVP done |
-| Tesseract / cloud OCR | 📋 | Regex OCR MVP done |
+| DocuSign / advanced e-sign | ✅ MVP | Env-gated DocuSign envelope + local fallback |
+| Tesseract / cloud OCR | ✅ MVP | Optional `OCR_ENGINE=tesseract` CLI + regex fallback |
 | ClickHouse / TimescaleDB | 📋 | PostgreSQL + ETL scaffold |
 | Full microservice split | 📋 | Registry scaffold; masih monolith |
 
@@ -196,7 +196,7 @@ Tables baru: 19 (+ kolom extend `documents`, `signature_requests`)
 
 ```bash
 # Tests
-cd backend && npm test          # expect 404 passed
+cd backend && npm test          # expect 408 passed
 
 # Dev
 cd backend && npm run db:migrate && npm run start:dev
@@ -226,3 +226,4 @@ cd frontend && npm run dev
 | 19 Jul 2026 (eve) | Phase 6 mobile foundation: push devices, biometric, offline tabs — **404** tests / **86** suites |
 | 19 Jul 2026 (eve+) | Mobile-first web UI (`63b43df`): responsive drawer, scroll tables, KPI grids; **Expo native on hold** |
 | 19 Jul 2026 (eve++) | Wire V3 APIs into Analytics/Documents/Workflows/Integrations module pages |
+| 19 Jul 2026 (night) | Phase 8 in-repo close-out: revenue share, reseller admin, copilot/ETL/DocuSign/OCR depth — **408** tests |

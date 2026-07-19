@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** HEAD `3cff9ac` · V3 module wiring + mobile-first web · Expo on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
+**Snapshot:** HEAD `fdc12c2` · Phase 8 in-repo close-out · **408** tests · **27** modules · **31** pages · **86** entities · migrations through `0017`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -30,7 +30,8 @@
 | GDPR tools | Export, consent, erasure | Available |
 | Billing / Stripe | Checkout + **failed-payment retry** + local upgrade | Conditional — live Stripe |
 | Email digest | Daily digest via EmailService (SMTP or console) | Available |
-| White-label / partner | Platform layer V3 | Available · MVP+ |
+| White-label / partner | Platform layer V3 + **reseller admin** | Available |
+| Marketplace revenue share | Purchase + platform/partner split (Stripe Connect or MOCK) | Available · Conditional live Connect |
 
 ## 2. Finance & tax (Indonesia)
 
@@ -102,8 +103,8 @@
 ## 8. Roadmap boundary
 
 - Full microservices split beyond registry scaffold  
-- Production ML microservice (Prophet/FastAPI)  
-- App Store / Play Store parity  
+- Production ML microservice (Prophet/FastAPI) as dedicated service (in-process ensemble + optional OpenAI hint done)  
+- App Store / Play Store parity (Expo **on hold**)  
 - SOC 2 Type II certification (process)  
 - Phase 5 AWS live credentials  
 

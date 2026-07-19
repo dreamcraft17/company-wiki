@@ -2,15 +2,14 @@
 
 **Product**: dnCore (NestJS modular monolith) — formerly branded dnPeople ERP in this wiki path  
 **Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Status**: dnCore PRD v1.0 + **mobile-first web** + **V3 module wiring** · Expo native **on hold** (`3968167`) · Phase 5 AWS live Conditional  
+**Status**: dnCore PRD v1.0 + Phase 8 in-repo close-out · Expo **on hold** (`fdc12c2`) · AWS live Conditional  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: dnCore  
 **UpdatedAt**: July 19, 2026  
-**Inventory**: 30 pages · 27 modules · 84 entities · 17 migrations · 404 tests / 86 suites  
+**Inventory**: 31 pages · 27 modules · 86 entities · 18 migrations · 408 tests / 88 suites  
 
-> **Bukan** HRIS `dnPeople` (`dnpeople` repo). Messaging: "dnPeople for your people · dnCore for your business."  
-> Phone path = **responsive web SPA** (Expo native paused).
+> Phone path = mobile-first web SPA. Expo native paused.
 
 ---
 
@@ -19,12 +18,9 @@
 | File | Topik |
 |------|-------|
 | [Docs/prd/01-PRD-dnCore-v1.md](./Docs/prd/01-PRD-dnCore-v1.md) | PRD dnCore v1.0 |
-| [Docs/prd/02-SDD-dnCore-v1.md](./Docs/prd/02-SDD-dnCore-v1.md) | SDD |
-| [Docs/prd/03-SRS-dnCore-v1.md](./Docs/prd/03-SRS-dnCore-v1.md) | SRS |
 | [Docs/CURRENT-IMPLEMENTATION.md](./Docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** |
 | [Docs/FEATURE-CATALOG.md](./Docs/FEATURE-CATALOG.md) | Feature catalog |
-| [Docs/incident-response.md](./Docs/incident-response.md) | Incident runbook |
-| [Docs/00_INDEX.md](./Docs/00_INDEX.md) | Docs index (repo) |
+| [Docs/v3/IMPLEMENTATION-STATUS.md](./Docs/v3/IMPLEMENTATION-STATUS.md) | V3 Phase 5–8 matrix |
 | [README.md](./README.md) | Quick start |
 
 ---
@@ -33,13 +29,11 @@
 
 | Aspek | Status |
 |-------|--------|
-| dnCore PRD v1.0 (in-repo) | ✅ Full |
-| Mobile-first web UI | ✅ Drawer &lt;md · scroll tables · KPI grids |
-| V3 module wiring | ✅ Analytics / Documents / Workflows / Integrations (`a4b63c9`) |
-| Expo native | ⏸️ **On hold** |
-| Phase 0–4 core ERP | ✅ ~95% coded |
-| V3 Phase 5–8 | ✅ ~85% MVP+ |
-| Unit tests | ✅ 404 / 86 suites |
-| Production AWS live | Conditional |
+| Phase 0–4 core | ✅ |
+| Phase 8 in-repo (revenue share, reseller, depth) | ✅ MVP+ |
+| Mobile-first web + V3 wiring | ✅ |
+| Expo native | ⏸️ On hold |
+| Unit tests | ✅ 408 / 88 suites |
+| AWS / live vendor keys | Conditional |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

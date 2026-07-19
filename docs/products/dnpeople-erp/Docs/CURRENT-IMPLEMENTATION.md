@@ -1,7 +1,7 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `3cff9ac`  
+**HEAD:** `fdc12c2`  
 **Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + mobile-first web + V3 module-page wiring (Expo on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
@@ -23,14 +23,25 @@
 | Product | **dnCore** — multi-tenant SaaS ERP (GL, sales, supply chain, HR/payroll subset, manufacturing, CRM, workflow, reporting) |
 | Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **30** pages; hub `/enterprise` |
 | Backend | NestJS 10 + TypeORM + PostgreSQL 15; **27** domain modules + `platform/` |
-| Data | **84** TypeORM entities; **17** migrations (`0000`–`0016`) |
+| Data | **86** TypeORM entities; **18** migrations (`0000`–`0017`) |
 | Auth | JWT access/refresh, 2FA TOTP (issuer `dnCore`), Google SSO, portal JWT, throttling |
 | Plans | **FREE / STARTER / PROFESSIONAL / ENTERPRISE** (+ legacy `STARTUP` alias) — module + storage quota enforced |
 | Tenant | Row-level `tenantId`; optional schema-per-tenant |
 | Webhooks | Outbound HMAC (`X-dnCore-Signature`) + 3× retry/DLQ for sales/PO/invoice/GL/workflow events |
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile web | Responsive SPA shell (drawer + scroll tables) · Expo native **on hold** |
-| Automated evidence | **404** unit tests · **86** suites · coverage gate ≥60% |
+| Automated evidence | **408** unit tests · **88** suites · coverage gate ≥60% |
+
+## Phase 8 in-repo close-out (19 Jul 2026)
+
+| Area | Change |
+|------|--------|
+| Marketplace revenue share | Purchase + split ledger · Stripe Connect when keyed else MOCK |
+| Reseller admin | `/platform/reseller` + `/reseller` page |
+| Copilot depth | Executes SQL · optional OpenAI pattern hint |
+| ETL | Real COUNT via DataSource (allowlist) |
+| E-sign / OCR | DocuSign env adapter · optional tesseract CLI |
+| Migration | `0017` |
 
 ## Module pages V3 wiring (19 Jul 2026)
 
@@ -94,7 +105,7 @@
 | Item | Notes |
 |------|-------|
 | AWS apply | Terraform ready; needs credentials |
-| Stripe / Slack / Shopify / JNE live keys | Adapters coded |
+| Stripe / Slack / Shopify / JNE live keys | Adapters coded · Connect revenue share MOCK/live |
 | App Store submit | **On hold** (Expo native paused); use mobile-first web |
 | SOC 2 Type II | Process Phase 8 |
 

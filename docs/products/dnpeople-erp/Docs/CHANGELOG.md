@@ -4,6 +4,21 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Phase 8 in-repo close-out (revenue share, reseller, depth)
+
+### Added
+- Marketplace revenue splits + `POST /integrations/marketplace/:id/purchase` (Stripe Connect or MOCK)
+- Reseller admin API `/platform/reseller/*` + `/reseller` UI
+- Migration `0017` (revenue splits, reseller accounts, listing price/commission)
+- Copilot executes allowlisted SQL (+ optional OPENAI_API_KEY hint)
+- ETL real row counts via DataSource (allowlisted tables)
+- DocuSign env-gated envelope + optional `tesseract` CLI OCR
+
+### Verified
+- Backend unit tests: **408 passed / 88 suites**
+
+---
+
 ## [2026-07-19] — Docs sync to HEAD `3cff9ac` (V3 module wiring)
 
 ### Changed

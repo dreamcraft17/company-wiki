@@ -15,7 +15,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
-| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | v1.0 + mobile-first web + V3 module wiring · Expo on hold (`3968167`) · 404/86 | `ERP` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | Phase 8 in-repo close-out · Expo on hold (`fdc12c2`) · 408/88 | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -29,7 +29,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnCore (ERP)** | `3968167` | V3 module wiring (`a4b63c9`) + mobile-first web; Expo **on hold** — **404** tests / **86** suites · **84** entities · **17** migrations |
+| **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |
 | **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |

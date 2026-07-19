@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `3cff9ac`  
+**Branch:** `main` · HEAD `fdc12c2`  
 **Status:** Phase 0–4 implementation complete ✅ · Phase 5–8 roadmap specified 📋  
 
 > **Purpose:** Detailed functional + non-functional requirements untuk dnCore. Dokumen ini menguraikan "apa yang harus dibangun" pada level implementasi.

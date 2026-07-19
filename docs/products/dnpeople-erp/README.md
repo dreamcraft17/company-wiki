@@ -5,15 +5,15 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `3cff9ac`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `fdc12c2`
 
 | Metrik | Nilai |
 |--------|-------|
 | Backend modules | **27** domain + `platform/` |
 | Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
-| Unit tests | **404** (86 suites) · coverage **≥60%** |
-| TypeORM entities | **84** |
-| DB migrations | `0000`–`0016` (**17** files) |
+| Unit tests | **408** (88 suites) · coverage **≥60%** |
+| TypeORM entities | **86** |
+| DB migrations | `0000`–`0017` (**18** files) |
 | Locales | **15** languages |
 | Mobile web | Responsive SPA (drawer &lt;md, scroll tables) · Expo native **on hold** |
 
