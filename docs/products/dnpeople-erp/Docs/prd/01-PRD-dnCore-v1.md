@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `189506d`  
+**Branch:** `main` · HEAD `2aaf9f9`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
 
 ---
@@ -19,7 +19,7 @@
 | **Produk inti** | Finance + Supply Chain + Manufacturing + HR (payroll subset) + CRM + Workflow + Reporting + Analytics |
 | **Pasar target** | SME (50–500 employees), mid-market yang ingin unified business system + Indonesia compliance |
 | **Positioning** | "Core of your business" — modular, honest pricing, no fake metrics, production-grade architecture |
-| **Scope** | 27 domain modules · 30 frontend pages · 83 database entities · 394 unit tests · 15 locales |
+| **Scope** | 27 domain modules · 30 frontend pages · 83 database entities · 397 unit tests · 15 locales |
 | **Go-to-market** | Q3 2026 soft launch + Q4 2026 public (conditional AWS live credentials) |
 
 **Key differentiator vs Mekari Talenta / SAP S/4HANA:**
@@ -145,7 +145,7 @@ DN Tech (Platform umbrella)
 | **Reliability** | ✅ Available | Health probes (DB, Redis), graceful shutdown, error boundary UI |
 | **Compliance** | ✅ Available | SAK-EP, e-Faktur, PPh 21, UU PDP, GDPR export/erasure, audit trail |
 | **Scalability** | ✅ Available (infra-ready) | K8s Helm templates, Terraform IaC, load test scripts ready |
-| **Testing** | ✅ Available | 394 unit tests (84 suites), E2E Cypress 15 specs, ≥60% coverage gate |
+| **Testing** | ✅ Available | 397 unit tests (85 suites), E2E Cypress 15 specs, ≥60% coverage gate |
 | **Mobile** | 🟡 Conditional | Expo MVP (login + dashboard); full parity Phase 6 |
 
 ---
@@ -236,7 +236,7 @@ DN Tech (Platform umbrella)
 | **P95 API response time** | <500ms | Benchmarked at 200–400ms (dev) |
 | **DB query P95** | <100ms | Indexed, monitored via Prometheus |
 | **Frontend build size** | <500KB gzip | Currently ~450KB |
-| **Unit test coverage** | ≥60% | ✅ 60%+ (394 tests, 84 suites) |
+| **Unit test coverage** | ≥60% | ✅ 60%+ (397 tests, 85 suites) |
 | **E2E test pass rate** | 100% | ✅ 15 Cypress specs green |
 | **Deployment frequency** | Weekly | CI ready, pending live credentials |
 | **Mean time to recovery (MTTR)** | <30 min | Runbooks ready, health probes active |
@@ -323,12 +323,13 @@ DN Tech (Platform umbrella)
 |---------|------|---------|
 | **1.0** | 19 Jul 2026 | Initial PRD — Phase 0–4 recap, Phase 5–8 roadmap, pricing proposal, go-to-market |
 | **1.0.1** | 19 Jul 2026 | Implementation closed in repo: plans Free–Enterprise, SO inventory reserve, retention purge, outbound webhooks, ops scripts, dnCore brand surfaces |
+| **1.0.2** | 19 Jul 2026 | Phase 5 hardening (`2aaf9f9`): Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests |
 
 ---
 
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
-**Implementation status:** Code complete for in-repo scope · AWS/Stripe live Conditional  
+**Implementation status:** Phase 5 go-live hardening coded · AWS/Stripe live Conditional · HEAD `2aaf9f9`  
 
 ---
 

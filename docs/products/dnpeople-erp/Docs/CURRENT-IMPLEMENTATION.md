@@ -1,7 +1,7 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `189506d`  
+**HEAD:** `2aaf9f9`  
 **Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** implementation  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  

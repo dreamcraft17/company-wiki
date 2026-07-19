@@ -7,7 +7,7 @@
 **Versi implementasi:** Enterprise Pass + Phase 1–4 + V3 MVP+  
 **Estimasi coverage Docs 01–10:** **~95%** (core SRS); sisa = live ops + full microservice split  
 
-> **Status:** Dokumen ini tetap ringkasan Phase 1–4. **SSOT metrik live (19 Jul 2026):** 27 modules · 30 pages · 394 tests · 16 migrations.  
+> **Status:** Dokumen ini tetap ringkasan Phase 1–4. **SSOT metrik live (19 Jul 2026):** 27 modules · 30 pages · 397 tests · 16 migrations.  
 > Executive tracking: [`update/CEO-TRACKING-SHEET.md`](../update/CEO-TRACKING-SHEET.md)
 
 ---

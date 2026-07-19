@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** dnCore Phase 5 hardening · **397** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
+**Snapshot:** HEAD `2aaf9f9` · Phase 5 hardening · **397** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 

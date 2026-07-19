@@ -5,7 +5,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `189506d`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `2aaf9f9`
 
 | Metrik | Nilai |
 |--------|-------|
