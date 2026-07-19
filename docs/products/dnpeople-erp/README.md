@@ -1,22 +1,23 @@
-# dnPeople ERP
+# dnCore
 
-Enterprise-ready multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+** (Juli 2026).
+Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+ · dnCore PRD v1.0 implemented** (Juli 2026).
 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnPeople ERP  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `9bf15e2`
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
+**Messaging:** "dnPeople for your people · dnCore for your business."  
+**UpdatedAt:** July 19, 2026 · **Baseline HEAD (pre-dnCore code):** `3639ae5`
 
 | Metrik | Nilai |
 |--------|-------|
 | Backend modules | **27** domain + `platform/` |
 | Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
-| Unit tests | **392** (84 suites) · coverage **≥60%** |
+| Unit tests | **393** (84 suites) · coverage **≥60%** |
 | TypeORM entities | **83** |
-| DB migrations | `0000`–`0014` (**15** files) |
+| DB migrations | `0000`–`0015` (**16** files) |
 | Locales | **15** languages |
 | Mobile | Expo MVP scaffold (`/mobile`) |
 
-> **Bukan** produk HRIS `dnpeople` (Express/Next). Docs live: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md) · [`Docs/00_INDEX.md`](./Docs/00_INDEX.md)
+> **Bukan** produk HRIS `dnPeople` (Express/Next). Spec: [`Docs/prd/`](./Docs/prd/) · Baseline: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md)
 
 ---
 

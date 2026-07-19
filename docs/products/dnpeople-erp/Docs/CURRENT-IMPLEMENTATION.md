@@ -1,13 +1,12 @@
-# dnPeople ERP — Current Implementation Baseline
+# dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `9bf15e2`  
-**Purpose:** source baseline for the next PRD / SRS / roadmap (Doc 25 successor)  
-**Specification baseline:** Docs 01–03 (Phase 0–4) + Docs/v3 PRD/SRS/SDD (Phase 5–8)  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** dnPeople ERP  
+**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** implementation  
+**Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
 
-> **Bukan** sama dengan produk HRIS `dnpeople` (Express + Next.js). Repo ini = NestJS ERP monolit modular di [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp).
+> Komplementer ke **dnPeople** (HRIS). Repo ini = NestJS ERP monolit modular di [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp).
 
 ## How to use
 
@@ -20,90 +19,52 @@
 
 | Area | Current implementation |
 |------|------------------------|
-| Product | Multi-tenant SaaS ERP untuk SME → mid-market Indonesia (GL, sales, supply chain, HR/payroll, manufacturing, CRM, …) |
-| Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **30** page components; hub `/enterprise` (V3) |
+| Product | **dnCore** — multi-tenant SaaS ERP (GL, sales, supply chain, HR/payroll subset, manufacturing, CRM, workflow, reporting) |
+| Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **30** pages; hub `/enterprise` |
 | Backend | NestJS 10 + TypeORM + PostgreSQL 15; **27** domain modules + `platform/` |
-| Data | **83** TypeORM entities; **15** migrations (`1730000000000`–`0014`) |
-| Auth | JWT access/refresh, 2FA TOTP, Google SSO, portal JWT terpisah, login throttling |
-| Tenant | Row-level `tenantId`; optional schema-per-tenant (`TENANT_SCHEMA_MODE`) |
-| Infra deps | Redis, RabbitMQ, Elasticsearch, Prometheus, Grafana (Docker Compose) |
+| Data | **83** TypeORM entities; **16** migrations (`0000`–`0015`) |
+| Auth | JWT access/refresh, 2FA TOTP (issuer `dnCore`), Google SSO, portal JWT, throttling |
+| Plans | **FREE / STARTER / PROFESSIONAL / ENTERPRISE** (+ legacy `STARTUP` alias) — module + storage quota enforced |
+| Tenant | Row-level `tenantId`; optional schema-per-tenant |
+| Webhooks | Outbound HMAC (`X-dnCore-Signature`) for sales/PO/invoice/GL/workflow events |
+| Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile | Expo MVP scaffold (`/mobile`) |
-| Automated evidence | **392** unit tests · **84** suites · coverage gate ≥60% (verified 19 Jul 2026) |
+| Automated evidence | **393** unit tests · **84** suites · coverage gate ≥60% |
 
-### Local ports
+## dnCore v1.0 deltas (19 Jul 2026)
 
-| Service | Port |
-|---------|------|
-| API (`/api/v1`, Swagger `/api/docs`, `/metrics`) | 3000 |
-| Frontend (Vite) | 5173 |
-| PostgreSQL / Redis / RabbitMQ / ES | 5432 / 6379 / 5672 / 9200 |
-| Prometheus / Grafana | 9090 / 3001 |
+| Area | Change |
+|------|--------|
+| Billing | PRD tiers Free/Starter/Pro/Enterprise; seat/module/storage limits |
+| Module access | `ModuleAccessInterceptor` blocks path by plan |
+| Sales | Create = **DRAFT**; confirm reserves inventory then publishes event |
+| Retention | Real SQL soft/hard purge + `POST /compliance/retention/purge` + `scripts/purge-old-data.sh` |
+| Webhooks | Consumer `webhook.dispatch` + domain event fan-out |
+| Ops | `setup-dev.sh`, `db-migrate.sh`, `restore-drill.sh`, `Docs/incident-response.md`, Helm HPA/PDB |
+| Brand | Product surfaces renamed **dnCore** (API title, health, UI, TOTP issuer) |
 
 ## Available now (module inventory)
 
-| Module | Path | Capabilities (summary) | Status |
-|--------|------|------------------------|--------|
-| Auth | `modules/auth` | Register, login, JWT, 2FA, password reset, Google SSO | Available |
-| Tenants | `modules/tenants` | Provisioning, subscription plan | Available |
-| Finance | `modules/finance` | GL, COA, JE, AP/AR, statements, e-Faktur, bank recon, GL events | Available |
-| Sales | `modules/sales` | Orders, quotations, credit limit, volume pricing | Available |
-| Supply chain | `modules/supply-chain` | Products, warehouses, PO, GR, MRP, barcode | Available |
-| HR | `modules/hr` | Employees, attendance, leave, PPh 21 payroll, ATS, 360°, THR/bonus | Available |
-| Manufacturing | `modules/manufacturing` | BOM, MO, scrap, capacity | Available |
-| Projects | `modules/projects` | Projects, tasks, time, budget | Available |
-| CRM | `modules/crm` | Leads, opportunities, pipeline | Available |
-| Fixed assets | `modules/fixed-assets` | Register, depreciation, maintenance | Available |
-| Enterprise | `modules/enterprise` | RFQ, cycle count, FX, QC, multi-company | Available |
-| Reporting | `modules/reporting` | Custom reports, dashboard builder, KPI alerts, OLAP | Available |
-| Workflow | `modules/workflow` | Approvals, SLA, escalations | Available |
-| Analytics | `modules/analytics` | Forecast, churn, anomaly (rule/ensemble MVP) | Available · Conditional depth |
-| Documents | `modules/documents` | Upload, e-sign stub | Available · Conditional vendor |
-| Integrations | `modules/integrations` | Stripe/Slack/Zapier/Shopify/JIRA/shipping gallery | Available · Conditional keys |
-| Portal | `modules/portal` | Customer/vendor portal JWT | Available |
-| Billing | `modules/billing` | Plan limits, Stripe checkout | Available · Conditional live Stripe |
-| GDPR | `modules/gdpr` | Export, consent, erasure | Available |
-| Compliance | `modules/compliance` | Tax XML export, retention, audit (V3) | Available · MVP+ |
-| Ops | `modules/ops` | Backup monitor, restore-test log (V3) | Available · Conditional AWS |
-| LMS | `modules/lms` | Courses, enrollments, certificates (V3) | Available · MVP+ |
-| Platform | `platform/` | Partner, white-label, ETL, registry | Available · MVP+ |
-| Industry | `modules/industry` | Industry packs scaffold | Available · MVP |
-| Notifications / Scheduler / Users / Health | respective modules | In-app notify, cron, admin users, health | Available |
+Lihat [`FEATURE-CATALOG.md`](./FEATURE-CATALOG.md). Ringkas: Auth, Tenants, Finance, Sales, Supply Chain, HR, Manufacturing, Projects, CRM, Fixed Assets, Enterprise, Reporting, Workflow, Analytics, Documents, Integrations, Portal, Billing, GDPR, Compliance, Ops, LMS, Platform, Industry, Notifications, Scheduler, Users, Health.
 
-## Frontend surfaces
+## Conditional / external
 
-30 pages including Dashboard, Finance, Sales, Inventory, HR, Manufacturing, Projects, CRM, Fixed Assets, Reports, Report/Dashboard Builder, Analytics, Documents, Workflows, Integrations, Notifications, Settings/Users/Audit/2FA/GDPR, Portal, Auth flows, and **Enterprise V3 hub** (`/enterprise`).
+| Item | Notes |
+|------|-------|
+| AWS EKS/RDS live | Terraform stubs + Helm ready; credentials Conditional |
+| Stripe / Slack / Shopify / JNE | Coded; live keys Conditional |
+| Mobile App Store | Expo MVP only |
+| SOC 2 Type II | Process Phase 8 |
 
-## Completion summary
+## Ops scripts (SDD §11)
 
-| Dimensi | Status |
-|---------|--------|
-| Phase 0–4 (core ERP) | **~95% coded** — production-ready *code* |
-| V3 Phase 5–8 | **~85% coded (MVP+)** — compliance, ops, LMS, AI/enterprise depth |
-| Production live AWS | Conditional — templates ready, not live |
-| Mobile App Store | Conditional — Expo scaffold only |
-| SOC 2 Type II | External audit |
-
-## Production / UAT gates
-
-- AWS credentials + live RDS/S3 backup lifecycle  
-- Live payment / DocuSign / OCR / shipping API keys  
-- Authenticated load test on production-sized data  
-- Signed browser UAT per role  
-- Mobile store submission  
-
-## Not implemented / roadmap boundary
-
-- Full FastAPI/Prophet microservice (analytics optional)  
-- Production-grade microservices split (platform registry is scaffold)  
-- Native store-ready mobile feature parity  
-- Guaranteed 99.9% SLA without ops stack live  
-
-## Source references
-
-- [FEATURE-CATALOG.md](./FEATURE-CATALOG.md)  
-- [v3/IMPLEMENTATION-STATUS.md](./v3/IMPLEMENTATION-STATUS.md)  
-- [12-PROJECT-STATUS.md](./12-PROJECT-STATUS.md) (Phase 1–4 era — see V3 delta)  
-- [25-PRD-BASELINE-CURRENT-STATE.md](./25-PRD-BASELINE-CURRENT-STATE.md) (pre-V3 baseline — supersede metrics with this doc)  
-- [00_INDEX.md](./00_INDEX.md)  
+| Script | Path |
+|--------|------|
+| Dev bootstrap | `scripts/setup-dev.sh` |
+| Migrations | `scripts/db-migrate.sh` |
+| Retention purge | `scripts/purge-old-data.sh` |
+| Restore drill | `scripts/restore-drill.sh` |
+| Smoke / checklist | `scripts/production-smoke.sh`, `production-checklist.sh` |
+| Incident runbook | `Docs/incident-response.md` |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

@@ -1,12 +1,12 @@
-# dnPeople ERP — Feature Catalog
+# dnCore — Feature Catalog
 
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
-**Brand:** dnPeople ERP  
+**Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** HEAD `9bf15e2` · **392** tests · **27** modules · **30** pages · **83** entities  
+**Snapshot:** dnCore PRD v1.0 · **393** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
 
-> Produk ERP NestJS — **bukan** HRIS `dnpeople`. Spec V3: `Docs/v3/`.
+> Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
 ## Cara membaca
 
@@ -22,11 +22,13 @@
 |-------|-------------|--------|
 | Multi-tenant | Row-level tenantId; optional schema mode | Available |
 | Auth JWT + refresh | Login/register, throttling | Available |
-| 2FA TOTP | Setup/enable | Available |
+| 2FA TOTP | Setup/enable (issuer dnCore) | Available |
 | Google SSO | OAuth login | Conditional — credentials |
 | Portal JWT | Customer/vendor portal terpisah | Available |
+| Plans Free→Enterprise | Seat + module + storage quota | Available |
+| Module access guard | Path interceptor by plan | Available |
 | GDPR tools | Export, consent, erasure | Available |
-| Billing / Stripe | Plan limits, checkout | Conditional — live Stripe |
+| Billing / Stripe | Checkout + local upgrade fallback | Conditional — live Stripe |
 | White-label / partner | Platform layer V3 | Available · MVP+ |
 
 ## 2. Finance & tax (Indonesia)
@@ -38,13 +40,14 @@
 | Financial statements | BS, P&L, cash flow | Available |
 | e-Faktur / tax exports | Compliance module SPT stubs | Available · MVP+ |
 | Bank recon / 3-way match / dunning | Advanced finance | Available |
-| GL integration events | Sales/PO/MO → GL | Available |
+| GL integration events | Sales/PO/MO → GL + webhook | Available |
 
 ## 3. Sales, supply chain, manufacturing
 
 | Fitur | Kapabilitas | Status |
 |-------|-------------|--------|
-| Sales orders / quotations | Credit limit, volume pricing | Available |
+| Sales orders DRAFT→Confirm | Credit limit, inventory reserve | Available |
+| Quotations / volume pricing | QT → SO | Available |
 | Inventory / PO / GR | Warehouses, barcode, MRP | Available |
 | Manufacturing | BOM, MO, scrap, capacity, QC | Available |
 | Enterprise procurement | RFQ, requisitions, cycle count | Available |
@@ -73,17 +76,18 @@
 |-------|-------------|--------|
 | Custom reports / OLAP | Builder + saved reports | Available |
 | Dashboard builder / KPI alerts | Widgets + thresholds | Available |
-| Workflow approvals / SLA | Inbox, escalations | Available |
+| Workflow approvals / SLA | Inbox, escalations + webhook | Available |
 | Analytics forecast/churn/anomaly | Rule/ensemble MVP | Available · Conditional depth |
 
 ## 7. Documents, integrations, ops
 
 | Fitur | Kapabilitas | Status |
 |-------|-------------|--------|
-| Documents + e-sign | Upload + stub certificate | Conditional — DocuSign/live |
+| Documents + e-sign | Upload + storage quota + stub cert | Conditional — DocuSign/live |
+| Outbound webhooks | HMAC dispatch for domain events | Available |
 | Integration gallery | Slack, Zapier, Shopify, JIRA, shipping | Conditional — API keys |
-| Ops backup monitor | Cron + restore-test log | Conditional — AWS RDS/S3 |
-| Compliance retention | Policies + purge cron | Available · MVP+ |
+| Ops backup monitor | Cron + restore-test log + local drill script | Conditional — AWS RDS/S3 |
+| Compliance retention | Policies + real purge | Available |
 | Mobile Expo | Login + dashboard | Conditional — store |
 
 ## 8. Roadmap boundary
@@ -92,11 +96,12 @@
 - Production ML microservice (Prophet/FastAPI)  
 - App Store / Play Store parity  
 - SOC 2 Type II certification (process)  
+- Phase 5 AWS live credentials  
 
 ## Referensi
 
 - [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)  
+- [prd/01-PRD-dnCore-v1.md](./prd/01-PRD-dnCore-v1.md)  
 - [v3/IMPLEMENTATION-STATUS.md](./v3/IMPLEMENTATION-STATUS.md)  
-- [18-MODULE-FEATURES-SCHEMA.md](./18-MODULE-FEATURES-SCHEMA.md)  
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
