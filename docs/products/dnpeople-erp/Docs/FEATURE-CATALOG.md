@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** dnCore PRD v1.0 · **393** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
+**Snapshot:** dnCore PRD v1.0 complete (in-repo) · **394** tests · **27** modules · **30** pages · **83** entities · migrations through `0015`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -84,11 +84,17 @@
 | Fitur | Kapabilitas | Status |
 |-------|-------------|--------|
 | Documents + e-sign | Upload + storage quota + stub cert | Conditional — DocuSign/live |
-| Outbound webhooks | HMAC dispatch for domain events | Available |
+| Outbound webhooks | HMAC + 3× retry + DLQ | Available |
+| Shopify → Sales Orders | Sync + inbound webhook creates DRAFT SO | Available · Conditional live shop |
+| Shipping JNE/Sicepat | Label + track adapters | Available · Conditional keys |
+| Per-tenant API quota | Hourly plan limit (Redis/memory) | Available |
+| Slack approve button | Block Kit deep-link | Available · Conditional token |
+| Ops restore-test UI | Enterprise hub PASS/FAIL | Available |
+| Grafana dashboards | System + SLA provisioned | Available |
 | Integration gallery | Slack, Zapier, Shopify, JIRA, shipping | Conditional — API keys |
 | Ops backup monitor | Cron + restore-test log + local drill script | Conditional — AWS RDS/S3 |
 | Compliance retention | Policies + real purge | Available |
-| Mobile Expo | Login + dashboard | Conditional — store |
+| Mobile Expo | Login + dashboard (dnCore) | Conditional — store |
 
 ## 8. Roadmap boundary
 

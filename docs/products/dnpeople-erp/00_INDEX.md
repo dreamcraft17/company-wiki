@@ -7,7 +7,7 @@
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: dnCore  
 **UpdatedAt**: July 19, 2026  
-**Inventory**: 30 pages · 27 modules · 83 entities · 16 migrations · 393 tests  
+**Inventory**: 30 pages · 27 modules · 83 entities · 16 migrations · 394 tests  
 
 > **Bukan** HRIS `dnPeople` (`dnpeople` repo). Messaging: "dnPeople for your people · dnCore for your business."
 
@@ -35,7 +35,7 @@
 | dnCore PRD v1.0 (in-repo) | ✅ Implemented |
 | Phase 0–4 core ERP | ✅ ~95% coded |
 | V3 Phase 5–8 | ✅ ~85% MVP+ |
-| Unit tests | ✅ 393 / 84 suites |
+| Unit tests | ✅ 394 / 84 suites |
 | Production AWS live | Conditional |
 | Mobile store | Conditional |
 

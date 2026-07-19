@@ -4,6 +4,22 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — dnCore remaining gaps closed (Shopify SO, shipping, quota, ops)
+
+### Added
+- Shopify sync/webhook → Sales Order DRAFT + customer upsert
+- Shipping carrier adapters (JNE/Sicepat) + `POST /integrations/shipping/label`
+- Webhook **3× retry + DLQ** (`webhook.dlq`)
+- Per-tenant hourly **API quota** interceptor
+- Grafana provisioned dashboards (system + SLA)
+- Terraform Phase-5 bodies (S3/EKS/CloudFront/IAM/monitoring)
+- Ops restore-test UI, `scripts/load-test.sh`, mobile dnCore rebrand
+
+### Verified
+- Backend unit tests: **394 passed / 84 suites**
+
+---
+
 ## [2026-07-19] — dnCore PRD v1.0 implementation
 
 ### Added

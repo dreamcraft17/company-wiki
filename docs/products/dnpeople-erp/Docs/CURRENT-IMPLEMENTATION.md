@@ -29,31 +29,33 @@
 | Webhooks | Outbound HMAC (`X-dnCore-Signature`) for sales/PO/invoice/GL/workflow events |
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile | Expo MVP scaffold (`/mobile`) |
-| Automated evidence | **393** unit tests · **84** suites · coverage gate ≥60% |
+| Automated evidence | **394** unit tests · **84** suites · coverage gate ≥60% |
 
-## dnCore v1.0 deltas (19 Jul 2026)
+## dnCore v1.0 completion (19 Jul 2026 — full in-repo)
 
 | Area | Change |
 |------|--------|
-| Billing | PRD tiers Free/Starter/Pro/Enterprise; seat/module/storage limits |
-| Module access | `ModuleAccessInterceptor` blocks path by plan |
-| Sales | Create = **DRAFT**; confirm reserves inventory then publishes event |
-| Retention | Real SQL soft/hard purge + `POST /compliance/retention/purge` + `scripts/purge-old-data.sh` |
-| Webhooks | Consumer `webhook.dispatch` + domain event fan-out |
-| Ops | `setup-dev.sh`, `db-migrate.sh`, `restore-drill.sh`, `Docs/incident-response.md`, Helm HPA/PDB |
-| Brand | Product surfaces renamed **dnCore** (API title, health, UI, TOTP issuer) |
+| Billing | PRD tiers Free/Starter/Pro/Enterprise; seat/module/storage + **hourly API quota** |
+| Module access | `ModuleAccessInterceptor` |
+| Sales | DRAFT → confirm + inventory reserve |
+| Retention | Real purge + scripts |
+| Webhooks | HMAC dispatch + **3× retry + DLQ** |
+| Shopify | Sync/webhook → **create Sales Orders** (DRAFT) |
+| Shipping | JNE/Sicepat adapters + label API (live when keyed) |
+| Slack | Block Kit approve button |
+| Ops UI | Restore-test PASS/FAIL on Enterprise hub |
+| Grafana | Provisioned system + SLA dashboards |
+| Terraform | S3/EKS/CloudFront/IAM/monitoring resources (gated) |
+| Mobile | dnCore brand + refresh/error on dashboard |
+| Load smoke | `scripts/load-test.sh` |
 
-## Available now (module inventory)
-
-Lihat [`FEATURE-CATALOG.md`](./FEATURE-CATALOG.md). Ringkas: Auth, Tenants, Finance, Sales, Supply Chain, HR, Manufacturing, Projects, CRM, Fixed Assets, Enterprise, Reporting, Workflow, Analytics, Documents, Integrations, Portal, Billing, GDPR, Compliance, Ops, LMS, Platform, Industry, Notifications, Scheduler, Users, Health.
-
-## Conditional / external
+## Conditional / external (not blocked on code)
 
 | Item | Notes |
 |------|-------|
-| AWS EKS/RDS live | Terraform stubs + Helm ready; credentials Conditional |
-| Stripe / Slack / Shopify / JNE | Coded; live keys Conditional |
-| Mobile App Store | Expo MVP only |
+| AWS apply | Terraform ready; needs credentials |
+| Stripe / Slack / Shopify / JNE live keys | Adapters coded |
+| App Store submit | EAS profiles ready |
 | SOC 2 Type II | Process Phase 8 |
 
 ## Ops scripts (SDD §11)
