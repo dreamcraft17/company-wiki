@@ -4,6 +4,22 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — TypeORM entity column types (PostgreSQL metadata hardening)
+
+### Fixed
+- Project-wide explicit `@Column` / `@PrimaryColumn` database types on **84** entity files (**~395** columns)
+- Eliminates `DataTypeNotSupportedError: Data type "Object"` from TS unions (`string | null`, literal unions) under `strictNullChecks` + `emitDecoratorMetadata`
+- Root cause class: marketplace (`partnerAppId`, `category`, `stripeConnectAccountId`) and any nullable string/enum without explicit `type`
+
+### Changed
+- Convention: every column declares `type: 'varchar' | 'uuid' | 'int' | 'decimal' | 'boolean' | 'timestamp' | 'jsonb' | 'enum' | 'text' | …`
+- No schema rename / no service logic change; migrations unchanged (`tenantId` remains `character varying` in DB)
+
+### Verified
+- TypeORM `buildMetadatas()` → **110** entity metadatas · **0** columns typed as `Object`
+
+---
+
 ## [2026-07-19] — Mobile-first web polish complete (PRD baseline freeze)
 
 ### Changed

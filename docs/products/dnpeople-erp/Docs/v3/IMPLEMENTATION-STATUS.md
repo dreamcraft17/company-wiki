@@ -2,7 +2,7 @@
 
 **Terakhir diperbarui:** 19 Juli 2026  
 **Product brand:** dnCore  
-**Branch:** `main` · **Latest commit:** `07ef0d9`  
+**Branch:** `main` · **Latest commit:** `e6e1ccf`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
@@ -228,3 +228,4 @@ cd frontend && npm run dev
 | 19 Jul 2026 (eve++) | Wire V3 APIs into Analytics/Documents/Workflows/Integrations module pages |
 | 19 Jul 2026 (night) | Phase 8 in-repo close-out: revenue share, reseller admin, copilot/ETL/DocuSign/OCR depth — **408** tests |
 | 19 Jul 2026 (night+) | Mobile-first web polish complete: Finance/Reports/Portal/Audit/builders + extra module tables; Tabs scrollable theme default; docs frozen as next PRD baseline |
+| 19 Jul 2026 (night++) | TypeORM entity hardening: explicit column types on **84** files / **~395** columns — eliminates Postgres `Data type "Object"` metadata errors |

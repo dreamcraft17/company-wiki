@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** HEAD `07ef0d9` · Mobile-first web complete · Phase 8 close-out · **408** tests · **27** modules · **31** pages · **86** entities · migrations through `0017`  
+**Snapshot:** HEAD `e6e1ccf` · TypeORM explicit column types · Mobile-first web complete · Phase 8 · **408** tests · **27** modules · **31** pages · **86** entities · migrations through `0017`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -32,6 +32,7 @@
 | Email digest | Daily digest via EmailService (SMTP or console) | Available |
 | White-label / partner | Platform layer V3 + **reseller admin** | Available |
 | Marketplace revenue share | Purchase + platform/partner split (Stripe Connect or MOCK) | Available · Conditional live Connect |
+| TypeORM column metadata | Explicit DB `type` on all entity columns (Postgres-safe) | Available |
 
 ## 2. Finance & tax (Indonesia)
 

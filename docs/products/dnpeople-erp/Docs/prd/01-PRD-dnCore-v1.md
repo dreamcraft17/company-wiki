@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `07ef0d9`  
+**Branch:** `main` · HEAD `e6e1ccf`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
 
 ---
@@ -330,6 +330,7 @@ DN Tech (Platform umbrella)
 | **1.0.5** | 19 Jul 2026 | Wire V3 endpoints into Analytics/Documents/Workflows/Integrations (`a4b63c9`) |
 | **1.0.6** | 19 Jul 2026 | Phase 8 in-repo close-out: revenue share, reseller, copilot/ETL/DocuSign/OCR — **408** tests |
 | **1.0.7** | 19 Jul 2026 | Mobile-first web polish complete (remaining tables + scrollable Tabs); docs frozen as next PRD baseline |
+| **1.0.8** | 19 Jul 2026 | TypeORM entity hardening: explicit DB column types on all entities (Postgres `Object` metadata fix) |
 
 ---
 

@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `07ef0d9`  
+**Branch:** `main` · HEAD `e6e1ccf`  
 **Status:** Phase 0–4 production architecture ✅  
 
 > **Purpose:** Technical architecture, data design, infrastructure topology, scalability strategy untuk dnCore. Dokumen ini adalah source of truth untuk engineering implementation decisions.
@@ -157,6 +157,7 @@
 |-------|-----------|---------|---------|
 | **Framework** | NestJS | 10.x | Modular architecture, middleware, guards, interceptors |
 | **ORM** | TypeORM | 0.3.x | Entity-driven schema, migrations, relation mgmt |
+| **Entity column types** | Explicit `@Column({ type })` | — | Required under `strictNullChecks` + `emitDecoratorMetadata` (avoids Postgres `Data type "Object"`) |
 | **Database** | PostgreSQL | 15 | ACID, JSON support, array types, materialized views |
 | **Auth** | @nestjs/jwt, Passport | — | JWT, OAuth, TOTP strategies |
 | **Validation** | class-validator, class-transformer | — | DTO validation + serialization |
@@ -286,7 +287,7 @@ backend/src/modules/MODULE_NAME/
 │   ├── MODULE_NAME.service.ts      # Business logic, transactions
 │   └── (helper services)
 ├── entities/
-│   └── MODULE_NAME.entity.ts       # TypeORM entity
+│   └── MODULE_NAME.entity.ts       # TypeORM entity (explicit column `type` required)
 ├── dtos/
 │   ├── create-MODULE_NAME.dto.ts
 │   ├── update-MODULE_NAME.dto.ts
@@ -299,6 +300,8 @@ backend/src/modules/MODULE_NAME/
     ├── MODULE_NAME.service.spec.ts (60%+ coverage)
     └── MODULE_NAME.controller.spec.ts
 ```
+
+**Entity column convention (required):** every `@Column` / `@PrimaryColumn` must set an explicit PostgreSQL-compatible `type` (`varchar`, `uuid`, `int`, `decimal`, `boolean`, `timestamp`, `jsonb`, `enum`, `text`, …). Do **not** rely on reflected TS types alone — unions such as `string | null` emit runtime `Object` and crash TypeORM against Postgres.
 
 ### 4.2 Cross-Cutting Concerns (Common Layer)
 

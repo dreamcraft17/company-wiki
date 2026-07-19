@@ -1,8 +1,8 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `07ef0d9`  
-**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + **mobile-first web complete** + V3 module-page wiring (Expo on hold) · frozen for next PRD  
+**HEAD:** `e6e1ccf`  
+**Purpose:** source baseline after TypeORM column-type hardening + mobile-first web complete + Phase 8 (Expo on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
@@ -21,9 +21,9 @@
 | Area | Current implementation |
 |------|------------------------|
 | Product | **dnCore** — multi-tenant SaaS ERP (GL, sales, supply chain, HR/payroll subset, manufacturing, CRM, workflow, reporting) |
-| Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **30** pages; hub `/enterprise` |
+| Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **31** pages; hub `/enterprise` |
 | Backend | NestJS 10 + TypeORM + PostgreSQL 15; **27** domain modules + `platform/` |
-| Data | **86** TypeORM entities; **18** migrations (`0000`–`0017`) |
+| Data | **86** TypeORM entities; **18** migrations (`0000`–`0017`); **explicit column `type` on all columns** (no Object metadata) |
 | Auth | JWT access/refresh, 2FA TOTP (issuer `dnCore`), Google SSO, portal JWT, throttling |
 | Plans | **FREE / STARTER / PROFESSIONAL / ENTERPRISE** (+ legacy `STARTUP` alias) — module + storage quota enforced |
 | Tenant | Row-level `tenantId`; optional schema-per-tenant |
@@ -31,6 +31,16 @@
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile web | Responsive SPA shell (drawer + scroll tables) · Expo native **on hold** |
 | Automated evidence | **408** unit tests · **88** suites · coverage gate ≥60% |
+
+## TypeORM PostgreSQL metadata hardening (19 Jul 2026)
+
+| Area | Change |
+|------|--------|
+| Scope | **84** `*.entity.ts` files · **~395** columns |
+| Rule | Every `@Column` / `@PrimaryColumn` declares explicit DB `type` |
+| Why | `string \| null` / unions / bare enums emit runtime `Object` → `DataTypeNotSupportedError` on Postgres |
+| Validation | `buildMetadatas()` → **0** Object-typed columns |
+| Out of scope | No table/column renames · no service/DTO changes · no new migrations |
 
 ## Phase 8 in-repo close-out (19 Jul 2026)
 
