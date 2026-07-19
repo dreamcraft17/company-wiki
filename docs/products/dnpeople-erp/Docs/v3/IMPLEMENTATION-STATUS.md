@@ -1,7 +1,8 @@
 # V3 Implementation Status — Phase 5–8
 
 **Terakhir diperbarui:** 19 Juli 2026  
-**Branch:** `main` · **Latest commit:** `9bf15e2`  
+**Product brand:** dnCore  
+**Branch:** `main` · **Latest commit:** `189506d`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
@@ -19,7 +20,7 @@
 |---------|------------------------|-------------------------|
 | Backend modules | 24 (23 domain + industry) | **27 domain** + `platform/` |
 | DB migrations | `0000`–`0013` (14 files) | **`0000`–`0014` (15 files)** |
-| Unit tests | 390 (83 suites) | **392 (84 suites)** ✅ |
+| Unit tests | 390 (83 suites) | **394 (84 suites)** ✅ |
 | Frontend pages | 29 | **30** (+ Enterprise V3 hub) |
 | SRS V3 Phase 5–8 (kode) | ~5% scaffold | **~85% coded (MVP+)** |
 | Production live deploy | 🟡 templates ready | 🟡 **unchanged** — butuh AWS + live keys |
@@ -44,7 +45,7 @@
 
 | Metrik | Nilai |
 |--------|-------|
-| Unit tests | **392** passed · **84** suites |
+| Unit tests | **394** passed · **84** suites |
 | Coverage gate | **≥60%** (CI) |
 | Backend modules | **27** di `backend/src/modules/` |
 | Platform layer | `partner/`, `white-label/`, `etl/`, registry |
@@ -195,7 +196,7 @@ Tables baru: 19 (+ kolom extend `documents`, `signature_requests`)
 
 ```bash
 # Tests
-cd backend && npm test          # expect 392 passed
+cd backend && npm test          # expect 394 passed
 
 # Dev
 cd backend && npm run db:migrate && npm run start:dev
@@ -220,3 +221,4 @@ cd frontend && npm run dev
 ---
 
 *Maintainer: update setiap milestone V3 deploy, hardening, atau perubahan SRS V3.*
+| 19 Jul 2026 | dnCore PRD v1.0 full in-repo (`189506d`): plans/quota, Shopify→SO, shipping adapters, webhook retry/DLQ, Grafana, TF Phase-5, **394** tests |

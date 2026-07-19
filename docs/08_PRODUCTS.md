@@ -55,9 +55,9 @@ DN Tech Products
 │   ├── Payroll Indonesia (BPJS + PPh 21)
 │   └── Repo: dnpeople (Express + Next.js)
 │
-├── 🏢 DN People ERP                          → docs/products/dnpeople-erp/
-│   ├── Full ERP (HR + Finance + Inventory…)
-│   └── Repo: ERP (NestJS) — produk terpisah
+├── 🏢 dnCore (ERP)                           → docs/products/dnpeople-erp/
+│   ├── Finance, SC, Mfg, CRM, Workflow…
+│   └── Repo: ERP (NestJS) — brand dnCore
 │
 ├── 📍 Nearwork                               → docs/products/nearwork/
 │   ├── Location-based platform
@@ -236,29 +236,31 @@ DN Tech Products
 | Supabase | [SUPABASE.md](./products/dnPeople/docs/SUPABASE.md) |
 | VPS install | [VPS.md](./products/dnPeople/docs/VPS.md) |
 
-> **Catatan:** Berbeda dari DN People ERP di bawah — produk & repo terpisah.
+> **Catatan:** Berbeda dari **dnCore (ERP)** di bawah — produk & repo terpisah. Messaging: "dnPeople for your people · dnCore for your business."
 
 ---
 
 ## Future Products / In Development
 
-### DN People ERP
+### dnCore (ERP)
 
 | Aspek | Detail |
 |-------|--------|
-| Status | **In Development** — V3 Phase 5–8 ~85% coded |
-| Target | SME & Enterprise di Indonesia |
-| Modules | HR, Payroll, Finance, Inventory, Project Mgmt, Compliance, LMS, Platform |
-| Tests | 392 unit tests · 27 backend modules · Enterprise V3 hub |
-| Docs | [48 files →](./products/dnpeople-erp/00_INDEX.md) |
-| Blocker | Live AWS deploy, SOC 2, production API keys |
+| Status | **dnCore PRD v1.0 full in-repo** (`189506d`) · Phase 5 AWS live Conditional |
+| Brand | dnCore · complementary to dnPeople HRIS |
+| Target | SME & mid-market Indonesia |
+| Modules | 27 domain modules (Finance, Sales, SC, Mfg, HR subset, CRM, Workflow, LMS, …) |
+| Tests | **394** unit tests · 30 pages · 16 migrations |
+| Docs | [Index →](./products/dnpeople-erp/00_INDEX.md) |
+| Blocker | Live AWS deploy, production vendor keys, App Store, SOC 2 |
 
 **Key documents:**
-- [PRD](./products/dnpeople-erp/Docs/01-PRD-ERP-System.md)
-- [SRS](./products/dnpeople-erp/Docs/02-SRS-ERP-System.md)
-- [SDD](./products/dnpeople-erp/Docs/03-SDD-ERP-System.md)
-- [V3 Enterprise PRD](./products/dnpeople-erp/Docs/v3/PRD-V3-DNPEOPLE-ENTERPRISE.md)
-- [Phase 1 Checklist](./products/dnpeople-erp/update/PHASE-1-EXECUTION-CHECKLIST.md)
+- [PRD dnCore v1.0](./products/dnpeople-erp/Docs/prd/01-PRD-dnCore-v1.md)
+- [SDD dnCore v1.0](./products/dnpeople-erp/Docs/prd/02-SDD-dnCore-v1.md)
+- [SRS dnCore v1.0](./products/dnpeople-erp/Docs/prd/03-SRS-dnCore-v1.md)
+- [CURRENT-IMPLEMENTATION](./products/dnpeople-erp/Docs/CURRENT-IMPLEMENTATION.md)
+- [FEATURE-CATALOG](./products/dnpeople-erp/Docs/FEATURE-CATALOG.md)
+- [V3 Enterprise PRD (legacy)](./products/dnpeople-erp/Docs/v3/PRD-V3-DNPEOPLE-ENTERPRISE.md)
 
 ### Nearwork
 

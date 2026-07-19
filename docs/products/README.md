@@ -1,7 +1,7 @@
 # Product Documentation Index
 
-**Document Version**: 1.3
-**Last Updated**: July 18, 2026
+**Document Version**: 1.4
+**Last Updated**: July 19, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -14,8 +14,8 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v6.1 enterprise multi-tenant + seamless login implemented | `dnpeople` |
-| **DN People ERP** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | 48 files | In Development (V3 ~85%) | `ERP` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | dnCore v1.0 full in-repo (`189506d`) · 394 tests | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -25,16 +25,16 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 ---
 
-## 🔄 Latest Updates (July 18, 2026)
+## 🔄 Latest Updates (July 19, 2026)
 
 | Project | Commit | Perubahan |
 |---------|--------|-----------|
-| **dnPeople HRIS** | — | PRD v6.1 seamless tenant discovery login, staff-account administration, current implementation baseline, API/status/catalog sync |
+| **dnCore (ERP)** | `189506d` | PRD v1.0 full in-repo — plans/quota, Shopify→SO, shipping, webhook retry/DLQ, Grafana, TF Phase-5, **394** tests |
+| **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
-| **DN People ERP** | `9bf15e2` | V3 implementation status matrix — 392 tests, 27 modules, Enterprise hub |
 | **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
-| **company-wiki** | — | dnPeople PRD/docs mirror updated through v6.1; products index refreshed |
+| **company-wiki** | — | dnCore docs mirror + products index refreshed |
 
 ---
 
@@ -71,7 +71,7 @@ docs/products/
 ├── README.md                  # ← Anda di sini
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
-├── dnpeople-erp/              # DN People ERP (NestJS) — produk terpisah
+├── dnpeople-erp/              # dnCore ERP (NestJS) — path legacy; brand dnCore
 ├── nearwork/                  # Nearwork Platform
 ├── threads-automation/        # Threads Automation Tool
 ├── tj/                        # Trusted Jurist Law Firm website
@@ -93,4 +93,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: July 19, 2026*

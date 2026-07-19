@@ -1,6 +1,7 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
+**HEAD:** `189506d`  
 **Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** implementation  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
@@ -26,9 +27,9 @@
 | Auth | JWT access/refresh, 2FA TOTP (issuer `dnCore`), Google SSO, portal JWT, throttling |
 | Plans | **FREE / STARTER / PROFESSIONAL / ENTERPRISE** (+ legacy `STARTUP` alias) — module + storage quota enforced |
 | Tenant | Row-level `tenantId`; optional schema-per-tenant |
-| Webhooks | Outbound HMAC (`X-dnCore-Signature`) for sales/PO/invoice/GL/workflow events |
+| Webhooks | Outbound HMAC (`X-dnCore-Signature`) + 3× retry/DLQ for sales/PO/invoice/GL/workflow events |
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
-| Mobile | Expo MVP scaffold (`/mobile`) |
+| Mobile | Expo MVP (`/mobile`) — dnCore branded |
 | Automated evidence | **394** unit tests · **84** suites · coverage gate ≥60% |
 
 ## dnCore v1.0 completion (19 Jul 2026 — full in-repo)
@@ -67,6 +68,7 @@
 | Retention purge | `scripts/purge-old-data.sh` |
 | Restore drill | `scripts/restore-drill.sh` |
 | Smoke / checklist | `scripts/production-smoke.sh`, `production-checklist.sh` |
+| Load smoke | `scripts/load-test.sh` |
 | Incident runbook | `Docs/incident-response.md` |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
