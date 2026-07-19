@@ -329,6 +329,7 @@ DN Tech (Platform umbrella)
 | **1.0.4** | 19 Jul 2026 | Mobile-first web UI (`63b43df`); Expo native **on hold** |
 | **1.0.5** | 19 Jul 2026 | Wire V3 endpoints into Analytics/Documents/Workflows/Integrations (`a4b63c9`) |
 | **1.0.6** | 19 Jul 2026 | Phase 8 in-repo close-out: revenue share, reseller, copilot/ETL/DocuSign/OCR — **408** tests |
+| **1.0.7** | 19 Jul 2026 | Mobile-first web polish complete (remaining tables + scrollable Tabs); docs frozen as next PRD baseline |
 
 ---
 

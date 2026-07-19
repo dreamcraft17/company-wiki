@@ -96,7 +96,7 @@
 | Integration gallery | Gallery + OAuth URL + shipping label UI + marketplace | Conditional — API keys |
 | Ops backup monitor | Cron + restore-test log + local drill script | Conditional — AWS RDS/S3 |
 | Compliance retention | Policies + real purge | Available |
-| Mobile-first web | Responsive drawer shell, scrollable tables, KPI grids | Available |
+| Mobile-first web | Drawer &lt;md · all tables scroll · scrollable Tabs · KPI grids | Available · **complete** |
 | Mobile Expo | Tabs + offline + biometric + push (foundation) | **On hold** — not expanding |
 | Mobile push tokens | Register/unregister + Expo fan-out (API ready) | Available · unused while Expo held |
 

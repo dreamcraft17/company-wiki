@@ -908,7 +908,7 @@
 | **Contrast ratio** | WCAG 2.1 AA (4.5:1 text) | MUI color tokens, enforced via design system |
 | **Localization** | 15 locales | React context i18n, RTL support for Arabic |
 | **Offline support** | Web N/A · Expo foundation paused | Expo offline cache on hold with native app |
-| **Mobile responsiveness** | <900px (`md`) | MUI drawer + scroll tables + responsive KPI grids (Jul 2026) |
+| **Mobile responsiveness** | <900px (`md`) | Drawer + all page tables scroll + scrollable Tabs + KPI grids — **complete** (Jul 2026) |
 
 ### 2.7 Maintainability
 

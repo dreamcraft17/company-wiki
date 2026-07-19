@@ -2,7 +2,7 @@
 
 **Snapshot date:** 19 July 2026  
 **HEAD:** `fdc12c2`  
-**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + mobile-first web + V3 module-page wiring (Expo on hold)  
+**Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + **mobile-first web complete** + V3 module-page wiring (Expo on hold) · frozen for next PRD  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
@@ -53,14 +53,16 @@
 | Integrations | OAuth URL, shipping label, marketplace list |
 | Enterprise hub | Scrollable tax/backup tables |
 
-## Mobile-first web UI (19 Jul 2026)
+## Mobile-first web UI (19 Jul 2026) — **complete (in-repo)**
 
 | Area | Change |
 |------|--------|
 | Shell | Temporary drawer + hamburger &lt; `md`; permanent sidebar on desktop |
-| Tables | `CrudTable` + `ScrollableTable` horizontal scroll |
+| Tables | All module pages: `CrudTable` / `ScrollableTable` (Finance, Reports, Portal, Audit, builders, HR/Inv/Mfg extras, V3 hubs) |
+| Tabs | Theme default `variant="scrollable"` + Portal / Enterprise |
 | KPI grids | Sales / Inventory / Manufacturing / HR / Projects / Dashboard responsive |
 | Expo native | **On hold** — Phase 6 foundation remains in `/mobile` but not actively expanded |
+| **Baseline freeze** | This doc set is the next PRD baseline for mobile web (no further mobile-first polish planned) |
 
 ## Phase 6 mobile foundation (19 Jul 2026) — Expo **ON HOLD**
 

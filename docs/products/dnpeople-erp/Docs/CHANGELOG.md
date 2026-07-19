@@ -4,6 +4,15 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Mobile-first web polish complete (PRD baseline freeze)
+
+### Changed
+- Wrap remaining raw tables: Finance, Reports, Portal, Audit, Report/Dashboard builders, HR payslip, Inventory/MRP extras
+- Theme default: Tabs `scrollable` + Portal tabs explicit
+- Docs: mobile-first web marked **complete**; frozen as next PRD baseline (Expo still on hold)
+
+---
+
 ## [2026-07-19] — Phase 8 in-repo close-out (revenue share, reseller, depth)
 
 ### Added

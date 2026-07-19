@@ -227,3 +227,4 @@ cd frontend && npm run dev
 | 19 Jul 2026 (eve+) | Mobile-first web UI (`63b43df`): responsive drawer, scroll tables, KPI grids; **Expo native on hold** |
 | 19 Jul 2026 (eve++) | Wire V3 APIs into Analytics/Documents/Workflows/Integrations module pages |
 | 19 Jul 2026 (night) | Phase 8 in-repo close-out: revenue share, reseller admin, copilot/ETL/DocuSign/OCR depth — **408** tests |
+| 19 Jul 2026 (night+) | Mobile-first web polish complete: Finance/Reports/Portal/Audit/builders + extra module tables; Tabs scrollable theme default; docs frozen as next PRD baseline |
