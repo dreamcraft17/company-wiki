@@ -30,7 +30,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
-| Login dan session | Email/password tanpa Company ID; session httpOnly cookie `dnpeople_session` + sessionStorage Bearer fallback; Next `/api/v1` rewrite same-origin; logout membersihkan cookie + storage | Semua role | `/login`, `/auth` | Available — PRD v8.0 |
+| Login dan session | Email/password tanpa Company ID; session httpOnly cookie `dnpeople_session` + sessionStorage Bearer fallback; Next `/api/v1` rewrite same-origin; logout membersihkan cookie + storage; expired/invalid session auto-redirect ke `/login` dari halaman mana pun | Semua role | `/login`, `/auth` | Available — PRD v8.0 |
 | Forgot / reset password | Self-service email reset; token hashed TTL **1 jam** sekali pakai | Semua role | `/login`, `/reset-password`, `/auth/forgot-password` | Available — PRD v9.0 |
 | Registrasi perusahaan | Membuat company dan akun administrator awal | Calon customer/admin | `/auth/register` | Available |
 | Proteksi akun | Password hashing, minimum password, failed-login lockout | Semua role | Auth service | Available |

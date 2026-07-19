@@ -25,7 +25,7 @@ When writing the next PRD:
 | Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~54** production routes (incl. `/welcome`, `/legal/*`, `/reset-password`, `/settings/mfa`); mobile-first shell |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; **~52** route modules plus tenant-scoped SCIM `/scim/v2` |
 | Data | PostgreSQL 16 + Prisma 6 with **101** models; deployment migrations are mandatory |
-| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); **forgot/reset password (1h)** |
+| Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
 | Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs); optional Sentry; Datadog agent **compose stub** in `ops/datadog/` |
@@ -68,6 +68,11 @@ Current `/auth/login` response modes:
 Login audit records store tenant discovery method, email domain, provider/reason metadata, and
 blocked state only. Passwords, JWTs, raw IdP payloads, client secrets, and temporary passwords must
 never be written to audit logs or telemetry.
+
+Frontend session handling is fail-closed: when any authenticated page receives `401`, `UNAUTHORIZED`,
+`Authentication required`, `invalid token`, or `jwt expired` from API helpers or manual `fetch()` calls,
+the web shell clears cached auth state and redirects to `/login?reason=session_expired` while preserving
+the attempted path in `next`.
 
 ## Available now
 

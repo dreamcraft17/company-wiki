@@ -5,6 +5,10 @@
 **OpenAPI:** [`/api/v1/openapi.json`](http://localhost:4100/api/v1/openapi.json) · Swagger UI [`/api/v1/docs`](http://localhost:4100/api/v1/docs)  
 **Response shape:** `{ success, data, pagination?, error?, timestamp }`
 
+Frontend client behavior: authenticated pages treat `401`, `UNAUTHORIZED`, `Authentication required`,
+`invalid token`, and `jwt expired` as expired sessions, clear cached auth state, and redirect to
+`/login?reason=session_expired&next=<current-path>`.
+
 > Detail tabel di bawah mencakup core API; endpoint enterprise v6 dan SCIM diringkas di bagian akhir.
 
 ---

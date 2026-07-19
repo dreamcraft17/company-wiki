@@ -10,6 +10,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - `/alive`, enriched `/health` (version/uptime) + `/ready` checks object
 - Prometheus metrics: histogram, rate_limit, payroll_jobs, labeled requests
 - Privacy API: `/privacy/export`, `/deletion-request`, `/processors`
+- Frontend global session-expired handling: authenticated pages auto-redirect to `/login?reason=session_expired` on `401` / `UNAUTHORIZED` / authentication-required API responses, including manual `fetch()` calls
 - Backup `verify-backup.sh` + `restore-drill.sh`; k6 authenticated loadtest
 - Ops: Datadog compose profile, alert-rules.yaml, incident runbooks
 - Legal templates (Privacy/Terms/DPA), pen-test scope, incident response
