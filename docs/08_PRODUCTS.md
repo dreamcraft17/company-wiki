@@ -246,13 +246,13 @@ DN Tech Products
 
 | Aspek | Detail |
 |-------|--------|
-| Status | **dnCore PRD v1.0 + mobile-first web (Expo on hold)** (`29853f2`) · Phase 5 AWS live Conditional |
+| Status | **dnCore PRD v1.0 + mobile-first web** · Expo **on hold** (`855a02f`) · Phase 5 AWS live Conditional |
 | Brand | dnCore · complementary to dnPeople HRIS |
 | Target | SME & mid-market Indonesia |
 | Modules | 27 domain modules (Finance, Sales, SC, Mfg, HR subset, CRM, Workflow, LMS, …) |
-| Tests | **397** unit tests · **85** suites · 30 pages · 16 migrations |
+| Tests | **404** unit tests · **86** suites · 30 pages · **84** entities · **17** migrations |
 | Docs | [Index →](./products/dnpeople-erp/00_INDEX.md) |
-| Blocker | Live AWS deploy, production vendor keys, App Store, SOC 2 |
+| Blocker | Live AWS deploy, production vendor keys, SOC 2 · App Store on hold with Expo |
 
 **Key documents:**
 - [PRD dnCore v1.0](./products/dnpeople-erp/Docs/prd/01-PRD-dnCore-v1.md)

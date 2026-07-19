@@ -5,6 +5,7 @@
 **Brand:** dnCore · **Company:** DN Tech  
 **UpdatedAt:** July 19, 2026  
 **Inventory:** 30 pages · 27 modules · 84 entities · 17 migrations · 404 tests  
+**Phone path:** mobile-first web SPA · Expo native **on hold**  
 
 > **Bukan** HRIS `dnPeople`. Wiki mirror: `company-wiki/docs/products/dnpeople-erp/`
 

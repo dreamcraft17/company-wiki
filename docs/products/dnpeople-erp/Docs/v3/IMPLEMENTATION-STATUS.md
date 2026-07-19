@@ -2,7 +2,7 @@
 
 **Terakhir diperbarui:** 19 Juli 2026  
 **Product brand:** dnCore  
-**Branch:** `main` · **Latest commit:** `63b43df`  
+**Branch:** `main` · **Latest commit:** `f197e07`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
@@ -224,3 +224,4 @@ cd frontend && npm run dev
 | 19 Jul 2026 | dnCore PRD v1.0 full in-repo (`189506d` era): plans/quota, Shopify→SO, shipping, webhook retry/DLQ, Grafana, TF Phase-5 |
 | 19 Jul 2026 (PM) | Phase 5 hardening (`2aaf9f9`): Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests / **85** suites |
 | 19 Jul 2026 (eve) | Phase 6 mobile foundation: push devices, biometric, offline tabs — **404** tests / **86** suites |
+| 19 Jul 2026 (eve+) | Mobile-first web UI (`63b43df`): responsive drawer, scroll tables, KPI grids; **Expo native on hold** |

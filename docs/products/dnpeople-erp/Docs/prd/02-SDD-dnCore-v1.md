@@ -5,7 +5,7 @@
 **Date:** 19 July 2026  
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · HEAD `63b43df`  
+**Branch:** `main` · HEAD `f197e07`  
 **Status:** Phase 0–4 production architecture ✅  
 
 > **Purpose:** Technical architecture, data design, infrastructure topology, scalability strategy untuk dnCore. Dokumen ini adalah source of truth untuk engineering implementation decisions.
@@ -192,7 +192,9 @@
 
 **Build output:** ~450KB gzip (SPA bundle); optimized for <3s LCP on 4G
 
-### 2.4 Mobile Stack (Expo MVP)
+### 2.4 Mobile Stack (Expo — ON HOLD)
+
+> Native expansion paused Jul 2026. Prefer **mobile-first web SPA** (`frontend/`). Foundation kept under `/mobile`.
 
 | Component | Technology | Notes |
 |-----------|-----------|-------|
@@ -200,7 +202,7 @@
 | **Navigation** | React Navigation | 7.x |
 | **Storage** | expo-secure-store | JWT encrypted storage |
 | **Build** | EAS Build | Staging + production profiles |
-| **Scope** | MVP: login + dashboard | Full parity Phase 6 |
+| **Scope** | Foundation (tabs/offline/biometric/push) — **paused** | Restart later; web responsive is primary |
 
 ### 2.5 Infrastructure & DevOps
 

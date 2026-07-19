@@ -5,7 +5,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `63b43df`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `f197e07`
 
 | Metrik | Nilai |
 |--------|-------|
@@ -117,9 +117,11 @@ i18n: `frontend/src/i18n/` (EN / ID, default ID)
 
 ---
 
-## Mobile (Phase 3 MVP)
+## Mobile
 
-Expo scaffold di `mobile/` — login dengan ERP JWT + dashboard ringkas.
+> **Expo native ON HOLD** (Jul 2026). Phone usage = **mobile-first web SPA** (hamburger drawer &lt; `md`, scrollable tables).
+
+Foundation Expo tetap di `mobile/` (tabs / offline / biometric / push) untuk restart nanti.
 
 ```bash
 cd mobile && npm install && npm start
@@ -342,7 +344,7 @@ ERP/
 │       ├── components/            # Layout, CrudTable, FormDialog
 │       ├── i18n/                  # EN / ID translations
 │       └── api/client.ts
-├── mobile/                        # Expo MVP (login + dashboard)
+├── mobile/                        # Expo foundation (ON HOLD) — prefer mobile-first web
 ├── monitoring/prometheus.yml
 ├── terraform/main.tf              # AWS VPC, RDS, ElastiCache
 ├── k8s/

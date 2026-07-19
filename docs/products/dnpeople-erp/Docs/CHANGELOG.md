@@ -4,6 +4,15 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Docs sync to HEAD `f197e07` (mobile-first web + Expo hold)
+
+### Changed
+- SSOT + PRD/SDD/SRS + wiki indexes aligned to tip `f197e07` (feature `63b43df`)
+- Inventory live: **404** tests / **86** suites · **84** entities · **17** migrations
+- Expo native documented as **on hold**; mobile-first web is the phone path
+
+---
+
 ## [2026-07-19] — Mobile-first web UI (Expo native on hold)
 
 ### Added
