@@ -4,6 +4,13 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Fix api-quota Redis typing (nest build)
+
+### Fixed
+- `ApiQuotaInterceptor` Redis client typing: `quit()` returns `Promise<"OK">` (ioredis) — unblocks `npm run build` on production
+
+---
+
 ## [2026-07-19] — TypeORM entity column types (PostgreSQL metadata hardening)
 
 ### Fixed
