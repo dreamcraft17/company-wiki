@@ -4,6 +4,20 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Wire V3 APIs into module pages + mobile table polish
+
+### Added
+- Analytics: cash-flow forecast chart + AR risk chips
+- Documents: search, OCR, e-sign request + ScrollableTable
+- Workflows: instance detail drawer (`GET /workflow/instances/:id`)
+- Integrations: OAuth URL connect, shipping label form, marketplace chips + ScrollableTable
+- Enterprise hub tables wrapped in ScrollableTable
+
+### Changed
+- Module pages no longer require `/enterprise` / Swagger for core V3 actions above
+
+---
+
 ## [2026-07-19] — Docs sync to HEAD `f197e07` (mobile-first web + Expo hold)
 
 ### Changed

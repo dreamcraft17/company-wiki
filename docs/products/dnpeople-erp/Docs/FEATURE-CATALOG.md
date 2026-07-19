@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
-**Snapshot:** HEAD `f197e07` · Mobile-first web UI · Expo native on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
+**Snapshot:** HEAD `a4b63c9` · Mobile-first web UI · Expo native on hold · **404** tests · **27** modules · **30** pages · **84** entities · migrations through `0016`  
 
 > Produk ERP NestJS — **bukan** HRIS `dnPeople`. Spec: `Docs/prd/`.
 
@@ -77,14 +77,14 @@
 |-------|-------------|--------|
 | Custom reports / OLAP | Builder + saved reports | Available |
 | Dashboard builder / KPI alerts | Widgets + thresholds | Available |
-| Workflow approvals / SLA | Inbox, escalations + webhook | Available |
-| Analytics forecast/churn/anomaly | Rule/ensemble MVP | Available · Conditional depth |
+| Workflow approvals / SLA | Inbox, detail drawer, escalations + webhook | Available |
+| Analytics forecast/churn/anomaly | Rule/ensemble MVP + cash-flow + AR risk UI | Available · Conditional depth |
 
 ## 7. Documents, integrations, ops
 
 | Fitur | Kapabilitas | Status |
 |-------|-------------|--------|
-| Documents + e-sign | Upload + storage quota + stub cert | Conditional — DocuSign/live |
+| Documents + e-sign | Upload + search + OCR + e-sign request UI | Available · Conditional — DocuSign/live |
 | Outbound webhooks | HMAC + 3× retry + DLQ | Available |
 | Shopify → Sales Orders | Sync + inbound webhook creates DRAFT SO | Available · Conditional live shop |
 | Shipping JNE/Sicepat | Label + track adapters | Available · Conditional keys |
@@ -92,7 +92,7 @@
 | Slack approve button | Block Kit deep-link | Available · Conditional token |
 | Ops restore-test UI | Enterprise hub PASS/FAIL | Available |
 | Grafana dashboards | System + SLA provisioned | Available |
-| Integration gallery | Slack, Zapier, Shopify, JIRA, shipping | Conditional — API keys |
+| Integration gallery | Gallery + OAuth URL + shipping label UI + marketplace | Conditional — API keys |
 | Ops backup monitor | Cron + restore-test log + local drill script | Conditional — AWS RDS/S3 |
 | Compliance retention | Policies + real purge | Available |
 | Mobile-first web | Responsive drawer shell, scrollable tables, KPI grids | Available |

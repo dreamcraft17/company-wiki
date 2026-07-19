@@ -2,7 +2,7 @@
 
 **Terakhir diperbarui:** 19 Juli 2026  
 **Product brand:** dnCore  
-**Branch:** `main` · **Latest commit:** `f197e07`  
+**Branch:** `main` · **Latest commit:** `a4b63c9`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
@@ -134,7 +134,7 @@
 
 Nav: sidebar **Enterprise V3** · i18n key `nav.enterprise` (EN/ID).
 
-Halaman modul existing (`/analytics`, `/documents`, `/workflows`, `/integrations`) belum diperluas untuk semua endpoint V3 — gunakan `/enterprise` atau Swagger untuk uji.
+Halaman modul `/analytics`, `/documents`, `/workflows`, `/integrations` sudah di-wire untuk subset V3 inti (cash-flow/AR risk, search/OCR/e-sign, instance detail, OAuth/shipping). Endpoint lanjutan tetap di `/enterprise` / Swagger.
 
 ---
 
@@ -225,3 +225,4 @@ cd frontend && npm run dev
 | 19 Jul 2026 (PM) | Phase 5 hardening (`2aaf9f9`): Stripe payment retry, digest email, k6 authenticated, security acceptance, Cypress role UAT — **397** tests / **85** suites |
 | 19 Jul 2026 (eve) | Phase 6 mobile foundation: push devices, biometric, offline tabs — **404** tests / **86** suites |
 | 19 Jul 2026 (eve+) | Mobile-first web UI (`63b43df`): responsive drawer, scroll tables, KPI grids; **Expo native on hold** |
+| 19 Jul 2026 (eve++) | Wire V3 APIs into Analytics/Documents/Workflows/Integrations module pages |

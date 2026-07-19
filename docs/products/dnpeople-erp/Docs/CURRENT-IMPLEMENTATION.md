@@ -1,7 +1,7 @@
 # dnCore — Current Implementation Baseline
 
 **Snapshot date:** 19 July 2026  
-**HEAD:** `f197e07`  
+**HEAD:** `a4b63c9`  
 **Purpose:** source baseline after **dnCore PRD/SRS/SDD v1.0** + mobile-first web UI (Expo native on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
@@ -31,6 +31,16 @@
 | Infra deps | Redis, RabbitMQ (`dnCore.events`), Elasticsearch, Prometheus, Grafana |
 | Mobile web | Responsive SPA shell (drawer + scroll tables) · Expo native **on hold** |
 | Automated evidence | **404** unit tests · **86** suites · coverage gate ≥60% |
+
+## Module pages V3 wiring (19 Jul 2026)
+
+| Page | Wired |
+|------|-------|
+| Analytics | Cash-flow forecast + AR risk (+ existing sales/churn/anomalies) |
+| Documents | Search, OCR, e-sign request |
+| Workflows | Inbox detail drawer |
+| Integrations | OAuth URL, shipping label, marketplace list |
+| Enterprise hub | Scrollable tax/backup tables |
 
 ## Mobile-first web UI (19 Jul 2026)
 

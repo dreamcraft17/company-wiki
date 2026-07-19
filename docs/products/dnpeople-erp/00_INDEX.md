@@ -2,7 +2,7 @@
 
 **Product**: dnCore (NestJS modular monolith) — formerly branded dnPeople ERP in this wiki path  
 **Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Status**: dnCore PRD v1.0 + **mobile-first web** · Expo native **on hold** (`855a02f`) · Phase 5 AWS live Conditional  
+**Status**: dnCore PRD v1.0 + **mobile-first web + V3 module wiring** · Expo native **on hold** (`a37b297`) · Phase 5 AWS live Conditional  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: dnCore  
@@ -34,7 +34,7 @@
 | Aspek | Status |
 |-------|--------|
 | dnCore PRD v1.0 (in-repo) | ✅ Full |
-| Mobile-first web UI | ✅ Drawer &lt;md · scroll tables · KPI grids (`63b43df`) |
+| Mobile-first web UI | ✅ Drawer &lt;md · scroll tables · KPI grids (`a37b297`) |
 | Expo native | ⏸️ **On hold** |
 | Phase 0–4 core ERP | ✅ ~95% coded |
 | V3 Phase 5–8 | ✅ ~85% MVP+ |

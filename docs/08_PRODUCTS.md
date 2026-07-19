@@ -246,7 +246,7 @@ DN Tech Products
 
 | Aspek | Detail |
 |-------|--------|
-| Status | **dnCore PRD v1.0 + mobile-first web** · Expo **on hold** (`855a02f`) · Phase 5 AWS live Conditional |
+| Status | **dnCore PRD v1.0 + mobile-first web** · Expo **on hold** (`a37b297`) · Phase 5 AWS live Conditional |
 | Brand | dnCore · complementary to dnPeople HRIS |
 | Target | SME & mid-market Indonesia |
 | Modules | 27 domain modules (Finance, Sales, SC, Mfg, HR subset, CRM, Workflow, LMS, …) |
