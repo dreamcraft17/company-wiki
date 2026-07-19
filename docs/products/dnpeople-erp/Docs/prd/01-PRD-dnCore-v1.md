@@ -330,7 +330,7 @@ DN Tech (Platform umbrella)
 
 **Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
-**Implementation status:** Phase 6 mobile foundation coded · AWS/Stripe/App Store Conditional · HEAD `5975d91`  
+**Implementation status:** Phase 6 mobile foundation coded · AWS/Stripe/App Store Conditional · HEAD `29853f2`  
 
 ---
 

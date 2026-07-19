@@ -2,7 +2,7 @@
 
 **Terakhir diperbarui:** 19 Juli 2026  
 **Product brand:** dnCore  
-**Branch:** `main` · **Latest commit:** `5975d91`  
+**Branch:** `main` · **Latest commit:** `29853f2`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
 **Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
