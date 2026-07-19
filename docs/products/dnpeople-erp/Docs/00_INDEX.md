@@ -4,7 +4,7 @@
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Brand:** dnCore · **Company:** DN Tech  
 **UpdatedAt:** July 19, 2026  
-**Inventory:** 30 pages · 27 modules · 83 entities · 16 migrations · 397 tests  
+**Inventory:** 30 pages · 27 modules · 84 entities · 17 migrations · 404 tests  
 
 > **Bukan** HRIS `dnPeople`. Wiki mirror: `company-wiki/docs/products/dnpeople-erp/`
 

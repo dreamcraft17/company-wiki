@@ -5,17 +5,17 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `2aaf9f9`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `5975d91`
 
 | Metrik | Nilai |
 |--------|-------|
 | Backend modules | **27** domain + `platform/` |
 | Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
-| Unit tests | **397** (85 suites) · coverage **≥60%** |
-| TypeORM entities | **83** |
-| DB migrations | `0000`–`0015` (**16** files) |
+| Unit tests | **404** (86 suites) · coverage **≥60%** |
+| TypeORM entities | **84** |
+| DB migrations | `0000`–`0016` (**17** files) |
 | Locales | **15** languages |
-| Mobile | Expo MVP (`/mobile`) — dnCore branded |
+| Mobile | Expo Phase 6 foundation (tabs, offline, biometric, push) |
 
 > **Bukan** produk HRIS `dnPeople` (Express/Next). Spec: [`Docs/prd/`](./Docs/prd/) · Baseline: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md)
 
@@ -27,7 +27,7 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 |-------|-----------|
 | Backend | NestJS 10, TypeScript, PostgreSQL 15, TypeORM, JWT |
 | Frontend | React 19, Vite, Redux Toolkit, MUI, Tailwind, **Recharts** |
-| Mobile | React Native / **Expo** (MVP scaffold) |
+| Mobile | React Native / **Expo** (Phase 6 foundation) |
 | Cache | Redis |
 | Queue | RabbitMQ (event-driven GL integration) |
 | Search | Elasticsearch |

@@ -4,6 +4,19 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-19] — Phase 6 mobile foundation (push, biometric, offline tabs)
+
+### Added
+- `mobile_device_tokens` + migration `0016`
+- Push register/unregister/test APIs; Expo fan-out on notification `send()`
+- Mobile tabs: Home / Approvals / Orders / Settings
+- Offline AsyncStorage cache, biometric unlock, Expo push helper
+
+### Verified
+- Backend unit tests: **404 passed / 86 suites**
+
+---
+
 ## [2026-07-19] — Docs metric sync to HEAD `2aaf9f9`
 
 ### Changed

@@ -8,7 +8,7 @@
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Branch:** `main`
 
-> **Update 19 Jul 2026:** Angka inventory & status V3 Phase 5–8 kini di **[`CURRENT-IMPLEMENTATION.md`](./CURRENT-IMPLEMENTATION.md)** dan **[`v3/IMPLEMENTATION-STATUS.md`](./v3/IMPLEMENTATION-STATUS.md)**. Dokumen ini tetap berguna sebagai narasi Phase 0–4; **jangan** mengutip metrik halaman/modul/test dari bagian bawah tanpa menyilang ke CURRENT-IMPLEMENTATION (30 pages · 27 modules · 397 tests · 16 migrations).
+> **Update 19 Jul 2026:** Angka inventory & status V3 Phase 5–8 kini di **[`CURRENT-IMPLEMENTATION.md`](./CURRENT-IMPLEMENTATION.md)** dan **[`v3/IMPLEMENTATION-STATUS.md`](./v3/IMPLEMENTATION-STATUS.md)**. Dokumen ini tetap berguna sebagai narasi Phase 0–4; **jangan** mengutip metrik halaman/modul/test dari bagian bawah tanpa menyilang ke CURRENT-IMPLEMENTATION (30 pages · 27 modules · 404 tests · 17 migrations).
 
 > **Tujuan dokumen ini:** Snapshot kondisi produk — stack, arsitektur, modul, metrik, gap, dan rekomendasi — agar tim product/engineering bisa menulis PRD lanjutan tanpa mengulang discovery dari nol.  
 > **Bukan PRD baru** — melainkan baseline factual dari codebase.
