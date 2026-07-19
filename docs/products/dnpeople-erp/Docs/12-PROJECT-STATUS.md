@@ -1,13 +1,13 @@
-# dnPeople — Project Status & Current Specs
+# dnPeople ERP — Project Status & Current Specs
 
-**Terakhir diperbarui:** 7 Juli 2026 — **Phase 1–4 COMPLETE · Production-Ready (code)**  
+**Terakhir diperbarui:** 7 Juli 2026 — Phase 1–4 COMPLETE (code)  
+**Refresh note:** 19 Juli 2026 — untuk V3 Phase 5–8 & metrik live, lihat [`CURRENT-IMPLEMENTATION.md`](./CURRENT-IMPLEMENTATION.md) + [`v3/IMPLEMENTATION-STATUS.md`](./v3/IMPLEMENTATION-STATUS.md)  
 **Branch aktif:** `main`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Versi implementasi:** Enterprise Pass v1.0 + Phase 1–4 + Production Hardening  
+**Versi implementasi:** Enterprise Pass + Phase 1–4 + V3 MVP+  
 **Estimasi coverage Docs 01–10:** **~95%** (core SRS); sisa = live ops + full microservice split  
-**Latest commit:** `e2f46fc` — production hardening, industry module, 15 locales
 
-> Dokumen ini adalah **single source of truth** untuk kondisi proyek saat ini.  
+> **Status:** Dokumen ini tetap ringkasan Phase 1–4. **SSOT metrik live (19 Jul 2026):** 27 modules · 30 pages · 392 tests · 15 migrations.  
 > Executive tracking: [`update/CEO-TRACKING-SHEET.md`](../update/CEO-TRACKING-SHEET.md)
 
 ---

@@ -1,11 +1,28 @@
 # DN People ERP — Documentation Index
 
-**Product**: DN People ERP System  
+**Product**: dnPeople ERP (NestJS modular monolith)  
 **Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Status**: In Development — V3 Phase 5–8 ~85% coded (MVP+)  
-**Owner**: Dozer  
-**Last Updated**: July 9, 2026  
-**Latest commit**: `9bf15e2` — V3 implementation status matrix update
+**Status**: Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+ · production live Conditional  
+**Owner**: Dozer (CEO + Tech Lead)  
+**Company**: DN Tech (PT. Dozer Napitupulu Technology)  
+**Brand**: dnPeople ERP  
+**UpdatedAt**: July 19, 2026  
+**HEAD**: `9bf15e2`  
+**Inventory**: 30 pages · 27 modules · 83 entities · 15 migrations · 392 tests  
+
+> **Bukan** HRIS `dnPeople` (`dnpeople` repo). Produk ERP terpisah.
+
+---
+
+## Baca dulu (SSOT)
+
+| File | Topik |
+|------|-------|
+| [Docs/CURRENT-IMPLEMENTATION.md](./Docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** untuk PRD berikutnya |
+| [Docs/FEATURE-CATALOG.md](./Docs/FEATURE-CATALOG.md) | Katalog fitur Available / Conditional / Roadmap |
+| [Docs/00_INDEX.md](./Docs/00_INDEX.md) | Index Docs di repo |
+| [Docs/v3/IMPLEMENTATION-STATUS.md](./Docs/v3/IMPLEMENTATION-STATUS.md) | Matrix V3 Phase 5–8 |
+| [README.md](./README.md) | Quick start (metrik live) |
 
 ---
 
@@ -13,7 +30,7 @@
 
 | # | File | Topik |
 |---|------|-------|
-| 00 | [Docs/00-README.md](./Docs/00-README.md) | Index & navigation |
+| 00 | [Docs/00-README.md](./Docs/00-README.md) | Index & navigation (legacy) |
 | 01 | [Docs/01-PRD-ERP-System.md](./Docs/01-PRD-ERP-System.md) | Product Requirements |
 | 02 | [Docs/02-SRS-ERP-System.md](./Docs/02-SRS-ERP-System.md) | Software Requirements |
 | 03 | [Docs/03-SDD-ERP-System.md](./Docs/03-SDD-ERP-System.md) | Software Design |
@@ -23,8 +40,8 @@
 | 08 | [Docs/08-FINANCE-MODULE-INDONESIA.md](./Docs/08-FINANCE-MODULE-INDONESIA.md) | Finance module (Indonesia) |
 | 09 | [Docs/09-AUTH-FLOW-REVISED.md](./Docs/09-AUTH-FLOW-REVISED.md) | Authentication flow |
 | 10 | [Docs/10-FINANCIAL-REPORTING-MODULE.md](./Docs/10-FINANCIAL-REPORTING-MODULE.md) | Financial reporting |
-| 11 | [Docs/11-AUDIT-GAP-ANALYSIS.md](./Docs/11-AUDIT-GAP-ANALYSIS.md) | Audit & gap analysis |
-| 12 | [Docs/12-PROJECT-STATUS.md](./Docs/12-PROJECT-STATUS.md) | Project status |
+| 11 | [Docs/11-AUDIT-GAP-ANALYSIS.md](./Docs/11-AUDIT-GAP-ANALYSIS.md) | Audit & gap analysis (**historis**) |
+| 12 | [Docs/12-PROJECT-STATUS.md](./Docs/12-PROJECT-STATUS.md) | Project status (Phase 1–4 era) |
 | 13a | [Docs/13-DOCS-01-10-GAP-STATUS.md](./Docs/13-DOCS-01-10-GAP-STATUS.md) | Docs gap status |
 | 13b | [Docs/13-PRIORITY-IMPLEMENTATION-ROADMAP.md](./Docs/13-PRIORITY-IMPLEMENTATION-ROADMAP.md) | Priority roadmap |
 | 14 | [Docs/14-PAYROLL-AUTOMATION-SPECS.md](./Docs/14-PAYROLL-AUTOMATION-SPECS.md) | Payroll automation |
@@ -32,13 +49,9 @@
 | 16 | [Docs/16-TEST-COVERAGE-EXPANSION-PLAN.md](./Docs/16-TEST-COVERAGE-EXPANSION-PLAN.md) | Test coverage plan |
 | 17 | [Docs/17-REMAINING-SRS-GAPS.md](./Docs/17-REMAINING-SRS-GAPS.md) | Remaining SRS gaps |
 | 18 | [Docs/18-MODULE-FEATURES-SCHEMA.md](./Docs/18-MODULE-FEATURES-SCHEMA.md) | Module features schema |
-| 19 | [Docs/19-ENUMS-REFERENCE.md](./Docs/19-ENUMS-REFERENCE.md) | Enums reference |
-| 20 | [Docs/20-GL-INTEGRATION-EVENTS.md](./Docs/20-GL-INTEGRATION-EVENTS.md) | GL integration events |
-| 21 | [Docs/21-BUSINESS-RULES-VALIDATION.md](./Docs/21-BUSINESS-RULES-VALIDATION.md) | Business rules |
-| 22 | [Docs/22-DATABASE-INDEXING-STRATEGY.md](./Docs/22-DATABASE-INDEXING-STRATEGY.md) | Database indexing |
-| 23 | [Docs/23-DATA-RETENTION-POLICY.md](./Docs/23-DATA-RETENTION-POLICY.md) | Data retention |
-| 24 | [Docs/24-SOC2-READINESS.md](./Docs/24-SOC2-READINESS.md) | SOC2 readiness |
-| 25 | [Docs/25-PRD-BASELINE-CURRENT-STATE.md](./Docs/25-PRD-BASELINE-CURRENT-STATE.md) | Baseline current state |
+| 19–24 | Docs 19–24 | Enums, GL events, rules, indexes, retention, SOC2 |
+| 25 | [Docs/25-PRD-BASELINE-CURRENT-STATE.md](./Docs/25-PRD-BASELINE-CURRENT-STATE.md) | Baseline 7 Jul (lihat CURRENT-IMPLEMENTATION untuk angka live) |
+| — | [Docs/CHANGELOG.md](./Docs/CHANGELOG.md) | Changelog |
 
 ---
 
@@ -53,22 +66,9 @@
 
 ---
 
-## Phase 1 Execution (update/)
+## Phase 1 Execution (update/) — archival
 
-| File | Topik |
-|------|-------|
-| [update/PHASE-1-EXECUTION-CHECKLIST.md](./update/PHASE-1-EXECUTION-CHECKLIST.md) | Execution checklist |
-| [update/PHASE-1-IMPLEMENTATION-GUIDES.md](./update/PHASE-1-IMPLEMENTATION-GUIDES.md) | Implementation guides |
-| [update/QUICK-REFERENCE-PHASE-1.md](./update/QUICK-REFERENCE-PHASE-1.md) | Quick reference |
-| [update/READY-TO-CODE-ALL-DECISIONS-MADE.md](./update/READY-TO-CODE-ALL-DECISIONS-MADE.md) | Ready to code |
-| [update/REMAINING-ENGINEERING-WORK.md](./update/REMAINING-ENGINEERING-WORK.md) | Remaining work |
-| [update/ENGINEERING-QUICK-ACTION-ITEMS.md](./update/ENGINEERING-QUICK-ACTION-ITEMS.md) | Quick action items |
-| [update/ENGINEERING-PRIORITY-FIXES-ACTION-PLAN.md](./update/ENGINEERING-PRIORITY-FIXES-ACTION-PLAN.md) | Priority fixes |
-| [update/TEST-COVERAGE-60-PLAN.md](./update/TEST-COVERAGE-60-PLAN.md) | Test coverage 60% |
-| [update/GAPS-VS-MEKARI-SAP-ROADMAP.md](./update/GAPS-VS-MEKARI-SAP-ROADMAP.md) | Gap vs Mekari/SAP |
-| [update/EXECUTIVE-SUMMARY-GAP-ANALYSIS.md](./update/EXECUTIVE-SUMMARY-GAP-ANALYSIS.md) | Executive summary |
-| [update/DOZER-EXECUTIVE-SUMMARY.md](./update/DOZER-EXECUTIVE-SUMMARY.md) | CEO summary |
-| [update/CEO-TRACKING-SHEET.md](./update/CEO-TRACKING-SHEET.md) | CEO tracking |
+Paket eksekusi Phase 1 di [`update/`](./update/) — historis; jangan dipakai sebagai status live V3.
 
 ---
 
@@ -78,26 +78,29 @@
 |------|-----------|
 | [README.md](./README.md) | Project root |
 | [backend-README.md](./backend-README.md) | Backend API |
-| [frontend-README.md](./frontend-README.md) | Frontend app |
-| [mobile-README.md](./mobile-README.md) | Mobile app |
+| [frontend-README.md](./frontend-README.md) | Frontend |
+| [mobile-README.md](./mobile-README.md) | Mobile |
 
 ---
 
-## Status Terkini (Jul 2026)
+## Status Terkini (19 Juli 2026)
 
-| Metrik | Nilai |
-|--------|-------|
-| Backend modules | **27** domain + `platform/` |
-| Unit tests | **392** passed · **84** suites |
-| Frontend pages | **30** (+ Enterprise V3 hub `/enterprise`) |
-| Migrations | **15** files (`0000`–`0014`) |
-| SRS V3 Phase 5–8 | ~**85%** coded (MVP+) |
-| Production deploy | 🟡 Templates ready — butuh AWS + live keys |
-
-**Blocker utama:** live infra (AWS creds), SOC 2 audit, App Store, API keys production.
-
-Detail lengkap: [Docs/v3/IMPLEMENTATION-STATUS.md](./Docs/v3/IMPLEMENTATION-STATUS.md)
+| Aspek | Status |
+|-------|--------|
+| Phase 0–4 core ERP | ✅ ~95% coded |
+| V3 Phase 5–8 (compliance, ops, LMS, …) | ✅ ~85% MVP+ |
+| Unit tests | ✅ 392 / 84 suites |
+| Production AWS live | Conditional |
+| Mobile store | Conditional |
+| SOC 2 Type II | External |
 
 ---
 
-*Last Updated: July 9, 2026*
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Brand | dnPeople ERP |
+| UpdatedAt | July 19, 2026 |
+
+Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

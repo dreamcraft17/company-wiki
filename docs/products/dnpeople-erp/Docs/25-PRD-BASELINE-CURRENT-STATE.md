@@ -2,14 +2,16 @@
 ## dnPeople ERP · Acuan untuk PRD Berikutnya
 
 **Document ID:** Doc 25  
-**Version:** 1.0  
-**Date:** 7 July 2026  
-**Owner:** PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
+**Version:** 1.1  
+**Date:** 7 July 2026 · **Refresh note:** 19 July 2026  
+**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Branch:** `main` · Latest commits: `e2f46fc` (production hardening) · `a48da49` (docs sync)
+**Branch:** `main`
 
-> **Tujuan dokumen ini:** Snapshot kondisi produk **saat ini** — stack, arsitektur, modul, metrik, gap, dan rekomendasi — agar tim product/engineering bisa menulis **PRD v2 / Phase 5+** tanpa mengulang discovery dari nol.  
-> **Bukan PRD baru** — melainkan baseline factual dari codebase live.
+> **Update 19 Jul 2026:** Angka inventory & status V3 Phase 5–8 kini di **[`CURRENT-IMPLEMENTATION.md`](./CURRENT-IMPLEMENTATION.md)** dan **[`v3/IMPLEMENTATION-STATUS.md`](./v3/IMPLEMENTATION-STATUS.md)**. Dokumen ini tetap berguna sebagai narasi Phase 0–4; **jangan** mengutip metrik halaman/modul/test dari bagian bawah tanpa menyilang ke CURRENT-IMPLEMENTATION (30 pages · 27 modules · 392 tests · 15 migrations).
+
+> **Tujuan dokumen ini:** Snapshot kondisi produk — stack, arsitektur, modul, metrik, gap, dan rekomendasi — agar tim product/engineering bisa menulis PRD lanjutan tanpa mengulang discovery dari nol.  
+> **Bukan PRD baru** — melainkan baseline factual dari codebase.
 
 **Dokumen terkait:**
 - [`01-PRD-ERP-System.md`](01-PRD-ERP-System.md) — PRD original (vision & roadmap 4 fase)

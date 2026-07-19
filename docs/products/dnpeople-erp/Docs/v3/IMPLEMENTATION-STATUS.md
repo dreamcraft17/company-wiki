@@ -1,10 +1,11 @@
 # V3 Implementation Status — Phase 5–8
 
-**Terakhir diperbarui:** 8 Juli 2026  
-**Branch:** `main` · **Latest commit:** `abfb3fc`  
+**Terakhir diperbarui:** 19 Juli 2026  
+**Branch:** `main` · **Latest commit:** `9bf15e2`  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Baseline Phase 0–4:** ~95% — lihat [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
-**Project SSOT:** [`Docs/12-PROJECT-STATUS.md`](../12-PROJECT-STATUS.md)  
+**Baseline live:** [`Docs/CURRENT-IMPLEMENTATION.md`](../CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](../FEATURE-CATALOG.md)  
+**Baseline Phase 0–4 (historis):** [`Docs/25-PRD-BASELINE-CURRENT-STATE.md`](../25-PRD-BASELINE-CURRENT-STATE.md)  
+**Project SSOT (Phase 1–4 era):** [`Docs/12-PROJECT-STATUS.md`](../12-PROJECT-STATUS.md) — metrik disupersede dokumen ini + CURRENT-IMPLEMENTATION  
 **Spesifikasi V3:** [`Docs/v3/SRS-V3-DNPEOPLE-REQUIREMENTS.md`](SRS-V3-DNPEOPLE-REQUIREMENTS.md)
 
 > Dokumen ini melacak **implementasi kode** untuk requirement V3 Phase 5–8.  

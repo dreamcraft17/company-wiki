@@ -1,17 +1,22 @@
-# dnPeople
+# dnPeople ERP
 
-Enterprise-ready multi-tenant SaaS ERP — **Phase 1–4 coding complete · production-ready** (Juli 2026).
+Enterprise-ready multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+** (Juli 2026).
 
-**Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)
+**Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnPeople ERP  
+**UpdatedAt:** July 19, 2026 · **HEAD:** `9bf15e2`
 
 | Metrik | Nilai |
 |--------|-------|
-| Backend modules | 23 domain + platform registry |
-| Frontend pages | 29 halaman React SPA |
-| Unit tests | **390** (83 suites) · coverage **≥60%** |
-| Locales | **15** languages (Phase 4) |
-| DB migrations | `0005`–`0013` |
+| Backend modules | **27** domain + `platform/` |
+| Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
+| Unit tests | **392** (84 suites) · coverage **≥60%** |
+| TypeORM entities | **83** |
+| DB migrations | `0000`–`0014` (**15** files) |
+| Locales | **15** languages |
 | Mobile | Expo MVP scaffold (`/mobile`) |
+
+> **Bukan** produk HRIS `dnpeople` (Express/Next). Docs live: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md) · [`Docs/00_INDEX.md`](./Docs/00_INDEX.md)
 
 ---
 
@@ -62,7 +67,10 @@ Setiap modul di-commit terpisah di git history.
 | Scheduler | `backend/src/modules/scheduler/` | Cron dunning, report schedules, KPI alert checks |
 | Billing | `backend/src/modules/billing/` | Plan limits, usage tracking, Stripe checkout |
 | GDPR | `backend/src/modules/gdpr/` | Data export, consent, right to erasure |
-| Platform | `backend/src/platform/` | Microservice registry scaffold, `/platform/services` health |
+| Compliance | `backend/src/modules/compliance/` | Tax XML export, retention, audit trail (V3) |
+| Ops | `backend/src/modules/ops/` | Backup monitor, restore-test log (V3) |
+| LMS | `backend/src/modules/lms/` | Courses, enrollments, certificates (V3) |
+| Platform | `backend/src/platform/` | Microservice registry, partner, white-label, ETL |
 | Infrastructure | `backend/src/infrastructure/` | Email, export, queue, search, metrics, event consumers |
 | Common | `backend/src/common/` | Guards, audit interceptor, **tenant schema interceptor**, audit log, export endpoints |
 
@@ -70,7 +78,7 @@ Setiap modul di-commit terpisah di git history.
 
 ## Frontend
 
-29 halaman React SPA di `frontend/src/pages/`:
+**30** halaman React SPA di `frontend/src/pages/`:
 
 | Halaman | Route | Keterangan |
 |---------|-------|------------|
@@ -101,6 +109,7 @@ Setiap modul di-commit terpisah di git history.
 | Login / Register | `/login`, `/register` | Admin auth |
 | Verify Email | `/verify-email` | Email verification |
 | Forgot / Reset Password | `/forgot-password`, `/reset-password` | Password recovery |
+| Enterprise V3 | `/enterprise` | Compliance, ops, LMS, analytics hub (6 tabs) |
 
 Shared: `CrudTable`, `FormDialog` — `frontend/src/components/`  
 i18n: `frontend/src/i18n/` (EN / ID, default ID)
