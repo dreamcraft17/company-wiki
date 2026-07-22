@@ -96,8 +96,10 @@ NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
 
 | Role | Email | Password |
 |------|-------|----------|
-| Company Admin | admin@dnpeople.id | Admin123! |
-| Employee | budi@dnpeople.id | Employee123! |
+| Company Admin | dina.wijaya@demo.dnpeople.id | Demo123! |
+| Employee | budi.santoso@demo.dnpeople.id | Demo123! |
+
+Lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) untuk semua role (tier Professional).
 
 ## Production Checklist
 
@@ -255,7 +257,7 @@ curl -H "Authorization: Bearer $METRICS_TOKEN" https://api.yourdomain.com/metric
 
 curl -X POST http://localhost:4100/api/v1/auth/login \
   -H 'Content-Type: application/json' \
-  -d '{"email":"admin@dnpeople.id","password":"Admin123!"}'
+  -d '{"email":"dina.wijaya@demo.dnpeople.id","password":"Demo123!"}'
 ```
 
 ---

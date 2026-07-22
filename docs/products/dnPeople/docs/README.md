@@ -162,10 +162,17 @@ BASE_URL=http://localhost:4100 k6 run scripts/loadtest/baseline.js
 
 ## Akun Demo (setelah seed)
 
-| Role | Email | Password |
-|------|-------|----------|
-| Company Admin | admin@dnpeople.id | Admin123! |
-| Employee | budi@dnpeople.id | Employee123! |
+Tier **Professional** · password semua akun: **`Demo123!`**
+
+| Role | Email | Nama |
+|------|-------|------|
+| Company Admin | dina.wijaya@demo.dnpeople.id | Dina Wijaya |
+| HR | maya.putri@demo.dnpeople.id | Maya Putri |
+| Manager | raka.pratama@demo.dnpeople.id | Raka Pratama |
+| Finance | sinta.wijaya@demo.dnpeople.id | Sinta Wijaya |
+| Employee | budi.santoso@demo.dnpeople.id | Budi Santoso |
+
+Daftar lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
 
 ## Dokumentasi
 
@@ -183,6 +190,7 @@ BASE_URL=http://localhost:4100 k6 run scripts/loadtest/baseline.js
 | **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
 | **Launch Gate Checklist** | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) |
 | **PRD v11.0 (go-live)** | [docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md) |
+| [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier Professional) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 

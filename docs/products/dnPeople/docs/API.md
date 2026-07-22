@@ -27,7 +27,7 @@ Frontend client behavior: authenticated pages treat `401`, `UNAUTHORIZED`, `Auth
 ### Login body
 
 ```json
-{ "email": "admin@dnpeople.id", "password": "Admin123!" }
+{ "email": "dina.wijaya@demo.dnpeople.id", "password": "Demo123!" }
 ```
 
 `companyId` hanya dikirim saat user memilih tenant dari fallback company picker:
@@ -46,7 +46,7 @@ Email/password tenant:
   "access_token": "jwt",
   "token": "jwt",
   "redirectUrl": "/dashboard",
-  "user": { "id": "user-id", "email": "admin@dnpeople.id", "companyId": "tenant-uuid" }
+  "user": { "id": "user-id", "email": "dina.wijaya@demo.dnpeople.id", "companyId": "tenant-uuid" }
 }
 ```
 

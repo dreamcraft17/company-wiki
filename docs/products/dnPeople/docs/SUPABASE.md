@@ -77,7 +77,7 @@ npm install
 npm run dev              # http://localhost:3001
 ```
 
-Login demo (setelah seed): `admin@dnpeople.id` / `Admin123!`
+Login demo (setelah seed): `dina.wijaya@demo.dnpeople.id` / `Demo123!` — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md)
 
 ---
 
