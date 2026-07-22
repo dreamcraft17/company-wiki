@@ -4,6 +4,23 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-22] — PRD v11.1 landing page website
+
+### Added
+- Full marketing landing at `/welcome` per PRD v11.1 (hero, features, pricing, FAQ, beta form, JSON-LD)
+- Spec: `docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md` (+ SRS/SDD)
+- Marketing design system (navy `#1e3a8a`, orange CTA `#f97316`), mobile hamburger nav + Fitur dropdown
+- Enhanced beta signup form (name, company, employee count, optional phone) + optional Zapier webhook env
+- SEO: page metadata, Open Graph, JSON-LD (Organization, FAQPage, SoftwareApplication)
+- GA4 events: `cta_click`, `beta_signup`, `faq_expand`, `pricing_view`, `demo_click`
+- `/legal/dpa` page
+
+### Changed
+- `/pricing`, `/faq`, `/demo` aligned to v11.1 content components
+- Beta API accepts employee count ranges `10-50` … `300+`
+
+---
+
 ## [2026-07-22] — PRD v11.0 go-live execution (code + ops artefacts)
 
 ### Added
