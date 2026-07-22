@@ -1,23 +1,24 @@
 # dnPeople — Analisis & Prioritas Next Implementation
 ## Apa Lagi yang Perlu Diimplement Sebelum Launch Q3 2026
 
-**Tanggal:** 19 Juli 2026 (diaudit ulang setelah v8.0 + v9.0 code pass)  
+**Tanggal:** 22 Juli 2026 (baseline frozen setelah PRD v10.0 + session redirect)  
 **Owner:** Dozer (CEO + Tech Lead)  
-**Status:** MVP 1–5 + **PRD v8.0 DONE** · Launch readiness v9.0 in progress  
+**Status:** MVP 1–5 + PRD v5–**v10.0 DONE in repo** · **Next PRD** = v4 Module 3–8 + ops go-live  
 
 ---
 
 ## Executive Summary
 
 **Progress saat ini:**
-- ✅ MVP 1–5 code complete (50+ pages, 51 routes, 101+ models)
-- ✅ **PRD v8.0 security & stability IMPLEMENTED** (commits `35a5220` … `a8b1882`)
-- ✅ Tenant daily API hard-limit + password reset + billing pay UI + OpenAPI + customer docs (v9.0 pass)
-- 🟠 Production ops (Datadog/PagerDuty, restore drill bertanda tangan, pen-test eksternal) — masih Conditional
-- 🟠 Go-to-market (website dnpeople.id, video, ticketing live) — masih Conditional
-- ❌ Soft launch beta 10–20 customers — belum
+- ✅ MVP 1–5 code complete (**54** pages, **52** routes, **101** models, **32/32** tests)
+- ✅ PRD v8.0 security & stability **IMPLEMENTED**
+- ✅ PRD v9.0 launch-readiness code **IMPLEMENTED**
+- ✅ PRD v10.0 ops artefacts **IMPLEMENTED in repo**
+- ✅ Docs baseline **frozen** (`ce80640`) — mulai PRD berikutnya dari [CURRENT-IMPLEMENTATION.md](../CURRENT-IMPLEMENTATION.md)
+- 🟠 Production ops (Datadog/PagerDuty, restore drill, pen-test) — Conditional
+- 🟠 Go-to-market (dnpeople.id, beta 10–20 customers) — Conditional
 
-**Target:** MVP Launch Q3 2026 (target 30 Sep 2026)
+**Recommended next PRD themes:** PRD v4 Module 3 (9-box/succession) → Module 4–8; parallel track ops gates dari PRD v10.0
 
 ---
 

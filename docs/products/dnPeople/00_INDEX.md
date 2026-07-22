@@ -2,13 +2,16 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v10.0** (ops & launch readiness artefacts in repo)  
+**Status**: MVP 1–5 + PRD v5–**v10.0** **complete in repo** · baseline **frozen** for next PRD  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: July 19, 2026  
+**UpdatedAt**: July 22, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v10.0  
-**Codebase**: ~54 frontend pages · ~52 backend route modules · 101 Prisma models · 32 tests  
+**Codebase**: 54 frontend pages · 52 backend route modules · 101 Prisma models · 32/32 tests  
+**HEAD**: `ce80640` (pending docs commit)
+
+> **Next PRD:** start from [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — recommended scope: PRD v4 Module 3–8 + PRD v10 ops go-live gates.
 
 ---
 
@@ -65,6 +68,6 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 19, 2026 |
+| UpdatedAt | July 22, 2026 |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

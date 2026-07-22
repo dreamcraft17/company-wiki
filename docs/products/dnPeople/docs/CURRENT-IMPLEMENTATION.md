@@ -2,16 +2,17 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 19 July 2026 |
-| HEAD | `af3e412`+ — PRD v10.0 ops pass pending commit |
-| Purpose | Source baseline for the next PRD, SRS, roadmap, estimation, and gap analysis |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v10.0** (operations & launch readiness), including v8.0 security/stability and v9.0 acceptance wiring |
+| Snapshot date | 22 July 2026 |
+| HEAD | `ce80640` |
+| Purpose | **Frozen baseline** for the next PRD, SRS, roadmap, estimation, and gap analysis |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v10.0** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 19, 2026 |
+| Updated at | July 22, 2026 |
 
-> **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026). P0/P1 issues were remediated in v8.0; v9–v10 operations artefacts are in repo; SaaS/DNS/pen-test remain Conditional.
+> **Baseline freeze (22 Jul 2026):** MVP 1–5 + PRD v5–v10.0 code artefacts are treated as **existing product**. The next PRD should extend from **PRD v4 Module 3–8** (9-box, succession, career marketplace, EWA, benchmarking, verticals) and/or ops go-live gates — not re-audit core HR unless explicitly changing behavior.  
+> **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026). P0/P1 remediated v8.0; v9–v10 in repo; SaaS/DNS/pen-test remain Conditional.
 
 ## How to use this document
 
@@ -226,7 +227,18 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **31/31** backend tests pass; frontend inventory **50** pages; backend **51** route modules; Prisma **101** models. Re-run the build and test suites before treating these figures as release evidence.
+Current recorded automated evidence: **32/32** backend tests pass; frontend **54** pages; backend **52** route modules; Prisma **101** models. Re-run build and test suites before treating figures as release evidence.
+
+## Suggested scope for PRD v11+ (from this baseline)
+
+| Priority | Theme | Source | Notes |
+|----------|-------|--------|-------|
+| **P0 product** | PRD v4 Module 3 — 9-box + succession | [PRD v4 competitive](./PRD/dnpeople-prd-v4-competitive.md) | Models partially exist; UI/workflows not built |
+| **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
+| **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
+| **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
+| **P0 ops** | Go-live gates in PRD v10.0 | [PRD v10.0](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | Datadog/PagerDuty, pen-test, DNS, beta UAT |
+| **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026
 

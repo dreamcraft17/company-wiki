@@ -3,11 +3,13 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 19, 2026  
-**Status:** PRD v5–v10.0 (ops/launch readiness artefacts in repo; SaaS accounts Conditional)  
-**Codebase:** 50+ pages · 51+ routes · 101+ models · 32+ tests  
-**HEAD:** see `git rev-parse --short HEAD`  
+**UpdatedAt:** July 22, 2026  
+**Status:** PRD v5–v10.0 **complete in repo** · baseline **frozen** for next PRD  
+**Codebase:** 54 pages · 52 route modules · 101 models · 32 tests  
+**HEAD:** `ce80640` (see `git rev-parse --short HEAD`)  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
+
+> **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) + [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) — jangan ulang discovery MVP 1–5 / v8–v10.
 
 | File | Deskripsi |
 |------|-----------|
@@ -36,7 +38,7 @@
 | [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** ops & launch |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Subscription tier, billing, feature gating |
 | [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Isolation, SCIM, scoped RBAC, quota |
-| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline kanonik untuk PRD berikutnya |
+| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | **Baseline kanonik — mulai PRD berikutnya di sini** |
 | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) | Audit fitur, bug, dan performa (18 Jul 2026) + remediasi v8.0 |
 | [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria |
 | [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security & NFR |
@@ -64,4 +66,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: July 19, 2026*
+*Last Updated: July 22, 2026*

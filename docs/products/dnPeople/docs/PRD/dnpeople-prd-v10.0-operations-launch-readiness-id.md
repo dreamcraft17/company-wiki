@@ -5,12 +5,16 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Tanggal:** 19 Juli 2026  
 **Tujuan:** Siapkan produksi sebelum soft launch beta (target 1 Agustus 2026)  
-**Status:** Code artefacts **implemented in repo** (19 Jul 2026); SaaS accounts / DNS / external pen-test remain Conditional
+**Status:** Code artefacts **implemented in repo** (22 Jul 2026, HEAD `ce80640`); SaaS accounts / DNS / external pen-test remain Conditional  
+**Baseline:** Frozen — next PRD should extend [CURRENT-IMPLEMENTATION.md](../CURRENT-IMPLEMENTATION.md) § suggested scope (PRD v4 Module 3–8 + ops gates)
 
 ### Implementation status (repo)
 
 | Area | In repo | Still ops/external |
 |------|---------|-------------------|
+| Core product (54 pages, 52 routes, 101 models) | ✅ | — |
+| Backend tests | ✅ **32/32** | CI on every release |
+| Session expired UX | ✅ global redirect `/login?reason=session_expired` | — |
 | Metrics /health /ready /alive | ✅ enriched | Datadog agent + dashboards |
 | Alert rules + runbooks | ✅ `ops/alerting`, `ops/runbooks` | PagerDuty account + on-call |
 | Backup verify + restore drill scripts | ✅ | Signed drill on staging |
@@ -24,9 +28,11 @@
 ## Executive Summary
 
 **Status saat ini:**
-- ✅ Core product DONE (50 pages, 51 API routes, 101 models, all tests passing)
+- ✅ Core product DONE (**54** pages, **52** API routes, **101** models, **32/32** tests)
 - ✅ Security fixes DONE (v8.0: P0/P1/P2 semua fixed)
 - ✅ Acceptance wiring DONE (v9.0: tenant quota, password reset, billing, OpenAPI, docs)
+- ✅ Ops artefacts DONE in repo (v10.0: metrics, backup scripts, k6, privacy, legal, `/welcome`)
+- ✅ Docs baseline **frozen** for next PRD (22 Jul 2026)
 - 🔴 **Blocking launch:** Infrastructure ops, testing, GTM tidak ready
 
 **Yang perlu dilakukan minggu ini (19 Jul - 26 Jul):**

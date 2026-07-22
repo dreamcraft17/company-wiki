@@ -7,11 +7,12 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | PRD v5–v10.0 code artefacts done; IdP/SMTP/S3/biometric + Datadog/PagerDuty/DNS Conditional |
+| Status | Active — PRD v10.0 **complete in repo**; baseline **frozen** for next PRD |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
-| Docs | [docs/](./docs/) |
-| UpdatedAt | July 19, 2026 |
-| Inventory | ~54 pages · ~52 routes · 101 models · 32 tests |
+| Docs | [docs/](./docs/) — start at [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) |
+| UpdatedAt | July 22, 2026 |
+| HEAD | `ce80640` |
+| Inventory | **54** pages · **52** routes · **101** models · **32/32** tests |
 
 ## Stack
 

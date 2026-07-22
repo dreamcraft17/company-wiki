@@ -1,6 +1,6 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **19 Juli 2026** (PRD **v10.0** operations & launch readiness artefacts)  
+> Terakhir diperbarui: **22 Juli 2026** (baseline **frozen** setelah PRD **v10.0** + session redirect fix)  
 > Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v10.0** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
@@ -22,11 +22,18 @@
 | PRD v8.0 | Security & stability (audit P0/P1 + P2 hardening + UI wiring) | **Done** |
 | PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
-| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (roadmap) |
+| **Baseline freeze** | Docs SSOT locked for next PRD (`ce80640`) | **Done** — use CURRENT-IMPLEMENTATION + FEATURE-CATALOG |
+| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
-**Inventory:** ~54 frontend pages · ~52 backend route modules · 101 Prisma models  
+**Inventory:** **54** frontend pages · **52** backend route modules · **101** Prisma models  
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **32/32** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
 **Production go-live:** Conditional — code through v10.0 artefacts shipped; still need Datadog/PagerDuty wiring, signed restore drill, pen-test, DNS/GTM, beta UAT.
+
+### Mulai PRD berikutnya
+
+1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope for PRD v11+*  
+2. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
+3. Ops gates dari [PRD v10.0](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) tetap Conditional sampai UAT eksternal
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
@@ -56,7 +63,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 19 Juli 2026: TypeScript ✅ · backend tests **31/31** ✅. Codebase memiliki **50 page frontend**, **51 modul route backend**, dan **101 model Prisma**.
+Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **54** pages · **52** route modules · **101** models · HEAD `ce80640`.
 
 ---
 
@@ -280,13 +287,13 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 
 | Area | Fix |
 |------|-----|
-| Session | httpOnly `dnpeople_session`; SSO set cookie (no JWT in URL); sessionStorage (bukan localStorage); global frontend 401/session-expired redirect ke `/login` |
+| Session | httpOnly `dnpeople_session`; SSO set cookie (no JWT in URL); sessionStorage (bukan localStorage); global frontend 401/session-expired redirect ke `/login?reason=session_expired` (`fb991a8`) |
 | Payslip share | Signed URL 24h + UI “Bagikan Link” |
 | Reports UI | Job list + poll 4s + unduh |
 | Email | Outbox + retry scheduler |
 | Indexes | Migration payroll/audit/payslip/OT/claim/loan + `EmailOutbox` / `ReportExportJob` |
 | Infra | Redis dihapus dari compose (unused) |
-| Tests | `v8Acceptance.test.ts` — **31/31** pass |
+| Tests | Backend suite — **32/32** pass (incl. v8/v9/metrics) |
 
 ### Masih conditional (ops / UAT)
 
@@ -322,7 +329,7 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 
 ---
 
-*Last Updated: July 19, 2026*
+*Last Updated: July 22, 2026*
 
 | | |
 |---|---|

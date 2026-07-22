@@ -4,6 +4,18 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-22] — PRD baseline freeze (post v10.0)
+
+### Changed
+- SSOT frozen for next PRD: `CURRENT-IMPLEMENTATION`, `FEATURE-CATALOG`, `IMPLEMENTATION-STATUS`, `00_INDEX`, README
+- Inventory aligned to HEAD `ce80640`: **54** pages · **52** routes · **101** models · **32/32** tests
+- Next PRD starting scope documented: **PRD v4 Module 3–8** + PRD v10 ops go-live gates (not re-discovery MVP 1–5)
+
+### Fixed (included in baseline)
+- Global session-expired redirect to `/login?reason=session_expired` (`fb991a8`)
+
+---
+
 ## [2026-07-19] — PRD v10.0 operations & launch readiness (code/docs)
 
 ### Added

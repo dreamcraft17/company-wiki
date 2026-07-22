@@ -99,15 +99,18 @@ Generate secret:
 openssl rand -hex 32
 ```
 
-Push schema:
+Terapkan migration:
 
 ```bash
 npm ci
-npx prisma generate
-npx prisma db push
+npm run db:migrate
 # Hanya bootstrap pertama (opsional):
 # npm run db:seed
 ```
+
+Jika database sudah berisi tabel karena sebelumnya dibuat dengan `prisma db push`, lakukan prosedur
+baseline satu kali di [DEPLOYMENT.md](./DEPLOYMENT.md#database-migrations), bukan menjalankan
+`db:migrate` langsung.
 
 ---
 
@@ -246,8 +249,7 @@ git pull origin main
 
 cd backend
 npm ci
-npx prisma generate
-npx prisma db push   # atau: npx prisma migrate deploy
+npm run db:migrate
 npm run build
 pm2 restart dnpeople-api
 
