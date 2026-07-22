@@ -87,7 +87,16 @@ Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backe
 
 - Tenant API quota hard-limit, password reset, billing pay-now, OpenAPI/Swagger
 - Ops: `/alive` + enriched health/ready/metrics, backup verify/restore-drill, k6 auth loadtest, Datadog stub + alert runbooks
-- Privacy export + legal templates; marketing `/welcome`
+- Privacy export + legal templates; marketing MVP `/welcome`
+
+### PRD v11.0 — Go-live execution (Jul 2026)
+
+- **Marketing site:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog` — anonymous `/` redirects ke `/welcome`
+- **Lead capture:** `POST /api/v1/public/leads`, `POST /api/v1/public/beta-interest` + model `MarketingLead`
+- **Metrics (Datadog-ready):** `payment_webhook_*`, `postgresql_connections`, `attendance_records_today`
+- **Ops:** k6 baseline/ramp/spike/stress, `smoke-test.sh`, `install-datadog-agent.sh`, launch runbooks
+- **Docs:** [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md) · [SLA RPO/RTO](./docs/SLA-COMMITMENT-RPO-RTO.md)
+- **Target beta launch:** 1 Agustus 2026 — external gates (Datadog live, pen-test, DNS, beta UAT) masih Conditional
 
 ## Quick Start (tanpa Docker)
 
@@ -124,9 +133,32 @@ npm install
 npm run dev
 ```
 
-App: `http://localhost:3001`
+App: `http://localhost:3001` — marketing: `http://localhost:3001/welcome`
+
+Env opsional marketing:
+
+```env
+NEXT_PUBLIC_GA_ID=G-XXXXXXXX        # Google Analytics 4
+LEADS_NOTIFY_EMAIL=sales@dnpeople.id
+```
 
 > Opsional saja: `docker compose up -d` jika ingin Postgres lokal di port `5433` — bukan requirement.
+
+## Verifikasi & ops (PRD v11)
+
+```bash
+# Backend tests
+cd backend && npm test
+
+# Smoke health/ready/metrics
+bash scripts/smoke-test.sh
+
+# Restore drill (staging DB + ALLOW_RESTORE)
+ALLOW_RESTORE=true DATABASE_URL="..." bash scripts/restore-drill.sh ./backups/LATEST.dump
+
+# k6 baseline (butuh k6 + kredensial staging)
+BASE_URL=http://localhost:4100 k6 run scripts/loadtest/baseline.js
+```
 
 ## Akun Demo (setelah seed)
 
@@ -149,6 +181,8 @@ App: `http://localhost:3001`
 | **Current Implementation** | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) |
 | **Audit (fitur/bug/perf)** | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
+| **Launch Gate Checklist** | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) |
+| **PRD v11.0 (go-live)** | [docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 
@@ -167,4 +201,4 @@ Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 19, 2026 |
+| UpdatedAt | July 22, 2026 |
