@@ -6,7 +6,7 @@
 **UpdatedAt:** July 22, 2026  
 **Status:** PRD v5–v12.0 **complete in repo** · go-live gates Conditional (external ops)  
 **Codebase:** 61 pages · 53 route modules · 102 models · 32 tests  
-**HEAD:** *(update after push — `git rev-parse --short HEAD`)*  
+**HEAD:** `9e69a2b`  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — PRD v4 Module 3–8 product scope.
