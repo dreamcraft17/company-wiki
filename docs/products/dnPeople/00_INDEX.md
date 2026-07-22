@@ -9,9 +9,11 @@
 **UpdatedAt**: July 22, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v11.0  
 **Codebase**: 61 frontend pages · 53 backend route modules · 102 Prisma models · 32/32 tests  
+**HEAD**: `237c513`
 
 > **Next PRD:** start from [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — recommended scope: PRD v4 Module 3–8.  
-> **Launch:** [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)
+> **Launch:** [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
+> **Demo login:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — `dina.wijaya@demo.dnpeople.id` / `Demo123!`
 
 ---
 
@@ -35,6 +37,7 @@
 | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — mulai PRD berikutnya di sini |
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur existing / conditional / roadmap |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status per MVP/PRD |
+| [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed (Professional tier) |
 | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) | Go/no-go 1 Agustus 2026 |
 | [docs/SLA-COMMITMENT-RPO-RTO.md](./docs/SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
@@ -51,4 +54,4 @@
 
 ---
 
-*Last Updated: July 22, 2026*
+*Last Updated: July 22, 2026 · synced from dnpeople `237c513`*
