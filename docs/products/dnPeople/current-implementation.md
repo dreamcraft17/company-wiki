@@ -3,15 +3,17 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 22 July 2026 |
-| HEAD | *(post v11.0 — run `git rev-parse --short HEAD`)* |
-| Purpose | **Baseline** after PRD v11.0 go-live execution artefacts |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v11.0** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| HEAD | `451be56` |
+| Purpose | **Baseline** after PRD v11.1 landing page + pricing SSOT |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | July 22, 2026 |
 
-> **PRD v11.0 (22 Jul 2026):** MVP 1–5 + PRD v5–v11.0 code artefacts shipped — marketing site, lead capture, Datadog-ready metrics, k6 load suite, launch runbooks. External go-live gates (Datadog account, pen-test sign-off, DNS, beta UAT) remain Conditional until 1 Aug 2026 launch window.
+> **PRD v11.1 (22 Jul 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Gratis, Rp20.000/25.000 per karyawan, Business 301+, Enterprise 500+ (PRD v5 tier matrix). External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
+
+> **PRD v11.0:** Marketing routes, lead capture API, Datadog-ready metrics, k6 suite, launch runbooks. Go-live gates (Datadog account, pen-test, DNS, beta UAT) remain Conditional until 1 Aug 2026 launch window.
 
 ## How to use this document
 
@@ -36,7 +38,7 @@ When writing the next PRD:
 | Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs, payment_webhook_*, postgresql_connections, attendance_records_today); optional Sentry; Datadog agent script + compose stub in `ops/datadog/` |
 | Ops artefacts | Backup verify + restore-drill (integrity SQL), k6 baseline/ramp/spike/stress, smoke-test, alert-rules + incident/launch runbooks; legal Privacy/Terms/DPA templates; launch gate + SLA docs |
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
-| Marketing | Public site at `/welcome` + pricing/FAQ/contact/demo/blog; `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 via `NEXT_PUBLIC_GA_ID` |
+| Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
 | Automated evidence | Backend **32/32** unit tests; TypeScript clean |
 
@@ -267,7 +269,7 @@ Ops UAT gates below remain required before production-accepted.
 | `/alive` `/health` `/ready` enriched metrics | **Done** (v10.0) |
 | Backup verify + restore-drill + k6 auth script | **Done** (scripts) |
 | Privacy export + legal templates + incident plan | **Done** (docs + API) |
-| Marketing `/welcome` MVP | **Done** (in-app; DNS Conditional) |
+| Marketing `/welcome` MVP | **Done** — v11.1 full landing; DNS Conditional |
 | Datadog/PagerDuty live accounts | **Conditional** (ops) |
 | Signed restore drill + external pen-test | **Conditional** (ops) |
 

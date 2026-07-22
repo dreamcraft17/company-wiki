@@ -21,7 +21,17 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
-## [2026-07-22] — PRD v11.0 go-live execution (code + ops artefacts)
+## [2026-07-22] — PRD v11.1 post-hardening (pricing SSOT + hero cleanup)
+
+### Added
+- `frontend/src/lib/subscriptionCatalog.ts` — canonical tier copy (price, headcount range, features) shared by `/billing` and marketing
+
+### Changed
+- Landing `/welcome` + `/pricing` pricing cards aligned to in-app billing & PRD v5 tier matrix (Gratis, Rp20.000–25.000, Business **301+**, Enterprise **500+**)
+- Marketing JSON-LD offer prices use numeric `TIER_PRICE_PER_EMPLOYEE`
+- Hero badge "Beta program · 2 bulan gratis" removed from landing
+
+---
 
 ### Added
 - **Marketing website:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/blog/[slug]`; root `/` redirects to `/welcome`

@@ -71,6 +71,18 @@
 | Beta customer recruitment (10–20) | Conditional | GTM outreach — template in `ops/onboarding/` |
 | External penetration test | Conditional | Firm engaged + staging access per `ops/pen-test-staging-prep.md` |
 
+### PRD v11.1 — Landing page website
+
+| PRD v11.1 requirement | Status | Remaining completion gate |
+|---|---|---|
+| Full landing at `/welcome` (hero, features, pricing, FAQ, beta form) | Implemented in repo | DNS/TLS dnpeople.id Conditional |
+| Pricing 5 tiers aligned to billing/PRD v5 (`subscriptionCatalog.ts`) | Implemented in repo | — |
+| SEO metadata + JSON-LD (Organization, FAQPage, SoftwareApplication) | Implemented in repo | GA4 property Conditional |
+| FAQ accordion + sticky mobile CTA | Implemented in repo | — |
+| `/legal/dpa` page | Implemented in repo | Legal review Conditional |
+| Beta signup → Zapier/ConvertKit webhook | Implemented in repo | `NEXT_PUBLIC_ZAPIER_WEBHOOK` live Conditional |
+| Demo video embed | Implemented in repo | `NEXT_PUBLIC_DEMO_VIDEO_URL` Conditional |
+
 ## Mandatory completion evidence
 
 - Prisma schema validates and deployment migration applies on a clean PostgreSQL database.

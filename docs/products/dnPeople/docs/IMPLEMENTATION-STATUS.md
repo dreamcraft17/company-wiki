@@ -1,11 +1,11 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **22 Juli 2026** (PRD **v11.0** go-live execution — code + ops artefacts)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v11.0** · Repo version **1.0.0**
+> Terakhir diperbarui: **22 Juli 2026** (PRD **v11.1** landing page + pricing SSOT)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v11.1** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 22, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v11.0:** [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v11.1:** [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
 ## Ringkasan
 
@@ -23,7 +23,7 @@
 | PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
 | PRD v11.0 | Go-live execution: marketing site, lead capture, Datadog metrics, k6 suite, launch runbooks, restore drill SQL | **Done** in repo; Datadog account, pen-test, DNS, beta UAT Conditional |
-| PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
+| PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
 **Inventory:** **61** frontend pages · **53** backend route modules · **102** Prisma models  
@@ -64,7 +64,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v11.0 go-live artefacts.
+Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v11.1 landing + pricing SSOT (`subscriptionCatalog.ts`).
 
 ---
 

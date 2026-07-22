@@ -6,8 +6,8 @@
 **UpdatedAt:** July 22, 2026  
 
 
-**Snapshot:** 22 July 2026 · PRD **v11.0** go-live execution complete in repo  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v11.0** (complete in repo)  
+**Snapshot:** 22 July 2026 · PRD **v11.1** landing page + pricing SSOT complete in repo  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v11.1** (complete in repo)  
 **Next PRD scope (recommended):** PRD v4 **Module 3–8**  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~61 halaman frontend**, **~53 modul route backend**, **102 model Prisma**, **32** backend unit tests, mobile-first web shell, marketing site (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~61 halaman frontend**, **~53 modul route backend**, **102 model Prisma**, **32** backend unit tests, mobile-first web shell, marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`), tier pricing SSOT (`subscriptionCatalog.ts`), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
 
 ## 1. Identity, authentication, dan access control
 
@@ -235,7 +235,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
-| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE | Company admin | `/billing`, `/subscription/tiers` | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — price & headcount: Gratis s/d 100, Starter 1–50 @ Rp20.000, Professional 51–300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/subscription/tiers` | Available |
+| Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |
 | Invoices | List/detail invoice subscription | Company admin | `/billing` | Available |
 | Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
@@ -266,7 +267,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
 | Privacy / UU PDP export | Export data pribadi, deletion request, daftar processors | Employee/HR/Admin | `/privacy/*`, `docs/legal/` | Available — PRD v10.0 |
 | Ops observability | `/alive`, enriched `/health`/`/ready`, Prometheus histogram + rate_limit + payroll_jobs | Operations | `/metrics`, `ops/` | Available — PRD v10.0; Datadog account Conditional |
-| Marketing landing MVP | Full marketing site: welcome, pricing, FAQ, contact, about, demo, blog + lead/beta capture API | Publik | `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog/*`, `/api/v1/public/*` | Available — PRD v11.0; DNS/GA Conditional |
+| Marketing landing | Full v11.1 landing: hero, features, pricing (5 tiers), how-it-works, demo, FAQ accordion, beta signup, sticky mobile CTA, JSON-LD; `/legal/dpa` | Publik | `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog/*`, `/legal/dpa`, `/api/v1/public/*` | Available — PRD v11.1; DNS/GA/Zapier Conditional |
 | Responsive web | Mobile drawer, responsive forms/cards, local table scroll | Semua role | Seluruh web app | Available |
 | Header actions | Notification dan logout di header/navbar kanan | Semua role | App shell | Available |
 

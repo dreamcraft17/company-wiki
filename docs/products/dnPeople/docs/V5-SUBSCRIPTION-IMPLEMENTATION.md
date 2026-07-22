@@ -21,6 +21,7 @@
 - Location-scoped row access for branch HR via `DataAccessRule.scopeType = location`.
 - Enterprise SSO and public branding enforcement, multi-company dashboard, and secure company-context switching for super admins.
 - Frontend subscription context, tier-aware navigation, direct-URL gate, upgrade prompt, read-only banner, billing dashboard, invoices, cancellation/reactivation, branch configuration, and multi-company dashboard.
+- **Marketing pricing SSOT (Jul 2026):** `frontend/src/lib/subscriptionCatalog.ts` mirrors backend `TIER_PRICE_PER_EMPLOYEE` / PRD v5 headcount ranges; shared by `/billing` and public `/welcome` `/pricing`.
 
 ## API
 

@@ -1,13 +1,13 @@
 # dnPeople
 
-Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v11.0** (go-live execution artefacts).
+Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v11.1** (landing page + pricing SSOT).
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | Active — PRD v11.0 **complete in repo**; external go-live gates Conditional |
+| Status | Active — PRD v11.1 **complete in repo**; external go-live gates Conditional |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) — start at [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) |
 | UpdatedAt | July 22, 2026 |
@@ -25,7 +25,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v
 
 ## Fitur
 
-Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backend**, **102 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing site di `/welcome` (+ pricing, FAQ, contact, demo, blog). Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md).
+Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backend**, **102 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing landing v11.1 di `/welcome` (+ pricing, FAQ, contact, demo, blog, `/legal/dpa`); tier pricing SSOT `subscriptionCatalog.ts`. Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure
@@ -91,12 +91,18 @@ Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backe
 
 ### PRD v11.0 — Go-live execution (Jul 2026)
 
-- **Marketing site:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog` — anonymous `/` redirects ke `/welcome`
+- **Marketing routes:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog` — anonymous `/` redirects ke `/welcome`
 - **Lead capture:** `POST /api/v1/public/leads`, `POST /api/v1/public/beta-interest` + model `MarketingLead`
 - **Metrics (Datadog-ready):** `payment_webhook_*`, `postgresql_connections`, `attendance_records_today`
 - **Ops:** k6 baseline/ramp/spike/stress, `smoke-test.sh`, `install-datadog-agent.sh`, launch runbooks
 - **Docs:** [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md) · [SLA RPO/RTO](./docs/SLA-COMMITMENT-RPO-RTO.md)
-- **Target beta launch:** 1 Agustus 2026 — external gates (Datadog live, pen-test, DNS, beta UAT) masih Conditional
+
+### PRD v11.1 — Landing page website (Jul 2026)
+
+- **Full landing** at `/welcome`: hero, 6 fitur, pricing 5 tier, how-it-works, demo, FAQ accordion, beta signup, sticky mobile CTA, JSON-LD SEO
+- **Pricing SSOT:** `frontend/src/lib/subscriptionCatalog.ts` — sama dengan `/billing` (Gratis, Rp20.000–25.000/karyawan, Business 301+, Enterprise 500+)
+- **Legal:** `/legal/dpa` · spec: [PRD v11.1](./docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md)
+- **Target beta launch:** 1 Agustus 2026 — external gates (Convertkit/Zapier, demo video, DNS, GA4, pen-test, beta UAT) masih Conditional
 
 ## Quick Start (tanpa Docker)
 
@@ -139,6 +145,9 @@ Env opsional marketing:
 
 ```env
 NEXT_PUBLIC_GA_ID=G-XXXXXXXX        # Google Analytics 4
+NEXT_PUBLIC_ZAPIER_WEBHOOK=https://... # Beta signup → ConvertKit/Zapier
+NEXT_PUBLIC_CALENDLY_URL=https://...   # Demo scheduling
+NEXT_PUBLIC_DEMO_VIDEO_URL=https://... # Demo section embed
 LEADS_NOTIFY_EMAIL=sales@dnpeople.id
 ```
 
@@ -189,6 +198,7 @@ Daftar lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
 | **Audit (fitur/bug/perf)** | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 | **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
 | **Launch Gate Checklist** | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) |
+| **PRD v11.1 (landing)** | [docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md) |
 | **PRD v11.0 (go-live)** | [docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md) |
 | [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier Professional) |
 | Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
