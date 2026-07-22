@@ -4,6 +4,25 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-22] — PRD v11.0 go-live execution (code + ops artefacts)
+
+### Added
+- **Marketing website:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/blog/[slug]`; root `/` redirects to `/welcome`
+- **Lead capture API:** `POST /api/v1/public/leads`, `POST /api/v1/public/beta-interest` + `MarketingLead` model/migration
+- **Metrics (Datadog-ready):** `payment_webhook_*`, `postgresql_connections`, `attendance_records_today`
+- **Ops:** k6 baseline/ramp/spike/stress, `smoke-test.sh`, `install-datadog-agent.sh`, enhanced backup logging + size warning
+- **Runbooks/docs:** `LAUNCH-GATE-CHECKLIST.md`, `SLA-COMMITMENT-RPO-RTO.md`, `ops/runbooks/*`, pen-test prep, beta email template
+- **Restore drill:** integrity `COUNT(*)` on core tables after restore
+
+### Changed
+- `/` home redirect: authenticated dashboard default → public marketing `/welcome`
+- Payment webhook handler emits success/error metrics
+
+### Note (Conditional — external ops)
+- Datadog/PagerDuty live wiring, signed restore drill on prod, pen-test firm, DNS dnpeople.id, beta customer recruitment, GA4 property remain environment/ops tasks
+
+---
+
 ## [2026-07-22] — PRD baseline freeze (post v10.0)
 
 ### Changed

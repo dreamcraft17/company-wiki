@@ -301,6 +301,15 @@ Self-service: `EMPLOYEE` (permission `talent:self`) dapat melihat/membuat assess
 | POST | `/privacy/deletion-request` | ✓ | Catat permintaan hapus → offboarding |
 | GET | `/privacy/processors` | ✓ settings | Daftar sub-processor + retensi |
 
+## Public marketing (PRD v11.0)
+
+| Method | Path | Auth | Deskripsi |
+|--------|------|------|-----------|
+| POST | `/public/leads` | — | Newsletter / contact lead (rate limit 20/15min) |
+| POST | `/public/beta-interest` | — | Beta program interest + optional `employeeCount` |
+
+Body fields: `email` (required), `name`, `company`, `phone`, `message`, `source` (`website`, `welcome`, `pricing`, `faq`, `contact`, `demo`, `blog`).
+
 ---
 
 ## MVP 2–3 (ringkas)

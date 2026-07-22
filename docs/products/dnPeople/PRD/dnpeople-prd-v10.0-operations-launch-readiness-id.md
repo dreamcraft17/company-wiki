@@ -5,14 +5,14 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Tanggal:** 19 Juli 2026  
 **Tujuan:** Siapkan produksi sebelum soft launch beta (target 1 Agustus 2026)  
-**Status:** Code artefacts **implemented in repo** (22 Jul 2026, HEAD `ce80640`); SaaS accounts / DNS / external pen-test remain Conditional  
+**Status:** Code artefacts **implemented in repo** (Jul 2026); extended by **PRD v11.0**; SaaS accounts / DNS / external pen-test remain Conditional  
 **Baseline:** Frozen — next PRD should extend [CURRENT-IMPLEMENTATION.md](../CURRENT-IMPLEMENTATION.md) § suggested scope (PRD v4 Module 3–8 + ops gates)
 
 ### Implementation status (repo)
 
 | Area | In repo | Still ops/external |
 |------|---------|-------------------|
-| Core product (54 pages, 52 routes, 101 models) | ✅ | — |
+| Core product (61 pages, 53 routes, 102 models) | ✅ | — |
 | Backend tests | ✅ **32/32** | CI on every release |
 | Session expired UX | ✅ global redirect `/login?reason=session_expired` | — |
 | Metrics /health /ready /alive | ✅ enriched | Datadog agent + dashboards |

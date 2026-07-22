@@ -1,18 +1,17 @@
 # dnPeople
 
-Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v10.0** (ops & launch readiness artefacts).
+Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v11.0** (go-live execution artefacts).
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | Active — PRD v10.0 **complete in repo**; baseline **frozen** for next PRD |
+| Status | Active — PRD v11.0 **complete in repo**; external go-live gates Conditional |
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) — start at [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) |
 | UpdatedAt | July 22, 2026 |
-| HEAD | `54273f8` |
-| Inventory | **54** pages · **52** routes · **101** models · **32/32** tests |
+| Inventory | **61** pages · **53** routes · **102** models · **32/32** tests |
 
 ## Stack
 
@@ -26,7 +25,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v
 
 ## Fitur
 
-Snapshot codebase saat ini mencakup **~54 halaman web**, **~52 modul route backend**, **101 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing MVP di `/welcome`. Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Implementation Status](./docs/IMPLEMENTATION-STATUS.md).
+Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backend**, **102 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing site di `/welcome` (+ pricing, FAQ, contact, demo, blog). Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md).
 
 ### MVP 1
 - Auth & RBAC, employee DB, org structure

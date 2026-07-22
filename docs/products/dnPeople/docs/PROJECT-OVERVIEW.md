@@ -1,14 +1,13 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD v10.0 complete · baseline frozen for v11+  
-**Status:** MVP 1–5 + PRD v5–v10.0 **Done in repo**; ops go-live Conditional  
+**Version:** PRD v11.0 complete in repo · external go-live gates Conditional  
+**Status:** MVP 1–5 + PRD v5–v11.0 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 22, 2026  
-**HEAD:** `54273f8`  
 **Last Updated:** July 22, 2026
 
 ---
@@ -17,8 +16,8 @@
 
 dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), enterprise (MVP 4: multi-company, integrations, SSO, white-label, custom reports, AI docs/screening), serta fondasi Talent Development (MVP 5: competency, assessment, gap analysis, IDP, dan LMS dasar).
 
-Codebase saat ini: **54 halaman web**, **52 modul route backend**, **101 model Prisma**, **32/32** backend tests. Login auto tenant discovery; session httpOnly cookie; global redirect saat session expired; marketing MVP `/welcome`.  
-**Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [Feature Catalog](./FEATURE-CATALOG.md)
+Codebase saat ini: **61 halaman web**, **53 modul route backend**, **102 model Prisma**, **32/32** backend tests. Login auto tenant discovery; session httpOnly cookie; marketing site (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`); lead capture API.  
+**Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [Launch Gate Checklist](./LAUNCH-GATE-CHECKLIST.md)
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
 
@@ -36,7 +35,8 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | MVP 4 | Q2 2027 | **Done (core)** |
 | MVP 5 — PRD v4 Module 1–2 | Q3 2027 | **Done (foundation)** |
 | PRD v10.0 ops artefacts | Jul 2026 | **Done (repo)** |
-| **PRD baseline freeze** | Jul 2026 | **Done** — HEAD `54273f8` |
+| PRD v11.0 go-live execution | Jul 2026 | **Done (repo)** — marketing site, leads API, k6 suite, launch runbooks |
+| External go-live (1 Aug 2026) | Aug 2026 | **Conditional** — Datadog, pen-test, DNS, beta UAT |
 | PRD v4 Module 3–8 | Q4 2027+ | **Recommended next PRD** |
 
 ## Stack

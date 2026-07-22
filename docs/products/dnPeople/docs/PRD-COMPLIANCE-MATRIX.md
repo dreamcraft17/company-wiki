@@ -58,6 +58,19 @@
 | Company picker fallback | Implemented | Unresolved domains return picker payload and UI selection replays login with selected tenant |
 | Login audit redaction | Implemented | Tenant audit metadata stores domain/method/provider/reason without password/token payloads |
 
+### PRD v11.0 — Go-live execution
+
+| PRD v11 requirement | Status | Remaining completion gate |
+|---|---|---|
+| Marketing website (welcome/pricing/faq/contact/demo/blog) | Implemented in repo | DNS/TLS dnpeople.id Conditional |
+| Lead capture API (`/public/leads`, `/public/beta-interest`) | Implemented in repo | SMTP notify + production migration |
+| Datadog-ready metrics (webhook, DB connections, attendance gauge) | Implemented in repo | Datadog agent + PagerDuty account Conditional |
+| k6 load test suite (baseline/ramp/spike/stress) | Implemented in repo | Run against staging/production-sized data |
+| Backup restore drill + integrity SQL | Implemented in repo | Signed drill on production Conditional |
+| Launch runbooks + gate checklist + SLA RPO/RTO doc | Implemented in repo | CEO sign-off Conditional |
+| Beta customer recruitment (10–20) | Conditional | GTM outreach — template in `ops/onboarding/` |
+| External penetration test | Conditional | Firm engaged + staging access per `ops/pen-test-staging-prep.md` |
+
 ## Mandatory completion evidence
 
 - Prisma schema validates and deployment migration applies on a clean PostgreSQL database.

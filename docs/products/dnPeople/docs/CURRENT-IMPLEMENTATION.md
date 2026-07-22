@@ -3,16 +3,15 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 22 July 2026 |
-| HEAD | `54273f8` |
-| Purpose | **Frozen baseline** for the next PRD, SRS, roadmap, estimation, and gap analysis |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v10.0** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| HEAD | *(post v11.0 — run `git rev-parse --short HEAD`)* |
+| Purpose | **Baseline** after PRD v11.0 go-live execution artefacts |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v11.0** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | July 22, 2026 |
 
-> **Baseline freeze (22 Jul 2026):** MVP 1–5 + PRD v5–v10.0 code artefacts are treated as **existing product**. The next PRD should extend from **PRD v4 Module 3–8** (9-box, succession, career marketplace, EWA, benchmarking, verticals) and/or ops go-live gates — not re-audit core HR unless explicitly changing behavior.  
-> **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (18 Jul 2026). P0/P1 remediated v8.0; v9–v10 in repo; SaaS/DNS/pen-test remain Conditional.
+> **PRD v11.0 (22 Jul 2026):** MVP 1–5 + PRD v5–v11.0 code artefacts shipped — marketing site, lead capture, Datadog-ready metrics, k6 load suite, launch runbooks. External go-live gates (Datadog account, pen-test sign-off, DNS, beta UAT) remain Conditional until 1 Aug 2026 launch window.
 
 ## How to use this document
 
@@ -28,16 +27,17 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~54** production routes (incl. `/welcome`, `/legal/*`, `/reset-password`, `/settings/mfa`); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~52** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **101** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~61** production routes (marketing `/welcome` `/pricing` `/faq` `/contact` `/about` `/demo` `/blog/*`, `/legal/*`, app routes); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~53** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **102** models; deployment migrations are mandatory |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
-| Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs); optional Sentry; Datadog agent **compose stub** in `ops/datadog/` |
-| Ops artefacts | Backup verify + restore-drill scripts; k6 authenticated loadtest; alert-rules + incident runbooks; legal Privacy/Terms/DPA templates |
+| Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs, payment_webhook_*, postgresql_connections, attendance_records_today); optional Sentry; Datadog agent script + compose stub in `ops/datadog/` |
+| Ops artefacts | Backup verify + restore-drill (integrity SQL), k6 baseline/ramp/spike/stress, smoke-test, alert-rules + incident/launch runbooks; legal Privacy/Terms/DPA templates; launch gate + SLA docs |
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
-| Deployment | VPS/container; Redis removed; marketing MVP at `/welcome` |
+| Marketing | Public site at `/welcome` + pricing/FAQ/contact/demo/blog; `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 via `NEXT_PUBLIC_GA_ID` |
+| Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
 | Automated evidence | Backend **32/32** unit tests; TypeScript clean |
 
 ## Roles and access boundary
@@ -227,9 +227,9 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **32/32** backend tests pass; frontend **54** pages; backend **52** route modules; Prisma **101** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **32/32** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope for PRD v11+ (from this baseline)
+## Suggested scope for PRD v12+ (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
@@ -237,7 +237,7 @@ Current recorded automated evidence: **32/32** backend tests pass; frontend **54
 | **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
-| **P0 ops** | Go-live gates in PRD v10.0 | [PRD v10.0](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | Datadog/PagerDuty, pen-test, DNS, beta UAT |
+| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026

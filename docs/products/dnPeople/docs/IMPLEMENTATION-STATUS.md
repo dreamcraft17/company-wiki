@@ -1,11 +1,11 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **22 Juli 2026** (baseline **frozen** setelah PRD **v10.0** + session redirect fix)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v10.0** · Repo version **1.0.0**
+> Terakhir diperbarui: **22 Juli 2026** (PRD **v11.0** go-live execution — code + ops artefacts)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v11.0** · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 19, 2026  
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 22, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v10.0:** [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v11.0:** [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
 ## Ringkasan
 
@@ -22,18 +22,18 @@
 | PRD v8.0 | Security & stability (audit P0/P1 + P2 hardening + UI wiring) | **Done** |
 | PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
-| **Baseline freeze** | Docs SSOT locked for next PRD (`54273f8`) | **Done** — use CURRENT-IMPLEMENTATION + FEATURE-CATALOG |
+| PRD v11.0 | Go-live execution: marketing site, lead capture, Datadog metrics, k6 suite, launch runbooks, restore drill SQL | **Done** in repo; Datadog account, pen-test, DNS, beta UAT Conditional |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
-**Inventory:** **54** frontend pages · **52** backend route modules · **101** Prisma models  
+**Inventory:** **61** frontend pages · **53** backend route modules · **102** Prisma models  
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **32/32** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Conditional — code through v10.0 artefacts shipped; still need Datadog/PagerDuty wiring, signed restore drill, pen-test, DNS/GTM, beta UAT.
+**Production go-live:** Conditional — v11 code shipped; still need Datadog/PagerDuty live, signed restore drill, pen-test completion, DNS dnpeople.id, 10–20 beta customers onboarded.
 
 ### Mulai PRD berikutnya
 
-1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope for PRD v11+*  
+1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope for PRD v12+*  
 2. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
-3. Ops gates dari [PRD v10.0](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) tetap Conditional sampai UAT eksternal
+3. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 
@@ -63,7 +63,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **54** pages · **52** route modules · **101** models · HEAD `54273f8`.
+Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v11.0 go-live artefacts.
 
 ---
 

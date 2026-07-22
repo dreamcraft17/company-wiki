@@ -1,11 +1,11 @@
 # dnPeople — Architecture
 
-**Version:** 7.0  
+**Version:** 11.0 (go-live execution)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 18, 2026  
-**Referensi:** SDD v3.1 · PRD v4–v7.0 · Status: MVP 1–5 + subscription + enterprise multi-tenant + attendance Excel import implemented
+**UpdatedAt:** July 22, 2026  
+**Referensi:** SDD v3.1 · PRD v4–v11.0 · Status: MVP 1–5 + subscription + enterprise + v11 marketing/go-live artefacts
 
 ---
 
@@ -19,7 +19,7 @@
    │ rewrite /api/v1 ───────────────────────────────────┘
 ```
 
-**Codebase snapshot:** 50 frontend pages · 50+ backend route modules · 101 Prisma models · 29 backend tests · CI (`.github/workflows/ci.yml`).
+**Codebase snapshot:** 61 frontend pages · 53 backend route modules · 102 Prisma models · 32 backend tests · CI (`.github/workflows/ci.yml`).
 
 ## Multi-Tenancy
 

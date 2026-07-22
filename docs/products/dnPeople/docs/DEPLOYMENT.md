@@ -1,7 +1,7 @@
 # dnPeople — Deployment Guide
 
 **Last Updated:** July 19, 2026  
-**Applies to:** MVP 1–5 + PRD v8–v10.0
+**Applies to:** MVP 1–5 + PRD v8–v11.0
 
 ---
 
@@ -197,8 +197,15 @@ npm run db:verify-backup
 
 # Restore drill ke database staging (ALLOW_RESTORE wajib)
 ALLOW_RESTORE=true DATABASE_URL="..." npm run db:restore -- ../backups/dnpeople-YYYYMMDDTHHMMSSZ.dump
-# atau wrapper:
+# atau wrapper (integrity COUNT employees/payslips/attendance/leave):
 ALLOW_RESTORE=true DATABASE_URL="..." npm run db:restore-drill
+
+# Smoke test (health/ready/metrics)
+bash scripts/smoke-test.sh
+
+# k6 load tests (butuh k6 + kredensial staging)
+BASE_URL=https://staging.dnpeople.id k6 run scripts/loadtest/baseline.js
+BASE_URL=https://staging.dnpeople.id k6 run scripts/loadtest/ramp.js
 
 # Load test terautentikasi (butuh k6)
 BASE_URL=http://localhost:4100 npm run test:load:auth
@@ -206,7 +213,33 @@ BASE_URL=http://localhost:4100 npm run test:load:auth
 
 Setiap backup memakai format custom PostgreSQL dan checksum SHA-256. Restore wajib eksplisit memakai `ALLOW_RESTORE=true` dan diakhiri pemeriksaan status migration. Isi hasil drill di [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md).
 
-Observability: scrape `/metrics`; opsional Datadog agent — lihat `ops/datadog/`. Alert rule stubs: `ops/alerting/alert-rules.yaml`.
+Observability: scrape `/metrics` (includes `payment_webhook_*`, `postgresql_connections`, `attendance_records_today`); opsional Datadog agent — `scripts/install-datadog-agent.sh` + `ops/datadog/`. Alert rule stubs: `ops/alerting/alert-rules.yaml`. Launch checklist: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md).
+
+## Marketing & lead capture (PRD v11.0)
+
+Frontend routes: `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`. Anonymous `/` redirects to `/welcome`.
+
+```bash
+# Env opsional
+NEXT_PUBLIC_GA_ID=G-XXXXXXXX   # Google Analytics 4
+LEADS_NOTIFY_EMAIL=sales@dnpeople.id
+SMTP_HOST=...                  # untuk notifikasi lead
+
+# Migrasi MarketingLead
+cd backend && npx prisma migrate deploy
+```
+
+Public API (no auth, rate-limited):
+
+```bash
+curl -X POST http://localhost:4100/api/v1/public/leads \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"demo@company.id","name":"Demo","source":"contact"}'
+
+curl -X POST http://localhost:4100/api/v1/public/beta-interest \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"hr@company.id","company":"PT Demo","employeeCount":120}'
+```
 
 Dengan Supabase, lihat catatan pooler vs direct di [SUPABASE.md](./SUPABASE.md).
 
@@ -227,4 +260,4 @@ curl -X POST http://localhost:4100/api/v1/auth/login \
 
 ---
 
-*Last Updated: July 17, 2026*
+*Last Updated: July 22, 2026*

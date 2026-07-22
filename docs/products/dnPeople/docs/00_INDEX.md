@@ -4,12 +4,12 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 22, 2026  
-**Status:** PRD v5–v10.0 **complete in repo** · baseline **frozen** for next PRD  
-**Codebase:** 54 pages · 52 route modules · 101 models · 32 tests  
-**HEAD:** `54273f8` (see `git rev-parse --short HEAD`)  
+**Status:** PRD v5–v11.0 **complete in repo** · go-live gates Conditional (external ops)  
+**Codebase:** 61 pages · 53 route modules · 102 models · 32 tests  
+**HEAD:** *(post v11 — `git rev-parse --short HEAD`)*  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
-> **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) + [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) — jangan ulang discovery MVP 1–5 / v8–v10.
+> **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — PRD v4 Module 3–8 product scope.
 
 | File | Deskripsi |
 |------|-----------|
@@ -34,7 +34,10 @@
 | [SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md) | SLA & support |
 | [UU-PDP-COMPLIANCE-CHECKLIST.md](./UU-PDP-COMPLIANCE-CHECKLIST.md) | Checklist UU PDP |
 | [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
+| [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Go/no-go checklist PRD v11.0 |
+| [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) | **PRD v11.0** go-live execution |
 | [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** ops & launch |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Subscription tier, billing, feature gating |
 | [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Isolation, SCIM, scoped RBAC, quota |
