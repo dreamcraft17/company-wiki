@@ -3,7 +3,7 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 22 July 2026 |
-| HEAD | `451be56` |
+| HEAD | `90cdf08` |
 | Purpose | **Baseline** after PRD v11.1 landing page + pricing SSOT |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
