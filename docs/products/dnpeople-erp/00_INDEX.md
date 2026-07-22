@@ -1,15 +1,15 @@
 # DN People ERP / dnCore — Documentation Index
 
-**Product**: dnCore (NestJS modular monolith) — formerly branded dnPeople ERP in this wiki path  
+**Product**: dnCore (Express native API + Remix SSR) — formerly branded dnPeople ERP in this wiki path
 **Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Status**: dnCore PRD v1.0 + Phase 8 in-repo close-out · Expo **on hold** (`fdc12c2`) · AWS live Conditional  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: dnCore  
-**UpdatedAt**: July 19, 2026  
-**Inventory**: 31 pages · 27 modules · 86 entities · 18 migrations · 408 tests / 88 suites  
+**UpdatedAt**: July 22, 2026
+**Inventory**: Remix SSR routes · domain services · 86 entities · 18 migrations · 408 tests / 88 suites
 
-> Phone path = mobile-first web SPA. Expo native paused.
+> Phone path = responsive Remix web. Expo native paused.
 
 ---
 
@@ -22,10 +22,11 @@
 | [Docs/FEATURE-CATALOG.md](./Docs/FEATURE-CATALOG.md) | Feature catalog |
 | [Docs/v3/IMPLEMENTATION-STATUS.md](./Docs/v3/IMPLEMENTATION-STATUS.md) | V3 Phase 5–8 matrix |
 | [README.md](./README.md) | Quick start |
+| [REFACTOR-EXPRESS-REMIX.md](./REFACTOR-EXPRESS-REMIX.md) | Runtime refactor, PM2 + Nginx deployment |
 
 ---
 
-## Status Terkini (19 Juli 2026)
+## Status Terkini (22 Juli 2026)
 
 | Aspek | Status |
 |-------|--------|
@@ -34,6 +35,8 @@
 | Mobile-first web + V3 wiring | ✅ |
 | Expo native | ⏸️ On hold |
 | Unit tests | ✅ 408 / 88 suites |
+| Express + Remix runtime | ✅ Implemented and validated |
+| VPS deployment | ✅ PM2 + Nginx runbook |
 | AWS / live vendor keys | Conditional |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

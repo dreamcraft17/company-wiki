@@ -246,6 +246,10 @@ ADMIN_EMAIL=info@dntech.id
 
 ---
 
+## dnCore ERP runtime
+
+dnCore uses Express 5 native API + TypeScript + TypeORM/PostgreSQL and Remix SSR + React 19. Its VPS production topology is PM2 + Nginx: Express on port 3001, Remix on port 3000, and Nginx routes `/api/*` to the API. Docker/Kubernetes are optional alternatives for dnCore, not requirements for the standard VPS deployment. See [dnCore refactor](./products/dnpeople-erp/REFACTOR-EXPRESS-REMIX.md).
+
 ## 📄 Related Documents
 
 - [Architecture](./06_ARCHITECTURE.md)

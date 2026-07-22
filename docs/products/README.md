@@ -1,7 +1,7 @@
 # Product Documentation Index
 
 **Document Version**: 1.4
-**Last Updated**: July 19, 2026
+**Last Updated**: July 22, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -15,7 +15,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
-| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + baselines | Phase 8 in-repo close-out · Expo on hold (`fdc12c2`) · 408/88 | `ERP` |
+| **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -71,7 +71,7 @@ docs/products/
 ├── README.md                  # ← Anda di sini
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
-├── dnpeople-erp/              # dnCore ERP (NestJS) — path legacy; brand dnCore
+├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
 ├── nearwork/                  # Nearwork Platform
 ├── threads-automation/        # Threads Automation Tool
 ├── tj/                        # Trusted Jurist Law Firm website
