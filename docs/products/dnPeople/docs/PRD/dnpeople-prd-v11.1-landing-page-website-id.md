@@ -213,7 +213,7 @@ Subtitle: "Pilih plan sesuai kebutuhan. Bisa upgrade kapan saja."
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ FREE           │ STARTER      │ PROFESSIONAL  │ BUSINESS        │
-│ s/d 100 emp    │ 1-50 emp     │ 51-300 emp    │ 300+ emp        │
+│ s/d 50 emp     │ 1-50 emp     │ 51-300 emp    │ 301+ emp        │
 ├─────────────────────────────────────────────────────────────────┤
 │ Rp 0           │ Rp 20K/emp   │ Rp 25K/emp    │ Rp 20K/emp      │
 │               │ /bulan       │ /bulan        │ /bulan (volume) │

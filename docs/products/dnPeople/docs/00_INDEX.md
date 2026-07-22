@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 22, 2026  
-**Status:** PRD v5–v11.1 **complete in repo** · go-live gates Conditional (external ops)  
+**Status:** PRD v5–v12.0 **complete in repo** · go-live gates Conditional (external ops)  
 **Codebase:** 61 pages · 53 route modules · 102 models · 32 tests  
 **HEAD:** *(update after push — `git rev-parse --short HEAD`)*  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
@@ -38,6 +38,7 @@
 | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Go/no-go checklist PRD v11.0 |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [PRD/dnpeople-prd-v12.0-tier-consolidation-id.md](./PRD/dnpeople-prd-v12.0-tier-consolidation-id.md) | **PRD v12.0** tier consolidation |
 | [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) | **PRD v11.1** landing page |
 | [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) | **PRD v11.0** go-live execution |
 | [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** ops & launch |

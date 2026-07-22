@@ -16,12 +16,30 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 - `/legal/dpa` page
 
 ### Changed
+- FREE tier employee hard limit: **50** (was 100) — code, marketing, PRD v11/v12 aligned
 - `/pricing`, `/faq`, `/demo` aligned to v11.1 content components
 - Beta API accepts employee count ranges `10-50` … `300+`
 
 ---
 
-## [2026-07-22] — PRD v11.1 post-hardening (pricing SSOT + hero cleanup)
+## [2026-07-22] — PRD v12.0 tier consolidation & enforcement
+
+### Added
+- PRD v12.0 specs: tier consolidation PRD/SRS/SDD + summary doc
+- `subscriptionFeatures.ts` v12 SSOT: trial months (FREE 4, paid 2), API limits/day, min monthly charge (Business Rp 6M), billing grace (3d) / suspend (7d)
+- Prisma: `trialEndsAt`, billing period fields, `paymentMethodId`, `ApiUsage` model + migration
+- Tier API rate limiting middleware (`tierRateLimit.ts`) per subscription tier
+- Daily subscription billing scheduler: trial expiry, downgrade-to-FREE without payment, post-trial invoice
+- Frontend: `useTierAccess`, `ProtectedFeature`, `TrialCountdown`, `EmployeeLimitBanner`; billing trial/headcount display
+- Script: `backend/scripts/migrate-subscriptions-v12.ts`
+
+### Changed
+- `SubscriptionService`: headcount warnings (80%), BUSINESS min charge, trial lifecycle, payment-failure grace 3d/7d
+- `/subscription/current` returns `isTrialing`, `trialDaysRemaining`, `headcount` status
+- `subscriptionCatalog.ts` mirrors v12 trial/headcount constants
+- FREE tier hard employee limit **50** (aligned across enforcement + marketing)
+
+---
 
 ### Added
 - `frontend/src/lib/subscriptionCatalog.ts` — canonical tier copy (price, headcount range, features) shared by `/billing` and marketing

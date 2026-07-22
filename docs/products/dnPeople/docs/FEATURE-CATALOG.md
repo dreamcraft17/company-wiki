@@ -235,7 +235,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
-| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — price & headcount: Gratis s/d 100, Starter 1–50 @ Rp20.000, Professional 51–300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/subscription/tiers` | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — price & headcount: Gratis s/d 50, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/subscription/tiers` | Available |
 | Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |
 | Invoices | List/detail invoice subscription | Company admin | `/billing` | Available |
 | Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |

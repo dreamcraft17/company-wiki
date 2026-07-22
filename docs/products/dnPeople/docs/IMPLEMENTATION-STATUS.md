@@ -23,6 +23,7 @@
 | PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
 | PRD v11.0 | Go-live execution: marketing site, lead capture, Datadog metrics, k6 suite, launch runbooks, restore drill SQL | **Done** in repo; Datadog account, pen-test, DNS, beta UAT Conditional |
+| PRD v12.0 | Tier consolidation: trial enforcement, API limits, min charge, headcount warnings, billing scheduler | **Done** in repo; payment auto-charge live Conditional |
 | PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 

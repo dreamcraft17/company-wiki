@@ -215,7 +215,7 @@ Mulai dari gratis. Upgrade seiring berkembang.
 ```
 🆓 GRATIS (Forever)
 
-Sampai 100 karyawan
+Sampai 50 karyawan
 ├─ Employee database unlimited
 ├─ Org chart & reporting
 ├─ Attendance & leave management
@@ -411,7 +411,7 @@ dan itu dijelaskan di awal.
 ```
 Ya! Ada dua cara:
 
-1. Free tier: Gratis selamanya untuk sampai 100 karyawan.
+1. Free tier: Gratis selamanya untuk sampai 50 karyawan.
    Full access ke semua fitur core (payroll, leave, attendance, talent dev).
 
 2. Paid tier trial: 30 hari free di tier manapun, tanpa credit card.
@@ -672,7 +672,7 @@ Modern, mobile-friendly, developer-friendly. API untuk automasi.
 ```
 
 **Unique Features:**
-- Free tier generous (100 employees)
+- Free tier generous (50 employees)
 - API-first architecture
 - Webhooks & integrations
 - Mobile browser-responsive
@@ -806,7 +806,7 @@ Body:
 Halo [Name],
 
 Akun gratis Anda sudah active. Sudah bisa:
-✓ Input 100 karyawan
+✓ Input 50 karyawan
 ✓ Test payroll calculation
 ✓ Explore talent development features
 ✓ Chat dengan support team

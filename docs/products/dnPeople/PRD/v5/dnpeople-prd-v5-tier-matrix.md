@@ -14,7 +14,7 @@ dnPeople menawarkan **5 tier** yang progressively unlock fitur sesuai kebutuhan 
 
 | Tier | Price | Headcount | Strategy |
 |------|-------|-----------|----------|
-| **Gratis** | IDR 0 | ≤100 | Viral acquisition (no attendance) |
+| **Gratis** | IDR 0 | ≤50 | Viral acquisition (no attendance) |
 | **Starter** | IDR 20K/emp | 1-50 | Entry-level SME + attendance unlocked |
 | **Professional** | IDR 25K/emp | 51-300 | Core + talent development (main revenue) |
 | **Business** | IDR 20K/emp | 301+ | Volume + enterprise features |
@@ -28,7 +28,7 @@ dnPeople menawarkan **5 tier** yang progressively unlock fitur sesuai kebutuhan 
 
 ### Tier 1: GRATIS (Free Forever)
 
-**Target:** Viral adoption, founder/startup dengan <100 people
+**Target:** Viral adoption, founder/startup dengan s/d 50 karyawan
 
 **Available Features:**
 ```

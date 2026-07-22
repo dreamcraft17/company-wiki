@@ -314,7 +314,7 @@ Color: Brand navy (#1e3a8a)
 
 ```
 TIER 1: FREE
-  Employee range: "s/d 100 emp"
+  Employee range: "s/d 50 emp"
   Price: "Rp 0"
   Features:
     ✓ Dashboard
@@ -482,7 +482,7 @@ Q: Bisa integrasi dengan sistem akuntansi kami?
 A: Ya, via API atau JSON webhooks. Contact us untuk custom integration.
 
 Q: Berapa jumlah karyawan maksimal?
-A: Unlimited. Skalabilitas tergantung tier (FREE: 100, STARTER: 50, etc).
+A: Unlimited. Skalabilitas tergantung tier (FREE: 50, STARTER: 50, etc).
 
 Q: Bisa export data?
 A: Ya, export employee, payroll, attendance, leave ke Excel/PDF. Juga via API.

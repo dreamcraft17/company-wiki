@@ -355,7 +355,7 @@ SAML 2.0 + Google OAuth + Microsoft Azure AD integration. JIT provisioning.
 ### Seed Data
 
 ```sql
--- Free tier company (100 employees)
+-- Free tier company (50 employees)
 INSERT INTO Company (id, name, tier) VALUES ('comp_free_001', 'Test Free Company', 'FREE');
 INSERT INTO Subscription (id, companyId, tier, status) VALUES 
   ('sub_free_001', 'comp_free_001', 'FREE', 'ACTIVE');
