@@ -8,7 +8,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 22, 2026  
-**HEAD:** `ce80640`  
+**HEAD:** `54273f8`  
 **Last Updated:** July 22, 2026
 
 ---
@@ -36,7 +36,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | MVP 4 | Q2 2027 | **Done (core)** |
 | MVP 5 — PRD v4 Module 1–2 | Q3 2027 | **Done (foundation)** |
 | PRD v10.0 ops artefacts | Jul 2026 | **Done (repo)** |
-| **PRD baseline freeze** | Jul 2026 | **Done** — HEAD `ce80640` |
+| **PRD baseline freeze** | Jul 2026 | **Done** — HEAD `54273f8` |
 | PRD v4 Module 3–8 | Q4 2027+ | **Recommended next PRD** |
 
 ## Stack

@@ -11,7 +11,7 @@ Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v
 | Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs | [docs/](./docs/) — start at [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) |
 | UpdatedAt | July 22, 2026 |
-| HEAD | `ce80640` |
+| HEAD | `54273f8` |
 | Inventory | **54** pages · **52** routes · **101** models · **32/32** tests |
 
 ## Stack

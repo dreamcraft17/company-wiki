@@ -22,7 +22,7 @@
 | PRD v8.0 | Security & stability (audit P0/P1 + P2 hardening + UI wiring) | **Done** |
 | PRD v9.0 | Launch-readiness code (quota, reset password, pay-now, OpenAPI, customer docs) | **Done** |
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
-| **Baseline freeze** | Docs SSOT locked for next PRD (`ce80640`) | **Done** — use CURRENT-IMPLEMENTATION + FEATURE-CATALOG |
+| **Baseline freeze** | Docs SSOT locked for next PRD (`54273f8`) | **Done** — use CURRENT-IMPLEMENTATION + FEATURE-CATALOG |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
 **Inventory:** **54** frontend pages · **52** backend route modules · **101** Prisma models  
@@ -63,7 +63,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **54** pages · **52** route modules · **101** models · HEAD `ce80640`.
+Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **54** pages · **52** route modules · **101** models · HEAD `54273f8`.
 
 ---
 

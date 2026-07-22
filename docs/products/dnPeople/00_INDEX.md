@@ -9,7 +9,7 @@
 **UpdatedAt**: July 22, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v10.0  
 **Codebase**: 54 frontend pages · 52 backend route modules · 101 Prisma models · 32/32 tests  
-**HEAD**: `ce80640` (pending docs commit)
+**HEAD**: `54273f8` (pending docs commit)
 
 > **Next PRD:** start from [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — recommended scope: PRD v4 Module 3–8 + PRD v10 ops go-live gates.
 

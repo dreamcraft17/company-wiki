@@ -6,7 +6,7 @@
 **UpdatedAt:** July 22, 2026  
 **Status:** PRD v5–v10.0 **complete in repo** · baseline **frozen** for next PRD  
 **Codebase:** 54 pages · 52 route modules · 101 models · 32 tests  
-**HEAD:** `ce80640` (see `git rev-parse --short HEAD`)  
+**HEAD:** `54273f8` (see `git rev-parse --short HEAD`)  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) + [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) — jangan ulang discovery MVP 1–5 / v8–v10.

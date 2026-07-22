@@ -6,7 +6,7 @@
 **UpdatedAt:** July 22, 2026  
 
 
-**Snapshot:** 22 July 2026 · HEAD `ce80640` · **baseline frozen** for next PRD  
+**Snapshot:** 22 July 2026 · HEAD `54273f8` · **baseline frozen** for next PRD  
 **Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v10.0** (complete in repo)  
 **Next PRD scope (recommended):** PRD v4 **Module 3–8** + PRD v10 ops go-live gates  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
@@ -320,5 +320,5 @@ Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog 
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 22, 2026 |
-| HEAD | `ce80640` |
+| HEAD | `54273f8` |
 | Spec | PRD v4–v10.0 complete · next = v4 Module 3–8 |
