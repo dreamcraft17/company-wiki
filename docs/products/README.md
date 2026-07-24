@@ -19,7 +19,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP codebase complete · ops launch | `dova` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
-| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
+| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 
@@ -31,8 +31,8 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **Threads Automation** | docs tree 24 Jul | Living docs di `auto/docs/` + wiki: status MVP, FEATURE-CATALOG, **NEXT-PRD-BRIEF** (live publish & media) |
 | **dnPeople HRIS** | app `8a75871` / docs `e7cf0ca` | Soft-launch **release-ready**: secrets fail-closed, demo creds gated, smoke expanded, RELEASE-READY + launch checklist mirrored |
-| **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DuaVulnScanner** | scaffold 24 Jul | New product `dvs/` from PENTEST_TOOL prompts — PRD/SRS/SDD + Nest/Next MVP |
 | **DOVA** | app `27db4da` | Full product docs tree: PRD/SRS/SDD, CURRENT-IMPLEMENTATION, catalog, API, runbook, progress/status |
 | **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |

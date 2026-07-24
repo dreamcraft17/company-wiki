@@ -1,111 +1,112 @@
-# Threads Automation Posting System
+# Threads Automation
 
-Aplikasi web untuk schedule dan auto-publish posts ke akun Threads. Dibangun sesuai PRD/SRS/SDD v1.0.
+**Threads Automation** adalah aplikasi web internal untuk **menjadwalkan dan auto-publish** postingan ke akun **Meta Threads** — supaya content creator / social media manager tidak harus online di jam tayang.
 
-## Tech Stack
+| | |
+|---|---|
+| Owner | Dozer (CEO + Tech Lead) |
+| Company | DN Tech (PT. Dozer Napitupulu Technology) |
+| Package | `threads-automation` · folder `auto/` |
+| Status | MVP **in repo** · live Playwright Conditional (`PLAYWRIGHT_DRY_RUN`) |
+| Spec | PRD/SRS/SDD v1.0 Draft |
+| Docs | **[docs/00_INDEX.md](./docs/00_INDEX.md)** · PRD berikutnya: **[docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md)** |
+| UpdatedAt | 24 Juli 2026 |
+| License | Private — internal use only |
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18, TypeScript, Vite, MUI, Redux Toolkit |
-| Backend | Node.js, Express, TypeScript |
-| Database | PostgreSQL |
-| Queue | Bull (Redis) |
-| Automation | Playwright |
-| Scheduler | node-cron |
+---
 
-## Quick Start
+## Apa yang diselesaikan?
 
-### 1. Prerequisites
+| Masalah | Jawaban di app |
+|---------|----------------|
+| Posting manual berulang | Schedule caption + waktu/timezone |
+| Plan konten mingguan | Bulk import CSV |
+| Takut gagal diam-diam | Retry 3x + list failed + notifikasi |
+| Perlu pantau konsistensi | Dashboard scheduled / published / failed + stats |
 
-- Node.js 18+
-- Docker & Docker Compose
+**Bukan:** HRIS, official Meta Ads tool, atau mobile app. Login memakai kredensial Threads user (disimpan terenkripsi).
 
-### 2. Setup
+---
+
+## Fitur (MVP)
+
+- [x] Login Threads + enkripsi kredensial + JWT session  
+- [x] Single post scheduler + preview  
+- [x] Bulk CSV import  
+- [x] Auto-publish (cron + Bull + Playwright)  
+- [x] Dashboard: upcoming, published, failed, timeline, queue  
+- [x] Retry otomatis & manual  
+- [x] In-app notifications · email Conditional (SendGrid)  
+- [x] Settings preferensi notifikasi  
+
+**Default lokal:** `PLAYWRIGHT_DRY_RUN=true` (simulasi — aman tanpa publish nyata).
+
+Detail status: [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md).
+
+---
+
+## Quick start
+
+**Prasyarat:** Node.js 18+, Docker Compose.
 
 ```bash
-# Clone & install
+cd auto
 npm install
-
-# Copy environment
 cp .env.example .env
-
-# Start PostgreSQL & Redis
-npm run docker:up
-
-# Run migrations
+npm run docker:up      # Postgres + Redis
 npm run db:migrate
-
-# Start dev servers (API :3000, Frontend :5173)
-npm run dev
+npm run dev            # API :3000 · UI :5173
 ```
 
-### 3. Login
+Buka http://localhost:5173 → login dengan username/password Threads (atau dry-run).
 
-Buka http://localhost:5173 dan login dengan username/password Threads.
+**Live publish:**
 
-> **Development mode:** Set `PLAYWRIGHT_DRY_RUN=true` di `.env` untuk simulasi login/publish tanpa browser automation.
+1. `PLAYWRIGHT_DRY_RUN=false`  
+2. `npx playwright install chromium`  
+3. Ganti `JWT_SECRET` & `ENCRYPTION_KEY`  
+4. Opsional: `SENDGRID_API_KEY`  
 
-## API Endpoints
+---
 
-Base URL: `http://localhost:3000/v1`
+## Stack (ringkas)
 
-### Auth
-- `POST /auth/login` — Login dengan Threads credentials
-- `POST /auth/logout` — Logout
-- `GET /auth/me` — Get current user
-- `PUT /auth/preferences` — Update notification preferences
+| Layer | Teknologi |
+|-------|-----------|
+| Frontend | React 18, Vite, MUI, Redux Toolkit |
+| Backend | Express, TypeScript |
+| DB / Queue | PostgreSQL, Redis + Bull |
+| Automation | Playwright → threads.net |
 
-### Posts
-- `POST /posts` — Create scheduled post
-- `GET /posts` — List posts (filter: status, search, date)
-- `GET /posts/scheduled` — Upcoming queue
-- `GET /posts/published` — Published history
-- `GET /posts/failed` — Failed posts
-- `PUT /posts/:id` — Update scheduled post
-- `DELETE /posts/:id` — Cancel post
-- `POST /posts/import` — Bulk CSV import
-- `POST /posts/:id/retry` — Manual retry
+Arsitektur: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · API: [docs/API.md](./docs/API.md).
 
-### Dashboard
-- `GET /dashboard/stats` — Dashboard statistics
-- `GET /dashboard/timeline` — Activity timeline
-- `GET /dashboard/queue` — Queue status
-- `GET /dashboard/notifications` — In-app notifications
+---
 
-## CSV Import Format
+## CSV import
 
 ```csv
 caption,date,time,timezone
 "Good morning! #threads",2026-06-23,09:00,Asia/Jakarta
-"Afternoon vibes",2026-06-23,15:00,Asia/Jakarta
 ```
 
-## Architecture
+Lihat `sample-posts.csv`.
 
-```
-Frontend (React) → API (Express) → PostgreSQL
-                                 → Redis/Bull Queue
-                                 → Playwright → Threads.net
-```
+---
 
-## Features (MVP)
+## PRD berikutnya
 
-- [x] Threads login dengan credential encryption
-- [x] Single post scheduler dengan preview
-- [x] Bulk CSV import dengan validation & rollback
-- [x] Auto-publish engine (Bull queue + cron)
-- [x] Dashboard: upcoming, published, failed
-- [x] Retry mechanism (3x exponential backoff)
-- [x] In-app & email notifications
-- [x] Settings & notification preferences
+Jangan rebuild scheduler. Fokus yang disarankan: **live publish hardening + media + tests**.  
+Baca: **[docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md)**.
 
-## Production Notes
+---
 
-1. Set `PLAYWRIGHT_DRY_RUN=false` untuk real browser automation
-2. Ganti `JWT_SECRET` dan `ENCRYPTION_KEY` dengan nilai aman
-3. Konfigurasi `SENDGRID_API_KEY` untuk email notifications
-4. Install Playwright browsers: `npx playwright install chromium`
+## Dokumentasi
 
-## License
-
-Private — internal use only.
+| Dokumen | Isi |
+|---------|-----|
+| [docs/00_INDEX.md](./docs/00_INDEX.md) | Indeks |
+| [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Overview produk |
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Baseline kode |
+| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Briefing PRD berikutnya |
+| [docs/PRD/](./docs/PRD/) | PRD · SRS · SDD v1.0 |
+| Wiki | `company-wiki/docs/products/threads-automation/` |
