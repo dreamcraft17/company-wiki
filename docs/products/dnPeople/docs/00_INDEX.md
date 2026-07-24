@@ -3,13 +3,15 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 22, 2026  
-**Status:** PRD v5–v12.0 **complete in repo** · go-live gates Conditional (external ops)  
-**Codebase:** 61 pages · 53 route modules · 102 models · 32 tests  
-**HEAD:** `9e69a2b`  
+**UpdatedAt:** July 24, 2026  
+**Status:** PRD v5–v12 / v11.1 **complete** · **code release-ready** for Agustus soft launch · remaining gates = external ops  
+**Codebase:** 61 pages · 53 route modules · 102 models · **35** tests  
+**HEAD:** `e7cf0ca` (release-ready hardening `8a75871`)  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
-> **Next PRD:** mulai dari [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) + [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — PRD v4 Module 3–8 product scope.
+> **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
+> **Next product PRD (after launch):** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — PRD v4 Module 3–8  
+> **Demo creds on UI:** only when `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging) — see [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md)
 
 | File | Deskripsi |
 |------|-----------|
@@ -36,6 +38,7 @@
 | [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
 | [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier Professional) |
 | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Go/no-go checklist PRD v11.0 |
+| [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
 | [PRD/dnpeople-prd-v12.0-tier-consolidation-id.md](./PRD/dnpeople-prd-v12.0-tier-consolidation-id.md) | **PRD v12.0** tier consolidation |

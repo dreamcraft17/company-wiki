@@ -1,11 +1,11 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **22 Juli 2026** (PRD **v11.1** landing page + pricing SSOT)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v11.1** · Repo version **1.0.0**
+> Terakhir diperbarui: **24 Juli 2026** (soft-launch **release-ready** hardening)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v12 / v11.1** · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 22, 2026  
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 24, 2026  
 >
-> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **PRD v11.1:** [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
+> **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **Release:** [RELEASE-READY.md](./RELEASE-READY.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
 ## Ringkasan
 
@@ -28,8 +28,8 @@
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
 **Inventory:** **61** frontend pages · **53** backend route modules · **102** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **32/32** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Conditional — v11 code shipped; still need Datadog/PagerDuty live, signed restore drill, pen-test completion, DNS dnpeople.id, 10–20 beta customers onboarded.
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **35/35** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** Code release-ready (24 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
 
 ### Mulai PRD berikutnya
 
@@ -65,7 +65,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 22 Juli 2026: TypeScript ✅ · backend tests **32/32** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v11.1 landing + pricing SSOT (`subscriptionCatalog.ts`).
+Verifikasi 24 Juli 2026: TypeScript ✅ · backend tests **35/35** ✅. Codebase: **61** pages · **53** route modules · **102** models · release-ready hardening + PRD v11.1 landing.
 
 ---
 

@@ -4,6 +4,28 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — Soft-launch release-ready hardening
+
+### Security
+- Production secrets **fail-closed** for `JWT_SECRET`, payslip signed URLs, attendance QR HMAC, and document signing (`backend/src/lib/secrets.ts`)
+- Demo credentials hidden on marketing/login unless `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging only)
+
+### Fixed
+- Trial expiry no longer pretends a card charge without Stripe/Xendit — creates **DRAFT** invoice and skips `lastChargedAt`
+
+### Added
+- Expanded `scripts/smoke-test.sh` (health + public leads + optional `WEB_URL` marketing paths)
+- `frontend/src/app/robots.ts` + `sitemap.ts`
+- Datadog OpenMetrics scrape list aligned with Prometheus exporter
+- Docs: `RELEASE-READY.md`; launch checklist status legend (✅ / 🟡 / ⬜)
+- Unit tests for secret fail-closed (suite **35/35**)
+
+### Changed
+- `.env.example` (backend + frontend) launch variables documented
+- `npm run smoke` / `k6:baseline|ramp|spike` scripts on backend package
+
+---
+
 ## [2026-07-22] — PRD v11.1 landing page website
 
 ### Added

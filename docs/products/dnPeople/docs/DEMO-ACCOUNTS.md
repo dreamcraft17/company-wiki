@@ -5,6 +5,8 @@
 **Password semua akun:** `Demo123!`  
 **Perusahaan:** DN People Demo (PT DN People Indonesia)
 
+> **Production / public site:** kredensial demo **tidak** ditampilkan di UI kecuali `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging/sandbox only).
+
 Jalankan seed:
 
 ```bash
@@ -36,5 +38,6 @@ Termasuk: core HR, absensi lanjutan, payroll lanjutan, shift/OT, klaim, pinjaman
 - Login di `/login` — tenant auto-discover dari domain email `@demo.dnpeople.id`.
 - Akun **Budi** punya payslip finalized + data operasional paling lengkap untuk uji employee self-service.
 - Akun **Dina** (COMPANY_ADMIN) untuk uji admin/settings; bukan username `admin`.
+- Soft launch: lihat [RELEASE-READY.md](./RELEASE-READY.md).
 
-*Updated: July 22, 2026*
+*Updated: July 24, 2026*

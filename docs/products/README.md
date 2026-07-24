@@ -14,7 +14,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Release-ready + launch gates | Soft launch Agustus · ops Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Current phase | MVP codebase complete · ops launch | `dova` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
@@ -30,13 +30,13 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
-| **DOVA** | app `2b99ae1` | Added wiki product folder + **current-phase** (MVP codebase done → ops launch) |
+| **dnPeople HRIS** | app `8a75871` / docs `e7cf0ca` | Soft-launch **release-ready**: secrets fail-closed, demo creds gated, smoke expanded, RELEASE-READY + launch checklist mirrored |
+| **DOVA** | app `2b99ae1` | Wiki product folder + **current-phase** (MVP codebase done → ops launch) |
 | **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |
-| **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
-| **company-wiki** | — | DOVA current-phase + products index refreshed |
+| **company-wiki** | — | dnPeople release-ready docs + DOVA current-phase |
 
 ---
 
