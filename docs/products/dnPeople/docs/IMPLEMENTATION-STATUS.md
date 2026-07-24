@@ -30,7 +30,7 @@
 | PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next product PRD) |
 
 **Inventory:** **~67** frontend pages · **~54** backend route modules · **~109** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **41/41** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **45/45** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
 **Production go-live:** Code release-ready (24 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
 
 ### Mulai PRD berikutnya
@@ -68,7 +68,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 24 Juli 2026: TypeScript ✅ · backend tests **36/36** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v12.1 FREE 50-emp final + release-ready hardening.
+Verifikasi 24 Juli 2026: TypeScript ✅ · backend tests **45/45** ✅. Codebase: **~67** pages · **~54** route modules · **~109** models · PRD v13.0 talent matrix + v12.1 FREE 50-emp + honest FREE demo nav.
 
 ---
 

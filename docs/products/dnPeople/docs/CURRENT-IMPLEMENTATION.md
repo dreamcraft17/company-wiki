@@ -46,7 +46,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **36/36** unit tests; TypeScript clean |
+| Automated evidence | Backend **45/45** unit tests; TypeScript clean |
 
 ## Roles and access boundary
 
@@ -235,7 +235,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **41/41** backend tests pass; frontend **~67** pages; backend **~54** route modules; Prisma **~109** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **45/45** backend tests pass; frontend **~67** pages; backend **~54** route modules; Prisma **~109** models. Re-run build and test suites before treating figures as release evidence.
 
 ## Suggested scope after PRD v13.0 (from this baseline)
 

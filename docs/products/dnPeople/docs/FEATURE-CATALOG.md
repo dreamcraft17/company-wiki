@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~67 halaman frontend**, **~54 modul route backend**, **~109 model Prisma**, **41** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~67 halaman frontend**, **~54 modul route backend**, **~109 model Prisma**, **45** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 

@@ -1,11 +1,13 @@
 # dnPeople — Akun Demo (Seed)
 
-**Tier:** `PROFESSIONAL` (bukan Enterprise)  
+**Tier:** `FREE` (nav menampilkan hanya fitur FREE — honest demo)  
 **Domain tenant:** `demo.dnpeople.id`  
 **Password semua akun:** `Demo123!`  
 **Perusahaan:** DN People Demo (PT DN People Indonesia)
 
 > **Public sandbox:** kredensial demo **ditampilkan** di `/login`, `/demo`, dan `/welcome` supaya pengunjung bisa mencoba. Set `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` hanya jika perlu disembunyikan.
+>
+> Seed tetap boleh berisi data sample payroll/rekrutmen untuk uji API, tetapi **UI & API tier gate** menyembunyikan modul berbayar sampai upgrade.
 
 Jalankan seed:
 
@@ -27,17 +29,19 @@ npm run db:seed
 | EMPLOYEE | `rio.mahendra@demo.dnpeople.id` | Rio Mahendra |
 | EMPLOYEE | `dewi.lestari@demo.dnpeople.id` | Dewi Lestari |
 
-## Fitur tier Professional
+## Yang terlihat di nav (FREE)
 
-Termasuk: core HR, absensi lanjutan, payroll lanjutan, shift/OT, klaim, pinjaman, rekrutmen, onboarding, performance, training, competency/IDP/LMS, laporan lanjutan, surveys, helpdesk, webhooks.
+Termasuk: dashboard, karyawan, organisasi, dokumen, kebijakan, pengumuman, kalender, helpdesk, MFA, paket & billing.
 
-**Tidak termasuk** (Business/Enterprise): SSO, white-label custom domain, multi-company platform, custom reports builder, API keys, SCIM, advanced workflows.
+**Tidak di-render di nav** (perlu upgrade): payroll, absensi, cuti, shift, rekrutmen, performance, training, talent matrix, IDP, LMS, integrasi, SSO, dll. Akses URL langsung → halaman `/upgrade`.
 
 ## Tips
 
 - Login di `/login` — tenant auto-discover dari domain email `@demo.dnpeople.id`.
-- Akun **Budi** punya payslip finalized + data operasional paling lengkap untuk uji employee self-service.
-- Akun **Dina** (COMPANY_ADMIN) untuk uji admin/settings; bukan username `admin`.
-- Soft launch: lihat [RELEASE-READY.md](./RELEASE-READY.md).
+- Akun **Dina** (COMPANY_ADMIN) untuk uji billing/upgrade & admin FREE.
+- Upgrade tier di `/billing` atau `/upgrade` untuk membuka modul berbayar di lingkungan non-demo / setelah ubah subscription.
 
-*Updated: July 24, 2026*
+## Referensi
+
+- [FEATURE-CATALOG.md](./FEATURE-CATALOG.md)
+- [README.md](../README.md)

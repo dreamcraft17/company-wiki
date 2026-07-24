@@ -4,15 +4,15 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 24, 2026  
-**Status:** PRD v5–**v12.1** / v11.1 **complete** · **code release-ready** for Agustus soft launch · remaining gates = external ops  
-**Codebase:** 61 pages · 53 route modules · 102 models · **36** tests  
-**HEAD:** `61d956f` (PRD v12.1 FREE 50-emp final)  
+**Status:** PRD v5–**v13.0** / v12.1 / v11.1 **complete** · soft-launch gates = external ops  
+**Codebase:** ~67 pages · ~54 route modules · ~109 models · **45** tests  
+**Contact:** info@dntech.id  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
 > **Dasar PRD berikutnya (1 file):** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)  
-> **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — PRD v4 Module 3–8  
-> **Demo creds on UI:** ditampilkan by default (public sandbox) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
+> **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8  
+> **Demo creds on UI:** ditampilkan by default (public sandbox **FREE** tier) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
 | File | Deskripsi |
 |------|-----------|
@@ -37,7 +37,7 @@
 | [SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md) | SLA & support |
 | [UU-PDP-COMPLIANCE-CHECKLIST.md](./UU-PDP-COMPLIANCE-CHECKLIST.md) | Checklist UU PDP |
 | [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
-| [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier Professional) |
+| [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier FREE — honest nav) |
 | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Go/no-go checklist PRD v11.0 |
 | [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |

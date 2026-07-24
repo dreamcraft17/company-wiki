@@ -36,7 +36,7 @@ Nomor versi PRD produk berikutnya yang wajar: **v14.0** (lanjutan setelah v13.0)
 | Frontend | Next.js · ~**67** halaman · mobile-first |
 | Backend | Express `/api/v1` · ~**54** route modules · SCIM `/scim/v2` |
 | Data | PostgreSQL + Prisma · ~**109** models · migrasi wajib deploy |
-| Tests | Backend **41/41** |
+| Tests | Backend **45/45** |
 | Tier | FREE/STARTER hard **50** emp · Prof **300** · Business soft@1000 · Enterprise custom |
 | Talent | `talent:competency` / `talent:idp` / **`talent:matrix`** / `lms` @ PROFESSIONAL+ |
 

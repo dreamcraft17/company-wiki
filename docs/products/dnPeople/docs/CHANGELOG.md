@@ -4,6 +4,15 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — Marketing footer brand + product README
+
+### Changed
+- Landing footer logo uses same `/logo1.png` as header (on white pad; removed invert washout); contact email **info@dntech.id**
+- `README.md` rewritten product-first (apa itu dnPeople, fitur, tier, demo FREE) — tech stack ringkas saja
+- `PROJECT-OVERVIEW.md`, `DEMO-ACCOUNTS.md` (demo = FREE), inventory counts synced to v13 + nav tests (**45/45**)
+
+---
+
 ## [2026-07-24] — Navigation tier visibility (honest FREE demo)
 
 ### Fixed
