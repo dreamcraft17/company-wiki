@@ -37,6 +37,7 @@
 
 | File | Deskripsi |
 |------|-----------|
+| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | **Dasar utuh PRD berikutnya** |
 | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — mulai PRD berikutnya di sini |
 | [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) | Soft-launch Agustus — kode vs ops |
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur existing / conditional / roadmap |

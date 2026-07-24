@@ -34,9 +34,10 @@
 
 ### Mulai PRD berikutnya
 
-1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v12.1*  
-2. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
-3. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
+1. Baca [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) — **satu file utuh** dasar PRD berikutnya  
+2. Detail panjang: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v12.1*  
+3. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
+4. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
 
 ### PRD completion hardening — baseline 12 Juli 2026, diaudit ulang 18 Juli 2026
 

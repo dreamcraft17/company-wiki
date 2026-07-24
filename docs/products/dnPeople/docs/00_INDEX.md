@@ -10,7 +10,8 @@
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
-> **Next product PRD (after launch):** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — PRD v4 Module 3–8  
+> **Dasar PRD berikutnya (1 file):** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)  
+> **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — PRD v4 Module 3–8  
 > **Demo creds on UI:** ditampilkan by default (public sandbox) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
 | File | Deskripsi |
@@ -50,7 +51,8 @@
 | [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** ops & launch |
 | [V5-SUBSCRIPTION-IMPLEMENTATION.md](./V5-SUBSCRIPTION-IMPLEMENTATION.md) | Subscription tier, billing, feature gating |
 | [V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md](./V6-ENTERPRISE-MULTITENANT-IMPLEMENTATION.md) | Isolation, SCIM, scoped RBAC, quota |
-| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | **Baseline kanonik — mulai PRD berikutnya di sini** |
+| [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | **Dasar utuh untuk menulis PRD berikutnya** |
+| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | **Baseline kanonik — detail panjang** |
 | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) | Audit fitur, bug, dan performa (18 Jul 2026) + remediasi v8.0 |
 | [PRD-COMPLIANCE-MATRIX.md](./PRD-COMPLIANCE-MATRIX.md) | Traceability acceptance criteria |
 | [SECURITY-NFR-EVIDENCE.md](./SECURITY-NFR-EVIDENCE.md) | Bukti security & NFR |

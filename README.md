@@ -19,14 +19,16 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Product Docs Index](./docs/products/README.md) — **187 markdown + 1 DOCX + 4 ZIP archives**
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (37 files)
-  - [dnPeople HRIS](./docs/products/dnPeople/00_INDEX.md) (36 files) — PRD v6.1 enterprise multi-tenant + seamless login
-  - [DN People ERP](./docs/products/dnpeople-erp/00_INDEX.md) (48 files)
-  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (32 files)
-  - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (4 files)
-  - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (12 files)
-  - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 DOCX)
+- [Product Docs Index](./docs/products/README.md) — **296 markdown + 1 DOCX + 4 ZIP archives**
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (49 markdown)
+  - [dnPeople HRIS](./docs/products/dnPeople/00_INDEX.md) (105 markdown) — PRD v12.1, enterprise multi-tenant, launch readiness
+  - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
+  - [DOVA](./docs/products/dova/00_INDEX.md) (22 markdown) — Marketplace MVP dan operations launch
+  - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
+  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)
+  - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (5 markdown)
+  - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (17 markdown)
+  - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
 - [Careers PRD Summary](./products/11_CAREERS_PRD.md)
@@ -55,10 +57,12 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (187 markdown + 1 DOCX + 4 ZIP)
+│   └── products/          # Source docs per produk (296 markdown + 1 DOCX + 4 ZIP)
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
+│       ├── dova/           # Marketplace (MVP → operations launch)
+│       ├── dvs/            # DuaVulnScanner (passive scanner MVP)
 │       ├── nearwork/
 │       ├── threads-automation/
 │       ├── tj/
@@ -81,4 +85,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: July 24, 2026*
