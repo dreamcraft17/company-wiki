@@ -1,7 +1,7 @@
 # Product Documentation Index
 
-**Document Version**: 1.4
-**Last Updated**: July 22, 2026
+**Document Version**: 1.5
+**Last Updated**: July 24, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -16,6 +16,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | 36 files | PRD v10.0 ops artefacts mirrored | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Current phase | MVP codebase complete · ops launch | `dova` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -25,16 +26,17 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 ---
 
-## 🔄 Latest Updates (July 19, 2026)
+## 🔄 Latest Updates (July 24, 2026)
 
-| Project | Commit | Perubahan |
-|---------|--------|-----------|
+| Project | Commit / note | Perubahan |
+|---------|---------------|-----------|
+| **DOVA** | app `2b99ae1` | Added wiki product folder + **current-phase** (MVP codebase done → ops launch) |
 | **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |
 | **dnPeople HRIS** | — | PRD v10.0 ops artefacts + baseline sync (see product folder) |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
 | **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
 | **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
-| **company-wiki** | — | dnCore docs mirror + products index refreshed |
+| **company-wiki** | — | DOVA current-phase + products index refreshed |
 
 ---
 
@@ -72,6 +74,7 @@ docs/products/
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
+├── dova/                      # DOVA marketplace (MVP → ops launch)
 ├── nearwork/                  # Nearwork Platform
 ├── threads-automation/        # Threads Automation Tool
 ├── tj/                        # Trusted Jurist Law Firm website
@@ -93,4 +96,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: July 19, 2026*
+*Last Updated: July 24, 2026*
