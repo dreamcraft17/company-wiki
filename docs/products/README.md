@@ -16,6 +16,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Release-ready + launch gates | Soft launch Agustus · ops Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
+| **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP codebase complete · ops launch | `dova` |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | 4 files | Planned | `auto` |
@@ -31,6 +32,8 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
 | **dnPeople HRIS** | app `8a75871` / docs `e7cf0ca` | Soft-launch **release-ready**: secrets fail-closed, demo creds gated, smoke expanded, RELEASE-READY + launch checklist mirrored |
+| **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
+| **DuaVulnScanner** | scaffold 24 Jul | New product `dvs/` from PENTEST_TOOL prompts — PRD/SRS/SDD + Nest/Next MVP |
 | **DOVA** | app `27db4da` | Full product docs tree: PRD/SRS/SDD, CURRENT-IMPLEMENTATION, catalog, API, runbook, progress/status |
 | **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
@@ -74,6 +77,7 @@ docs/products/
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
+├── dvs/                       # DuaVulnScanner (pentest platform)
 ├── dova/                      # DOVA marketplace — full docs + PRD (MVP → ops launch)
 ├── nearwork/                  # Nearwork Platform
 ├── threads-automation/        # Threads Automation Tool
