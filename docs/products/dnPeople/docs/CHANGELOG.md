@@ -4,6 +4,19 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — Navigation tier visibility (honest FREE demo)
+
+### Fixed
+- Demo seed subscription tier **FREE** (was PROFESSIONAL) so sandbox nav matches FREE entitlements
+- App shell builds nav from `navigationMenu.ts` with explicit `feature` keys; unavailable items are **not rendered** (no CSS hide)
+- `tierFeatures.ts` frontend mirror of backend `TIER_FEATURES`; `useTierAccess` drives nav + upgrade hints
+- While subscription loads, gated nav items stay omitted (no paid-feature flash)
+
+### Tests
+- `navTierVisibility.test.ts` — FREE omits payroll/attendance/talent; demo tier constant is FREE
+
+---
+
 ## [2026-07-24] — PRD v13.0 Talent Matrix & Succession (Module 3)
 
 ### Added
