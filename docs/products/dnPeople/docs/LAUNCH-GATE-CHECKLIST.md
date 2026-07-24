@@ -31,7 +31,7 @@ Legend: ✅ Done in repo · 🟡 Ready to execute (ops) · ⬜ External dependen
 | Pen-test engaged + staging | ⬜ | `ops/pen-test-staging-prep.md` |
 | Critical findings remediated | ⬜ | After pen-test |
 | Prod secrets fail-closed | ✅ | `JWT_SECRET` / payslip / QR / doc signing refuse insecure defaults in production |
-| Demo creds gated | ✅ | `NEXT_PUBLIC_SHOW_DEMO_CREDS` (off by default) |
+| Demo sandbox creds | ✅ | Ditampilkan di UI (public trial); opt-out `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` |
 
 ## Performance
 

@@ -5,7 +5,7 @@
 **Password semua akun:** `Demo123!`  
 **Perusahaan:** DN People Demo (PT DN People Indonesia)
 
-> **Production / public site:** kredensial demo **tidak** ditampilkan di UI kecuali `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging/sandbox only).
+> **Public sandbox:** kredensial demo **ditampilkan** di `/login`, `/demo`, dan `/welcome` supaya pengunjung bisa mencoba. Set `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` hanya jika perlu disembunyikan.
 
 Jalankan seed:
 

@@ -13,7 +13,7 @@
 
 > **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
 
-> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, demo creds gated, honest trial billing, expanded smoke, SEO robots/sitemap. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
+> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, honest trial billing, expanded smoke, SEO robots/sitemap; **demo sandbox creds remain public** for product trial. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 
 > **PRD v11.1 (22 Jul 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Gratis, Rp20.000/25.000 per karyawan, Business 301+, Enterprise 500+ (PRD v5 tier matrix). External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
 

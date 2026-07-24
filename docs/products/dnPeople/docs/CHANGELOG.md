@@ -4,6 +4,14 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — Public demo sandbox credentials
+
+### Changed
+- Demo login credentials **shown by default** on `/login`, `/demo`, `/welcome` (visitors may try the seeded tenant)
+- Opt-out only: `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
+
+---
+
 ## [2026-07-24] — Docs sync: PRD v12.1 across all living docs
 
 ### Changed
@@ -38,7 +46,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ### Security
 - Production secrets **fail-closed** for `JWT_SECRET`, payslip signed URLs, attendance QR HMAC, and document signing (`backend/src/lib/secrets.ts`)
-- Demo credentials hidden on marketing/login unless `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging only)
+- Demo credentials hidden on marketing/login unless `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging only) — **superseded 24 Jul**: shown by default for public trial
 
 ### Fixed
 - Trial expiry no longer pretends a card charge without Stripe/Xendit — creates **DRAFT** invoice and skips `lastChargedAt`

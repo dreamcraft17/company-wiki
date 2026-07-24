@@ -11,7 +11,7 @@
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
 > **Next product PRD (after launch):** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — PRD v4 Module 3–8  
-> **Demo creds on UI:** only when `NEXT_PUBLIC_SHOW_DEMO_CREDS=true` (staging) — see [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md)
+> **Demo creds on UI:** ditampilkan by default (public sandbox) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
 | File | Deskripsi |
 |------|-----------|

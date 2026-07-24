@@ -13,7 +13,7 @@
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 3–8 after launch  
-> **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — UI shows seed creds only if `NEXT_PUBLIC_SHOW_DEMO_CREDS=true`
+> **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox creds shown by default — see DEMO-ACCOUNTS.md
 
 ---
 

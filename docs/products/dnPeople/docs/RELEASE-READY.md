@@ -9,7 +9,7 @@
 ## Apa yang sudah dikunci di kode (24 Jul)
 
 1. Production secrets **fail-closed** (`JWT_SECRET`, payslip, attendance QR, document HMAC).
-2. Kredensial demo **tidak** di-hardcode di production UI (flag `NEXT_PUBLIC_SHOW_DEMO_CREDS`).
+2. Kredensial **demo sandbox publik** ditampilkan di login/marketing (opt-out: `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`).
 3. Trial expiry **tidak** mengklaim charge tanpa Stripe/Xendit (invoice `DRAFT`).
 4. Smoke test diperluas (health + public leads + optional marketing URLs).
 5. `robots.ts` + `sitemap.ts` untuk SEO soft launch.
