@@ -3,13 +3,15 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 24 July 2026 |
-| HEAD | `61d956f` |
-| Purpose | **Baseline** after PRD **v12.1** FREE 50-emp final + release-ready hardening |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v12.1 / v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| HEAD | (local — PRD v13.0 Talent Matrix) |
+| Purpose | **Baseline** after PRD **v13.0** Module 3 Talent Matrix & Succession |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | July 24, 2026 |
+
+> **PRD v13.0 (24 Jul 2026):** Module 3 — 9-box talent matrix sessions/placements/lock, succession + readiness, development proposals → IDP/LMS, reports Excel/PDF/HTML, feature `talent:matrix` PROFESSIONAL+, nav tier-hide. Specs in `docs/PRD/*-v13.0-talent*`.
 
 > **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
 
@@ -33,9 +35,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~61** production routes (marketing `/welcome` `/pricing` `/faq` `/contact` `/about` `/demo` `/blog/*`, `/legal/*`, app routes); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~53** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **102** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~67** production routes (marketing + app incl. talent matrix); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~54** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **~109** models; deployment migrations are mandatory |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -233,17 +235,17 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **36/36** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **41/41** backend tests pass; frontend **~67** pages; backend **~54** route modules; Prisma **~109** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope after PRD v12.1 (from this baseline)
+## Suggested scope after PRD v13.0 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
-| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code + v12.1 Done 24 Jul |
-| **P0 product** | PRD v4 Module 3 — 9-box + succession | [PRD v4 competitive](./PRD/dnpeople-prd-v4-competitive.md) | Models partially exist; UI/workflows not built |
-| **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
+| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
+| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Next greenfield after Module 3 |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
+| **Done** | PRD v13.0 Module 3 talent matrix & succession | [PRD v13.0](./PRD/dnpeople-prd-v13.0-talent-matrix-succession.md) | 9-box, lock, succession, proposals, reports |
 | **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
@@ -303,10 +305,10 @@ These are not safe to mark “production accepted” solely from repository code
 - Legally certified third-party e-sign provider; current signatures are consent-based and tamper-evident.
 - Guaranteed 99.9% SLA without production infrastructure, monitoring, incident response and support operations.
 - Fully automated predictive HR decisions; turnover risk is heuristic and must remain human-reviewed.
-- 9-box talent matrix and succession planning/readiness scoring (PRD v4 Module 3).
 - Internal career marketplace, rotation and cross-functional mobility programs (PRD v4 Module 4).
 - Earned wage access (EWA) and salary benchmarking against external market data (PRD v4 Modules 5–6).
 - Manufacturing/retail vertical configuration packages — complex shift incentives, tips/service charge handling, high-volume hiring flows (PRD v4 Modules 7–8).
+- Real-time WebSocket comments on talent calibration sessions (out of v13.0 MVP).
 - Physical SILO database provisioning, tenant data copy/cutover, secret rotation, restore drill, and failback remain infrastructure operations; selecting SILO policy alone is not proof of physical isolation.
 
 ## Requirements for the next PRD

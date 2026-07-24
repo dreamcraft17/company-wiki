@@ -1,7 +1,7 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **24 Juli 2026** (PRD **v12.1** FREE 50-emp final + soft-launch hardening)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v12.1 / v11.1** · Repo version **1.0.0**
+> Terakhir diperbarui: **24 Juli 2026** (PRD **v13.0** Talent Matrix & Succession Module 3)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v13.0 / v11.1** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 24, 2026  
 >
@@ -26,16 +26,17 @@
 | PRD v12.0 | Tier consolidation: trial enforcement, API limits, min charge, headcount warnings, billing scheduler | **Done** in repo; payment auto-charge live Conditional |
 | PRD v12.1 | FREE/STARTER hard 50 emp final: helpdesk on FREE, shifts on STARTER, Jakarta API quota, storage 5GB, capacity emails 7d, `/upgrade` | **Done** in repo |
 | PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
-| PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
+| PRD v13.0 | Module 3: 9-box talent matrix, session lock, succession/readiness, development proposals, Excel/PDF/HTML reports | **Done** in repo |
+| PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next product PRD) |
 
-**Inventory:** **61** frontend pages · **53** backend route modules · **102** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **36/36** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Inventory:** **~67** frontend pages · **~54** backend route modules · **~109** Prisma models  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **41/41** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
 **Production go-live:** Code release-ready (24 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
 
 ### Mulai PRD berikutnya
 
 1. Baca [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) — **satu file utuh** dasar PRD berikutnya  
-2. Detail panjang: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v12.1*  
+2. Detail panjang: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v13.0*  
 3. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
 4. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
 

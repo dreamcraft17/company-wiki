@@ -6,9 +6,9 @@
 **UpdatedAt:** July 24, 2026  
 
 
-**Snapshot:** 24 July 2026 · PRD **v12.1** FREE 50-emp final + v11.1 landing complete in repo  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v12.1** / v11.1 (complete in repo)  
-**Next PRD scope (recommended):** PRD v4 **Module 3–8** (+ external go-live ops)  
+**Snapshot:** 24 July 2026 · PRD **v13.0** Talent Matrix & Succession + v12.1 FREE 50-emp  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v13.0** / v11.1 (complete in repo)  
+**Next PRD scope (recommended):** PRD v4 **Module 4–8** (+ external go-live ops)  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~61 halaman frontend**, **~53 modul route backend**, **102 model Prisma**, **36** backend unit tests, mobile-first web shell, marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`), tier pricing SSOT (`subscriptionCatalog.ts`), PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~67 halaman frontend**, **~54 modul route backend**, **~109 model Prisma**, **41** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
 
 ## 1. Identity, authentication, dan access control
 
@@ -171,6 +171,11 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | LMS enrollment | Self-enroll atau assigned enrollment | Employee/manager | `/lms` | Available (basic) |
 | Learning progress | Module completion, percentage, final score | Employee/manager | `/lms` | Available (basic) |
 | Certificate/transcript | Certificate code/expiry dan personal transcript | Employee/HR | `/lms` | Available (basic) |
+| 9-box talent matrix | Sesi kalibrasi, placement, auto-score, lock/unlock, grid UI | HR/admin; manager suggest; finance read | `/talent/matrix`, `/talent/sessions` | Available — PRD v13.0 |
+| Succession planning | Critical roles, successor rank, readiness score/override | HR/admin (finance blocked) | `/talent/succession` | Available — PRD v13.0 |
+| Development proposals | Generate dari gap ≥30%, approve→IDP/LMS enroll | HR/admin | `/talent/sessions/[id]` | Available — PRD v13.0 |
+| Talent reports | Matrix/succession/proposals Excel·PDF·HTML | HR/admin; finance matrix only | `/talent/reports` | Available — PRD v13.0 |
+| Talent matrix config | Axis source, box labels, manager suggestions | HR/admin | `/talent/settings` | Available — PRD v13.0 |
 
 ## 7. Employee services dan workplace operations
 
@@ -279,8 +284,6 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur roadmap | Status/catatan |
 |---------------|----------------|
 | Native Android/iOS | Roadmap; produk saat ini mobile-first web |
-| 9-box talent matrix | Roadmap PRD v4 Module 3 |
-| Succession planning/readiness | Roadmap PRD v4 Module 3 |
 | Internal career marketplace | Roadmap PRD v4 Module 4 |
 | Rotation/cross-functional program | Roadmap PRD v4 Module 4; berbeda dari rotasi shift yang sudah tersedia |
 | Earned wage access | Roadmap PRD v4 Module 5; membutuhkan partner bank |

@@ -4,6 +4,21 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — PRD v13.0 Talent Matrix & Succession (Module 3)
+
+### Added
+- Feature `talent:matrix` @ **PROFESSIONAL+**; API `/api/v1/talent/*` (config, sessions, placements, lock/unlock, succession, proposals, reports)
+- Prisma: `TalentMatrixConfiguration`, `TalentMatrixSession`, `TalentMatrixPlacement`, `SuccessionPlanning`, `SuccessorCandidate`, `DevelopmentProposal`, `TalentMatrixAudit` + migration `20260724100000_talent_matrix_v13`
+- Lock rule: all session placements must have box 1–9; empty session cannot lock; unlock requires reason
+- UI: `/talent/matrix`, `/talent/sessions`, `/talent/sessions/[id]`, `/talent/succession`, `/talent/settings`, `/talent/reports` (Excel/PDF/HTML)
+- Nav tier-hide via `hasFeature` + ROUTE_FEATURES for new talent paths; Finance sees 9-box only (no succession writes)
+- Unit tests: readiness scoring, 9-box mapping, lock guard, feature tier
+
+### Changed
+- AppShell: Talent Matrix / Kalibrasi / Succession / Laporan / Settings nav; Kompetensi tetap di `/talent`
+
+---
+
 ## [2026-07-24] — Public demo sandbox credentials
 
 ### Changed
