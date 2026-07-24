@@ -3,7 +3,7 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 24 July 2026 |
-| HEAD | `e7cf0ca` |
+| HEAD | `62355be` |
 | Purpose | **Baseline** after release-ready hardening for Agustus soft launch |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
