@@ -3,15 +3,17 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 24 July 2026 |
-| HEAD | `62355be` |
-| Purpose | **Baseline** after release-ready hardening for Agustus soft launch |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| HEAD | `4e91727` |
+| Purpose | **Baseline** after PRD **v12.1** FREE 50-emp final + release-ready hardening |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v12.1 / v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | July 24, 2026 |
 
-> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped (`8a75871`) — secrets fail-closed, demo creds gated, honest trial billing, expanded smoke, SEO robots/sitemap. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
+> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
+
+> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, demo creds gated, honest trial billing, expanded smoke, SEO robots/sitemap. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 
 > **PRD v11.1 (22 Jul 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Gratis, Rp20.000/25.000 per karyawan, Business 301+, Enterprise 500+ (PRD v5 tier matrix). External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
 
@@ -42,7 +44,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **35/35** unit tests; TypeScript clean |
+| Automated evidence | Backend **36/36** unit tests; TypeScript clean |
 
 ## Roles and access boundary
 

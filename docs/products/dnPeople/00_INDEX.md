@@ -2,14 +2,14 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v12 / v11.1** complete · **code release-ready** (Agustus soft launch) · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v12.1** / v11.1 complete · **code release-ready** (Agustus soft launch) · ops gates Conditional  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
 **UpdatedAt**: July 24, 2026  
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v12 / v11.1  
-**Codebase**: 61 frontend pages · 53 backend route modules · 102 Prisma models · **35/35** tests  
-**HEAD**: `62355be` (hardening `8a75871`)
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v12.1 / v11.1  
+**Codebase**: 61 frontend pages · 53 backend route modules · 102 Prisma models · **36/36** tests  
+**HEAD**: `4e91727` (PRD v12.1 FREE 50-emp final)
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 3–8 after launch  
@@ -26,6 +26,9 @@
 | [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
 | [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) | **PRD v11.1** — Landing page website |
 | [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) | **PRD v11.0** — Go-live execution & beta launch |
+| [PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | **PRD v12.1** — FREE tier 50 emp final (LOCKED) |
+| [PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md) | **SRS v12.1** — FREE 50 emp acceptance |
+| [PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md) | **SDD v12.1** — FREE 50 emp technical |
 | [PRD/dnpeople-prd-v12.0-tier-consolidation-id.md](./PRD/dnpeople-prd-v12.0-tier-consolidation-id.md) | **PRD v12.0** — Tier consolidation |
 | [PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md](./PRD/dnpeople-prd-v10.0-operations-launch-readiness-id.md) | **PRD v10.0** — Ops & launch readiness |
 | [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) | **PRD v8.0** — Security & stability |

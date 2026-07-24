@@ -4,6 +4,28 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — PRD v12.1 FREE tier 50-emp final
+
+### Added
+- Specs: `docs/PRD/dnpeople-{prd,srs,sdd}-v12.1-free-tier-50-emp-final.md`
+- `/upgrade` page (feature-gated upsell CTA per SRS)
+- Soft capacity warning emails every **7 days** at 80%+ headcount (`sendCapacityWarnings`)
+- Storage hard-block on upload (`TIER_STORAGE_GB`, FREE 5 GB)
+- Jakarta calendar day for tier API daily quota + `X-RateLimit-*` headers (API keys)
+- Env overrides: `TIER_*_MAX_EMPLOYEES`, `TIER_*_API_CALLS_PER_DAY`, `TIER_*_STORAGE_GB`, prices
+
+### Changed
+- FREE feature matrix includes **helpdesk**; STARTER includes **shifts**
+- Import dry-run / cap when remaining seats < rows
+- `employee_limit_reached` payload shaped to SRS
+- Tier API daily limit applies to **API-key** traffic only (not UI JWT)
+- TenantQuota synced from subscription tier (headcount / API / storage)
+
+### Tests
+- Backend unit suite **36/36** (v12.1 matrix + Jakarta date key)
+
+---
+
 ## [2026-07-24] — Soft-launch release-ready hardening
 
 ### Security

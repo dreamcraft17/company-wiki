@@ -1,7 +1,7 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **24 Juli 2026** (soft-launch **release-ready** hardening)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v12 / v11.1** · Repo version **1.0.0**
+> Terakhir diperbarui: **24 Juli 2026** (PRD **v12.1** FREE 50-emp final + soft-launch hardening)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v12.1 / v11.1** · Repo version **1.0.0**
 >
 > **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 24, 2026  
 >
@@ -24,11 +24,12 @@
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
 | PRD v11.0 | Go-live execution: marketing site, lead capture, Datadog metrics, k6 suite, launch runbooks, restore drill SQL | **Done** in repo; Datadog account, pen-test, DNS, beta UAT Conditional |
 | PRD v12.0 | Tier consolidation: trial enforcement, API limits, min charge, headcount warnings, billing scheduler | **Done** in repo; payment auto-charge live Conditional |
+| PRD v12.1 | FREE/STARTER hard 50 emp final: helpdesk on FREE, shifts on STARTER, Jakarta API quota, storage 5GB, capacity emails 7d, `/upgrade` | **Done** in repo |
 | PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
 | PRD v4 Module 3–8 | 9-box, succession, career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next PRD scope) |
 
 **Inventory:** **61** frontend pages · **53** backend route modules · **102** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **35/35** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **36/36** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
 **Production go-live:** Code release-ready (24 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
 
 ### Mulai PRD berikutnya
@@ -65,7 +66,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 24 Juli 2026: TypeScript ✅ · backend tests **35/35** ✅. Codebase: **61** pages · **53** route modules · **102** models · release-ready hardening + PRD v11.1 landing.
+Verifikasi 24 Juli 2026: TypeScript ✅ · backend tests **36/36** ✅. Codebase: **61** pages · **53** route modules · **102** models · PRD v12.1 FREE 50-emp final + release-ready hardening.
 
 ---
 

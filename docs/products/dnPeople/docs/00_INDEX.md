@@ -4,9 +4,9 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 24, 2026  
-**Status:** PRD v5–v12 / v11.1 **complete** · **code release-ready** for Agustus soft launch · remaining gates = external ops  
-**Codebase:** 61 pages · 53 route modules · 102 models · **35** tests  
-**HEAD:** `62355be` (release-ready hardening `8a75871`)  
+**Status:** PRD v5–**v12.1** / v11.1 **complete** · **code release-ready** for Agustus soft launch · remaining gates = external ops  
+**Codebase:** 61 pages · 53 route modules · 102 models · **36** tests  
+**HEAD:** `4e91727` (PRD v12.1 FREE 50-emp final)  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
@@ -41,6 +41,9 @@
 | [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | **PRD v12.1** FREE tier 50 emp final (LOCKED) |
+| [PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md) | **SRS v12.1** acceptance criteria |
+| [PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md) | **SDD v12.1** technical implementation |
 | [PRD/dnpeople-prd-v12.0-tier-consolidation-id.md](./PRD/dnpeople-prd-v12.0-tier-consolidation-id.md) | **PRD v12.0** tier consolidation |
 | [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) | **PRD v11.1** landing page |
 | [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) | **PRD v11.0** go-live execution |
