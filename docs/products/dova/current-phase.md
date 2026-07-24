@@ -4,7 +4,7 @@
 |---|---|
 | **Product** | DOVA — food supply marketplace (Nigeria / NGN / Paystack) |
 | **Repository** | [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova) |
-| **HEAD** | `2b99ae1` |
+| **HEAD** | `27db4da` |
 | **Document date** | 24 July 2026 |
 | **Owner** | Dozer |
 | **Audience** | Engineering + business stakeholders |
@@ -41,25 +41,10 @@ Unit tests + smoke:week4
 | **3** | 4–10 Aug | Supplier & admin | **Done in codebase** |
 | **4** | 11–17 Aug | Polish + launch | **Features + launch docs done in code**; live verify = **this phase** |
 
-Calendar is still early in the overall window, but **feature delivery is complete**. Current workstream = **launch operations**, not more MVP feature build.
-
 ---
 
-## What “done” means for this MVP
+## Commerce rules
 
-### Customer
-Register / login → browse / search → cart → checkout (**pickup** or **delivery**) → pay (mock or Paystack) → order history.
-
-### Supplier
-Register + verification docs (CAC / gov ID / address) → pending → admin approve → products (image file or URL) → stock → fulfill orders.
-
-### Admin
-Dashboard stats → approve/reject suppliers → users / products / orders → **Contacts** inbox.
-
-### Public
-Home (Startup brand), About, Contact (saved), footer, mobile hamburger nav.
-
-### Commerce rules
 | Rule | Value |
 |------|-------|
 | Currency | ₦ (NGN) |
@@ -69,30 +54,12 @@ Home (Startup brand), About, Contact (saved), footer, mobile hamburger nav.
 
 ---
 
-## Tech baseline (as shipped)
-
-| Layer | Choice |
-|-------|--------|
-| Monorepo | `apps/backend` (NestJS) · `apps/frontend` (Next.js) · `shared` |
-| Auth | JWT httpOnly cookies · roles: customer / supplier / admin |
-| Data | PostgreSQL + Redis optional; local often `USE_IN_MEMORY=true` |
-| Payments | Paystack NGN (+ mock when secret unset) |
-| UI | DOVA-Startup port (Poppins, green `#0F6B43`, gold `#D8B24A`); custom CSS |
-| Deploy path | Vercel frontend and/or VPS Node; no Docker required for MVP |
-| Migrations | `001_init.sql`, `002_week4.sql` (`fulfillment_type`) |
-
-**Demo accounts (local / seed):**
+## Demo accounts
 
 | Role | Email | Password |
 |------|-------|----------|
 | Admin | `admin@dova.local` | `admin1234` |
 | Supplier | `supplier@dova.local` | `supplier1234` |
-
----
-
-## Out of MVP (do not expect yet)
-
-Password reset · email verification · real product reviews API · wishlist · discounts · courier tracking · Playwright full E2E suite · live production monitoring.
 
 ---
 
@@ -119,18 +86,7 @@ Password reset · email verification · real product reviews API · wishlist · 
 
 ---
 
-## Notes on documentation location
+## Documentation
 
-- Product/spec markdown for DOVA is kept **local** under `dova/docs/` (gitignored in the app repo).  
-- This wiki page is the **shared current-phase snapshot** for the team (DCS / company-wiki).  
-- App repo README: setup, env, routes, deploy — no PRD dump.
-
----
-
-## Related
-
-| Item | Location |
-|------|----------|
-| App repository | https://github.com/dreamcraft17/dova |
-| Product index (this folder) | [00_INDEX.md](./00_INDEX.md) |
-| Local deep docs (not in git) | `dova/docs/` on developer machines |
+Shared docs live in this wiki folder ([00_INDEX.md](./00_INDEX.md)).  
+App repo keeps `docs/` **gitignored** locally; mirror updates here for the team.
