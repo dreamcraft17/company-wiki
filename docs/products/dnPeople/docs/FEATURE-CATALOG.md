@@ -3,12 +3,12 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 22, 2026  
+**UpdatedAt:** July 24, 2026  
 
 
-**Snapshot:** 22 July 2026 · PRD **v11.1** landing page + pricing SSOT complete in repo  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v11.1** (complete in repo)  
-**Next PRD scope (recommended):** PRD v4 **Module 3–8**  
+**Snapshot:** 24 July 2026 · PRD **v12.1** FREE 50-emp final + v11.1 landing complete in repo  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v12.1** / v11.1 (complete in repo)  
+**Next PRD scope (recommended):** PRD v4 **Module 3–8** (+ external go-live ops)  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~61 halaman frontend**, **~53 modul route backend**, **102 model Prisma**, **32** backend unit tests, mobile-first web shell, marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`), tier pricing SSOT (`subscriptionCatalog.ts`), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~61 halaman frontend**, **~53 modul route backend**, **102 model Prisma**, **36** backend unit tests, mobile-first web shell, marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`), tier pricing SSOT (`subscriptionCatalog.ts`), PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`.
 
 ## 1. Identity, authentication, dan access control
 
@@ -88,10 +88,10 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Excel manual attendance import | Template `.xlsx`, dry-run, preview, confirm; `Idempotency-Key` (header atau hash file); scope API key `attendance:*`; `MANUAL_UPLOAD` + audit history | SUPER_ADMIN/COMPANY_ADMIN/HR | `/attendance`, `/attendance/import*` | Available — PRD v7.0 + v8.0 |
 | Koreksi absensi | Request dengan bukti wajib dan nilai before/after | Employee/HR | `/corrections` | Available |
 | Bulk correction/approval | Koreksi dan approval massal | HR/manager | `/corrections` | Available |
-| Shift master | CRUD jam shift dan pay multiplier | Admin/HR | `/shifts` | Available |
-| Shift assignment | Satu assignment employee per hari dengan validasi tenant/status | Admin/HR | `/shifts` | Available |
-| Rotasi shift | Penjadwalan rotasi karyawan | Admin/HR | `/shifts` | Available |
-| Shift swap | Request tukar shift dan approval | Employee/manager | `/shifts` | Available |
+| Shift master | CRUD jam shift dan pay multiplier | Admin/HR | `/shifts` | Available (STARTER+) |
+| Shift assignment | Satu assignment employee per hari dengan validasi tenant/status | Admin/HR | `/shifts` | Available (STARTER+) |
+| Rotasi shift | Penjadwalan rotasi karyawan | Admin/HR | `/shifts` | Available (STARTER+) |
+| Shift swap | Request tukar shift dan approval | Employee/manager | `/shifts` | Available (STARTER+) |
 | Leave type | Paid/unpaid type, policy dan auto-approve sick leave | Admin/HR | `/leave` | Available |
 | Leave balance | Saldo, deduction, overlap validation | Employee/HR | `/leave` | Available |
 | Leave request/approval | Submit, approve/reject dan approval scope | Semua role terkait | `/leave`, `/approvals` | Available |
@@ -185,7 +185,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Contract reminders | Kontrak expiring dan trigger reminder | HR | `/documents` | Conditional — SMTP |
 | Policies | CRUD/publish kebijakan perusahaan | HR/employee | `/policies` | Available |
 | Discipline | Warning/SP/suspension records | HR/manager | `/policies` | Available |
-| Helpdesk | Create ticket, assignment, status, resolution | Employee/HR | `/helpdesk` | Available |
+| Helpdesk | Create ticket, assignment, status, resolution | Employee/HR | `/helpdesk` | Available (FREE+) |
 
 ## 8. Communication dan engagement
 
@@ -235,7 +235,10 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
-| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — price & headcount: Gratis s/d 50, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/subscription/tiers` | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — Gratis s/d 50, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom (PRD v12.1) | Company admin | `/billing`, `/upgrade`, `/subscription/tiers` | Available |
+| Headcount hard limit | FREE/STARTER block at 50; capacity banner + email every 7d at 80%+ | Company admin | App shell, billing scheduler | Available |
+| Storage quota | FREE 5 GB hard-block on upload; TenantQuota synced from tier | All uploaders | `/uploads` | Available |
+| API daily quota | FREE 1.000 / STARTER 10.000 / PROF 50.000 per Jakarta day (API keys only) | API consumers | Auth + `X-RateLimit-*` | Available |
 | Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |
 | Invoices | List/detail invoice subscription | Company admin | `/billing` | Available |
 | Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |

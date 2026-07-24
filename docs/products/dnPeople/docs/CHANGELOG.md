@@ -4,6 +4,14 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-24] — Docs sync: PRD v12.1 across all living docs
+
+### Changed
+- README, PROJECT-OVERVIEW, FEATURE-CATALOG, RELEASE-READY, V5 subscription notes, CURRENT-IMPLEMENTATION, indexes — aligned to **v12.1** / **36/36** tests / HEAD `61d956f`
+- Suggested next scope renamed to *after PRD v12.1* (ops go-live + v4 Module 3–8)
+
+---
+
 ## [2026-07-24] — PRD v12.1 FREE tier 50-emp final
 
 ### Added

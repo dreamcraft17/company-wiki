@@ -14,8 +14,9 @@
 4. Smoke test diperluas (health + public leads + optional marketing URLs).
 5. `robots.ts` + `sitemap.ts` untuk SEO soft launch.
 6. Datadog scrape metrics diselaraskan dengan Prometheus exporter.
-7. `.env.example` frontend/backend dilengkapi var launch.
+7. `.env.example` frontend/backend dilengkapi var launch + `TIER_*` overrides.
 8. Launch checklist diperbarui dengan status jujur (✅ / 🟡 / ⬜).
+9. **PRD v12.1:** FREE/STARTER hard **50** emp, helpdesk on FREE, shifts on STARTER, Jakarta API quota (API keys), storage hard-block, capacity emails 7d, `/upgrade`.
 
 ## Apa yang harus selesai minggu ini (ops)
 

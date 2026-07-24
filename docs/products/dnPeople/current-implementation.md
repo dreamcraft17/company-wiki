@@ -3,15 +3,17 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 24 July 2026 |
-| HEAD | `62355be` |
-| Purpose | **Baseline** after release-ready hardening for Agustus soft launch |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| HEAD | `61d956f` |
+| Purpose | **Baseline** after PRD **v12.1** FREE 50-emp final + release-ready hardening |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v12.1 / v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | July 24, 2026 |
 
-> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped (`8a75871`) — secrets fail-closed, demo creds gated, honest trial billing, expanded smoke, SEO robots/sitemap. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
+> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
+
+> **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, demo creds gated, honest trial billing, expanded smoke, SEO robots/sitemap. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 
 > **PRD v11.1 (22 Jul 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Gratis, Rp20.000/25.000 per karyawan, Business 301+, Enterprise 500+ (PRD v5 tier matrix). External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
 
@@ -42,7 +44,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **35/35** unit tests; TypeScript clean |
+| Automated evidence | Backend **36/36** unit tests; TypeScript clean |
 
 ## Roles and access boundary
 
@@ -231,17 +233,18 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **35/35** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **36/36** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope for PRD v12+ (from this baseline)
+## Suggested scope after PRD v12.1 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
+| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code + v12.1 Done 24 Jul |
 | **P0 product** | PRD v4 Module 3 — 9-box + succession | [PRD v4 competitive](./PRD/dnpeople-prd-v4-competitive.md) | Models partially exist; UI/workflows not built |
 | **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
-| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code hardening Done 24 Jul |
+| **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026

@@ -6,7 +6,7 @@
 **UpdatedAt:** July 24, 2026  
 **Status:** PRD v5–**v12.1** / v11.1 **complete** · **code release-ready** for Agustus soft launch · remaining gates = external ops  
 **Codebase:** 61 pages · 53 route modules · 102 models · **36** tests  
-**HEAD:** `4e91727` (PRD v12.1 FREE 50-emp final)  
+**HEAD:** `61d956f` (PRD v12.1 FREE 50-emp final)  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  

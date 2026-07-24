@@ -14,8 +14,9 @@
 - Stripe Payment Intent, Xendit Invoice, and manual bank-transfer payment request adapters.
 - Signed Stripe/Xendit webhook handling for payment success/failure and automatic suspension.
 - API-key Business-tier enforcement, 90-day default expiry, and persistent 1,000 request/hour limit.
-- Free/Starter/Professional headcount enforcement and subscription headcount synchronization.
+- Free/Starter/Professional headcount enforcement and subscription headcount synchronization (**v12.1:** FREE & STARTER hard **50**; capacity emails every 7 days at 80%+).
 - Professional webhook limit of 10; Business unlocks API keys and custom integrations.
+- **PRD v12.1 (Jul 2026):** helpdesk on FREE; shifts on STARTER; Jakarta API daily quota (API keys); storage hard-block; `/upgrade` page; TenantQuota synced from tier.
 - Business branch settings on work locations: UMR, tax method, BPJS rates, annual leave, shift multiplier, and approval config.
 - Branch settings feed payroll calculation and annual leave allocation; reports accept `workLocationId` filtering.
 - Location-scoped row access for branch HR via `DataAccessRule.scopeType = location`.

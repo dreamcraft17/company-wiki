@@ -3,7 +3,7 @@
 | Metadata | Value |
 |----------|-------|
 | Snapshot date | 24 July 2026 |
-| HEAD | `4e91727` |
+| HEAD | `61d956f` |
 | Purpose | **Baseline** after PRD **v12.1** FREE 50-emp final + release-ready hardening |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v12.1 / v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
@@ -233,17 +233,18 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **35/35** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **36/36** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope for PRD v12+ (from this baseline)
+## Suggested scope after PRD v12.1 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
+| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code + v12.1 Done 24 Jul |
 | **P0 product** | PRD v4 Module 3 — 9-box + succession | [PRD v4 competitive](./PRD/dnpeople-prd-v4-competitive.md) | Models partially exist; UI/workflows not built |
 | **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
-| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code hardening Done 24 Jul |
+| **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026

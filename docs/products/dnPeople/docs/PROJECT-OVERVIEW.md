@@ -1,14 +1,14 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD v11.1 complete in repo · external go-live gates Conditional  
-**Status:** MVP 1–5 + PRD v5–v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
+**Version:** PRD **v12.1** complete in repo · external go-live gates Conditional  
+**Status:** MVP 1–5 + PRD v5–**v12.1** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 22, 2026  
-**Last Updated:** July 22, 2026
+**UpdatedAt:** July 24, 2026  
+**Last Updated:** July 24, 2026
 
 ---
 
@@ -16,7 +16,7 @@
 
 dnPeople adalah **HRIS (Human Resource Information System)** untuk startup, UMKM, dan perusahaan menengah di Indonesia. Cakupan implementasi saat ini: core HR (MVP 1), operasi lanjutan (MVP 2), strategic HR (MVP 3), enterprise (MVP 4: multi-company, integrations, SSO, white-label, custom reports, AI docs/screening), serta fondasi Talent Development (MVP 5: competency, assessment, gap analysis, IDP, dan LMS dasar).
 
-Codebase saat ini: **61 halaman web**, **53 modul route backend**, **102 model Prisma**, **32/32** backend tests. Login auto tenant discovery; session httpOnly cookie; marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`); tier pricing SSOT `subscriptionCatalog.ts`; lead capture API.  
+Codebase saat ini: **61 halaman web**, **53 modul route backend**, **102 model Prisma**, **36/36** backend tests. Login auto tenant discovery; session httpOnly cookie; marketing landing v11.1 (`/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog`, `/legal/dpa`); tier pricing SSOT `subscriptionCatalog.ts`; FREE/STARTER hard **50** karyawan (PRD v12.1); lead capture API.  
 **Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [Launch Gate Checklist](./LAUNCH-GATE-CHECKLIST.md)
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS full ERP). dnPeople adalah produk HRIS terpisah (Express + Next.js) sesuai PRD/SRS/SDD **v3.1** di company-wiki.
@@ -37,8 +37,10 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | PRD v10.0 ops artefacts | Jul 2026 | **Done (repo)** |
 | PRD v11.0 go-live execution | Jul 2026 | **Done (repo)** — marketing routes, leads API, k6 suite, launch runbooks |
 | PRD v11.1 landing page | Jul 2026 | **Done (repo)** — full `/welcome`, SEO/JSON-LD, pricing SSOT, beta form |
+| PRD v12.0 tier consolidation | Jul 2026 | **Done (repo)** |
+| PRD v12.1 FREE 50-emp final | Jul 2026 | **Done (repo)** — hard limits, capacity emails, storage, `/upgrade` |
 | External go-live (1 Aug 2026) | Aug 2026 | **Conditional** — Datadog, pen-test, DNS, beta UAT |
-| PRD v4 Module 3–8 | Q4 2027+ | **Recommended next PRD** |
+| PRD v4 Module 3–8 | Q4 2027+ | **Recommended next product PRD** |
 
 ## Stack
 
@@ -87,20 +89,15 @@ dnpeople/
 
 ## Dokumentasi Terkait
 
-| Dokumen | Lokasi |
-|---------|--------|
-| PRD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-prd.md` |
-| SRS v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-srs.md` |
-| SDD v3.1 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-sdd.md` |
-| Implementation Status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
-| Current Implementation | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) |
-| Feature Catalog | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
-| API Reference | [API.md](./API.md) |
-| Architecture | [ARCHITECTURE.md](./ARCHITECTURE.md) |
-| Deployment | [DEPLOYMENT.md](./DEPLOYMENT.md) |
-| Changelog | [CHANGELOG.md](./CHANGELOG.md) |
-| PRD v8.0 | [PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md](./PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md) |
+| Doc | Path |
+|-----|------|
+| Baseline | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) |
+| Status matrix | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
+| Feature catalog | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
+| Release ready | [RELEASE-READY.md](./RELEASE-READY.md) |
+| Index | [00_INDEX.md](./00_INDEX.md) |
+| Wiki | `company-wiki/docs/products/dnPeople/` |
 
 ---
 
-*Last Updated: July 19, 2026*
+*Last Updated: July 24, 2026*

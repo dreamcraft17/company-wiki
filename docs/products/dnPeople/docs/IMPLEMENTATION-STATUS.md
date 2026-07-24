@@ -34,7 +34,7 @@
 
 ### Mulai PRD berikutnya
 
-1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope for PRD v12+*  
+1. Baca [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v12.1*  
 2. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
 3. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
 
