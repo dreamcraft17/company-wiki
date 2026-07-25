@@ -15,7 +15,7 @@
 >
 > **PRD v13.0 (24 Jul 2026):** Module 3 — 9-box talent matrix sessions/placements/lock, succession + readiness, development proposals → IDP/LMS, reports Excel/PDF/HTML, feature `talent:matrix` PROFESSIONAL+, nav tier-hide. Specs in `docs/PRD/*-v13.0-talent*`.
 
-> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
+> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount originally **50**; **product update 25 Jul 2026: FREE = 30**, STARTER remains **50**. FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md` (see header override).
 
 > **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, honest trial billing, expanded smoke, SEO robots/sitemap; **demo sandbox creds remain public** for product trial. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 

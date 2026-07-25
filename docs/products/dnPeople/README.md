@@ -7,7 +7,7 @@
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | Active — PRD **v14.0** Tutorial/KB + v13.0 Talent Matrix + v12.1 FREE 50-emp **complete in repo**; external go-live gates Conditional |
+| Status | Active — PRD **v14.0** Tutorial/KB + v13.0 Talent Matrix; FREE hard **30** emp · STARTER **50** **complete in repo**; external go-live gates Conditional |
 | Produk di web | [Landing `/welcome`](./frontend) · Spec [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs living | [docs/](./docs/) — mulai dari [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) · [FEATURE-CATALOG](./docs/FEATURE-CATALOG.md) |
 | UpdatedAt | July 25, 2026 |
@@ -29,7 +29,7 @@
 | Fitur terlihat padahal belum dibayar | Tier gating jujur — nav hanya menampilkan fitur paket aktif |
 
 **Untuk siapa:** HR, manager, finance, karyawan, dan admin perusahaan (6 role RBAC).  
-**Untuk skala mana:** FREE/STARTER hingga **50** karyawan; Professional hingga **300**; Business/Enterprise untuk multi-cabang & kontrol lanjutan.
+**Untuk skala mana:** FREE hingga **30** karyawan; STARTER hingga **50**; Professional hingga **300**; Business/Enterprise untuk multi-cabang & kontrol lanjutan.
 
 ---
 
@@ -73,7 +73,7 @@ Detail status Available / Conditional / Roadmap: **[FEATURE-CATALOG.md](./docs/F
 
 | Tier | Headcount | Inti nilai |
 |------|-----------|------------|
-| **FREE** | Hard **50** | Core HR + helpdesk — nav hanya fitur FREE |
+| **FREE** | Hard **30** | Core HR + helpdesk — nav hanya fitur FREE |
 | **STARTER** | Hard **50** | + absensi, cuti, shift, payroll dasar, laporan dasar |
 | **PROFESSIONAL** | Hard **300** | + talent matrix, rekrutmen, performance, LMS, OT/klaim/loans |
 | **BUSINESS** | Soft @1000 | + API, workflows, aset, audit, custom reports |

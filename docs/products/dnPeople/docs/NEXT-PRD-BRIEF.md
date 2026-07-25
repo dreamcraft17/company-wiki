@@ -37,7 +37,7 @@ Nomor versi PRD produk berikutnya yang wajar: **v15.0** (lanjutan setelah v14.0)
 | Backend | Express `/api/v1` · ~**55** route modules · SCIM `/scim/v2` |
 | Data | PostgreSQL + Prisma · ~**114** models · migrasi wajib deploy |
 | Tests | Backend **47/47** |
-| Tier | FREE/STARTER hard **50** emp · Prof **300** · Business soft@1000 · Enterprise custom |
+| Tier | FREE hard **30** · STARTER hard **50** · Prof **300** · Business soft@1000 · Enterprise custom |
 | Talent | `talent:competency` / `talent:idp` / **`talent:matrix`** / `lms` @ PROFESSIONAL+ |
 | Help | Feature `tutorials` @ FREE+ — Help menu, 5 interactive tutorials, KB search (no video library) |
 

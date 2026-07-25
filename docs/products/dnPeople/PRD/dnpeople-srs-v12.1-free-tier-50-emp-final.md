@@ -6,6 +6,8 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Requirements ready to QA
 
+> **Product override — 25 July 2026:** Live FREE hard headcount is **30** (STARTER remains **50**). Acceptance numbers below that say 50 for FREE are historical.
+
 ---
 
 ## FR-FREE-001: Hard Employee Limit Enforcement (50 emp)

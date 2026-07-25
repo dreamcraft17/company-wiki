@@ -1,7 +1,7 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD **v14.0** Tutorial/KB + **v13.0** Talent Matrix + **v12.1** FREE 50-emp complete in repo · external go-live gates Conditional  
+**Version:** PRD **v14.0** Tutorial/KB + **v13.0** Talent Matrix · FREE hard **30** / STARTER **50** complete in repo · external go-live gates Conditional  
 **Status:** MVP 1–5 + PRD v5–**v14.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
@@ -39,7 +39,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | Milestone | Target | Status |
 |-----------|--------|--------|
 | MVP 1–5 (core + talent foundation) | — | **Done** |
-| PRD v11.1 landing + v12.1 FREE 50-emp | Jul 2026 | **Done (repo)** |
+| PRD v11.1 landing + FREE headcount (now **30**) | Jul 2026 | **Done (repo)** |
 | PRD v13.0 Talent Matrix & Succession | Jul 2026 | **Done (repo)** |
 | External go-live (1 Aug 2026) | Aug 2026 | **Conditional** — Datadog, pen-test, DNS, beta UAT |
 | PRD v4 Module 4–8 (marketplace, EWA, verticals) | next | **Recommended product PRD** |

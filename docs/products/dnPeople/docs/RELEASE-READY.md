@@ -16,7 +16,7 @@
 6. Datadog scrape metrics diselaraskan dengan Prometheus exporter.
 7. `.env.example` frontend/backend dilengkapi var launch + `TIER_*` overrides.
 8. Launch checklist diperbarui dengan status jujur (✅ / 🟡 / ⬜).
-9. **PRD v12.1:** FREE/STARTER hard **50** emp, helpdesk on FREE, shifts on STARTER, Jakarta API quota (API keys), storage hard-block, capacity emails 7d, `/upgrade`.
+9. **PRD v12.1 (+ update 25 Jul 2026):** FREE hard **30** emp (was 50), STARTER hard **50**, helpdesk on FREE, shifts on STARTER, Jakarta API quota (API keys), storage hard-block, capacity emails 7d, `/upgrade`.
 
 ## Apa yang harus selesai minggu ini (ops)
 

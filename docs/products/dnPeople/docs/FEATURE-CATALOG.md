@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~67 halaman frontend**, **~54 modul route backend**, **~109 model Prisma**, **45** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, PRD **v12.1** FREE/STARTER hard **50** karyawan + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~73 halaman frontend**, **~55 modul route backend**, **~114 model Prisma**, **47** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, FREE hard **30** / STARTER hard **50** + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), **PRD v14.0** tutorials/KB, nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 
@@ -242,8 +242,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
-| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — Gratis s/d 50, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom (PRD v12.1) | Company admin | `/billing`, `/upgrade`, `/subscription/tiers` | Available |
-| Headcount hard limit | FREE/STARTER block at 50; capacity banner + email every 7d at 80%+ | Company admin | App shell, billing scheduler | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — Gratis s/d 30, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/upgrade`, `/subscription/tiers` | Available |
+| Headcount hard limit | FREE block at 30; STARTER at 50; capacity banner + email every 7d at 80%+ | Company admin | App shell, billing scheduler | Available |
 | Storage quota | FREE 5 GB hard-block on upload; TenantQuota synced from tier | All uploaders | `/uploads` | Available |
 | API daily quota | FREE 1.000 / STARTER 10.000 / PROF 50.000 per Jakarta day (API keys only) | API consumers | Auth + `X-RateLimit-*` | Available |
 | Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |

@@ -24,7 +24,7 @@
 | PRD v10.0 | Ops artefacts (metrics/ready/alive, backup verify, k6, privacy, runbooks, `/welcome`) | **Done** in repo; SaaS/DNS/pen-test Conditional |
 | PRD v11.0 | Go-live execution: marketing site, lead capture, Datadog metrics, k6 suite, launch runbooks, restore drill SQL | **Done** in repo; Datadog account, pen-test, DNS, beta UAT Conditional |
 | PRD v12.0 | Tier consolidation: trial enforcement, API limits, min charge, headcount warnings, billing scheduler | **Done** in repo; payment auto-charge live Conditional |
-| PRD v12.1 | FREE/STARTER hard 50 emp final: helpdesk on FREE, shifts on STARTER, Jakarta API quota, storage 5GB, capacity emails 7d, `/upgrade` | **Done** in repo |
+| PRD v12.1 | FREE hard **30** (updated 25 Jul 2026; was 50) / STARTER hard 50: helpdesk on FREE, shifts on STARTER, Jakarta API quota, storage 5GB, capacity emails 7d, `/upgrade` | **Done** in repo |
 | PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
 | PRD v13.0 | Module 3: 9-box talent matrix, session lock, succession/readiness, development proposals, Excel/PDF/HTML reports | **Done** in repo |
 | PRD v14.0 | In-app tutorials (5 MVP) + knowledge base + Help menu; progress/tier gating; **no video library** | **Done** in repo |
@@ -69,7 +69,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 25 Juli 2026: TypeScript ✅ · backend tests **47/47** ✅. Codebase: **~73** pages · **~55** route modules · **~114** models · PRD v14.0 tutorials/KB (no video) + v13.0 talent matrix + v12.1 FREE 50-emp + honest FREE demo nav.
+Verifikasi 25 Juli 2026: TypeScript ✅ · backend tests **47/47** ✅. Codebase: **~73** pages · **~55** route modules · **~114** models · PRD v14.0 tutorials/KB (no video) + v13.0 talent matrix + FREE hard **30** emp + honest FREE demo nav.
 
 ---
 

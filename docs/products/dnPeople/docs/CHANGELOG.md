@@ -4,6 +4,15 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-25] — FREE tier headcount max 30
+
+### Changed
+- FREE hard employee limit **30** (was 50); STARTER remains **50**
+- SSOT: `TIER_HEADCOUNT_LIMIT.FREE`, marketing catalog, FAQ, seed/subscription fallbacks, `.env.example`
+- Living docs updated; historical PRD v12.1 specs retain original text with product override note
+
+---
+
 ## [2026-07-25] — PRD v14.0 In-App Tutorial & Onboarding
 
 ### Added
