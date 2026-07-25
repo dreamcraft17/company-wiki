@@ -4,6 +4,13 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-25] — Centered page loading spinner
+
+### Changed
+- Replace “Memuat…” / “Loading…” placeholders with shared `PageLoader` (centered spinner; `fullScreen` for auth/public shells)
+
+---
+
 ## [2026-07-25] — HR dashboard charts & visual refresh
 
 ### Added
