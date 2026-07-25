@@ -4,6 +4,25 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-07-25] — PRD v14.0 In-App Tutorial & Onboarding
+
+### Added
+- Interactive tutorials (5 MVP): Employee Creation, Payroll Cycle, Attendance Clock-In, Leave Request, Performance Review
+- Knowledge base search + article detail with helpful votes
+- Help menu (?) in AppShell (desktop + mobile) → Getting Started / KB / Get Help
+- Progress tracking per user (`TutorialProgress`), tier gating per tutorial (`minTierRequired`)
+- Prisma models + migration `20260725100000_tutorials_v14`
+- API: `/api/v1/tutorials/*`, `/api/v1/kb/*`, `/api/v1/admin/analytics/tutorials`
+- Kill switch: `FEATURE_TUTORIALS=false`
+- Seed: `prisma/seedTutorials.ts` (5 tutorials + knowledge-base content)
+- Unit tests: tutorials feature tier + gating matrix
+
+### Notes
+- Video tutorial/library removed from v14.0 implementation by product decision
+- FREE: Employee / Attendance / Leave · STARTER+: Payroll · PROFESSIONAL+: Performance
+
+---
+
 ## [2026-07-24] — Marketing footer brand + product README
 
 ### Changed

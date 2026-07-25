@@ -6,8 +6,8 @@
 **UpdatedAt:** July 24, 2026  
 
 
-**Snapshot:** 24 July 2026 · PRD **v13.0** Talent Matrix & Succession + v12.1 FREE 50-emp  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v13.0** / v11.1 (complete in repo)  
+**Snapshot:** 25 July 2026 · PRD **v14.0** Tutorial & Onboarding + v13.0 Talent Matrix  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v14.0** / v11.1 (complete in repo)  
 **Next PRD scope (recommended):** PRD v4 **Module 4–8** (+ external go-live ops)  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
@@ -176,6 +176,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Development proposals | Generate dari gap ≥30%, approve→IDP/LMS enroll | HR/admin | `/talent/sessions/[id]` | Available — PRD v13.0 |
 | Talent reports | Matrix/succession/proposals Excel·PDF·HTML | HR/admin; finance matrix only | `/talent/reports` | Available — PRD v13.0 |
 | Talent matrix config | Axis source, box labels, manager suggestions | HR/admin | `/talent/settings` | Available — PRD v13.0 |
+| In-app tutorials | 5 interactive walkthroughs + progress + tier lock badges | All roles | `/help/tutorials`, Help menu | Available — PRD v14.0 |
+| Knowledge base | Search articles, detail, helpful Yes/No | All roles | `/help/kb` | Available — PRD v14.0 |
 
 ## 7. Employee services dan workplace operations
 
@@ -283,6 +285,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 
 | Fitur roadmap | Status/catatan |
 |---------------|----------------|
+| Video tutorial library | Explicitly out of v14.0; do not promise without new PRD |
 | Native Android/iOS | Roadmap; produk saat ini mobile-first web |
 | Internal career marketplace | Roadmap PRD v4 Module 4 |
 | Rotation/cross-functional program | Roadmap PRD v4 Module 4; berbeda dari rotasi shift yang sudah tersedia |

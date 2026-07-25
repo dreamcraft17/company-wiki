@@ -7,10 +7,10 @@
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | Active — PRD **v13.0** Talent Matrix + v12.1 FREE 50-emp **complete in repo**; external go-live gates Conditional |
+| Status | Active — PRD **v14.0** Tutorial/KB + v13.0 Talent Matrix + v12.1 FREE 50-emp **complete in repo**; external go-live gates Conditional |
 | Produk di web | [Landing `/welcome`](./frontend) · Spec [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs living | [docs/](./docs/) — mulai dari [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) · [FEATURE-CATALOG](./docs/FEATURE-CATALOG.md) |
-| UpdatedAt | July 24, 2026 |
+| UpdatedAt | July 25, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.
 
@@ -25,6 +25,7 @@
 | Slip gaji & pajak manual | Payroll Indonesia (BPJS, PPh 21, payslip PDF) |
 | Rekrutmen & onboarding tidak terhubung | ATS + portal karir + checklist onboarding |
 | Talenta & suksesi “di kepala manajer” | Kompetensi, IDP, LMS, **9-box matrix**, succession & readiness |
+| User bingung mulai dari mana | Help menu + tutorial interaktif + knowledge base (tanpa video) |
 | Fitur terlihat padahal belum dibayar | Tier gating jujur — nav hanya menampilkan fitur paket aktif |
 
 **Untuk siapa:** HR, manager, finance, karyawan, dan admin perusahaan (6 role RBAC).  
@@ -40,6 +41,7 @@ Detail status Available / Conditional / Roadmap: **[FEATURE-CATALOG.md](./docs/F
 - Dashboard, master karyawan, struktur organisasi
 - Dokumen karyawan & perusahaan, kebijakan, pengumuman, kalender
 - Helpdesk / tiket dukungan
+- **Help & onboarding (PRD v14.0):** menu `?`, tutorial interaktif, knowledge base
 - Paket & billing (upsell jujur) + MFA keamanan akun
 
 ### Operasi harian (Starter+)
@@ -85,11 +87,11 @@ Harga UI: `frontend/src/lib/subscriptionCatalog.ts` · gate server: `backend/src
 
 | Area | Angka |
 |------|-------|
-| Halaman frontend (app + marketing) | ~**67** |
-| Modul route API | ~**54** (+ SCIM) |
-| Model Prisma | ~**109** |
-| Backend unit tests | **45/45** |
-| Baseline PRD | v3.1 → **v13.0** / v12.1 / v11.1 |
+| Halaman frontend (app + marketing) | ~**73** |
+| Modul route API | ~**55** (+ SCIM) |
+| Model Prisma | ~**114** |
+| Backend unit tests | **47/47** |
+| Baseline PRD | v3.1 → **v14.0** / v13.0 / v12.1 / v11.1 |
 
 Status implementasi: [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · baseline PRD berikutnya: [NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md).
 

@@ -1,7 +1,7 @@
 # dnPeople — Panduan Admin
 
-**Versi:** 9.0 launch readiness  
-**UpdatedAt:** 19 Juli 2026  
+**Versi:** 14.0 tutorial & onboarding  
+**UpdatedAt:** 25 Juli 2026  
 **Audience:** COMPANY_ADMIN, SUPER_ADMIN, implementer  
 
 ## 1. Setup awal tenant
@@ -12,6 +12,7 @@
 4. Import karyawan (`/employees` Excel).
 5. `/payroll-settings` — metode pajak, BPJS, komponen gaji, template.
 6. Jalankan payroll demo di `/payroll` dan verifikasi slip.
+7. Pastikan seed tutorial/KB sudah jalan (`prisma/seedTutorials.ts` via `seed.ts`) — tunjukkan Help `?` ke user baru. Matikan dengan `FEATURE_TUTORIALS=false` bila perlu.
 
 ## 2. SSO / IdP
 

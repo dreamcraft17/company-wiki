@@ -2,18 +2,18 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v12.1** / v11.1 complete · **code release-ready** (Agustus soft launch) · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v14.0** / v13.0 / v12.1 / v11.1 complete · **code release-ready** (Agustus soft launch) · ops gates Conditional  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: July 24, 2026  
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–v12.1 / v11.1  
-**Codebase**: 61 frontend pages · 53 backend route modules · 102 Prisma models · **36/36** tests  
-**HEAD**: `61d956f` (PRD v12.1 FREE 50-emp final)
+**UpdatedAt**: July 25, 2026  
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v14.0** / v11.1  
+**Codebase**: ~73 frontend pages · ~55 backend route modules · ~114 Prisma models · **47/47** tests  
+**HEAD**: see `dnpeople` main after PRD v14.0 Tutorial & Onboarding
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
-> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 3–8 after launch  
-> **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox creds shown by default — see DEMO-ACCOUNTS.md
+> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v15.0**)  
+> **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox **FREE** tier
 
 ---
 
@@ -24,6 +24,10 @@
 | [PRD/dnpeople-prd.md](./PRD/dnpeople-prd.md) | **PRD** — Product Requirements Document v3.1 |
 | [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.1 |
 | [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
+| [PRD/dnpeople-prd-v14.0-tutorial-onboarding.md](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | **PRD v14.0** — In-app tutorial & onboarding (no video) |
+| [PRD/dnpeople-srs-v14.0-tutorial-requirements.md](./PRD/dnpeople-srs-v14.0-tutorial-requirements.md) | **SRS v14.0** — Tutorial/KB acceptance |
+| [PRD/dnpeople-sdd-v14.0-tutorial-implementation.md](./PRD/dnpeople-sdd-v14.0-tutorial-implementation.md) | **SDD v14.0** — Tutorial/KB technical |
+| [PRD/dnpeople-prd-v13.0-talent-matrix-succession.md](./PRD/dnpeople-prd-v13.0-talent-matrix-succession.md) | **PRD v13.0** — Talent matrix & succession |
 | [PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./PRD/dnpeople-prd-v11.1-landing-page-website-id.md) | **PRD v11.1** — Landing page website |
 | [PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./PRD/dnpeople-prd-v11.0-go-live-execution-id.md) | **PRD v11.0** — Go-live execution & beta launch |
 | [PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | **PRD v12.1** — FREE tier 50 emp final (LOCKED) |
@@ -37,12 +41,12 @@
 
 | File | Deskripsi |
 |------|-----------|
-| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | **Dasar utuh PRD berikutnya** |
-| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — mulai PRD berikutnya di sini |
+| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | **Dasar utuh PRD berikutnya** (v15.0 Module 4) |
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — setelah v14.0 |
 | [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) | Soft-launch Agustus — kode vs ops |
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur existing / conditional / roadmap |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Matrix status per MVP/PRD |
-| [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed (Professional tier) |
+| [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed (FREE tier) |
 | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) | Go/no-go Agustus 2026 |
 | [docs/SLA-COMMITMENT-RPO-RTO.md](./docs/SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
@@ -59,4 +63,4 @@
 
 ---
 
-*Last Updated: July 24, 2026*
+*Last Updated: July 25, 2026*

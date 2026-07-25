@@ -312,6 +312,27 @@ Body fields: `email` (required), `name`, `company`, `phone`, `message`, `source`
 
 ---
 
+## Help — tutorials & knowledge base (PRD v14.0)
+
+Feature key `tutorials` (FREE+). Disable with `FEATURE_TUTORIALS=false`. **No video library endpoints.**
+
+| Method | Path | Auth | Deskripsi |
+|--------|------|------|-----------|
+| GET | `/tutorials` | ✓ | List tutorials for caller tier (`?category=`) |
+| GET | `/tutorials/:id` | ✓ | Tutorial + steps + user progress |
+| POST | `/tutorials/:id/start` | ✓ | Start / resume tutorial |
+| POST | `/tutorials/:id/steps/:stepNumber/complete` | ✓ | Mark step complete |
+| POST | `/tutorials/:id/rate` | ✓ | `{ isHelpful, comment? }` |
+| GET | `/admin/analytics/tutorials` | HR+ | Completion / helpfulness stats |
+| GET | `/kb/search` | ✓ | Search articles (`?q=&category=&limit=`) |
+| GET | `/kb/categories` | ✓ | KB category list |
+| GET | `/kb/articles/:slug` | ✓ | Article detail |
+| POST | `/kb/articles/:id/rate` | ✓ | `{ isHelpful }` |
+
+UI: Help menu `?` → `/help`, `/help/tutorials`, `/help/kb`, `/help/kb/[slug]`.
+
+---
+
 ## MVP 2–3 (ringkas)
 
 | Prefix | Modul |

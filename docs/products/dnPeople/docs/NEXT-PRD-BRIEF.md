@@ -3,9 +3,9 @@
 | | |
 |---|---|
 | **Dokumen** | Satu file utuh untuk menulis PRD produk berikutnya |
-| **Tanggal** | 24 Juli 2026 |
-| **Baseline kode** | Setelah PRD **v13.0** Talent Matrix & Succession (Module 3) |
-| **HEAD referensi** | Lokal v13.0 (commit when asked) · sebelumnya docs `61d956f` / v12.1 |
+| **Tanggal** | 25 Juli 2026 |
+| **Baseline kode** | Setelah PRD **v14.0** In-App Tutorial & Onboarding |
+| **HEAD referensi** | `87c7a49` (PRD v14.0 Tutorial Onboarding) · sebelumnya v13.0 talent matrix |
 | **Owner** | Dozer (CEO + Tech Lead) |
 | **Company** | DN Tech · Brand: DnPeople |
 | **Ganti dokumen ini?** | Update saat PRD berikutnya di-sign-off atau HEAD baseline berubah |
@@ -22,9 +22,9 @@
 | **B — Produk greenfield** | **PRD v4 Module 4–8** — career marketplace, EWA, salary bench, verticals | Setelah / paralel ops |
 
 **Rekomendasi produk P0:** **Module 4 — Internal career marketplace**  
-(Module 3 9-box + succession **Done** di v13.0.)
+(Module 3 9-box + succession **Done** di v13.0; in-app tutorial/KB **Done** di v14.0.)
 
-Nomor versi PRD produk berikutnya yang wajar: **v14.0** (lanjutan setelah v13.0), subtitle Module 4 (atau “Career Mobility”).
+Nomor versi PRD produk berikutnya yang wajar: **v15.0** (lanjutan setelah v14.0), subtitle Module 4 (atau “Career Mobility”).
 
 ---
 
@@ -33,36 +33,38 @@ Nomor versi PRD produk berikutnya yang wajar: **v14.0** (lanjutan setelah v13.0)
 | Item | Nilai |
 |------|--------|
 | Produk | HRIS multi-tenant Indonesia |
-| Frontend | Next.js · ~**67** halaman · mobile-first |
-| Backend | Express `/api/v1` · ~**54** route modules · SCIM `/scim/v2` |
-| Data | PostgreSQL + Prisma · ~**109** models · migrasi wajib deploy |
-| Tests | Backend **45/45** |
+| Frontend | Next.js · ~**73** halaman · mobile-first |
+| Backend | Express `/api/v1` · ~**55** route modules · SCIM `/scim/v2` |
+| Data | PostgreSQL + Prisma · ~**114** models · migrasi wajib deploy |
+| Tests | Backend **47/47** |
 | Tier | FREE/STARTER hard **50** emp · Prof **300** · Business soft@1000 · Enterprise custom |
 | Talent | `talent:competency` / `talent:idp` / **`talent:matrix`** / `lms` @ PROFESSIONAL+ |
+| Help | Feature `tutorials` @ FREE+ — Help menu, 5 interactive tutorials, KB search (no video library) |
 
 **Roles:** `SUPER_ADMIN` · `COMPANY_ADMIN` · `HR` · `MANAGER` · `FINANCE` · `EMPLOYEE`  
 HR **tanpa** payroll/salary · Finance **payroll** + read 9-box · isolasi tenant + row scope wajib.
 
 ---
 
-## 3. Yang sudah Done (termasuk v13.0 Module 3)
+## 3. Yang sudah Done (termasuk v14.0)
 
-Semua MVP 1–5 + PRD v5–v12.1 tetap berlaku, **plus**:
+Semua MVP 1–5 + PRD v5–v13.0 tetap berlaku, **plus v14.0**:
 
-- 9-box sessions/placements, auto-score, lock (semua placement di sesi lengkap), unlock + reason
-- Succession plans, readiness scoring + HR override
-- Development proposals → IDP goal / LMS enroll on approve
-- Reports matrix/succession/proposals (`xlsx`/`pdf`/`html`)
-- UI: `/talent/matrix`, `/talent/sessions`, `/talent/succession`, `/talent/settings`, `/talent/reports`
-- Nav hide by `hasFeature('talent:matrix')`
+- Help menu (?) di AppShell → Getting Started / Knowledge Base / Get Help
+- 5 interactive tutorials + step progress + rate helpful
+- Tier lock: FREE = employee/attendance/leave; STARTER+ = payroll; PROFESSIONAL+ = performance
+- Knowledge base search, article detail, helpful votes
+- API `/api/v1/tutorials/*`, `/api/v1/kb/*`, `/api/v1/admin/analytics/tutorials`
+- Kill switch `FEATURE_TUTORIALS=false`
+- **Out of v14 live scope:** video library / YouTube embeds / `/help/videos`
 
-Jangan rebuild competency/IDP/LMS foundation.
+Juga jangan rebuild: 9-box / succession (v13), competency/IDP/LMS foundation.
 
 ---
 
 ## 4. Conditional (ops / UAT eksternal)
 
-Sama seperti briefing v12.1: DNS, Datadog, pen-test, beta cohort, payment live, IdP/SCIM UAT, bank file acceptance.
+Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment live, IdP/SCIM UAT, bank file acceptance.
 
 ---
 
@@ -75,13 +77,14 @@ Sama seperti briefing v12.1: DNS, Datadog, pen-test, beta cohort, payment live, 
 | **P2** | Mod 7–8 | Manufacturing / retail vertical packages |
 
 ### Out of scope kecuali PRD eksplisit
+- Video tutorial library (explicitly dropped from v14)
 - WebSocket real-time comments on calibration
 - Native mobile / physical SILO
 - Re-write payroll/tax
 
 ---
 
-## 6. Outline singkat PRD v14.0 (Module 4) — skeleton
+## 6. Outline singkat PRD v15.0 (Module 4) — skeleton
 
 - Outcome: karyawan lihat lowongan internal; apply; HR/manager pipeline; link ke competency gap & succession.
 - Tier usulan: PROFESSIONAL+ atau BUSINESS — putuskan di PRD.
@@ -92,10 +95,10 @@ Sama seperti briefing v12.1: DNS, Datadog, pen-test, beta cohort, payment live, 
 
 ## 7. Checklist story (wajib)
 
-Sama pola v13: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export jika relevan, no payroll regression.
+Sama pola v13/v14: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export jika relevan, no payroll regression.
 
 ---
 
 ## 8. Satu kalimat penutup
 
-> dnPeople **sudah punya** Module 3 talent matrix (v13.0). PRD berikutnya = **Module 4+** dan/atau **ops go-live** — jangan ulangi 9-box.
+> dnPeople **sudah punya** Module 3 talent matrix (v13.0) dan in-app tutorial/KB (v14.0). PRD berikutnya = **Module 4+ (v15.0)** dan/atau **ops go-live** — jangan ulangi 9-box atau video library.

@@ -1,14 +1,14 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD **v13.0** Talent Matrix + **v12.1** FREE 50-emp complete in repo · external go-live gates Conditional  
-**Status:** MVP 1–5 + PRD v5–**v13.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
+**Version:** PRD **v14.0** Tutorial/KB + **v13.0** Talent Matrix + **v12.1** FREE 50-emp complete in repo · external go-live gates Conditional  
+**Status:** MVP 1–5 + PRD v5–**v14.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **Contact:** info@dntech.id  
-**UpdatedAt:** July 24, 2026  
+**UpdatedAt:** July 25, 2026  
 
 ---
 
@@ -20,11 +20,12 @@ dnPeople adalah **HRIS multi-tenant** untuk startup, UMKM, dan perusahaan meneng
 2. **Payroll lokal** — BPJS, PPh 21, payslip, bank/tax export  
 3. **Talent** — kompetensi, IDP, LMS, **9-box kalibrasi**, succession & readiness (PRD v13.0)  
 4. **Rekrutmen & siklus kerja** — ATS, onboarding, performance, training, offboarding, helpdesk  
-5. **Kontrol SaaS** — lima tier berlangganan, nav/API gating jujur, billing, enterprise (SSO/SCIM/multi-company)
+5. **Onboarding in-app** — Help menu, 5 interactive tutorials, knowledge base (PRD v14.0; no video library)  
+6. **Kontrol SaaS** — lima tier berlangganan, nav/API gating jujur, billing, enterprise (SSO/SCIM/multi-company)
 
 Landing publik: `/welcome` (logo brand `logo1.png` di header & footer; favicon mark resmi). Demo sandbox seed = **FREE** agar menu sesuai paket gratis.
 
-Codebase snapshot: **~67** halaman · **~54** route modules · **~109** model Prisma · **45/45** backend tests.  
+Codebase snapshot: **~73** halaman · **~55** route modules · **~114** model Prisma · **47/47** backend tests.  
 **Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [NEXT-PRD-BRIEF](./NEXT-PRD-BRIEF.md) · [Launch Gate](./LAUNCH-GATE-CHECKLIST.md)
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS). dnPeople = HRIS SaaS (Express + Next.js).

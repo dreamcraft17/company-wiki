@@ -3,9 +3,9 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 24, 2026  
-**Status:** PRD v5–**v13.0** / v12.1 / v11.1 **complete** · soft-launch gates = external ops  
-**Codebase:** ~67 pages · ~54 route modules · ~109 models · **45** tests  
+**UpdatedAt:** July 25, 2026  
+**Status:** PRD v5–**v14.0** / v13.0 / v12.1 / v11.1 **complete** · soft-launch gates = external ops  
+**Codebase:** ~73 pages · ~55 route modules · ~114 models · **47** tests  
 **Contact:** info@dntech.id  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
@@ -42,6 +42,9 @@
 | [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [PRD/dnpeople-prd-v14.0-tutorial-onboarding.md](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | **PRD v14.0** In-app tutorial & onboarding (no video library) |
+| [PRD/dnpeople-srs-v14.0-tutorial-requirements.md](./PRD/dnpeople-srs-v14.0-tutorial-requirements.md) | **SRS v14.0** tutorial/KB acceptance |
+| [PRD/dnpeople-sdd-v14.0-tutorial-implementation.md](./PRD/dnpeople-sdd-v14.0-tutorial-implementation.md) | **SDD v14.0** tutorial/KB technical (video draft historical only) |
 | [PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | **PRD v12.1** FREE tier 50 emp final (LOCKED) |
 | [PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-srs-v12.1-free-tier-50-emp-final.md) | **SRS v12.1** acceptance criteria |
 | [PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md](./PRD/dnpeople-sdd-v12.1-free-tier-50-emp-final.md) | **SDD v12.1** technical implementation |

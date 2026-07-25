@@ -2,15 +2,17 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 24 July 2026 |
-| HEAD | (local — PRD v13.0 Talent Matrix) |
-| Purpose | **Baseline** after PRD **v13.0** Module 3 Talent Matrix & Succession |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield scope |
+| Snapshot date | 25 July 2026 |
+| HEAD | `87c7a49` (PRD v14.0 Tutorial Onboarding) |
+| Purpose | **Baseline** after PRD **v14.0** In-App Tutorial & Onboarding |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield scope |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 24, 2026 |
+| Updated at | July 25, 2026 |
 
+> **PRD v14.0 (25 Jul 2026):** In-app tutorials (5 MVP), knowledge base, Help menu, progress + tier gating. Video tutorial/library removed by product decision. Specs in `docs/PRD/*-v14.0-tutorial*`.
+>
 > **PRD v13.0 (24 Jul 2026):** Module 3 — 9-box talent matrix sessions/placements/lock, succession + readiness, development proposals → IDP/LMS, reports Excel/PDF/HTML, feature `talent:matrix` PROFESSIONAL+, nav tier-hide. Specs in `docs/PRD/*-v13.0-talent*`.
 
 > **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
@@ -35,9 +37,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~67** production routes (marketing + app incl. talent matrix); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~54** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **~109** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~73** production routes (marketing + app incl. help/tutorials + talent matrix); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~55** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **~114** models; deployment migrations are mandatory |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -46,7 +48,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **45/45** unit tests; TypeScript clean |
+| Automated evidence | Backend **47/47** unit tests; TypeScript clean |
 
 ## Roles and access boundary
 
@@ -145,6 +147,8 @@ the attempted path in `next`.
 | Competency framework & assessment | Framework/competency library with versioning, role-competency mapping, self/manager/peer/360 assessment, submit/approve workflow, gap analysis, bulk import | `/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments` | `/talent` | Available (PRD v4 Module 1) |
 | Individual Development Plan (IDP) | IDP CRUD, idempotent auto-generate goals from competency gap, goal tracking, progress review | `/idps` | `/idp` | Available (PRD v4 Module 2) |
 | Learning Management System (LMS) | Course/program + module CRUD, self/manager enrollment, module completion tracking, automatic certificate, transcript | `/lms` | `/lms` | Available (PRD v4 Module 2, basic) |
+| Talent matrix & succession | 9-box sessions/placements/lock, succession readiness, development proposals → IDP/LMS, Excel/PDF/HTML reports | `/talent/*` | `/talent/matrix`, `/talent/sessions`, `/talent/succession`, `/talent/reports` | Available (PRD v13.0) |
+| In-app tutorials & KB | Help menu, 5 interactive tutorials + progress/rate, KB search/article/helpful votes; feature `tutorials` FREE+; kill switch `FEATURE_TUTORIALS`; **no video library** | `/tutorials`, `/kb`, `/admin/analytics/tutorials` | `/help`, `/help/tutorials`, `/help/kb` | Available (PRD v14.0) |
 
 ### Core employee lifecycle
 
@@ -235,18 +239,20 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **45/45** backend tests pass; frontend **~67** pages; backend **~54** route modules; Prisma **~109** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **47/47** backend tests pass; frontend **~73** pages; backend **~55** route modules; Prisma **~114** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope after PRD v13.0 (from this baseline)
+## Suggested scope after PRD v14.0 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
 | **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
-| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Next greenfield after Module 3 |
+| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · next product PRD **v15.0** | Next greenfield after Module 3 + tutorials |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
+| **Done** | PRD v14.0 In-app tutorial & KB | [PRD v14.0](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | Tutorials + KB; video library explicitly out of scope |
 | **Done** | PRD v13.0 Module 3 talent matrix & succession | [PRD v13.0](./PRD/dnpeople-prd-v13.0-talent-matrix-succession.md) | 9-box, lock, succession, proposals, reports |
 | **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |
+| **Out of scope** | Video tutorial library | Product decision 25 Jul 2026 | Do not reintroduce without new PRD |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026

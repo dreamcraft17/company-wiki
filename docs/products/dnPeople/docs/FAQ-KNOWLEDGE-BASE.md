@@ -1,6 +1,6 @@
 # dnPeople — FAQ & Knowledge Base
 
-**UpdatedAt:** 19 Juli 2026  
+**UpdatedAt:** 25 Juli 2026  
 
 ## Login
 
@@ -12,6 +12,17 @@ A: Klik “Lupa password?” di login. Cek email untuk tautan (1 jam). Jika emai
 
 **Q: MFA hilang / ganti HP.**  
 A: Minta admin menonaktifkan MFA sementara, lalu setup ulang di `/settings/mfa`.
+
+## Bantuan in-app
+
+**Q: Di mana tutorial produk?**  
+A: Klik ikon **?** di header → Getting Started (`/help/tutorials`). Beberapa tutorial terkunci sesuai paket (payroll = STARTER+, performance = PROFESSIONAL+).
+
+**Q: Ada video tutorial?**  
+A: Tidak di v14.0. Pakai tutorial langkah-demi-langkah dan Knowledge Base (`/help/kb`).
+
+**Q: Artikel KB tidak muncul setelah deploy.**  
+A: Pastikan seed jalan (`seedTutorials`) dan `FEATURE_TUTORIALS` tidak di-set `false`.
 
 ## Absensi
 
