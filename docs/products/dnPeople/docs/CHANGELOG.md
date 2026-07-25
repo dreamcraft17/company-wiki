@@ -7,13 +7,12 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ## [2026-07-25] — HR dashboard charts & visual refresh
 
 ### Added
-- Donut charts: absensi bulan ini, absensi hari ini, status karyawan (admin); saldo cuti (employee)
-- Horizontal bar charts: headcount per departemen & lokasi
-- Sparkstat cards with icons/accents, skeleton loading, richer contract/birthday/payroll panels
-- Shared SVG chart helpers in `frontend/src/components/dashboard/charts.tsx` (no new chart library)
+- Donut charts: absensi bulan/hari ini, status karyawan (admin); saldo cuti (employee)
+- Horizontal bars: headcount per departemen & lokasi
+- Shared SVG helpers in `frontend/src/components/dashboard/charts.tsx` (no chart library)
 
 ### Changed
-- `/dashboard` HR view no longer plain KPI + text bars only — visual analytics first
+- `/dashboard` uses quiet slate palette + split KPI strip (no icon tiles, rainbow colors, hover lift, or pill badges)
 
 ---
 
