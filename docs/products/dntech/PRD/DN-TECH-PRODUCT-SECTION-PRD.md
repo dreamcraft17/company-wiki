@@ -148,7 +148,7 @@ extend model Product {
     ],
     "cta": {
       "label": "Mulai Gratis",
-      "url": "https://app.dnpeople.id/signup",
+      "url": "https://hris.dntech.id/",
       "type": "trial"
     },
     "saveLabel": null
@@ -175,7 +175,7 @@ extend model Product {
     ],
     "cta": {
       "label": "Coba Sekarang",
-      "url": "https://app.dnpeople.id/signup",
+      "url": "https://hris.dntech.id/",
       "type": "trial"
     },
     "saveLabel": null
@@ -205,7 +205,7 @@ extend model Product {
     ],
     "cta": {
       "label": "Pilih Professional",
-      "url": "https://app.dnpeople.id/signup?plan=pro",
+      "url": "https://hris.dntech.id/?plan=pro",
       "type": "trial"
     },
     "saveLabel": null
@@ -539,7 +539,7 @@ extend model Product {
     },
     "cta": {
       "label": "Mulai Gratis Sekarang",
-      "url": "https://app.dnpeople.id/signup"
+      "url": "https://hris.dntech.id/"
     }
   }
 ]
@@ -727,7 +727,7 @@ extend model Product {
 {
   "primaryCta": {
     "label": "Mulai Gratis Sekarang",
-    "url": "https://app.dnpeople.id/signup",
+    "url": "https://hris.dntech.id/",
     "type": "trial",
     "color": "blue",
     "size": "lg"
@@ -959,7 +959,7 @@ roadmap: [Q3 2026 - Q3 2027]
 
 primaryCta:
   label: "Mulai Gratis Sekarang"
-  url: "https://app.dnpeople.id/signup"
+  url: "https://hris.dntech.id/"
   type: "trial"
 
 secondaryCtas:

@@ -321,7 +321,7 @@ Cost: IDR 50-100 juta (budget untuk 1 firm, 1 minggu)
 ```
 Platform: Helpscout atau Zendesk
 [ ] Account created
-[ ] Email alias: support@dnpeople.id
+[ ] Email alias: info@dnpeople.id
 [ ] Incoming emails → auto-ticket
 [ ] Ticket routing (product issue vs billing vs onboarding)
 [ ] SLA: first response < 24 business hours

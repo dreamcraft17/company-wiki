@@ -647,7 +647,7 @@ AC-8.1: Footer Display
       [ ] Legal links (Privacy, Terms, DPA, Security)
     - Social icons (LinkedIn, Twitter if applicable)
     - Copyright text: "© 2026 PT. Dozer Napitupulu Technology"
-    - Contact email: support@dnpeople.id
+    - Contact email: info@dnpeople.id
     
 Test case:
   T8.1: Footer renders
@@ -796,7 +796,7 @@ CONTENT:
   [ ] Pricing accurate + clear
   [ ] FAQ Q&A helpful + complete
   [ ] All links working (no 404s)
-  [ ] Contact email correct (support@dnpeople.id)
+  [ ] Contact email correct (info@dnpeople.id)
 
 SECURITY:
   [ ] HTTPS only (green lock visible)

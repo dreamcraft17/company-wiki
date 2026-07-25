@@ -223,7 +223,7 @@ Tutorial Dropdown (Top Nav):
   │
   └─ Get Help
      ├─ Chat with support
-     ├─ Email: support@dnpeople.id
+     ├─ Email: info@dnpeople.id
      └─ Schedule demo call
 ```
 

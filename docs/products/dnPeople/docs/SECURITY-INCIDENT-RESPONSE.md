@@ -21,7 +21,7 @@
 
 ## Contacts
 - Primary: Dozer
-- Support: support@dnpeople.id
+- Support: info@dnpeople.id
 - Escalation: on-call (PagerDuty)
 
 ## Related

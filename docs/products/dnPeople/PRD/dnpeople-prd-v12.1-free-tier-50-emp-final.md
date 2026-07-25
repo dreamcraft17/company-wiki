@@ -123,7 +123,7 @@ FREE tier: 5 GB total storage
 
 ```
 FREE tier: Email support only
-├─ Channel: support@dnpeople.id
+├─ Channel: info@dnpeople.id
 ├─ Response time: 24 business hours (best effort)
 ├─ No phone support
 ├─ No chat support

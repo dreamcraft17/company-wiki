@@ -478,7 +478,7 @@ Launch gate:
 ```
 Day 1 (22 Jul):
   [ ] Ticketing system live (Helpscout/Zendesk)
-  [ ] Support email monitored (support@dnpeople.id)
+  [ ] Support email monitored (info@dnpeople.id)
   [ ] Support team trained on product
 
 Day 2-3 (23-24 Jul):

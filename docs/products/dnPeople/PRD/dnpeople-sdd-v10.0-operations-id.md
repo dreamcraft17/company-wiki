@@ -629,7 +629,7 @@ SECURITY:
 
 OPERATIONS:
   [ ] Support ticketing system live (Helpscout/Zendesk)
-  [ ] Support email: support@dnpeople.id monitored
+  [ ] Support email: info@dnpeople.id monitored
   [ ] Customer onboarding playbook written
   [ ] Training videos recorded
   [ ] FAQ (20+ articles) documented

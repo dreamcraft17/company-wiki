@@ -129,7 +129,7 @@
 
 ```
 [x] Playbook + SLA dokumen
-[ ] support@dnpeople.id monitored
+[ ] info@dnpeople.id monitored
 [ ] Ticketing system live
 [ ] Training videos
 ```

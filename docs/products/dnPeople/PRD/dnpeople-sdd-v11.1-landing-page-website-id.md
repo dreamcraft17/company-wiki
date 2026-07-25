@@ -499,7 +499,7 @@ A: Rare, but if happens: we notify within 72 hours, provide incident report, ass
 
 SUPPORT & TRAINING:
 Q: Apakah ada support lokal?
-A: Ya, support@dnpeople.id (email), chat, phone. Jam 8am-6pm Jakarta time.
+A: Ya, info@dnpeople.id (email), chat, phone. Jam 8am-6pm Jakarta time.
 
 Q: Bagaimana jika ada issue saat setup?
 A: Free onboarding call + training video provided. Support team assist via chat/email.
@@ -965,7 +965,7 @@ Content:
   [ ] All copy reviewed + no typos
   [ ] Prices accurate + formatted correctly
   [ ] FAQ answers complete + helpful
-  [ ] Contact email correct (support@dnpeople.id)
+  [ ] Contact email correct (info@dnpeople.id)
 
 Images & Assets:
   [ ] Hero screenshot optimized (WebP, < 500KB)

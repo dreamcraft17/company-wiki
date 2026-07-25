@@ -7,7 +7,7 @@
 
 | Channel | Alamat / sistem | Catatan |
 |---------|-----------------|--------|
-| Support email | support@dnpeople.id | Harus dimonitor bisnis hours |
+| Support email | info@dnpeople.id | Harus dimonitor bisnis hours |
 | Sales | sales@dnpeople.id | Demo & kontrak |
 | Ticketing | Helpscout / Zendesk / Jira Service (pilih satu) | Email-to-ticket |
 

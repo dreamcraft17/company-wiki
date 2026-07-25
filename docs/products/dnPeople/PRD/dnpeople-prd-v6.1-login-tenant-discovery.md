@@ -625,7 +625,7 @@ export function CompanyPicker({
       </button>
       
       <p>
-        Tidak ketemu? <a href="mailto:support@dnpeople.id">Hubungi support</a>
+        Tidak ketemu? <a href="mailto:info@dnpeople.id">Hubungi support</a>
       </p>
     </div>
   );

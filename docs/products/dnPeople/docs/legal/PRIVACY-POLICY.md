@@ -25,6 +25,6 @@ SMTP, object storage, Sentry, payment gateway, IdP — lihat `GET /api/v1/privac
 TLS, enkripsi field, RBAC, audit trail, MFA opsional.
 
 ## Kontak
-privacy@dnpeople.id · support@dnpeople.id
+privacy@dnpeople.id · info@dnpeople.id
 
 Ini dokumen template produk; review counsel sebelum publikasi di dnpeople.id.

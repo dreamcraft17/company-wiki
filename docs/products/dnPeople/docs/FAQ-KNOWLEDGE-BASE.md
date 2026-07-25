@@ -78,7 +78,7 @@ A: Data HR operasional; field sensitif dienkripsi. Privacy: `docs/legal/PRIVACY-
 ## Support
 
 **Q: Bagaimana hubungi support?**  
-A: support@dnpeople.id — SLA di `docs/SLA-SUPPORT-POLICY.md` (target respons < 24 jam bisnis).
+A: info@dnpeople.id — SLA di `docs/SLA-SUPPORT-POLICY.md` (target respons < 24 jam bisnis).
 
 **Q: Bagaimana data dilindungi?**  
 A: RBAC, enkripsi, audit, MFA, file ber-auth — lihat `docs/SECURITY.md`.
