@@ -87,7 +87,7 @@ Verifikasi 25 Juli 2026: TypeScript ✅ · backend tests **47/47** ✅. Codebase
 | Leave types, balance, approve | Done |
 | Permissions (WFH/izin) | Done |
 | Payroll BPJS + PPh 21 | Done |
-| Dashboard + basic reports | Done |
+| Dashboard + basic reports | Done | `/dashboard` visual: donut absensi/status + bar dept/lokasi (25 Jul 2026) |
 | Audit trail | Done |
 
 Frontend: `/dashboard` `/employees` `/attendance` `/leave` `/permissions` `/payroll`

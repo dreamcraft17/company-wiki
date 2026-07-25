@@ -211,8 +211,9 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Role-aware dashboard | Data sesuai role/scope | Semua role | `/dashboard` | Available |
-| Workforce dashboard | Total/active, department/type/status breakdown | HR/admin/manager | `/dashboard` | Available |
-| Operational dashboard | Attendance, pending approval, contracts, probation, birthday | HR/manager | `/dashboard` | Available |
+| Workforce dashboard | Total/active, department/status/location charts | HR/admin/manager | `/dashboard` | Available |
+| Operational dashboard | Attendance donuts (month + today), pending approval, contracts, birthday | HR/manager | `/dashboard` | Available |
+| Visual analytics | SVG donut + horizontal bars (no third-party chart lib) | HR/admin + employee leave balance | `/dashboard` | Available — 25 Jul 2026 |
 | Payroll dashboard | Payroll period/status yang diizinkan | Finance/admin | `/dashboard` | Available |
 | Attendance report | Detail, date/employee filter, pattern analysis, Excel/PDF (cap 1000 baris) | HR/manager | `/reports` | Available — PRD v8.0 |
 | Leave report | Detail, peak/future analysis, Excel/PDF (cap 1000 baris) | HR/manager | `/reports` | Available — PRD v8.0 |

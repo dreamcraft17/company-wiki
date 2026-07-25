@@ -120,7 +120,7 @@ the attempted path in `next`.
 | Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
 | Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
 | Employee loans | Simulation, affordability ratio, one-active-loan policy, Manager/Finance approval, installments/payroll deduction | `/loans` | `/loans` | Available |
-| Dashboard | Role-aware headcount, department/type/status breakdowns, attendance, pending approvals, payroll, contract/probation and birthdays | `/dashboard` | `/dashboard` | Available |
+| Dashboard | Role-aware KPIs + SVG donut/bar charts (attendance month/today, status, department, location); contracts, birthdays, payroll panel; employee leave donut | `/dashboard` | `/dashboard` | Available |
 | Reports | Attendance/leave/payroll detail, pattern/peak analysis, turnover trend/risk, Excel/PDF (1000-row cap), async bank/tax export jobs with poll/download UI, email when ready | `/reports`, `/reports/jobs*` | `/reports` | Available |
 | Recruitment/ATS | Jobs, public publication, online application/CV, candidates, ranking, pipeline, interviews, bulk communication | `/recruitment`, `/careers` | `/recruitment`, `/careers` | Available |
 | Digital offer | Offer creation/delivery, expiry, public view, accept/reject, consent signature, tamper evidence, auto-hire | `/recruitment`, `/careers/offer/:token` | `/recruitment`, `/careers/offer/:token` | Available |
@@ -209,6 +209,7 @@ the attempted path in `next`.
 ### Dashboard, reporting and enterprise
 
 - Role-aware dashboards with headcount, attendance, approvals, contracts, birthdays and payroll status.
+- Visual analytics on `/dashboard` (25 Jul 2026): donut charts for monthly/today attendance and employee status; horizontal bars for department and location headcount; employee self-view includes leave-balance donut. Implemented with lightweight SVG helpers (`components/dashboard/charts.tsx`), no third-party chart library.
 - Attendance, leave, payroll and turnover detail/analysis with safe Excel and PDF export.
 - Multi-company platform console and organization links.
 - API keys, webhooks/integration configuration, custom approval workflows and custom reports.

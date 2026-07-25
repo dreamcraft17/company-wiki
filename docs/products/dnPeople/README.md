@@ -38,7 +38,7 @@
 Detail status Available / Conditional / Roadmap: **[FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)**.
 
 ### Core HR (Gratis / FREE)
-- Dashboard, master karyawan, struktur organisasi
+- Dashboard (KPI + diagram absensi/departemen), master karyawan, struktur organisasi
 - Dokumen karyawan & perusahaan, kebijakan, pengumuman, kalender
 - Helpdesk / tiket dukungan
 - **Help & onboarding (PRD v14.0):** menu `?`, tutorial interaktif, knowledge base

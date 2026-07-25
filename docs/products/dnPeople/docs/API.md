@@ -221,7 +221,7 @@ Types: `LATE_ARRIVAL`, `EARLY_LEAVE`, `WFH`, `BUSINESS_TRIP`, `OTHER`
 
 | Method | Path | Permission | Deskripsi |
 |--------|------|------------|-----------|
-| GET | `/dashboard` | ✓ | Admin KPIs atau employee self |
+| GET | `/dashboard` | ✓ | Admin KPIs (+ chart series: attendance, breakdowns) atau employee self |
 | GET | `/reports/headcount` | reports:view | Headcount per dept |
 | GET | `/reports/attendance` | reports:view | Group by status |
 | GET | `/reports/payroll-summary` | reports:view | Aggregat payroll |

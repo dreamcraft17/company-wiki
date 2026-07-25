@@ -16,7 +16,13 @@
 
 ## 2. Dashboard
 
-Ringkasan sesuai role: headcount, absensi hari ini, approval tertunda, kontrak/probation, dan status payroll (Finance/Admin).
+**HR / Admin / Manager:** kartu KPI (aktif, cuti/izin menunggu, hadir bulan ini) plus diagram:
+- Donut absensi bulan ini & hari ini
+- Donut status karyawan
+- Bar horizontal per departemen & lokasi
+- Daftar kontrak ≤30 hari, ulang tahun mendatang, cuplikan payroll
+
+**Karyawan:** absensi hari ini, cuti menunggu, donut saldo cuti, slip gaji terbaru.
 
 ## 3. Karyawan (HR / Admin)
 
