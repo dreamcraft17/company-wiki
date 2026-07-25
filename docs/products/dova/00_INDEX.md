@@ -6,11 +6,11 @@
 **Status**: MVP **codebase 100% complete** · ops / soft-launch phase  
 **Owner**: Dozer  
 **Company**: DN Tech  
-**UpdatedAt**: July 24, 2026  
+**UpdatedAt**: July 25, 2026  
 **App HEAD**: `27db4da`  
 **Wiki**: `company-wiki/docs/products/dova/`
 
-> **Start here:** [current-phase.md](./current-phase.md) · [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
+> **Start here:** [current-phase.md](./current-phase.md) · **BD update:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) · [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
 > **Specs:** [PRD/](./PRD/) (aggressive 4-week PRD / SRS / SDD)  
 > **App README:** [README.md](./README.md) (setup — also in app repo)
 
@@ -20,6 +20,7 @@
 
 | File | Deskripsi |
 |------|-----------|
+| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | **Kirim ke BD / non-teknis** — phase + progress + ask |
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — status codebase vs ops |
 | [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Fitur Available / Conditional / Out of MVP |
 | [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Update non-teknis (business / ops / sales) |

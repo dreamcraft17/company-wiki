@@ -5,10 +5,12 @@
 | **Product** | DOVA — food supply marketplace (Nigeria / NGN / Paystack) |
 | **Repository** | [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova) |
 | **HEAD** | `27db4da` |
-| **Document date** | 24 July 2026 |
+| **Document date** | 25 July 2026 |
 | **Owner** | Dozer |
 | **Audience** | Engineering + business stakeholders |
 | **Phase** | **MVP codebase complete → ops / soft-launch readiness** |
+
+> **BD / non-tech one-pager:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) (forward-ready)
 
 ---
 
