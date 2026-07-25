@@ -79,6 +79,37 @@ Questions or want a walkthrough of what’s ready today? Ping me — happy to do
 
 ---
 
-*Copy-paste version for Slack:*
+## WhatsApp message (copy-paste)
+
+```
+Hi team 👋
+
+Quick DOVA update (25 Jul):
+
+Core marketplace (customer shop, supplier tools, admin) is ready to demo on our internal build — desktop & phone.
+
+Still in progress — please don’t treat as done yet:
+• Paystack (real test payments) — still being set up, demos are simulation only, no real money yet
+• Feedlog — still in progress, not ready to show/promise
+
+No public link to share with customers yet.
+
+Next: finish Paystack + Feedlog → staging URL → test payments → go/no-go for soft launch. Still inside the 17 Aug window.
+
+If you’re talking to anyone: core flow is demoable; don’t promise live Paystack or Feedlog yet.
+
+Need from BD when you can:
+• help on Paystack test account (NGN)
+• pilot suppliers with docs ready
+• who gets staging URL first + soft-launch date later
+
+Want a short walkthrough? Ping me anytime.
+
+— Dozer
+```
+
+---
+
+*Slack (one-liner):*
 
 > **DOVA update (25 Jul):** Core MVP (shop / supplier / admin) is demoable on internal build. **Paystack** and **Feedlog** are **still in progress** — not finished, not for client promises yet. No public URL / real money yet. Next: finish those two, staging, test payments, then go/no-go. Still inside the 17 Aug window. BD help welcome on Paystack test account, pilot suppliers, and launch date.
