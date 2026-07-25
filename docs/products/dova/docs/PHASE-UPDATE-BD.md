@@ -12,31 +12,37 @@ Quick update on where DOVA stands, in plain language.
 
 ## The short version
 
-The product is **built**. Everything we agreed for the MVP — customers shopping and paying, suppliers managing their products, admins approving suppliers — is working. I can demo the whole thing today, on a laptop or a phone.
+Most of the MVP product is already in place — customers can shop, suppliers can manage products, admins can approve people. I can walk you through that flow today on a laptop or a phone.
 
-What we're **not** yet: publicly live. There's no link you can send to a customer, and no real money moves through the system yet. That's the gap we close next, and closing it needs help from the business side, not more coding.
+Two important pieces are **still in progress**, so please don’t treat them as finished:
+
+- **Paystack** — payment is wired for demos in simulation mode, but real test payments (keys, webhook, proving transactions) are **still being set up**. No real money yet.
+- **Feedlog** — also **still in progress**. Not ready to show or promise yet.
+
+We’re also not publicly live — there’s no customer-facing link to share yet. Soft launch waits until the open items above are solid and we’ve done a go/no-go together.
 
 ## Where we are on the plan
 
-Our 4-week plan runs 21 July – 17 August. The build work planned for all four weeks is already done — we finished ahead of the calendar. So we're not behind; we've actually shifted early into the last stage: **getting ready for soft launch**.
+Our 4-week plan runs 21 July – 17 August. The core shopping / supplier / admin build is largely done and ahead of the calendar. What’s left is finishing the pieces that were always launch-critical — especially **Paystack** and **Feedlog** — then staging and soft launch.
 
-That last stage has three steps:
+Rough next steps:
 
-1. Put the app on a proper shared URL (staging) so everyone can try it themselves.
-2. Run real *test* payments through Paystack — no actual money, just proving the payment rails work. We want at least 10 successful ones.
-3. Then we all look at it and decide together: go or no-go for soft launch.
+1. Finish **Paystack** (test mode working end-to-end) and **Feedlog**.
+2. Put the app on a shared staging URL so the team can try it themselves.
+3. Run a batch of *test* payments (no real money) to prove Paystack holds up — we’re aiming for at least 10 successful ones.
+4. Then we decide together: go or no-go for soft launch.
 
 ## What you can show people today
 
-If you're demoing to anyone, the full story works:
+Safe to demo (internal only):
 
-- A customer signs up, browses ~20 sample products, fills a cart, checks out (pickup or delivery), "pays", and sees their order.
-- A supplier registers with their documents, waits for approval, then adds products with photos and fulfills orders.
-- An admin approves that supplier and keeps an eye on everything, including messages from the Contact page.
+- A customer signs up, browses sample products, fills a cart, checks out (pickup or delivery), “pays” in **simulation**, and sees their order.
+- A supplier registers with documents, waits for approval, then adds products with photos and fulfills orders.
+- An admin approves that supplier and keeps an eye on the platform, including Contact form messages.
 
-Minimum basket is **₦3,000 for pickup** and **₦5,000 for delivery** — the app tells buyers how much more to add if they're under.
+Minimum basket is **₦3,000 for pickup** and **₦5,000 for delivery** — the app tells buyers how much more to add if they’re under.
 
-Demo logins if you want to poke around (internal build only):
+Demo logins (internal build only):
 
 - Admin: `admin@dova.local` / `admin1234`
 - Supplier: `supplier@dova.local` / `supplier1234`
@@ -44,29 +50,30 @@ Demo logins if you want to poke around (internal build only):
 
 ## What NOT to promise anyone yet
 
-- A public website link — doesn't exist yet.
-- Real payments — Paystack is wired in but unproven; demos run in simulation mode.
-- Password reset, email verification, product reviews, wishlists, discounts, courier tracking — all deliberately left out of the MVP. They're roadmap, not "coming this week".
+- A public website link — not ready.
+- **Live / real Paystack payments** — still in progress; demos use simulation.
+- **Feedlog** — still in progress; don’t sell it as available.
+- Password reset, email verification, product reviews, wishlists, discounts, courier tracking — out of MVP on purpose. Roadmap, not “this week.”
 
-If someone asks, a safe line is: *"The product is ready and being validated on a private environment. Public launch follows once payment testing is signed off."*
+Safe line if someone asks: *“Core marketplace flow is demoable. Paystack live testing and Feedlog are still being finished — public launch follows once those are signed off.”*
 
 ## What I need from you
 
-This is the part that actually decides when we launch:
+While Paystack and Feedlog are still moving on the tech/ops side, it helps if BD can:
 
-1. **Someone to own staging** — who gets the URL first, who invites testers.
-2. **A Paystack account** (test mode, currency NGN) — I need the test keys to run the payment proof. This is probably a Finance/BD ask.
-3. **A few pilot suppliers** — real ones with their documents (CAC / ID) ready, so we can test onboarding for real.
-4. **Content check** — is the About page, Contact info, and support channel what we want to show?
-5. **A go/no-go date** — once staging is up and payments are proven, leadership picks the soft-launch date.
-
-Until 1 and 2 are moving, I can't flip anything live — the tech side is done and waiting.
+1. Help with a **Paystack test account** (NGN) / whoever owns the business Paystack login — so we can finish the real test-payment proof.
+2. Nominate a few **pilot suppliers** with docs ready (CAC / ID) for when staging is up.
+3. Check **About / Contact / support** wording is what we want to show.
+4. Be ready to pick a **soft-launch go/no-go date** once Paystack + Feedlog + staging are in good shape.
+5. Confirm who should get the **staging URL** first when it’s up.
 
 ## Bottom line
 
-We're ahead on the build. Demo freely (internally), don't share a link publicly yet, and help me get staging + Paystack sorted — that's all that stands between us and soft launch, well within the 17 August window.
+Core shop / supplier / admin story: **demoable**.  
+**Paystack** and **Feedlog**: **still in progress** — please don’t announce them as done.  
+Public live link: **not yet**. Soft launch still sits inside the 17 August window if we keep pushing these open items.
 
-Questions or want a walkthrough? Ping me anytime — happy to do a 15-minute demo call.
+Questions or want a walkthrough of what’s ready today? Ping me — happy to do a short demo call.
 
 — Dozer
 
@@ -74,4 +81,4 @@ Questions or want a walkthrough? Ping me anytime — happy to do a 15-minute dem
 
 *Copy-paste version for Slack:*
 
-> **DOVA update (25 Jul):** The MVP is fully built — customer shopping, supplier tools, admin panel all work, demo-able today on desktop & phone. Not publicly live yet: we still need a staging URL, Paystack test payments (≥10), and a go/no-go decision. We're ahead of the 4-week plan (ends 17 Aug). Needed from BD/ops: staging owner, Paystack test keys (NGN), pilot suppliers, launch date.
+> **DOVA update (25 Jul):** Core MVP (shop / supplier / admin) is demoable on internal build. **Paystack** and **Feedlog** are **still in progress** — not finished, not for client promises yet. No public URL / real money yet. Next: finish those two, staging, test payments, then go/no-go. Still inside the 17 Aug window. BD help welcome on Paystack test account, pilot suppliers, and launch date.
