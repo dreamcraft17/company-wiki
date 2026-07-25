@@ -3,16 +3,20 @@
 **Product**: DOVA — agricultural / food supply marketplace (Nigeria)  
 **Market**: NGN · Paystack  
 **Repository**: [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
-**Status**: MVP **codebase 100% complete** · ops / soft-launch phase  
+**Status**: MVP core demoable · Paystack + Feedlog still in progress · soft-launch prep  
 **Owner**: Dozer  
 **Company**: DN Tech  
 **UpdatedAt**: July 25, 2026  
 **App HEAD**: `27db4da`  
-**Wiki**: `company-wiki/docs/products/dova/`
 
-> **Start here:** [current-phase.md](./current-phase.md) · **BD update:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) · [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
-> **Specs:** [PRD/](./PRD/) (aggressive 4-week PRD / SRS / SDD)  
-> **App README:** [README.md](./README.md) (setup — also in app repo)
+**Canonical wiki:** workspace folder `dova-company-wiki/`  
+**Mirrors:** this path (`company-wiki/docs/products/dova/`) · `dova/docs/` (local, gitignored)
+
+> **Start here:** [current-phase.md](./current-phase.md)  
+> **BD:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) · **CEO:** [docs/CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md)  
+> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
+> **Specs:** [PRD/](./PRD/)  
+> **Sync:** from workspace root → `./dova-company-wiki/scripts/sync-docs.sh`
 
 ---
 
@@ -20,12 +24,13 @@
 
 | File | Deskripsi |
 |------|-----------|
-| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | **Kirim ke BD / non-teknis** — phase + progress + ask |
-| [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — status codebase vs ops |
-| [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Fitur Available / Conditional / Out of MVP |
-| [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Update non-teknis (business / ops / sales) |
+| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | **Kirim ke BD / non-teknis** (+ WhatsApp) |
+| [CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md) | **Kirim ke CEO** (+ WhatsApp) |
+| [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Baseline codebase vs ops |
+| [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Available / Conditional / Out of MVP |
+| [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Update non-teknis (legacy long form) |
 | [MVP-STATUS.md](./docs/MVP-STATUS.md) | Status report stakeholder |
-| [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | Trace PRD/SRS/SDD vs code |
+| [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
 | [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
 | [API.md](./docs/API.md) | Referensi API MVP |
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
@@ -50,21 +55,21 @@
 
 | File | Topic |
 |------|-------|
-| [current-phase.md](./current-phase.md) | Current phase — done vs ops next |
+| [current-phase.md](./current-phase.md) | Current phase — done vs still in progress |
 
 ---
 
 ## Notes
 
-- App repo `dova/docs/` is **gitignored** (engineering local copies).  
-- **This wiki folder is the shared source of truth** for the team.  
-- Sync from a developer machine: copy updated markdown into `company-wiki/docs/products/dova/` then commit wiki.
+- **Canonical:** workspace `dova-company-wiki/` (own git repo).  
+- **This folder / company-wiki path:** mirror — keep in sync with `./dova-company-wiki/scripts/sync-docs.sh`.  
+- App repo `dova/docs/` stays **gitignored**; do not rely on it as the shared source of truth.
 
 ## Quick links
 
 | | |
 |---|---|
-| GitHub | https://github.com/dreamcraft17/dova |
+| GitHub app | https://github.com/dreamcraft17/dova |
 | Local frontend | http://localhost:3001 |
 | Local API health | http://localhost:3000/api/v1/health |
 | Demo admin | `admin@dova.local` / `admin1234` |
@@ -72,4 +77,4 @@
 
 ---
 
-*Last Updated: July 24, 2026*
+*Last Updated: July 25, 2026*

@@ -17,7 +17,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Release-ready + launch gates | Soft launch Agustus · ops Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP codebase complete · ops launch | `dova` |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP core demoable · Paystack/Feedlog in progress | `dova` + **`dova-company-wiki`** |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
