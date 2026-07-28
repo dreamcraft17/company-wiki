@@ -5,15 +5,33 @@ Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk we
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 18, 2026  
+**UpdatedAt:** July 28, 2026  
 
-**Terakhir diperbarui:** 18 Juli 2026  
+**Terakhir diperbarui:** 28 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `f1c7dca` — dnPeople product seed copy (Jul 16)  
-**Sebelumnya:** Loading UX global + public product API hotfix (Jul 13); Product Section PRD V7 (Jul 12)  
+**Commit referensi terbaru:** `95a6cd5` — testing rollout complete + push guard (Jul 28)  
+**Sebelumnya:** `f1c7dca` — dnPeople product seed copy (Jul 16)  
 **Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9 / React 19.2.4)  
-**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `f1c7dca`)
+**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `95a6cd5`)
+
+## Update Testing Framework (Jul 2026)
+
+Status implementasi testing codebase DN Tech:
+
+| Area | Status | Lokasi |
+|------|--------|--------|
+| Backend unit tests (Jest + ts-jest) | ✅ Complete (45 passing total backend tests) | `backend/src/__tests__/utils`, `backend/src/__tests__/services`, `backend/src/__tests__/templates` |
+| Backend integration tests (Supertest) | ✅ Complete (15+ integration scenarios) | `backend/src/__tests__/integration` |
+| Frontend unit tests (Jest + RTL) | ✅ Complete (36 passing frontend tests) | `frontend/src/__tests__` |
+| E2E critical-path tests (Playwright) | ✅ Complete (5 scenarios x 2 projects) | `frontend/e2e/tests` |
+| Performance scripts (k6) | ✅ Implemented | `backend/performance/k6` |
+| CI test pipeline | ✅ Implemented | `.github/workflows/ci.yml` |
+| Testing playbook docs | ✅ Implemented | `docs/TESTING.md` |
+
+Coverage snapshot (Jul 28, 2026):
+- Backend (`npm run test:coverage`): statements **76.17%**, lines **77.28%**
+- Frontend (`npm run test:coverage`): statements **67.33%**, functions **78.00%**, lines **69.36%**
 
 ---
 

@@ -5,7 +5,7 @@ Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektu
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 18, 2026  
+**UpdatedAt:** July 28, 2026  
 
 ---
 
@@ -27,7 +27,8 @@ Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektu
 14. [Integrasi Pihak Ketiga](#14-integrasi-pihak-ketiga)
 15. [SEO & Analytics](#15-seo--analytics)
 16. [Scripts & Perintah Berguna](#16-scripts--perintah-berguna)
-17. [Dokumen Terkait](#17-dokumen-terkait)
+17. [Testing & QA Automation](#17-testing--qa-automation)
+18. [Dokumen Terkait](#18-dokumen-terkait)
 
 ---
 
@@ -656,6 +657,17 @@ Jika SMTP tidak dikonfigurasi, email di-log ke console (development mode). Lihat
 | `npm start` | Jalankan production build |
 | `npm run lint` | ESLint |
 
+### Testing Commands
+
+| Lokasi | Perintah | Fungsi |
+|--------|----------|--------|
+| `backend` | `npm run test` | Jalankan semua backend tests |
+| `backend` | `npm run test:coverage` | Backend coverage report |
+| `backend` | `npm run test:integration` | Integration route tests |
+| `frontend` | `npm run test` | Jalankan semua frontend tests |
+| `frontend` | `npm run test:coverage` | Frontend coverage report |
+| `frontend` | `npm run test:e2e` | Playwright E2E suite |
+
 ### PM2 (Production)
 
 ```bash
@@ -668,12 +680,21 @@ pm2 restart dntech-web
 
 ---
 
-## 17. Dokumen Terkait
+## 17. Testing & QA Automation
+
+- Automated tests aktif untuk unit, integration, dan E2E.
+- Deliverable saat ini: **81 passing tests** (45 backend + 36 frontend).
+- E2E aktif **5 scenario** (desktop + mobile project matrix).
+- CI di `.github/workflows/ci.yml` menjalankan test checks untuk backend/frontend/E2E.
+- Project-level Cursor hook `.cursor/hooks/ensure-tests-before-push.sh` memblokir `git push` jika artifact coverage backend/frontend belum ada.
+
+## 18. Dokumen Terkait
 
 | File | Isi |
 |------|-----|
 | [`README.md`](../README.md) | Quick start singkat |
 | [`docs/DEPLOYMENT-PRODUCTION.md`](./DEPLOYMENT-PRODUCTION.md) | Panduan deploy Ubuntu + Nginx + PM2 |
+| [`docs/TESTING.md`](./TESTING.md) | Testing playbook dan coverage snapshot |
 | [`docs/DNTECH-COMPANY-PROFILE.md`](./DNTECH-COMPANY-PROFILE.md) | Spesifikasi lengkap (legacy) |
 | [`PRD/`](../PRD/) | Product requirements documents |
 | [`backend/.env.example`](../backend/.env.example) | Template env backend |
@@ -697,13 +718,13 @@ Brand      : DN Tech (DN Tech.id)
 
 ---
 
-*Terakhir diperbarui: 18 Juli 2026*
+*Terakhir diperbarui: 28 Juli 2026*
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 28, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

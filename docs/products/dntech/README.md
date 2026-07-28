@@ -7,7 +7,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 28, 2026 |
 | Repo | [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech) |
 | Live | https://dntech.id · https://api.dntech.id |
 
@@ -31,12 +31,13 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Loading UX (Jul 13) | Implemented | Route-level loading fallback, global API overlay, admin session/CRUD loading; concurrency-safe and accessible |
 | Public product API hotfix (Jul 13) | Implemented | SSR product pages share the normalized API resolver; production localhost/misrouted URL falls back to `api.dntech.id` |
 | dnPeople seed copy (Jul 16) | Implemented | Seed script copy refresh (`f1c7dca`); production `db:seed-dnpeople` still pending |
+| Testing framework (Jul 28) | Complete | 81 automated tests passing (`45` backend + `36` frontend), 5 E2E scenarios (desktop+mobile matrix), CI test jobs wired |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency (Next.js 16.2.9, React 19.2.4) |
 | Backend build | Passing | `npm run build` succeeds |
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 
-Latest implementation reference: Jul 16 — dnPeople product seed copy update (`f1c7dca`); prior Jul 13 Loading UX + public product API hotfix.
+Latest implementation reference: Jul 28 — testing rollout complete + push guard (`95a6cd5`).
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
@@ -314,6 +315,7 @@ Implemented items:
 | `docs/v4/` | V4 performance PRD, summary, and implementation guide |
 | `docs/v5/` | V5 email system PRD, roadmap, summary, and implementation guide |
 | `docs/DNTECH-COMPANY-PROFILE.md` | Company profile content reference |
+| `docs/TESTING.md` | Test strategy, commands, and CI flow |
 
 ## License
 
@@ -326,4 +328,4 @@ Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 28, 2026 |

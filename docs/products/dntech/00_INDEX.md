@@ -3,12 +3,12 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 + Loading UX / product API hotfix (Jul 13) + seed copy (Jul 16); DB push + `db:seed-dnpeople` ke production masih pending  
+**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 + Testing rollout complete (Jul 28); DB push + `db:seed-dnpeople` ke production masih pending  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 18, 2026  
-**Latest commit**: `f1c7dca` — dnPeople product seed copy (Jul 16)
+**UpdatedAt**: July 28, 2026  
+**Latest commit**: `95a6cd5` — testing rollout complete + push guard (Jul 28)
 
 ---
 
@@ -33,6 +33,10 @@
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
+| [docs/TESTING.md](./docs/TESTING.md) | Testing playbook + coverage snapshot |
+| [docs/test/DN-TECH-TESTING-PRD.md](./docs/test/DN-TECH-TESTING-PRD.md) | Testing PRD (code-as-truth) |
+| [docs/test/DN-TECH-TESTING-SRS.md](./docs/test/DN-TECH-TESTING-SRS.md) | Testing SRS (acceptance criteria) |
+| [docs/test/DN-TECH-TESTING-SDD.md](./docs/test/DN-TECH-TESTING-SDD.md) | Testing SDD (infra design) |
 | [fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md](./fix/DN-TECH-QUICK-FIX-BUTTON-TEXT.md) | **Hotfix** — button text, tailwind-merge, branding (✅ resolved) |
 | [branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md](./branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) | **Homepage PRD** — Indonesia Edition (✅ implemented) |
 | [PRD/DN-TECH-PRODUCT-SECTION-PRD.md](./PRD/DN-TECH-PRODUCT-SECTION-PRD.md) | **Product Section PRD** — dnPeople flagship (✅ implemented V7) |
@@ -153,6 +157,7 @@
 | Design maturity | ✅ Lihat [design_audit.md](./docs/design_audit.md) |
 | Production build | ✅ Frontend + backend (Next.js 16.2.9 / React 19.2.4) |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
+| Testing framework (Jul 28) | ✅ 81 tests passing; 5 E2E scenarios; CI checks wired; push guard hook |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md)
 
@@ -163,6 +168,6 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 28, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
