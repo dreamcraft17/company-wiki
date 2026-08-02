@@ -2,8 +2,8 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 24 July 2026 |
-| App HEAD | `27db4da` |
+| Snapshot date | 1 August 2026 |
+| App HEAD | `66ed52e` |
 | Purpose | Canonical baseline after MVP Week 1–4 complete in code |
 | Spec baseline | Aggressive 4W PRD/SRS/SDD + Vercel deploy override |
 | Owner | Dozer |
@@ -29,6 +29,7 @@
 | UI | DOVA-Startup port (Poppins, green `#0F6B43`, gold `#D8B24A`) |
 | Migrations | `001_init.sql`, `002_week4.sql` (`fulfillment_type`) |
 | Evidence | Unit tests + `npm run smoke:week4` |
+| Feedback | Optional FeedLog sibling app (`NEXT_PUBLIC_FEEDLOG_URL`) |
 
 ## Available now (code)
 

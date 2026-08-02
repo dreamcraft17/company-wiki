@@ -745,7 +745,7 @@ extend model Product {
     },
     {
       "label": "Lihat Dokumentasi",
-      "url": "https://docs.dnpeople.id",
+      "url": "https://hris.dntech.id/docs",
       "type": "documentation"
     }
   ]

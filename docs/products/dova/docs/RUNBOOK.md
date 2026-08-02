@@ -50,6 +50,7 @@ Full first-time setup: `docs/DOVA_VPS_DEPLOY.md`.
 | `PAYSTACK_SECRET_KEY` / `PAYSTACK_CURRENCY=NGN` | Backend |
 | `NEXT_PUBLIC_API_URL` | Frontend |
 | `NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY` | Frontend (optional) |
+| `NEXT_PUBLIC_FEEDLOG_URL` | Frontend (optional — Feedback nav/footer) |
 | `RESEND_API_KEY` / `EMAIL_FROM` / `SUPPORT_EMAIL` | Contact + supplier emails (optional) |
 
 ---
