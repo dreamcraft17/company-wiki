@@ -19,10 +19,11 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
-- [Product Docs Index](./docs/products/README.md) — **296 markdown + 1 DOCX + 4 ZIP archives**
+- [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (49 markdown)
   - [dnPeople HRIS](./docs/products/dnPeople/00_INDEX.md) (105 markdown) — PRD v12.1, enterprise multi-tenant, launch readiness
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
+  - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2
   - [DOVA](./docs/products/dova/00_INDEX.md) (22 markdown) — Marketplace MVP dan operations launch
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)

@@ -276,8 +276,9 @@ company-wiki/
 │   ├── 01_README.md
 │   ├── 02_COMPANY_OVERVIEW.md
 │   ├── products/          # Product source docs index and per-product folders
-│   │   ├── README.md      # 187 markdown + 1 DOCX + 4 ZIP archives
+│   │   ├── README.md      # product index
 │   │   ├── dnPeople/      # HRIS docs, PRD v6.1 status, current baseline mirror
+│   │   ├── dnShopee/      # dnShop Finance — SOPI v2.1 + UI2
 │   │   └── ...
 │   └── ...
 ├── products/
@@ -369,6 +370,21 @@ code docs/products/README.md README.md CONTRIBUTING.md
 Use this for dnPeople changes that affect PRD baseline, feature catalog, API contract,
 implementation status, or release evidence. `CURRENT-IMPLEMENTATION.md` should describe
 shipped behavior only.
+
+### Update dnShop Finance Product Docs
+
+```bash
+# Mirror living docs from app repo
+cp ../dnShopee/docs/STATUS.md docs/products/dnShopee/docs/STATUS.md
+cp ../dnShopee/docs/docs.md docs/products/dnShopee/docs/docs.md
+cp ../dnShopee/docs/NEXT-PRD-BRIEF.md docs/products/dnShopee/docs/NEXT-PRD-BRIEF.md
+cp ../dnShopee/docs/FEATURE-CATALOG.md docs/products/dnShopee/docs/FEATURE-CATALOG.md
+cp ../dnShopee/docs/CURRENT-IMPLEMENTATION.md docs/products/dnShopee/docs/CURRENT-IMPLEMENTATION.md
+cp ../dnShopee/prd/sopi/*.md docs/products/dnShopee/PRD/sopi/
+
+# Fix STATUS links for wiki paths if needed, then update indexes
+code docs/products/dnShopee/00_INDEX.md docs/products/README.md docs/08_PRODUCTS.md README.md
+```
 
 ### Add New Documentation
 

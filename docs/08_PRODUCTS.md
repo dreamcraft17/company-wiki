@@ -1,12 +1,12 @@
 # Product Portfolio
 
-**Document Version**: 1.2  
-**Last Updated**: July 18, 2026  
+**Document Version**: 1.3  
+**Last Updated**: August 6, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 18, 2026
+**UpdatedAt**: August 6, 2026
 
 ---
 
@@ -58,6 +58,11 @@ DN Tech Products
 ├── 🏢 dnCore (ERP)                           → docs/products/dnpeople-erp/
 │   ├── Finance, SC, Mfg, CRM, Workflow…
 │   └── Repo: ERP (NestJS) — brand dnCore
+│
+├── 🛒 dnShop Finance                         → docs/products/dnShopee/
+│   ├── Shopee seller dashboard + pembukuan bonus
+│   ├── SOPI go-live v2.1 + UI2 ops desk
+│   └── Repo: dnShopee · prod shop.dntech.id
 │
 ├── 📍 Nearwork                               → docs/products/nearwork/
 │   ├── Location-based platform
@@ -242,6 +247,42 @@ DN Tech Products
 
 ## Future Products / In Development
 
+### dnShop Finance
+
+| Aspek | Detail |
+|-------|--------|
+| Nama | dnShop Finance |
+| Brand | dnShop · DN Tech |
+| Owner | Dozer (CEO + Tech Lead) |
+| Status | **v2.1 SOPI go-live + UI2 Implemented** (6 Agustus 2026) · next **v2.2 Accounting depth** |
+| Target | Seller UMKM Shopee Indonesia |
+| Stack | Next.js 15 + NestJS 10 + Postgres/Supabase · Redis opsional |
+| Prod | `https://shop.dntech.id` · API `https://api.shop.dntech.id` |
+| Repository | `dnShopee` |
+| Docs | [→](./products/dnShopee/00_INDEX.md) |
+| UpdatedAt | August 6, 2026 |
+
+### Fitur (ringkas)
+
+- Dashboard Shopee + charts · orders/payments/tax/bank
+- **Pembukuan bonus seller** (CoA SAK EMKM, journal, GL, P&L)
+- Live OAuth / webhook / income sync (mock tanpa partner key)
+- Tier Free 100 lifetime / Starter 5000/mo · onboarding wizard · email OTP
+- UI2 ops desk (theme dark/light)
+
+### Dokumentasi
+
+| Dokumen | File |
+|---------|------|
+| Index | [dnShopee/00_INDEX.md](./products/dnShopee/00_INDEX.md) |
+| Status | [STATUS.md](./products/dnShopee/docs/STATUS.md) |
+| Feature catalog | [FEATURE-CATALOG.md](./products/dnShopee/docs/FEATURE-CATALOG.md) |
+| SOPI PRD | [PRD/sopi/](./products/dnShopee/PRD/sopi/) |
+| UI2 Design | [PRD/v2/…_Design.md](./products/dnShopee/PRD/v2/dnShop_Finance_v2.1_Design.md) |
+| Next PRD brief | [NEXT-PRD-BRIEF.md](./products/dnShopee/docs/NEXT-PRD-BRIEF.md) |
+
+---
+
 ### dnCore (ERP)
 
 | Aspek | Detail |
@@ -340,7 +381,7 @@ DN Tech Products
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: August 6, 2026*
 
 | | |
 |---|---|

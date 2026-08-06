@@ -1,7 +1,7 @@
 # Product Documentation Index
 
-**Document Version**: 1.5
-**Last Updated**: July 24, 2026
+**Document Version**: 1.6
+**Last Updated**: August 6, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -16,6 +16,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Release-ready + launch gates | Soft launch Agustus · ops Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
+| **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP core demoable · Paystack/Feedlog in progress | `dova` + **`dova-company-wiki`** |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
@@ -23,14 +24,15 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 
-**Total: 187 markdown + 1 DOCX + 4 ZIP archives**
+**Total: markdown docs across products + 1 DOCX + archives**
 
 ---
 
-## 🔄 Latest Updates (July 24, 2026)
+## 🔄 Latest Updates (August 6, 2026)
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **dnShop Finance** | SOPI + UI2 6 Agu | Wiki product baru: STATUS, FEATURE-CATALOG, SOPI PRD/SRS/SDD Implemented, NEXT-PRD-BRIEF → **v2.2** |
 | **Threads Automation** | docs tree 24 Jul | Living docs di `auto/docs/` + wiki: status MVP, FEATURE-CATALOG, **NEXT-PRD-BRIEF** (live publish & media) |
 | **dnPeople HRIS** | app `8a75871` / docs `e7cf0ca` | Soft-launch **release-ready**: secrets fail-closed, demo creds gated, smoke expanded, RELEASE-READY + launch checklist mirrored |
 | **DuaVulnScanner** | scaffold 24 Jul | New product `dvs/` from PENTEST_TOOL prompts — PRD/SRS/SDD + Nest/Next MVP |
@@ -77,6 +79,7 @@ docs/products/
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
+├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan)
 ├── dvs/                       # DuaVulnScanner (pentest platform)
 ├── dova/                      # DOVA marketplace — full docs + PRD (MVP → ops launch)
 ├── nearwork/                  # Nearwork Platform
@@ -100,4 +103,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: July 24, 2026*
+*Last Updated: August 6, 2026*

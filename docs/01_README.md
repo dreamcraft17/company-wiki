@@ -1,12 +1,12 @@
 # DN Tech Company Wiki — Index
 
-**Document Version**: 1.2  
-**Last Updated**: July 18, 2026  
+**Document Version**: 1.3  
+**Last Updated**: August 6, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 18, 2026  
+**UpdatedAt**: August 6, 2026  
 
 ---
 
@@ -93,10 +93,13 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 | DN Tech Compro | [dntech/](./products/dntech/00_INDEX.md) | 37 | Production (v5) |
 | dnPeople HRIS | [dnPeople/](./products/dnPeople/00_INDEX.md) | 12 | MVP 1–4 core implemented |
 | DN People ERP | [dnpeople-erp/](./products/dnpeople-erp/00_INDEX.md) | 48 | In Development (V3 ~85%) |
+| **dnShop Finance** | [dnShopee/](./products/dnShopee/00_INDEX.md) | living + SOPI | **v2.1 SOPI + UI2 Implemented** |
 | Nearwork | [nearwork/](./products/nearwork/00_INDEX.md) | 32 | In Development |
 | Threads Automation | [threads-automation/](./products/threads-automation/00_INDEX.md) | 4 | Planned |
 | Trusted Jurist (TJ) | [tj/](./products/tj/00_INDEX.md) | 12 | Go-live readiness |
 | Propose (Entro LY) | [propose/](./products/propose/00_INDEX.md) | 1 DOCX | Proposal |
+| DOVA | [dova/](./products/dova/00_INDEX.md) | full | MVP core demoable |
+| DuaVulnScanner | [dvs/](./products/dvs/00_INDEX.md) | PRD+MVP | Week 1 scaffold |
 
 ---
 
