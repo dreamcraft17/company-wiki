@@ -3,12 +3,12 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 24, 2026  
+**UpdatedAt:** July 26, 2026  
 
 
-**Snapshot:** 25 July 2026 · PRD **v14.0** Tutorial & Onboarding + v13.0 Talent Matrix  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v14.0** / v11.1 (complete in repo)  
-**Next PRD scope (recommended):** PRD v4 **Module 4–8** (+ external go-live ops)  
+**Snapshot:** 26 July 2026 · PRD **v15.0** Admin Console + **v14.0** Tutorial & Onboarding + v13.0 Talent Matrix  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 (complete in repo)  
+**Next PRD scope (recommended):** PRD **v16.0** = v4 **Module 4–8** (+ external go-live ops)  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~73 halaman frontend**, **~55 modul route backend**, **~114 model Prisma**, **47** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, FREE hard **30** / STARTER hard **50** + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), **PRD v14.0** tutorials/KB, nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~86 halaman frontend**, **~56 modul route backend**, **~120 model Prisma**, **53** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, FREE hard **30** / STARTER hard **50** + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console (`/admin`, SUPER_ADMIN), nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 
@@ -253,7 +253,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
 | Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
 | Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
-| Payment adapter | Adapter pembayaran Xendit/Stripe + UI Bayar di `/billing`; webhook provider | Company admin | `/subscription`, `/billing` | Conditional — provider credentials |
+| Payment adapter | **Xendit** hosted checkout (primary) + Stripe/manual adapters; Bayar di `/billing`; webhook `/webhooks/xendit` + return sync | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — credentials + sandbox E2E Conditional |
 
 ## 11. Platform, branding, security, dan operations
 
@@ -261,6 +261,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 |-------|-------------|----------------|---------|--------|
 | Multi-company console | Company listing dan platform visibility | Super admin | `/platform` | Available |
 | Organization links | Relasi/hierarchy antar-company | Super admin | `/platform` | Available |
+| Internal Admin Console | Customers, impersonation, revenue/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log; MFA gate | SUPER_ADMIN (DN Tech) | `/admin`, `/api/v1/admin/*` | Available — PRD v15.0; live latency P50/P95/P99 Conditional |
 | White-label branding | App name, logo, color dan public branding | Company admin | `/branding` | Available |
 | Custom tenant domain | Verified hostname, DNS CNAME metadata, tenant discovery, favicon/email/legal links | Enterprise admin | `/branding`, `/tenants/branding/domain` | Available; DNS/TLS operational |
 | Tenant quota | Employee, API/day, storage, concurrent users, query timeout dan request/minute limits | Enterprise admin | `/tenant-management`, `/tenants/quota` | Available |

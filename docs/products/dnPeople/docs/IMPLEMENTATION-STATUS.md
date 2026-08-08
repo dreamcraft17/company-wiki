@@ -1,9 +1,9 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **25 Juli 2026** (PRD **v14.0** In-App Tutorial & Onboarding)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v14.0 / v11.1** · Repo version **1.0.0**
+> Terakhir diperbarui: **8 Agustus 2026** (Xendit payment gateway + PRD **v15.0** Admin Dashboard)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1** · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 25, 2026  
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 26, 2026  
 >
 > **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **Release:** [RELEASE-READY.md](./RELEASE-READY.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
@@ -28,16 +28,18 @@
 | PRD v11.1 | Landing page website (full `/welcome`, SEO, FAQ accordion, beta form, JSON-LD, `subscriptionCatalog` pricing SSOT) | **Done** in repo; Convertkit/Zapier, demo video, DNS Conditional |
 | PRD v13.0 | Module 3: 9-box talent matrix, session lock, succession/readiness, development proposals, Excel/PDF/HTML reports | **Done** in repo |
 | PRD v14.0 | In-app tutorials (5 MVP) + knowledge base + Help menu; progress/tier gating; **no video library** | **Done** in repo |
-| PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next product PRD = **v15.0**) |
+| PRD v15.0 | Internal admin console (`/admin`, SUPER_ADMIN): customers + impersonation banner, revenue/billing/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), system health alerts/logs, audit log, Admin MFA gate; seeded operator `dozer@dntech.id` (DN Tech tenant) | **Done** in repo; live API latency P50/P95/P99 (Prometheus/Datadog) Conditional |
+| **Xendit PG v1.0** | Hosted checkout (Invoice v2), webhook + return sync, public invoice pay, refund admin, trial billing UX | **Done** in repo; sandbox E2E + webhook + prod migration deploy **Conditional** |
+| PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next product PRD = **v16.0**) |
 
-**Inventory:** **~73** frontend pages · **~55** backend route modules · **~114** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **47/47** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Code release-ready (25 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
+**Inventory:** **~86** frontend pages · **~56** backend route modules · **~120** Prisma models  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **80/80** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
+**Production go-live:** Code release-ready (26 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
 
 ### Mulai PRD berikutnya
 
-1. Baca [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) — **satu file utuh** dasar PRD berikutnya  
-2. Detail panjang: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v14.0*  
+1. Baca [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) — **satu file utuh** dasar PRD berikutnya (**v16.0** Module 4)  
+2. Detail panjang: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) § *Suggested scope after PRD v15.0*  
 3. Cross-check [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — jangan janjikan fitur **Roadmap** sebagai existing  
 4. Go-live gates: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — tandai Conditional sampai UAT eksternal selesai
 
@@ -69,7 +71,7 @@
 | Accessibility dasar | Done | Label navigasi, overlay dismiss, dan target sentuh mobile |
 | Shared Alert | Done | Komponen `Alert` dipakai login/MFA/reports/payroll messaging |
 
-Verifikasi 25 Juli 2026: TypeScript ✅ · backend tests **47/47** ✅. Codebase: **~73** pages · **~55** route modules · **~114** models · PRD v14.0 tutorials/KB (no video) + v13.0 talent matrix + FREE hard **30** emp + honest FREE demo nav.
+Verifikasi 26 Juli 2026: TypeScript ✅ · backend tests **53/53** ✅. Codebase: **~86** pages · **~56** route modules · **~120** models · PRD v15.0 Admin Console + v14.0 tutorials/KB (no video) + v13.0 talent matrix + FREE hard **30** emp + honest FREE demo nav.
 
 ---
 
@@ -342,8 +344,8 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 25, 2026 |
-| Spec | PRD v4–v14.0 |
+| UpdatedAt | July 26, 2026 |
+| Spec | PRD v4–v15.0 |
 | Audit | [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) |
 
 Property of DN Tech — PT. Dozer Napitupulu Technology · 2026

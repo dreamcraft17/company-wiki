@@ -72,7 +72,7 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - Affordable pricing ($5-50/employee/month)
 - Modular (beli fitur sesuai kebutuhan)
 - Bahasa Indonesia native
-- Local payment integration (Midtrans, BRI, BCA)
+- Local payment integration (**Xendit** primary; BRI, BCA via VA on Xendit checkout)
 
 ---
 
@@ -602,7 +602,7 @@ dnPeople adalah aplikasi HRIS (Human Resource Information System) end-to-end yan
 - **Email:** SendGrid / AWS SES
 - **Storage:** DigitalOcean Spaces / AWS S3
 - **Authentication:** JWT + 2FA ready
-- **Payment:** Stripe / Midtrans (future)
+- **Payment:** Xendit (primary, Aug 2026) — lihat [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md); Stripe/manual legacy adapters
 
 ### Infrastructure Requirements
 - Scalable to 100K+ employees

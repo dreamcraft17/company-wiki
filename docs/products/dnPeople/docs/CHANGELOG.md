@@ -4,6 +4,77 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2026-08-08] — Xendit payment gateway (replace Midtrans)
+
+### Added
+- **Xendit Invoice v2** hosted checkout — primary payment provider (`backend/src/lib/xendit.ts`)
+- Payment routes: `POST /payments/initiate-payment`, `POST /payments/sync`, `POST /webhooks/xendit`
+- Public invoice pay: `POST /public/invoices/:id/pay` + `POST /public/invoices/:id/sync`
+- Return-url sync after checkout (`frontend/src/lib/paymentReturn.ts`) — fallback jika webhook telat
+- Prisma migration `20260808100000_xendit_payment_fields` (`paymentRequestId`, `checkoutUrl`, `paymentProvider`)
+- Unit tests `xenditPayment.test.ts` (80 backend tests total)
+- Docs: `docs/xendit/` + [XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md)
+- Light/dark theme toggle (`ThemeProvider`, `ThemeToggle`)
+
+### Changed
+- `payment.service.ts` — Xendit primary; Midtrans imports/handler **commented**, not deleted
+- Billing UI `/billing` — redirect langsung ke Xendit; trial UX + countdown badge
+- Admin payments subtitle → Xendit
+- Midtrans docs (`docs/PG/`) marked **legacy** — see [PG/README.md](./PG/README.md)
+
+### Notes
+- **Test mode:** pakai `XENDIT_SECRET_KEY=xnd_development_…` (tanpa flag terpisah)
+- Production acceptance: sandbox E2E + webhook + migration deploy masih **Conditional**
+
+---
+
+## [2026-08-02] — Public documentation hub
+
+### Added
+- Public docs page at **`/docs`** (`https://hris.dntech.id/docs`) — getting started, modules, tiers, demo accounts, in-app help, API, legal
+- Marketing nav + footer + sitemap include Docs
+
+### Changed
+- dnTech product CTA “Baca Dokumentasi” → `https://hris.dntech.id/docs` (was `docs.dnpeople.id`)
+
+---
+
+## [2026-07-26] — Admin Console MFA off by default
+
+### Changed
+- Admin MFA gate is **opt-in** via `ADMIN_MFA_REQUIRED=true` (was on by default / `ADMIN_MFA_OPTIONAL` escape)
+- SUPER_ADMIN login no longer redirects to `/settings/mfa?required=admin`
+
+---
+
+## [2026-07-26] — Platform operator tenant (DN Tech)
+
+### Changed
+- `Company.isPlatformOperator` — DN Tech seed marked as platform operator (not a paying customer)
+- Admin customers / MRR / ARR / churn / cohort / feature-adoption analytics exclude `isPlatformOperator=true`
+- Clarifies SUPER_ADMIN vs ENTERPRISE client: difference is role + `/admin` access, not subscription tier
+
+---
+
+## [2026-07-26] — PRD v15.0 Admin Dashboard & Control Panel (internal)
+
+### Added
+- Internal admin console at **`/admin`** (SUPER_ADMIN only, own layout outside `(app)` shell)
+- Modules: Dashboard summary, Customers (list/detail/filter/search/sort), Revenue & Billing (MRR/ARR/tier/trend/payments + refund modal), Analytics (feature usage, tutorial/KB, churn, support trends, cohorts), Support Tickets (queue/detail/reply/close/escalate + send KB + CSAT email), Content CRUD (tutorials & KB articles), Feature Flags (toggle + rollout % + tier gating + history UI; runtime gate via `featureAccess`), System Health (API/DB/queue + alerts ack + logs viewer), Audit Log
+- Impersonation: `POST /admin/customers/:id/impersonate` + `POST /admin/impersonation/end`; JWT claims `impersonating`/`homeCompanyId`; banner in AppShell; subscription mutations blocked while impersonating
+- Admin MFA gate: `requireAdminMfa` on `/admin/*` (except `/admin/session`); SUPER_ADMIN without MFA redirected to `/settings/mfa?required=admin`; local escape `ADMIN_MFA_OPTIONAL=true`
+- Prisma models: `AdminAuditLog`, `FeatureFlag`, `FeatureFlagHistory`, `AdminNotification`, `SupportTicket`, `TicketMessage` (migration `20260726000000_admin_dashboard_v15`)
+- Backend: `src/routes/admin.ts`, `src/services/adminDashboard.service.ts`, `src/lib/adminMetrics.ts` (pure, unit-tested)
+- Seed: internal **DN Tech** tenant (`isPlatformOperator`) + `SUPER_ADMIN` operator `dozer@dntech.id` (SRS AC-1.1; `SUPER_ADMIN_EMAIL` / `SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`), baseline feature flags, demo support tickets (`prisma/seedAdmin.ts`, chained after main seed)
+- Operator tenant excluded from admin customer lists and revenue/churn analytics (not a paying client)
+- Tests: `adminMetrics.test.ts` (MRR/churn/rollout helpers)
+
+### Notes
+- Access is SUPER_ADMIN + JWT session expiry (`SESSION_MAX_AGE_MINUTES`, default 30m → AC-1.3) + MFA enrolled (unless `ADMIN_MFA_OPTIONAL`). Live latency P50/P95/P99 / error-rate still null until Prometheus/Datadog; health reports process/DB/queue + AdminNotification alerts honestly until wired.
+- Flag names must align with `featureAccess` keys for runtime effect. CSAT on ticket close = email outbox, not a full survey product.
+
+---
+
 ## [2026-07-25] — Centered page loading spinner
 
 ### Changed

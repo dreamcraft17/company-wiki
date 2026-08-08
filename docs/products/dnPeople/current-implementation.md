@@ -2,16 +2,22 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 24 July 2026 |
-| HEAD | `61d956f` |
-| Purpose | **Baseline** after PRD **v12.1** FREE 50-emp final + release-ready hardening |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v12.1 / v11.1** complete in repo; **v4 Module 3–8** = primary greenfield scope |
+| Snapshot date | 26 July 2026 |
+| HEAD | Post-v15.0 Admin Dashboard (main) |
+| Purpose | **Baseline** after PRD **v15.0** Admin Dashboard & Control Panel |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 24, 2026 |
+| Updated at | July 26, 2026 |
 
-> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount **50**; FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md`.
+> **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log, Admin MFA gate. Operator account seeded: DN Tech tenant + `dozer@dntech.id` (`SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`). Live latency P50/P95/P99 Conditional. Specs in `docs/PRD/*-v15.0-admin*`.
+>
+> **PRD v14.0 (25 Jul 2026):** In-app tutorials (5 MVP), knowledge base, Help menu, progress + tier gating. Video tutorial/library removed by product decision. Specs in `docs/PRD/*-v14.0-tutorial*`.
+>
+> **PRD v13.0 (24 Jul 2026):** Module 3 — 9-box talent matrix sessions/placements/lock, succession + readiness, development proposals → IDP/LMS, reports Excel/PDF/HTML, feature `talent:matrix` PROFESSIONAL+, nav tier-hide. Specs in `docs/PRD/*-v13.0-talent*`.
+
+> **PRD v12.1 (24 Jul 2026):** FREE/STARTER hard headcount originally **50**; **product update 25 Jul 2026: FREE = 30**, STARTER remains **50**. FREE includes helpdesk; STARTER includes shifts; Jakarta API daily quota (API keys); storage hard-block (FREE 5 GB); capacity warning emails every 7 days; `/upgrade` upsell. Specs in `docs/PRD/*-v12.1-free-tier-50-emp-final.md` (see header override).
 
 > **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, honest trial billing, expanded smoke, SEO robots/sitemap; **demo sandbox creds remain public** for product trial. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 
@@ -33,9 +39,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~61** production routes (marketing `/welcome` `/pricing` `/faq` `/contact` `/about` `/demo` `/blog/*`, `/legal/*`, app routes); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~53** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **102** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~86** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~56** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **~120** models; deployment migrations are mandatory |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -44,7 +50,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **36/36** unit tests; TypeScript clean |
+| Automated evidence | Backend **47/47** unit tests; TypeScript clean |
 
 ## Roles and access boundary
 
@@ -116,7 +122,7 @@ the attempted path in `next`.
 | Variable compensation | Bonus, commission, KPI bonus, approval, pay-period assignment and paid tracking | `/payroll-settings/variable-compensations` | `/payroll-settings` | Available |
 | Claims | Categories, receipt upload/enforcement, daily/monthly limits, multi-step approval and payroll inclusion | `/claims` | `/claims` | Available |
 | Employee loans | Simulation, affordability ratio, one-active-loan policy, Manager/Finance approval, installments/payroll deduction | `/loans` | `/loans` | Available |
-| Dashboard | Role-aware headcount, department/type/status breakdowns, attendance, pending approvals, payroll, contract/probation and birthdays | `/dashboard` | `/dashboard` | Available |
+| Dashboard | Role-aware KPIs + SVG donut/bar charts (attendance month/today, status, department, location); contracts, birthdays, payroll panel; employee leave donut | `/dashboard` | `/dashboard` | Available |
 | Reports | Attendance/leave/payroll detail, pattern/peak analysis, turnover trend/risk, Excel/PDF (1000-row cap), async bank/tax export jobs with poll/download UI, email when ready | `/reports`, `/reports/jobs*` | `/reports` | Available |
 | Recruitment/ATS | Jobs, public publication, online application/CV, candidates, ranking, pipeline, interviews, bulk communication | `/recruitment`, `/careers` | `/recruitment`, `/careers` | Available |
 | Digital offer | Offer creation/delivery, expiry, public view, accept/reject, consent signature, tamper evidence, auto-hire | `/recruitment`, `/careers/offer/:token` | `/recruitment`, `/careers/offer/:token` | Available |
@@ -132,7 +138,8 @@ the attempted path in `next`.
 | AI helpers | HR assistant with LLM/rule fallback, HR document generation and recruitment screening | `/assistant`, `/ai` | `/assistant`, `/ai-docs`, `/recruitment` | Available with provider configuration |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
-| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze | `/subscription` | `/billing` | Available; payment provider Conditional |
+| Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout** + return sync | `/subscription`, `/payments` | `/billing` | Available; **Xendit sandbox E2E Conditional** |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
@@ -143,6 +150,8 @@ the attempted path in `next`.
 | Competency framework & assessment | Framework/competency library with versioning, role-competency mapping, self/manager/peer/360 assessment, submit/approve workflow, gap analysis, bulk import | `/competency-frameworks`, `/competencies`, `/role-competencies`, `/competency-assessments` | `/talent` | Available (PRD v4 Module 1) |
 | Individual Development Plan (IDP) | IDP CRUD, idempotent auto-generate goals from competency gap, goal tracking, progress review | `/idps` | `/idp` | Available (PRD v4 Module 2) |
 | Learning Management System (LMS) | Course/program + module CRUD, self/manager enrollment, module completion tracking, automatic certificate, transcript | `/lms` | `/lms` | Available (PRD v4 Module 2, basic) |
+| Talent matrix & succession | 9-box sessions/placements/lock, succession readiness, development proposals → IDP/LMS, Excel/PDF/HTML reports | `/talent/*` | `/talent/matrix`, `/talent/sessions`, `/talent/succession`, `/talent/reports` | Available (PRD v13.0) |
+| In-app tutorials & KB | Help menu, 5 interactive tutorials + progress/rate, KB search/article/helpful votes; feature `tutorials` FREE+; kill switch `FEATURE_TUTORIALS`; **no video library** | `/tutorials`, `/kb`, `/admin/analytics/tutorials` | `/help`, `/help/tutorials`, `/help/kb` | Available (PRD v14.0) |
 
 ### Core employee lifecycle
 
@@ -203,6 +212,7 @@ the attempted path in `next`.
 ### Dashboard, reporting and enterprise
 
 - Role-aware dashboards with headcount, attendance, approvals, contracts, birthdays and payroll status.
+- Visual analytics on `/dashboard` (25 Jul 2026): donut charts for monthly/today attendance and employee status; horizontal bars for department and location headcount; employee self-view includes leave-balance donut. Implemented with lightweight SVG helpers (`components/dashboard/charts.tsx`), no third-party chart library.
 - Attendance, leave, payroll and turnover detail/analysis with safe Excel and PDF export.
 - Multi-company platform console and organization links.
 - API keys, webhooks/integration configuration, custom approval workflows and custom reports.
@@ -233,18 +243,21 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **36/36** backend tests pass; frontend **61** pages; backend **53** route modules; Prisma **102** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **53/53** backend tests pass; frontend **~86** pages; backend **~56** route modules; Prisma **~120** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope after PRD v12.1 (from this baseline)
+## Suggested scope after PRD v15.0 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
-| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT — code + v12.1 Done 24 Jul |
-| **P0 product** | PRD v4 Module 3 — 9-box + succession | [PRD v4 competitive](./PRD/dnpeople-prd-v4-competitive.md) | Models partially exist; UI/workflows not built |
-| **P1 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 | Roadmap |
+| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
+| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · next product PRD **v16.0** | Next greenfield after Admin Console (v15) |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
+| **Done** | PRD v15.0 Admin Dashboard & Control Panel | [PRD v15.0](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | `/admin` SUPER_ADMIN; MFA; flags runtime; latency metrics Conditional |
+| **Done** | PRD v14.0 In-app tutorial & KB | [PRD v14.0](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | Tutorials + KB; video library explicitly out of scope |
+| **Done** | PRD v13.0 Module 3 talent matrix & succession | [PRD v13.0](./PRD/dnpeople-prd-v13.0-talent-matrix-succession.md) | 9-box, lock, succession, proposals, reports |
 | **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |
+| **Out of scope** | Video tutorial library | Product decision 25 Jul 2026 | Do not reintroduce without new PRD |
 | **Out of scope** | Re-implementing MVP 1–5 core HR | This doc § Available now | Backward-compat unless PRD explicitly changes |
 
 ## Audit remediation (PRD v8.0) — Jul 18–19, 2026
@@ -303,10 +316,10 @@ These are not safe to mark “production accepted” solely from repository code
 - Legally certified third-party e-sign provider; current signatures are consent-based and tamper-evident.
 - Guaranteed 99.9% SLA without production infrastructure, monitoring, incident response and support operations.
 - Fully automated predictive HR decisions; turnover risk is heuristic and must remain human-reviewed.
-- 9-box talent matrix and succession planning/readiness scoring (PRD v4 Module 3).
 - Internal career marketplace, rotation and cross-functional mobility programs (PRD v4 Module 4).
 - Earned wage access (EWA) and salary benchmarking against external market data (PRD v4 Modules 5–6).
 - Manufacturing/retail vertical configuration packages — complex shift incentives, tips/service charge handling, high-volume hiring flows (PRD v4 Modules 7–8).
+- Real-time WebSocket comments on talent calibration sessions (out of v13.0 MVP).
 - Physical SILO database provisioning, tenant data copy/cutover, secret rotation, restore drill, and failback remain infrastructure operations; selecting SILO policy alone is not proof of physical isolation.
 
 ## Requirements for the next PRD

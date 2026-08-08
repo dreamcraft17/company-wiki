@@ -333,6 +333,53 @@ UI: Help menu `?` → `/help`, `/help/tutorials`, `/help/kb`, `/help/kb/[slug]`.
 
 ---
 
+## Admin console (PRD v15.0)
+
+Base `/admin/*`. **SUPER_ADMIN only** (`requireRole('SUPER_ADMIN')`), no `featureAccess` gate. Session expiry via JWT `exp` (`SESSION_MAX_AGE_MINUTES`, default 30m). All mutating actions logged to `AdminAuditLog`. UI: `/admin/*` (own shell outside `(app)`).
+
+**Auth:** `GET /admin/session` then optional `requireAdminMfa` when `ADMIN_MFA_REQUIRED=true` (default off). Impersonation JWT may include `impersonating` + `homeCompanyId`.
+
+| Method | Path | Deskripsi |
+|--------|------|-----------|
+| GET | `/admin/session` | Admin session + `mfaOk` / `mfaRequired` |
+| GET | `/admin/summary` | Dashboard: revenue + at-risk count + API health |
+| GET | `/admin/customers` | List customers (`?page&limit&tier&status&search&sort&order`) |
+| GET | `/admin/customers/:id` | Customer detail: subscription, usage, invoices, tickets, notes |
+| POST | `/admin/customers/:id/impersonate` | Mint SUPER_ADMIN token scoped to company (body-only) |
+| POST | `/admin/customers/:id/end-impersonation` | Restore home-company token |
+| POST | `/admin/customers/:id/extend-trial` | `{ days }` extend trial |
+| POST | `/admin/customers/:id/notes` | `{ note }` internal note |
+| POST | `/admin/customers/:id/block` | `{ blocked }` block/unblock |
+| GET | `/admin/analytics/revenue` | MRR, ARR, churn, tier breakdown |
+| GET | `/admin/analytics/revenue/trend` | Daily MRR (`?days=`) |
+| GET | `/admin/payments` | Invoices (`?status`) |
+| POST | `/admin/refunds` | `{ invoiceId, amount, reason }` |
+| GET | `/admin/analytics/features` | Feature adoption per tier |
+| GET | `/admin/analytics/tutorials` | Tutorial + KB stats |
+| GET | `/admin/analytics/churn-signals` | Inactive + trial-expiring |
+| GET | `/admin/analytics/support` | Ticket trends |
+| GET | `/admin/analytics/cohort` | Sign-up cohort retention |
+| GET | `/admin/tickets` | Support queue (`?status&priority`) |
+| GET | `/admin/tickets/:id` | Ticket detail + messages |
+| GET | `/admin/tickets/:id/suggest-kb` | Suggested KB articles |
+| POST | `/admin/tickets/:id/message` | `{ message, isInternal? }` (also used to send KB link) |
+| POST | `/admin/tickets/:id/priority` | `{ priority }` escalate |
+| POST | `/admin/tickets/:id/close` | `{ resolution, category?, sendCsat? }` |
+| GET | `/admin/tutorials` · `/admin/articles` | Content management lists |
+| POST | `/admin/tutorials` · PUT `/admin/tutorials/:id` | Create / update tutorial |
+| POST | `/admin/articles` · PUT `/admin/articles/:id` · GET `/admin/articles/:id` | Create / update / get article |
+| POST | `/admin/tutorials/:id/publish` · `/admin/articles/:id/publish` | Publish/unpublish |
+| GET | `/admin/feature-flags` | All flags |
+| GET | `/admin/feature-flags/:name/history` | Flag change history |
+| POST | `/admin/feature-flags/:name/toggle` | `{ isEnabled, reason? }` |
+| PUT | `/admin/feature-flags/:name` | `{ rolloutPercent?, minTierRequired?, notes? }` |
+| GET | `/admin/health/api` · `/admin/health/database` · `/admin/health/queue` | System health |
+| GET | `/admin/health/alerts` · POST `/admin/health/alerts/:id/ack` | Alerts + acknowledge |
+| GET | `/admin/health/logs` | Recent error/app logs (`?limit`) |
+| GET | `/admin/audit-log` | Admin action log (`?page&limit&action`) |
+
+---
+
 ## MVP 2–3 (ringkas)
 
 | Prefix | Modul |
@@ -419,14 +466,40 @@ Base path: `/api/v1/subscription` · UI: `/billing`
 | GET | `/subscription/current` | Current subscription, features, access mode, invoices |
 | GET | `/subscription/features` | Effective feature access |
 | GET | `/subscription/invoices` | Invoice history |
-| POST | `/subscription/invoices/:id/payment` | Stripe / Xendit / manual payment |
+| POST | `/subscription/invoices/:id/payment` | Stripe / manual payment request (legacy adapter) |
 | GET | `/subscription/audit` | Subscription change history |
 | POST | `/subscription/upgrade` | Change tier + prorated invoice |
 | POST | `/subscription/cancel` | Cancel with grace/freeze |
 | POST | `/subscription/reactivate` | Reactivate cancelled/suspended |
 | PUT | `/subscription/features` | Super-admin feature overrides |
 | POST | `/subscription/webhooks/stripe` | Stripe webhook |
-| POST | `/subscription/webhooks/xendit` | Xendit webhook |
+
+---
+
+## Xendit Payments (primary — Agustus 2026)
+
+Base path: `/api/v1/payments` (authenticated) · Webhook: public · UI: `/billing`, `/payment/invoice/:id`
+
+| Method | Path | Auth | Deskripsi |
+|--------|------|------|-----------|
+| POST | `/payments/initiate-payment` | ✓ | Buat Xendit hosted checkout; body `{ invoice_id?, subscription_id?, gross_amount?, customer_details?, description? }` → `checkout_url`, `payment_id`, `order_id` |
+| POST | `/payments/sync` | ✓ | Poll Xendit setelah customer return; body `{ order_id }` → `{ status, synced }` |
+| GET | `/payments` | FINANCE/SUPER_ADMIN | List payments (filter status, date, method) |
+| GET | `/payments/:payment_id` | ✓ | Payment detail |
+| POST | `/payments/:payment_id/refund` | FINANCE/SUPER_ADMIN | Refund manual |
+| POST | `/webhooks/xendit` | — | Xendit callback; header `x-callback-token` = `XENDIT_WEBHOOK_TOKEN` |
+
+### Public invoice pay (no login)
+
+Base: `/api/v1/public`
+
+| Method | Path | Deskripsi |
+|--------|------|-----------|
+| GET | `/public/invoices/:invoiceId?token=` | Detail invoice (signed token) |
+| POST | `/public/invoices/:invoiceId/pay` | Body `{ token }` → `checkout_url` |
+| POST | `/public/invoices/:invoiceId/sync` | Body `{ token, order_id }` → sync status |
+
+Setup test mode: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
 
 ---
 

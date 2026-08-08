@@ -1,6 +1,6 @@
 # dnPeople — Deployment Guide
 
-**Last Updated:** July 19, 2026  
+**Last Updated:** August 8, 2026  
 **Applies to:** MVP 1–5 + PRD v8–v11.0
 
 ---
@@ -77,7 +77,17 @@ SENTRY_TRACES_SAMPLE_RATE=0.05
 APP_RELEASE="dnpeople@release-sha"
 HTTP_BACKLOG=2048
 CONTRACT_REMINDERS_ENABLED=true
+
+# Xendit billing (test mode = xnd_development_… key)
+XENDIT_SECRET_KEY=xnd_development_xxx
+XENDIT_WEBHOOK_TOKEN=your-callback-verification-token
+# Webhook URL: POST https://<domain>/api/v1/webhooks/xendit
+# BILLING_BANK_INSTRUCTIONS="Transfer manual jika Xendit down"
 ```
+
+Detail Xendit test mode & checklist: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+
+**Legacy Midtrans** env vars tidak dipakai (kode retained, webhook disabled). Lihat [PG/README.md](./PG/README.md).
 
 Detail field host/user: [SUPABASE.md](./SUPABASE.md).
 
@@ -122,7 +132,7 @@ Lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) untuk semua role (tier Professional
 - [ ] Workflow backup harian berhasil dan restore drill dilakukan berkala
 - [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
 - [ ] SSO secrets tidak di-commit
-- [ ] White-label: logo URL memakai CDN/HTTPS
+- [ ] **Xendit:** `XENDIT_SECRET_KEY` + `XENDIT_WEBHOOK_TOKEN`; migration `20260808100000_xendit_payment_fields`; webhook URL registered; 1× sandbox payment E2E ([XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md))
 
 ### Contoh PM2 (ringkas)
 

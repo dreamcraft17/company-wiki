@@ -3,15 +3,15 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 25, 2026  
-**Status:** PRD v5–**v14.0** / v13.0 / v12.1 / v11.1 **complete** · soft-launch gates = external ops  
-**Codebase:** ~73 pages · ~55 route modules · ~114 models · **47** tests  
+**UpdatedAt:** August 8, 2026  
+**Status:** PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 **complete** · Xendit payment **in repo** · soft-launch gates = external ops  
+**Codebase:** ~86 pages · ~56 route modules · ~120 models · **80** tests  
 **Contact:** info@dntech.id  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
 > **Dasar PRD berikutnya (1 file):** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)  
-> **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8  
+> **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8 → **v16.0**  
 > **Demo creds on UI:** ditampilkan by default (public sandbox **FREE** tier) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
 | File | Deskripsi |
@@ -42,6 +42,12 @@
 | [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
+| [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) | **Xendit payment — setup test mode, webhook, troubleshooting** (primary PG) |
+| [xendit/dnpeople-prd-xendit-payment-v1.0-id.md](./xendit/dnpeople-prd-xendit-payment-v1.0-id.md) | **PRD Xendit v1.0** (+ [SRS](./xendit/dnpeople-srs-xendit-payment-v1.0-id.md) / [SDD](./xendit/dnpeople-sdd-xendit-payment-v1.0-id.md)) — **implemented**; sandbox E2E Conditional |
+| [PG/README.md](./PG/README.md) | **Midtrans legacy** — spec historis; diganti Xendit Agustus 2026 |
+| [PRD/dnpeople-prd-v15.0-admin-dashboard.md](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | **PRD v15.0** Admin dashboard & control panel (internal, SUPER_ADMIN) |
+| [PRD/dnpeople-srs-v15.0-admin-requirements.md](./PRD/dnpeople-srs-v15.0-admin-requirements.md) | **SRS v15.0** admin acceptance criteria |
+| [PRD/dnpeople-sdd-v15.0-admin-implementation.md](./PRD/dnpeople-sdd-v15.0-admin-implementation.md) | **SDD v15.0** admin technical implementation |
 | [PRD/dnpeople-prd-v14.0-tutorial-onboarding.md](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | **PRD v14.0** In-app tutorial & onboarding (no video library) |
 | [PRD/dnpeople-srs-v14.0-tutorial-requirements.md](./PRD/dnpeople-srs-v14.0-tutorial-requirements.md) | **SRS v14.0** tutorial/KB acceptance |
 | [PRD/dnpeople-sdd-v14.0-tutorial-implementation.md](./PRD/dnpeople-sdd-v14.0-tutorial-implementation.md) | **SDD v14.0** tutorial/KB technical (video draft historical only) |

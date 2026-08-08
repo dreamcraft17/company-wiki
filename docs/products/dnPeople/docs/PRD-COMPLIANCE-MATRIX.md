@@ -83,6 +83,21 @@
 | Beta signup → Zapier/ConvertKit webhook | Implemented in repo | `NEXT_PUBLIC_ZAPIER_WEBHOOK` live Conditional |
 | Demo video embed | Implemented in repo | `NEXT_PUBLIC_DEMO_VIDEO_URL` Conditional |
 
+### PRD v15.0 — Admin Dashboard & Control Panel
+
+| PRD v15 requirement | Status | Remaining completion gate |
+|---|---|---|
+| Admin auth SUPER_ADMIN + session timeout | Implemented in repo | Operator `dozer@dntech.id` seeded (AC-1.1); `SUPER_ADMIN_PASSWORD` required in production |
+| Admin MFA (TOTP) gate on `/admin` | Implemented (opt-in) | Default off; set `ADMIN_MFA_REQUIRED=true` to enforce |
+| Customers list/detail/sort + trial/notes/block | Implemented in repo | — |
+| Impersonation + banner + end + block mutations | Implemented in repo | — |
+| Revenue/MRR/ARR/churn + payments + refunds | Implemented in repo | — |
+| Analytics features/tutorials/churn/support/cohort | Implemented in repo | — |
+| Support tickets + suggest KB + CSAT on close | Implemented in repo | CSAT = email outbox (not full survey product) |
+| Content CRUD tutorials & KB articles | Implemented in repo | Video library out of scope (v14 decision) |
+| Feature flags + history + runtime `featureAccess` | Implemented in repo | Flag names must align with feature keys |
+| System health + alerts ack + logs + audit log | Implemented in repo | Live API latency P50/P95/P99 Conditional (Datadog/Prometheus) |
+
 ## Mandatory completion evidence
 
 - Prisma schema validates and deployment migration applies on a clean PostgreSQL database.

@@ -1,14 +1,14 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD **v14.0** Tutorial/KB + **v13.0** Talent Matrix · FREE hard **30** / STARTER **50** complete in repo · external go-live gates Conditional  
-**Status:** MVP 1–5 + PRD v5–**v14.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
+**Version:** PRD **v15.0** Admin Console + **v14.0** Tutorial/KB + **v13.0** Talent Matrix · FREE hard **30** / STARTER **50** complete in repo · external go-live gates Conditional  
+**Status:** MVP 1–5 + PRD v5–**v15.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **Contact:** info@dntech.id  
-**UpdatedAt:** July 25, 2026  
+**UpdatedAt:** July 26, 2026  
 
 ---
 
@@ -21,11 +21,12 @@ dnPeople adalah **HRIS multi-tenant** untuk startup, UMKM, dan perusahaan meneng
 3. **Talent** — kompetensi, IDP, LMS, **9-box kalibrasi**, succession & readiness (PRD v13.0)  
 4. **Rekrutmen & siklus kerja** — ATS, onboarding, performance, training, offboarding, helpdesk  
 5. **Onboarding in-app** — Help menu, 5 interactive tutorials, knowledge base (PRD v14.0; no video library)  
-6. **Kontrol SaaS** — lima tier berlangganan, nav/API gating jujur, billing, enterprise (SSO/SCIM/multi-company)
+6. **Admin Console (internal)** — SUPER_ADMIN `/admin`: customers, billing, analytics, support, content, flags, health (PRD v15.0)  
+7. **Kontrol SaaS** — lima tier berlangganan, nav/API gating jujur, billing, enterprise (SSO/SCIM/multi-company)
 
 Landing publik: `/welcome` (logo brand `logo1.png` di header & footer; favicon mark resmi). Demo sandbox seed = **FREE** agar menu sesuai paket gratis.
 
-Codebase snapshot: **~73** halaman · **~55** route modules · **~114** model Prisma · **47/47** backend tests.  
+Codebase snapshot: **~86** halaman · **~56** route modules · **~120** model Prisma · **53/53** backend tests.  
 **Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [NEXT-PRD-BRIEF](./NEXT-PRD-BRIEF.md) · [Launch Gate](./LAUNCH-GATE-CHECKLIST.md)
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS). dnPeople = HRIS SaaS (Express + Next.js).
@@ -41,8 +42,10 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | MVP 1–5 (core + talent foundation) | — | **Done** |
 | PRD v11.1 landing + FREE headcount (now **30**) | Jul 2026 | **Done (repo)** |
 | PRD v13.0 Talent Matrix & Succession | Jul 2026 | **Done (repo)** |
+| PRD v14.0 Tutorial & KB | Jul 2026 | **Done (repo)** |
+| PRD v15.0 Admin Dashboard | Jul 2026 | **Done (repo)** — latency metrics Conditional |
 | External go-live (1 Aug 2026) | Aug 2026 | **Conditional** — Datadog, pen-test, DNS, beta UAT |
-| PRD v4 Module 4–8 (marketplace, EWA, verticals) | next | **Recommended product PRD** |
+| PRD v4 Module 4–8 (marketplace, EWA, verticals) | next → **v16.0** | **Recommended product PRD** |
 
 ## Stack (ringkas)
 

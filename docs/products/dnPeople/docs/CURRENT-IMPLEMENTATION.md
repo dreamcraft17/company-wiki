@@ -2,15 +2,17 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 25 July 2026 |
-| HEAD | `87c7a49` (PRD v14.0 Tutorial Onboarding) |
-| Purpose | **Baseline** after PRD **v14.0** In-App Tutorial & Onboarding |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield scope |
+| Snapshot date | 26 July 2026 |
+| HEAD | Post-v15.0 Admin Dashboard (main) |
+| Purpose | **Baseline** after PRD **v15.0** Admin Dashboard & Control Panel |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 25, 2026 |
+| Updated at | July 26, 2026 |
 
+> **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log, Admin MFA gate. Operator account seeded: DN Tech tenant + `dozer@dntech.id` (`SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`). Live latency P50/P95/P99 Conditional. Specs in `docs/PRD/*-v15.0-admin*`.
+>
 > **PRD v14.0 (25 Jul 2026):** In-app tutorials (5 MVP), knowledge base, Help menu, progress + tier gating. Video tutorial/library removed by product decision. Specs in `docs/PRD/*-v14.0-tutorial*`.
 >
 > **PRD v13.0 (24 Jul 2026):** Module 3 — 9-box talent matrix sessions/placements/lock, succession + readiness, development proposals → IDP/LMS, reports Excel/PDF/HTML, feature `talent:matrix` PROFESSIONAL+, nav tier-hide. Specs in `docs/PRD/*-v13.0-talent*`.
@@ -37,9 +39,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~73** production routes (marketing + app incl. help/tutorials + talent matrix); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~55** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **~114** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~86** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~56** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **~120** models; deployment migrations are mandatory |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -136,7 +138,8 @@ the attempted path in `next`.
 | AI helpers | HR assistant with LLM/rule fallback, HR document generation and recruitment screening | `/assistant`, `/ai` | `/assistant`, `/ai-docs`, `/recruitment` | Available with provider configuration |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
-| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze | `/subscription` | `/billing` | Available; payment provider Conditional |
+| Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout** + return sync | `/subscription`, `/payments` | `/billing` | Available; **Xendit sandbox E2E Conditional** |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
@@ -240,16 +243,17 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **47/47** backend tests pass; frontend **~73** pages; backend **~55** route modules; Prisma **~114** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **53/53** backend tests pass; frontend **~86** pages; backend **~56** route modules; Prisma **~120** models. Re-run build and test suites before treating figures as release evidence.
 
-## Suggested scope after PRD v14.0 (from this baseline)
+## Suggested scope after PRD v15.0 (from this baseline)
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
 | **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
-| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · next product PRD **v15.0** | Next greenfield after Module 3 + tutorials |
+| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · next product PRD **v16.0** | Next greenfield after Admin Console (v15) |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
+| **Done** | PRD v15.0 Admin Dashboard & Control Panel | [PRD v15.0](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | `/admin` SUPER_ADMIN; MFA; flags runtime; latency metrics Conditional |
 | **Done** | PRD v14.0 In-app tutorial & KB | [PRD v14.0](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | Tutorials + KB; video library explicitly out of scope |
 | **Done** | PRD v13.0 Module 3 talent matrix & succession | [PRD v13.0](./PRD/dnpeople-prd-v13.0-talent-matrix-succession.md) | 9-box, lock, succession, proposals, reports |
 | **Done** | PRD v12.1 FREE/STARTER 50-emp final | [PRD v12.1](./PRD/dnpeople-prd-v12.1-free-tier-50-emp-final.md) | Hard limits, capacity emails, storage, `/upgrade` |

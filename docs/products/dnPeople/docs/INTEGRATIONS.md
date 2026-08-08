@@ -1,6 +1,6 @@
 # Integrations Guide
 
-**UpdatedAt:** 22 Juli 2026  
+**UpdatedAt:** 8 Agustus 2026  
 
 ## Public lead capture (PRD v11.0)
 
@@ -18,6 +18,17 @@ Env: `LEADS_NOTIFY_EMAIL`, `SMTP_HOST` for sales notifications.
 
 ## Webhooks
 Daftarkan URL; uji via “Test delivery”.
+
+### Xendit billing (subscription payments)
+
+| Method | Path | Auth | Purpose |
+|--------|------|------|---------|
+| POST | `/api/v1/webhooks/xendit` | `x-callback-token` header | Invoice paid / payment status updates |
+
+Env: `XENDIT_SECRET_KEY`, `XENDIT_WEBHOOK_TOKEN`, `FRONTEND_URL`.  
+Panduan lengkap: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+
+Legacy Midtrans webhook (`/webhooks/midtrans`) **disabled** — lihat [PG/README.md](./PG/README.md).
 
 ## OpenAPI
 - UI: `/api/v1/docs`  

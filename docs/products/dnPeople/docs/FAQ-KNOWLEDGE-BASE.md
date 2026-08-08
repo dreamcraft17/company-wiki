@@ -43,7 +43,7 @@ A: Unduhan membutuhkan login. Link “Bagikan Link” hanya berlaku 24 jam.
 ## Billing
 
 **Q: Bagaimana bayar invoice?**  
-A: `/billing` → tombol Xendit/Stripe/Manual pada invoice DRAFT/SENT/OVERDUE.
+A: `/billing` → tombol **Bayar** → redirect ke halaman pembayaran **Xendit** (hosted checkout). Butuh `XENDIT_SECRET_KEY` di env backend. Panduan: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
 
 **Q: Berapa harga dnPeople?**  
 A: Starter ~Rp20.000/karyawan/bulan; Professional ~Rp25.000; Business/Enterprise sesuai paket — lihat `/billing` atau sales@dnpeople.id.

@@ -7,10 +7,10 @@
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Status | Active — PRD **v14.0** Tutorial/KB + v13.0 Talent Matrix; FREE hard **30** emp · STARTER **50** **complete in repo**; external go-live gates Conditional |
+| Status | Active — PRD **v15.0** Admin Console + **v14.0** Tutorial/KB + v13.0 Talent Matrix; **Xendit payment** in repo; FREE hard **30** emp · STARTER **50** **complete in repo**; sandbox E2E Conditional |
 | Produk di web | [Landing `/welcome`](./frontend) · Spec [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
 | Docs living | [docs/](./docs/) — mulai dari [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) · [FEATURE-CATALOG](./docs/FEATURE-CATALOG.md) |
-| UpdatedAt | July 25, 2026 |
+| UpdatedAt | August 8, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.
 
@@ -26,6 +26,7 @@
 | Rekrutmen & onboarding tidak terhubung | ATS + portal karir + checklist onboarding |
 | Talenta & suksesi “di kepala manajer” | Kompetensi, IDP, LMS, **9-box matrix**, succession & readiness |
 | User bingung mulai dari mana | Help menu + tutorial interaktif + knowledge base (tanpa video) |
+| Tim DN Tech kelola seluruh tenant | Admin Console `/admin` (customers, billing, flags, support, health) |
 | Fitur terlihat padahal belum dibayar | Tier gating jujur — nav hanya menampilkan fitur paket aktif |
 
 **Untuk siapa:** HR, manager, finance, karyawan, dan admin perusahaan (6 role RBAC).  
@@ -87,11 +88,11 @@ Harga UI: `frontend/src/lib/subscriptionCatalog.ts` · gate server: `backend/src
 
 | Area | Angka |
 |------|-------|
-| Halaman frontend (app + marketing) | ~**73** |
-| Modul route API | ~**55** (+ SCIM) |
-| Model Prisma | ~**114** |
-| Backend unit tests | **47/47** |
-| Baseline PRD | v3.1 → **v14.0** / v13.0 / v12.1 / v11.1 |
+| Halaman frontend (app + marketing + admin) | ~**86** |
+| Modul route API | ~**56** (+ SCIM) |
+| Model Prisma | ~**120** |
+| Backend unit tests | **53/53** |
+| Baseline PRD | v3.1 → **v15.0** / v14.0 / v13.0 / v12.1 / v11.1 |
 
 Status implementasi: [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · baseline PRD berikutnya: [NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md).
 
@@ -164,10 +165,11 @@ Lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
 | [LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) | Gerbang go-live eksternal |
 | [ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [API.md](./docs/API.md) | Teknis (detail stack & endpoint) |
 | [SUPABASE.md](./docs/SUPABASE.md) · [VPS.md](./docs/VPS.md) · [DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Deploy |
+| [xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md) | Setup pembayaran Xendit (test mode) |
 | [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat perubahan |
 | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) | PRD / SRS / SDD |
 
-Verifikasi cepat: `cd backend && npm test` · `bash scripts/smoke-test.sh`
+Verifikasi cepat: `cd backend && npm test` (80 tests) · `bash scripts/smoke-test.sh`
 
 ---
 
@@ -181,4 +183,4 @@ Verifikasi cepat: `cd backend && npm test` · `bash scripts/smoke-test.sh`
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 24, 2026 |
+| UpdatedAt | August 8, 2026 |

@@ -3,9 +3,9 @@
 | | |
 |---|---|
 | **Dokumen** | Satu file utuh untuk menulis PRD produk berikutnya |
-| **Tanggal** | 25 Juli 2026 |
-| **Baseline kode** | Setelah PRD **v14.0** In-App Tutorial & Onboarding |
-| **HEAD referensi** | `87c7a49` (PRD v14.0 Tutorial Onboarding) · sebelumnya v13.0 talent matrix |
+| **Tanggal** | 26 Juli 2026 |
+| **Baseline kode** | Setelah PRD **v15.0** Admin Dashboard & Control Panel |
+| **HEAD referensi** | Post-v15.0 Admin Console (impersonation, MFA gate, flags runtime, alerts/logs) |
 | **Owner** | Dozer (CEO + Tech Lead) |
 | **Company** | DN Tech · Brand: DnPeople |
 | **Ganti dokumen ini?** | Update saat PRD berikutnya di-sign-off atau HEAD baseline berubah |
@@ -22,9 +22,9 @@
 | **B — Produk greenfield** | **PRD v4 Module 4–8** — career marketplace, EWA, salary bench, verticals | Setelah / paralel ops |
 
 **Rekomendasi produk P0:** **Module 4 — Internal career marketplace**  
-(Module 3 9-box + succession **Done** di v13.0; in-app tutorial/KB **Done** di v14.0.)
+(Module 3 9-box **Done** v13.0; tutorial/KB **Done** v14.0; Admin Console **Done** v15.0.)
 
-Nomor versi PRD produk berikutnya yang wajar: **v15.0** (lanjutan setelah v14.0), subtitle Module 4 (atau “Career Mobility”).
+Nomor versi PRD produk berikutnya yang wajar: **v16.0** (lanjutan setelah v15.0), subtitle Module 4 (atau “Career Mobility”).
 
 ---
 
@@ -33,38 +33,42 @@ Nomor versi PRD produk berikutnya yang wajar: **v15.0** (lanjutan setelah v14.0)
 | Item | Nilai |
 |------|--------|
 | Produk | HRIS multi-tenant Indonesia |
-| Frontend | Next.js · ~**73** halaman · mobile-first |
-| Backend | Express `/api/v1` · ~**55** route modules · SCIM `/scim/v2` |
-| Data | PostgreSQL + Prisma · ~**114** models · migrasi wajib deploy |
-| Tests | Backend **47/47** |
+| Frontend | Next.js · ~**86** halaman · mobile-first (+ `/admin/*`) |
+| Backend | Express `/api/v1` · ~**56** route modules · SCIM `/scim/v2` |
+| Data | PostgreSQL + Prisma · ~**120** models · migrasi wajib deploy |
+| Tests | Backend **53/53** |
 | Tier | FREE hard **30** · STARTER hard **50** · Prof **300** · Business soft@1000 · Enterprise custom |
 | Talent | `talent:competency` / `talent:idp` / **`talent:matrix`** / `lms` @ PROFESSIONAL+ |
 | Help | Feature `tutorials` @ FREE+ — Help menu, 5 interactive tutorials, KB search (no video library) |
+| Admin | `/admin` SUPER_ADMIN — customers, billing, analytics, tickets, content, flags, health, audit; MFA gate |
 
 **Roles:** `SUPER_ADMIN` · `COMPANY_ADMIN` · `HR` · `MANAGER` · `FINANCE` · `EMPLOYEE`  
 HR **tanpa** payroll/salary · Finance **payroll** + read 9-box · isolasi tenant + row scope wajib.
 
 ---
 
-## 3. Yang sudah Done (termasuk v14.0)
+## 3. Yang sudah Done (termasuk v15.0)
 
-Semua MVP 1–5 + PRD v5–v13.0 tetap berlaku, **plus v14.0**:
+Semua MVP 1–5 + PRD v5–v14.0 tetap berlaku, **plus v15.0**:
 
-- Help menu (?) di AppShell → Getting Started / Knowledge Base / Get Help
-- 5 interactive tutorials + step progress + rate helpful
-- Tier lock: FREE = employee/attendance/leave; STARTER+ = payroll; PROFESSIONAL+ = performance
-- Knowledge base search, article detail, helpful votes
-- API `/api/v1/tutorials/*`, `/api/v1/kb/*`, `/api/v1/admin/analytics/tutorials`
-- Kill switch `FEATURE_TUTORIALS=false`
-- **Out of v14 live scope:** video library / YouTube embeds / `/help/videos`
+- Internal Admin Console `/admin` (own shell, SUPER_ADMIN only)
+- Customers: list/sort/filter, detail, trial extend, notes, block, impersonation banner + end
+- Revenue & billing: MRR/ARR/churn/trend, payments, refund modal
+- Analytics: features, tutorials/KB, churn, support trends, cohorts
+- Support tickets: queue, reply, escalate, close + CSAT email, send KB from suggest
+- Content CRUD: tutorials & KB articles + publish
+- Feature flags: toggle/rollout/tier + history; runtime gate via `featureAccess`
+- System health: API/DB/queue, AdminNotification alerts + ack, logs viewer, audit log
+- Admin MFA: `requireAdminMfa` (escape lokal `ADMIN_MFA_OPTIONAL=true`)
+- **Out of honest 100%:** live latency P50/P95/P99 / error-rate until Prometheus/Datadog
 
-Juga jangan rebuild: 9-box / succession (v13), competency/IDP/LMS foundation.
+Juga jangan rebuild: 9-box / succession (v13), tutorials/KB (v14), competency/IDP/LMS foundation.
 
 ---
 
 ## 4. Conditional (ops / UAT eksternal)
 
-Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment live, IdP/SCIM UAT, bank file acceptance.
+Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment live, IdP/SCIM UAT, bank file acceptance. Plus admin live latency metrics.
 
 ---
 
@@ -78,13 +82,14 @@ Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment l
 
 ### Out of scope kecuali PRD eksplisit
 - Video tutorial library (explicitly dropped from v14)
+- Re-implement Admin Console (v15 Done)
 - WebSocket real-time comments on calibration
 - Native mobile / physical SILO
 - Re-write payroll/tax
 
 ---
 
-## 6. Outline singkat PRD v15.0 (Module 4) — skeleton
+## 6. Outline singkat PRD v16.0 (Module 4) — skeleton
 
 - Outcome: karyawan lihat lowongan internal; apply; HR/manager pipeline; link ke competency gap & succession.
 - Tier usulan: PROFESSIONAL+ atau BUSINESS — putuskan di PRD.
@@ -95,10 +100,10 @@ Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment l
 
 ## 7. Checklist story (wajib)
 
-Sama pola v13/v14: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export jika relevan, no payroll regression.
+Sama pola v13/v14/v15: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export jika relevan, no payroll regression.
 
 ---
 
 ## 8. Satu kalimat penutup
 
-> dnPeople **sudah punya** Module 3 talent matrix (v13.0) dan in-app tutorial/KB (v14.0). PRD berikutnya = **Module 4+ (v15.0)** dan/atau **ops go-live** — jangan ulangi 9-box atau video library.
+> dnPeople **sudah punya** Module 3 talent matrix (v13.0), in-app tutorial/KB (v14.0), dan Admin Console (v15.0). PRD berikutnya = **Module 4+ (v16.0)** dan/atau **ops go-live** — jangan ulangi 9-box, video library, atau admin console.

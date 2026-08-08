@@ -29,6 +29,10 @@ npm run db:seed
 | EMPLOYEE | `rio.mahendra@demo.dnpeople.id` | Rio Mahendra |
 | EMPLOYEE | `dewi.lestari@demo.dnpeople.id` | Dewi Lestari |
 
+## Akun operator DN Tech (bukan demo)
+
+Akun `SUPER_ADMIN` untuk Admin Console `/admin` **terpisah** dari sandbox ini dan tidak ditampilkan di UI: tenant **DN Tech**, email `dozer@dntech.id`, password dari `SUPER_ADMIN_PASSWORD` (dev fallback `Admin123!`). Detail: [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) §2.
+
 ## Yang terlihat di nav (FREE)
 
 Termasuk: dashboard, karyawan, organisasi, dokumen, kebijakan, pengumuman, kalender, helpdesk, MFA, paket & billing.
