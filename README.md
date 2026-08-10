@@ -62,6 +62,7 @@ company-wiki/
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
+│       ├── dnShopee/      # dnShop Finance (repo dnShopee) — SOPI v2.1 + UI2
 │       ├── dova/           # Marketplace (MVP → operations launch)
 │       ├── dvs/            # DuaVulnScanner (passive scanner MVP)
 │       ├── nearwork/
