@@ -1,222 +1,34 @@
-# dnPeople
+# dnPeople — Living docs (mirror)
 
-Sistem HRIS multi-tenant untuk perusahaan Indonesia — MVP 1–5 + PRD v5–**v11.1** (landing page + pricing SSOT).
-
-| | |
-|---|---|
-| Owner | Dozer (CEO + Tech Lead) |
-| Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Brand | DnPeople |
-| Status | Active — PRD v11.1 **complete in repo**; external go-live gates Conditional |
-| Spec | [company-wiki/dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
-| Docs | [docs/](./docs/) — start at [CURRENT-IMPLEMENTATION](./docs/CURRENT-IMPLEMENTATION.md) |
-| UpdatedAt | July 22, 2026 |
-| Inventory | **61** pages · **53** routes · **102** models · **32/32** tests |
-
-## Stack
-
-| Layer | Teknologi |
-|-------|-----------|
-| Frontend | Next.js 16, React 19, Tailwind CSS 4 |
-| Backend | Express 5, TypeScript, Prisma |
-| Database | PostgreSQL 16 |
-| Cache | — (Redis removed; unused) |
-| Auth | JWT + API keys + RBAC |
-
-## Fitur
-
-Snapshot codebase saat ini mencakup **~61 halaman web**, **~53 modul route backend**, **102 model Prisma**, dan **32** backend tests. Login auto-discover tenant; session httpOnly cookie; marketing landing v11.1 di `/welcome` (+ pricing, FAQ, contact, demo, blog, `/legal/dpa`); tier pricing SSOT `subscriptionCatalog.ts`. Status detail: [Feature Catalog](./docs/FEATURE-CATALOG.md), [Current Implementation](./docs/CURRENT-IMPLEMENTATION.md), [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md).
-
-### MVP 1
-- Auth & RBAC, employee DB, org structure
-- Absensi, cuti, izin, payroll (BPJS + PPh 21), dashboard, audit
-
-### MVP 2
-- Shift & overtime (masuk payroll)
-- Klaim/reimbursement & pinjaman (kasbon)
-- Geofence attendance + koreksi absensi
-- Dokumen, pengumuman, kalender HR, holiday
-- Approval inbox terpadu
-- Laporan lanjutan (turnover, lembur, cuti)
-
-### MVP 3
-- Rekrutmen ATS + portal karir `/careers`
-- Onboarding checklist, performance review + KPI/OKR
-- Training, career path, aset
-- Resign/offboarding, helpdesk, kebijakan & disiplin
-- AI HR assistant (LLM + rule-based) + analytics
-
-### MVP 4
-- Multi-company platform + org hierarchy
-- Custom workflows & advanced approval rules
-- API keys, webhooks/integrations
-- SSO Google/Microsoft/SAML + JIT, white-label branding
-- Custom reports builder, row-level security
-- AI document generator + AI recruitment screening
-
-### PRD v4 — Talent Development (foundation)
-- Competency framework, competency library, role-competency mapping, versioning
-- Competency assessment (self/manager/peer/360), gap analysis per employee
-- Individual Development Plan (IDP) dengan auto-generate goal dari competency gap, review progress
-- LMS dasar: course/program, module, enrollment, completion tracking, sertifikat otomatis, transcript
-- Belum termasuk: 9-box matrix, succession planning, internal career marketplace, earned wage access, salary benchmarking, paket industri (roadmap Q4 2026+)
-
-### PRD v5–v6 — Subscription & Enterprise Multi-Tenant
-
-- Lima subscription tier, billing, invoice, payment adapter, server-side feature gating, dan grace/freeze mode
-- POOL/SILO/BRIDGE tenant policy, verified-domain discovery, isolation guard, dan tenant audit
-- Per-tenant SSO/JIT, SCIM 2.0 Users/Groups, organization hierarchy, dan scoped RBAC
-- Tenant quota/usage monitoring serta white-label custom-domain metadata
-- Admin UI `/billing`, `/platform`, dan `/tenant-management`
-- Menu `/staff-accounts` untuk membuat akun login staff standalone/linked employee, role, status aktif, dan reset password
-
-### PRD v7.0 — Attendance Excel manual import
-
-- Panel admin/HR di `/attendance`: download template `.xlsx`, dry-run validation, preview, confirm import, histori upload
-- API `/attendance/template/download`, `/attendance/import`, `/attendance/imports` — company isolation, role guard, `MANUAL_UPLOAD` source
-- UI admin Excel-first; generator QR kantor di halaman admin disembunyikan (API `GET /attendance/qr/today` tetap ada untuk kompatibilitas employee QR scan)
-
-### PRD v8.0 — Security & stability
-
-- Auth file downloads (`/api/v1/files`), enforced API-key scopes, atomic/idempotent payroll finalize, batched payroll adjustments
-- httpOnly session cookie (SSO tanpa JWT di URL); MFA QR di `/settings/mfa`; Slip Gaji untuk semua role
-- Attendance import Idempotency-Key; report export cap + async jobs; signed payslip links; email outbox
-- Detail: [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) · [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md)
-
-### PRD v9–v10 — Launch readiness
-
-- Tenant API quota hard-limit, password reset, billing pay-now, OpenAPI/Swagger
-- Ops: `/alive` + enriched health/ready/metrics, backup verify/restore-drill, k6 auth loadtest, Datadog stub + alert runbooks
-- Privacy export + legal templates; marketing MVP `/welcome`
-
-### PRD v11.0 — Go-live execution (Jul 2026)
-
-- **Marketing routes:** `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog` — anonymous `/` redirects ke `/welcome`
-- **Lead capture:** `POST /api/v1/public/leads`, `POST /api/v1/public/beta-interest` + model `MarketingLead`
-- **Metrics (Datadog-ready):** `payment_webhook_*`, `postgresql_connections`, `attendance_records_today`
-- **Ops:** k6 baseline/ramp/spike/stress, `smoke-test.sh`, `install-datadog-agent.sh`, launch runbooks
-- **Docs:** [Launch Gate Checklist](./docs/LAUNCH-GATE-CHECKLIST.md) · [SLA RPO/RTO](./docs/SLA-COMMITMENT-RPO-RTO.md)
-
-### PRD v11.1 — Landing page website (Jul 2026)
-
-- **Full landing** at `/welcome`: hero, 6 fitur, pricing 5 tier, how-it-works, demo, FAQ accordion, beta signup, sticky mobile CTA, JSON-LD SEO
-- **Pricing SSOT:** `frontend/src/lib/subscriptionCatalog.ts` — sama dengan `/billing` (Gratis, Rp20.000–25.000/karyawan, Business 301+, Enterprise 500+)
-- **Legal:** `/legal/dpa` · spec: [PRD v11.1](./docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md)
-- **Target beta launch:** 1 Agustus 2026 — external gates (Convertkit/Zapier, demo video, DNS, GA4, pen-test, beta UAT) masih Conditional
-
-## Quick Start (tanpa Docker)
-
-Database = **Supabase Session pooler**. Tidak perlu Docker.
-
-### 1. Backend `.env`
-
-```bash
-cd dnpeople/backend
-cp .env.example .env
-```
-
-Isi password di `DATABASE_URL` (lihat [docs/SUPABASE.md](./docs/SUPABASE.md)):
-
-```env
-DATABASE_URL="postgresql://postgres.bikhnyqslizcckusiyrg:YOUR_PASSWORD@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres?sslmode=require&schema=public"
-```
-
-```bash
-npm install
-npm run db:migrate
-npm run db:seed
-npm run dev
-```
-
-API: `http://localhost:4100`
-
-### 2. Frontend
-
-```bash
-cd frontend
-cp .env.example .env.local
-npm install
-npm run dev
-```
-
-App: `http://localhost:3001` — marketing: `http://localhost:3001/welcome`
-
-Env opsional marketing:
-
-```env
-NEXT_PUBLIC_GA_ID=G-XXXXXXXX        # Google Analytics 4
-NEXT_PUBLIC_ZAPIER_WEBHOOK=https://... # Beta signup → ConvertKit/Zapier
-NEXT_PUBLIC_CALENDLY_URL=https://...   # Demo scheduling
-NEXT_PUBLIC_DEMO_VIDEO_URL=https://... # Demo section embed
-LEADS_NOTIFY_EMAIL=sales@dnpeople.id
-```
-
-> Opsional saja: `docker compose up -d` jika ingin Postgres lokal di port `5433` — bukan requirement.
-
-## Verifikasi & ops (PRD v11)
-
-```bash
-# Backend tests
-cd backend && npm test
-
-# Smoke health/ready/metrics
-bash scripts/smoke-test.sh
-
-# Restore drill (staging DB + ALLOW_RESTORE)
-ALLOW_RESTORE=true DATABASE_URL="..." bash scripts/restore-drill.sh ./backups/LATEST.dump
-
-# k6 baseline (butuh k6 + kredensial staging)
-BASE_URL=http://localhost:4100 k6 run scripts/loadtest/baseline.js
-```
-
-## Akun Demo (setelah seed)
-
-Tier **Professional** · password semua akun: **`Demo123!`**
-
-| Role | Email | Nama |
-|------|-------|------|
-| Company Admin | dina.wijaya@demo.dnpeople.id | Dina Wijaya |
-| HR | maya.putri@demo.dnpeople.id | Maya Putri |
-| Manager | raka.pratama@demo.dnpeople.id | Raka Pratama |
-| Finance | sinta.wijaya@demo.dnpeople.id | Sinta Wijaya |
-| Employee | budi.santoso@demo.dnpeople.id | Budi Santoso |
-
-Daftar lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
-
-## Dokumentasi
-
-| Dokumen | File |
-|---------|------|
-| Project Overview | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) |
-| Architecture | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) |
-| API Reference | [docs/API.md](./docs/API.md) |
-| Deployment | [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) |
-| **Supabase (DB)** | [docs/SUPABASE.md](./docs/SUPABASE.md) |
-| **Install VPS** | [docs/VPS.md](./docs/VPS.md) |
-| Implementation Status | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
-| **Current Implementation** | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) |
-| **Audit (fitur/bug/perf)** | [docs/AUDIT-FEATURE-BUG-PERFORMANCE.md](./docs/AUDIT-FEATURE-BUG-PERFORMANCE.md) |
-| **Feature Catalog** | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) — daftar lengkap fitur existing, conditional, dan roadmap |
-| **Launch Gate Checklist** | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) |
-| **PRD v11.1 (landing)** | [docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md](./docs/PRD/dnpeople-prd-v11.1-landing-page-website-id.md) |
-| **PRD v11.0 (go-live)** | [docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md](./docs/PRD/dnpeople-prd-v11.0-go-live-execution-id.md) |
-| [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier Professional) |
-| Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
-| PRD / SRS / SDD | [company-wiki dnPeople](../company-wiki/docs/products/dnPeople/00_INDEX.md) |
-
-## Catatan Produk
-
-dnPeople **bukan** sama dengan repo `ERP/` (DN People ERP NestJS). Ini produk HRIS terpisah sesuai spesifikasi di `company-wiki/docs/products/dnPeople/PRD/`.
-
-## Lisensi
-
-Proprietary — DN Tech © 2026
-
-Property of DN Tech — PT. Dozer Napitupulu Technology · 2026
+Dokumentasi operasional dnPeople yang di-mirror dari repo [`dnpeople`](https://github.com/dreamcraft17/dnpeople). Untuk overview produk, mulai dari **[README parent](../README.md)**.
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
-| Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Brand | DnPeople |
-| UpdatedAt | July 22, 2026 |
+| Production | [hris.dntech.id](https://hris.dntech.id) |
+| Snapshot | August 10, 2026 |
+| Inventory | ~**96** pages · ~**60** routes · **129** models · **81/81** tests |
+| Next PRD | **v16.0** Module 4 — [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) |
+
+## Mulai di sini
+
+| Dokumen | Isi |
+|---------|-----|
+| [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | Brief PRD berikutnya (1 halaman) |
+| [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) | Prep lengkap Module 4 |
+| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline implementasi |
+| [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Katalog fitur |
+| [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Status per MVP/PRD |
+| [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) | Setup pembayaran Xendit |
+
+## Milestone shipped (ringkas)
+
+| PRD | Deliverable |
+|-----|-------------|
+| v13.0 | 9-box talent matrix, succession, reports |
+| v14.0 | Tutorials + KB (no video library) |
+| v15.0 | Admin Console `/admin` (SUPER_ADMIN) |
+| Aug 2026 | Xendit PG, legal ToS/PP MVP, invoice PDF, billing UI polish, grouped nav, **logo3** |
+
+Spec historis PRD/SRS/SDD: [../00_INDEX.md](../00_INDEX.md) · [../PRD/](../PRD/)
+
+> Sync source of truth: repo `dnpeople/docs/` — update wiki mirror saat release/sign-off.
