@@ -1,6 +1,6 @@
 # Xendit Payment — Setup & Test Mode
 
-**Updated:** 8 Agustus 2026  
+**Updated:** 10 Agustus 2026  
 **Status:** Implemented in repo (`commit 2776a08+`) — **sandbox verification Conditional** (butuh key test + 1× E2E bayar)
 
 ---
@@ -11,7 +11,7 @@ dnPeople memakai **Xendit Invoice API v2** (hosted checkout) sebagai payment gat
 
 | Flow | UI | API |
 |------|-----|-----|
-| Bayar dari app (login) | `/billing` → **Bayar** | `POST /api/v1/payments/initiate-payment` |
+| Bayar dari app (login) | `/billing` → filter **Perlu bayar** → **Bayar**; metode bayar tampil setelah lunas; **PDF** untuk export | `POST /api/v1/payments/initiate-payment` |
 | Bayar link invoice publik | `/payment/invoice/:id?token=…` | `POST /api/v1/public/invoices/:id/pay` |
 | Webhook Xendit | — | `POST /api/v1/webhooks/xendit` |
 | Sync setelah redirect | query `?payment=success&order_id=` | `POST /api/v1/payments/sync` atau `POST /api/v1/public/invoices/:id/sync` |
@@ -129,6 +129,7 @@ Jika webhook belum terpasang, status tetap bisa update lewat **sync** saat user 
 | Xendit client | `backend/src/lib/xendit.ts` |
 | Payment service | `backend/src/services/payment.service.ts` |
 | Routes | `backend/src/routes/payments.ts`, `backend/src/routes/public.ts` |
-| Frontend billing | `frontend/src/app/(app)/billing/page.tsx` |
+| Frontend billing | `frontend/src/app/(app)/billing/page.tsx` — stat cards, tier picker, invoice filters (Semua/Perlu bayar/Lunas), trial preview toggle, **Bayar** + **PDF** actions, Xendit payment method column |
+| Invoice PDF | `backend/src/lib/subscriptionInvoicePdf.ts` · `GET /subscription/invoices/:id.pdf` |
 | Public pay | `frontend/src/app/payment/invoice/[invoiceId]/page.tsx` |
 | Return sync | `frontend/src/lib/paymentReturn.ts` |

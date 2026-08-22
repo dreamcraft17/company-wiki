@@ -1,6 +1,6 @@
 # dnPeople — Deployment Guide
 
-**Last Updated:** August 8, 2026  
+**Last Updated:** August 10, 2026  
 **Applies to:** MVP 1–5 + PRD v8–v11.0
 
 ---
@@ -120,6 +120,7 @@ Lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) untuk semua role (tier Professional
 - [ ] `TRUST_PROXY=1` di belakang Nginx
 - [ ] HTTPS only (TLS terminate di Nginx/Caddy)
 - [ ] `npm run build` backend + frontend
+- [ ] Static brand asset **`frontend/public/logo3.png`** deployed (canonical logo; legacy `logo1.png`/`logo2.png` optional)
 - [ ] Seed **tidak** dijalankan di production (kecuali bootstrap admin terkontrol)
 - [ ] Rate limit & CORS diverifikasi
 - [ ] Monitoring `/health`

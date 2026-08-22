@@ -1,14 +1,14 @@
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD **v15.0** Admin Console + **v14.0** Tutorial/KB + **v13.0** Talent Matrix · FREE hard **30** / STARTER **50** complete in repo · external go-live gates Conditional  
-**Status:** MVP 1–5 + PRD v5–**v15.0** / v11.1 **Done in repo**; Datadog/DNS/pen-test/beta UAT Conditional  
+**Version:** PRD **v15.0** Admin + **Xendit PG** + **Legal ToS/PP MVP** (Aug 2026) + v14 Tutorial + v13 Talent  
+**Status:** MVP 1–5 + PRD v5–**v15.0** **Done in repo**; deployed `https://hris.dntech.id`; go-live gates Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **Contact:** info@dntech.id  
-**UpdatedAt:** July 26, 2026  
+**UpdatedAt:** August 10, 2026  
 
 ---
 
@@ -22,12 +22,15 @@ dnPeople adalah **HRIS multi-tenant** untuk startup, UMKM, dan perusahaan meneng
 4. **Rekrutmen & siklus kerja** — ATS, onboarding, performance, training, offboarding, helpdesk  
 5. **Onboarding in-app** — Help menu, 5 interactive tutorials, knowledge base (PRD v14.0; no video library)  
 6. **Admin Console (internal)** — SUPER_ADMIN `/admin`: customers, billing, analytics, support, content, flags, health (PRD v15.0)  
-7. **Kontrol SaaS** — lima tier berlangganan, nav/API gating jujur, billing, enterprise (SSO/SCIM/multi-company)
+7. **Billing & payment** — tier gating, trial, **Xendit** hosted checkout, pay-during-trial, invoice PDF, polished `/billing` UI (Aug 2026)  
+8. **Legal compliance (MVP)** — ToS + Privacy Policy acceptance at signup (Aug 2026)  
+9. **Kontrol enterprise** — SSO/SCIM/multi-company, API keys, branding  
+10. **Navigation UX** — grouped sidebar (8 sections), tier-honest menu filtering (Aug 2026)
 
-Landing publik: `/welcome` (logo brand `logo1.png` di header & footer; favicon mark resmi). Demo sandbox seed = **FREE** agar menu sesuai paket gratis.
+Landing publik: `/welcome` · Docs hub: `/docs` · Production: `hris.dntech.id`
 
-Codebase snapshot: **~86** halaman · **~56** route modules · **~120** model Prisma · **53/53** backend tests.  
-**Mulai PRD berikutnya:** [Current Implementation](./CURRENT-IMPLEMENTATION.md) · [NEXT-PRD-BRIEF](./NEXT-PRD-BRIEF.md) · [Launch Gate](./LAUNCH-GATE-CHECKLIST.md)
+Codebase snapshot: **~96** halaman · **~60** route modules · **129** model Prisma · **81/81** backend tests.  
+**Mulai PRD berikutnya:** [NEXT-PRD-BRIEF](./NEXT-PRD-BRIEF.md) · [CURRENT-IMPLEMENTATION](./CURRENT-IMPLEMENTATION.md) · [FEATURE-CATALOG](./FEATURE-CATALOG.md)
 
 > **Bukan** sama dengan DN People ERP (`ERP/` — NestJS). dnPeople = HRIS SaaS (Express + Next.js).
 
@@ -39,40 +42,35 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
-| MVP 1–5 (core + talent foundation) | — | **Done** |
-| PRD v11.1 landing + FREE headcount (now **30**) | Jul 2026 | **Done (repo)** |
-| PRD v13.0 Talent Matrix & Succession | Jul 2026 | **Done (repo)** |
-| PRD v14.0 Tutorial & KB | Jul 2026 | **Done (repo)** |
-| PRD v15.0 Admin Dashboard | Jul 2026 | **Done (repo)** — latency metrics Conditional |
-| External go-live (1 Aug 2026) | Aug 2026 | **Conditional** — Datadog, pen-test, DNS, beta UAT |
-| PRD v4 Module 4–8 (marketplace, EWA, verticals) | next → **v16.0** | **Recommended product PRD** |
+| Code complete MVP 1–5 + v5–v15 | Jul 2026 | **Done** |
+| Xendit payment + legal ToS/PP | Aug 2026 | **Done in repo** |
+| Soft launch / beta | Aug 2026 | **In progress** — `hris.dntech.id` live |
+| PRD v16.0 Module 4 (career marketplace) | TBD | **Not started** |
+| Full go-live (dnpeople.id, live payment, beta cohort) | TBD | **Conditional** |
 
-## Stack (ringkas)
+## Roadmap singkat
 
-Detail arsitektur: [ARCHITECTURE.md](./ARCHITECTURE.md). Dev ports: frontend **3001**, API **4100**. Stack: Next.js 16 · Express 5 · Prisma 6 · PostgreSQL 16 · JWT/RBAC.
+| Versi | Fokus | Status |
+|-------|-------|--------|
+| v13.0 | Talent matrix & succession | Done |
+| v14.0 | Tutorial & KB | Done |
+| v15.0 | Admin Console | Done |
+| Aug 2026 | Xendit PG, Legal ToS/PP, trial pay UX | Done in repo |
+| **v16.0** | **Module 4 — Internal career marketplace** | **Next PRD** |
+| v17+ | EWA, salary bench, verticals (Modules 5–8) | Roadmap |
 
-## Struktur Repo
+## Struktur repo
 
 ```
 dnpeople/
-├── backend/          # API /api/v1 + Prisma
-├── frontend/         # App shell + marketing /welcome
-├── docs/             # Living product & eng docs
-├── scripts/          # Smoke, backup, k6
-└── README.md         # Product-first overview
+├── backend/          Express API, Prisma, services
+├── frontend/         Next.js app + marketing
+├── docs/             Living documentation (start: NEXT-PRD-BRIEF.md)
+├── ops/              Runbooks, Datadog stubs, alerting
+└── prisma/           Schema + migrations
 ```
 
-## Dokumentasi kunci
+## Kontak
 
-| Dokumen | Kegunaan |
-|---------|----------|
-| [../README.md](../README.md) | Apa itu dnPeople + fitur + quick start |
-| [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Inventori fitur |
-| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline PRD berikutnya |
-| [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Status per PRD |
-| [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Kredensial sandbox FREE |
-| [CHANGELOG.md](./CHANGELOG.md) | Riwayat |
-
-## Lisensi
-
-Proprietary — DN Tech © 2026 · PT. Dozer Napitupulu Technology
+- Produk: info@dntech.id  
+- Wiki mirror: `company-wiki/docs/products/dnPeople/`

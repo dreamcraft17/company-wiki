@@ -2,6 +2,82 @@
 
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
+SemVer: **1.0.0 → 1.1.0** (minor — `feat(auth)` SUPER_ADMIN routing + billing/a11y/ops batch)
+
+---
+
+## [Unreleased]
+
+---
+
+## [1.1.0] — 2026-08-22
+
+### Added
+- Playwright + axe accessibility suite (16 public-page tests) and CI workflow `.github/workflows/a11y.yml`
+- Chaos engineering docs and VPS scripts (`docs/CHAOS-ENGINEERING.md`, `backend/scripts/chaos/`)
+- `writeAuditLogSafe()` — non-blocking audit writes with Sentry reporting
+- Admin payment gateway switch (Midtrans ↔ Xendit) and live tier-pricing admin API
+- Consolidated HRIS overview (`docs/DNPEOPLE-HRIS-OVERVIEW.md`)
+- Payment idempotency query helper (`backend/src/lib/paymentIdempotency.ts`) + unit tests
+- Webhook idempotency helpers (`backend/src/lib/paymentWebhook.ts`) + PR commit message lint (`scripts/lint-commits.sh`)
+- PRD v15.2 SUPER_ADMIN auto-redirect to vendor console (`/admin`)
+
+### Changed
+- Billing UX: payable draft invoices show **Menunggu bayar** instead of **Pratinjau (trial)** when amount > Rp 0
+- Midtrans sandbox accepts `Mid-server-*` keys from the new Midtrans dashboard
+- WCAG color contrast on marketing footer, pricing excluded features, and demo credential hints
+- SUPER_ADMIN seed supports multiple operator emails via `SUPER_ADMIN_EMAILS`
+- Payment webhooks exempt from global `/api/v1` rate limit (Midtrans/Xendit retries no longer hit 429)
+- `/metrics` closed in production when `METRICS_TOKEN` is unset (503 until configured)
+- `audit_log_failures_total` Prometheus counter for silent audit write failures
+
+### Fixed
+- Admin login redirect loops / infinite loading (PRD v15.2 SUPER_ADMIN routing)
+- Frontend TypeScript build for trial preview invoice helper
+- Vendor admin console routing for SUPER_ADMIN
+- Public demo credentials on `/login` after accidental production hide (public sandbox trial)
+
+### Security
+- Audit log FK failures no longer abort API requests (monitor Sentry `audit_log` + `audit_log_failures_total`)
+
+### Notes
+- **Deploy:** set `METRICS_TOKEN` on VPS before relying on `/metrics`; rebuild frontend after pull
+- Commit lint: 6/20 commits since `248c433` pass Conventional Commits — enforce via PR job `commit-messages`
+- Tag: `git tag -a v1.1.0 -m "Release 1.1.0 — billing, a11y, SUPER_ADMIN, ops hardening"`
+
+---
+
+## [2026-08-10] — Billing UI, grouped nav, brand logo
+
+### Added
+- **Grouped sidebar navigation** — 8 section labels di `navigationMenu.ts` + `AppShell`; flat mode untuk ≤8 item (employee view)
+- **Billing page polish** — stat cards, tier cards dengan feature bullets, filter invoice (Semua/Perlu bayar/Lunas), sembunyikan pratinjau trial Rp 0, mobile card layout
+- **Brand logo** — `/logo3.png` (tagline + by DN Tech) menggantikan `/logo1.png` di AppShell, marketing, login, careers, JSON-LD
+
+### Changed
+- [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md), [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md), [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md), [FEATURE-CATALOG.md](./FEATURE-CATALOG.md), [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md), [PROJECT-OVERVIEW.md](./PROJECT-OVERVIEW.md), [API.md](./API.md), [ARCHITECTURE.md](./ARCHITECTURE.md), [ADMIN-GUIDE.md](./ADMIN-GUIDE.md), [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md), [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md)
+
+### Notes
+- Asset lama `logo1.png` / `logo2.png` tetap di `frontend/public/` (legacy); canonical brand = **`logo3.png`**
+- Invoice PDF export & metode bayar Xendit di riwayat — shipped earlier same day (`83468f8`, `d770f0a`)
+
+---
+
+## [2026-08-10] — PRD v16.0 preparation document
+
+### Added
+- [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) — full prep: launch readiness (~68%), Aug 10 baseline, Module 4 user stories (CM-1…CM-52), data/API sketch, open questions, DoD checklist
+- Updated [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) and [00_INDEX.md](./00_INDEX.md) — billing PDF, grouped nav, auth fixes, ops blockers
+
+---
+
+## [2026-08-09] — Baseline docs refresh (PRD v16.0 prep)
+
+### Changed
+- Updated [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md), [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md), [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md), [FEATURE-CATALOG.md](./FEATURE-CATALOG.md), [PROJECT-OVERVIEW.md](./PROJECT-OVERVIEW.md) for August 2026 system state
+- Inventory: ~96 pages, ~60 route modules, 129 Prisma models, 81 backend tests
+- Documented: Xendit PG v1.0, Legal ToS/PP MVP, pay-during-trial, light theme default, production URL `hris.dntech.id`
+
 ---
 
 ## [2026-08-08] — Xendit payment gateway (replace Midtrans)
@@ -125,7 +201,7 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 ## [2026-07-24] — Marketing footer brand + product README
 
 ### Changed
-- Landing footer logo uses same `/logo1.png` as header (on white pad; removed invert washout); contact email **info@dntech.id**
+- Landing footer logo uses `/logo1.png` as header (Jul 2026) — **superseded Aug 2026 by `/logo3.png`** site-wide
 - `README.md` rewritten product-first (apa itu dnPeople, fitur, tier, demo FREE) — tech stack ringkas saja
 - `PROJECT-OVERVIEW.md`, `DEMO-ACCOUNTS.md` (demo = FREE), inventory counts synced to v13 + nav tests (**45/45**)
 

@@ -1,7 +1,7 @@
 # Product Portfolio
 
-**Document Version**: 1.3  
-**Last Updated**: August 6, 2026  
+**Document Version**: 1.4  
+**Last Updated**: August 22, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
@@ -208,13 +208,13 @@ DN Tech Products
 | Brand | DnPeople |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Status | **MVP 1–5 + PRD v5–v7.0 implemented** (subscription, multi-tenant, discovery login, attendance Excel) |
-| Target | Startup & UMKM Indonesia (30–200 karyawan) |
-| Stack | Next.js 16 + Express 5 + Prisma + PostgreSQL (Supabase) |
-| Codebase | 49 halaman · 49 route modules · 99 model Prisma · 24 tests |
+| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** (Aug 2026) · production [hris.dntech.id](https://hris.dntech.id) |
+| Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
+| Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
+| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **123/123** tests · **16** a11y |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | August 22, 2026 |
 
 ### Fitur
 

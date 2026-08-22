@@ -2,15 +2,17 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 26 July 2026 |
-| HEAD | Post-v15.0 Admin Dashboard (main) |
-| Purpose | **Baseline** after PRD **v15.0** Admin Dashboard & Control Panel |
+| Snapshot date | 22 August 2026 |
+| HEAD | Release **v1.1.0** (`a51d839`) on `dnpeople` main |
+| Purpose | **Baseline** after release **v1.1.0** — billing/a11y/ops hardening on top of PRD **v15.0** |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 26, 2026 |
+| Updated at | August 22, 2026 |
 
+> **Release v1.1.0 (22 Aug 2026):** Playwright + axe a11y CI (16 public pages); payment webhook idempotency + rate-limit exempt; `/metrics` gated by `METRICS_TOKEN` in production; `writeAuditLogSafe()`; SUPER_ADMIN routing fix; public demo creds on `/login`; WCAG contrast fixes; chaos engineering scaffold. See [CHANGELOG.md](./docs/CHANGELOG.md).
+>
 > **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log, Admin MFA gate. Operator account seeded: DN Tech tenant + `dozer@dntech.id` (`SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`). Live latency P50/P95/P99 Conditional. Specs in `docs/PRD/*-v15.0-admin*`.
 >
 > **PRD v14.0 (25 Jul 2026):** In-app tutorials (5 MVP), knowledge base, Help menu, progress + tier gating. Video tutorial/library removed by product decision. Specs in `docs/PRD/*-v14.0-tutorial*`.
@@ -39,18 +41,18 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~86** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~56** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **~120** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~96** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~60** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **130** models; **20** deployment migrations |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
-| Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (histogram, rate_limit, payroll_jobs, payment_webhook_*, postgresql_connections, attendance_records_today); optional Sentry; Datadog agent script + compose stub in `ops/datadog/` |
-| Ops artefacts | Backup verify + restore-drill (integrity SQL), k6 baseline/ramp/spike/stress, smoke-test, alert-rules + incident/launch runbooks; legal Privacy/Terms/DPA templates; launch gate + SLA docs |
+| Observability | `/alive`, `/health` (version/uptime), `/ready` (checks), Prometheus `/metrics` (Bearer `METRICS_TOKEN` required in prod); optional Sentry; Datadog agent script + compose stub in `ops/datadog/` |
+| Ops artefacts | Backup verify + restore-drill (integrity SQL), k6 baseline/ramp/spike/stress, smoke-test, chaos scripts (`backend/scripts/chaos/`), alert-rules + incident/launch runbooks; legal Privacy/Terms/DPA templates; launch gate + SLA docs |
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **47/47** unit tests; TypeScript clean |
+| Automated evidence | Backend **123/123** unit tests; **16** a11y tests (Playwright + axe); TypeScript clean |
 
 ## Roles and access boundary
 
@@ -243,7 +245,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **53/53** backend tests pass; frontend **~86** pages; backend **~56** route modules; Prisma **~120** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **123/123** backend tests pass; **16** a11y tests (public pages); frontend **~96** pages; backend **~60** route modules; Prisma **130** models. Re-run build and test suites before treating figures as release evidence.
 
 ## Suggested scope after PRD v15.0 (from this baseline)
 

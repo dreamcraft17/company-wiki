@@ -3,14 +3,15 @@
 | | |
 |---|---|
 | **Dokumen** | Satu file utuh untuk menulis PRD produk berikutnya |
-| **Tanggal** | 26 Juli 2026 |
-| **Baseline kode** | Setelah PRD **v15.0** Admin Dashboard & Control Panel |
-| **HEAD referensi** | Post-v15.0 Admin Console (impersonation, MFA gate, flags runtime, alerts/logs) |
+| **Tanggal** | 10 Agustus 2026 |
+| **Baseline kode** | `main` @ `e462db7` — grouped nav, billing UI polish, logo3, invoice PDF, payment labels |
+| **Production URL** | App `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
 | **Owner** | Dozer (CEO + Tech Lead) |
 | **Company** | DN Tech · Brand: DnPeople |
+| **Prep lengkap** | [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) |
 | **Ganti dokumen ini?** | Update saat PRD berikutnya di-sign-off atau HEAD baseline berubah |
 
-> **Cara pakai:** Baca file ini dari atas ke bawah. Jangan janjikan ulang yang ada di §3 sebagai “fitur baru”. Tulis PRD hanya untuk §5–§6 (atau pecahan Module). Setiap story wajib memenuhi §8.
+> **Cara pakai:** Baca file ini dari atas ke bawah. Detail user stories & open questions → **prep doc** §5–§14. Jangan janjikan ulang yang ada di §3 sebagai “fitur baru”.
 
 ---
 
@@ -18,92 +19,136 @@
 
 | Jalur | Isi | Kapan |
 |-------|-----|--------|
-| **A — Ops go-live** | DNS, Datadog/PagerDuty, pen-test, restore drill bertanda tangan, beta 10–20, payment keys live | Soft launch Agustus masih open |
-| **B — Produk greenfield** | **PRD v4 Module 4–8** — career marketplace, EWA, salary bench, verticals | Setelah / paralel ops |
+| **A — Ops go-live** | Xendit sandbox→live E2E, webhook prod, SMTP, rotate leaked keys, beta 10–20, Datadog/pen-test/DNS | **P0 bisnis** — ~68% launch ready |
+| **B — Produk greenfield** | **PRD v16.0 Module 4** — internal career marketplace | **P0 produk** setelah payment gate clear |
 
 **Rekomendasi produk P0:** **Module 4 — Internal career marketplace**  
-(Module 3 9-box **Done** v13.0; tutorial/KB **Done** v14.0; Admin Console **Done** v15.0.)
+(Module 3 9-box **Done** v13.0; tutorial/KB **Done** v14.0; Admin Console **Done** v15.0; payment collection **Done in repo** Aug 2026.)
 
-Nomor versi PRD produk berikutnya yang wajar: **v16.0** (lanjutan setelah v15.0), subtitle Module 4 (atau “Career Mobility”).
+Nomor versi PRD produk berikutnya: **v16.0** — subtitle *Career Mobility*.
 
 ---
 
-## 2. Snapshot produk saat ini (jangan di-rebuild)
+## 2. Snapshot produk saat ini (Agustus 2026)
 
 | Item | Nilai |
 |------|--------|
 | Produk | HRIS multi-tenant Indonesia |
-| Frontend | Next.js · ~**86** halaman · mobile-first (+ `/admin/*`) |
-| Backend | Express `/api/v1` · ~**56** route modules · SCIM `/scim/v2` |
-| Data | PostgreSQL + Prisma · ~**120** models · migrasi wajib deploy |
-| Tests | Backend **53/53** |
+| Frontend | Next.js · **~96** halaman · mobile-first · light theme default + dark/system toggle |
+| Backend | Express `/api/v1` · **~60** route modules · SCIM `/scim/v2` |
+| Data | PostgreSQL (Supabase) + Prisma · **129** models · **17** migrations deployed |
+| Tests | Backend **81/81** pass · Prisma validate ✅ |
 | Tier | FREE hard **30** · STARTER hard **50** · Prof **300** · Business soft@1000 · Enterprise custom |
-| Talent | `talent:competency` / `talent:idp` / **`talent:matrix`** / `lms` @ PROFESSIONAL+ |
-| Help | Feature `tutorials` @ FREE+ — Help menu, 5 interactive tutorials, KB search (no video library) |
-| Admin | `/admin` SUPER_ADMIN — customers, billing, analytics, tickets, content, flags, health, audit; MFA gate |
+| Trial | Countdown badge; fitur penuh selama trial; **bayar kapan saja** |
+| Payment | **Xendit Invoice v2** — test mode on VPS; live E2E ⬜ |
+| Legal (MVP) | ToS + Privacy Policy: signup consent, `/legal/*`, `ComplianceBanner` |
+| Talent | competency / IDP / **matrix** / succession / LMS @ PROFESSIONAL+ |
+| Billing UX | Stat cards, filter invoice, metode bayar Xendit, **Unduh PDF** |
+| Nav | **Grouped sidebar** (8 section); flat untuk employee short list |
+| Brand | Logo **`/logo3.png`** (AppShell, marketing, login, JSON-LD) |
+| Admin | `/admin` SUPER_ADMIN |
+| Public docs | `/docs` hub |
 
-**Roles:** `SUPER_ADMIN` · `COMPANY_ADMIN` · `HR` · `MANAGER` · `FINANCE` · `EMPLOYEE`  
-HR **tanpa** payroll/salary · Finance **payroll** + read 9-box · isolasi tenant + row scope wajib.
+**Roles:** `SUPER_ADMIN` · `COMPANY_ADMIN` · `HR` · `MANAGER` · `FINANCE` · `EMPLOYEE`
 
 ---
 
-## 3. Yang sudah Done (termasuk v15.0)
+## 3. Yang sudah Done (jangan di-rebuild)
 
-Semua MVP 1–5 + PRD v5–v14.0 tetap berlaku, **plus v15.0**:
+### Core (MVP 1–5 + PRD v5–v14.0)
+Semua seperti baseline — lihat [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md).
 
-- Internal Admin Console `/admin` (own shell, SUPER_ADMIN only)
-- Customers: list/sort/filter, detail, trial extend, notes, block, impersonation banner + end
-- Revenue & billing: MRR/ARR/churn/trend, payments, refund modal
-- Analytics: features, tutorials/KB, churn, support trends, cohorts
-- Support tickets: queue, reply, escalate, close + CSAT email, send KB from suggest
-- Content CRUD: tutorials & KB articles + publish
-- Feature flags: toggle/rollout/tier + history; runtime gate via `featureAccess`
-- System health: API/DB/queue, AdminNotification alerts + ack, logs viewer, audit log
-- Admin MFA: `requireAdminMfa` (escape lokal `ADMIN_MFA_OPTIONAL=true`)
-- **Out of honest 100%:** live latency P50/P95/P99 / error-rate until Prometheus/Datadog
+### PRD v15.0 — Admin Console ✅
+`/admin`, impersonation, MRR/refunds, analytics, tickets, content CRUD, feature flags, health, audit.
 
-Juga jangan rebuild: 9-box / succession (v13), tutorials/KB (v14), competency/IDP/LMS foundation.
+### Agustus 2026 — Post-v15 increments ✅
+
+| Deliverable | Catatan |
+|-------------|---------|
+| Xendit PG v1.0 | Hosted checkout, webhook fail-closed, pay-during-trial |
+| Legal ToS/PP MVP | Bukan full legal CMS |
+| Invoice payment method | Xendit provider/method di `/billing` |
+| Export invoice PDF | Logo dnPeople, footer same-page fix |
+| Auth/SSO hardening | Company search picker, directory leak fix, SAML fail-closed |
+| Grouped sidebar nav | `navigationMenu.ts` + `AppShell` section headers |
+| Billing UI polish | Stat cards, tier bullets, invoice filters, trial preview hide |
+| Brand logo | `/logo3.png` site-wide (replaces `logo1.png`) |
+
+**Out of honest 100% (ops):** Xendit live money, SMTP prod, secret key rotation, beta cohort, pen-test.
+
+**Jangan rebuild:** 9-box, tutorials, admin console, Xendit checkout, grouped nav.
 
 ---
 
 ## 4. Conditional (ops / UAT eksternal)
 
-Sama seperti briefing sebelumnya: DNS, Datadog, pen-test, beta cohort, payment live, IdP/SCIM UAT, bank file acceptance. Plus admin live latency metrics.
+| Gate | Status Agustus 2026 |
+|------|---------------------|
+| Xendit test keys on VPS | ✅ |
+| Xendit webhook E2E (1× bayar → PAID) | ⬜ |
+| Xendit production keys + KYC | ⬜ |
+| Rotate key (`docs/xendit/secret_api_key.csv` in git) | 🔴 **urgent** |
+| SMTP production (forgot-password) | ⬜ |
+| `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` prod | 🟡 recommended |
+| Datadog/PagerDuty live | ⬜ |
+| Pen-test sign-off | ⬜ |
+| DNS `dnpeople.id` | ⬜ |
+| Beta 10–20 customers | ⬜ |
+
+Detail: [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · penilaian ~68% di [prep doc §4](./PRD/dnpeople-prd-v16.0-prep-id.md).
 
 ---
 
-## 5. Greenfield berikutnya (Module 4–8)
+## 5. Greenfield berikutnya — PRD v16.0
 
 | Prioritas | Module | Fokus |
 |-----------|--------|--------|
-| **P0** | **v4 Mod 4** | Internal career marketplace / job posting internal / apply |
-| **P1** | Mod 5–6 | EWA + external salary benchmarking (partner Conditional) |
-| **P2** | Mod 7–8 | Manufacturing / retail vertical packages |
+| **P0** | **v4 Mod 4** | Internal career marketplace — post, apply, HR pipeline |
+| **P1** | Mod 4.2 + v16.1 | Rotation programs, succession link |
+| **P2** | Mod 5–8 | EWA, salary bench, verticals |
+
+**Draft lengkap:** user stories CM-1…CM-52, data model, API sketch, open questions → [prep doc §5–§14](./PRD/dnpeople-prd-v16.0-prep-id.md).
 
 ### Out of scope kecuali PRD eksplisit
-- Video tutorial library (explicitly dropped from v14)
-- Re-implement Admin Console (v15 Done)
-- WebSocket real-time comments on calibration
-- Native mobile / physical SILO
-- Re-write payroll/tax
+Full legal CMS · video library · Midtrans · Xendit payouts · native mobile · payroll rewrite · marketing landing rewrite
 
 ---
 
-## 6. Outline singkat PRD v16.0 (Module 4) — skeleton
+## 6. Outline PRD v16.0 (skeleton)
 
-- Outcome: karyawan lihat lowongan internal; apply; HR/manager pipeline; link ke competency gap & succession.
-- Tier usulan: PROFESSIONAL+ atau BUSINESS — putuskan di PRD.
-- RBAC: EMPLOYEE self-apply; MANAGER recommend; HR manage postings.
-- DoD: migration, API, UI, tests, FEATURE-CATALOG + wiki mirror.
+**Outcome:** karyawan lihat & apply lowongan internal; HR pipeline; optional link competency/succession.
+
+| Area | Keputusan draft |
+|------|-----------------|
+| Arsitektur | Modul terpisah `InternalJob` (bukan extend recruitment MVP) |
+| Tier | `career:marketplace` @ PROFESSIONAL+ |
+| RBAC | HR manage; EMPLOYEE apply; MANAGER read scoped |
+| Integration | Onboarding on accept; succession suggest = v16.1 |
+| DoD | migration, API, UI, tests, FEATURE-CATALOG sync |
 
 ---
 
 ## 7. Checklist story (wajib)
 
-Sama pola v13/v14/v15: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export jika relevan, no payroll regression.
+Pola v13/v14/v15: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export cap.
+
+Agustus 2026+: payment stories = Xendit; legal = no full CMS assumption.
 
 ---
 
 ## 8. Satu kalimat penutup
 
-> dnPeople **sudah punya** Module 3 talent matrix (v13.0), in-app tutorial/KB (v14.0), dan Admin Console (v15.0). PRD berikutnya = **Module 4+ (v16.0)** dan/atau **ops go-live** — jangan ulangi 9-box, video library, atau admin console.
+> dnPeople punya talent matrix, admin console, Xendit billing + invoice PDF, grouped nav. **PRD berikutnya = v16.0 Module 4** + **ops go-live paralel** — lihat [prep doc](./PRD/dnpeople-prd-v16.0-prep-id.md) sebelum menulis PRD final.
+
+---
+
+## 9. Referensi cepat
+
+| Doc | Path |
+|-----|------|
+| **Prep PRD v16.0 (lengkap)** | [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) |
+| Baseline panjang | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) |
+| Katalog fitur | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
+| Matrix status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
+| Xendit setup | [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) |
+| Launch gates | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) |

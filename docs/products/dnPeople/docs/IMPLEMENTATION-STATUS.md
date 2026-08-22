@@ -1,9 +1,9 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **8 Agustus 2026** (Xendit payment gateway + PRD **v15.0** Admin Dashboard)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1** · Repo version **1.0.0**
+> Terakhir diperbarui: **10 Agustus 2026** (grouped nav, billing UI polish, logo3, invoice PDF + payment labels)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1** + Aug 2026 increments · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 26, 2026  
+> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** August 10, 2026  
 >
 > **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **Release:** [RELEASE-READY.md](./RELEASE-READY.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
@@ -29,12 +29,18 @@
 | PRD v13.0 | Module 3: 9-box talent matrix, session lock, succession/readiness, development proposals, Excel/PDF/HTML reports | **Done** in repo |
 | PRD v14.0 | In-app tutorials (5 MVP) + knowledge base + Help menu; progress/tier gating; **no video library** | **Done** in repo |
 | PRD v15.0 | Internal admin console (`/admin`, SUPER_ADMIN): customers + impersonation banner, revenue/billing/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), system health alerts/logs, audit log, Admin MFA gate; seeded operator `dozer@dntech.id` (DN Tech tenant) | **Done** in repo; live API latency P50/P95/P99 (Prometheus/Datadog) Conditional |
-| **Xendit PG v1.0** | Hosted checkout (Invoice v2), webhook + return sync, public invoice pay, refund admin, trial billing UX | **Done** in repo; sandbox E2E + webhook + prod migration deploy **Conditional** |
-| PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** (recommended next product PRD = **v16.0**) |
+| **Xendit PG v1.0** | Hosted checkout (Invoice v2), webhook fail-closed, return sync, public invoice pay, refund admin, pay-during-trial | **Done** in repo on `hris.dntech.id`; **live E2E + production keys Conditional** |
+| **Legal ToS/PP MVP** | Signup consent, `/legal/terms` + `/legal/privacy`, acceptance middleware, `/settings/legal`, `ComplianceBanner` | **Done** in repo; full legal CMS (AUP/admin editor) **not** in scope |
+| **UI theme** | Light/dark/system toggle; default **light** | **Done** |
+| **Grouped sidebar nav** | 8 section labels; flat mode ≤8 items; SSOT `navigationMenu.ts` | **Done** in repo — Aug 2026 |
+| **Billing UI polish** | Stat cards, tier feature bullets, invoice filters, trial preview toggle, mobile cards | **Done** in repo — Aug 2026 |
+| **Invoice PDF + payment labels** | `GET /subscription/invoices/:id.pdf`; Xendit method on invoice history | **Done** in repo — Aug 2026 |
+| **Brand logo logo3** | `/logo3.png` site-wide (AppShell, marketing, login, careers, JSON-LD) | **Done** in repo — Aug 2026 |
+| PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** → **PRD v16.0** recommended |
 
-**Inventory:** **~86** frontend pages · **~56** backend route modules · **~120** Prisma models  
-**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **80/80** ✅ · Prisma validate ✅ · npm audit **0 vulnerability** ✅  
-**Production go-live:** Code release-ready (26 Jul 2026) — see [RELEASE-READY.md](./RELEASE-READY.md). Still need Datadog/PagerDuty live, signed restore drill, pen-test, DNS dnpeople.id, 10–20 beta customers.
+**Inventory:** **~96** frontend pages · **~60** backend route modules · **129** Prisma models · **17** migrations  
+**Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **81/81** ✅ · Prisma validate ✅  
+**Production:** Deployed `https://hris.dntech.id` — Xendit test mode configured; go-live gates (Datadog, pen-test, beta UAT, live payment) **Conditional**
 
 ### Mulai PRD berikutnya
 
@@ -63,7 +69,7 @@
 
 | Area | Status | Implementasi |
 |------|--------|--------------|
-| Application shell | Done | Mobile header + navigation drawer; sidebar persisten mulai breakpoint `md` |
+| Application shell | Done | Mobile header + drawer; **grouped sidebar** (8 sections) persisten dari `md`; flat nav for short employee lists |
 | Content spacing | Done | Padding konten dan card responsif dari mobile ke desktop |
 | Forms & actions | Done | Grid menjadi satu kolom dan action row membungkus pada layar kecil |
 | Data tables | Done | 17 tabel di 16 halaman memenuhi lebar card pada desktop; horizontal scrolling lokal pada mobile |

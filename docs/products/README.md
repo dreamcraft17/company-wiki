@@ -1,7 +1,7 @@
 # Product Documentation Index
 
-**Document Version**: 1.6
-**Last Updated**: August 6, 2026
+**Document Version**: 1.7
+**Last Updated**: August 22, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -14,7 +14,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Release-ready + launch gates | Soft launch Agustus · ops Conditional | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
@@ -28,10 +28,11 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 ---
 
-## 🔄 Latest Updates (August 6, 2026)
+## 🔄 Latest Updates (August 22, 2026)
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **dnPeople HRIS** | app `a51d839` / wiki sync | **v1.1.0** — a11y CI (16 tests), payment idempotency, SUPER_ADMIN routing, `/metrics` token gate, demo creds, chaos scaffold; mirror README + CHANGELOG |
 | **dnShop Finance** | SOPI + UI2 6 Agu | Wiki product baru: STATUS, FEATURE-CATALOG, SOPI PRD/SRS/SDD Implemented, NEXT-PRD-BRIEF → **v2.2** |
 | **Threads Automation** | docs tree 24 Jul | Living docs di `auto/docs/` + wiki: status MVP, FEATURE-CATALOG, **NEXT-PRD-BRIEF** (live publish & media) |
 | **dnPeople HRIS** | app `8a75871` / docs `e7cf0ca` | Soft-launch **release-ready**: secrets fail-closed, demo creds gated, smoke expanded, RELEASE-READY + launch checklist mirrored |

@@ -3,12 +3,12 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** July 26, 2026  
+**UpdatedAt:** August 10, 2026  
 
-
-**Snapshot:** 26 July 2026 · PRD **v15.0** Admin Console + **v14.0** Tutorial & Onboarding + v13.0 Talent Matrix  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 (complete in repo)  
-**Next PRD scope (recommended):** PRD **v16.0** = v4 **Module 4–8** (+ external go-live ops)  
+**Snapshot:** 10 August 2026 · PRD **v15.0** Admin + **Xendit PG** + billing UI polish + grouped nav + **logo3** + v14 Tutorial + v13 Talent  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 + Aug 2026 increments (complete in repo)  
+**Next PRD scope (recommended):** PRD **v16.0** = v4 **Module 4** (internal career marketplace)  
+**Production URL:** `https://hris.dntech.id`  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
 **Scope:** fitur yang tersedia pada codebase `dnpeople` (web + API), plus batas integrasi production dan roadmap eksplisit  
 **Audience:** Product, Business Analyst, Sales, Engineering, QA, Implementation, dan penyusun PRD berikutnya
@@ -25,7 +25,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~86 halaman frontend**, **~56 modul route backend**, **~120 model Prisma**, **53** backend unit tests, mobile-first web shell, marketing landing v11.1, tier pricing SSOT, FREE hard **30** / STARTER hard **50** + `/upgrade`, **PRD v13.0** 9-box/succession (`talent:matrix` PROFESSIONAL+), **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console (`/admin`, SUPER_ADMIN), nav tier-hide jujur (demo seed FREE), dan domain fitur dari core HR sampai talent + enterprise. Auth session memakai httpOnly cookie `dnpeople_session`. Kontak publik: **info@dntech.id**.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~96 halaman frontend**, **~60 modul route backend**, **129 model Prisma**, **81** backend unit tests, mobile-first web shell dengan **grouped sidebar nav** (default **light theme**), brand logo **`/logo3.png`**, marketing landing v11.1 + `/docs` hub, tier pricing SSOT, FREE hard **30** / STARTER hard **50**, **Xendit** payment checkout + invoice PDF export, **Legal ToS/PP** acceptance MVP, **PRD v13.0** 9-box/succession, **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console, nav tier-hide jujur, dan domain fitur dari core HR sampai talent + enterprise. Auth: httpOnly cookie `dnpeople_session`. Kontak: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 
@@ -248,12 +248,16 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Storage quota | FREE 5 GB hard-block on upload; TenantQuota synced from tier | All uploaders | `/uploads` | Available |
 | API daily quota | FREE 1.000 / STARTER 10.000 / PROF 50.000 per Jakarta day (API keys only) | API consumers | Auth + `X-RateLimit-*` | Available |
 | Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |
-| Invoices | List/detail invoice subscription | Company admin | `/billing` | Available |
+| Invoices | List/detail invoice subscription; filter Semua/Perlu bayar/Lunas; sembunyikan pratinjau trial Rp 0 | Company admin | `/billing` | Available |
+| Invoice PDF export | Unduh PDF invoice subscription (logo dnPeople, footer same-page) | Company admin | `/billing`, `GET /subscription/invoices/:id.pdf` | Available — Aug 2026 |
+| Invoice payment detail | Metode bayar Xendit (JeniusPay, QRIS, ShopeePay, dll.) + timestamp di riwayat | Company admin | `/billing` | Available — Aug 2026 |
 | Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
 | Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
 | Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
-| Payment adapter | **Xendit** hosted checkout (primary) + Stripe/manual adapters; Bayar di `/billing`; webhook `/webhooks/xendit` + return sync | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — credentials + sandbox E2E Conditional |
+| Payment adapter | **Xendit** hosted checkout (primary); Bayar saat trial diperbolehkan; webhook `/webhooks/xendit` + return sync; early pay clears trial | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — live E2E Conditional |
+| Trial UX | Countdown badge (sidebar/header); pratinjau invoice DRAFT (toggle tampil); optional early payment | Company admin | AppShell, `/billing` | Available |
+| Billing UI | Stat cards, tier cards dengan feature bullets dari `subscriptionCatalog`, mobile invoice cards | Company admin | `/billing` | Available — Aug 2026 |
 
 ## 11. Platform, branding, security, dan operations
 
@@ -278,9 +282,14 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | OpenAPI / Swagger | Spec inti + Swagger UI CDN | Integrator | `/api/v1/openapi.json`, `/api/v1/docs` | Available — PRD v9.0 |
 | Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
 | Privacy / UU PDP export | Export data pribadi, deletion request, daftar processors | Employee/HR/Admin | `/privacy/*`, `docs/legal/` | Available — PRD v10.0 |
+| Legal ToS & Privacy Policy (MVP) | Versioned docs, signup consent modal, acceptance log, compliance banner, re-accept at `/settings/legal` | All users / admin | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — **not** full legal CMS |
+| UI theme | Light / dark / system; default light | All users | AppShell header toggle | Available |
+| Public documentation hub | Getting started, modules, tiers, demo, API pointer | Publik | `/docs` | Available — Aug 2026 |
 | Ops observability | `/alive`, enriched `/health`/`/ready`, Prometheus histogram + rate_limit + payroll_jobs | Operations | `/metrics`, `ops/` | Available — PRD v10.0; Datadog account Conditional |
 | Marketing landing | Full v11.1 landing: hero, features, pricing (5 tiers), how-it-works, demo, FAQ accordion, beta signup, sticky mobile CTA, JSON-LD; `/legal/dpa` | Publik | `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, `/blog/*`, `/legal/dpa`, `/api/v1/public/*` | Available — PRD v11.1; DNS/GA/Zapier Conditional |
-| Responsive web | Mobile drawer, responsive forms/cards, local table scroll | Semua role | Seluruh web app | Available |
+| Responsive web | Mobile drawer, responsive forms/cards, local table scroll; **grouped sidebar** (8 sections) | Semua role | Seluruh web app | Available |
+| App navigation | SSOT `navigationMenu.ts`; tier + role filter; section labels Utama/People/Kehadiran/Payroll/Talent/Ops/Laporan/Pengaturan; flat mode ≤8 items | Semua role | AppShell sidebar | Available — Aug 2026 |
+| Brand assets | Logo produk canonical **`/logo3.png`** (AppShell, marketing, login, careers, JSON-LD); legacy `logo1.png`/`logo2.png` retained in `public/` | Publik / semua user | `frontend/public/` | Available — Aug 2026 |
 | Header actions | Notification dan logout di header/navbar kanan | Semua role | App shell | Available |
 
 ## 12. Fitur yang belum tersedia (roadmap boundary)
@@ -331,6 +340,6 @@ Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog 
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| UpdatedAt | July 22, 2026 |
+| UpdatedAt | August 10, 2026 |
 | Spec | PRD v4–v11.0 complete in repo · next = v4 Module 3–8 |
 | Launch | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) |

@@ -465,7 +465,8 @@ Base path: `/api/v1/subscription` · UI: `/billing`
 |--------|------|-----------|
 | GET | `/subscription/current` | Current subscription, features, access mode, invoices |
 | GET | `/subscription/features` | Effective feature access |
-| GET | `/subscription/invoices` | Invoice history |
+| GET | `/subscription/invoices` | Invoice history (includes `payment` summary when paid) |
+| GET | `/subscription/invoices/:id.pdf` | ✓ | Download subscription invoice PDF (COMPANY_ADMIN) |
 | POST | `/subscription/invoices/:id/payment` | Stripe / manual payment request (legacy adapter) |
 | GET | `/subscription/audit` | Subscription change history |
 | POST | `/subscription/upgrade` | Change tier + prorated invoice |

@@ -2,16 +2,21 @@
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 26 July 2026 |
-| HEAD | Post-v15.0 Admin Dashboard (main) |
-| Purpose | **Baseline** after PRD **v15.0** Admin Dashboard & Control Panel |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | July 26, 2026 |
+| Snapshot date | 10 August 2026 |
+| HEAD | Post grouped nav + billing UI polish + logo3 (`main` @ `e462db7+`) |
+| Purpose | **Baseline** after PRD **v15.0** + August 2026 billing/legal increments — input for **PRD v16.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **Xendit PG v1.0** + **Legal ToS/PP MVP** shipped Aug 2026; **v4 Module 4–8** = primary greenfield → **v16.0** |
+| Production (staging) | `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
+| Updated at | August 10, 2026 |
 
-> **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log, Admin MFA gate. Operator account seeded: DN Tech tenant + `dozer@dntech.id` (`SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`). Live latency P50/P95/P99 Conditional. Specs in `docs/PRD/*-v15.0-admin*`.
+> **August 10, 2026 increments:** Grouped sidebar nav (8 sections, flat mode for short employee lists); billing page UI polish (stat cards, tier feature bullets, invoice filters, trial preview hide); brand logo **`/logo3.png`** site-wide; invoice PDF export + Xendit payment method on invoice history (same sprint).
+>
+> **August 2026 increments:** Xendit Invoice v2 hosted checkout (replaces Midtrans SNAP); webhook + return-url sync; public invoice pay; pay-during-trial + early pay clears trial; trial countdown badge; Legal ToS + Privacy Policy acceptance (signup + compliance banner); `/docs` hub; light/dark theme (default light). Specs: `docs/xendit/`, `docs/legal/`.
+>
+> **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log. Admin MFA opt-in. Specs in `docs/PRD/*-v15.0-admin*`.
 >
 > **PRD v14.0 (25 Jul 2026):** In-app tutorials (5 MVP), knowledge base, Help menu, progress + tier gating. Video tutorial/library removed by product decision. Specs in `docs/PRD/*-v14.0-tutorial*`.
 >
@@ -39,9 +44,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~86** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
-| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~56** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **~120** models; deployment migrations are mandatory |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **~96** production routes (marketing + app + `/admin/*` + help + legal + `/docs`); mobile-first shell; **grouped sidebar nav**; **light theme default** + dark/system toggle; brand logo **`/logo3.png`** |
+| Backend | Express 5 + TypeScript REST API under `/api/v1`; **~60** route modules plus tenant-scoped SCIM `/scim/v2` |
+| Data | PostgreSQL 16 + Prisma 6 with **129** models; **17** deployment migrations |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -139,7 +144,8 @@ the attempted path in `next`.
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
 | Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
-| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout** + return sync | `/subscription`, `/payments` | `/billing` | Available; **Xendit sandbox E2E Conditional** |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout**, pay-during-trial, trial badge, **invoice PDF export**, **payment method on invoice history**, polished `/billing` UI | `/subscription`, `/payments` | `/billing` | Available; **Xendit live E2E Conditional** |
+| Legal compliance (MVP) | ToS + Privacy Policy versions, signup consent, acceptance log, compliance banner, re-accept flow | `/legal-documents`, `/acceptances` | `/legal/*`, `/signup`, `/settings/legal` | Available — ToS/PP only; full legal CMS **not** implemented |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
@@ -207,7 +213,7 @@ the attempted path in `next`.
 - Gap analysis is priority-ranked (`gap × importanceWeight`) and reused to auto-generate IDP goals.
 - IDP creation with idempotent auto-generation of goals from the top competency gaps for an employee's position, goal status/progress tracking, and periodic review that recomputes plan completion.
 - LMS course/program with ordered modules, self-enroll or manager-assigned enrollment, per-module completion, automatic completion percentage/final score, certificate code and expiry, and a personal transcript endpoint.
-- Not yet built: 9-box matrix, succession planning, internal career marketplace/rotation programs, earned wage access, salary benchmarking, and manufacturing/retail vertical packages — these remain PRD v4 roadmap items (Q4 2026 and later).
+- Not yet built: internal career marketplace/rotation programs, earned wage access, salary benchmarking, and manufacturing/retail vertical packages — these remain PRD v4 Module 4–8 roadmap (next: **PRD v16.0**).
 
 ### Dashboard, reporting and enterprise
 
@@ -217,7 +223,7 @@ the attempted path in `next`.
 - Multi-company platform console and organization links.
 - API keys, webhooks/integration configuration, custom approval workflows and custom reports.
 - White-label branding, SSO configuration and row-level data access rules.
-- Mobile navigation drawer; notification and logout actions are in the right-side header/navbar, not the sidebar.
+- Mobile navigation drawer with **grouped sidebar** (8 section labels from `navigationMenu.ts`; flat list when ≤8 visible items); notification and logout actions are in the right-side header/navbar, not the sidebar.
 - PRD v6 adds verified-domain tenant discovery, POOL/SILO/BRIDGE control-plane policy,
   per-tenant SSO/JIT configuration, organization hierarchy, user-specific organization/department/
   location scopes, tenant-scoped SCIM Users/Groups, quota/usage monitoring, isolation breach audit,
@@ -249,8 +255,8 @@ Current recorded automated evidence: **53/53** backend tests pass; frontend **~8
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
-| **P0 ops** | External go-live gates (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · [RELEASE-READY.md](./RELEASE-READY.md) | Datadog live, pen-test sign-off, DNS dnpeople.id, beta UAT |
-| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · next product PRD **v16.0** | Next greenfield after Admin Console (v15) |
+| **P0 ops** | Xendit sandbox E2E + webhook on `hris.dntech.id`; external go-live gates | [XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) · [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Keys test on VPS; verify 1× payment E2E |
+| **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · **v16.0** | Next greenfield |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |
 | **Done** | PRD v15.0 Admin Dashboard & Control Panel | [PRD v15.0](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | `/admin` SUPER_ADMIN; MFA; flags runtime; latency metrics Conditional |

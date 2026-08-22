@@ -23,8 +23,8 @@ Internal SaaS panel di **`/admin`** (bukan shell customer) — dipakai tim DN Te
 | | |
 |---|---|
 | Tenant | **DN Tech** (PT. Dozer Napitupulu Technology) — internal, bukan customer |
-| Email | `dozer@dntech.id` (override: `SUPER_ADMIN_EMAIL`) |
-| Password | `SUPER_ADMIN_PASSWORD`; **dev fallback** `Admin123!` (wajib di-set di production) |
+| Email | `dozer@dntech.id`, `admin@dntech.id` (override: `SUPER_ADMIN_EMAILS` atau `SUPER_ADMIN_EMAIL` untuk akun pertama) |
+| Password | `SUPER_ADMIN_PASSWORD` (sama untuk semua operator); **dev fallback** `Admin123!` (wajib di-set di production) |
 | Role | `SUPER_ADMIN` |
 | Seed | `prisma/seedAdmin.ts` (ikut `npm run db:seed`, idempotent) |
 
@@ -65,9 +65,11 @@ Checklist IdP: Okta · Azure AD · Google Workspace — uji satu user + JIT + de
 
 ## 5. Billing
 
-- `/billing` — lihat paket, upgrade, invoice, **Bayar via Xendit** (hosted checkout).
-- Bayar invoice: tombol **Bayar** → redirect Xendit test/live. Butuh `XENDIT_SECRET_KEY` + email billing valid. Lihat [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
-- Webhook: `POST /api/v1/subscription/webhooks/:provider`.
+- `/billing` — stat cards paket/status/karyawan/estimasi; pilih tier; riwayat invoice dengan filter **Semua / Perlu bayar / Lunas**; pratinjau trial Rp 0 disembunyikan default.
+- Bayar invoice: tombol **Bayar** → redirect Xendit test/live. Metode bayar (JeniusPay, QRIS, ShopeePay, dll.) tampil setelah lunas.
+- **Unduh PDF** per invoice — `GET /api/v1/subscription/invoices/:id.pdf`.
+- Butuh `XENDIT_SECRET_KEY` + email billing valid. Lihat [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+- Webhook: `POST /api/v1/webhooks/xendit` (bukan legacy Stripe path).
 
 ## 6. Keamanan production
 

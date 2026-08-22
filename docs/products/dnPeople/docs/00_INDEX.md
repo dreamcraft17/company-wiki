@@ -3,19 +3,25 @@
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** August 8, 2026  
-**Status:** PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 **complete** · Xendit payment **in repo** · soft-launch gates = external ops  
-**Codebase:** ~86 pages · ~56 route modules · ~120 models · **80** tests  
+**UpdatedAt:** August 10, 2026  
+**Status:** PRD v5–**v15.0** complete · **Xendit PG + billing UI + grouped nav + logo3** (Aug 2026) · next = **PRD v16.0 Module 4**  
+**Codebase:** ~96 pages · ~60 route modules · **129** models · **81** tests  
+**Production:** `https://hris.dntech.id` · API `https://api.hris.dntech.id`
 **Contact:** info@dntech.id  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
 > **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
-> **Dasar PRD berikutnya (1 file):** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)  
+> **Dasar PRD berikutnya:** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) · **Prep lengkap v16.0:** [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md)  
 > **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8 → **v16.0**  
 > **Demo creds on UI:** ditampilkan by default (public sandbox **FREE** tier) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
 | File | Deskripsi |
 |------|-----------|
+| [**DNPEOPLE-HRIS-OVERVIEW.md**](./DNPEOPLE-HRIS-OVERVIEW.md) | **Penjelasan produk lengkap dalam 1 file** — mulai di sini |
+| [A11Y-TESTING.md](./A11Y-TESTING.md) | **Aksesibilitas WCAG 2.2 AA** — Playwright + axe, keyboard, manual checklist |
+| [CHAOS-ENGINEERING.md](./CHAOS-ENGINEERING.md) | **Chaos engineering** — hipotesis, 3 experiment awal, game day, VPS scripts |
+| [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | **Brief PRD v16.0** — baca ini dulu (1 halaman) |
+| [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) | **Persiapan PRD v16.0 lengkap** — user stories, open questions, DoD |
 | [PROJECT-OVERVIEW.md](./PROJECT-OVERVIEW.md) | Ringkasan produk & roadmap |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Arsitektur v7.0+ |
 | [API.md](./API.md) | Referensi API |
@@ -89,4 +95,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: July 22, 2026*
+*Last Updated: August 9, 2026*

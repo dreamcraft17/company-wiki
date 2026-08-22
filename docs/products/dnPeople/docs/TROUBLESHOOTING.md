@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-**UpdatedAt:** 8 Agustus 2026  
+**UpdatedAt:** 10 Agustus 2026  
 
 ## Can't login
 1. Cek email/password; gunakan “Lupa password?” (token 1 jam).  
@@ -37,8 +37,9 @@ Pakai job async di `/reports` (bukan download sinkron besar).
 - Lokal: butuh ngrok/tunnel ke port backend `4100`
 
 ### Trial vs invoice
-- Trial aktif + invoice **DRAFT** = normal — akses fitur dari trial, bukan dari invoice PAID
-- Tombol **Bayar** disembunyikan selama trial aktif
+- Trial aktif + invoice **DRAFT** Rp 0 = pratinjau — **disembunyikan default** di `/billing` (toggle "Tampilkan pratinjau trial")
+- Invoice dengan total &gt; 0: **Bayar** tersedia meski masih trial
+- Setelah bayar saat trial, status subscription jadi berlangganan aktif (trial diakhiri)
 
 ### Link invoice publik
 - `403 INVALID_SIGNED_URL` — token expired; minta link baru

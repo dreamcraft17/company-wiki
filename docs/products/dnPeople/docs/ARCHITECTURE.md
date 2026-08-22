@@ -82,7 +82,9 @@ net = gross − bpjs − pph21 ± THR / proration / unpaid leave
 ## Frontend Architecture
 
 - App Router (`src/app`)
-- Route group `(app)` dengan responsive `AppShell` (mobile header + drawer; sidebar dari `md`)
+- Route group `(app)` dengan responsive `AppShell` (mobile header + drawer; **grouped sidebar** 8 sections dari `md`; flat nav when ≤8 items)
+- Nav SSOT: `frontend/src/lib/navigationMenu.ts` — tier + role filter; items without access omitted from DOM
+- Brand logo: **`/logo3.png`** in AppShell, marketing shell, login, careers; JSON-LD references same URL
 - API client (`lib/api.ts`)
 - Role-aware nav; dense tables pakai `overflow-x-auto`
 

@@ -43,7 +43,13 @@ A: Unduhan membutuhkan login. Link “Bagikan Link” hanya berlaku 24 jam.
 ## Billing
 
 **Q: Bagaimana bayar invoice?**  
-A: `/billing` → tombol **Bayar** → redirect ke halaman pembayaran **Xendit** (hosted checkout). Butuh `XENDIT_SECRET_KEY` di env backend. Panduan: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+A: `/billing` → filter **Perlu bayar** (jika perlu) → tombol **Bayar** → redirect ke halaman pembayaran **Xendit** (hosted checkout). Butuh `XENDIT_SECRET_KEY` di env backend. Panduan: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+
+**Q: Bagaimana unduh invoice PDF?**  
+A: `/billing` → kolom aksi → **PDF** (Unduh). File berisi logo dnPeople, detail periode, dan total.
+
+**Q: Kenapa banyak invoice Rp 0 saat trial?**  
+A: Itu pratinjau trial (DRAFT). Secara default disembunyikan — klik **Tampilkan pratinjau trial** jika perlu melihat semua.
 
 **Q: Berapa harga dnPeople?**  
 A: Starter ~Rp20.000/karyawan/bulan; Professional ~Rp25.000; Business/Enterprise sesuai paket — lihat `/billing` atau sales@dnpeople.id.

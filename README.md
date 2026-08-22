@@ -21,7 +21,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (49 markdown)
-  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · v15 Admin + Xendit PG + billing UI · next **PRD v16.0**
+  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2
   - [DOVA](./docs/products/dova/00_INDEX.md) (22 markdown) — Marketplace MVP dan operations launch
@@ -87,4 +87,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: August 10, 2026*
+*Last Updated: August 22, 2026*

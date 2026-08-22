@@ -31,7 +31,7 @@ npm run db:seed
 
 ## Akun operator DN Tech (bukan demo)
 
-Akun `SUPER_ADMIN` untuk Admin Console `/admin` **terpisah** dari sandbox ini dan tidak ditampilkan di UI: tenant **DN Tech**, email `dozer@dntech.id`, password dari `SUPER_ADMIN_PASSWORD` (dev fallback `Admin123!`). Detail: [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) §2.
+Akun `SUPER_ADMIN` untuk Admin Console `/admin` **terpisah** dari sandbox ini dan tidak ditampilkan di UI: tenant **DN Tech**, email `dozer@dntech.id` dan `admin@dntech.id`, password dari `SUPER_ADMIN_PASSWORD` (dev fallback `Admin123!`). Detail: [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) §2.
 
 ## Yang terlihat di nav (FREE)
 
