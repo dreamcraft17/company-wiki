@@ -1,7 +1,7 @@
 # DOVA — Dokumen Status Lengkap (Teknis)
 
-> **Status:** Active · **Terakhir diperbarui:** 2026-08-26 · **Owner:** Dozer / DN Tech  
-> **Repo:** [dreamcraft17/dova](https://github.com/dreamcraft17/dova) · **HEAD:** `00c8601` · **Release:** v0.5.0
+> **Status:** Active · **Terakhir diperbarui:** 2026-08-27 · **Owner:** Dozer / DN Tech  
+> **Repo:** [dreamcraft17/dova](https://github.com/dreamcraft17/dova) · **HEAD:** `dcb5c2f` · **Release:** v0.5.2 · **Tag:** production live
 
 ---
 
@@ -12,9 +12,9 @@
 | Pertanyaan | Jawaban singkat |
 |------------|-----------------|
 | Apakah kode MVP sudah jadi? | **Ya** — seluruh scope Week 1–4 sudah diimplementasi |
-| Apakah sudah live publik? | **Staging ya** — [dova.dntech.id](https://dova.dntech.id); soft-launch penuh butuh Paystack live + checklist bisnis |
+| Apakah sudah live publik? | **Ya — production** — [dova.dntech.id](https://dova.dntech.id); Paystack live; launched 27 Aug 2026 |
 | Stack utama | NestJS + Next.js + PostgreSQL + Paystack |
-| Test otomatis | **121 unit tests** green · CI build + typecheck |
+| Test otomatis | **127 unit tests** green · `npm run smoke:production` |
 | Mata uang | **₦ (NGN)** |
 
 ---
@@ -426,7 +426,6 @@ npm run dev
 
 | Dokumen | Path | Isi |
 |---------|------|-----|
-| **Launch budget (BD)** | [`DOVA-LAUNCH-BUDGET.md`](./DOVA-LAUNCH-BUDGET.md) | Yang perlu dibeli + budget minimum pre-funding |
 | README repo | [`../Readme.md`](../Readme.md) | Quick start + commands |
 | ENV setup | [`ENV-SETUP.md`](./ENV-SETUP.md) | VPS/staging env |
 | Test catalog | [`TEST-CASES.md`](./TEST-CASES.md) | Manual + automated cases |
@@ -442,4 +441,5 @@ npm run dev
 
 | Tanggal | Perubahan |
 |---------|-----------|
+| 2026-08-27 | Hapus tautan launch budget (dokumen pribadi, bukan wiki tim) |
 | 2026-08-23 | Dokumen awal — stack, fitur, pekerjaan teknis, status Agustus 2026 |

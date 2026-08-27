@@ -3,11 +3,11 @@
 **Product**: DOVA — agricultural / food supply marketplace (Nigeria)  
 **Market**: NGN · Paystack  
 **Repository**: [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
-**Status**: MVP complete · **v0.5.0** · staging live · soft-launch prep  
+**Status**: MVP complete · **v0.5.2 production live**  
 **Owner**: Dozer  
 **Company**: DN Tech  
-**UpdatedAt**: August 26, 2026  
-**App HEAD**: `00c8601`  
+**UpdatedAt**: August 27, 2026  
+**App HEAD**: `dcb5c2f` · **Tag:** `v0.5.2`  
 
 **Canonical wiki:** workspace folder `dova-company-wiki/`  
 **Mirrors:** this path (`company-wiki/docs/products/dova/`) · `dova/docs/` (local, gitignored)
@@ -18,8 +18,8 @@
 > **Specs:** [PRD/](./PRD/)  
 > **Sync:** from workspace root → `./dova-company-wiki/scripts/sync-docs.sh`
 
-**Staging:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 121 unit · 15 suites · CI green
+**Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
+**Tests:** 127 unit · production smoke automated (`npm run smoke:production`)
 
 ---
 
@@ -38,6 +38,10 @@
 | [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
 | [API.md](./docs/API.md) | Referensi API MVP |
 | [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | **API endpoint list for QA** (Postman / Insomnia) |
+| [DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md) | **Release audit** — 100% production |
+| [SMOKE-PRODUCTION-RESULT.md](./docs/SMOKE-PRODUCTION-RESULT.md) | Production API smoke pass log |
+| [TEST-CASES.md](./docs/TEST-CASES.md) | Manual UAT / UI test scenarios |
+| [GUIDE.md](./docs/GUIDE.md) | QA testing workflow |
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
 | [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Deploy single-server |
 | [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Override Docker → Vercel/VPS |
@@ -60,7 +64,15 @@
 
 | File | Topic |
 |------|-------|
-| [current-phase.md](./current-phase.md) | Current phase — staging live, go/no-go |
+| [current-phase.md](./current-phase.md) | Current phase — production live |
+
+## Private (DN Tech / Dozer)
+
+> Not in `dova-company-wiki`. Do not copy these files into the DOVA team wiki.
+
+| File | Isi |
+|------|-----|
+| [private/README.md](./private/README.md) | Index — equity, counter-proposal, launch budget |
 
 ---
 
@@ -75,7 +87,7 @@
 | | |
 |---|---|
 | GitHub app | https://github.com/dreamcraft17/dova |
-| Staging | https://dova.dntech.id |
+| **Production** | https://dova.dntech.id |
 | API health | https://api.dova.dntech.id/api/v1/health |
 | Local frontend | http://localhost:3001 |
 | Demo admin | `admin@dova.local` / `admin1234` |
@@ -83,4 +95,4 @@
 
 ---
 
-*Last Updated: August 26, 2026*
+*Last Updated: August 27, 2026*

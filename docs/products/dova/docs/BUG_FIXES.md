@@ -35,6 +35,12 @@ Known issues found during MVP / design port work, and their status.
 | BF-019 | Customer | Purchase history crash — Postgres NUMERIC qty as string | Coerce quantity before `.toFixed()` (`85c2765`) |
 | BF-020 | Ops | API crash on weak/missing `JWT_SECRET` (false CORS/502) | Warn-only boot guard (`a25f894`) |
 
+## Fixed — 2026-08-27 (v0.5.x prep)
+
+| ID | Area | Issue | Fix |
+|----|------|-------|-----|
+| AUTH-01 | Auth | Login loop on staging — stale `accessToken` cookie on API subdomain overrode fresh Bearer token on `/auth/me` | Prefer Authorization header in guard; `establishSession` from login response; clear tokens before login (`fc177d6`) |
+
 ## Open / known (ops & post-MVP — not blocking MVP codebase)
 
 | ID | Area | Issue | Notes |
