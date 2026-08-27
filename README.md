@@ -24,7 +24,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2
-  - [DOVA](./docs/products/dova/00_INDEX.md) (22 markdown) — Marketplace MVP dan operations launch
+  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.0** · staging live · soft-launch prep
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (5 markdown)
@@ -87,4 +87,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: August 22, 2026*
+*Last Updated: August 26, 2026*

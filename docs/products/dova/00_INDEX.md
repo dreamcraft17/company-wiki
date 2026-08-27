@@ -3,20 +3,23 @@
 **Product**: DOVA — agricultural / food supply marketplace (Nigeria)  
 **Market**: NGN · Paystack  
 **Repository**: [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
-**Status**: MVP core demoable · Paystack + Feedlog still in progress · soft-launch prep  
+**Status**: MVP complete · **v0.5.0** · staging live · soft-launch prep  
 **Owner**: Dozer  
 **Company**: DN Tech  
-**UpdatedAt**: July 25, 2026  
-**App HEAD**: `27db4da`  
+**UpdatedAt**: August 26, 2026  
+**App HEAD**: `00c8601`  
 
 **Canonical wiki:** workspace folder `dova-company-wiki/`  
 **Mirrors:** this path (`company-wiki/docs/products/dova/`) · `dova/docs/` (local, gitignored)
 
-> **Start here:** [current-phase.md](./current-phase.md)  
+> **Start here:** [STATUS-LENGKAP.md](./docs/STATUS-LENGKAP.md) · [current-phase.md](./current-phase.md)  
 > **BD:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) · **CEO:** [docs/CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
 > **Specs:** [PRD/](./PRD/)  
 > **Sync:** from workspace root → `./dova-company-wiki/scripts/sync-docs.sh`
+
+**Staging:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
+**Tests:** 121 unit · 15 suites · CI green
 
 ---
 
@@ -24,15 +27,17 @@
 
 | File | Deskripsi |
 |------|-----------|
+| [STATUS-LENGKAP.md](./docs/STATUS-LENGKAP.md) | **Dokumen status teknis lengkap** — stack, fitur, pekerjaan, v0.5.0 |
 | [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | **Kirim ke BD / non-teknis** (+ WhatsApp) |
 | [CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md) | **Kirim ke CEO** (+ WhatsApp) |
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Baseline codebase vs ops |
 | [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Available / Conditional / Out of MVP |
+| [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (0.5.0, 0.4.0, …) |
 | [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Update non-teknis (legacy long form) |
 | [MVP-STATUS.md](./docs/MVP-STATUS.md) | Status report stakeholder |
 | [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
-| [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
 | [API.md](./docs/API.md) | Referensi API MVP |
+| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | **Daftar endpoint untuk QA** (Postman / Insomnia) |
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
 | [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Deploy single-server |
 | [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Override Docker → Vercel/VPS |
@@ -55,7 +60,7 @@
 
 | File | Topic |
 |------|-------|
-| [current-phase.md](./current-phase.md) | Current phase — done vs still in progress |
+| [current-phase.md](./current-phase.md) | Current phase — staging live, go/no-go |
 
 ---
 
@@ -70,11 +75,12 @@
 | | |
 |---|---|
 | GitHub app | https://github.com/dreamcraft17/dova |
+| Staging | https://dova.dntech.id |
+| API health | https://api.dova.dntech.id/api/v1/health |
 | Local frontend | http://localhost:3001 |
-| Local API health | http://localhost:3000/api/v1/health |
 | Demo admin | `admin@dova.local` / `admin1234` |
 | Demo supplier | `supplier@dova.local` / `supplier1234` |
 
 ---
 
-*Last Updated: July 25, 2026*
+*Last Updated: August 26, 2026*

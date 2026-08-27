@@ -1,7 +1,7 @@
 # Product Documentation Index
 
-**Document Version**: 1.7
-**Last Updated**: August 22, 2026
+**Document Version**: 1.8
+**Last Updated**: August 26, 2026
 **Status**: Published
 **Owner**: Dozer
 
@@ -18,7 +18,7 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | MVP core demoable · Paystack/Feedlog in progress | `dova` + **`dova-company-wiki`** |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD mirrored | **v0.5.0** · staging live · soft-launch prep | `dova` + **`dova-company-wiki`** |
 | **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -28,10 +28,11 @@ Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
 
 ---
 
-## 🔄 Latest Updates (August 22, 2026)
+## 🔄 Latest Updates (August 26, 2026)
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **DOVA** | app `00c8601` / wiki sync | **v0.5.0** — admin user management, Remember Me, backend hardening, supplier approve fix, staging live; mirror CHANGELOG + STATUS-LENGKAP + baseline |
 | **dnPeople HRIS** | app `a51d839` / wiki sync | **v1.1.0** — a11y CI (16 tests), payment idempotency, SUPER_ADMIN routing, `/metrics` token gate, demo creds, chaos scaffold; mirror README + CHANGELOG |
 | **dnShop Finance** | SOPI + UI2 6 Agu | Wiki product baru: STATUS, FEATURE-CATALOG, SOPI PRD/SRS/SDD Implemented, NEXT-PRD-BRIEF → **v2.2** |
 | **Threads Automation** | docs tree 24 Jul | Living docs di `auto/docs/` + wiki: status MVP, FEATURE-CATALOG, **NEXT-PRD-BRIEF** (live publish & media) |

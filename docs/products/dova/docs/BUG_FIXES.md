@@ -26,6 +26,15 @@ Known issues found during MVP / design port work, and their status.
 | BF-011 | Product | Contact form may not fully persist to DB | `insertContactSubmission` + admin Contacts tab. |
 | BF-012 | Product | Supplier product image upload still URL-based | Multipart `image` on create/update; URL optional. |
 
+## Fixed — 2026-08-26 (v0.5.0)
+
+| ID | Area | Issue | Fix |
+|----|------|-------|-----|
+| BF-017 | Admin | Supplier approve/reject failed with Postgres `42P08` (`text` vs `varchar` on `$1`) | Cast `$1::varchar` in `setSupplierStatus` (`00c8601`) |
+| BF-018 | Admin UI | User modal transparent overlay — no white card | Portal + z-index card styling (`00dc487`) |
+| BF-019 | Customer | Purchase history crash — Postgres NUMERIC qty as string | Coerce quantity before `.toFixed()` (`85c2765`) |
+| BF-020 | Ops | API crash on weak/missing `JWT_SECRET` (false CORS/502) | Warn-only boot guard (`a25f894`) |
+
 ## Open / known (ops & post-MVP — not blocking MVP codebase)
 
 | ID | Area | Issue | Notes |

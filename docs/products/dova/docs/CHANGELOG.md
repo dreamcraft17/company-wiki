@@ -2,6 +2,172 @@
 
 All notable changes to the DOVA marketplace project.
 
+## [0.5.0] — 2026-08-26
+
+> **Author:** Dozer  
+> **Range:** after `v0.4.0` → `00c8601` · **Commits:** 9 · **SemVer bump:** `minor`
+
+### Added
+- **Admin user management** — view user detail, edit name/email/phone, change role, reset password, activate/deactivate; self-lockout guards prevent admins from demoting or deactivating themselves (`52530da`).
+- **Remember Me** — checkbox now persists login across browser restarts via localStorage and extended refresh token TTL (`2ca18cc`).
+- **Email OTP scaffolding (disabled)** — migration `006_email_otp.sql`, shared OTP helpers, verify-email page, and commented backend endpoints; registration remains immediate login-ready (`7bafb35`).
+- **Backend hardening** — shared prebuild in dev/CI, JWT env guard, rate limiting, Nest auth guards, cart/order migrations (`004`/`005`), feedback board Postgres persistence, expanded test suite (`f6e4d08`).
+
+### Changed
+- **Production boot** — weak/missing `JWT_SECRET` logs a warning instead of crashing the API (fixes false CORS/502 on VPS when env is incomplete) (`a25f894`).
+
+### Fixed
+- **Purchase history crash** — Postgres `NUMERIC` quantity returned as string broke `.toFixed()` on `/customer/history` (`85c2765`).
+- **Supplier approve/reject** — Postgres `42P08` when reusing `$1` in `CASE` vs `verification_status` column; cast `$1::varchar` (`00c8601`).
+- **Admin user modal** — overlay/card rendering on admin users tab (`00dc487`).
+
+### Deploy notes
+- Run `npm run db:migrate` on VPS after pull (migrations `004`, `005`, `006`).
+- OTP email verification is **off**; no `RESEND` config required for signup.
+
+### Commit index (audit)
+
+| Hash | Message |
+|------|---------|
+| `00c8601` | Fix supplier approve/reject failing on Postgres type coercion. |
+| `00dc487` | Fix admin user modal rendering as a proper overlay card. |
+| `6f4577f` | Add release notes for v0.5.0. |
+| `52530da` | Add full admin user management beyond activate/deactivate. |
+| `7bafb35` | Scaffold email OTP verification but keep standard registration. |
+| `85c2765` | Fix purchase history crash when order quantity is a string from Postgres. |
+| `a25f894` | Fix production boot: warn on weak JWT instead of crashing API. |
+| `2ca18cc` | Make Remember Me persist login across browser sessions. |
+| `f6e4d08` | Harden DOVA backend: shared build, auth guards, and DB migrations. |
+
+**Tag command:** `git tag -a v0.5.0 -m 'Release v0.5.0' && git push origin v0.5.0`
+
+---
+
+## [0.4.0] — 2026-08-24
+
+> **Range:** after `0.3.0` (2026-07-24) → `a33e8e0` · **Commits (no merge):** 63 · **SemVer bump:** `minor` · **Conventional lint:** 16/64 valid — sections below merge auto-parser output + full commit pass.
+
+### Added
+- **My Orders** page (`66a19a4`) and **customer profile** page (`2020000`).
+- Checkout **modal login** for guests + reusable modal (`2d5ea55`, `d5262e6`).
+- **Delivery slot** selection + warning when missing (`86312a7`, `6470e18`).
+- **Complete payment** action for pending orders (`a33e8e0`).
+- Supplier product **status tabs** — hide/restore flow (`947beb2`).
+- Admin **Available / Low Stock / Hidden** inventory tabs (`b41ff1d`).
+- Show/hide **password toggle** on auth forms (`0fc6d65`, `d5bd108`).
+- Paystack aligned with **official API + test mode** (`0245cf1`, `1aebc40`).
+- **Native feedback board** at `/feedback` — replaces external FeedLog (`c4d1938`).
+- Cart **quantity cap** when over limit (`b84d805`).
+- **`tests/ENV-SETUP.md`** for new server deploy (`924fa98`).
+- Demo **login reset script** + seed password sync (`4db8a3d`, `160cfdd`).
+- **`.env.dev` templates** for copy-paste local setup (`749cdd7`).
+- DOVA navbar logo as **favicon** (`80a5220`).
+- Reusable **product card** component (`62dc97e`).
+
+### Changed
+- **Admin menu re-layout** + two-row header (`bc4fa7b`, `2512054`).
+- **Mobile-first responsive** pass across all pages (`26a2309`, `b8b20b7`, `3532ea7`, `c1dc679`).
+- Liquid products display in **litres** instead of kg (`6faf855`).
+- Post-login redirect to **`/products`** (`9b7beb7`).
+- Product search **debounced** (`d84840e`).
+- Support contact phone → **+234 903 269 6825** (`2bea2d1`).
+- Deploy pipeline: **build `shared`** before backend/frontend (`1145a14`).
+- Investor-demo **resilience** — non-blocking email, Paystack timeout, checkout role guard (`ca1b78e`).
+- README + stakeholder **partnership docs** updated (`10110e4`, `1aebc40`).
+
+### Fixed
+- **BUG-007:** unique UUID for `order_items.id` on re-order (`e87495b`).
+- **Cart auth** on cross-origin staging + chicken category filter (`d0a5b7f`, `08b65bb`, `771b84f`).
+- **CORS / `.env` load** on VPS/PM2 (`191cfd1`).
+- **Redis** unavailable — no backend crash (`9b028cf`, `df29ae3`).
+- **UAT batch:** cart badge, decimal qty, product tabs, supplier catalog, images (`d755a4c`, `8f06c78`, `771b84f`, `c6ed808`).
+- Mobile **hamburger menu** not responding to taps (`48f2dda`).
+- Desktop **header/nav** layout after mobile-first refactor (`d5eb686`, `64f8750`).
+- Broken **product images** + alt-text fallback (`b7c6e58`, `43e1afc`).
+- Password toggle inheriting login button styles (`d548b3b`).
+- Product list / search bar / filter **centering** on `/products` (`498580c`, `b5bcefe`, `b5c4667`, `94747cc`).
+- Unreadable **Explore Marketplace** button on About (`369f4f2`).
+- Feedback/changelog **nested route imports** (`a50bfcb`, `9cef54e`).
+- Restore **Set to Active** button label on admin (`9b7beb7`).
+
+### Commit index (audit)
+
+<details>
+<summary>63 commits since 0.3.0 — click to expand</summary>
+
+| Hash | Message |
+|------|---------|
+| `a33e8e0` | Add Complete payment action for pending orders. |
+| `1aebc40` | Improve Paystack checkout and add stakeholder partnership docs. |
+| `bc4fa7b` | re-layout admin menu |
+| `10110e4` | update readme.md |
+| `2020000` | profile page |
+| `66a19a4` | feat: My Orders page |
+| `2c730e2` | Stop tracking .DS_Store |
+| `d755a4c` | Fix UAT bugs: cart badge, password toggle, cheap seed products |
+| `8f06c78` | Fix cart decimal-quantity validation and product-tab bugs found in review |
+| `b41ff1d` | Add Available/Low Stock/Hidden product tabs to admin dashboard |
+| `9b7beb7` | Redirect customers to /products after login; restore 'Set to Active' button text |
+| `ca1b78e` | Improve investor-demo resilience: non-blocking emails, Paystack timeout, fix checkout for non-customer roles |
+| `c6ed808` | some bug fix |
+| `48f2dda` | Fix mobile hamburger menu not responding to taps |
+| `43e1afc` | Fix missing Link import in ProductCard after ProductImage change |
+| `1145a14` | Build shared package before backend and frontend on deploy |
+| `924fa98` | Add ENV-SETUP guide for new server deployment |
+| `b7c6e58` | Fix broken product images and alt-text fallback display |
+| `64f8750` | Fix desktop navbar by wrapping brand and nav in header-inner |
+| `d5eb686` | Fix desktop header layout after mobile-first changes |
+| `2bea2d1` | Update support contact phone to +234 903 269 6825 |
+| `b8b20b7` | Improve mobile layout across all viewport sizes |
+| `6faf855` | Show liquid products in litres instead of kilograms |
+| `b5c4667` | fix: text responsive |
+| `26a2309` | Make all DOVA pages mobile-first responsive |
+| `947beb2` | feat: add product status tabs with hide/restore flow for supplier dashboard |
+| `4db8a3d` | Add demo login reset script and sync passwords on bootstrap |
+| `e87495b` | fix BUG-007: generate unique UUID for order_items id to prevent duplicate key error |
+| `d5bd108` | add hide unhide password |
+| `2512054` | Fix admin header layout with two-row navigation bar |
+| `160cfdd` | Reset demo account passwords when running seed |
+| `10ff8bd` | asd |
+| `d548b3b` | Fix show-password toggle inheriting login button styles |
+| `80a5220` | Use DOVA navbar logo as site favicon |
+| `0fc6d65` | Add show/hide password toggle on auth forms |
+| `d5262e6` | Fix product page build: restore showLoginModal state |
+| `771b84f` | Fix UAT bugs: cart validation, checkout, supplier catalog, and images |
+| `df29ae3` | Harden Redis fallback against uncaught error events |
+| `9b028cf` | Fix backend crash when Redis is unavailable |
+| `191cfd1` | fix: load backend .env reliably for CORS on VPS/PM2 |
+| `0668c99` | asd |
+| `0245cf1` | feat: align Paystack integration with official API and test mode setup |
+| `716a2ef` | add FE server log |
+| `b84d805` | do not add to cart if the qty over limit |
+| `6470e18` | add warning if not choose delivery slot yet |
+| `d0a5b7f` | fix: resolve cart auth on cross-origin staging and chicken category bug |
+| `94747cc` | fix: small screen |
+| `d84840e` | debounce on search |
+| `3532ea7` | redesign |
+| `a50bfcb` | Fix changelog page import paths for nested route. |
+| `c4d1938` | Replace external FeedLog with native DOVA feedback board. |
+| `08b65bb` | Fix cart auth bugs, integrate FeedLog, and expand test coverage. |
+| `9cef54e` | feedlog bug fix |
+| `c1dc679` | new design |
+| `8341828` | update |
+| `bbcc103` | docs: FeedLog setup without local Docker |
+| `6b92a81` | feat: wire optional FeedLog feedback links in storefront nav |
+| `86312a7` | feat: add delivery slot |
+| `369f4f2` | fix: unreadable Explore Marketplace button in about us |
+| `2d5ea55` | feat: add modal login for checkout if not login yet, add reausable modal |
+| `498580c` | fix: responsive in porduct list |
+| `b5bcefe` | fix: search bar, filter category and product list not center in /products |
+| `62dc97e` | chore: reusable product card |
+| `749cdd7` | chore(dev): ship .env.dev templates so local setup is copy-paste, update README quick start. |
+
+</details>
+
+**Auto-parser baseline** (conventional commits only — 13 bullets): see `generate_changelog.py --input commits --next-version 0.4.0`.
+
+---
+
 ## [0.3.0] — 2026-07-24
 
 ### Week 4 / MVP codebase complete
