@@ -37,7 +37,7 @@
 | [MVP-STATUS.md](./docs/MVP-STATUS.md) | Status report stakeholder |
 | [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
 | [API.md](./docs/API.md) | Referensi API MVP |
-| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | **Daftar endpoint untuk QA** (Postman / Insomnia) |
+| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | **API endpoint list for QA** (Postman / Insomnia) |
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
 | [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Deploy single-server |
 | [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Override Docker → Vercel/VPS |
