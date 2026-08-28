@@ -4,25 +4,26 @@
 |---|---|
 | **Product** | DOVA — food supply marketplace (Nigeria / NGN / Paystack) |
 | **Repository** | [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova) |
-| **HEAD** | `b17e2a5` · **Tag:** `v0.5.2` |
-| **Document date** | 27 August 2026 |
+| **HEAD** | `9e37a8a` · **Tag:** `v0.5.4` (+ unreleased hardening) |
+| **Document date** | 28 August 2026 |
 | **Owner** | Dozer |
-| **Phase** | **🚀 Production live** |
+| **Phase** | **Production live — post-launch UX hardening** |
 
-> **Release audit:** [docs/DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md) — **100% production**
+> **Release audit:** [docs/DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md)  
+> **Fitur lengkap:** [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)
 
 ---
 
 ## One-line status
 
-**Production is live** at [dova.dntech.id](https://dova.dntech.id). **127** tests green · full API smoke pass · Paystack live on production.
+**Production live** at [dova.dntech.id](https://dova.dntech.id). **151** tests · **29+10** smoke pass · email OTP · profile self-service · auth redirect fixes deployed/in pipeline.
 
-| Live now | Optional later |
-|----------|----------------|
-| Production storefront + API | `dovachain.com` DNS alias |
-| Customer / supplier / admin flows | Playwright E2E suite |
-| Paystack payment initialize | Additional live card tx monitoring |
-| Automated API smoke (`smoke:production`) | Mobile browser spot-check |
+| Live now | In progress / optional |
+|----------|------------------------|
+| Full MVP commerce + admin + feedback | Manual UAT admin/feedback UI |
+| Email verification + password reset | Tag v0.5.5 |
+| Paystack initialize on production | E2E Playwright |
+| Profile edit + change password | `dovachain.com` alias |
 
 ---
 
@@ -40,12 +41,13 @@
 ## Verify production
 
 ```bash
-npm run smoke:production
-API_URL=https://api.dova.dntech.id/api/v1 npm run smoke:week4
+cd ~/dova && git pull && npm ci && npm run build
+pm2 restart dova-api dova-web --update-env
+SMOKE_OTP_CODE=123456 npm run smoke:production
 ```
 
-Log: `dova/tests/SMOKE-PRODUCTION-RESULT.md`
+Log: [docs/SMOKE-PRODUCTION-RESULT.md](./docs/SMOKE-PRODUCTION-RESULT.md)
 
 ---
 
-*Last updated: 27 August 2026*
+*Last updated: 28 August 2026 · Author: Dozer*

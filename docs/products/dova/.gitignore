@@ -3,3 +3,10 @@ node_modules/
 *.log
 .env
 .env.*
+
+# Personal / compensation docs — live in company-wiki/docs/products/dova/private/, never this repo
+*EQUITY*
+*COUNTER-PROPOSAL*
+*Counter-Proposal*
+*Partnership Proposal*
+DOVA-LAUNCH-BUDGET*

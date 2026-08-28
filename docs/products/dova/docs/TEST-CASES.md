@@ -2,7 +2,7 @@
 
 **Author:** Dozer (@dreamraft17) - Software Engineer  
 **Updated:** August 2026  
-**Automated:** `npm run test` — **63 tests / 6 suites** · `npm run test:backend` (auth smoke) · `npm run smoke:week4` (API health + contact)  
+**Automated:** `npm run test` — **151 tests** · `npm run smoke:production` (29 API steps + 10 negative) · `npm run smoke:week4`  
 **QA workflow:** see [GUIDE.md](./GUIDE.md)  
 **Demo accounts:** admin `admin@dova.local` / `admin1234` · supplier `supplier@dova.local` / `supplier1234`  
 **Local URLs:** storefront http://localhost:3001 · API http://localhost:3000/api/v1 · feedback http://localhost:3001/feedback
@@ -16,7 +16,7 @@
 | **Unit** | `*.spec.ts` under `shared/`, `apps/backend/src/`, `apps/frontend/src/lib/` | Every PR / `npm run test` |
 | **Integration smoke** | `apps/backend/test/auth.test.js` | CI + `npm run test:backend` |
 | **API smoke** | `scripts/smoke-week4.js` | After deploy / with `npm run dev` |
-| **Manual UAT** | Tables below | Staging soft-launch, mobile + desktop |
+| **Manual UAT** | Tables below | Production (`dova.dntech.id`), mobile + desktop |
 
 **Pass criteria:** expected result matches; no 5xx; auth cookies set on login; ₦ amounts correct; feedback stays on native `/feedback` (no external FeedLog).
 
@@ -26,7 +26,8 @@
 
 | ID | Scenario | Steps | Expected |
 |----|----------|-------|----------|
-| AUTH-01 | Customer register | `/auth/register` → valid name, email, password ≥8, confirm match | Redirect/dashboard; role customer |
+| AUTH-01 | Customer register | `/auth/register` → valid data | Redirect to `/auth/verify-email`; pending until OTP |
+| AUTH-01b | Email verify | Enter 6-digit OTP from inbox | Account active; logged in as customer |
 | AUTH-02 | Register validation | Invalid email / short password / mismatch confirm | Error shown; no account |
 | AUTH-03 | Duplicate email | Register same email twice | “Email already registered” |
 | AUTH-04 | Customer login | `/auth/login` with valid credentials | JWT cookies; redirect by role |
@@ -35,8 +36,13 @@
 | AUTH-07 | Role guard — customer | Customer opens `/admin` | Blocked / redirect |
 | AUTH-08 | Role guard — supplier | Unapproved supplier opens `/supplier` products | Blocked until approved |
 | AUTH-09 | Checkout login modal | Guest checkout → prompted to login | Modal login; resume checkout after auth |
+| AUTH-10 | Forgot password | `/auth/forgot-password` verified email | Generic success message; reset email sent |
+| AUTH-11 | Reset password | `/auth/reset-password` with OTP | Password updated; old sessions revoked; login with new password |
+| AUTH-12 | Edit profile | `/customer/profile` → change name/phone → Save | `PATCH /auth/me` persists; badge shows verified email |
+| AUTH-13 | Change password (signed in) | Profile → Security → current + new password | Sessions revoked; redirect to login; new password works |
+| AUTH-14 | Route consolidation | Visit `/customer` or `?tab=history` | Redirects to `/customer/history`; profile nav links to history/cart |
 
-**Automated coverage:** `AppService` register/login/refresh/revoke · `auth.test.js`
+**Automated coverage:** `AppService` register/login/refresh/revoke/forgot/reset/profile/change-password · `auth.test.js` · smoke step 6d + steps 24–26
 
 ---
 
@@ -45,13 +51,13 @@
 | File | Tests | Covers |
 |------|-------|--------|
 | `shared/src/index.spec.ts` | 4 | Email/password validation, roles, min-order helpers |
-| `apps/backend/src/app.service.spec.ts` | 35 | Auth, cart, orders, payments, admin, supplier, webhook |
+| `apps/backend/src/app.service.spec.ts` | 40+ | Auth, cart, orders, payments, admin, supplier, webhook |
 | `apps/backend/src/feedback.service.spec.ts` | 6 | Posts, votes, comments, changelog, roadmap, admin guard |
 | `apps/backend/src/notification.service.spec.ts` | 7 | Supplier email, contact forwarding, provider errors |
 | `apps/frontend/src/lib/api.spec.ts` | 4 | API client, errors, FormData |
 | `apps/frontend/src/lib/feedlog.spec.ts` | 3 | Native `/feedback` link helpers (`FeedlogLink` contract) |
 | `apps/backend/test/auth.test.js` | 1 flow | Register → duplicate → login → refresh → revoke |
-| **Total** | **63** | 6 Jest suites + backend auth script |
+| **Total** | **146** | 17 Jest suites + backend auth script |
 
 Run: `npm run test` · Coverage: `npm run test:coverage`
 
@@ -207,7 +213,7 @@ See also internal runbook / staging docs (wiki mirror if available).
 ## Running automated tests
 
 ```bash
-npm run test              # all unit tests (63)
+npm run test              # all unit tests (146)
 npm run test:coverage     # with coverage report
 npm run test:backend      # compiled auth integration
 npm run smoke:week4       # requires API on :3000

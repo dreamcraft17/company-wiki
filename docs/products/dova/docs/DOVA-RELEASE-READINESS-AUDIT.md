@@ -1,7 +1,7 @@
 # DOVA — Release Readiness Audit
 
 > **Status:** Production live · **Last updated:** 2026-08-27 · **Author:** Dozer  
-> **App HEAD:** `b17e2a5` · **Tag:** `v0.5.2` · **Launch:** Production — 27 Aug 2026  
+> **App HEAD:** `8fb5b5e` · **Tag:** `v0.5.2` · **Launch:** Production — 27 Aug 2026  
 > **Scope:** QA review · bug triage · backend assessment · go/no-go gates
 
 ---
@@ -16,7 +16,7 @@ All engineering, deploy, and automated QA gates passed on **2026-08-27**. This i
 |-------|-------|-------|
 | MVP codebase | 100% | Week 1–4 + v0.5.x shipped |
 | Backend quality | 95% | UUID 404 fix, auth guard tests, supplier SQL tests |
-| Test automation | 90% | **127** unit tests; production API smoke automated |
+| Test automation | 90% | **146** unit tests; production API smoke 28+10 (forgot/reset added) |
 | Production ops | 100% | VPS @ `b17e2a5`, PM2 healthy |
 | Payment go-live | 85% | Paystack live mode; init + refs verified on prod |
 | Business go/no-go | 90% | Live on `dntech.id`; optional `dovachain.com` alias later |
@@ -38,10 +38,11 @@ Checks run on **2026-08-27** against repo `main` @ `b17e2a5` (tag `v0.5.2`).
 
 | Check | Result |
 |-------|--------|
-| Unit tests | **127/127 pass** (~30s) |
+| Unit tests | **146/146 pass** |
+| Production API smoke | **28 + 10 negative** (includes forgot/reset, admin delete) |
 | Production API `/health` | **200** `{ "status": "ok", "service": "dova-api" }` |
 | Production storefront | **200** |
-| `npm run smoke:production` | **PASS** — 23 steps + NEG-01..07 |
+| `npm run smoke:production` | **PASS** (re-run after deploy) — 28 steps + NEG-01..10 |
 | `npm run smoke:week4` (production) | **PASS** — health + contact persist |
 | VPS deploy | **PASS** — `git reset --hard origin/main` @ `b17e2a5`, build + PM2 restart |
 | DB migrations | **PASS** — `001`–`006` applied |
@@ -54,14 +55,16 @@ Checks run on **2026-08-27** against repo `main` @ `b17e2a5` (tag `v0.5.2`).
 
 ## 2. QA review — automated coverage
 
-### 2.1 Production API smoke (23 + 7 negative) — all pass
+### 2.1 Production API smoke (28 + 10 negative)
 
 | Step | Endpoint | Result |
 |------|----------|--------|
 | 1–11 | Health, auth, catalog, cart, order, payment init | ✅ |
 | 12–19 | Supplier + admin dashboards | ✅ |
+| 19b | Admin delete pending user + NEG-08/09 | ✅ |
 | 20–23 | Contact, feedback, logout | ✅ |
-| NEG-01..07 | AuthZ, validation, 404 invalid UUID | ✅ |
+| 24–26 | Forgot + reset password | ✅ (script) |
+| NEG-01..10 | AuthZ, validation, 404, old password | ✅ |
 
 Run locally: `npm run smoke:production`
 
@@ -106,7 +109,7 @@ Run locally: `npm run smoke:production`
 | # | Item | Status |
 |---|------|--------|
 | 9 | Postman 23-step smoke | ✅ Automated (`smoke:production`) |
-| 10 | Customer journey (API) | ✅ register → cart → order → pay init |
+| 10 | Customer journey (API) | ✅ register → verify-otp → cart → order → pay init |
 | 11 | Supplier journey (API) | ✅ products + orders |
 | 12 | Admin journey (API) | ✅ dashboard, users, suppliers, orders |
 | 13 | Mobile smoke (browser) | ⏭ Recommended spot-check |
@@ -121,6 +124,7 @@ Run locally: `npm run smoke:production`
 | 17 | Support contact | ✅ `/contact` + +234 903 269 6825 on site |
 | 18 | Launch date | ✅ **27 Aug 2026** (production) |
 | 19 | Custom domain alias | ⏭ `dovachain.com` — optional DNS later |
+| 20 | Email OTP verification | ✅ Required for new customers (`v0.5.4`) — needs `RESEND_*` on VPS |
 
 **Checklist score:** **16/19 done** · **3 deferred (non-blocking)**
 

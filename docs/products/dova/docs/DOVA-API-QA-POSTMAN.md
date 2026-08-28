@@ -51,7 +51,7 @@ Production uses **separate subdomains** (frontend ≠ API). For API tests, use t
 
 ---
 
-## Endpoint summary (67 routes)
+## Endpoint summary (69 routes)
 
 | Group | Public | Customer | Supplier | Admin | Mixed auth |
 |-------|--------|----------|----------|-------|------------|
@@ -82,12 +82,18 @@ Status: **200**
 | # | Method | Path | Auth | QA priority |
 |---|--------|------|------|-------------|
 | 4 | POST | `/auth/register` | — | P0 |
+| 4b | POST | `/auth/verify-otp` | — | **P0** |
+| 4c | POST | `/auth/resend-otp` | — | P1 |
+| 4d | POST | `/auth/forgot-password` | — | P1 |
+| 4e | POST | `/auth/reset-password` | — | P1 |
 | 5 | POST | `/auth/login` | — | **P0** |
 | 6 | POST | `/auth/logout` | Bearer / cookie | P1 |
 | 7 | POST | `/auth/refresh` | refresh body/cookie | P1 |
 | 8 | GET | `/auth/me` | Bearer | **P0** |
+| 8b | PATCH | `/auth/me` | Bearer | P1 |
+| 8c | POST | `/auth/change-password` | Bearer | P1 |
 
-> OTP (`/auth/verify-otp`, `/auth/resend-otp`) is **disabled** in production — skip.
+> Email verification is **required** for new customers. After register, use `/auth/verify-otp` before login.
 
 ### Sample — POST `/auth/register`
 
@@ -102,9 +108,72 @@ Status: **200**
 
 | Case | Expected |
 |------|----------|
-| Valid | **201** — user object, no tokens (register only) |
+| Valid | **201** — `{ message, email }` (no tokens until OTP verified) |
 | Duplicate email | **400** — Email already registered |
 | Password < 8 | **400** validation error |
+
+### Sample — POST `/auth/verify-otp`
+
+```json
+{
+  "email": "qa.tester+001@example.com",
+  "code": "123456",
+  "rememberMe": true
+}
+```
+
+| Case | Expected |
+|------|----------|
+| Valid code | **200** — `{ user, accessToken, refreshToken }` |
+| Wrong code | **400** — Invalid verification code |
+| Expired code | **400** — Verification code expired |
+
+### Sample — POST `/auth/resend-otp`
+
+```json
+{ "email": "qa.tester+001@example.com" }
+```
+
+| Case | Expected |
+|------|----------|
+| Pending user | **200** — `{ message, email }` |
+| Already verified | **400** — No pending verification |
+
+### Sample — POST `/auth/forgot-password`
+
+```json
+{ "email": "qa.tester+001@example.com" }
+```
+
+| Case | Expected |
+|------|----------|
+| Verified customer | **200** or **201** — `{ "message": "If that email is registered, we sent a password reset code." }` |
+| Unknown email | **200** or **201** — same generic message (no enumeration) |
+| Invalid email | **400** |
+| Admin email | **200** — generic message, no reset sent |
+| SMTP unavailable (prod) | **400** or **503** — reset unavailable |
+
+Uses same `DOVA_QA_FIXED_OTP` as verify-otp when email matches `qa.softlaunch.*@example.com`.
+
+### Sample — POST `/auth/reset-password`
+
+```json
+{
+  "email": "qa.tester+001@example.com",
+  "code": "123456",
+  "password": "newpassword123",
+  "confirmPassword": "newpassword123"
+}
+```
+
+| Case | Expected |
+|------|----------|
+| Valid code | **200** or **201** — `{ "message": "Password updated. You can sign in with your new password." }` |
+| Wrong code | **400** — Invalid reset code |
+| Expired code | **400** — Reset code expired |
+| Password mismatch | **400** — Invalid password data |
+
+After success, all sessions for that user are revoked.
 
 ### Sample — POST `/auth/login`
 
@@ -120,7 +189,7 @@ Status: **200**
 |------|----------|
 | Valid admin | **201** — `{ user, accessToken, refreshToken }` |
 | Wrong password | **401** — Invalid credentials |
-| Inactive user | **401** — Invalid credentials |
+| Unverified customer | **401** — Please verify your email before signing in. |
 
 **Postman test script (login):**
 
@@ -144,7 +213,34 @@ Expected: **201** — new `accessToken` + `refreshToken`
 
 Header: `Authorization: Bearer {{accessToken}}`
 
-Expected: **200** — user profile (role, email, isActive)
+Expected: **200** — user profile (role, email, isActive, emailVerifiedAt, phoneNumber)
+
+### Sample — PATCH `/auth/me`
+
+Header: `Authorization: Bearer {{accessToken}}`
+
+```json
+{
+  "fullName": "Jane Updated",
+  "phoneNumber": "+2348012345678"
+}
+```
+
+Expected: **200** — updated user profile
+
+### Sample — POST `/auth/change-password`
+
+Header: `Authorization: Bearer {{accessToken}}`
+
+```json
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123",
+  "confirmPassword": "newpassword123"
+}
+```
+
+Expected: **201** — `{ "message": "Password updated. Please sign in again with your new password." }` (all sessions revoked)
 
 ---
 
@@ -301,10 +397,11 @@ Allowed flow: `processing` → `shipped` → `delivered`
 | 40 | PUT | `/admin/users/:id` | admin | P1 |
 | 41 | POST | `/admin/users/:id/reset-password` | admin | P1 |
 | 42 | PUT | `/admin/users/:id/active` | admin | P1 |
-| 43 | GET | `/admin/products` | admin | P0 |
-| 44 | PUT | `/admin/products/:id/active` | admin | P1 |
-| 45 | GET | `/admin/orders` | admin | P0 |
-| 46 | GET | `/admin/contacts` | admin | P1 |
+| 43 | DELETE | `/admin/users/:id` | admin | P1 |
+| 44 | GET | `/admin/products` | admin | P0 |
+| 45 | PUT | `/admin/products/:id/active` | admin | P1 |
+| 46 | GET | `/admin/orders` | admin | P0 |
+| 47 | GET | `/admin/contacts` | admin | P1 |
 
 **Query — GET `/admin/orders`:** `status`, `search`
 
@@ -343,13 +440,26 @@ Allowed flow: `processing` → `shipped` → `delivered`
 { "password": "newpassword123" }
 ```
 
+### Sample — DELETE `/admin/users/:id`
+
+No body.
+
+| Case | Expected |
+|------|----------|
+| Pending user with no orders | **200** — `{ "message": "User deleted successfully" }` |
+| User with customer or supplier order history | **400** |
+| Admin deletes own account | **400** |
+| Customer token | **403** |
+| Missing/invalid token | **401** |
+| Unknown user id | **404** |
+
 ---
 
 ## 8. Contact (public)
 
 | # | Method | Path | Auth | QA priority |
 |---|--------|------|------|-------------|
-| 47 | POST | `/contact` | — | P1 |
+| 48 | POST | `/contact` | — | P1 |
 
 ```json
 {
@@ -367,18 +477,18 @@ Expected: **201** — appears in `GET /admin/contacts`
 
 | # | Method | Path | Auth | QA priority |
 |---|--------|------|------|-------------|
-| 48 | GET | `/feedback/posts` | — | P1 |
-| 49 | GET | `/feedback/posts/:id` | — | P1 |
-| 50 | GET | `/feedback/roadmap` | — | P2 |
-| 51 | POST | `/feedback/posts` | optional | P1 |
-| 52 | POST | `/feedback/posts/:id/vote` | login | P1 |
-| 53 | PUT | `/feedback/posts/:id/status` | admin | P1 |
-| 54 | GET | `/feedback/posts/:id/comments` | — | P2 |
-| 55 | POST | `/feedback/posts/:id/comments` | optional | P2 |
-| 56 | POST | `/feedback/posts/:id/official-reply` | admin | P2 |
-| 57 | GET | `/feedback/changelog` | — | P2 |
-| 58 | GET | `/feedback/changelog/:slug` | — | P2 |
-| 59 | POST | `/feedback/changelog` | admin | P2 |
+| 49 | GET | `/feedback/posts` | — | P1 |
+| 50 | GET | `/feedback/posts/:id` | — | P1 |
+| 51 | GET | `/feedback/roadmap` | — | P2 |
+| 52 | POST | `/feedback/posts` | optional | P1 |
+| 53 | POST | `/feedback/posts/:id/vote` | login | P1 |
+| 54 | PUT | `/feedback/posts/:id/status` | admin | P1 |
+| 55 | GET | `/feedback/posts/:id/comments` | — | P2 |
+| 56 | POST | `/feedback/posts/:id/comments` | optional | P2 |
+| 57 | POST | `/feedback/posts/:id/official-reply` | admin | P2 |
+| 58 | GET | `/feedback/changelog` | — | P2 |
+| 59 | GET | `/feedback/changelog/:slug` | — | P2 |
+| 60 | POST | `/feedback/changelog` | admin | P2 |
 
 **Query — GET `/feedback/posts`:** `sort=votes|new`, `search=`
 
@@ -413,7 +523,7 @@ Run in sequence; save IDs to environment variables.
 3.  GET  /auth/me
 4.  GET  /categories
 5.  GET  /products            → save productId
-6.  POST /auth/register       (new customer) → login as customer
+6.  POST /auth/register       (new customer) → POST /auth/verify-otp → customer token
 7.  POST /cart/add
 8.  GET  /cart
 9.  POST /orders              → save orderId
