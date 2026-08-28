@@ -6,7 +6,7 @@
 | **Project** | DOVA — food supply marketplace |
 | **Planned period** | 21 July – 17 August 2026 (4 weeks) |
 | **Update date** | 24 July 2026 |
-| **Prepared by** | Dozer |
+| **Author** | Dozer · [@dreamcraft17](https://github.com/dreamcraft17) |
 | **Audience** | Non-technical teams & business stakeholders |
 | **Overall status** | **MVP codebase 100% complete.** Internal demo ready (desktop & phone). **Public go-live** still needs staging + Paystack proof. |
 

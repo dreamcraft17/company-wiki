@@ -1,25 +1,25 @@
 # DOVA - Tech Stack & Monorepo Setup
-## Untuk MVP 4-Week Build | Versi 1.0
+## For MVP 4-Week Build | Version 1.0
 
 ---
 
-## 1. Filosofi: Simple > Complex
+## 1. Philosophy: Simple > Complex
 
-**Prinsip:**
-- ✅ Monorepo (satu repo, FE + BE bersama)
+**Principles:**
+- ✅ Monorepo (one repo, FE + BE together)
 - ✅ Shared types (TypeScript interfaces)
-- ✅ Minimal tooling (hanya yang perlu)
+- ✅ Minimal tooling (only what's needed)
 - ✅ Fast local development (hot reload)
 - ✅ Easy deployment (one command)
 - ❌ No microservices, no complex abstractions
 - ❌ No unnecessary dependencies
 
-**Benefit untuk 4-week timeline:**
-- Setup cepat (hari 1 selesai)
-- Debugging mudah (full stack dalam 1 IDE)
-- Koordinasi tim lebih simple
-- Build + deploy lebih cepat
-- Maintenance lebih ringan
+**Benefits for 4-week timeline:**
+- Quick setup (day 1 done)
+- Easy debugging (full stack in one IDE)
+- Simpler team coordination
+- Faster build + deploy
+- Lighter maintenance
 
 ---
 
@@ -32,7 +32,7 @@ dova/                          (root - monorepo)
 ├── .env.example              (env template)
 ├── docker-compose.yml        (local dev: DB + Redis)
 │
-├── shared/                   (💥 Shared code antara FE & BE)
+├── shared/                   (💥 Shared code between FE & BE)
 │   ├── package.json
 │   ├── src/
 │   │   ├── types/           (TypeScript interfaces, shared)
@@ -326,13 +326,13 @@ dova/                          (root - monorepo)
 }
 ```
 
-**Isi:**
+**Contents:**
 - TypeScript interfaces (types/)
 - Validation logic (utils/)
 - Constants & enums
 - Error classes
 
-**Tidak boleh:** Node.js specific code, npm dependencies yang heavy
+**Not allowed:** Node.js specific code, heavy npm dependencies
 
 ---
 
@@ -632,7 +632,7 @@ export const ProductCard = ({ product }: Props) => {
 };
 ```
 
-**Benefit:** Type safety end-to-end, autocomplete di IDE, single source of truth.
+**Benefit:** Type safety end-to-end, IDE autocomplete, single source of truth.
 
 ---
 
@@ -1050,7 +1050,7 @@ npm install && npm run build    # Rebuild everything
 
 ### 13.3 Folder Cleanup (Remove Unused)
 
-Jika ada folder tidak perlu:
+If unnecessary folders exist:
 
 ```bash
 # Safe to delete:
@@ -1140,5 +1140,5 @@ rm -rf .next/                   # Next.js output (git ignored)
 
 ---
 
-Semua siap untuk MVP 4-week aggressive build! 🚀
+All set for the MVP 4-week aggressive build! 🚀
 

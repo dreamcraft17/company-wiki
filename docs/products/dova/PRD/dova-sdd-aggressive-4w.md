@@ -599,7 +599,7 @@ npm run dev
 
 ## 16. Sign-Off
 
-**Prepared by:** DN Tech Engineering  
+**Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 **Status:** Ready for Implementation  
 **Version:** 2.0 (Aggressive 4-Week)  
 **Last Updated:** July 20, 2026

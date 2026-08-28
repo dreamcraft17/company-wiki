@@ -453,6 +453,6 @@ A feature is **DONE** when:
 
 ---
 
-**Approved by:** DN Tech Product Team  
+**Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 **Next:** Start Phase 1 (Week 1) immediately after sign-off
 

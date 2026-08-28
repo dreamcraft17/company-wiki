@@ -583,7 +583,7 @@ curl -s -H "Authorization: Bearer $TOKEN" "$BASE/admin/dashboard"
 
 | Doc | Path |
 |-----|------|
-| API summary (wiki) | `dova-company-wiki/docs/API.md` |
+| API summary (wiki) | [API.md](./API.md) |
 | UI test cases | [TEST-CASES.md](./TEST-CASES.md) |
 | QA workflow | [GUIDE.md](./GUIDE.md) |
 | Paystack test mode | [PAYSTACK-TEST-MODE.md](./PAYSTACK-TEST-MODE.md) |

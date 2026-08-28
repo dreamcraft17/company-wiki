@@ -1,7 +1,7 @@
 # DOVA — Bug Triage (Semua Fitur)
 
 > **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer  
-> **Repo HEAD:** `9e37a8a` · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
+> **Repo HEAD:** `8fb5b5e` · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
 > **Metode:** AI bug triage pipeline — fingerprint deterministik + klasifikasi + routing QA
 
 Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomatis, gap manual UAT, fingerprint regression, dan backlog ticket yang perlu human approval sebelum dieksekusi.
@@ -15,10 +15,10 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 | Metrik | Nilai |
 |--------|-------|
 | Fitur MVP | **10 modul** · ~67 API routes |
-| Unit tests | **151/151 pass** (`npm run test`, 2026-08-28) |
+| Unit tests | **146/146 pass** (`npm run test`, 2026-08-28) |
 | Coverage global | **~52%** (target QA: 80%) |
 | UAT bugs historis | **14 fixed** · **0 open P0/P1** |
-| Production smoke (log terakhir) | **PASS** — **29+10** neg (2026-08-28) |
+| Production smoke (log terakhir) | **PASS** — 23+7 neg (2026-08-27); smoke script **28+10** (deploy + re-run pending) |
 | Manual UAT belum jalan | **Admin (ADM-01–07)**, **Feedback (FEED-01–10)**, **Mobile ops (OPS-04)** |
 
 **Verdict triage:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) **stabil**. Risiko utama: **gap QA manual**, **smoke belum di-update di prod**, dan **ketergantungan env** (SMTP Gmail App Password, Paystack live).

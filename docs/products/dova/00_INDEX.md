@@ -1,100 +1,104 @@
 # DOVA — Documentation Index
 
-**Product**: DOVA — agricultural / food supply marketplace (Nigeria)  
-**Market**: NGN · Paystack  
-**Repository**: [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
-**Status**: MVP complete · **production live** · post-launch hardening  
-**Owner**: Dozer  
-**Company**: DN Tech  
-**UpdatedAt**: August 28, 2026  
-**App HEAD**: `9e37a8a` · **Tag:** `v0.5.4` (+ unreleased)
+> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **Updated:** 2026-08-28 · **App HEAD:** `9e37a8a` · **Tag:** `v0.5.4`
 
-**Canonical wiki:** workspace folder `dova-company-wiki/`  
-**Mirrors:** this path (`company-wiki/docs/products/dova/`) · `dova/docs/` (local, gitignored)
-
-> **Start here:** [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [STATUS-LENGKAP.md](./docs/STATUS-LENGKAP.md) · [current-phase.md](./current-phase.md)  
-> **BD:** [docs/PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) · **CEO:** [docs/CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md)  
-> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)  
-> **Specs:** [PRD/](./PRD/)  
-> **Sync:** `./dova-company-wiki/scripts/sync-docs.sh`
-
+**Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
+**Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
 **Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 151 unit · production smoke **29+10** (`npm run smoke:production`)
+**Tests:** 151 unit · smoke **29+10** (`npm run smoke:production`)
+
+**Canonical wiki:** [`dova-comp-wiki`](https://github.com/dreamcraft17/dova-com-wiki) (team repo)  
+**This folder:** DN Tech `company-wiki` mirror — flat `docs/` layout
+
+> **Start here:** [All-features.md](./All-features.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [docs/FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) · [current-phase.md](./current-phase.md)
+
+---
+
+## Product root
+
+| File | Description |
+|------|-------------|
+| [All-features.md](./All-features.md) | **Master list — all 101 features** (by role + module) |
+| [README.md](./README.md) | Product overview (from app README) |
+| [current-phase.md](./current-phase.md) | Production phase snapshot |
 
 ---
 
 ## Living docs (`docs/`)
 
-| File | Deskripsi |
-|------|-----------|
-| [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | **Inventaris fitur lengkap** — semua modul production (Aug 2026) |
-| [STATUS-LENGKAP.md](./docs/STATUS-LENGKAP.md) | Dokumen status teknis lengkap |
-| [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Baseline codebase vs ops |
-| [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage semua modul + fingerprint |
-| [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi |
-| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | Kirim ke BD / non-teknis |
-| [CEO-PROGRESS-UPDATE.md](./docs/CEO-PROGRESS-UPDATE.md) | Kirim ke CEO |
-| [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Update non-teknis (legacy) |
-| [MVP-STATUS.md](./docs/MVP-STATUS.md) | Status report stakeholder |
+### Ops & deploy
+
+| File | Description |
+|------|-------------|
+| [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
+| [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Single-server VPS deploy |
+| [ENV-SETUP.md](./docs/ENV-SETUP.md) | Production / VPS environment variables |
+| [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Vercel vs VPS notes |
+| [STAGING-GO-LIVE.md](./docs/STAGING-GO-LIVE.md) | Go-live checklist (legacy) |
+| [SMOKE-PRODUCTION-RESULT.md](./docs/SMOKE-PRODUCTION-RESULT.md) | Latest production smoke log |
+| [DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md) | Release readiness audit |
+| [DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Seed demo logins |
+| [PAYSTACK-TEST-MODE.md](./docs/PAYSTACK-TEST-MODE.md) | Paystack test mode setup |
+| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | BD / non-technical update |
+| [MVP-STATUS.md](./docs/MVP-STATUS.md) | Stakeholder status (legacy) |
+| [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Progress update (legacy) |
+| [REPLY-PAYSTACK-AND-MIN-ORDER.md](./docs/REPLY-PAYSTACK-AND-MIN-ORDER.md) | Stakeholder reply — Paystack |
+| [REPLY-SUPPLIER-VERIFICATION-DOCS.md](./docs/REPLY-SUPPLIER-VERIFICATION-DOCS.md) | Stakeholder reply — supplier docs |
+
+### Code, QA & status
+
+| File | Description |
+|------|-------------|
+| [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Complete feature inventory (API/UI detail) |
+| [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
+| [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
+| [API.md](./docs/API.md) | MVP API reference |
+| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
+| [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
+| [TEST-CASES.md](./docs/TEST-CASES.md) | Manual UAT scenarios |
+| [GUIDE.md](./docs/GUIDE.md) | QA workflow |
 | [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
-| [API.md](./docs/API.md) | Referensi API MVP |
-| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | API endpoint list for QA |
-| [DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md) | Release audit |
-| [SMOKE-PRODUCTION-RESULT.md](./docs/SMOKE-PRODUCTION-RESULT.md) | Production smoke log |
-| [TEST-CASES.md](./docs/TEST-CASES.md) | Manual UAT / UI scenarios |
-| [GUIDE.md](./docs/GUIDE.md) | QA testing workflow |
-| [ENV-SETUP.md](./docs/ENV-SETUP.md) | VPS env setup |
-| [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback |
-| [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Single-server deploy |
-| [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Vercel override |
-| [DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed |
-| [BUG_FIXES.md](./docs/BUG_FIXES.md) | Log bugfix |
-| [REPLY-PAYSTACK-AND-MIN-ORDER.md](./docs/REPLY-PAYSTACK-AND-MIN-ORDER.md) | Stakeholder reply |
-| [REPLY-SUPPLIER-VERIFICATION-DOCS.md](./docs/REPLY-SUPPLIER-VERIFICATION-DOCS.md) | Stakeholder reply |
+| [CHANGELOG.md](./docs/CHANGELOG.md) | Version history |
+| [BUG_FIXES.md](./docs/BUG_FIXES.md) | Bugfix log |
+| [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
+
+---
 
 ## Specs (`PRD/`)
 
 | File | Topic |
 |------|-------|
-| [dova-prd-aggressive-4w.md](./PRD/dova-prd-aggressive-4w.md) | PRD — 4-week aggressive MVP |
+| [dova-prd-aggressive-4w.md](./PRD/dova-prd-aggressive-4w.md) | PRD — 4-week MVP |
 | [dova-srs-aggressive-4w.md](./PRD/dova-srs-aggressive-4w.md) | SRS |
 | [dova-sdd-aggressive-4w.md](./PRD/dova-sdd-aggressive-4w.md) | SDD |
-| [dova-summary-4w.md](./PRD/dova-summary-4w.md) | Summary 4W |
+| [dova-summary-4w.md](./PRD/dova-summary-4w.md) | Executive summary |
 | [dova-tech-stack-monorepo.md](./PRD/dova-tech-stack-monorepo.md) | Tech stack / monorepo |
-
-## Phase snapshot
-
-| File | Topic |
-|------|-------|
-| [current-phase.md](./current-phase.md) | Production live + hardening |
-
-## Private (DN Tech / Dozer)
-
-> Not in `dova-company-wiki`. Do not copy these files into the DOVA team wiki.
-
-| File | Isi |
-|------|-----|
-| [private/README.md](./private/README.md) | Index — equity, counter-proposal, launch budget |
 
 ---
 
-## Notes
+## Sync from canonical wiki
 
-- **Canonical:** workspace `dova-company-wiki/` (own git repo).  
-- **This folder / company-wiki path:** mirror — keep in sync with `./dova-company-wiki/scripts/sync-docs.sh`.  
-- App repo `dova/docs/` stays **gitignored**; wiki is shared source of truth for product docs.
+```bash
+# From dozer/ workspace root
+bash dova-comp-wiki/scripts/sync-from-app.sh         # dova/tests → dova-comp-wiki
+bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # → this mirror
+```
+
+**No private files:** equity, counter-proposals, chat logs, and `CEO-PROGRESS-UPDATE` are excluded. `private/` in company-wiki is DN Tech internal only — never synced from team wiki.
+
+---
 
 ## Quick links
 
 | | |
 |---|---|
 | GitHub app | https://github.com/dreamcraft17/dova |
-| **Production** | https://dova.dntech.id |
-| API health | https://api.dova.dntech.id/api/v1/health |
-| Local frontend | http://localhost:3001 |
-| Demo admin | `admin@dova.local` / `admin1234` |
-| Demo supplier | `supplier@dova.local` / `supplier1234` |
+| GitHub wiki | https://github.com/dreamcraft17/dova-com-wiki |
+| Storefront | https://dova.dntech.id |
+| Admin demo | `admin@dova.local` / `admin1234` |
+| Supplier demo | `supplier@dova.local` / `supplier1234` |
 
 ---
 
-*Last Updated: August 28, 2026 · Author: Dozer*
+*Last Updated: August 28, 2026 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)*

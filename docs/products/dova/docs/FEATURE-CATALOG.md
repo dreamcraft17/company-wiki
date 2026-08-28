@@ -1,29 +1,29 @@
-# DOVA — Feature Catalog (Lengkap)
+# DOVA — Feature Catalog (Complete)
 
-> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer  
+> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 > **App HEAD:** `9e37a8a` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
 > **Spec baseline:** Aggressive 4W PRD/SRS/SDD · MVP + post-launch hardening
 
-Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28 Agustus 2026**. Gunakan untuk QA, stakeholder review, dan penulisan PRD berikutnya.
+This document is the **actual feature inventory** in the codebase and production as of **28 August 2026**. Use it for QA, stakeholder review, and future PRD writing.
 
-**Terkait:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) · [API.md](./API.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [TEST-CASES.md](./TEST-CASES.md)
-
----
-
-## Cara baca status
-
-| Status | Arti |
-|--------|------|
-| **Available** | Ada di UI + API; deployed / siap production |
-| **Conditional** | Ada di code; butuh env key, ops, atau sign-off bisnis |
-| **Scaffold** | UI/API partial; belum journey end-to-end |
-| **Out of MVP** | Tidak dijanjikan di rilis saat ini |
+**Related:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) · [API.md](./API.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [TEST-CASES.md](./TEST-CASES.md)
 
 ---
 
-## Ringkasan angka
+## How to read status
 
-| Metrik | Nilai |
+| Status | Meaning |
+|--------|---------|
+| **Available** | In UI + API; deployed / production-ready |
+| **Conditional** | In code; needs env key, ops, or business sign-off |
+| **Scaffold** | Partial UI/API; no end-to-end journey yet |
+| **Out of MVP** | Not promised in the current release |
+
+---
+
+## Summary metrics
+
+| Metric | Value |
 |--------|-------|
 | Frontend pages | **27** routes (Next.js pages router) |
 | API routes | **~67** handlers (`app.controller.ts` + feedback) |
@@ -34,63 +34,63 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 
 ---
 
-## 1. Auth & akun
+## 1. Auth & accounts
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
-| Customer register | Available | `POST /auth/register` · `/auth/register` | Akun **pending** sampai OTP |
-| Email OTP verify | Available | `POST /auth/verify-otp` · `/auth/verify-email` | Wajib production; Resend SMTP |
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
+| Customer register | Available | `POST /auth/register` · `/auth/register` | Account **pending** until OTP |
+| Email OTP verify | Available | `POST /auth/verify-otp` · `/auth/verify-email` | Required in production; Resend SMTP |
 | Resend OTP | Available | `POST /auth/resend-otp` | Cooldown 60s · max resend/window |
 | Login (customer/supplier/admin) | Available | `POST /auth/login` · `/auth/login` | JWT + httpOnly cookie + Bearer |
-| Login → belum verify → redirect verify | Available | — · `/auth/login` | Auto `resend-otp` + redirect |
+| Login → unverified → redirect verify | Available | — · `/auth/login` | Auto `resend-otp` + redirect |
 | Logout | Available | `POST /auth/logout` | Revoke session |
-| Refresh token | Available | `POST /auth/refresh` | Remember Me = TTL lebih panjang |
+| Refresh token | Available | `POST /auth/refresh` | Remember Me = longer TTL |
 | Remember Me | Available | login/verify body | localStorage + refresh 30d |
 | Forgot password | Available | `POST /auth/forgot-password` · `/auth/forgot-password` | Generic message (no email leak) |
-| Reset password (OTP) | Available | `POST /auth/reset-password` · `/auth/reset-password` | Revoke semua session |
-| GET profil saya | Available | `GET /auth/me` | Role, emailVerifiedAt, phone |
-| Edit profil (nama + telepon) | Available | `PATCH /auth/me` · `/customer/profile` · supplier Profile tab | Self-service |
-| Ganti password (signed in) | Available | `POST /auth/change-password` · profile Security | Revoke session → login ulang |
-| Supplier register + dokumen | Available | `POST /suppliers/register` · `/auth/supplier-register` | PDF/JPG/PNG ≤5 MB |
+| Reset password (OTP) | Available | `POST /auth/reset-password` · `/auth/reset-password` | Revoke all sessions |
+| GET my profile | Available | `GET /auth/me` | Role, emailVerifiedAt, phone |
+| Edit profile (name + phone) | Available | `PATCH /auth/me` · `/customer/profile` · supplier Profile tab | Self-service |
+| Change password (signed in) | Available | `POST /auth/change-password` · profile Security | Revoke session → re-login |
+| Supplier register + docs | Available | `POST /suppliers/register` · `/auth/supplier-register` | PDF/JPG/PNG ≤5 MB |
 | Role guards | Available | JWT guard + `@Roles()` | 401/403 per route |
 | Cross-origin Bearer + cookies | Available | `CROSS_SITE_COOKIES=true` | Production subdomains |
-| QA fixed OTP (smoke only) | Conditional | env `DOVA_QA_FIXED_OTP` | Pola `qa.softlaunch.*@example.com` |
+| QA fixed OTP (smoke only) | Conditional | env `DOVA_QA_FIXED_OTP` | Pattern `qa.softlaunch.*@example.com` |
 
 ---
 
-## 2. Customer & profil
+## 2. Customer & profile
 
-| Fitur | Status | Halaman | Catatan |
-|-------|--------|---------|---------|
-| Profil editable | Available | `/customer/profile` | Nama, telepon, badge email verified |
-| Ganti password dari profil | Available | `/customer/profile` → Security | Link forgot password juga |
-| Riwayat pesanan (rich) | Available | `/customer/history` | Filter status · pay again (pending) |
-| Detail pesanan | Available | `/customer/orders/[id]` | Line items · status · alamat |
+| Feature | Status | Page | Notes |
+|---------|--------|------|-------|
+| Editable profile | Available | `/customer/profile` | Name, phone, email verified badge |
+| Change password from profile | Available | `/customer/profile` → Security | Forgot password link also |
+| Order history (rich) | Available | `/customer/history` | Filter status · pay again (pending) |
+| Order detail | Available | `/customer/orders/[id]` | Line items · status · address |
 | Legacy `/customer` | Available | redirect → `/customer/history` | Route consolidation |
 | Nav: My Orders / Cart / Profile | Available | `Layout.tsx` | Customer chrome |
 | Checkout login modal | Available | `/checkout` | Guest → modal login |
 
 ---
 
-## 3. Katalog & storefront
+## 3. Catalog & storefront
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | Home hero | Available | `/` | DOVA-Startup brand |
 | About | Available | `/about` | |
 | Product listing + search + filter | Available | `GET /products` · `/products` | Pagination · categoryId |
 | Product detail | Available | `GET /products/:id` · `/products/[id]` | Invalid UUID → 404 |
 | Categories | Available | `GET /categories` | |
-| Satuan kg/L otomatis | Available | `dova-shared` product units | By category/name |
-| Placeholder gambar produk | Available | `ProductImage` | Category-based fallback |
+| Auto kg/L units | Available | `dova-shared` product units | By category/name |
+| Product placeholder image | Available | `ProductImage` | Category-based fallback |
 | Mobile hamburger nav | Available | `Layout.tsx` | Responsive |
 
 ---
 
-## 4. Keranjang & checkout
+## 4. Cart & checkout
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | View cart | Available | `GET /cart` · `/cart` | Customer role only |
 | Add to cart | Available | `POST /cart/add` | Qty fractional · min 1 |
 | Update qty / delivery slot | Available | `PUT /cart/items/:id` | Morning / evening per item |
@@ -103,10 +103,10 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 
 ---
 
-## 5. Pembayaran (Paystack)
+## 5. Payments (Paystack)
 
-| Fitur | Status | API | Catatan |
-|-------|--------|-----|---------|
+| Feature | Status | API | Notes |
+|---------|--------|-----|-------|
 | Payment config | Available | `GET /payments/config` | Mode mock vs paystack |
 | Initialize payment | Available | `POST /payments/initialize` | Reference DOVA-* |
 | Verify payment (GET/POST) | Available | `GET/POST /payments/verify` | Mark order paid |
@@ -116,10 +116,10 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 
 ---
 
-## 6. Pesanan (orders)
+## 6. Orders
 
-| Fitur | Status | API | Catatan |
-|-------|--------|-----|---------|
+| Feature | Status | API | Notes |
+|---------|--------|-----|-------|
 | Create order from cart | Available | `POST /orders` | Clears cart on success |
 | List my orders | Available | `GET /orders` | Customer |
 | Order detail | Available | `GET /orders/:id` | Owner or admin |
@@ -130,8 +130,8 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 
 ## 7. Supplier
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | Supplier status | Available | `GET /suppliers/status` | pending / approved / rejected |
 | Dashboard overview | Available | `/supplier` tab overview | Stats · welcome |
 | Product CRUD | Available | `/suppliers/products*` · Products tab | |
@@ -141,15 +141,15 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 | Stock adjust (restock/damage) | Available | `PUT .../stock` | Decrease on purchase |
 | Stock history | Available | `GET .../stock-history` | |
 | Supplier orders + status update | Available | `/suppliers/orders` · Orders tab | Per line item |
-| Supplier profile tab | Available | `/supplier` Profile | Edit akun + business read-only |
+| Supplier profile tab | Available | `/supplier` Profile | Edit account + business read-only |
 | Pending/rejected gate | Available | supplier UI | Block products until approved |
 
 ---
 
 ## 8. Admin
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | Dashboard stats | Available | `GET /admin/dashboard` · `/admin` | |
 | Pending suppliers list | Available | `GET /admin/suppliers/pending` | |
 | Approve / reject supplier | Available | `POST .../approve` · `.../reject` | Rejection reason |
@@ -169,10 +169,10 @@ Dokumen ini adalah **inventaris fitur aktual** di codebase + production per **28
 
 ## 9. Feedback board (native)
 
-Menggantikan FeedLog eksternal — full stack di monorepo.
+Replaces external FeedLog — full stack in monorepo.
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | List / search posts | Available | `GET /feedback/posts` · `/feedback` | Sort votes/new |
 | Post detail | Available | `/feedback/[id]` | |
 | Create post | Available | `POST /feedback/posts` | Auth optional (config) |
@@ -187,10 +187,10 @@ Menggantikan FeedLog eksternal — full stack di monorepo.
 
 ---
 
-## 10. Publik & kontak
+## 10. Public & contact
 
-| Fitur | Status | API / UI | Catatan |
-|-------|--------|----------|---------|
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
 | Contact form | Available | `POST /contact` · `/contact` | Persisted · admin inbox |
 | Health check | Available | `GET /health` | PM2 / smoke |
 | Public catalog (no auth) | Available | categories + products | |
@@ -199,8 +199,8 @@ Menggantikan FeedLog eksternal — full stack di monorepo.
 
 ## 11. Ops, QA & tooling
 
-| Fitur | Status | Command / doc | Catatan |
-|-------|--------|---------------|---------|
+| Feature | Status | Command / doc | Notes |
+|---------|--------|---------------|-------|
 | Unit tests | Available | `npm run test` | 151 tests |
 | Production API smoke | Available | `npm run smoke:production` | 29 + 10 neg |
 | Week4 smoke (local) | Available | `npm run smoke:week4` | |
@@ -242,18 +242,18 @@ Menggantikan FeedLog eksternal — full stack di monorepo.
 
 ---
 
-## Changelog fitur terbaru (post v0.5.4)
+## Recent feature changelog (post v0.5.4)
 
-| Tanggal | Fitur |
-|---------|-------|
-| 2026-08-28 | Profil self-service (`PATCH /auth/me`, change password) |
-| 2026-08-28 | Admin delete user (tanpa order history) |
+| Date | Feature |
+|------|---------|
+| 2026-08-28 | Profile self-service (`PATCH /auth/me`, change password) |
+| 2026-08-28 | Admin delete user (no order history) |
 | 2026-08-28 | Login unverified → auto redirect + auto-resend OTP |
-| 2026-08-27 | Email OTP wajib · forgot/reset password · smoke 29+10 |
+| 2026-08-27 | Email OTP required · forgot/reset password · smoke 29+10 |
 | 2026-08-27 | Production smoke health retry · Paystack live |
 
-Detail commit: [CHANGELOG.md](./CHANGELOG.md)
+Commit details: [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
-*Maintainer: Dozer · DN Tech · sync via `dova-company-wiki/scripts/sync-docs.sh`*
+*Author: Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · sync from `dova/tests/` per [README.md](../README.md)*

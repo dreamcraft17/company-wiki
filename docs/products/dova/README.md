@@ -1,5 +1,7 @@
 # DOVA
 
+> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)
+
 Agricultural marketplace MVP — connects buyers with verified suppliers in Nigeria (NGN).
 
 **Monorepo:** NestJS API · Next.js storefront · shared TypeScript types  
@@ -86,7 +88,7 @@ dova/
 ## Environment variables
 
 Templates: `.env.example`, `apps/backend/.env.example`, `tests/vps-*.env.example`  
-**VPS / production guide:** [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md)
+**VPS / production guide:** [ENV-SETUP.md](./docs/ENV-SETUP.md)
 
 ### Backend (`apps/backend/.env`)
 
@@ -164,11 +166,11 @@ Payments use **Paystack** when `PAYSTACK_SECRET_KEY` is set; otherwise a **mock*
 
 | Doc | Contents |
 |-----|----------|
-| [`tests/TEST-CASES.md`](./tests/TEST-CASES.md) | Automated + manual test catalog |
-| [`tests/GUIDE.md`](./tests/GUIDE.md) | Manual QA workflow |
-| [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md) | VPS/production env setup (ID) |
-| [`tests/DOVA-STATUS-LENGKAP.md`](./tests/DOVA-STATUS-LENGKAP.md) | Dokumen status teknis lengkap (ID) |
-| [`tests/UAT-BUG-FIXES.md`](./tests/UAT-BUG-FIXES.md) | UAT defect log + verification |
+| [TEST-CASES.md](./docs/TEST-CASES.md) | Automated + manual test catalog |
+| [GUIDE.md](./docs/GUIDE.md) | Manual QA workflow |
+| [ENV-SETUP.md](./docs/ENV-SETUP.md) | VPS/production env setup |
+| [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
+| [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
 
 ---
 
@@ -183,7 +185,7 @@ npm run db:seed          # refresh catalog + demo data
 pm2 restart dova-backend dova-frontend --update-env
 ```
 
-Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md).
+Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [ENV-SETUP.md](./docs/ENV-SETUP.md).
 
 ### Vercel (frontend only)
 

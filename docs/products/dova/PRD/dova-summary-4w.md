@@ -379,7 +379,7 @@ Refer to:
 
 ---
 
-**Prepared by:** DN Tech  
+**Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 **Date:** July 20, 2026  
 **Status:** Ready to launch
 

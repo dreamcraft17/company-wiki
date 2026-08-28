@@ -3,7 +3,7 @@
 **Audience:** Engineering / DevOps  
 **Last updated:** 24 July 2026  
 **MVP codebase:** complete — this runbook is for **staging/production go-live** (ops).  
-**Related:** `DOVA_VPS_DEPLOY.md`, `DOVA_VERCEL_DEPLOYMENT_OVERRIDE.md`, `Readme.md`
+**Related:** [VPS-DEPLOY.md](./VPS-DEPLOY.md), [VERCEL-DEPLOYMENT-OVERRIDE.md](./VERCEL-DEPLOYMENT-OVERRIDE.md), [../README.md](../README.md)
 
 ---
 
@@ -28,7 +28,7 @@ pm2 restart dova-api dova-web
 curl -s http://127.0.0.1:3000/api/v1/health
 ```
 
-Full first-time setup: `docs/DOVA_VPS_DEPLOY.md`.
+Full first-time setup: [VPS-DEPLOY.md](./VPS-DEPLOY.md).
 
 ### Deploy (Vercel frontend only)
 

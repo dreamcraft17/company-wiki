@@ -1,11 +1,11 @@
 # DOVA - Software Requirements Specification (SRS)
-## Aggressive 4-Week Timeline | Versi 2.0
+## Aggressive 4-Week Timeline | Version 2.0
 
 ---
 
 ## 1. Overview
 
-Focused SRS dengan **strict scope minimalism**. Setiap requirement harus ada acceptance criteria yang jelas dan testable.
+Focused SRS with **strict scope minimalism**. Every requirement must have clear, testable acceptance criteria.
 
 **Document format:** By Week + By Feature + Acceptance Criteria
 
@@ -1124,7 +1124,7 @@ Feature is DONE when:
 **Version:** 2.0 (Aggressive)  
 **Last Updated:** July 20, 2026
 
-**Approved by:** DN Tech Product & Engineering  
+**Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 
 ---
 

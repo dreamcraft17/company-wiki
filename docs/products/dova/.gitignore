@@ -4,9 +4,10 @@ node_modules/
 .env
 .env.*
 
-# Personal / compensation docs — live in company-wiki/docs/products/dova/private/, never this repo
+# Personal / compensation docs must NEVER be added to this repo (equity, counter-proposals, launch budgets with personal terms)
 *EQUITY*
 *COUNTER-PROPOSAL*
 *Counter-Proposal*
 *Partnership Proposal*
 DOVA-LAUNCH-BUDGET*
+private/

@@ -1,6 +1,6 @@
 # DOVA — Current Implementation Baseline
 
-> **Author:** Dozer · **Last updated:** 2026-08-28
+> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · **Last updated:** 2026-08-28
 
 | Metadata | Value |
 |----------|-------|
@@ -9,16 +9,16 @@
 | Last tag | **v0.5.4** (email OTP production) |
 | Purpose | PRD baseline + ops truth setelah soft launch |
 | Spec baseline | Aggressive 4W PRD/SRS/SDD + VPS PM2 deploy |
-| Owner | Dozer |
+| Author | Dozer · [@dreamcraft17](https://github.com/dreamcraft17) |
 | Phase | **Production live — post-launch hardening** |
 
-> [current-phase.md](../current-phase.md) · [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · [STATUS-LENGKAP.md](./STATUS-LENGKAP.md) · [CHANGELOG.md](./CHANGELOG.md)
+> [current-phase.md](../current-phase.md) · [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · [FULL-TECH-STATUS.md](./FULL-TECH-STATUS.md) · [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
 ## One-line status
 
-**Production live** at [dova.dntech.id](https://dova.dntech.id). **151** unit tests green · **29+10** production smoke pass · Paystack live · email OTP wajib untuk customer baru.
+**Production live** at [dova.dntech.id](https://dova.dntech.id). **151** unit tests green · **29+10** production smoke pass · Paystack live · email OTP required for new customers.
 
 ---
 
@@ -62,8 +62,8 @@
 
 | Item | Notes |
 |------|-------|
-| `RESEND_API_KEY` + `EMAIL_FROM` | Wajib customer signup production |
-| `DOVA_QA_FIXED_OTP` | Opsional — automated smoke QA emails |
+| `RESEND_API_KEY` + `EMAIL_FROM` | Required for customer signup in production |
+| `DOVA_QA_FIXED_OTP` | Optional — automated smoke QA emails |
 | Paystack live monitoring | Keys set; ongoing tx proof |
 | Gmail App Password (legacy SMTP path) | Some VPS configs — prefer Resend |
 | Manual UAT admin UI + feedback UI | Documented gap in bug triage |
@@ -87,7 +87,7 @@ Reviews API · wishlist · discounts · courier tracking · Playwright E2E · pr
 
 ## Related
 
-- [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — **inventaris fitur lengkap**  
+- [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — **complete feature inventory**  
 - [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md)  
 - [API.md](./API.md) · [RUNBOOK.md](./RUNBOOK.md) · [VPS-DEPLOY.md](./VPS-DEPLOY.md)  
 - Specs: [../PRD/](../PRD/)
