@@ -1,5 +1,8 @@
 # DN Tech Company Wiki
 
+> **Author:** Dozer  
+> **Date:** 2026-08-29
+
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
 **Leadership (internal portfolio):** Dozer — **CEO + Tech Lead + PM**  
@@ -23,7 +26,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**65** markdown) · [dntech.id](https://dntech.id) · **relaunch prep** · HEAD `a4a8e29`
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**67** markdown) · [dntech.id](https://dntech.id) · **relaunch** · HEAD `c83d866`
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2

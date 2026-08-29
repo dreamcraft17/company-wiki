@@ -8,7 +8,7 @@
 **Brand:** DN Tech (DN Tech.id)  
 **UpdatedAt:** August 29, 2026
 
-Password DB / tunnel VPS: **SSOT** `private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md` (bukan di company-wiki). Seed tanpa secret: repo `dntech` → `docs/runbooks/vps-postgres-seed.md`.
+Akses Postgres production (password, tunnel, `psql`): **SSOT** [`private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md`](../../private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md). Seed dari laptop: [runbooks/vps-postgres-seed.md](./runbooks/vps-postgres-seed.md).
 
 ## 1. PostgreSQL
 

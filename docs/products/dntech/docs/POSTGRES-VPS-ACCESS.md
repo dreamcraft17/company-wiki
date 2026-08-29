@@ -2,10 +2,10 @@
 
 > **Author:** Dozer · **Date:** 2026-08-29
 
-Runbook akses Postgres production — **dipindah ke private wiki** (credential handling).
+Runbook akses Postgres production berisi panduan credential — **dipindah ke private wiki**.
 
-**SSOT (local):** `private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md` di workspace `dozer/`.
+**SSOT:** [`private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md`](../../../private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md)
 
-Seed via tunnel (tanpa credential): di repo `dntech`, `docs/runbooks/vps-postgres-seed.md`.
+Seed via tunnel (2026-08-29): [runbooks/vps-postgres-seed.md](./runbooks/vps-postgres-seed.md)
 
-Jangan commit password ke `company-wiki`.
+Public mirror di `company-wiki` juga dihapus; jangan commit password ke repo.

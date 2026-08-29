@@ -12,6 +12,7 @@ Dokumen ini dibuat **sebelum** sprint fix relaunch `dntech.id`, menggunakan skil
 | [DN-TECH-RELAUNCH-ADVERSARIAL-REVIEW.md](./DN-TECH-RELAUNCH-ADVERSARIAL-REVIEW.md) | Pre-fix review — **BLOCK** |
 | [DN-TECH-RELAUNCH-ANTI-SLOP-DESIGN.md](./DN-TECH-RELAUNCH-ANTI-SLOP-DESIGN.md) | Copy + visual slop audit |
 | [dntech-relaunch-checklist.json](./dntech-relaunch-checklist.json) | Readiness scorer input |
+| [../runbooks/vps-postgres-seed.md](../runbooks/vps-postgres-seed.md) | VPS Postgres tunnel + seed (2026-08-29) |
 
 ```bash
 # Re-score before announce

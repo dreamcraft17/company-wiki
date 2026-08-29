@@ -1,5 +1,8 @@
 # DN Tech Company Profile Website
 
+> **Author:** Dozer  
+> **Date:** 2026-08-29
+
 Production-ready company profile website for DN Tech with a public marketing site, admin CMS, lead generation, analytics, and SEO foundations.
 
 | | |
@@ -39,9 +42,11 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
 | **Relaunch honesty (Aug 29)** | Shipped in app | Honest seeds, admin password gate, About/branding, product badge — [launch pack](./docs/launch/README.md) |
-| **Launch ops gate** | Pending VPS | `db push` + seed + SMTP live test — BF-013, BF-014 |
+| **Anti-slop pass 2 (`c83d866`)** | Shipped in app | Hero → `/products`, footer chrome, skip-link, CSP, Storybook, Lighthouse — live site needs rebuild |
+| **VPS seed (Aug 29)** | Partial | Branding + 7 products seeded; admin rotate **not** run; SMTP BF-014 unverified |
+| **Launch ops gate** | Open | Frontend prod rebuild, admin rotate, SMTP live test — BF-013, BF-014 |
 
-Latest implementation reference: **`a4a8e29`** (Aug 29) — relaunch honesty fixes; prior **`836266b`** (Jul 26) SSR audit BF-020.
+Latest implementation reference: **`c83d866`** (Aug 29) — public chrome + anti-slop gate; prior **`a4a8e29`** honesty/auth; **`836266b`** (Jul 26) SSR audit BF-020.
 
 **Docs:** [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · [`docs/BUG_FIXES.md`](docs/BUG_FIXES.md) · [`docs/IMPLEMENTATION-STATUS.md`](docs/IMPLEMENTATION-STATUS.md) · [`docs/QA-CHECKLIST-V8.md`](docs/QA-CHECKLIST-V8.md) · [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md)
 

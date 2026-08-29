@@ -1,5 +1,8 @@
 # DN Tech Bug Fixes
 
+> **Author:** Dozer
+> **Last updated:** 2026-08-29
+
 Known issues found during MVP / production work, and their status.
 
 ## Fixed — 2026-08-29 (relaunch honesty)
@@ -8,7 +11,7 @@ Known issues found during MVP / production work, and their status.
 |----|------|-------|-----|
 | BF-021 | About / branding | Honest `seed-branding` wrote `BrandContent`; `/about` read empty `SiteSettings.aboutContent` | About merges branding + settings; seed dual-writes `aboutContent` |
 | BF-024 | Product page | `Dipercaya {Soft launch} pelanggan` | `formatProductStatusBadge` — numeric count vs status string |
-| BF-027 | Auth seed | Default `Admin@123456`; upsert `update: {}` left old hash | `resolveAdminPassword`; rotate hash on seed; docker-compose local-only password |
+| BF-027 | Auth seed | Default `Admin@123456`; upsert `update: {}` left old hash | `resolveAdminPassword`; rotate only with `ROTATE_ADMIN=1` (`db:vps:seed`); `with` refuses `db:seed` |
 | BF-023 / portfolio | Empty social pages | Case studies / portfolio claimed real clients when empty | Honest empty-state copy |
 
 ---
@@ -44,7 +47,7 @@ Known issues found during MVP / production work, and their status.
 
 | ID | Area | Issue | Notes |
 |----|------|-------|-------|
-| BF-013 | Ops | Production `prisma db push` + `db:seed-dnpeople` not verified on VPS | Blocks full dnPeople content until run |
+| BF-013 | Ops | Production schema push + full `db:seed` (admin) not verified on VPS | **2026-08-29:** `db:seed-branding` + `db:seed-products` (7 produk, termasuk dnPeople) via tunnel laptop **sudah** dijalankan. `prisma db push` tidak di-ulang. `db:seed` admin **tidak** dijalankan — `ADMIN_PASSWORD` tidak ada di `.env` VPS. Lihat [runbooks/vps-postgres-seed.md](./runbooks/vps-postgres-seed.md). |
 | BF-014 | Ops | SMTP live send to `info@dntech.id` not fully verified | See `docs/v5/DN-TECH-V5-HOTFIX-*.md` |
 | BF-015 | Design | Star ratings decorative (no review API) | Post-MVP |
 

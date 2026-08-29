@@ -6,9 +6,9 @@
 
 ## Summary
 
-**Visual CSS:** Mostly grounded — tokens in `globals.css` (`--primary: #1e3a8a`, `--secondary: #0d9488`), no gradient heroes in homepage components, `HomeProducts` uses real product names from API. **Copy slop is the blocker:** seed scripts and page titles still read like a post-traction SaaS template while the company has **0 paying clients**. That is **context slop** — correct layout, zero honesty.
+**Visual CSS:** Mostly grounded — tokens in `globals.css` (`--primary: #1e3a8a`, `--secondary: #0d9488`), no gradient heroes in homepage components, `HomeProducts` uses real product names from API. **Copy slop (pass 1):** seed/page titles read like post-traction SaaS while the company has **0 paying clients**. **Pass 2:** public chrome now points at `/products`, honest testimonial/portfolio empty states, footer no longer lists empty case-studies/careers.
 
-**Slop gate:** **FAIL** (4+ fingerprints). Fix copy/empty states before visual polish.
+**Slop gate:** **PASS** (2026-08-29, pass 2) — copy/empty states + footer/hero CTA grounded. Visual tokens unchanged.
 
 ---
 
@@ -27,17 +27,17 @@
 
 | # | Signal | Location | Severity | Fix |
 |---|--------|----------|----------|-----|
-| 1 | **Fake social proof copy** | `seed-branding.ts` “50+ perusahaan”, stats 50/30/5 | 🔴 Block | Replace with studio + first-party products narrative |
-| 2 | **Fabricated testimonials** | `seed-dnpeople-product.ts` named HR/CEO quotes | 🔴 Block | Remove until real; use feature list only |
-| 3 | **Category platitude heading** | `HomeTestimonials` “Apa Kata Klien Kami” (empty) | 🔴 Block | Hide or rename to honest empty state |
-| 4 | **Enterprise meta slop** | `testimonials/page.tsx` “klien enterprise … Indonesia” | 🔴 Block | Meta matches reality: early studio |
-| 5 | **Broken trust template** | Product sidebar “Dipercaya {status} pelanggan” | 🟠 High | Status badge, not fake customer sentence |
-| 6 | **Traction inflation** | dnPeople description “ratusan perusahaan” vs Soft launch | 🟠 High | Align body copy with launchStatus |
-| 7 | **Footer promotes empty proof** | Links to case-studies, careers without content | 🟡 Med | Unlist until real |
-| 8 | **backdrop-blur overlay** | `GlobalLoadingIndicator.tsx` | 🟡 Med | Solid `bg-white/90` per V2.1 |
+| 1 | **Fake social proof copy** | `seed-branding.ts` “50+ perusahaan” | ✅ | Honest studio seed (7 produk / 3 tahun) |
+| 2 | **Fabricated testimonials** | product seed quotes | ⚠️ | Verify VPS product JSON; public UI hides empty |
+| 3 | **Category platitude heading** | `HomeTestimonials` “Apa Kata Klien Kami” | ✅ | Empty: “Testimoni Publik”; filled: “Testimoni” |
+| 4 | **Enterprise meta slop** | `testimonials/page.tsx` | ✅ | Meta: belum ada testimoni publik |
+| 5 | **Broken trust template** | Product sidebar | ✅ | `formatProductStatusBadge` |
+| 6 | **Traction inflation** | Advantages “ratusan…jutaan user” | ✅ | First-party stack copy |
+| 7 | **Footer promotes empty proof** | case-studies, careers | ✅ | Dropped from footer; Produk in primary + hero |
+| 8 | **backdrop-blur overlay** | `GlobalLoadingIndicator.tsx` | ✅ | `bg-white/90` solid |
 | 9 | **Checkmark grid (borderline)** | Product feature cards — CheckCircle every row | 🟢 OK | Feature-dense SaaS page; acceptable if copy is real |
 
-**Fingerprint count:** 4 critical copy + 2 high = **FAIL slop gate** (need ≤2 before ship).
+**Fingerprint count:** copy blockers from pass 1 closed. Residual: product integration `Coming Soon` (real feature status, not marketing slop).
 
 ---
 
@@ -50,7 +50,7 @@
 | `HomeProducts` | ✅ Grounded — real slugs, “Pelajari lebih lanjut”, no gradient hero |
 | Hero (CMS) | ⚠️ Verify CMS — no “Unlock the power” / “Welcome to innovative platform” |
 | Pricing | ✅ UMKM-friendly numbers (Rp 25jt, Rp 150rb/jam) — specific |
-| Testimonials block | ❌ Heading implies clients; slop |
+| Testimonials block | ✅ Empty = honest; CTA ke produk + kontak |
 
 ### Product detail (`/products/[slug]`)
 
@@ -58,14 +58,14 @@
 |---------|------------|
 | Layout | ✅ Asymmetric 2+1 grid, sticky sidebar — not 3-icon template row |
 | Feature grid | ✅ Real BPJS/payroll nouns — Indonesia context |
-| Sidebar trust line | ❌ Template assumes numeric customerCount |
-| Testimonials JSON | ❌ Fictional names — remove for relaunch |
+| Sidebar trust line | ✅ Status string vs numeric pelanggan |
+| Testimonials JSON | ⚠️ Seed products — verify no fake quotes on VPS |
 
 ### About
 
 | Element | Assessment |
 |---------|------------|
-| Story from seed | ❌ 50+ companies — direct slop violation |
+| Story from seed | ✅ Honest studio copy + `aboutContent` dual-write |
 | Team | ⚠️ OK if real names via CMS; placeholder avatars = minor |
 
 ### Footer / chrome
@@ -73,8 +73,8 @@
 | Element | Assessment |
 |---------|------------|
 | White footer, `FooterBrand` | ✅ On-brand, not glass hero |
-| Missing Produk link | ⚠️ UX slop (hides real proof) |
-| Secondary links to empty pages | ❌ Invites bounce to dead ends |
+| Missing Produk link | ✅ Primary footer + hero “Lihat Produk” |
+| Secondary links to empty pages | ✅ Case studies / karier removed from footer |
 
 ---
 
@@ -96,15 +96,15 @@
 ```
 - [x] Uses project tokens/vars (not hardcoded purple/indigo hero)
 - [x] Typography matches site (Inter — project standard)
-- [ ] Headline states specific outcome — FAIL on testimonials/meta
+- [x] Headline states specific outcome — hero = custom software startup/UMKM; empty social pages honest
 - [x] Layout differs from generic icon-row + gradient hero
 - [x] No decorative animation without UX purpose (mostly)
 - [x] Works at 375px (responsive grids in place)
-- [x] Focus states on forms (V3 a11y pass)
-- [ ] Identity from design not label — FAIL: trust copy invents history
+- [x] Focus states on forms (V3 a11y pass) + skip-to-content
+- [x] Identity from design not label — trust copy no longer invents client history
 ```
 
-**Result:** 6/8 — **iterate copy once, then ship visual layer.**
+**Result:** 8/8 slop gate (pass 2). Visual layer: skip-link, header search, CSP headers — not a new palette.
 
 ---
 
@@ -127,7 +127,7 @@
 4. **Footer** — `/products` up, demote empty routes  
 5. **GlobalLoadingIndicator** — remove blur (P2)
 
-Re-run this audit after copy deploy; target **8/8 slop gate**.
+Pass 2 (2026-08-29): items 3–8 closed in public chrome (hero → produk, footer, skip-link, CSP). Re-seed VPS branding if stats still show 6/81.
 
 ---
 

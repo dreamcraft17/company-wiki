@@ -1,14 +1,17 @@
 # DN Tech Compro — Documentation Index
 
+> **Author:** Dozer  
+> **Date:** 2026-08-29
+
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + v6/v7 Produk + **Relaunch prep (Aug 2026)** — honest copy & auth fixes shipped (`a4a8e29`); VPS seed + SMTP verify pending  
+**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — anti-slop chrome shipped (`c83d866`); VPS branding + 7-product seed done; admin rotate + SMTP + frontend prod rebuild still open  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 29, 2026  
-**Latest commit**: `a4a8e29` — relaunch: About/branding seed, admin password gate, honest product copy (Aug 29)
+**Latest commit**: `c83d866` — ground public chrome and close relaunch anti-slop gate (Aug 29)
 
 ---
 
@@ -35,7 +38,8 @@
 | [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
 | [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS Postgres — **pointer**; SSOT `private-wiki/dntech/infra/` |
-| `dntech` repo `docs/runbooks/vps-postgres-seed.md` | Seed/tunnel dari laptop (tanpa password) |
+| [docs/runbooks/vps-postgres-seed.md](./docs/runbooks/vps-postgres-seed.md) | Seed/tunnel dari laptop (tanpa password) |
+| [docs/frontend/LIGHTHOUSE-BASELINE.md](./docs/frontend/LIGHTHOUSE-BASELINE.md) | Lighthouse prod baseline (pre-`c83d866` deploy) |
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/launch/README.md](./docs/launch/README.md) | **Relaunch pack (Aug 2026)** — launch plan, adversarial review, anti-slop, readiness checklist |
@@ -168,7 +172,10 @@
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
 | Testing framework (Jul 28) | ✅ 81 tests passing; 5 E2E scenarios; CI checks wired; push guard hook |
 | **Relaunch honesty (Aug 29)** | ✅ Seed copy jujur, admin password gate, About SSR/branding, product status badge, footer Produk — lihat [launch/](./docs/launch/README.md) |
-| **Launch readiness** | 🔶 53/100 — 4 ops blockers (VPS seed, SMTP) — [checklist](./docs/launch/dntech-relaunch-checklist.json) |
+| **Anti-slop pass 2 (`c83d866`)** | ✅ Hero CTA Produk, footer chrome, skip-link, CSP, Storybook, Lighthouse script — [anti-slop](./docs/launch/DN-TECH-RELAUNCH-ANTI-SLOP-DESIGN.md) |
+| **VPS seed (Aug 29)** | 🔶 Branding + `db:seed-products` (7 active) done; full admin `db:seed` / rotate **not** run; SMTP BF-014 unverified |
+| **Frontend prod deploy** | 🔶 App `main` is `c83d866`; live site still needs production rebuild |
+| **Launch readiness** | 🔶 53/100 (checklist JSON not re-scored) — SMTP + admin rotate + frontend rebuild — [checklist](./docs/launch/dntech-relaunch-checklist.json) |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md)
 
@@ -179,12 +186,13 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 ```bash
 # From dozer monorepo root
 rsync -a --delete --exclude='.DS_Store' --exclude='*.xlsx' \
+  --exclude='frontend/lighthouse/' \
   dntech/docs/ company-wiki/docs/products/dntech/docs/
-cp dntech/README.md company-wiki/docs/products/dntech/README.md
+# Do NOT cp dntech/README.md — wiki product README is curated (status table).
 # Then bump 00_INDEX, docs/products/README.md, 08_PRODUCTS, wiki README
 ```
 
-Mirror wajib setelah release/doc change: `BUG_FIXES.md`, `CHANGELOG.md`, `IMPLEMENTATION-STATUS.md`, `launch/*`, `qa/*`.
+Mirror wajib setelah release/doc change: `BUG_FIXES.md`, `CHANGELOG.md`, `IMPLEMENTATION-STATUS.md`, `launch/*`, `qa/*`, `runbooks/*`, `frontend/LIGHTHOUSE-BASELINE.md`.
 
 ---
 
