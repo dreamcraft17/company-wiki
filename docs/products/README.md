@@ -32,7 +32,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · HEAD `71225e3` · inline register OTP · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
-| **Nearwork** | [nearwork/](./nearwork/00_INDEX.md) | 32 files | In Development | `nextwork` |
+| **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
@@ -60,7 +60,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **DOVA** | app `27db4da` | Full product docs tree: PRD/SRS/SDD, CURRENT-IMPLEMENTATION, catalog, API, runbook, progress/status |
 | **dnCore (ERP)** | `fdc12c2` | Phase 8 close-out: revenue share, reseller, depth — **408** tests / **88** suites · **86** entities · **18** migrations |
 | **TJ** | `d0e5382` | Design system fully wired — tokens, UI kit, layout sections, homepage refresh |
-| **Nearwork** | `d40ea19` | Security audit statis 2026-07-08 — temuan critical webhook & public credentials |
+| **Nearwork (NextWork)** | app `3983ddf` / wiki sync | **BUSINESS-MODEL** + **FEATURE-CATALOG** + CURRENT-IMPLEMENTATION — V2 DoD done; 55 pages · 60 API · 42 models · 82 tests |
 | **DN Tech Compro** | `8c5bd47+` | Jul 9 malam — homepage PRD Indonesia, hide tech/tim section, harga UMKM |
 | **company-wiki** | — | dnPeople release-ready docs + DOVA current-phase |
 

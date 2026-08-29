@@ -34,7 +34,7 @@
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Release changelog (app repo mirror) |
 | [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
-| [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS PostgreSQL access notes |
+| [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS Postgres — **pointer**; SSOT di `private-wiki/dntech/infra/` |
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/launch/README.md](./docs/launch/README.md) | **Relaunch pack (Aug 2026)** — launch plan, adversarial review, anti-slop, readiness checklist |

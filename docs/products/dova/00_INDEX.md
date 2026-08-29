@@ -85,7 +85,7 @@ bash dova-comp-wiki/scripts/sync-from-app.sh         # dova/tests → dova-comp-
 bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # → this mirror
 ```
 
-**No private files:** equity, counter-proposals, chat logs, and `CEO-PROGRESS-UPDATE` are excluded. `private/` in company-wiki is DN Tech internal only — never synced from team wiki.
+**No private files in this mirror:** equity, counter-proposals, launch budget internal, `CEO-PROGRESS-UPDATE` → SSOT [`private-wiki/dova/`](../../../../../private-wiki/dova/) (lokal, gitignored). Folder [`private/`](./private/README.md) hanya pointer.
 
 ---
 
