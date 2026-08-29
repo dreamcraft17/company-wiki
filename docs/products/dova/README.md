@@ -37,6 +37,12 @@ Detail-oriented and quality-driven professional ensuring that DOVA delivers the 
 **Nurul Husna Dini — Assistant Manager**  
 Bridging user needs and business goals. Ensuring DOVA delivers real value to users and partners.
 
+### Infrastructure support
+
+**Infrastructure support by:** [dntech.id](https://dntech.id) — **Dozer Napitupulu Technology** (DN Tech)
+
+Production runs on DN Tech–provided infrastructure: storefront [dova.dntech.id](https://dova.dntech.id) and API [api.dova.dntech.id](https://api.dova.dntech.id) on VPS/subdomain under `*.dntech.id`.
+
 *DN Tech internal — team roster lives in `company-wiki` only (not mirrored to `dova-comp-wiki`).*
 
 ---
