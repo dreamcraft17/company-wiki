@@ -1,9 +1,14 @@
 # Production Deployment (Ubuntu + PostgreSQL)
 
+> **Author:** Dozer
+> **Date:** 2026-08-29
+
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 18, 2026  
+**UpdatedAt:** August 29, 2026
+
+Password DB / tunnel VPS: **SSOT** `private-wiki/dntech/infra/POSTGRES-VPS-ACCESS.md` (bukan di company-wiki). Seed tanpa secret: repo `dntech` → `docs/runbooks/vps-postgres-seed.md`.
 
 ## 1. PostgreSQL
 
@@ -13,7 +18,7 @@ sudo -u postgres psql
 
 ```sql
 CREATE DATABASE dntech;
-CREATE USER dntech_user WITH ENCRYPTED PASSWORD 'dntech2026!';
+CREATE USER dntech_user WITH ENCRYPTED PASSWORD 'GANTI_PASSWORD';
 GRANT ALL PRIVILEGES ON DATABASE dntech TO dntech_user;
 ALTER DATABASE dntech OWNER TO dntech_user;
 \c dntech
@@ -33,7 +38,7 @@ Edit via `nano` (bukan paste ke shell):
 NODE_ENV=production
 PORT=4000
 TRUST_PROXY=1
-DATABASE_URL="postgresql://dntech_user:dntech2026!@localhost:5432/dntech?schema=public"
+DATABASE_URL="postgresql://dntech_user:GANTI_PASSWORD@localhost:5432/dntech?schema=public"
 JWT_SECRET="GANTI_DENGAN_STRING_RANDOM_PANJANG_MIN_32_KARAKTER"
 JWT_EXPIRES_IN="24h"
 JWT_REFRESH_EXPIRES_IN="7d"
@@ -51,7 +56,7 @@ SMTP_FROM_NAME=DN Tech
 SMTP_FROM_EMAIL=info@dntech.id
 ```
 
-Encode `!` di URL jika perlu: `dntech2026%21`
+Encode karakter khusus di URL jika perlu (`!` → `%21`). Password asli hanya di `.env` VPS.
 
 ## 3. Install & build backend
 
