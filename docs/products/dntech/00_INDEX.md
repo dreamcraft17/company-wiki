@@ -7,7 +7,7 @@
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 28, 2026  
+**UpdatedAt**: August 29, 2026  
 **Latest commit**: `95a6cd5` — testing rollout complete + push guard (Jul 28)
 
 ---
@@ -32,6 +32,9 @@
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Current implementation status |
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
+| [docs/launch/README.md](./docs/launch/README.md) | **Relaunch pack (Aug 2026)** — launch plan, adversarial review, anti-slop, readiness checklist |
+| [docs/DN-TECH-RELAUNCH-PRD.md](./docs/DN-TECH-RELAUNCH-PRD.md) | **Relaunch PRD** — honest 0-client narrative |
+| [docs/qa/DN-TECH-BUG-TRIAGE-2026-08-29.md](./docs/qa/DN-TECH-BUG-TRIAGE-2026-08-29.md) | **Bug triage** — P0–P3 pre-fix (relaunch gate) |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |
 | [docs/TESTING.md](./docs/TESTING.md) | Testing playbook + coverage snapshot |
 | [docs/test/DN-TECH-TESTING-PRD.md](./docs/test/DN-TECH-TESTING-PRD.md) | Testing PRD (code-as-truth) |
