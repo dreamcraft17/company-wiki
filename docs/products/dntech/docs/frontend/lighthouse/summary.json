@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-08-29T04:21:59.657Z",
+  "baseUrl": "https://www.dntech.id",
+  "routes": [
+    {
+      "route": "/",
+      "url": "https://www.dntech.id/",
+      "scores": {
+        "performance": 67,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcpMs": 11401,
+        "inpMs": null,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/products/dnpeople",
+      "url": "https://www.dntech.id/products/dnpeople",
+      "scores": {
+        "performance": 81,
+        "accessibility": 96,
+        "bestPractices": 77,
+        "seo": 100
+      },
+      "metrics": {
+        "lcpMs": 4153,
+        "inpMs": null,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/contact",
+      "url": "https://www.dntech.id/contact",
+      "scores": {
+        "performance": 88,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "lcpMs": 3563,
+        "inpMs": null,
+        "cls": 0
+      }
+    }
+  ]
+}

@@ -38,7 +38,7 @@ Historical deep-dive (V1–V7): [`IMPLEMENTATION-STATUS.md`](./IMPLEMENTATION-ST
 dntech/
 ├── frontend/   Next.js App Router — public (public)/ + admin/
 ├── backend/    Express API :4000 · Prisma · SMTP · uploads
-└── docs/       Living docs + versioned PRD/SRS/SDD history
+└── (docs)      company-wiki/docs/products/dntech/ — PRD, runbooks, living docs
 ```
 
 **SSR resolver:** `frontend/src/lib/server-api.ts` — `API_INTERNAL_URL` → loopback → `NEXT_PUBLIC_API_URL` (BF-016–BF-020).

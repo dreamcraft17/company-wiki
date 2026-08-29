@@ -15,9 +15,9 @@ Dokumen ini dibuat **sebelum** sprint fix relaunch `dntech.id`, menggunakan skil
 | [../runbooks/vps-postgres-seed.md](../runbooks/vps-postgres-seed.md) | VPS Postgres tunnel + seed (2026-08-29) |
 
 ```bash
-# Re-score before announce
-python3 ../../../../.cursor/skills/launch-strategy/scripts/launch_readiness_scorer.py \
-  --checklist docs/launch/dntech-relaunch-checklist.json
+# Re-score before announce (from dozer monorepo root)
+python3 .cursor/skills/launch-strategy/scripts/launch_readiness_scorer.py \
+  --checklist company-wiki/docs/products/dntech/docs/launch/dntech-relaunch-checklist.json
 ```
 
 **Current readiness:** 30/100 — 7 blockers. Do not announce until cleared.

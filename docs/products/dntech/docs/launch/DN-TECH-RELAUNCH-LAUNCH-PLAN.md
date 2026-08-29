@@ -32,7 +32,7 @@ Relaunch bukan “hari H” — ini sistem momentum tiga fase. Situs sudah **bui
 
 ```bash
 python3 .cursor/skills/launch-strategy/scripts/launch_readiness_scorer.py \
-  --checklist docs/launch/dntech-relaunch-checklist.json
+  --checklist company-wiki/docs/products/dntech/docs/launch/dntech-relaunch-checklist.json
 ```
 
 | Category | Score | Weakest areas |

@@ -3,7 +3,7 @@
 > **Author:** Dozer  
 > **Date:** 2026-08-29  
 > **Status:** Active · Living reference  
-> **Repo HEAD:** `da52085`
+> **Repo HEAD:** living — copy + CMS wiring in `dntech/`
 
 Dokumen ini merangkum **kata-kata marketing dan SEO** yang dipakai di situs `dntech.id` — sumbernya dari admin dashboard (CMS), seed database, dan default di kode frontend. Gunakan sebagai referensi copywriting, audit anti-slop, dan input PRD berikutnya.
 
@@ -23,12 +23,12 @@ Halaman publik + meta tag + JSON-LD
 
 | Layer | Lokasi admin | Field utama | Bahasa |
 |-------|--------------|-------------|--------|
-| **Situs global** | `/admin/settings` | tagline, hero, homeContent JSON, GA ID | ID |
-| **Branding / About** | `/admin/branding/*` | story, mission, values, stats | ID (+ EN di advantages) |
+| **Situs global** | `/admin/settings` | tagline, hero, homeContent JSON, SEO template, GA | ID |
+| **Branding / About** | `/admin/branding/*` | story, mission, values, stats | ID |
 | **Produk** | `/admin/products` | meta title/description, keywords, tagline, CTA | ID / EN mix |
 | **FAQ** | `/admin/faqs` | pertanyaan + jawaban | ID |
-| **Meta halaman statis** | *(tidak di dashboard)* | `frontend/src/lib/seo.ts` | ID |
-| **CTA hero** | *(hardcoded UI)* | `HomeHero.tsx` | ID |
+| **Meta halaman statis** | `seo.ts` + CMS per entitas | `PAGE_SEO` + `seoTitle` layanan/blog/portofolio | ID |
+| **CTA hero** | `homeContent` JSON | `heroPrimaryCta` / `heroSecondaryCta` | ID |
 
 ---
 
@@ -53,7 +53,7 @@ Halaman publik + meta tag + JSON-LD
 | | ID Situs Web Crisp Chat | `crispWebsiteId` | Live chat |
 | | Lencana Kepercayaan (JSON) | `trustBadges` | Trust section |
 | | Logo Klien (JSON) | `clientLogos` | Social proof |
-| **SEO** | ID Google Analytics | `googleAnalyticsId` | Satu-satunya field SEO di halaman ini |
+| **SEO** | Template judul, deskripsi default, tautan sosial, ID Google Analytics | `seoTitleTemplate`, `seoDescriptionTemplate`, `socialLinks`, `googleAnalyticsId` | Title template + GA |
 | **Hukum** | Syarat Layanan (HTML) | `termsContent` | `/terms` |
 | | Kebijakan Privasi (HTML) | `privacyContent` | `/privacy` |
 
@@ -69,6 +69,8 @@ Halaman publik + meta tag + JSON-LD
   "heroSubtitle": "...",
   "heroBadges": ["Web Apps", "Mobile Apps", "Custom Solutions"],
   "heroSupporting": "...",
+  "heroPrimaryCta": { "label": "...", "href": "/contact" },
+  "heroSecondaryCta": { "label": "...", "href": "/products" },
   "processSteps": [{ "step": 1, "title": "...", "description": "..." }],
   "advantages": [{ "title": "...", "description": "..." }],
   "techStack": [{ "category": "Frontend", "items": ["React", "Next.js"] }],
@@ -81,7 +83,7 @@ Halaman publik + meta tag + JSON-LD
 }
 ```
 
-**Ada di DB tapi belum di UI admin:** `seoTitleTemplate`, `seoDescriptionTemplate`, `socialLinks`, `logoId`, `faviconId`, `isMaintenanceMode`.
+**Ada di DB dan UI admin:** `seoTitleTemplate`, `seoDescriptionTemplate`, `socialLinks`. `logoId`, `faviconId`, `isMaintenanceMode` masih tanpa UI penuh.
 
 ---
 
@@ -94,7 +96,7 @@ Halaman publik + meta tag + JSON-LD
 | | Mission Statement | |
 | | Image URL (opsional) | |
 | **Core Values** | Nama, Deskripsi, Icon Lucide, Urutan | 5 nilai default — seed §4 |
-| **Competitive Advantages** | Judul, Deskripsi, Icon, Urutan | Label EN — seed §4 |
+| **Competitive Advantages** | Judul, Deskripsi, Icon, Urutan | Label Indonesia — seed §4 |
 | **Stats** | Label, Nilai, Icon, Urutan | `Produk First-Party: 7`, `Tahun Membangun: 3` |
 
 Subtitle halaman: *Kelola Brand Story, Core Values, Competitive Advantage, dan statistik beranda.*
@@ -103,7 +105,7 @@ Subtitle halaman: *Kelola Brand Story, Core Values, Competitive Advantage, dan s
 
 ### 1.3 Produk (`/admin/products`)
 
-Satu-satunya modul admin dengan **kartu SEO lengkap**:
+Kartu SEO terlengkap (termasuk keywords + canonical). Layanan/blog/portofolio punya Meta Title + Description.
 
 | Label UI | Field DB |
 |----------|----------|
@@ -114,7 +116,7 @@ Satu-satunya modul admin dengan **kartu SEO lengkap**:
 
 Field marketing lain di form yang sama: `Nama`, `Slug`, `Tagline`, `Kategori`, `Deskripsi`, `Konten Panjang`, hero/logo/CTA/pricing/FAQ JSON.
 
-**Modul tanpa UI SEO** (field ada di schema, dipakai frontend jika diisi via API/DB): Layanan, Blog, Portfolio.
+**Modul dengan UI SEO:** Produk (title, description, keywords, canonical). Layanan, Blog, Portfolio: Meta Title + Meta Description di form admin.
 
 ---
 
@@ -123,9 +125,9 @@ Field marketing lain di form yang sama: `Nama`, `Slug`, `Tagline`, `Kategori`, `
 | Route | Field copy | SEO UI |
 |-------|------------|--------|
 | `/admin/faqs` | Pertanyaan, Jawaban, Kategori, Urutan | — |
-| `/admin/services` | Nama, Kategori, Deskripsi, Status, Urutan | — |
-| `/admin/blog` | Judul, Kategori, Cuplikan, Konten HTML, Status | — |
-| `/admin/portfolio` | Judul, Klien, Ringkasan, Tantangan, Solusi, Hasil | — |
+| `/admin/services` | Nama, Kategori, Deskripsi, Status, Urutan | Meta Title, Meta Description |
+| `/admin/blog` | Judul, Kategori, Cuplikan, Konten HTML, Status | Meta Title, Meta Description |
+| `/admin/portfolio` | Judul, Klien, Ringkasan, Tantangan, Solusi, Hasil | Meta Title, Meta Description |
 
 Help layanan: *Hanya layanan berstatus Aktif yang tampil di homepage dan halaman /services.*
 
@@ -160,6 +162,8 @@ DN Tech
 | `/faq` | Pertanyaan Umum (FAQ) | Jawaban tentang layanan, proses kerja, pricing, dan dukungan DN Tech. |
 | `/quiz` | Temukan Solusi Teknologi Anda | Kuis singkat untuk menemukan layanan DN Tech yang sesuai kebutuhan bisnis Anda. |
 | `/resources` | Sumber Daya & Panduan | Panduan dan checklist gratis dari DN Tech. |
+| `/team` | Tim Kami | Kenali tim DN Tech — developer dan konsultan teknologi di balik proyek Anda. |
+| `/portfolio` | Portofolio | Portofolio proyek DN Tech — dipublikasikan hanya dengan izin klien. |
 
 ### 2.3 Root layout default (`layout.tsx`)
 
@@ -170,14 +174,9 @@ DN Tech
 | Description | DN Tech — software house Indonesia untuk pengembangan aplikasi kustom dan konsultasi teknologi startup. |
 | Twitter | `@dntech` |
 
-### 2.4 Halaman dengan metadata hardcoded (di luar `PAGE_SEO`)
+Title template dan deskripsi default bisa di-override dari `/admin/settings` (`seoTitleTemplate`, `seoDescriptionTemplate`).
 
-| Halaman | Title | Description |
-|---------|-------|-------------|
-| `/team` | Tim Kami | Kenali tim DN Tech... |
-| `/resources` (alternatif) | Sumber Daya | Panduan, whitepaper, dan wawasan dari DN Tech. |
-
-Detail produk/layanan/blog: override dari DB `seoTitle` / `seoDescription` jika terisi.
+Detail produk/layanan/blog/portofolio: override dari DB `seoTitle` / `seoDescription` jika terisi.
 
 ---
 
@@ -193,8 +192,8 @@ Dipakai ketika field CMS kosong. Seed production: `npm run db:seed-homepage` (sc
 | **Badges** | Web Apps · Mobile Apps · Custom Solutions |
 | **Supporting** | Kami software house lokal yang build custom software untuk startup dan UMKM. Proses jelas, harga transparan, timeline yang pasti. |
 | **Subtitle fallback** | DN Tech.id |
-| **CTA primary** *(hardcoded `HomeHero.tsx`)* | Konsultasi Gratis — 30 Menit |
-| **CTA secondary** | Lihat Produk |
+| **CTA primary** | `homeContent.heroPrimaryCta` · default `Konsultasi Gratis — 30 Menit` → `/contact` |
+| **CTA secondary** | `homeContent.heroSecondaryCta` · default `Lihat Produk` → `/products` |
 
 **Prioritas resolve:** `homeContent.heroTitle` → `SiteSettings.tagline` → `DEFAULT_HERO.title`
 
@@ -285,17 +284,17 @@ Script: `backend/scripts/seed-branding.ts`
 | Pragmatik | Solusi yang kerja, bukan fancy tapi useless |
 | Jujur | Pricing transparan, timeline realistis, status produk jelas |
 | Fokus Produk | Platform internal = bukti teknis, bukan logo klien fiktif |
-| Quality First | Code bersih, tested, documented |
-| Growth Mindset | Terus belajar dan improve |
+| Kualitas dulu | Code bersih, tested, documented |
+| Pola pikir tumbuh | Terus belajar dan improve |
 
-### Competitive Advantages (EN label)
+### Competitive Advantages (ID)
 
 | Judul | Deskripsi |
 |-------|-----------|
-| Local + expert | Tim Indonesia paham bisnis lokal |
-| Transparent | Fixed price, jelas timeline, no hidden fees |
-| Hands-on | Founder involved di setiap project |
-| Long-term support | Maintenance + training included |
+| Lokal dan ahli | Tim Indonesia paham bisnis lokal |
+| Transparan | Harga tetap, timeline jelas, tanpa biaya tersembunyi |
+| Langsung ke founder | Founder terlibat di setiap project |
+| Dukungan jangka panjang | Maintenance dan training termasuk |
 
 ### Stats
 
@@ -346,7 +345,7 @@ Link CTA per pilar: Layanan Kami, Konsultasi Gratis, FAQ Proses Kerja, Portfolio
 | 7 produk + SEO | `npm run db:seed-products` | `seed-all-products.ts` |
 | Production (VPS) | Lihat runbook | `docs/runbooks/vps-postgres-seed.md` |
 
-Setelah edit di dashboard: **Simpan Pengaturan** → toast `Pengaturan berhasil disimpan!` → revalidate `/` dan `/about` jika `NEXT_PUBLIC_REVALIDATE_SECRET` ter-set.
+Setelah edit di dashboard: **Simpan Pengaturan** → toast `Pengaturan berhasil disimpan!` → revalidate `/`, `/about`, `/resources`, `/team` jika `NEXT_PUBLIC_REVALIDATE_SECRET` ter-set.
 
 ---
 
@@ -354,11 +353,11 @@ Setelah edit di dashboard: **Simpan Pengaturan** → toast `Pengaturan berhasil 
 
 | Item | Status |
 |------|--------|
-| Template SEO global (`seoTitleTemplate`) | Ada di DB/API · **belum di UI** |
-| Meta layanan / blog / portfolio | Schema ada · **hanya produk punya UI SEO** |
-| CTA hero homepage | **Hardcoded** — ubah di `HomeHero.tsx`, bukan dashboard |
-| `PAGE_SEO` | **Hardcoded** — ubah di `seo.ts` + deploy |
-| Campuran bahasa | UI admin = ID · beberapa advantage produk = EN · keywords campuran ID/EN |
+| Template SEO global (`seoTitleTemplate`) | **UI** di `/admin/settings` → kartu SEO · dipakai `layout.tsx` `generateMetadata` |
+| Meta layanan / blog / portfolio | **UI** Meta Title + Description di form admin masing-masing |
+| CTA hero homepage | `homeContent.heroPrimaryCta` / `heroSecondaryCta` · fallback `homepage-content.ts` |
+| `PAGE_SEO` | Hardcoded default di `seo.ts` (termasuk `/team`, `/portfolio`, `/resources`) · override judul halaman via CMS per entitas |
+| Campuran bahasa | Seed branding advantage/value memakai label Indonesia |
 | Anti-slop rule | Jangan klaim jumlah klien / testimoni fiktif — gunakan empty-state honest copy §3.7 |
 
 ---

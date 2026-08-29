@@ -1,6 +1,6 @@
 # V8 QA Checklist
 
-Reference: [PRD V8](../dntech/PRD/DN-TECH-PRD-V8.md) · [SDD V8](../dntech/PRD/DN-TECH-SDD-V8.md) · [SRS V8](../dntech/PRD/DN-TECH-SRS-V8.md)
+Reference: [PRD V8](../PRD/DN-TECH-PRD-V8.md) · [SDD V8](../PRD/DN-TECH-SDD-V8.md) · [SRS V8](../PRD/DN-TECH-SRS-V8.md)
 
 ## Track A: Go-live
 

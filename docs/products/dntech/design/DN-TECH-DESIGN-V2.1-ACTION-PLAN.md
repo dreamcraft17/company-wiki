@@ -367,6 +367,6 @@ A: Yes — show before/after of portfolio page, admin login, components.
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026  
 **Version:** V2.1 Remediation Quick Plan

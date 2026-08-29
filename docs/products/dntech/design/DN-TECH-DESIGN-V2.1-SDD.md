@@ -2,7 +2,7 @@
 ## System Design Detail (Code Implementation)
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Baseline:** [DN-TECH-DESIGN-V2.1-PRD.md](./DN-TECH-DESIGN-V2.1-PRD.md)
 
 ---
@@ -894,6 +894,6 @@ Keep Figma/screenshot of old design for reference.
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026  
 **Version:** V2.1 Remediation SDD

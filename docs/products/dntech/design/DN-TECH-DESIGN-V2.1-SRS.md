@@ -2,7 +2,7 @@
 ## System Requirements Specification
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Reference:** [DN-TECH-DESIGN-V2.1-PRD.md](./DN-TECH-DESIGN-V2.1-PRD.md) + [DN-TECH-DESIGN-V2.1-SDD.md](./DN-TECH-DESIGN-V2.1-SDD.md)
 
 ---
@@ -508,7 +508,7 @@ export function Alert({ ... }) { }
 
 ## 10. Stakeholder Requirements
 
-### 10.1 CEO + Tech Lead + PM (Dozer)
+### 10.1 CEO + Tech Lead (Dozer)
 
 - ✅ No gradients on public-facing pages
 - ✅ No glassmorphism anywhere
@@ -604,7 +604,7 @@ export function Alert({ ... }) { }
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
-| CEO + Tech Lead + PM | Dozer | | [ ] |
+| CEO + Tech Lead | Dozer | | [ ] |
 | Frontend Tech Lead | TBD | | [ ] |
 | QA Lead | TBD | | [ ] |
 
@@ -617,6 +617,6 @@ export function Alert({ ... }) { }
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026  
 **Version:** V2.1 Remediation SRS

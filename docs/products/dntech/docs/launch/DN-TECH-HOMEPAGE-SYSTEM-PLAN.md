@@ -30,7 +30,7 @@ Founder or ops lead landing on `dntech.id` must understand in one screen that DN
 
 | ID | Change | Priority |
 |----|--------|----------|
-| H1 | Solid `--primary` hero; drop CSS `hero_bg.png` from LCP path (or `next/image` priority + tiny file) | P0 **done** |
+| H1 | Hero uses `next/image` `priority` + `fill` for `/hero_bg.png` (not CSS `background-image`); solid `--primary` fallback + overlay | P0 **updated** — photo restored; avoid CSS background LCP path |
 | H2 | Omit homepage Portfolio + Testimonials **sections** when lists are empty (routes stay) | P0 **done** (homepage skips those fetches entirely until there is real public proof) |
 | H3 | `SectionHeading` left-aligned, sentence case; 8pt section rhythm (`py-16` → token) | P1 **done** (`py-section`, `--space-section: 4rem`) |
 | H4 | Products: one featured + compact list, not six identical cards | P1 **done** |
@@ -65,7 +65,7 @@ See canvas for scores. Ship order: **omit empty blocks → hero LCP → headings
 
 - Keep RSC `page.tsx` + `Promise.all` for lists that still render.
 - Do not fetch `/case-studies` or `/branding/testimonials` if we omit those sections (or fetch and return `null` with no extra round-trip — prefer skip fetch).
-- `hero_bg.png` is the LCP suspect; solid fill meets V2.1 better than a photo overlay.
+- `hero_bg.png` (~1.3 MB PNG) was the CSS-background LCP suspect. Photo is back via `next/image` so Next can serve AVIF/WebP; compress the source file if mobile LCP regresses past 2 s.
 - Named owner: Dozer. Cadence: same-day ship on `dntech` `main`, then VPS frontend rebuild.
 
 ## References

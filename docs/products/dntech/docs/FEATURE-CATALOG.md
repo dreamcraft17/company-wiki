@@ -50,13 +50,13 @@ Seed command: `npm run db:seed-products` (backend). VPS run documented BF-013.
 | Module | Status | Notes |
 |--------|--------|-------|
 | Auth JWT + RBAC | **Done** | BF-027 production password gate |
-| Services CRUD | **Done** | |
+| Services CRUD | **Done** | Termasuk Meta Title / Description |
 | Products CRUD | **Done** | V6/V7 extended fields |
-| Blog, team, FAQ, careers | **Done** | |
-| Portfolio / case studies | **Done** | |
+| Blog, team, FAQ, careers | **Done** | Blog: Meta Title / Description |
+| Portfolio / case studies | **Done** | Meta Title / Description |
 | Leads + CSV export | **Done** | |
 | Media library | **Done** | |
-| Site settings + homepage CMS | **Done** | `homeContent` JSON |
+| Site settings + homepage CMS | **Done** | `homeContent` JSON, SEO template, CTA hero |
 | Newsletter + quiz submissions | **Done** | |
 | Email logs | **Done** | V5 |
 | Branding admin (legacy) | **Done** | Not on homepage main flow |

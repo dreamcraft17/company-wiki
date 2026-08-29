@@ -17,7 +17,7 @@
 
 ## Living docs (Aug 2026 — SSOT)
 
-Edit di **`dntech/docs/`** dulu → mirror ke `docs/` di bawah.
+**Edit di `company-wiki/docs/products/dntech/`** — repo `dntech` hanya kode aplikasi ([DOCS pointer](https://github.com/dreamcraft17/dntech/blob/main/DOCS.md)).
 
 | File | Topik |
 |------|-------|
@@ -55,6 +55,8 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
 | [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS Postgres — **pointer**; SSOT `private-wiki/dntech/infra/` |
 | [docs/runbooks/vps-postgres-seed.md](./docs/runbooks/vps-postgres-seed.md) | Seed/tunnel dari laptop (tanpa password) |
+| [docs/runbooks/frontend-vps-deploy.md](./docs/runbooks/frontend-vps-deploy.md) | Frontend rebuild + PM2 di VPS |
+| [docs/seo/DN-TECH-PRD-SRS-SDD-SEO-MARKETING.md](./docs/seo/DN-TECH-PRD-SRS-SDD-SEO-MARKETING.md) | SEO/marketing PRD pack |
 | [docs/frontend/LIGHTHOUSE-BASELINE.md](./docs/frontend/LIGHTHOUSE-BASELINE.md) | Lighthouse prod baseline (pre-`c83d866` deploy) |
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
@@ -123,6 +125,18 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/v5/DN-TECH-V5-HOTFIX-ACTION-PLAN.md](./docs/v5/DN-TECH-V5-HOTFIX-ACTION-PLAN.md) | Hotfix plan |
 | [docs/v5/DN-TECH-V5-HOTFIX-SMTP-CONNECTION.md](./docs/v5/DN-TECH-V5-HOTFIX-SMTP-CONNECTION.md) | SMTP hotfix |
 | [docs/v5/DN-TECH-V5-HOTFIX-TROUBLESHOOTING.md](./docs/v5/DN-TECH-V5-HOTFIX-TROUBLESHOOTING.md) | Troubleshooting |
+
+---
+
+## V8 — Foundation (Jul 2026)
+
+| File | Topik |
+|------|-------|
+| [PRD/DN-TECH-PRD-V8.md](./PRD/DN-TECH-PRD-V8.md) | PRD v8 foundation |
+| [PRD/DN-TECH-SRS-V8.md](./PRD/DN-TECH-SRS-V8.md) | SRS v8 |
+| [PRD/DN-TECH-SDD-V8.md](./PRD/DN-TECH-SDD-V8.md) | SDD v8 |
+| [docs/DN-TECH-PRD-V8-FOUNDATION.md](./docs/DN-TECH-PRD-V8-FOUNDATION.md) | Foundation summary |
+| [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 |
 
 ---
 
@@ -199,18 +213,11 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 
 ---
 
-## Sync dari app repo (`dntech`)
+## Dokumentasi — SSOT
 
-```bash
-# From dozer monorepo root
-rsync -a --delete --exclude='.DS_Store' --exclude='*.xlsx' \
-  --exclude='frontend/lighthouse/' \
-  dntech/docs/ company-wiki/docs/products/dntech/docs/
-# Do NOT cp dntech/README.md — wiki product README is curated (status table).
-# Then bump 00_INDEX, docs/products/README.md, 08_PRODUCTS, wiki README
-```
+Semua docs **hanya** di folder ini (`company-wiki/docs/products/dntech/`). Repo [`dntech`](https://github.com/dreamcraft17/dntech) berisi kode saja — lihat [`DOCS.md`](https://github.com/dreamcraft17/dntech/blob/main/DOCS.md).
 
-Mirror wajib setelah release/doc change: `BUG_FIXES.md`, `CHANGELOG.md`, `IMPLEMENTATION-STATUS.md`, `launch/*`, `qa/*`, `runbooks/*`, `frontend/LIGHTHOUSE-BASELINE.md`.
+Setelah edit docs: commit di **company-wiki**, bump `UpdatedAt` di `00_INDEX.md`, `docs/products/README.md`, dan wiki `README.md` jika status/release berubah.
 
 ---
 

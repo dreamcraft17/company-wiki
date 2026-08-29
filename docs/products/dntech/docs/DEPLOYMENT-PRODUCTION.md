@@ -133,8 +133,11 @@ Resolver API frontend juga memiliki pengaman production: nilai `localhost`/`127.
 ```bash
 npm install
 npm run build
+# Wajib exit 0 dulu. Restart di tengah build → HTML cache hash CSS lama, file baru di disk, halaman polos.
 pm2 restart dntech-web   # atau: pm2 start npm --name dntech-web -- start
 ```
+
+Runbook operasional (smoke CSS, rollback, insiden unstyled): [runbooks/frontend-vps-deploy.md](./runbooks/frontend-vps-deploy.md).
 
 Verifikasi di browser DevTools → Network: request harus ke `https://api.dntech.id/...`, **bukan** `localhost:4000`.
 
