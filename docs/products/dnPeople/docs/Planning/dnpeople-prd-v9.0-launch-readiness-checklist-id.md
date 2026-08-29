@@ -2,7 +2,7 @@
 ## Launch Readiness Checklist (MVP Q3 2026)
 
 **Versi:** 9.0.1 (status sync 19 Jul 2026)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Tanggal:** 19 Juli 2026  
 **Tujuan:** Ensure MVP ready untuk public launch  
 **Target Launch:** 30 September 2026

@@ -1,12 +1,12 @@
 # Organization Structure
 
-**Document Version**: 1.1  
-**Last Updated**: July 18, 2026  
+**Document Version**: 1.2  
+**Last Updated**: August 29, 2026  
 **Status**: Published  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 18, 2026  
+**UpdatedAt**: August 29, 2026  
 
 ---
 
@@ -24,19 +24,19 @@
 ## Struktur Organisasi
 
 ```
-                        ┌─────────────┐
-                        │     CEO     │
-                        │   (Dozer)   │
-                        │ + Tech Lead │
-                        └──────┬──────┘
-                               │
-          ┌────────────────────┼────────────────────┐
-          │                    │                    │
-   ┌──────▼──────┐     ┌──────▼──────┐     ┌──────▼──────┐
-   │  Technology │     │   Product   │     │  Operations │
-   │    (CTO)    │     │ (VP Product)│     │    (COO)    │
-   │      —      │     │      —      │     │      —      │
-   └──────┬──────┘     └──────┬──────┘     └──────┬──────┘
+                        ┌──────────────────┐
+                        │  CEO (Dozer)     │
+                        │  + Tech Lead     │
+                        │  + PM (interim)  │
+                        └────────┬─────────┘
+                                 │
+          ┌──────────────────────┼──────────────────────┐
+          │                      │                      │
+   ┌──────▼──────┐       ┌───────▼───────┐     ┌───────▼───────┐
+   │  Technology │       │    Product    │     │  Operations │
+   │    (CTO)    │       │ (VP Product)  │     │    (COO)    │
+   │      —      │       │  (— · PM→CEO) │     │      —      │
+   └──────┬──────┘       └───────┬───────┘     └───────┬───────┘
           │                    │                    │
    ┌──────┴──────┐     ┌──────┴──────┐     ┌──────┴──────┐
    │ Engineering │     │   Design    │     │  HR & Admin │
@@ -47,8 +47,8 @@
 ```
 
 > **Sumber kebenaran nama & jabatan:** hanya nama yang tercantum di tabel Leadership di bawah yang resmi.  
-> Saat ini terisi: **CEO + Tech Lead** (Dozer) dan **Finance** (Nur Annisa Sofyan).  
-> Posisi CTO, VP Product, Head of Design, Head of Sales, COO masih **vacant** (—).  
+> Saat ini terisi: **CEO + Tech Lead + PM** (Dozer) dan **Finance** (Nur Annisa Sofyan).  
+> Posisi CTO, VP Product (formal), Head of Design, Head of Sales, COO masih **vacant** (—). Fungsi product management dipegang CEO sebagai **PM interim**.  
 > Profil perusahaan ringkas: [Company Overview](./02_COMPANY_OVERVIEW.md).
 
 ---
@@ -57,9 +57,9 @@
 
 | Role | Nama | Tanggung Jawab |
 |------|------|----------------|
-| **CEO + Tech Lead** | Dozer | Strategi perusahaan, business development, arsitektur teknis, quality engineering (sementara memegang Tech Lead sampai CTO terisi) |
-| **CTO** | — | Engineering leadership, tech stack, infrastructure |
-| **VP Product** | — | Product roadmap, PRD, stakeholder management |
+| **CEO + Tech Lead + PM** | Dozer | Strategi & BD · arsitektur teknis & quality engineering (Tech Lead) · PRD, roadmap, prioritas produk internal (PM interim) |
+| **CTO** | — | Vacant — engineering leadership formal; Tech Lead → Dozer |
+| **VP Product** | — | Vacant — PM functions → Dozer (interim) |
 | **Head of Design** | — | UI/UX, design system, brand identity |
 | **Head of Sales** | — | Client acquisition, partnerships, proposals |
 | **COO** | — | Operasional, HR, admin |
@@ -74,7 +74,7 @@
 ### Technology (Engineering)
 
 **Fokus**: Pengembangan software, infrastruktur, dan quality assurance.  
-**Interim lead**: CEO + Tech Lead (Dozer) sampai CTO terisi.
+**Interim lead**: CEO + Tech Lead + PM (Dozer) — Tech Lead sampai CTO terisi; PM sampai VP Product terisi.
 
 | Sub-team | Fungsi |
 |----------|--------|
@@ -87,11 +87,12 @@
 
 ### Product
 
-**Fokus**: Product management, requirements, dan user experience.
+**Fokus**: Product management, requirements, dan user experience.  
+**Interim lead**: Dozer (PM) — PRD vNext, roadmap, prioritas release untuk dnPeople, dnShop, Compro, dnCore, dll.
 
 | Sub-team | Fungsi |
 |----------|--------|
-| Product Management | PRD, roadmap, prioritization |
+| Product Management | PRD, roadmap, prioritization *(interim: CEO/PM)* |
 | UX Research | User interviews, analytics insights |
 | Documentation | Wiki, API docs, onboarding guides |
 
@@ -134,7 +135,7 @@ Produk aktif: Company Profile (dntech.id), **dnPeople HRIS**, Careers module —
 
 | Role | Level | Key Responsibilities |
 |------|-------|---------------------|
-| Tech Lead | Senior | Architecture decisions, code review, mentoring *(saat ini dipegang CEO)* |
+| Tech Lead | Senior | Architecture decisions, code review, mentoring *(Dozer — CEO + Tech Lead + PM)* |
 | Full Stack Developer | Mid-Senior | Feature development end-to-end |
 | Frontend Developer | Mid | UI components, responsive design, SEO |
 | Backend Developer | Mid | API, database, security, integrations |
@@ -156,10 +157,11 @@ Detail RBAC: [Architecture](./06_ARCHITECTURE.md#keamanan--rbac)
 ## Reporting Lines
 
 ```
-CEO + Tech Lead (Dozer)
+CEO + Tech Lead + PM (Dozer)
 ├── CTO (—) → Engineering Team, DevOps
-│     └── (interim: report langsung ke CEO + Tech Lead)
+│     └── (interim: Tech Lead → Dozer)
 ├── VP Product (—) → Product Team, Documentation
+│     └── (interim: PM → Dozer)
 ├── Head of Design (—) → Design Team
 ├── Head of Sales (—) → Marketing, Client Success
 └── COO (—) → HR, Admin
@@ -217,9 +219,9 @@ Detail modul careers: [Careers PRD](../products/11_CAREERS_PRD.md)
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | August 29, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

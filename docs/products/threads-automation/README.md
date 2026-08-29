@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Package | `threads-automation` · folder `auto/` |
 | Status | **v3.0** AI Content · v2.0 live/media · LLM via env |

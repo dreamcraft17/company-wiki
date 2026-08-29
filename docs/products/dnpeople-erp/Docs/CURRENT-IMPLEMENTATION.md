@@ -4,7 +4,7 @@
 **HEAD:** `e6e1ccf`  
 **Purpose:** source baseline after TypeORM column-type hardening + mobile-first web complete + Phase 8 (Expo on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
 
 > Komplementer ke **dnPeople** (HRIS). Repo ini = NestJS ERP monolit modular di [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp).

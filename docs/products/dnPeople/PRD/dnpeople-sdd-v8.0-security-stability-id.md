@@ -3,7 +3,7 @@
 
 **Versi:** 8.0  
 **Tanggal:** 18 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Siap untuk Development
 
 ---

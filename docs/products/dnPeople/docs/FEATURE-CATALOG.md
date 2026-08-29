@@ -1,6 +1,6 @@
 # dnPeople — Feature Catalog
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** August 10, 2026  
@@ -337,7 +337,7 @@ Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog 
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | August 10, 2026 |

@@ -4,7 +4,7 @@
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
 **Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 + Testing rollout complete (Jul 28); DB push + `db:seed-dnpeople` ke production masih pending  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: July 28, 2026  
@@ -165,7 +165,7 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 28, 2026 |

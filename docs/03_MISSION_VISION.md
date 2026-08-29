@@ -3,7 +3,7 @@
 **Document Version**: 1.1  
 **Last Updated**: July 18, 2026  
 **Status**: Published  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: July 18, 2026  
@@ -89,7 +89,7 @@ Code quality, security, performance, dan dokumentasi adalah non-negotiable — b
 - [ ] Build dedicated sales & marketing team (isi Head of Sales / COO)
 - [ ] Establish partnership dengan 3+ enterprise clients
 - [ ] Achieve 99.5% uptime SLA
-- [ ] Hire CTO dedicated (lepas dual-hat CEO + Tech Lead)
+- [ ] Hire CTO dedicated (lepas dual-hat CEO + Tech Lead + PM)
 
 ### Jangka Panjang (2028+)
 
@@ -130,7 +130,7 @@ Code quality, security, performance, dan dokumentasi adalah non-negotiable — b
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 18, 2026 |

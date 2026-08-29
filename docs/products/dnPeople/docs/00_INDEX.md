@@ -1,6 +1,6 @@
 # dnPeople — Docs Index (repo)
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** August 10, 2026  

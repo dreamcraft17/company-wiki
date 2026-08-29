@@ -2,7 +2,7 @@
 ## Multi-Tenant Enterprise Architecture & Advanced Tenant Management
 
 **Version:** 6.0 (Enterprise-grade multi-tenancy)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** July 16, 2026  
 **Status:** Enterprise specification (incorporates Mekari, Odoo, Zoho best practices)  
 **Audience:** Product, Engineering, Architects, Enterprise Sales
@@ -1032,4 +1032,4 @@ model TenantAuditLog {
 
 ---
 
-*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead)*
+*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead + PM)*

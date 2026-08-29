@@ -4,7 +4,7 @@
 **Document Version:** 4.0  
 **Date:** Juli 2026  
 **Status:** Active Development (Performance Optimization)  
-**Owner:** Dozer (CEO + Tech Lead)
+**Owner:** Dozer (CEO + Tech Lead + PM)
 
 ---
 
@@ -1013,7 +1013,7 @@ frontend/next.config.ts (remove google fonts)
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** Juli 2026  
 **Next Review:** Agustus 2026 (after V4 implementation)
 

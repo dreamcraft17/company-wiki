@@ -1,7 +1,7 @@
 # dnPeople — PRD Index & Version History
 
 **Master Index of Product Requirements**  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** July 16, 2026  
 **Current Version:** v5 (Subscription Tier & Feature Gating)
 
@@ -258,7 +258,7 @@ PRD v5 (Subscription Tier)
 
 | Role | Name | Approval | Date |
 |------|------|----------|------|
-| CEO + Tech Lead | Dozer | 👤 | July 16, 2026 |
+| CEO + Tech Lead + PM | Dozer | 👤 | July 16, 2026 |
 | Head of Product | TBD | ⬜ | — |
 | Engineering Lead | TBD | ⬜ | — |
 | Finance | TBD | ⬜ | — |
@@ -276,4 +276,4 @@ PRD v5 (Subscription Tier)
 
 ---
 
-*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead)*
+*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead + PM)*

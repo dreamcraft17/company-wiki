@@ -3,7 +3,7 @@
 
 **Date:** Juli 2026  
 **Status:** 🔴 CRITICAL - Email system down  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Error:** Cannot connect to mx8.mailspace.id:465
 
 ---
@@ -505,6 +505,6 @@ After applying this fix:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** V5 HOTFIX

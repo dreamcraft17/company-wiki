@@ -1,7 +1,7 @@
 # DuaVulnScanner (DVS)
 
 All-in-one penetration testing platform: **Scanner · Reporting · Tracking**  
-Company: **DN Tech** · Owner: **Dozer**
+Company: **DN Tech** · Owner: **Dozer (CEO + Tech Lead + PM)**
 
 | | |
 |---|---|

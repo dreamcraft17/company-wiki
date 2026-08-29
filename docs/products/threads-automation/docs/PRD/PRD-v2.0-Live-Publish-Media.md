@@ -2,7 +2,7 @@
 
 **Versi** | 2.0  
 **Tanggal** | 25 Juli 2026  
-**Owner** | Dozer (CEO + Tech Lead)  
+**Owner** | Dozer (CEO + Tech Lead + PM)  
 **Status** | Ready for Development  
 **Baseline** | MVP Phase 1 + Phase 2 ✓ (repo)  
 **Predecessor** | PRD/SRS/SDD v1.0 Draft (22 Jun 2026)
@@ -526,6 +526,6 @@ If publish success rate drops below 90% or >5% test failures:
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead)  
+**Document Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** 25 Juli 2026  
 **Next Review:** After v2.0 shipped or major baseline change

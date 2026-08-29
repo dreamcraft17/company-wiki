@@ -2,7 +2,7 @@
 ## Apa Lagi yang Perlu Diimplement Sebelum Launch Q3 2026
 
 **Tanggal:** 22 Juli 2026 (PRD v11.0 go-live execution complete in repo)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** MVP 1–5 + PRD v5–**v11.0 DONE in repo** · **Next PRD** = v4 Module 3–8 · external go-live Conditional  
 
 ---

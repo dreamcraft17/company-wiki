@@ -1,7 +1,7 @@
 # dnShop Finance
 
 **dnShop Finance** — Financial Dashboard & Reporting Platform untuk Shopee Sellers Indonesia  
-**Owner:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
 **Specs shipped:** [`prd/`](./prd/) v1.0 + v2.0 · [`prd/sopi/`](./prd/sopi/) **v2.1 SOPI go-live** · UI2 [`prd/v2/…_Design.md`](./prd/v2/dnShop_Finance_v2.1_Design.md)  
 **PRD berikutnya:** [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md) → **v2.2 Accounting depth**  
 **Posisi v2.0:** pembukuan = **bonus di akun seller**, bukan aplikasi akuntansi terpisah

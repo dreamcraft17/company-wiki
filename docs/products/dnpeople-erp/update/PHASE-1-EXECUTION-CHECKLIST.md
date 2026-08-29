@@ -1,7 +1,7 @@
 # Phase 1 Execution Checklist
 ## 4-Week Parallel Development Sprint
 
-**Sprint Owner:** Dozer (CEO + Tech Lead)  
+**Sprint Owner:** Dozer (CEO + Tech Lead + PM)  
 **Team:** 9–11 engineers (5–6 backend, 4–5 frontend)  
 **Duration:** 4 weeks (completed 5 Jul 2026)  
 **Goal:** Ship all 4 Tier 1 features → 90% Mekari feature parity  
@@ -636,6 +636,6 @@ NEXT WEEK FOCUS:
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead)  
+**Document Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** 5 July 2026  
 **Checklist Version:** 1.1 (Phase 1 implemented — use IMPLEMENTATION STATUS section above for truth)

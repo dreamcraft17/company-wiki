@@ -1,13 +1,26 @@
 # Product Documentation Index
 
-**Document Version**: 1.11
+**Document Version**: 1.12
 **Last Updated**: August 29, 2026
 **Status**: Published
-**Owner**: Dozer
+**Owner**: Dozer (CEO + Tech Lead + PM)
 
 ---
 
 Semua dokumentasi produk DN Tech dikelompokkan per produk di folder ini.
+
+### Leadership & ownership (DN Tech internal)
+
+| Role | Nama | Cakupan |
+|------|------|---------|
+| **CEO** | Dozer | Strategi perusahaan, BD, keputusan investasi produk internal |
+| **Tech Lead** | Dozer | Arsitektur, engineering standards, release & infra portfolio internal |
+| **PM (Product Management)** | Dozer | PRD, roadmap, prioritas fitur, stakeholder produk internal |
+| **Finance** | Nur Annisa Sofyan | Keuangan, invoicing, budgeting |
+
+Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fungsi **Tech Lead + PM** dipegang Dozer secara interim.
+
+> **DOVA** (produk klien) dokumentasi tim & role terpisah di [`dova/`](./dova/00_INDEX.md) — tidak di-update di blok ownership internal ini.
 
 ## 📦 Products
 
@@ -110,4 +123,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: August 6, 2026*
+*Last Updated: August 29, 2026*

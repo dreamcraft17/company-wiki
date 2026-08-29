@@ -6,7 +6,7 @@
 | HEAD | Release **v1.1.0** (`a51d839`) on `dnpeople` main |
 | Purpose | **Baseline** after release **v1.1.0** — billing/a11y/ops hardening on top of PRD **v15.0** |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Updated at | August 22, 2026 |

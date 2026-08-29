@@ -1551,7 +1551,7 @@ PWDEBUG=1 npm run worker       # Playwright inspector
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead)  
+**Document Owner:** Dozer (CEO + Tech Lead + PM)  
 **Version:** 2.0 (25 Jul 2026)  
 **Status:** Ready for Implementation
 

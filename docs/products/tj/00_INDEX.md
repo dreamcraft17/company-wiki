@@ -4,7 +4,7 @@
 **Repository**: `tj`  
 **Domain**: `https://trustedjurist.co.id`  
 **Status**: Go-live readiness (v0.2.0) — design system fully wired  
-**Owner**: Dozer  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Last Updated**: July 9, 2026  
 **Latest commit**: `d0e5382` — full design system across UI and key pages
 

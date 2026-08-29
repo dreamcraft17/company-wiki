@@ -8,7 +8,7 @@
 | **Baseline kode** | v1.0 + **v2.0 Pembukuan** + dashboard charts + **UI2 ops desk** + **SOPI go-live (v2.1)** |
 | **Spec shipped** | PRD / SRS / SDD **v1.0 + v2.0** di [`prd/`](../PRD/) · **v2.1 SOPI** di [`prd/sopi/`](../PRD/sopi/) · Design UI2 di [`prd/v2/…_Design.md`](../PRD/v2/dnShop_Finance_v2.1_Design.md) |
 | **Spec berikutnya** | **v2.2** Accounting depth — [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md) |
-| **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
+| **Owner** | Dozer (CEO + Tech Lead + PM) · DN Tech |
 | **Path** | `dnShopee/` |
 | **Prod (DN Tech)** | Web `https://shop.dntech.id` · API `https://api.shop.dntech.id` |
 

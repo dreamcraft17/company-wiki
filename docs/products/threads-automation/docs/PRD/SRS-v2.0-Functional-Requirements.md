@@ -865,7 +865,7 @@ If publish success rate <90% OR test failures >5%:
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead)  
+**Document Owner:** Dozer (CEO + Tech Lead + PM)  
 **Version History:**
 - v2.0 (25 Jul 2026): Live Publish + Media + Tests
 - v1.0 (22 Jun 2026): Original MVP spec

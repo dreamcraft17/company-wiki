@@ -3,7 +3,7 @@
 > Terakhir diperbarui: **10 Agustus 2026** (grouped nav, billing UI polish, logo3, invoice PDF + payment labels)  
 > Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1** + Aug 2026 increments · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** August 10, 2026  
+> **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** August 10, 2026  
 >
 > **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **Release:** [RELEASE-READY.md](./RELEASE-READY.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
@@ -347,7 +347,7 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 26, 2026 |

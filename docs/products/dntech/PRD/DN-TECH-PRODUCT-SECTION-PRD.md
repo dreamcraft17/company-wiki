@@ -2,7 +2,7 @@
 ## Struktur & CMS untuk Product Pages (dnPeople Flagship)
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id) · Product brand: DnPeople  
 **UpdatedAt:** July 18, 2026  

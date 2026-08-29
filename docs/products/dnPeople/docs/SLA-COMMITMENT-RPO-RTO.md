@@ -2,7 +2,7 @@
 
 **Product:** dnPeople  
 **Date:** 22 July 2026  
-**Owner:** Dozer (CEO + Tech Lead) · DN Tech
+**Owner:** Dozer (CEO + Tech Lead + PM) · DN Tech
 
 ## Commitments
 

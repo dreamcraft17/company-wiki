@@ -3,7 +3,7 @@
 **Product**: Entro LY Admin Ledger Report  
 **Repository**: `propose`  
 **Status**: Proposal  
-**Owner**: Dozer  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Last Updated**: July 8, 2026
 
 ---

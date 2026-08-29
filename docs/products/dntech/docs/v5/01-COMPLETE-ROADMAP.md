@@ -2,7 +2,7 @@
 ## V1 to V5: Full Product Lifecycle
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Complete Documentation Package Ready for Implementation
 
 ---
@@ -389,7 +389,7 @@ IMPLEMENTATION-STATUS.md        (Current progress)
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Created:** Juli 2026  
 **Status:** Ready for Implementation
 

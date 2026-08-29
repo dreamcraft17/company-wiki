@@ -2,7 +2,7 @@
 ## System Requirements Specification
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Reference:** [PRD](./DN-TECH-BRANDING-SECTION-PRD.md) + [SDD](./DN-TECH-BRANDING-SECTION-SDD.md)
 
 ---
@@ -504,7 +504,7 @@ All code uses existing libraries:
 
 | Role | Approval | Date |
 |------|----------|------|
-| CEO + Tech Lead (Dozer) | [ ] | |
+| CEO + Tech Lead + PM (Dozer) | [ ] | |
 | Frontend Tech Lead | [ ] | |
 | Backend Tech Lead | [ ] | |
 | QA Lead | [ ] | |
@@ -517,6 +517,6 @@ All code uses existing libraries:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** Branding Section SRS v1

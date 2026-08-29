@@ -414,5 +414,5 @@ pm2 restart dntech-web
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026

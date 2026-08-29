@@ -5,7 +5,7 @@
 **Latest:** `e2f46fc` production hardening  
 **Timeline:** All coding complete · live deploy pending AWS credentials  
 **Team:** 9-11 engineers (4 parallel tracks)  
-**Authority:** Dozer (CEO + Tech Lead decision)
+**Authority:** Dozer (CEO + Tech Lead + PM decision)
 
 ---
 
@@ -258,6 +258,6 @@ Track D: [% complete] — [1 blocker or win]
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead)  
+**Document Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** 5 July 2026  
 **Status:** ✅ SHIPPED — staging validation next

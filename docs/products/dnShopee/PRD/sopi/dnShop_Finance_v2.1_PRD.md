@@ -3,7 +3,7 @@
 **Document ID:** `dnShop_Finance_v2.1_PRD.md`  
 **Version:** 2.1.0  
 **Date:** August 2026  
-**Owner:** Dozer (CEO + Tech Lead, DN Tech)  
+**Owner:** Dozer (CEO + Tech Lead + PM, DN Tech)  
 **Status:** **Implemented** (6 Agustus 2026) — lihat `docs/STATUS.md`  
 **Related:** [v2.1 SRS](./dnShop_Finance_v2.1_SRS.md) · [v2.1 SDD](./dnShop_Finance_v2.1_SDD.md) · Living brief [`docs/docs.md`](../../docs/docs.md) · Next [`docs/NEXT-PRD-BRIEF.md`](../../docs/NEXT-PRD-BRIEF.md) (v2.2)
 

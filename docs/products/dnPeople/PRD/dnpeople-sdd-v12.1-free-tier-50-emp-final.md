@@ -3,7 +3,7 @@
 
 **Versi:** 12.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Code-ready (copy-paste)
 
 > **Product override — 25 July 2026:** Live default is `TIER_FREE_MAX_EMPLOYEES=30` (STARTER remains 50). Snippets below that default FREE to 50 are historical.

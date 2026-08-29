@@ -3,7 +3,7 @@
 
 **Version:** 7.0  
 **Date:** July 18, 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Ready for Implementation
 
 ---

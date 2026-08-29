@@ -2,7 +2,7 @@
 ## Operations & Launch Readiness
 
 **Versi:** 10.0  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Tanggal:** 19 Juli 2026  
 **Tujuan:** Siapkan produksi sebelum soft launch beta (target 1 Agustus 2026)  
 **Status:** Code artefacts **implemented in repo** (Jul 2026); extended by **PRD v11.0**; SaaS accounts / DNS / external pen-test remain Conditional  

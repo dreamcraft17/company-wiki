@@ -1,9 +1,9 @@
 # DN Tech Company Wiki — Index
 
-**Document Version**: 1.3  
-**Last Updated**: August 6, 2026  
+**Document Version**: 1.4  
+**Last Updated**: August 29, 2026  
 **Status**: Published  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 6, 2026  
@@ -123,11 +123,11 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 
 ---
 
-*Last Updated: July 18, 2026*
+*Last Updated: August 29, 2026*
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 18, 2026 |

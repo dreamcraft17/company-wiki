@@ -6,7 +6,7 @@
 | **Tanggal** | 10 Agustus 2026 |
 | **Baseline kode** | `main` @ `e462db7` — grouped nav, billing UI polish, logo3, invoice PDF, payment labels |
 | **Production URL** | App `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
-| **Owner** | Dozer (CEO + Tech Lead) |
+| **Owner** | Dozer (CEO + Tech Lead + PM) |
 | **Company** | DN Tech · Brand: DnPeople |
 | **Prep lengkap** | [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) |
 | **Ganti dokumen ini?** | Update saat PRD berikutnya di-sign-off atau HEAD baseline berubah |

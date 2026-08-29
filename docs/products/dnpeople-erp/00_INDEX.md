@@ -3,7 +3,7 @@
 **Product**: dnCore (Express native API + Remix SSR) — formerly branded dnPeople ERP in this wiki path
 **Repository**: `ERP` → [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Status**: dnCore PRD v1.0 + Phase 8 in-repo close-out · Expo **on hold** (`fdc12c2`) · AWS live Conditional  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: dnCore  
 **UpdatedAt**: July 22, 2026

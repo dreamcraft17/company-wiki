@@ -3,7 +3,7 @@
 
 **Versi** | 3.0  
 **Tanggal** | 25 Juli 2026  
-**Owner** | Dozer (CEO + Tech Lead)  
+**Owner** | Dozer (CEO + Tech Lead + PM)  
 **Usage** | Internal DN Tech content automation (tidak untuk public/SaaS)  
 **Status** | Ready for Development  
 **Baseline** | MVP Phase 1 + Phase 2 + v2.0 Live Publish ✓
@@ -701,7 +701,7 @@ npm start  # launch
 
 ## Document Owner
 
-**Dozer (CEO + Tech Lead)** — DN Tech  
+**Dozer (CEO + Tech Lead + PM)** — DN Tech  
 **Created:** 25 Juli 2026  
 **Status:** Ready for Development  
 **Next Review:** After v3.0 shipped

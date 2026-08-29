@@ -2,7 +2,7 @@
 
 | Metadata | Value |
 |----------|-------|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Snapshot date | 10 August 2026 |

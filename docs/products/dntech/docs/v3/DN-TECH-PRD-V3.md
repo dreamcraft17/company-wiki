@@ -4,7 +4,7 @@
 **Document Version:** 3.0  
 **Date:** Juli 2026  
 **Status:** Active Development (Refinement from V2)  
-**Owner:** Dozer (CEO + Tech Lead)
+**Owner:** Dozer (CEO + Tech Lead + PM)
 
 ---
 
@@ -518,7 +518,7 @@ For clarification:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** Juli 2026  
 **Next Review:** Agustus 2026 (after v3 launch)
 

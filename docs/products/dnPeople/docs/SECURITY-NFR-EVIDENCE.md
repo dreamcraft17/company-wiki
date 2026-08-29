@@ -3,7 +3,7 @@
 **Verification date:** 18 July 2026
 **Scope:** PRD/SRS/SDD v3.1 completion hardening + PRD v5–v7.0 inventory
 
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech (PT. Dozer Napitupulu Technology) · **Brand:** DnPeople · **UpdatedAt:** July 18, 2026
 
 This document records reproducible engineering evidence. Production-provider acceptance and business UAT remain deployment gates and must not be inferred from local/CI results.
 

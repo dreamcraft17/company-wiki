@@ -3,7 +3,7 @@
 
 **Date:** Juli 2026  
 **Status:** 🔴 CRITICAL  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 
 ---
 
@@ -710,6 +710,6 @@ npm run build && pm2 restart dntech-api
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** V5 HOTFIX Extended

@@ -1,7 +1,7 @@
 # DOZER'S EXECUTIVE SUMMARY
 ## DN Tech - dnPeople | Production Launch Plan
 
-**Your Role:** CEO + Tech Lead + Owner  
+**Your Role:** CEO + Tech Lead + PM + Owner  
 **Timeline:** 3–24 July 2026  
 **Goal:** Production launch ready by 24 July  
 **Updated:** 7 July 2026 — **Phase 1–4 COMPLETE · Production-ready (code)**

@@ -3,7 +3,7 @@
 
 **Versi:** 10.0  
 **Tanggal:** 19 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Detailed requirements untuk operations team
 
 ---

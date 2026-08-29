@@ -14,7 +14,7 @@ Ringkasan desain visual website **DN Tech Company Profile** (`dntech.id`) dan ad
 
 ---
 
-## 0. Mandat Leadership (CEO + Tech Lead)
+## 0. Mandat Leadership (CEO + Tech Lead + PM)
 
 Keputusan arah desain DN Tech ditetapkan langsung oleh **CEO sekaligus Tech Lead**. Ini bukan preferensi estetika semata — ini **standar produk** yang wajib diikuti seluruh tim engineering dan kontributor eksternal.
 

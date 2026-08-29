@@ -5,7 +5,7 @@
 > Phase 1–4 shipped. Latest: `e2f46fc`.  
 > This document remains the **schema/API reference**. For live status see [`CEO-TRACKING-SHEET.md`](CEO-TRACKING-SHEET.md) and [`Docs/12-PROJECT-STATUS.md`](../Docs/12-PROJECT-STATUS.md).
 
-**Authority:** Dozer (CEO + Tech Lead)  
+**Authority:** Dozer (CEO + Tech Lead + PM)  
 **Status:** ✅ ALL PHASES IMPLEMENTED — live deploy pending  
 **Go-Live:** Set AWS secrets → deploy → production window
 
@@ -975,6 +975,6 @@ git push
 
 ---
 
-**Authority:** Dozer (CEO + Tech Lead)  
+**Authority:** Dozer (CEO + Tech Lead + PM)  
 **Document Version:** 1.0 Final (implemented)  
 **Last Updated:** 5 July 2026

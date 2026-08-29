@@ -3,7 +3,7 @@
 
 **Version:** 1.0  
 **Date:** July 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Audience:** QA, Product, Engineering  
 **Refs:** PRD Feature Tier Matrix, SDD Feature Tier Gating
 

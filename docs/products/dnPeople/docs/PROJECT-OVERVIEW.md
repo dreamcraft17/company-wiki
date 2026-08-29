@@ -4,7 +4,7 @@
 **Version:** PRD **v15.0** Admin + **Xendit PG** + **Legal ToS/PP MVP** (Aug 2026) + v14 Tutorial + v13 Talent  
 **Status:** MVP 1–5 + PRD v5–**v15.0** **Done in repo**; deployed `https://hris.dntech.id`; go-live gates Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **Contact:** info@dntech.id  

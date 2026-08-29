@@ -1,7 +1,7 @@
 # 🚀 Freelance-Web — Hyperlocal Freelance SaaS Platform
 
-> **Doc revision:** v107
-> Last synchronized: 2026-06-19 — moderation SLA, escalation worker, dedupe, and staff audit trail.
+> **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Product:** Nearwork  
+> **Doc revision:** v107 · Last synchronized: 2026-06-19
 
 Freelance-Web adalah platform marketplace freelance berbasis SaaS yang menggabungkan konsep:
 - Upwork / Freelancer (bidding system)

@@ -3,7 +3,7 @@
 
 **Versi:** 14.0  
 **Tanggal:** 24 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Ready for QA
 
 > **Scope override — 25 July 2026:** Video tutorial, Video Library, and all FR/AC related exclusively to video are removed from v14.0. QA scope is interactive tutorials, progress/tier gating, Help navigation, and Knowledge Base.

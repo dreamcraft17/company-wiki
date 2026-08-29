@@ -3,7 +3,7 @@
 Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+ · dnCore PRD v1.0 implemented** (Juli 2026).
 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
 **UpdatedAt:** July 19, 2026 · **HEAD:** `fdc12c2`
 

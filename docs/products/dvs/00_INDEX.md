@@ -1,7 +1,7 @@
 # DuaVulnScanner (DVS) — Documentation Index
 
 **Product**: All-in-one penetration testing platform (Scanner · Reporting · Tracking)  
-**Company**: DN Tech · **Owner**: Dozer  
+**Company**: DN Tech · **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Repo (target)**: [`dreamcraft17/dvs`](https://github.com/dreamcraft17/dvs)  
 **Local path**: `dvs/`  
 **UpdatedAt**: 24 July 2026  

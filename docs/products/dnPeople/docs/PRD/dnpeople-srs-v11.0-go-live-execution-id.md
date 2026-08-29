@@ -3,7 +3,7 @@
 
 **Versi:** 11.0  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Requirements met in repo (22 Jul 2026); external acceptance Conditional
 
 ---

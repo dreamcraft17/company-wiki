@@ -2,7 +2,10 @@
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
-**Owner**: Dozer
+**Leadership (internal portfolio):** Dozer — **CEO + Tech Lead + PM**  
+**Owner wiki:** Dozer (CEO + Tech Lead + PM)
+
+> **Catatan:** Produk klien **DOVA** punya struktur tim terpisah — lihat [dova/README.md](./docs/products/dova/README.md); tidak termasuk ownership internal di bawah.
 
 ## 📚 Daftar Isi
 
@@ -87,4 +90,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: August 29, 2026*
+*Last Updated: August 29, 2026 · Leadership: CEO + Tech Lead + PM (Dozer)*

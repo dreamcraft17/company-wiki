@@ -1,6 +1,6 @@
 # dnCore — Feature Catalog
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  

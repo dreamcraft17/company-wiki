@@ -1,5 +1,7 @@
 # Trusted Jurist Law Firm — Company Profile Website
 
+> **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Client product:** Trusted Jurist
+
 Website company profile profesional untuk **Trusted Jurist Law Firm** (Jakarta Timur). Dibangun sebagai aplikasi web modern siap produksi: arsitektur terstruktur, UI editorial premium, backend form, SEO lengkap, dan codebase yang mudah dirawat.
 
 **Versi saat ini:** `0.2.0` (go-live readiness) · **Domain:** [trustedjurist.co.id](https://trustedjurist.co.id)

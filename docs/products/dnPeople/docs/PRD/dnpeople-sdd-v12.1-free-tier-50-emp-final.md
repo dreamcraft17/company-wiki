@@ -3,7 +3,7 @@
 
 **Versi:** 12.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Code-ready (copy-paste)
 
 ---

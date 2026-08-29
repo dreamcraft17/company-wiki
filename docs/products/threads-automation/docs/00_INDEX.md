@@ -1,6 +1,6 @@
 # Threads Automation — Docs Index (repo)
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Product / package:** Threads Automation (`threads-automation`)  
 **Local path:** `auto/`  

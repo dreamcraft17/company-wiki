@@ -2,7 +2,7 @@
 
 Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektur, tech stack, fitur, database, API, dan panduan operasional.
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
 **UpdatedAt:** July 28, 2026  
@@ -712,7 +712,7 @@ Repo       : https://github.com/dreamcraft17/dntech
 Production : dntech.id | api.dntech.id
 Admin      : /admin/login
 Konten     : 100% dari database via admin — tanpa data demo hardcoded
-Owner      : Dozer (CEO + Tech Lead)
+Owner      : Dozer (CEO + Tech Lead + PM)
 Brand      : DN Tech (DN Tech.id)
 ```
 
@@ -722,7 +722,7 @@ Brand      : DN Tech (DN Tech.id)
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 28, 2026 |

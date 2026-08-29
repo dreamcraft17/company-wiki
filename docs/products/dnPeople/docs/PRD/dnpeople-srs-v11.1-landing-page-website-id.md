@@ -3,7 +3,7 @@
 
 **Versi:** 11.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Acceptance criteria for each section
 
 ---

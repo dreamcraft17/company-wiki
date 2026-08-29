@@ -4,7 +4,7 @@
 |---|---|
 | **Product** | Threads Automation Posting System |
 | **Folder / package** | `auto/` · `threads-automation` |
-| **Owner** | Dozer (CEO + Tech Lead) |
+| **Owner** | Dozer (CEO + Tech Lead + PM) |
 | **Company** | DN Tech (PT. Dozer Napitupulu Technology) |
 | **UpdatedAt** | 25 Juli 2026 |
 | **Spec** | PRD **v3.0 AI Content** (+ v2.0 Live Publish & Media, v1.0 baseline) |

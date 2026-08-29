@@ -2,7 +2,7 @@
 ## Lengkapi "Tentang Kami" + Brand Story + Values
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** 📋 PLANNING — Branding section kosong  
 **Baseline:** Design System V2 (solid colors, professional, B2B)
 
@@ -548,6 +548,6 @@ ke success kami, bukan cuma closing deal."
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** Branding Section PRD v1

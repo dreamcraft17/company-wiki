@@ -1,6 +1,6 @@
 # Incident Response Runbook — dnCore
 
-**Owner:** Dozer (CEO + Tech Lead) · DN Tech  
+**Owner:** Dozer (CEO + Tech Lead + PM) · DN Tech  
 **Product:** dnCore (NestJS ERP)  
 **UpdatedAt:** 19 July 2026  
 

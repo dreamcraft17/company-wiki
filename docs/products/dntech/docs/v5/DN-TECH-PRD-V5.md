@@ -4,7 +4,7 @@
 **Document Version:** 5.0  
 **Date:** Juli 2026  
 **Status:** Implementation Ready  
-**Owner:** Dozer (CEO + Tech Lead)
+**Owner:** Dozer (CEO + Tech Lead + PM)
 
 ---
 
@@ -917,7 +917,7 @@ If hitting rate limits:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Last Updated:** Juli 2026  
 **Status:** Ready to implement
 

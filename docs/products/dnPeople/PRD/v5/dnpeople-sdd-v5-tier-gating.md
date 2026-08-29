@@ -3,7 +3,7 @@
 
 **Version:** 1.0  
 **Date:** July 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Audience:** Engineering, Architecture  
 **Refs:** PRD Feature Tier Matrix
 

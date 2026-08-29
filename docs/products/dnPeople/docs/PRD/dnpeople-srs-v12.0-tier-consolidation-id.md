@@ -3,7 +3,7 @@
 
 **Versi:** 12.0  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Detailed requirements untuk implementation
 
 ---

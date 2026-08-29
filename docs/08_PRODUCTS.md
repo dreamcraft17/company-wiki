@@ -1,9 +1,9 @@
 # Product Portfolio
 
-**Document Version**: 1.4  
-**Last Updated**: August 22, 2026  
+**Document Version**: 1.5  
+**Last Updated**: August 29, 2026  
 **Status**: Published  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 6, 2026
@@ -89,7 +89,7 @@ DN Tech Products
 | Status | **Production** (v5 email) + v6 Produk + v7 Product Section; DB push/seed products production pending |
 | Version | v7 (Product Section / dnPeople flagship) |
 | Stack | Next.js 16.2.9 + React 19.2.4 + Express 5 + PostgreSQL |
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Brand | DN Tech (DN Tech.id) |
 
 ### Fitur Utama
@@ -206,7 +206,7 @@ DN Tech Products
 |-------|--------|
 | Nama | dnPeople HRIS |
 | Brand | DnPeople |
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** (Aug 2026) · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
@@ -253,7 +253,7 @@ DN Tech Products
 |-------|--------|
 | Nama | dnShop Finance |
 | Brand | dnShop · DN Tech |
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Status | **v2.1 SOPI go-live + UI2 Implemented** (6 Agustus 2026) · next **v2.2 Accounting depth** |
 | Target | Seller UMKM Shopee Indonesia |
 | Stack | Next.js 15 + NestJS 10 + Postgres/Supabase · Redis opsional |
@@ -381,11 +381,11 @@ DN Tech Products
 
 ---
 
-*Last Updated: August 6, 2026*
+*Last Updated: August 29, 2026*
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 18, 2026 |

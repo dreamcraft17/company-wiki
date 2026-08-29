@@ -2,7 +2,7 @@
 ## Performance Optimization: Quick Wins First
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Ready to Implement
 
 ---
@@ -810,7 +810,7 @@ pm2 restart dntech-web
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

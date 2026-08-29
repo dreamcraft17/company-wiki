@@ -3,7 +3,7 @@
 **Product Name:** dnCore  
 **Version:** 1.0  
 **Date:** 19 July 2026  
-**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
+**Owner:** Dozer (CEO + Tech Lead + PM) · PT. Dozer Napitupulu Technology (DN Tech) · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Branch:** `main` · HEAD `e6e1ccf`  
 **Status:** Phase 0–4 production code ✅ · Phase 5–8 MVP+ ✅ · Live deploy conditional 🟡  
@@ -334,7 +334,7 @@ DN Tech (Platform umbrella)
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
+**Owner:** Dozer (CEO + Tech Lead + PM) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
 **Implementation status:** Phase 8 in-repo gaps closed (MVP+) · Expo on hold · AWS/live keys Conditional  
 

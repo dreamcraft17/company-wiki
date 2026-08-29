@@ -2,7 +2,7 @@
 ## System Design Detail (Implementation Code)
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Baseline:** [DN-TECH-BRANDING-SECTION-PRD.md](./DN-TECH-BRANDING-SECTION-PRD.md)
 
 ---
@@ -1019,6 +1019,6 @@ npx ts-node backend/scripts/seed-branding.ts
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** Branding Section SDD v1

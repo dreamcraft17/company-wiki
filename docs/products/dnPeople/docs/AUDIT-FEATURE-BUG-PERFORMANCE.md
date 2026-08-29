@@ -1,6 +1,6 @@
 # dnPeople — Feature, Bug & Performance Audit
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 18, 2026  

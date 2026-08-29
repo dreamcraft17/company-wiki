@@ -16,6 +16,6 @@
 | 9 | Employee workshop (15–30 menit): absensi, cuti, slip | CS | [ ] |
 | 10 | Go-live + check-in H+7 (tiket terbuka, NPS singkat) | CS | [ ] |
 
-**Escalation kritis (outage / data loss):** Dozer (CEO + Tech Lead) — target respons < 1 jam.
+**Escalation kritis (outage / data loss):** Dozer (CEO + Tech Lead + PM) — target respons < 1 jam.
 
 **Artefak:** USER-GUIDE · ADMIN-GUIDE · FAQ · SLA-SUPPORT-POLICY

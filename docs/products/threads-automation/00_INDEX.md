@@ -3,7 +3,7 @@
 **Product:** Threads Automation Posting System  
 **Repository / path:** `auto/` · package `threads-automation`  
 **Status:** **v2.0** Live Publish & Media · tanpa Docker · live Conditional  
-**Owner:** Dozer · **Company:** DN Tech  
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
 **UpdatedAt:** 25 Juli 2026  
 **Spec:** PRD/SRS/SDD v2.0 (+ v1.0 Draft)
 

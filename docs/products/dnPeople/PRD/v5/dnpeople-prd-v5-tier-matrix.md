@@ -2,7 +2,7 @@
 
 **Version:** 1.0 (Tier-based gating)  
 **Date:** July 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Product specification for tier differentiation  
 **Audience:** Product, Engineering, Finance, Marketing
 

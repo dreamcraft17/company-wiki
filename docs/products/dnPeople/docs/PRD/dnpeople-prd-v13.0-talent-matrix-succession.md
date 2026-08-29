@@ -3,7 +3,7 @@
 
 **Versi:** 13.0  
 **Tanggal:** 24 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Baseline:** Post v12.1 (FREE tier = 50 emp hard; feature gating + nav fix included)  
 **Status:** Ready for SRS/SDD
 

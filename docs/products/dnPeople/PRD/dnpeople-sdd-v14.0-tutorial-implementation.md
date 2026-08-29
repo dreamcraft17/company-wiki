@@ -3,7 +3,7 @@
 
 **Versi:** 14.0  
 **Tanggal:** 24 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Code-ready (copy-paste)
 
 > **Implementation override — 25 July 2026:** Video fields, `VideoLibraryItem`, `/videos` APIs, YouTube embeds, and the `/help/videos` page are removed from v14.0. The live design implements interactive tutorials + Knowledge Base only. Video code below is retained as historical draft reference and must not be copied into the application.

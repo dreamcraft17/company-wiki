@@ -4,7 +4,7 @@
 **Document ID:** Doc 25  
 **Version:** 1.1  
 **Date:** 7 July 2026 · **Refresh note:** 19 July 2026  
-**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
+**Owner:** Dozer (CEO + Tech Lead + PM) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Branch:** `main`
 

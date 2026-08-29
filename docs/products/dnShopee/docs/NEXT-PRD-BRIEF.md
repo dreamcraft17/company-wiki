@@ -7,7 +7,7 @@
 | **Baseline kode** | v1.0 + v2.0 Pembukuan + UI2 ops desk + **SOPI v2.1 go-live** — semuanya di repo |
 | **Spec terakhir (shipped)** | [`prd/`](../PRD/) v1.0+v2.0 · [`prd/sopi/`](../PRD/sopi/) v2.1 · Design [`prd/v2/…_Design.md`](../PRD/v2/dnShop_Finance_v2.1_Design.md) |
 | **Spec berikutnya** | **v2.2 Accounting depth** (belum ada draft file — tulis dari outline §6) |
-| **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
+| **Owner** | Dozer (CEO + Tech Lead + PM) · DN Tech |
 | **Path** | `dnShopee/` |
 | **Prod (DN Tech)** | Web `https://shop.dntech.id` · API `https://api.shop.dntech.id` |
 | **Ganti dokumen ini?** | Setelah PRD v2.2 di-sign-off atau baseline berubah |

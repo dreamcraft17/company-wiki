@@ -6,7 +6,7 @@
 | **Tanggal** | 25 Juli 2026 |
 | **Baseline kode** | v1.0 MVP + **v2.0 Live Publish & Media** + **v3.0 AI Content** — semuanya sudah di repo |
 | **Spec terakhir** | PRD/SRS/SDD v2.0 · PRD v3.0 (internal) |
-| **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
+| **Owner** | Dozer (CEO + Tech Lead + PM) · DN Tech |
 | **Path** | `auto/` |
 | **Ganti dokumen ini?** | Setelah PRD berikutnya di-sign-off atau baseline berubah |
 

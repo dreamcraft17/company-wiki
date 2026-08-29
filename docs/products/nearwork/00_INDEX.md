@@ -3,7 +3,7 @@
 **Product**: Nearwork Platform  
 **Repository**: `nextwork` → [github.com/dreamcraft17/freelance-web-startup](https://github.com/dreamcraft17/freelance-web-startup)  
 **Status**: In Development  
-**Owner**: Dozer  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Last Updated**: July 9, 2026  
 **Latest commit**: `d40ea19` — security audit report (2026-07-08)
 

@@ -3,7 +3,7 @@
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.0** (a11y, billing hardening, SUPER_ADMIN) · **Xendit PG** · ops gates Conditional  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
 **UpdatedAt**: August 22, 2026  

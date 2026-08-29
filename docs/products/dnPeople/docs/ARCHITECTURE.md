@@ -1,7 +1,7 @@
 # dnPeople — Architecture
 
 **Version:** 11.0 (go-live execution)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
 **UpdatedAt:** July 22, 2026  
@@ -119,7 +119,7 @@ net = gross − bpjs − pph21 ± THR / proration / unpaid leave
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 18, 2026 |

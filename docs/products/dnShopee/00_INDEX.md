@@ -3,7 +3,7 @@
 **Product:** dnShop Finance — dashboard keuangan + pembukuan bonus untuk seller Shopee Indonesia  
 **Repository / path:** `dnShopee/`  
 **Status:** **v2.1 SOPI go-live + UI2 Implemented** (6 Agustus 2026) · next **v2.2 Accounting depth**  
-**Owner:** Dozer · **Company:** DN Tech  
+**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
 **Prod:** Web `https://shop.dntech.id` · API `https://api.shop.dntech.id`  
 **UpdatedAt:** 6 Agustus 2026  
 

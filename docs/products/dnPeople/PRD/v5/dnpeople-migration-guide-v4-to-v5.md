@@ -2,7 +2,7 @@
 ## Implementing Feature Tier & Subscription Gating
 
 **Version:** 1.0  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** July 16, 2026  
 **Audience:** Product, Engineering, Finance, Operations  
 **Timeline:** Q3-Q4 2026 (before public launch)
@@ -496,7 +496,7 @@ npx prisma migrate resolve --rolled-back {migration_name}
 
 | Role | Name | Approval | Date |
 |------|------|----------|------|
-| CEO + Tech Lead | Dozer | 👤 | July 16, 2026 |
+| CEO + Tech Lead + PM | Dozer | 👤 | July 16, 2026 |
 | Engineering Lead | TBD | ⬜ | — |
 | Finance | TBD | ⬜ | — |
 
@@ -523,4 +523,4 @@ npx prisma migrate resolve --rolled-back {migration_name}
 
 ---
 
-*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead)*
+*Last Updated: July 16, 2026 | Owner: Dozer (CEO + Tech Lead + PM)*

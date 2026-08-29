@@ -2,7 +2,7 @@
 ## Security & Stability Fixes (Berdasarkan Audit 18 Juli 2026)
 
 **Versi:** 8.0  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Tanggal:** 18 Juli 2026  
 **Tujuan:** Mengatasi 3 P0 + 5 P1 + performance bugs dari audit  
 **Status:** **Implemented** di codebase (18–19 Juli 2026) — P0/P1/P2 v8.0 closed; lihat CHANGELOG

@@ -2,7 +2,7 @@
 ## Landing Page Website (dnpeople.id)
 
 **Versi:** 11.1  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Tanggal:** 22 Juli 2026  
 **Target:** Website LIVE by 28 Juli 2026 (6 hari)  
 **Status:** Design + messaging specifications

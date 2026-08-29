@@ -2,7 +2,7 @@
 ## Manual Attendance Input via Excel (No QR/GPS/Biometric)
 
 **Version:** 7.0  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** July 18, 2026  
 **Purpose:** Replace complex QR/GPS/biometric attendance with simple Excel upload (MVP phase)  
 **Scope:** Web-only, manual input, Excel template

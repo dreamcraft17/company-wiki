@@ -3,7 +3,7 @@
 
 **Versi:** 12.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** Final specification (LOCKED IN)  
 **Change from v12.0:** FREE tier = 50 employees (was 100)
 

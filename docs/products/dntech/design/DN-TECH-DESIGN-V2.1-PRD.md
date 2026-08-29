@@ -2,7 +2,7 @@
 ## Fix Design Audit Findings (V2.1)
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Status:** 🔴 CRITICAL — Design inconsistencies found  
 **Baseline:** [design_audit.md](./design_audit.md) + [DESIGN_SUMMARY.md](./DESIGN_SUMMARY.md)
 
@@ -484,7 +484,7 @@ Update IMPLEMENTATION-STATUS.md section 2 "Design System":
 
 | Role | Sign-off | Date |
 |------|----------|------|
-| CEO + Tech Lead (Dozer) | [ ] Approve PRD | |
+| CEO + Tech Lead + PM (Dozer) | [ ] Approve PRD | |
 | Frontend Tech Lead | [ ] Approve design direction | |
 | QA Lead | [ ] Approve testing criteria | |
 
@@ -510,6 +510,6 @@ Update IMPLEMENTATION-STATUS.md section 2 "Design System":
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** Juli 2026  
 **Version:** V2.1 Remediation PRD

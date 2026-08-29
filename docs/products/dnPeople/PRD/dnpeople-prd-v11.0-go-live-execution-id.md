@@ -2,7 +2,7 @@
 ## Go-Live Execution & Beta Launch (Final Sprint)
 
 **Versi:** 11.0  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Tanggal:** 22 Juli 2026  
 **Target Launch:** 1 Agustus 2026 (10 hari)  
 **Status:** **Implemented in repo** (22 Jul 2026); external ops gates Conditional until 1 Aug 2026 launch

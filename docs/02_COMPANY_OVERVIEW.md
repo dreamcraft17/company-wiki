@@ -1,12 +1,12 @@
 # Company Overview
 
-**Document Version**: 1.1  
-**Last Updated**: July 18, 2026  
+**Document Version**: 1.2  
+**Last Updated**: August 29, 2026  
 **Status**: Published  
-**Owner**: Dozer (CEO + Tech Lead)  
+**Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: July 18, 2026  
+**UpdatedAt**: August 29, 2026  
 
 ---
 
@@ -68,9 +68,9 @@ Sumber detail struktur & role: [Organization](./04_ORGANIZATION.md).
 
 | Role | Nama | Catatan |
 |------|------|---------|
-| **CEO + Tech Lead** | Dozer | Strategi perusahaan, business development, arsitektur teknis (sementara memegang tech lead sampai CTO terisi) |
+| **CEO + Tech Lead + PM** | Dozer | Strategi & BD (CEO) · arsitektur & engineering portfolio internal (Tech Lead) · PRD, roadmap, prioritas fitur (PM interim) |
 | **Finance** | Nur Annisa Sofyan | Keuangan, invoicing, budgeting, compliance |
-| CTO / VP Product / Head of Design / Head of Sales / COO | — | Vacant — struktur jabatan tetap ada |
+| CTO / VP Product (formal) / Head of Design / Head of Sales / COO | — | Vacant — fungsi Tech Lead + PM dipegang Dozer interim |
 
 ---
 
@@ -162,7 +162,7 @@ Selaras dengan [Products](./08_PRODUCTS.md):
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
 | UpdatedAt | July 18, 2026 |

@@ -2,7 +2,7 @@
 ## Auto Tenant Discovery & Seamless Login Flow
 
 **Version:** 6.1 (Login/Authentication refinement)  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **Date:** July 18, 2026  
 **Status:** Implementation PRD (based on current baseline)  
 **Baseline:** CURRENT-IMPLEMENTATION.md (July 18, 2026)  
@@ -969,4 +969,4 @@ async function handleLogin(email: string, password: string) {
 
 ---
 
-*Last Updated: July 18, 2026 | Owner: Dozer (CEO + Tech Lead)*
+*Last Updated: July 18, 2026 | Owner: Dozer (CEO + Tech Lead + PM)*

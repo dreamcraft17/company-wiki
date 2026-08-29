@@ -1,7 +1,7 @@
 # Security Incident Response Plan
 
 **UpdatedAt:** 19 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead)  
+**Owner:** Dozer (CEO + Tech Lead + PM)  
 **SLA notifikasi breach:** < **72 jam** (UU PDP)
 
 ## Severity

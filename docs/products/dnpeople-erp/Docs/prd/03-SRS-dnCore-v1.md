@@ -3,7 +3,7 @@
 **Product Name:** dnCore  
 **Version:** 1.0  
 **Date:** 19 July 2026  
-**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
+**Owner:** Dozer (CEO + Tech Lead + PM) · PT. Dozer Napitupulu Technology · [dntech.id](https://dntech.id)  
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Branch:** `main` · HEAD `e6e1ccf`  
 **Status:** Phase 0–4 implementation complete ✅ · Phase 5–8 roadmap specified 📋  
@@ -1075,7 +1075,7 @@ Response:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead) · PT. Dozer Napitupulu Technology  
+**Owner:** Dozer (CEO + Tech Lead + PM) · PT. Dozer Napitupulu Technology  
 **Last Updated:** 19 July 2026  
 **Next Review:** Phase 5 UAT (target Sep 2026)  
 

@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Produk** | dnPeople — Human Resource Information System (HRIS) SaaS |
-| **Pemilik** | Dozer (CEO + Tech Lead) · **DN Tech** (PT. Dozer Napitupulu Technology) |
+| **Pemilik** | Dozer (CEO + Tech Lead + PM) · **DN Tech** (PT. Dozer Napitupulu Technology) |
 | **Brand** | DnPeople |
 | **Production** | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
 | **Marketing** | [dnpeople.id](https://dnpeople.id) (DNS go-live conditional) |
