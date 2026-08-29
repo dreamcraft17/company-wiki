@@ -9,11 +9,18 @@ All notable changes to the DOVA marketplace project.
 ### Added
 - **Inline registration OTP** — `POST /auth/send-registration-code` sends a 6-digit code before account creation; `POST /auth/register` requires `code` and returns a verified session (cookies set like login).
 - **Auth UI refresh** — split-layout login and register pages with DOVA brand tokens (`AuthShell`, shared auth components).
+- **Registration success modal** — centered confirmation dialog after signup before redirect to products (Bug-016).
+- **QA security checklist assessment** — `DOVA-SECURITY-CHECKLIST-ASSESSMENT.md` (HTTPS, bcrypt, SQLi/XSS, Paystack — all pass).
 
 ### Changed
 - **Register flow** — OTP entered on `/auth/register` (Send code beside email); redirect to `/products` after signup. Profile email verification remains for **legacy** accounts registered before this change.
+- **Register success UX** — API `message` field shown in modal (replaces silent redirect / inline banner).
 - **Customer copy** — auth and marketing strings use **Customer** (not Buyer).
 - **Admin users** — admin can delete any user; order history cascades on delete.
+
+### Fixed
+- **Bug-016** — registration success message shown as centered modal (`642b165`).
+- **Secure password storage** — bcrypt cost 12 verified by unit tests; register API never returns password material (`ed2798c`).
 
 ### Tests
 - **158** unit tests (`npm run test:unit`) · backend service specs updated for inline registration OTP.

@@ -34,7 +34,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · HEAD `71225e3` · inline register OTP · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · HEAD `642b165` · register success modal · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
@@ -49,6 +49,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |
+| **DOVA** | app `642b165` / wiki sync | **Register success modal** (Bug-016) · **QA security checklist** (4/4 pass) · bcrypt + Paystack evidence doc |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
 | **DOVA** | app `972ffbc` | Admin user delete (cascade) · Customer copy in auth |
 | **DOVA** | app `9e37a8a` / wiki sync | **All-features.md** (101 fitur) · mirror dari `dova-comp-wiki` · CEO doc dihapus · UAT-BUG-FIXES + PAYSTACK-TEST-MODE |

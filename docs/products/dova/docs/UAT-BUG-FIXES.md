@@ -1,7 +1,7 @@
 # DOVA — UAT Bug Report & Fixes
 
 **Author:** Dozer (@dreamraft17)  
-**Updated:** 21 August 2026  
+**Updated:** 29 August 2026  
 **QA sources:** `Dova_Chain_Docs/*.xlsx`, `Bug 006.png`, `Bug 007.png`, `Bug 008.png`  
 **Latest UAT sprint commit:** `d755a4c` — `Fix UAT bugs: cart badge, password toggle, cheap seed products`  
 **Regression tests:** `shared/src/index.spec.ts`, `apps/backend/src/app.service.spec.ts`
@@ -25,6 +25,7 @@
 | BUG-010 | Auth — password eye icon inverted | Minor | ✅ Fixed | `d755a4c` |
 | BUG-011 | Cart — badge counts kg not line items | Major | ✅ Fixed | `d755a4c` |
 | BUG-012 | Supplier register — password toggle CSS overlap | Minor | ✅ Fixed | `d755a4c` |
+| BUG-016 | Auth — no success message after registration | Medium | ✅ Fixed | `642b165` |
 | BLOCKER | Catalog — no cheap products for min-order UAT | Major | ✅ Fixed | `d755a4c` |
 
 **UAT PASS (no code defect):** AUTH-01–09, CAT-01–06, CART-01/03/04/06, CHK-01–06, PAY-01/03–05 (latest Excel version), SUP-01/02/04–07.
@@ -251,6 +252,24 @@ CSS `.supplier-card button { width: 100% }` did not exclude `.password-toggle` c
 
 ### Verification
 - [ ] `/auth/supplier-register` — eye button inside password field, not full-width
+
+---
+
+## BUG-016 — No Success Message After Registration
+
+### Symptoms
+Customer registration succeeded but user saw no confirmation — redirected to login/products with no feedback; users unsure if signup worked.
+
+### Root cause
+Success state only set a short inline banner + toast; redirect happened before users noticed (spreadsheet Bug-016).
+
+### Fix
+- `apps/frontend/src/components/RegistrationSuccessModal.tsx` — centered modal with API success message
+- `apps/frontend/src/pages/auth/register.tsx` — show modal after `POST /auth/register`; auto-continue to `/products` after 4s
+
+### Verification
+- [ ] Register with valid OTP → modal **Account created** appears center screen
+- [ ] **Continue to products** or wait → lands on `/products` logged in
 
 ---
 

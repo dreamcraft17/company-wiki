@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-08-29 · **App HEAD:** `71225e3` · **Tag:** `v0.5.4`
+> **Updated:** 2026-08-29 · **App HEAD:** `642b165` · **Wiki HEAD:** `737c2ca` · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
@@ -55,6 +55,7 @@
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
 | [API.md](./docs/API.md) | MVP API reference |
 | [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
+| [DOVA-SECURITY-CHECKLIST-ASSESSMENT.md](./docs/DOVA-SECURITY-CHECKLIST-ASSESSMENT.md) | QA Security section — 4-item assessment |
 | [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
 | [TEST-CASES.md](./docs/TEST-CASES.md) | Manual UAT scenarios |
 | [GUIDE.md](./docs/GUIDE.md) | QA workflow |

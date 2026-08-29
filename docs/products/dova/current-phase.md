@@ -4,7 +4,7 @@
 |---|---|
 | **Product** | DOVA — food supply marketplace (Nigeria / NGN / Paystack) |
 | **Repository** | [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova) |
-| **HEAD** | `71225e3` · **Tag:** `v0.5.4` (+ unreleased auth UX) |
+| **HEAD** | `642b165` · **Tag:** `v0.5.4` (+ unreleased auth UX) |
 | **Document date** | 29 August 2026 |
 | **Author** | Dozer · [@dreamcraft17](https://github.com/dreamcraft17) |
 | **Phase** | **Production live — post-launch UX hardening** |
@@ -16,15 +16,16 @@
 
 ## One-line status
 
-**Production live** at [dova.dntech.id](https://dova.dntech.id). **158** tests · **29+10** smoke pass · inline registration OTP on register page · auth UI refresh shipped (unreleased tag).
+**Production live** at [dova.dntech.id](https://dova.dntech.id). **158** tests · **29+10** smoke pass · inline registration OTP · register **success modal** (Bug-016) · QA **security checklist** doc (4/4 pass).
 
 | Live now | In progress / optional |
 |----------|------------------------|
 | Full MVP commerce + admin + feedback | Manual UAT admin/feedback UI |
 | Inline register OTP + legacy Profile verify | Tag v0.5.5 |
+| Register success modal (Bug-016) | Login/register UI polish (FE) |
 | Paystack initialize on production | E2E Playwright |
-| Auth split layout (login/register) | Login/register UI polish (FE) |
-| Profile edit + change password | `dovachain.com` alias |
+| Auth split layout (login/register) | `dovachain.com` alias |
+| QA security checklist assessment (4/4 pass) | |
 
 ---
 
