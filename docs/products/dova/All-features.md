@@ -1,11 +1,11 @@
 # DOVA — All Features
 
-> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **App HEAD:** `9e37a8a` · **Release:** v0.5.4 · **Production:** [dova.dntech.id](https://dova.dntech.id)
+> **Status:** Active · **Last updated:** 2026-08-29 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **App HEAD:** `71225e3` · **Release:** v0.5.4 · **Production:** [dova.dntech.id](https://dova.dntech.id)
 
-Master list of **every feature** shipped in DOVA as of 28 August 2026. For API paths, status codes, and QA notes see [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md).
+Master list of **every feature** shipped in DOVA as of 29 August 2026. For API paths, status codes, and QA notes see [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md).
 
-**Related:** [OVERVIEW.md](./OVERVIEW.md) · [code/API.md](./docs/API.md) · [operations/current-phase.md](./docs/current-phase.md)
+**Related:** [README.md](./README.md) · [code/API.md](./docs/API.md) · [operations/current-phase.md](./docs/current-phase.md)
 
 ---
 
@@ -17,7 +17,7 @@ Master list of **every feature** shipped in DOVA as of 28 August 2026. For API p
 | **Roles** | Customer · Supplier · Admin |
 | **Frontend routes** | 27 |
 | **API handlers** | ~67 |
-| **Unit tests** | 151 pass |
+| **Unit tests** | 158 pass |
 | **Production smoke** | 29 steps + 10 negative |
 
 ### Status legend
@@ -34,8 +34,8 @@ Master list of **every feature** shipped in DOVA as of 28 August 2026. For API p
 
 ### Customer
 
-- Register with email (pending until OTP verified)
-- Verify email via OTP · resend OTP with cooldown
+- Register with inline email OTP on register page (Send code → enter code → create account)
+- Legacy Profile email verify for accounts registered before inline OTP
 - Login · logout · refresh session · Remember Me
 - Forgot password · reset password via OTP
 - View and edit profile (name, phone) · verified badge
@@ -86,35 +86,36 @@ Master list of **every feature** shipped in DOVA as of 28 August 2026. For API p
 
 | # | Feature | Status |
 |---|---------|--------|
-| 1 | Customer registration | Live |
-| 2 | Email OTP verification | Live |
-| 3 | Resend OTP (60s cooldown) | Live |
-| 4 | Login (customer / supplier / admin) | Live |
-| 5 | Login redirect when unverified + auto-resend OTP | Live |
-| 6 | Logout | Live |
-| 7 | Refresh token | Live |
-| 8 | Remember Me (extended refresh TTL) | Live |
-| 9 | Forgot password | Live |
-| 10 | Reset password via OTP | Live |
-| 11 | GET my profile | Live |
-| 12 | Edit profile (name + phone) | Live |
-| 13 | Change password (signed in) | Live |
-| 14 | Supplier registration + document upload | Live |
-| 15 | JWT role guards (401/403) | Live |
-| 16 | Cross-origin Bearer + httpOnly cookies | Live |
-| 17 | QA fixed OTP for smoke tests | Conditional |
+| 1 | Customer registration (inline OTP on register page) | Live |
+| 2 | Send registration code (`/auth/send-registration-code`) | Live |
+| 3 | Legacy email OTP verification (Profile) | Live |
+| 4 | Resend OTP — legacy (60s cooldown) | Live |
+| 5 | Login (customer / supplier / admin) | Live |
+| 6 | Login redirect when legacy unverified | Live |
+| 7 | Logout | Live |
+| 8 | Refresh token | Live |
+| 9 | Remember Me (extended refresh TTL) | Live |
+| 10 | Forgot password | Live |
+| 11 | Reset password via OTP | Live |
+| 12 | GET my profile | Live |
+| 13 | Edit profile (name + phone) | Live |
+| 14 | Change password (signed in) | Live |
+| 15 | Supplier registration + document upload | Live |
+| 16 | JWT role guards (401/403) | Live |
+| 17 | Cross-origin Bearer + httpOnly cookies | Live |
+| 18 | QA fixed OTP for smoke tests | Conditional |
 
 ### 2. Customer & profile
 
 | # | Feature | Status |
 |---|---------|--------|
-| 18 | Editable profile page | Live |
-| 19 | Change password from profile Security tab | Live |
-| 20 | Order history with status filter | Live |
-| 21 | Order detail page | Live |
-| 22 | Legacy `/customer` redirect to history | Live |
-| 23 | Nav: My Orders / Cart / Profile | Live |
-| 24 | Checkout login modal for guests | Live |
+| 19 | Editable profile page | Live |
+| 20 | Change password from profile Security tab | Live |
+| 21 | Order history with status filter | Live |
+| 22 | Order detail page | Live |
+| 23 | Legacy `/customer` redirect to history | Live |
+| 24 | Nav: My Orders / Cart / Profile | Live |
+| 25 | Checkout login modal for guests | Live |
 
 ### 3. Catalog & storefront
 
@@ -279,7 +280,7 @@ Base: `{API}/api/v1` · Auth: JWT httpOnly cookies + Bearer header.
 
 | Group | Key endpoints |
 |-------|---------------|
-| Auth | `/auth/register` · `/auth/login` · `/auth/logout` · `/auth/refresh` · `/auth/me` · `/auth/verify-otp` · `/auth/resend-otp` · `/auth/forgot-password` · `/auth/reset-password` · `/auth/change-password` |
+| Auth | `/auth/send-registration-code` · `/auth/register` · `/auth/login` · `/auth/logout` · `/auth/refresh` · `/auth/me` · `/auth/verify-otp` · `/auth/resend-otp` · `/auth/forgot-password` · `/auth/reset-password` · `/auth/change-password` |
 | Catalog | `/categories` · `/products` · `/products/:id` |
 | Cart | `/cart` · `/cart/add` · `/cart/items/:id` |
 | Orders | `/orders` · `/orders/:id` |
@@ -312,9 +313,9 @@ Full endpoint list: [code/API.md](./docs/API.md) · [code/DOVA-API-QA-POSTMAN.md
 
 | Date | Feature |
 |------|---------|
+| 2026-08-29 | Inline registration OTP on register page · auth UI split layout |
+| 2026-08-29 | Admin delete user (cascade order history) · Customer copy |
 | 2026-08-28 | Profile self-service · change password |
-| 2026-08-28 | Admin delete user (no order history) |
-| 2026-08-28 | Login unverified → auto redirect + auto-resend OTP |
 | 2026-08-27 | Email OTP required · forgot/reset password |
 | 2026-08-27 | Production smoke 29+10 · Paystack live |
 

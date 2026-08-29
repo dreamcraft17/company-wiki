@@ -1,12 +1,12 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-08-28 · **App HEAD:** `9e37a8a` · **Tag:** `v0.5.4`
+> **Updated:** 2026-08-29 · **App HEAD:** `71225e3` · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
 **Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 151 unit · smoke **29+10** (`npm run smoke:production`)
+**Tests:** 158 unit · smoke **29+10** (`npm run smoke:production`)
 
 **Canonical wiki:** [`dova-comp-wiki`](https://github.com/dreamcraft17/dova-com-wiki) (team repo)  
 **This folder:** DN Tech `company-wiki` mirror — flat `docs/` layout
@@ -101,4 +101,4 @@ bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # → this mirror
 
 ---
 
-*Last Updated: August 28, 2026 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)*
+*Last Updated: August 29, 2026 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)*

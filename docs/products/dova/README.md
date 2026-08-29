@@ -1,7 +1,5 @@
 # DOVA
 
-> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)
-
 Agricultural marketplace MVP — connects buyers with verified suppliers in Nigeria (NGN).
 
 **Monorepo:** NestJS API · Next.js storefront · shared TypeScript types  
@@ -18,7 +16,7 @@ Agricultural marketplace MVP — connects buyers with verified suppliers in Nige
 |------|------------|
 | Storefront | Browse, search, filter catalog; product detail with delivery slots |
 | Commerce | Cart, checkout (pickup / delivery), Paystack or mock payment |
-| Auth | Customer register/login + **email OTP verify**, supplier application, role guards |
+| Auth | Customer register/login + **inline email OTP on register**, supplier application, role guards |
 | Supplier | Product CRUD, image upload, stock, order fulfillment |
 | Admin | Users, suppliers, products, orders, contacts, feedback moderation |
 | Feedback | Native idea board at `/feedback` (replaces external FeedLog) |
@@ -88,7 +86,7 @@ dova/
 ## Environment variables
 
 Templates: `.env.example`, `apps/backend/.env.example`, `tests/vps-*.env.example`  
-**VPS / production guide:** [ENV-SETUP.md](./docs/ENV-SETUP.md)
+**VPS / production guide:** [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md)
 
 ### Backend (`apps/backend/.env`)
 
@@ -166,11 +164,11 @@ Payments use **Paystack** when `PAYSTACK_SECRET_KEY` is set; otherwise a **mock*
 
 | Doc | Contents |
 |-----|----------|
-| [TEST-CASES.md](./docs/TEST-CASES.md) | Automated + manual test catalog |
-| [GUIDE.md](./docs/GUIDE.md) | Manual QA workflow |
-| [ENV-SETUP.md](./docs/ENV-SETUP.md) | VPS/production env setup |
-| [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
-| [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
+| [`tests/TEST-CASES.md`](./tests/TEST-CASES.md) | Automated + manual test catalog |
+| [`tests/GUIDE.md`](./tests/GUIDE.md) | Manual QA workflow |
+| [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md) | VPS/production env setup (ID) |
+| [`tests/DOVA-STATUS-LENGKAP.md`](./tests/DOVA-STATUS-LENGKAP.md) | Dokumen status teknis lengkap (ID) |
+| [`tests/UAT-BUG-FIXES.md`](./tests/UAT-BUG-FIXES.md) | UAT defect log + verification |
 
 ---
 
@@ -185,7 +183,7 @@ npm run db:seed          # refresh catalog + demo data
 pm2 restart dova-backend dova-frontend --update-env
 ```
 
-Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [ENV-SETUP.md](./docs/ENV-SETUP.md).
+Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md).
 
 ### Vercel (frontend only)
 

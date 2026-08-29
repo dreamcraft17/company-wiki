@@ -1,7 +1,7 @@
 # DOVA — Full Technical Status Document
 
-> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Repo:** [dreamcraft17/dova](https://github.com/dreamcraft17/dova) · **HEAD:** `9e37a8a` · **Release:** v0.5.4 · **Tag:** production live
+> **Status:** Active · **Last updated:** 2026-08-29 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **Repo:** [dreamcraft17/dova](https://github.com/dreamcraft17/dova) · **HEAD:** `71225e3` · **Release:** v0.5.4 · **Tag:** production live
 
 ---
 
@@ -14,7 +14,7 @@
 | Is MVP code complete? | **Yes** — full Week 1–4 scope implemented |
 | Is it publicly live? | **Yes — production** — [dova.dntech.id](https://dova.dntech.id); Paystack live; launched 27 Aug 2026 |
 | Main stack | NestJS + Next.js + PostgreSQL + Paystack |
-| Automated tests | **151 unit tests** green · `npm run smoke:production` |
+| Automated tests | **158 unit tests** green · `npm run smoke:production` |
 | Currency | **₦ (NGN)** |
 
 ---
@@ -27,7 +27,7 @@ B2B/B2C food supply marketplace with three roles:
 
 | Role | Responsibilities |
 |------|------------------|
-| **Customer** | Register, verify email (OTP), browse catalog, cart, checkout (pickup/delivery), pay, view order history |
+| **Customer** | Register with inline OTP on register page, browse catalog, cart, checkout (pickup/delivery), pay, view order history |
 | **Supplier** | Register + verification docs → admin approval → manage products, stock, incoming orders |
 | **Admin** | Approve suppliers, manage users/products/orders, contact inbox, feedback moderation |
 

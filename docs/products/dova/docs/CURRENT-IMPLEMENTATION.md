@@ -1,24 +1,24 @@
 # DOVA — Current Implementation Baseline
 
-> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · **Last updated:** 2026-08-28
+> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · **Last updated:** 2026-08-29
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 28 August 2026 |
-| App HEAD | **`9e37a8a`** (post v0.5.4) |
+| Snapshot date | 29 August 2026 |
+| App HEAD | **`71225e3`** (post v0.5.4) |
 | Last tag | **v0.5.4** (email OTP production) |
 | Purpose | PRD baseline + ops truth setelah soft launch |
 | Spec baseline | Aggressive 4W PRD/SRS/SDD + VPS PM2 deploy |
 | Author | Dozer · [@dreamcraft17](https://github.com/dreamcraft17) |
 | Phase | **Production live — post-launch hardening** |
 
-> [current-phase.md](../current-phase.md) · [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · [FULL-TECH-STATUS.md](./FULL-TECH-STATUS.md) · [CHANGELOG.md](./CHANGELOG.md)
+> [current-phase.md](./current-phase.md) · [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · [FULL-TECH-STATUS.md](./FULL-TECH-STATUS.md) · [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
 ## One-line status
 
-**Production live** at [dova.dntech.id](https://dova.dntech.id). **151** unit tests green · **29+10** production smoke pass · Paystack live · email OTP required for new customers.
+**Production live** at [dova.dntech.id](https://dova.dntech.id). **158** unit tests green · **29+10** production smoke pass · Paystack live · inline registration OTP on register page.
 
 ---
 
@@ -26,17 +26,17 @@
 
 | Area | Implementation |
 |------|----------------|
-| Product | Marketplace: buyers ↔ verified food suppliers (Nigeria / NGN) |
+| Product | Marketplace: customers ↔ verified food suppliers (Nigeria / NGN) |
 | Frontend | Next.js 16 storefront — **27 pages** (`apps/frontend`) |
 | Backend | NestJS 11 API — **~67 routes** (`apps/backend`, `/api/v1`) |
 | Shared | TypeScript types, min-order, product units/images (`shared/`) |
 | Data | PostgreSQL (Supabase/VPS) + optional Redis sessions |
-| Auth | JWT httpOnly + Bearer cross-origin · OTP verify · forgot/reset · profile PATCH |
+| Auth | JWT httpOnly + Bearer cross-origin · inline register OTP · legacy Profile verify · forgot/reset · profile PATCH |
 | Payments | Paystack NGN (+ mock when secret unset) |
 | Email | Resend SMTP — verification OTP + password reset |
 | UI | DOVA-Startup (Poppins, `#0F6B43`, `#D8B24A`) · mobile-first |
 | Migrations | `001`–`006`+ (cart, feedback Postgres, OTP columns active) |
-| QA | 151 unit · `smoke:production` · Postman guide · bug triage doc |
+| QA | 158 unit · `smoke:production` · Postman guide · bug triage doc |
 | Feedback | Native board `/feedback` (FeedLog replaced v0.4.0) |
 
 ---
@@ -45,8 +45,9 @@
 
 | Journey | Status |
 |---------|--------|
-| Register → OTP verify → browse → cart → checkout → pay → orders | **Available** |
-| Login unverified → auto-resend OTP → verify → session | **Available** (2026-08-28) |
+| Register → inline OTP → browse → cart → checkout → pay → orders | **Available** (2026-08-29) |
+| Legacy unverified → Profile OTP → checkout | **Available** (pre-inline accounts) |
+| Login unverified (legacy) → Profile verify | **Available** |
 | Forgot / reset password | **Available** |
 | Customer profile edit + in-app change password | **Available** (2026-08-28) |
 | Supplier register → admin approve → products → fulfill orders | **Available** |

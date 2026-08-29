@@ -1,7 +1,7 @@
 # DOVA — Feature Catalog (Complete)
 
-> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **App HEAD:** `9e37a8a` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
+> **Status:** Active · **Last updated:** 2026-08-29 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **App HEAD:** `71225e3` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
 > **Spec baseline:** Aggressive 4W PRD/SRS/SDD · MVP + post-launch hardening
 
 This document is the **actual feature inventory** in the codebase and production as of **28 August 2026**. Use it for QA, stakeholder review, and future PRD writing.
@@ -27,7 +27,7 @@ This document is the **actual feature inventory** in the codebase and production
 |--------|-------|
 | Frontend pages | **27** routes (Next.js pages router) |
 | API routes | **~67** handlers (`app.controller.ts` + feedback) |
-| Unit tests | **151 pass** (`npm run test`) |
+| Unit tests | **158 pass** (`npm run test:unit`) |
 | Production smoke | **29 steps + 10 negative** (`npm run smoke:production`) |
 | Roles | `customer` · `supplier` · `admin` |
 | Currency | NGN (₦) · Paystack |
@@ -38,11 +38,12 @@ This document is the **actual feature inventory** in the codebase and production
 
 | Feature | Status | API / UI | Notes |
 |---------|--------|----------|-------|
-| Customer register | Available | `POST /auth/register` · `/auth/register` | Account **pending** until OTP |
-| Email OTP verify | Available | `POST /auth/verify-otp` · `/auth/verify-email` | Required in production; Resend SMTP |
-| Resend OTP | Available | `POST /auth/resend-otp` | Cooldown 60s · max resend/window |
+| Send registration code | Available | `POST /auth/send-registration-code` · `/auth/register` | Before account exists; 60s cooldown |
+| Customer register (inline OTP) | Available | `POST /auth/register` · `/auth/register` | Requires `code`; account **verified** + session cookies |
+| Legacy email OTP verify | Available | `POST /auth/verify-otp` · `/customer/profile` | Pre-inline accounts only |
+| Resend OTP (legacy) | Available | `POST /auth/resend-otp` | Profile / legacy pending users |
 | Login (customer/supplier/admin) | Available | `POST /auth/login` · `/auth/login` | JWT + httpOnly cookie + Bearer |
-| Login → unverified → redirect verify | Available | — · `/auth/login` | Auto `resend-otp` + redirect |
+| Login → unverified legacy → Profile | Available | — · `/auth/login` | Redirect legacy accounts to Profile verify |
 | Logout | Available | `POST /auth/logout` | Revoke session |
 | Refresh token | Available | `POST /auth/refresh` | Remember Me = longer TTL |
 | Remember Me | Available | login/verify body | localStorage + refresh 30d |
@@ -246,9 +247,10 @@ Replaces external FeedLog — full stack in monorepo.
 
 | Date | Feature |
 |------|---------|
+| 2026-08-29 | Inline registration OTP on `/auth/register` · legacy Profile verify retained |
+| 2026-08-29 | Auth UI split layout (login + register) · Customer copy |
 | 2026-08-28 | Profile self-service (`PATCH /auth/me`, change password) |
-| 2026-08-28 | Admin delete user (no order history) |
-| 2026-08-28 | Login unverified → auto redirect + auto-resend OTP |
+| 2026-08-28 | Admin delete user (cascade order history) |
 | 2026-08-27 | Email OTP required · forgot/reset password · smoke 29+10 |
 | 2026-08-27 | Production smoke health retry · Paystack live |
 
@@ -256,4 +258,4 @@ Commit details: [CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
-*Author: Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · sync from `dova/tests/` per [README.md](../README.md)*
+*Author: Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · sync via `dova-company-wiki/scripts/sync-docs.sh`*

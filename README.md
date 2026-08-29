@@ -24,7 +24,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2
-  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
+  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · HEAD `71225e3` · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (5 markdown)
@@ -87,4 +87,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: August 28, 2026*
+*Last Updated: August 29, 2026*
