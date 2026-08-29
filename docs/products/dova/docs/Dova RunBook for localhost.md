@@ -6,7 +6,7 @@
 > **Last verified:** 2026-08-29  
 > **App repo:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)
 
-**Related:** [RUNBOOK.md](./RUNBOOK.md) (production VPS) · [ENV-SETUP.md](./ENV-SETUP.md) · [PAYSTACK-TEST-MODE.md](./PAYSTACK-TEST-MODE.md) · [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md)
+
 
 ---
 
@@ -281,8 +281,7 @@ Restore stashed env if needed: `git stash pop`.
 
 | Issue | Contact |
 |-------|---------|
-| Local env / runbook | Dozer (CTO, DN Tech) |
-| Production incident | [RUNBOOK.md](./RUNBOOK.md) — DN Tech infra |
+| Local env / runbook | Dozer |
 
 ---
 

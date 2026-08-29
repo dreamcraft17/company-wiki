@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-08-29 · **App HEAD:** `129ba96` · **Wiki HEAD:** `32d19f3` · **Tag:** `v0.5.4`
+> **Updated:** 2026-08-29 · **App HEAD:** `129ba96` · **Wiki HEAD:** `b3e8377` · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
@@ -32,7 +32,7 @@
 | File | Description |
 |------|-------------|
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
-| [LOCAL-DEV-RUNBOOK.md](./docs/LOCAL-DEV-RUNBOOK.md) | Run DOVA on localhost / dev machine |
+| [Dova RunBook for localhost.md](./docs/Dova%20RunBook%20for%20localhost.md) | Run DOVA on localhost · [PDF](./docs/Dova%20RunBook%20for%20Localhost.pdf) |
 | [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Single-server VPS deploy |
 | [ENV-SETUP.md](./docs/ENV-SETUP.md) | Production / VPS environment variables |
 | [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Vercel vs VPS notes |
