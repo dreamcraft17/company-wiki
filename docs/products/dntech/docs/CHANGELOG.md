@@ -2,6 +2,13 @@
 
 All notable changes to the DN Tech company profile website (`dntech.id`).
 
+## [Unreleased]
+
+### Changed
+- Copy halaman `/products` dan section produk beranda: keyword HRIS/ERP/pembukuan, tagline ID, tanpa klaim 10x atau trial semu di header katalog.
+
+---
+
 ## [0.10.0] — 2026-08-29
 
 ### Added

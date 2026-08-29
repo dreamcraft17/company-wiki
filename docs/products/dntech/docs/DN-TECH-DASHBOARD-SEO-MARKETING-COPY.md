@@ -25,7 +25,7 @@ Halaman publik + meta tag + JSON-LD
 |-------|--------------|-------------|--------|
 | **Situs global** | `/admin/settings` | tagline, hero, homeContent JSON, SEO template, GA | ID |
 | **Branding / About** | `/admin/branding/*` | story, mission, values, stats | ID |
-| **Produk** | `/admin/products` | meta title/description, keywords, tagline, CTA | ID / EN mix |
+| **Produk** | `/admin/products` | meta title/description, keywords, tagline, CTA | ID |
 | **FAQ** | `/admin/faqs` | pertanyaan + jawaban | ID |
 | **Meta halaman statis** | `seo.ts` + CMS per entitas | `PAGE_SEO` + `seoTitle` layanan/blog/portofolio | ID |
 | **CTA hero** | `homeContent` JSON | `heroPrimaryCta` / `heroSecondaryCta` | ID |
@@ -71,6 +71,8 @@ Halaman publik + meta tag + JSON-LD
   "heroSupporting": "...",
   "heroPrimaryCta": { "label": "...", "href": "/contact" },
   "heroSecondaryCta": { "label": "...", "href": "/products" },
+  "productsTitle": "...",
+  "productsSubtitle": "...",
   "processSteps": [{ "step": 1, "title": "...", "description": "..." }],
   "advantages": [{ "title": "...", "description": "..." }],
   "techStack": [{ "category": "Frontend", "items": ["React", "Next.js"] }],
@@ -154,7 +156,7 @@ DN Tech
 |---------|-------|-------------|
 | `/` (home) | Software Development Indonesia untuk Startup & UMKM | DN Tech — partner pengembangan aplikasi kustom dan konsultasi teknologi untuk startup & bisnis di Indonesia. |
 | `/services` | Layanan Pengembangan Software & Konsultasi IT | Aplikasi kustom, konsultasi teknologi, dan pemeliharaan sistem untuk startup dan UMKM di Indonesia. |
-| `/products` | Produk Digital Siap Pakai untuk Bisnis Anda | Produk software siap pakai dari DN Tech untuk mempercepat operasional startup dan UMKM di Indonesia. |
+| `/products` | HRIS, ERP & Pembukuan untuk Bisnis Indonesia | Software HRIS, ERP, dan pembukuan Shopee dari DN Tech untuk startup & UKM. Fitur, harga, dan status rilis di setiap halaman produk. |
 | `/blog` | Blog Teknologi untuk Founder & Tim Produk | Artikel tentang tech stack, scaling software, dan saran teknologi untuk startup Indonesia. |
 | `/case-studies` | Portfolio & Studi Kasus | Proyek nyata dari klien DN Tech — hanya dipublikasikan dengan izin klien. |
 | `/about` | Tentang DN Tech | Software house Indonesia yang fokus pada pengembangan aplikasi kustom dan konsultasi teknologi untuk startup. |
@@ -196,6 +198,17 @@ Dipakai ketika field CMS kosong. Seed production: `npm run db:seed-homepage` (sc
 | **CTA secondary** | `homeContent.heroSecondaryCta` · default `Lihat Produk` → `/products` |
 
 **Prioritas resolve:** `homeContent.heroTitle` → `SiteSettings.tagline` → `DEFAULT_HERO.title`
+
+### 3.1b Section produk beranda
+
+| Elemen | Teks default |
+|--------|--------------|
+| **H2** | Produk software siap pakai |
+| **Subtitle** | HRIS, ERP, dan pembukuan yang kami bangun dan jalankan sendiri. Setiap halaman mencantumkan fitur, harga, dan status rilis. |
+| **CMS** | `homeContent.productsTitle` / `productsSubtitle` |
+| **CTA kartu** | `Lihat {nama}` → `/products/{slug}` (bukan demo palsu) |
+
+Copy kartu (tagline per produk): [DN-TECH-PRODUCTS-PAGE-COPY.md](./DN-TECH-PRODUCTS-PAGE-COPY.md).
 
 ### 3.2 Layanan default (6 kartu)
 
@@ -359,6 +372,7 @@ Setelah edit di dashboard: **Simpan Pengaturan** → toast `Pengaturan berhasil 
 | `PAGE_SEO` | Hardcoded default di `seo.ts` (termasuk `/team`, `/portfolio`, `/resources`) · override judul halaman via CMS per entitas |
 | Campuran bahasa | Seed branding advantage/value memakai label Indonesia |
 | Anti-slop rule | Jangan klaim jumlah klien / testimoni fiktif — gunakan empty-state honest copy §3.7 |
+| Copy `/products` | Heading + meta keyword HRIS/ERP/pembukuan; **jangan** trial/10x di header katalog — [DN-TECH-PRODUCTS-PAGE-COPY.md](./DN-TECH-PRODUCTS-PAGE-COPY.md) |
 
 ---
 
@@ -366,6 +380,7 @@ Setelah edit di dashboard: **Simpan Pengaturan** → toast `Pengaturan berhasil 
 
 | Doc | Topik |
 |-----|-------|
+| [DN-TECH-PRODUCTS-PAGE-COPY.md](./DN-TECH-PRODUCTS-PAGE-COPY.md) | Copy `/products` + tagline seed |
 | [V2/DN-TECH-SEO-GUIDE-V2.md](./V2/DN-TECH-SEO-GUIDE-V2.md) | Checklist SEO teknis, JSON-LD, sitemap |
 | [launch/DN-TECH-HOMEPAGE-SYSTEM-PLAN.md](./launch/DN-TECH-HOMEPAGE-SYSTEM-PLAN.md) | PRD homepage LCP & section trim |
 | [launch/DN-TECH-RELAUNCH-ANTI-SLOP-DESIGN.md](./launch/DN-TECH-RELAUNCH-ANTI-SLOP-DESIGN.md) | Audit copy visual |

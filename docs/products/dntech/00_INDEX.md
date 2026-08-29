@@ -25,6 +25,8 @@
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Modul Done / Conditional / Planned |
 | [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Input PRD/SRS/SDD berikutnya (Jalur A ops P0) |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | `[0.10.0]` relaunch + living docs |
+| [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | Copy CMS / SEO dashboard |
+| [docs/DN-TECH-PRODUCTS-PAGE-COPY.md](./docs/DN-TECH-PRODUCTS-PAGE-COPY.md) | Copy `/products` + tagline katalog |
 
 Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) (V1–V7 trail).
 
