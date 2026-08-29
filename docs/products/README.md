@@ -29,7 +29,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **67** markdown | Production + **relaunch** · HEAD `c83d866` | `dntech` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **71** markdown | Production + **relaunch** · **v0.10.0** · HEAD `da52085` | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
@@ -48,7 +48,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
-| **DN Tech Compro** | app `c83d866` / wiki sync | **Anti-slop pass 2** + VPS branding/products seed; runbooks + Lighthouse baseline mirrored; SMTP + admin rotate + frontend rebuild still open |
+| **DN Tech Compro** | app `da52085` / wiki sync | **v0.10.0** + homepage below-fold stream; living docs + `DN-TECH-HOMEPAGE-SYSTEM-PLAN` mirrored; SMTP + prod rebuild + post-deploy Lighthouse still open |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
 | **DOVA** | app `972ffbc` | Admin user delete (cascade) · Customer copy in auth |
 | **DOVA** | app `9e37a8a` / wiki sync | **All-features.md** (101 fitur) · mirror dari `dova-comp-wiki` · CEO doc dihapus · UAT-BUG-FIXES + PAYSTACK-TEST-MODE |

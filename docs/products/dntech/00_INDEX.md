@@ -6,12 +6,12 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — living docs refreshed (`1da8191`); VPS seed 7 produk done; **open:** SMTP live test + frontend prod rebuild + post-deploy Lighthouse  
+**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD `da52085`; VPS seed 7 produk done; **open:** SMTP live test + frontend prod rebuild + post-deploy Lighthouse  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 29, 2026  
-**Latest commit**: `1da8191` — footer legal name · living docs layer (Aug 29)
+**Latest commit**: `da52085` — homepage below-fold stream + section layout (Aug 29)
 
 ---
 
@@ -58,6 +58,7 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/launch/README.md](./docs/launch/README.md) | **Relaunch pack (Aug 2026)** — launch plan, adversarial review, anti-slop, readiness checklist |
+| [docs/launch/DN-TECH-HOMEPAGE-SYSTEM-PLAN.md](./docs/launch/DN-TECH-HOMEPAGE-SYSTEM-PLAN.md) | **Homepage system plan** — LCP/section trim PRD (post-0.10.0) |
 | [docs/DN-TECH-RELAUNCH-PRD.md](./docs/DN-TECH-RELAUNCH-PRD.md) | **Relaunch PRD** — honest 0-client narrative |
 | [docs/qa/DN-TECH-BUG-TRIAGE-2026-08-29.md](./docs/qa/DN-TECH-BUG-TRIAGE-2026-08-29.md) | **Bug triage** — P0–P3 pre-fix (relaunch gate) |
 | [docs/DEPLOYMENT-PRODUCTION.md](./docs/DEPLOYMENT-PRODUCTION.md) | Production deployment guide |

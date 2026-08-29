@@ -2,7 +2,7 @@
 
 > **Author:** Dozer  
 > **Date:** 2026-08-29  
-> **Snapshot:** HEAD `1da8191` · Relaunch engineering pass shipped · Ops gates partial
+> **Snapshot:** HEAD `91c6551` · v0.10.0 living docs + homepage SSR trim · Ops gates partial
 
 Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). Indonesian marketing site, lead capture, first-party product catalog — honest empty states (0 paying clients).
 
@@ -19,7 +19,7 @@ Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). I
 
 | Metric | Value | How verified |
 |--------|-------|--------------|
-| Git HEAD | `1da8191` | `git log -1` |
+| Git HEAD | `91c6551` | `git log -1` |
 | Backend unit tests | **50** pass | `cd backend && npm test` |
 | Frontend unit tests | **49** pass | `cd frontend && npm test` |
 | Prisma models | **24** | `grep -c '^model ' backend/prisma/schema.prisma` |
@@ -49,7 +49,7 @@ dntech/
 
 | Area | Routes | Status |
 |------|--------|--------|
-| Homepage Indonesia Edition | `/` | Done — CMS `homeContent`, honest fallbacks |
+| Homepage Indonesia Edition | `/` | Done — CMS `homeContent`, honest fallbacks; portfolio/testimonials **off** `/` (dedicated routes only) |
 | Layanan | `/services`, `/services/[slug]` | Done — active services from admin |
 | Produk (V6/V7) | `/products`, `/products/[slug]` | Done — 7 seed products (excl. DOVA) |
 | Blog, About, Team, Contact, FAQ | ✅ | Done — SSR + CMS |
@@ -69,13 +69,15 @@ JWT + RBAC (`SuperAdmin`, `ContentManager`, `Editor`, `Viewer`). CRUD: services,
 
 ## Relaunch pass (Aug 2026)
 
-Shipped in `c83d866` → `1da8191`:
+Shipped in `c83d866` → `91c6551`:
 
 - Anti-slop copy (`homepage-content`, testimonials, portfolio, careers)
 - Skip link, CSP/security headers, deferred ExitIntent + dynamic Header search
 - Native `<details>` FAQ (server component)
 - Lighthouse baseline recorded — [`frontend/LIGHTHOUSE-BASELINE.md`](./frontend/LIGHTHOUSE-BASELINE.md)
 - Footer layout + legal company name in copyright
+- Living docs layer (`CURRENT-IMPLEMENTATION`, `FEATURE-CATALOG`, `NEXT-PRD-BRIEF`) · [`CHANGELOG.md`](./CHANGELOG.md) `[0.10.0]`
+- Homepage SSR trim — `HomePortfolio` + `HomeTestimonials` removed from `/` (routes remain)
 
 **Not yet verified on prod after deploy:** homepage LCP improvement, SMTP end-to-end, post-deploy Lighthouse re-run.
 
