@@ -15,7 +15,7 @@ Audit desain visual dan konsistensi styling codebase **DN Tech** (`frontend/`).
 
 ---
 
-## Mandat Leadership (CEO + Tech Lead + PM)
+## Mandat Leadership (CEO + Tech Lead)
 
 Audit ini tidak hanya membandingkan kode dengan spec teknis — tetapi juga dengan **keputusan arah desain** yang ditetapkan CEO sekaligus Tech Lead DN Tech:
 

@@ -2,7 +2,7 @@
 ## Executive Summary
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Focus:** Mempercepat loading file dan page transitions
 
 ---
@@ -283,7 +283,7 @@ A: Yes, V4 is prerequisite for future V5 improvements (CDN, service worker).
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

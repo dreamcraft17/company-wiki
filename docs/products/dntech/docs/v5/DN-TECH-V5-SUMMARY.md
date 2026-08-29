@@ -2,7 +2,7 @@
 ## Executive Summary
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Focus:** Setup email untuk mengirim semua message website ke **info@dntech.id**
 
 ---
@@ -325,7 +325,7 @@ A: Included! Newsletter has unsubscribe link + route.
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

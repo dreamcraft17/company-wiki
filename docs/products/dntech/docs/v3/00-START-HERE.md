@@ -1,5 +1,5 @@
 # DN Tech Documentation — Complete Package
-## Created for Dozer (CEO + Tech Lead + PM)
+## Created for Dozer (CEO + Tech Lead)
 
 **Date:** Juli 2026  
 **Total Documents:** 9  
@@ -95,7 +95,7 @@
 
 ## 🚀 How to Use (Step-by-Step)
 
-### For Dozer (CEO + Tech Lead + PM)
+### For Dozer (CEO + Tech Lead)
 
 **Step 1:** Read this document (5 min)
 
@@ -457,7 +457,7 @@ August 2026: V4 (TBD - email capture? dark mode? multi-lang?)
 ---
 
 **Prepared by:** Claude  
-**For:** Dozer (CEO + Tech Lead + PM)  
+**For:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026  
 **Status:** Complete & Ready to Ship  
 

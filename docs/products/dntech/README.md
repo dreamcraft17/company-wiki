@@ -7,7 +7,7 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 28, 2026 |
+| UpdatedAt | August 29, 2026 |
 | Repo | [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech) |
 | Live | https://dntech.id · https://api.dntech.id |
 
@@ -27,25 +27,58 @@ Production-ready company profile website for DN Tech with a public marketing sit
 | V4 performance | Implemented | Debounce search, deferred scripts, cached settings/API, parallel homepage fetch, Next Image, font/build fix |
 | V5 email system | Implemented | SMTP via `mx8.mailspace.id:465`, email templates, retry/logging, newsletter confirmation, admin email logs |
 | V6 Produk module (Jul 12) | Implemented | New `Product` content type parallel to Services — public `/products` + `/products/[slug]`, admin CRUD `/admin/products`, sitewide search, sitemap; DB push to production pending |
-| V7 Product Section PRD (Jul 12) | Implemented | dnPeople flagship product page — pricing tiers, features by category, use cases, integrations, comparison table, testimonials, roadmap, multi-CTA; seed via `db:seed-dnpeople`; DB push + seed to production pending |
-| Loading UX (Jul 13) | Implemented | Route-level loading fallback, global API overlay, admin session/CRUD loading; concurrency-safe and accessible |
-| Public product API hotfix (Jul 13) | Implemented | SSR product pages share the normalized API resolver; production localhost/misrouted URL falls back to `api.dntech.id` |
-| dnPeople seed copy (Jul 16) | Implemented | Seed script copy refresh (`f1c7dca`); production `db:seed-dnpeople` still pending |
+| V7 Product Section PRD (Jul 12) | Implemented | dnPeople flagship + 6 produk lain (dnCore, dnShop, Nearwork, DVS, Threads Automation, Trusted Jurist); seed via `db:seed-products` |
+| Multi-product seeds (Aug 17) | Implemented | 7 produk DN Tech (kecuali DOVA) · `npm run db:seed-products` · production seed pending |
+| Product page crash hotfix (Jul 26) | Fixed | Removed `ROICalculator` from `/products/[slug]`; see `docs/BUG_FIXES.md` BF-017 |
+| Homepage services API (Jul 26) | Fixed | Homepage + `/services` wired to admin; see BF-018 |
+| Blog SSR (Jul 26) | Fixed | `/blog` listing + detail use production SSR resolver; see BF-019 |
+| Public SSR audit (Jul 26) | Fixed | All public SSR pages + settings/branding/sitemap migrated; see BF-020 |
 | Testing framework (Jul 28) | Complete | 81 automated tests passing (`45` backend + `36` frontend), 5 E2E scenarios (desktop+mobile matrix), CI test jobs wired |
 | Frontend build | Passing | `npm run build` succeeds without Google Fonts network dependency (Next.js 16.2.9, React 19.2.4) |
 | Backend build | Passing | `npm run build` succeeds |
 | Full lint | Passing | Frontend lint succeeds with 0 errors/warnings |
 | Performance | Optimized | See `docs/IMPLEMENTATION-STATUS.md` for V4 details and remaining Lighthouse verification |
+| **Relaunch honesty (Aug 29)** | Shipped in app | Honest seeds, admin password gate, About/branding, product badge — [launch pack](./docs/launch/README.md) |
+| **Launch ops gate** | Pending VPS | `db push` + seed + SMTP live test — BF-013, BF-014 |
 
-Latest implementation reference: Jul 28 — testing rollout complete + push guard (`95a6cd5`).
+Latest implementation reference: **`a4a8e29`** (Aug 29) — relaunch honesty fixes; prior **`836266b`** (Jul 26) SSR audit BF-020.
+
+**Docs:** [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · [`docs/BUG_FIXES.md`](docs/BUG_FIXES.md) · [`docs/IMPLEMENTATION-STATUS.md`](docs/IMPLEMENTATION-STATUS.md) · [`docs/QA-CHECKLIST-V8.md`](docs/QA-CHECKLIST-V8.md) · [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md)
 
 **Branding:** Logo resmi `frontend/public/rlogo2.png`; favicon `src/app/icon.png`; navbar & footer menampilkan **DN Tech.id** (`LogoLight` / `FooterBrand`).
 
-**Homepage:** PRD [Indonesia Edition](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) — hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA. **Hidden di beranda:** tech stack, tim (tetap di `/team`, `/careers`). Default harga: custom dari **Rp 25 juta**, konsultasi **Rp 150rb/jam**, maintenance **Rp 2 juta/bulan**.
+**Homepage:** PRD [Indonesia Edition](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/branding/DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA-EDITION.md) — hero, layanan (max 6 **aktif** dari admin), proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA. **Hidden di beranda:** tech stack, tim (tetap di `/team`, `/careers`). Kartu layanan **tanpa** baris tech per item.
 
 **Footer:** `components/common/Footer.tsx` — putih, link horizontal, CTA Konsultasi Gratis.
 
 **Branding admin (legacy):** API `/branding/*` dan `/admin/branding/*` tetap tersedia; section branding lama tidak lagi di homepage utama.
+
+## Production SSR API (Jul 26)
+
+Semua halaman publik yang render di server memakai helper di `frontend/src/lib/server-api.ts`:
+
+| Helper | Use case |
+|--------|----------|
+| `fetchPublicApiList` | Listing (services, blog posts in homepage, team, …) |
+| `fetchPublicApiSafe` | Detail by slug (`/services/[slug]`, `/blog/[slug]`, …) |
+| `fetchPublicApiPaginated` | Paginated lists (`/blog` with page/category) |
+
+**Resolver chain (production):** `API_INTERNAL_URL` → `http://127.0.0.1:4000/api/v1` → `getApiBaseUrl()` (`https://api.dntech.id/api/v1`).
+
+Jangan fetch langsung dengan `NEXT_PUBLIC_API_URL || localhost` di Server Components — itu menyebabkan data kosong / 404 di `dntech.id` (BF-016–BF-020).
+
+**Client-side OK:** `/faq`, `/about` memakai `getApiUrl()` di browser (sudah normalisasi production).
+
+### Konten admin → website
+
+| Modul | Syarat tampil di publik |
+|-------|-------------------------|
+| Layanan | Status **Aktif** di `/admin/services` |
+| Blog | Status **Published** + `publishedAt` ≤ hari ini |
+| Produk | Status **active** / launched sesuai seed |
+| Tim, FAQ, careers, portfolio, case studies | CRUD admin + API public endpoint |
+
+Setelah `git pull`, **wajib** `npm run build` di frontend — perubahan SSR/API tidak live hanya dengan restart PM2 tanpa rebuild.
 
 ## Tech Stack
 
@@ -60,7 +93,7 @@ Latest implementation reference: Jul 28 — testing rollout complete + push guar
 
 ### Public Website
 
-- Homepage Indonesia Edition: hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA (`homeContent` CMS)
+- Homepage Indonesia Edition: hero, layanan dari admin (API), proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA
 - Tech stack & tim **hidden** on homepage (tetap di `/team`, `/careers`); newsletter tidak di footer
 - Services listing and detail pages with process steps, FAQ, related articles, Calendly CTA
 - Products listing and detail pages (separate nav from Services) — V7 flagship fields for dnPeople
@@ -121,6 +154,7 @@ cp .env.example .env
 npm install
 npx prisma db push
 npm run db:seed
+npm run db:seed-products   # seed 7 produk (dnPeople, dnCore, dnShop, Nearwork, DVS, Threads, TJ)
 npm run dev
 ```
 
@@ -175,9 +209,12 @@ docker compose build
 docker compose up -d
 ```
 
-PM2-style deployment:
+PM2-style deployment (VPS):
 
 ```bash
+cd /var/www/dntech   # or your deploy path
+git pull --rebase origin main
+
 cd backend
 npm ci
 npx prisma generate
@@ -186,8 +223,16 @@ pm2 restart dntech-api
 
 cd ../frontend
 npm ci
-npm run build
+npm run build          # required — SSR helpers baked at build time
 pm2 restart dntech-web
+```
+
+Pastikan `frontend/.env.local` (production) memuat:
+
+```env
+NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1
+NEXT_PUBLIC_SITE_URL=https://dntech.id
+API_INTERNAL_URL=http://127.0.0.1:4000/api/v1
 ```
 
 If `git pull --rebase` is blocked by `docs/IMPLEMENTATION-STATUS.md`, move the local untracked file first:
@@ -226,7 +271,9 @@ git pull --rebase
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_API_URL` | Backend API base URL, e.g. `https://api.dntech.id/api/v1` |
+| `NEXT_PUBLIC_API_URL` | Public API base URL, e.g. `https://api.dntech.id/api/v1` (browser + fallback SSR) |
+| `NEXT_PUBLIC_SITE_URL` | Public site URL, e.g. `https://dntech.id` (required for `validate:env` + sitemap) |
+| `API_INTERNAL_URL` | **Production SSR:** loopback to PM2 API, e.g. `http://127.0.0.1:4000/api/v1` |
 | `NEXT_PUBLIC_ENABLE_EXIT_MODAL` | Set `false` to disable V3 exit modal |
 | `NEXT_PUBLIC_CRISP_WEBSITE_ID` | Optional build-time Crisp website ID |
 
@@ -307,9 +354,13 @@ Implemented items:
 
 | Document | Purpose |
 |----------|---------|
-| `docs/IMPLEMENTATION-STATUS.md` | Current implementation status and performance audit |
+| `docs/CHANGELOG.md` | Release notes (0.8.x hotfixes Jul 26) |
+| `docs/BUG_FIXES.md` | Bug register BF-013–BF-020 |
+| `docs/IMPLEMENTATION-STATUS.md` | Full implementation status + hotfix sections |
+| `docs/QA-CHECKLIST-V8.md` | Pre/post deploy QA checklist |
 | `docs/PROJECT-OVERVIEW.md` | Technical project overview |
 | `docs/DEPLOYMENT-PRODUCTION.md` | Production deployment guide |
+| `docs/DN-TECH-PRD-V8-FOUNDATION.md` | V8 baseline for next PRD |
 | `docs/V2/` | PRD, design system, and SEO guide V2 |
 | `docs/v3/` | V3 refinement PRD, SDD, summary, and implementation guide |
 | `docs/v4/` | V4 performance PRD, summary, and implementation guide |
@@ -325,7 +376,7 @@ Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 28, 2026 |
+| UpdatedAt | July 26, 2026 |

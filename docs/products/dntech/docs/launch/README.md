@@ -14,9 +14,9 @@ Dokumen ini dibuat **sebelum** sprint fix relaunch `dntech.id`, menggunakan skil
 | [dntech-relaunch-checklist.json](./dntech-relaunch-checklist.json) | Readiness scorer input |
 
 ```bash
-# From dozer workspace root
-python3 .cursor/skills/launch-strategy/scripts/launch_readiness_scorer.py \
-  --checklist company-wiki/docs/products/dntech/docs/launch/dntech-relaunch-checklist.json
+# Re-score before announce
+python3 ../../../../.cursor/skills/launch-strategy/scripts/launch_readiness_scorer.py \
+  --checklist docs/launch/dntech-relaunch-checklist.json
 ```
 
 **Current readiness:** 30/100 — 7 blockers. Do not announce until cleared.

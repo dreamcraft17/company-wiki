@@ -3,12 +3,12 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + Modul Produk v6 + Product Section PRD v7 + Testing rollout complete (Jul 28); DB push + `db:seed-dnpeople` ke production masih pending  
+**Status**: Production (v5) + v6/v7 Produk + **Relaunch prep (Aug 2026)** — honest copy & auth fixes shipped (`a4a8e29`); VPS seed + SMTP verify pending  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 29, 2026  
-**Latest commit**: `95a6cd5` — testing rollout complete + push guard (Jul 28)
+**Latest commit**: `a4a8e29` — relaunch: About/branding seed, admin password gate, honest product copy (Aug 29)
 
 ---
 
@@ -30,6 +30,11 @@
 | [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) | Technical project overview |
 | [docs/DNTECH-COMPANY-PROFILE.md](./docs/DNTECH-COMPANY-PROFILE.md) | Full technical documentation |
 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) | Current implementation status |
+| [docs/BUG_FIXES.md](./docs/BUG_FIXES.md) | Bug register (BF-013–BF-027) |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Release changelog (app repo mirror) |
+| [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
+| [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
+| [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS PostgreSQL access notes |
 | [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md) | **Design summary** — palet, styling, kelebihan & kekurangan |
 | [docs/design_audit.md](./docs/design_audit.md) | **Design audit** — compliance V2 + mandat leadership |
 | [docs/launch/README.md](./docs/launch/README.md) | **Relaunch pack (Aug 2026)** — launch plan, adversarial review, anti-slop, readiness checklist |
@@ -161,8 +166,24 @@
 | Production build | ✅ Frontend + backend (Next.js 16.2.9 / React 19.2.4) |
 | Performance V4 | ✅ Debounce, streaming, image opt, cache |
 | Testing framework (Jul 28) | ✅ 81 tests passing; 5 E2E scenarios; CI checks wired; push guard hook |
+| **Relaunch honesty (Aug 29)** | ✅ Seed copy jujur, admin password gate, About SSR/branding, product status badge, footer Produk — lihat [launch/](./docs/launch/README.md) |
+| **Launch readiness** | 🔶 53/100 — 4 ops blockers (VPS seed, SMTP) — [checklist](./docs/launch/dntech-relaunch-checklist.json) |
 
 Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/DESIGN_SUMMARY.md](./docs/DESIGN_SUMMARY.md)
+
+---
+
+## Sync dari app repo (`dntech`)
+
+```bash
+# From dozer monorepo root
+rsync -a --delete --exclude='.DS_Store' --exclude='*.xlsx' \
+  dntech/docs/ company-wiki/docs/products/dntech/docs/
+cp dntech/README.md company-wiki/docs/products/dntech/README.md
+# Then bump 00_INDEX, docs/products/README.md, 08_PRODUCTS, wiki README
+```
+
+Mirror wajib setelah release/doc change: `BUG_FIXES.md`, `CHANGELOG.md`, `IMPLEMENTATION-STATUS.md`, `launch/*`, `qa/*`.
 
 ---
 
@@ -171,6 +192,6 @@ Detail: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [doc
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 28, 2026 |
+| UpdatedAt | August 29, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

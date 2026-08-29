@@ -2,10 +2,10 @@
 
 Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektur, tech stack, fitur, database, API, dan panduan operasional.
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 28, 2026  
+**UpdatedAt:** July 18, 2026  
 
 ---
 
@@ -27,8 +27,7 @@ Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektu
 14. [Integrasi Pihak Ketiga](#14-integrasi-pihak-ketiga)
 15. [SEO & Analytics](#15-seo--analytics)
 16. [Scripts & Perintah Berguna](#16-scripts--perintah-berguna)
-17. [Testing & QA Automation](#17-testing--qa-automation)
-18. [Dokumen Terkait](#18-dokumen-terkait)
+17. [Dokumen Terkait](#17-dokumen-terkait)
 
 ---
 
@@ -54,7 +53,7 @@ Dokumentasi lengkap website company profile **DN Tech** (`dntech.id`): arsitektu
 Proyek ini dirancang untuk **production dengan data real**:
 
 - Tidak ada konten demo hardcoded di frontend
-- Semua konten (layanan, blog, tim, testimoni, dll.) diisi via **Admin Dashboard**
+- Semua konten (layanan, blog, tim, testimoni, dll.) diisi via **Admin Dashboard** — homepage layanan memakai `/services` API (status **active**, max 6 by `displayOrder`; fallback default hanya jika DB kosong)
 - Seed database hanya membuat **admin user** + **site settings kosong**
 - Script `db:clear-content` tersedia untuk menghapus konten demo lama
 
@@ -156,7 +155,7 @@ Semua halaman berada di `frontend/src/app/(public)/`.
 
 | Route | Deskripsi |
 |-------|-----------|
-| `/` | Beranda Indonesia Edition — hero, layanan, proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA (tech stack & tim hidden) |
+| `/` | Beranda Indonesia Edition — hero, layanan (max 6 aktif dari admin via API), proses, keunggulan, portfolio, testimoni, FAQ, harga, CTA (tech stack & tim hidden) |
 | `/services` | Daftar layanan |
 | `/services/[slug]` | Detail layanan + artikel terkait |
 | `/products` | Daftar produk (V6, terpisah dari Layanan) |
@@ -191,7 +190,7 @@ Semua halaman berada di `frontend/src/app/(public)/`.
 | `HomeTestimonials` | Testimoni homepage dari `/branding/testimonials` |
 | `StickyCTA` | CTA mobile di bagian bawah |
 
-> Catatan: `ROICalculator` / `BookDemoSection` masih ada di source tapi **tidak di-mount** di halaman live.
+> Catatan: `ROICalculator` ada di source untuk estimasi proyek jasa, **tidak** di-mount di halaman produk (hotfix Jul 26, BF-017). `BookDemoSection` di-mount di `/products/[slug]` bila produk punya `demoUrl`.
 
 ### Konten Dinamis dari Settings
 
@@ -657,17 +656,6 @@ Jika SMTP tidak dikonfigurasi, email di-log ke console (development mode). Lihat
 | `npm start` | Jalankan production build |
 | `npm run lint` | ESLint |
 
-### Testing Commands
-
-| Lokasi | Perintah | Fungsi |
-|--------|----------|--------|
-| `backend` | `npm run test` | Jalankan semua backend tests |
-| `backend` | `npm run test:coverage` | Backend coverage report |
-| `backend` | `npm run test:integration` | Integration route tests |
-| `frontend` | `npm run test` | Jalankan semua frontend tests |
-| `frontend` | `npm run test:coverage` | Frontend coverage report |
-| `frontend` | `npm run test:e2e` | Playwright E2E suite |
-
 ### PM2 (Production)
 
 ```bash
@@ -680,21 +668,12 @@ pm2 restart dntech-web
 
 ---
 
-## 17. Testing & QA Automation
-
-- Automated tests aktif untuk unit, integration, dan E2E.
-- Deliverable saat ini: **81 passing tests** (45 backend + 36 frontend).
-- E2E aktif **5 scenario** (desktop + mobile project matrix).
-- CI di `.github/workflows/ci.yml` menjalankan test checks untuk backend/frontend/E2E.
-- Project-level Cursor hook `.cursor/hooks/ensure-tests-before-push.sh` memblokir `git push` jika artifact coverage backend/frontend belum ada.
-
-## 18. Dokumen Terkait
+## 17. Dokumen Terkait
 
 | File | Isi |
 |------|-----|
 | [`README.md`](../README.md) | Quick start singkat |
 | [`docs/DEPLOYMENT-PRODUCTION.md`](./DEPLOYMENT-PRODUCTION.md) | Panduan deploy Ubuntu + Nginx + PM2 |
-| [`docs/TESTING.md`](./TESTING.md) | Testing playbook dan coverage snapshot |
 | [`docs/DNTECH-COMPANY-PROFILE.md`](./DNTECH-COMPANY-PROFILE.md) | Spesifikasi lengkap (legacy) |
 | [`PRD/`](../PRD/) | Product requirements documents |
 | [`backend/.env.example`](../backend/.env.example) | Template env backend |
@@ -712,19 +691,19 @@ Repo       : https://github.com/dreamcraft17/dntech
 Production : dntech.id | api.dntech.id
 Admin      : /admin/login
 Konten     : 100% dari database via admin — tanpa data demo hardcoded
-Owner      : Dozer (CEO + Tech Lead + PM)
+Owner      : Dozer (CEO + Tech Lead)
 Brand      : DN Tech (DN Tech.id)
 ```
 
 ---
 
-*Terakhir diperbarui: 28 Juli 2026*
+*Terakhir diperbarui: 18 Juli 2026*
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 28, 2026 |
+| UpdatedAt | July 18, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

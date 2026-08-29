@@ -1,6 +1,6 @@
 # Product Documentation Index
 
-**Document Version**: 1.12
+**Document Version**: 1.13
 **Last Updated**: August 29, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
@@ -26,7 +26,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | 37 files | Production (v5) | `dntech` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **65** markdown | Production + **relaunch prep** · HEAD `a4a8e29` | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
@@ -45,6 +45,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **DN Tech Compro** | app `a4a8e29` / wiki sync | **Relaunch prep** — mirror living docs (BUG_FIXES, CHANGELOG, QA v8, launch pack); honest seed/copy fixes; readiness 53/100 |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
 | **DOVA** | app `972ffbc` | Admin user delete (cascade) · Customer copy in auth |
 | **DOVA** | app `9e37a8a` / wiki sync | **All-features.md** (101 fitur) · mirror dari `dova-comp-wiki` · CEO doc dihapus · UAT-BUG-FIXES + PAYSTACK-TEST-MODE |

@@ -86,8 +86,8 @@ DN Tech Products
 |-------|--------|
 | Nama | DN Tech Company Profile Website |
 | URL | https://dntech.id · https://api.dntech.id |
-| Status | **Production** (v5 email) + v6 Produk + v7 Product Section; DB push/seed products production pending |
-| Version | v7 (Product Section / dnPeople flagship) |
+| Status | **Production** + **Relaunch prep (Aug 2026)** — code honesty fixes shipped; VPS `db push`/seed + SMTP verify pending |
+| Version | v7 + relaunch gate (see [launch pack](./products/dntech/docs/launch/README.md)) |
 | Stack | Next.js 16.2.9 + React 19.2.4 + Express 5 + PostgreSQL |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Brand | DN Tech (DN Tech.id) |
@@ -135,7 +135,7 @@ DN Tech Products
 |---------|------|
 | PRD Summary | [09_COMPRO_PRD.md](../products/09_COMPRO_PRD.md) |
 | Spec Summary | [10_COMPRO_SPEC.md](../products/10_COMPRO_SPEC.md) |
-| **Source Docs (37 files)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
+| **Source Docs (65 markdown)** | [dntech/00_INDEX.md](./products/dntech/00_INDEX.md) |
 | Design summary | [DESIGN_SUMMARY.md](./products/dntech/docs/DESIGN_SUMMARY.md) |
 | Design system (V2.1) | [design/IMPLEMENTATION.md](./products/dntech/design/IMPLEMENTATION.md) |
 

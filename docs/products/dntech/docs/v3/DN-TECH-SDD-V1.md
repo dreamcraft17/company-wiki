@@ -4,7 +4,7 @@
 **Document Version:** 1.0  
 **Date:** Juli 2026  
 **Status:** Implementation Ready  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Audience:** Development Team, DevOps, QA
 
 ---
@@ -1305,7 +1305,7 @@ pm2 logs dntech-api        # View backend logs
 
 ---
 
-**Document Owner:** Dozer (CEO + Tech Lead + PM)  
+**Document Owner:** Dozer (CEO + Tech Lead)  
 **Last Updated:** Juli 2026  
 **Next Review:** Agustus 2026
 

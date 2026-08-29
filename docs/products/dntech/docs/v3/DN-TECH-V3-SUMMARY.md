@@ -2,7 +2,7 @@
 ## What's Included & How to Use
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Ready to Implement
 
 ---
@@ -429,7 +429,7 @@ Good luck! 🚀
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026  
 **Status:** Ready to implement  
 **Estimated implementation time:** 2-3 days (1 dev + 1 QA)

@@ -2,18 +2,18 @@
 
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 28, 2026  
+**UpdatedAt:** July 26, 2026  
 
-**Terakhir diperbarui:** 28 Juli 2026  
+**Terakhir diperbarui:** 26 Juli 2026  
 **Branch:** `main`  
-**Commit referensi terbaru:** `95a6cd5` — testing rollout complete + push guard (Jul 28)  
-**Sebelumnya:** `f1c7dca` — dnPeople product seed copy (Jul 16)  
+**Commit referensi terbaru:** `de173b0` — public SSR API audit BF-020 (Jul 26)  
+**Sebelumnya:** `d23d21d` — blog SSR BF-019 (Jul 26)  
 **Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
 **Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9 / React 19.2.4)  
-**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `95a6cd5`)
+**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `217cbf5`)
 
 ## Update Testing Framework (Jul 2026)
 
@@ -22,7 +22,7 @@ Status implementasi testing codebase DN Tech:
 | Area | Status | Lokasi |
 |------|--------|--------|
 | Backend unit tests (Jest + ts-jest) | ✅ Complete (45 passing total backend tests) | `backend/src/__tests__/utils`, `backend/src/__tests__/services`, `backend/src/__tests__/templates` |
-| Backend integration tests (Supertest) | ✅ Complete (15+ integration scenarios) | `backend/src/__tests__/integration` |
+| Backend integration tests (Supertest) | ✅ Complete (17+ integration scenarios) | `backend/src/__tests__/integration` |
 | Frontend unit tests (Jest + RTL) | ✅ Complete (36 passing frontend tests) | `frontend/src/__tests__` |
 | E2E critical-path tests (Playwright) | ✅ Complete (5 scenarios x 2 projects) | `frontend/e2e/tests` |
 | Performance scripts (k6) | ✅ Implemented | `backend/performance/k6` |
@@ -57,6 +57,9 @@ Coverage snapshot (Jul 28, 2026):
 18. [Checklist Verifikasi Cepat](#18-checklist-verifikasi-cepat)
 19. [Loading UX Global](#19-loading-ux-global)
 20. [Referensi Dokumen](#20-referensi-dokumen)
+21. [Hotfix — Product Page Crash (Jul 26)](#21-hotfix--product-page-crash-jul-26)
+22. [Hotfix — Homepage Services API (Jul 26)](#22-hotfix--homepage-services-api-jul-26)
+23. [Hotfix — Public SSR API Audit (Jul 26)](#23-hotfix--public-ssr-api-audit-jul-26)
 
 ---
 
@@ -94,6 +97,10 @@ Coverage snapshot (Jul 28, 2026):
 | Loading UX global (Jul 13) | ✅ | Route fallback public/admin/root, overlay request API concurrency-safe, indikator sesi dan initial CRUD |
 | Public products API hotfix (Jul 13) | ✅ | Listing/detail SSR memakai resolver bersama; production menolak localhost dan log fetch failure |
 | dnPeople seed copy (Jul 16) | ✅ | Refresh copy di `scripts/seed-dnpeople-product.ts` (`f1c7dca`); jalankan `db:seed-dnpeople` di production masih pending |
+| Product page crash hotfix (Jul 26) | ✅ | BF-017: hapus `ROICalculator` dari `/products/[slug]`; fallback rates di komponen; lihat `docs/BUG_FIXES.md` |
+| Homepage services API (Jul 26) | ✅ | BF-018: `HomeServices` + `/services` memakai `fetchPublicApiList`; kartu tanpa baris `Tech:`; admin hint status Aktif |
+| Blog SSR (Jul 26) | ✅ | BF-019: `/blog` + `/blog/[slug]` memakai `fetchPublicApiPaginated` / `fetchPublicApiSafe` |
+| Public SSR audit (Jul 26) | ✅ | BF-020: semua halaman publik SSR + `settings.ts` / `branding.ts` / `sitemap.ts` memakai `fetchPublicApi*` |
 
 ---
 
@@ -246,7 +253,7 @@ Implementasi penuh per `company-wiki/.../DN-TECH-HOMEPAGE-REDESIGN-PRD-INDONESIA
 | Area | Implementasi |
 |------|--------------|
 | Hero | `HomeHero` — CTA 30 menit + portfolio; copy dari settings / `homeContent` |
-| Layanan | `HomeServices` — max 6 dari API atau default PRD |
+| Layanan | `HomeServices` — max 6 layanan **aktif** dari API (`displayOrder`); fallback default PRD hanya jika DB kosong |
 | Proses kerja | `HomeProcess` — 6 langkah bernomor |
 | Kenapa pilih kami | `HomeAdvantages` — 6 kartu |
 | Portfolio | `HomePortfolio` — case studies API atau coming soon |
@@ -303,7 +310,7 @@ Halaman `/quiz`, `/case-studies`, `/testimonials`, `/resources`, `/team`, `/care
 | Section | Status | Implementasi |
 |---------|--------|--------------|
 | Hero | ✅ | `HomeHero` — PRD Indonesia Edition |
-| Layanan | ✅ | `HomeServices` — API atau default 6 kartu |
+| Layanan | ✅ | `HomeServices` — API via `fetchPublicApiList` (BF-018); tanpa baris tech per kartu |
 | Proses kerja | ✅ | `HomeProcess` |
 | Kenapa pilih kami | ✅ | `HomeAdvantages` |
 | Tech stack | 🔒 Hidden | `HomeTechStack` — tidak dirender di `page.tsx` |
@@ -423,7 +430,8 @@ File: `frontend/src/components/forms/MultiStepForm.tsx`
 | NewsletterForm | ✅ Subscribe ke DB |
 | SolutionQuiz | ✅ Rekomendasi dari layanan DB |
 | ExitIntentModal | ✅ Desktop only, trigger top-edge exit, max 1x/session |
-| ROICalculator | ✅ Masih ada (halaman terpisah, tidak di homepage) |
+| ROICalculator | ✅ | Komponen tersedia; **tidak** di-mount di halaman produk (Jul 26). Cocok untuk estimasi proyek jasa, bukan halaman SaaS |
+| BookDemoSection | ✅ | Di-mount di `/products/[slug]` (Calendly dari `demoUrl`) |
 | CalendlyEmbed | ✅ Dari `SiteSettings.calendlyUrl` |
 | CrispChatLoader | ✅ Dari `SiteSettings.crispWebsiteId` |
 | PageTracker | ✅ Analytics events |
@@ -1208,6 +1216,117 @@ Deployment frontend wajib menjalankan build ulang karena `NEXT_PUBLIC_*` dibake 
 | [`design/DN-TECH-DESIGN-V2.1-PRD.md`](../design/DN-TECH-DESIGN-V2.1-PRD.md) | PRD remediation V2.1 |
 | [`design/DN-TECH-DESIGN-V2.1-SDD.md`](../design/DN-TECH-DESIGN-V2.1-SDD.md) | SDD implementasi V2.1 |
 | [`design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md`](../design/DN-TECH-DESIGN-V2.1-ACTION-PLAN.md) | Quick action plan V2.1 |
+| [`docs/CHANGELOG.md`](./CHANGELOG.md) | Release changelog |
+| [`docs/BUG_FIXES.md`](./BUG_FIXES.md) | Bug fix register |
+
+---
+
+## 21. Hotfix — Product Page Crash (Jul 26)
+
+**ID:** BF-017 · **Changelog:** `0.8.1`
+
+### Gejala production
+
+- URL: `https://dntech.id/products/dnpeople`
+- UI: halaman hitam "This page couldn't load"
+- Console: `Uncaught TypeError: Cannot read properties of undefined (reading 'junior')`
+
+### Root cause
+
+- `products/[slug]/page.tsx` me-render `<ROICalculator />` ketika produk punya `pricingTiers` (dnPeople punya 5 tier).
+- `ROICalculator` membangun opsi select dengan `DEV_RATES_IDR.junior` saat render awal.
+- Di bundle production, `DEV_RATES_IDR` dari `@/lib/currency` bisa `undefined` → crash seluruh halaman.
+
+### Perbaikan
+
+| Perubahan | File |
+|-----------|------|
+| Hapus section `ROICalculator` dari halaman produk | `frontend/src/app/(public)/products/[slug]/page.tsx` |
+| Fallback `DEFAULT_DEV_RATES_IDR` + opsi senioritas aman | `frontend/src/components/interactive/ROICalculator.tsx` |
+
+### Keputusan produk
+
+- Kalkulator estimasi **proyek custom dev** (tim × seniority × bulan) tidak relevan di halaman produk SaaS dnPeople.
+- Halaman produk tetap punya: pricing tiers, link `pricingCalcUrl`, `BookDemoSection`, FAQ, comparison, roadmap.
+
+### Deploy
+
+```bash
+cd frontend && npm ci && npm run build && pm2 restart dntech-web
+```
+
+Verifikasi: buka `/products/dnpeople` — tidak ada error console; semua section V7 ter-render.
+
+---
+
+## 22. Hotfix — Homepage Services API (Jul 26)
+
+**ID:** BF-018 · **Changelog:** `0.8.2`
+
+### Gejala
+
+- Homepage section **Apa yang Kami Tawarkan** menampilkan 6 kartu hardcoded (Web App Development, dll.) meskipun admin sudah punya layanan di `/admin/services`.
+- Klik layanan dari homepage → `/services/[slug]` **404** di production (contoh: `/services/enterprise-software`).
+- Halaman `/services` bisa kosong atau tidak konsisten dengan admin di production SSR.
+
+### Root cause
+
+- `page.tsx` homepage mem-fetch `/services` dengan URL mentah `NEXT_PUBLIC_API_URL || localhost` — gagal di production SSR (pattern sama dengan BF-016 untuk produk).
+- `HomeServices` fallback ke `DEFAULT_HOME_SERVICES` ketika API mengembalikan array kosong.
+- Kartu default menampilkan baris `Tech: …` yang tidak diinginkan di UI marketing.
+
+### Perbaikan
+
+| Perubahan | File |
+|-----------|------|
+| `fetchPublicApiList` — resolver production + `API_INTERNAL_URL` + localhost fallback | `frontend/src/lib/server-api.ts` |
+| Homepage fetch layanan via helper SSR | `frontend/src/app/(public)/page.tsx` |
+| Public `/services` listing via helper yang sama | `frontend/src/app/(public)/services/page.tsx` |
+| Public `/services/[slug]` detail via `fetchPublicApiSafe` | `frontend/src/app/(public)/services/[slug]/page.tsx` |
+| Hapus baris `Tech:` per kartu; prioritas data API | `HomeServices.tsx`, `homepage-content.ts` |
+| Hint admin: hanya status **Aktif** yang publik | `frontend/src/app/admin/services/page.tsx` |
+
+### Verifikasi
+
+1. Buat/ubah layanan di admin → set **Aktif** → set **Urutan Tampilan**.
+2. Rebuild frontend → homepage menampilkan nama/deskripsi/slug dari DB (max 6).
+3. Kartu tidak menampilkan baris `Tech:`.
+
+---
+
+## 23. Hotfix — Public SSR API Audit (Jul 26)
+
+**ID:** BF-020 · **Changelog:** `0.8.4`
+
+### Gejala
+
+Setelah perbaikan bertahap (BF-016–BF-019), masih ada halaman publik yang kosong atau 404 di production karena fetch SSR memakai URL mentah.
+
+### Root cause
+
+Pattern yang sama: `const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1'` di banyak file SSR — gagal saat Next.js render di VPS.
+
+### Perbaikan (audit Jul 26)
+
+| Area | Helper |
+|------|--------|
+| `lib/settings.ts`, `lib/branding.ts` | `fetchPublicApiSafe` |
+| `sitemap.ts` | `fetchPublicApiList` |
+| Listing pages (team, careers, portfolio, case studies, testimonials, contact services) | `fetchPublicApiList` |
+| Detail pages (portfolio, case studies) | `fetchPublicApiSafe` |
+| Legal (terms, privacy) | `fetchPublicApiSafe` |
+| FAQ JSON-LD | `fetchPublicApiList` |
+| Products (refactor) | `fetchPublicApiList` / `fetchPublicApiSafe` |
+
+**Resolver chain** (`lib/server-api.ts`): `API_INTERNAL_URL` → `http://127.0.0.1:4000/api/v1` (production) → `getApiBaseUrl()` (`api.dntech.id`).
+
+**Tetap client-side (OK):** `/faq` page, `/about` — browser fetch via `getApiUrl()`.
+
+### Deploy
+
+```bash
+cd frontend && npm ci && npm run build && pm2 restart dntech-web
+```
 
 ---
 
@@ -1215,9 +1334,9 @@ Deployment frontend wajib menjalankan build ulang karena `NEXT_PUBLIC_*` dibake 
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | July 26, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

@@ -2,7 +2,7 @@
 ## Complete Setup untuk SMTP mx8.mailspace.id:465
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Email:** info@dntech.id  
 **SMTP Server:** mx8.mailspace.id:465  
 **Status:** Ready to Implement
@@ -1352,7 +1352,7 @@ Optional: Send daily summary to admin:
 
 ---
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

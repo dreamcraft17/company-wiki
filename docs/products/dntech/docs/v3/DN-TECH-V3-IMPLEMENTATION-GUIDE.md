@@ -2,7 +2,7 @@
 ## Ready-to-Use Code & Testing Steps
 
 **Date:** Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Audience:** Development Team  
 **Status:** Ready to Implement
 
@@ -983,7 +983,7 @@ Start with Part 1 (Exit Modal), then Part 2 (Logo), then test thoroughly.
 
 **Estimated time:** 2-3 hours total
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Date:** Juli 2026
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026
