@@ -1,19 +1,18 @@
 # DN Tech — Status Implementasi & Audit Performa
 
+> **Living docs (Aug 2026):** For PRD/SRS/SDD baseline use **[CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)**, **[FEATURE-CATALOG.md](./FEATURE-CATALOG.md)**, **[NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)**. This file remains the historical V1–V7 audit trail.
+
 Dokumen ini mencatat **semua yang sudah diimplementasikan di codebase** untuk website DN Tech, termasuk migrasi production-ready, penghapusan data demo, implementasi PRD/Design System/SEO Guide V2, refinement V3, dan optimasi performa V4.
 
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DN Tech (DN Tech.id)  
-**UpdatedAt:** July 26, 2026  
+**UpdatedAt:** August 29, 2026  
 
-**Terakhir diperbarui:** 26 Juli 2026  
-**Branch:** `main`  
-**Commit referensi terbaru:** `de173b0` — public SSR API audit BF-020 (Jul 26)  
-**Sebelumnya:** `d23d21d` — blog SSR BF-019 (Jul 26)  
-**Rentang Jul 9:** footer redesign, homepage PRD full, hide tech stack & tim di beranda, harga UMKM-friendly  
-**Status build terakhir:** ✅ `npm run build` frontend sukses (Next.js 16.2.9 / React 19.2.4)  
-**Status working tree:** ✅ Sync dengan `origin/main` (HEAD `217cbf5`)
+**Terakhir diperbarui:** 29 Agustus 2026 (pointer ke living docs) · detail V1–V7 di bawah  
+**Commit referensi living snapshot:** `1da8191` — footer legal name · relaunch pass `c83d866`–`e4500bd`  
+**Commit referensi historis:** `de173b0` — public SSR API audit BF-020 (Jul 26)  
+**Status build terakhir:** ✅ `npm run build` frontend + backend · **99** unit tests (50+49)
 
 ## Update Testing Framework (Jul 2026)
 

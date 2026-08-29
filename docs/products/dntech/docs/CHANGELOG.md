@@ -2,6 +2,27 @@
 
 All notable changes to the DN Tech company profile website (`dntech.id`).
 
+## [0.10.0] — 2026-08-29
+
+### Added
+- **Living docs layer** for PRD/SRS/SDD prep: `CURRENT-IMPLEMENTATION.md`, `FEATURE-CATALOG.md`, `NEXT-PRD-BRIEF.md`.
+- **Lighthouse baseline** + `npm run lighthouse` script; prod scores in `docs/frontend/LIGHTHOUSE-BASELINE.md`.
+- **Storybook** (Button, Card, SectionHeading) · `@storybook/react-vite`.
+- **Frontend hardening:** skip link, CSP/security headers, deferred ExitIntent, dynamic Header search, native FAQ `<details>`.
+
+### Changed
+- **Relaunch anti-slop pass** — honest copy/empty states (testimonials, portfolio, careers, homepage advantages); footer layout + legal company name (`1da8191`).
+- **README** refreshed to verified commands and test counts.
+- **VPS seed** — `db:seed-branding` + `db:seed-products` (7 produk) via laptop tunnel (BF-013 update).
+
+### Fixed
+- BF-021 About/branding dual-write · BF-024 product status badge · BF-027 admin password gate · BF-023 portfolio honesty (see `BUG_FIXES.md`).
+
+### Docs
+- Relaunch pack: `docs/launch/*`, `DN-TECH-RELAUNCH-PRD.md`, bug triage Aug 29.
+
+---
+
 ## [0.9.0] — 2026-07-28
 
 ### Added

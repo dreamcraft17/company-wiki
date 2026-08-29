@@ -3,7 +3,7 @@
     {"item": "Honest copy pass — no fake client counts or testimonials", "status": "done", "weight": 3},
     {"item": "Contact → LeadService → SMTP verified on production", "status": "not_started", "weight": 3},
     {"item": "P0/P1 relaunch bugs closed (see bug triage doc)", "status": "partial", "weight": 3},
-    {"item": "Product seed on production VPS (schema + db:seed-products)", "status": "not_started", "weight": 3},
+    {"item": "Product seed on production VPS (schema + db:seed-products)", "status": "done", "weight": 3},
     {"item": "Empty states for testimonials/portfolio/careers", "status": "done", "weight": 2},
     {"item": "Legal pages live (privacy + terms)", "status": "done", "weight": 2},
     {"item": "Admin default password rotated / env enforced", "status": "done", "weight": 3},
@@ -24,11 +24,11 @@
     {"item": "Launch-day email to info@ list (if any)", "status": "not_started", "weight": 1}
   ],
   "technical": [
-    {"item": "Production db push + seed verified with screenshot", "status": "not_started", "weight": 3},
+    {"item": "Production db push + seed verified with screenshot", "status": "partial", "weight": 3},
     {"item": "SMTP live send test from /contact", "status": "not_started", "weight": 3},
     {"item": "Rollback plan: git tag + PM2 restart documented", "status": "partial", "weight": 3},
     {"item": "SSL on dntech.id + api.dntech.id", "status": "done", "weight": 2},
-    {"item": "CI green (81 tests)", "status": "done", "weight": 2},
+    {"item": "CI green (99 tests)", "status": "done", "weight": 2},
     {"item": "About page SSR API resolver (not client fetch)", "status": "done", "weight": 2},
     {"item": "E2E locators match Indonesian nav labels", "status": "done", "weight": 1},
     {"item": "Analytics baseline (GA or Plausible) firing page_view", "status": "partial", "weight": 1},

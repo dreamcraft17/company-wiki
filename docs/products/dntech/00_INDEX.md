@@ -6,12 +6,27 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — anti-slop chrome shipped (`c83d866`); VPS branding + 7-product seed done; admin rotate + SMTP + frontend prod rebuild still open  
+**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — living docs refreshed (`1da8191`); VPS seed 7 produk done; **open:** SMTP live test + frontend prod rebuild + post-deploy Lighthouse  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 29, 2026  
-**Latest commit**: `c83d866` — ground public chrome and close relaunch anti-slop gate (Aug 29)
+**Latest commit**: `1da8191` — footer legal name · living docs layer (Aug 29)
+
+---
+
+## Living docs (Aug 2026 — SSOT)
+
+Edit di **`dntech/docs/`** dulu → mirror ke `docs/` di bawah.
+
+| File | Topik |
+|------|-------|
+| [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot HEAD · tests · gates |
+| [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Modul Done / Conditional / Planned |
+| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Input PRD/SRS/SDD berikutnya (Jalur A ops P0) |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | `[0.10.0]` relaunch + living docs |
+
+Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) (V1–V7 trail).
 
 ---
 
