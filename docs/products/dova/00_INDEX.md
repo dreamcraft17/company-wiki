@@ -81,11 +81,10 @@
 
 ```bash
 # From dozer/ workspace root
-bash dova-comp-wiki/scripts/sync-from-app.sh         # dova/tests → dova-comp-wiki
-bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # → this mirror
+bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # dova-comp-wiki → this mirror
 ```
 
-**No private files in this mirror:** equity, counter-proposals, launch budget internal, `CEO-PROGRESS-UPDATE` → SSOT [`private-wiki/dova/`](../../../../../private-wiki/dova/) (lokal, gitignored). Folder [`private/`](./private/README.md) hanya pointer.
+**SSOT:** [`dova-comp-wiki`](https://github.com/dreamcraft17/dova-com-wiki) — the app repo has no markdown docs.
 
 ---
 

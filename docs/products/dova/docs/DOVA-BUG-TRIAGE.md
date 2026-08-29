@@ -270,7 +270,7 @@ SMOKE_OTP_CODE=123456 npm run smoke:production
 cd ~/dova && git pull && npm ci && npm run build && pm2 restart dova-api dova-web --update-env
 ```
 
-Log disimpan ke `tests/smoke-production-latest.log`.
+Log disimpan ke `ops/logs/smoke-production-latest.log` di app repo (saat menjalankan smoke dari clone `dova/`).
 
 ### P1 — Manual UAT
 

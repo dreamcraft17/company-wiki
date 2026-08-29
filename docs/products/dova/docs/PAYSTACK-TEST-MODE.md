@@ -117,7 +117,7 @@ Enable event: `charge.success`
 - [ ] Order status **paid** in `/customer`
 - [ ] (Optional) Webhook received — check Paystack dashboard → Webhooks → logs
 
-Target before go-live: **≥10 successful test transactions** on staging (see `tests/GUIDE.md` OPS-03).
+Target before go-live: **≥10 successful test transactions** on production (see [GUIDE.md](./GUIDE.md) OPS-03).
 
 ---
 

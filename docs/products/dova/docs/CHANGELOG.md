@@ -98,8 +98,8 @@ DOVA_QA_FIXED_OTP=123456   # optional — automated smoke only
 > **Range:** after `v0.5.0` → `7553e83` · **SemVer bump:** `patch` · **Conventional lint:** 2/6 valid — sections manually curated
 
 ### Added
-- **Release readiness audit** — combined QA, bug triage, and backend review (`tests/DOVA-RELEASE-READINESS-AUDIT.md`).
-- **QA Postman guide** — 67-endpoint checklist for manual API smoke (`tests/DOVA-API-QA-POSTMAN.md`) (`4eca2d7`, `5fe0640`).
+- **Release readiness audit** — combined QA, bug triage, and backend review (`operations/DOVA-RELEASE-READINESS-AUDIT.md`).
+- **QA Postman guide** — 67-endpoint checklist for manual API smoke (`code/DOVA-API-QA-POSTMAN.md`) (`4eca2d7`, `5fe0640`).
 
 ### Fixed
 - **Supplier approve/reject** — Postgres `42P08` type coercion on `setSupplierStatus` (`bbbb1ff`).
@@ -173,7 +173,7 @@ DOVA_QA_FIXED_OTP=123456   # optional — automated smoke only
 - Paystack aligned with **official API + test mode** (`0245cf1`, `1aebc40`).
 - **Native feedback board** at `/feedback` — replaces external FeedLog (`c4d1938`).
 - Cart **quantity cap** when over limit (`b84d805`).
-- **`tests/ENV-SETUP.md`** for new server deploy (`924fa98`).
+- **`operations/ENV-SETUP.md`** for new server deploy (`924fa98`).
 - Demo **login reset script** + seed password sync (`4db8a3d`, `160cfdd`).
 - **`.env.dev` templates** for copy-paste local setup (`749cdd7`).
 - DOVA navbar logo as **favicon** (`80a5220`).

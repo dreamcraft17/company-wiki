@@ -119,7 +119,6 @@ dova/
 ├── shared/               # Types + pure helpers (dova-shared package)
 ├── database/migrations/  # SQL schema
 ├── scripts/              # migrate.js, seed.js, smoke-week4.js
-├── tests/                # QA docs, env templates
 └── .github/workflows/    # ci.yml, database-migrate.yml
 ```
 

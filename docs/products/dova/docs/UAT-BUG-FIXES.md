@@ -331,5 +331,5 @@ npm test   # 92 tests pass (unit + backend auth)
 | `Dova_Chain_Docs/Bug 006.png` | Screenshot — wrong Farm Milk image |
 | `Dova_Chain_Docs/Bug 007.png` | Screenshot — checkout duplicate key |
 | `Dova_Chain_Docs/Bug 008.png` | Screenshot — supplier sees all products |
-| `tests/GUIDE.md` | Manual QA guide |
-| `tests/TEST-CASES.md` | Full test case list |
+| [GUIDE.md](./GUIDE.md) | Manual QA guide |
+| [TEST-CASES.md](./TEST-CASES.md) | Full test case list |

@@ -2,7 +2,7 @@
 
 Panduan isi `.env` saat deploy / pindah server baru.
 
-**Template mentah:** `tests/vps-backend.env.example`, `tests/vps-frontend.env.example`
+**Template mentah:** [vps-backend.env.example](./vps-backend.env.example), [vps-frontend.env.example](./vps-frontend.env.example)
 
 ---
 

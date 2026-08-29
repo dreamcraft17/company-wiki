@@ -113,17 +113,19 @@ dova/
 ├── shared/               # Types, min-order helpers, product images
 ├── database/migrations/  # SQL schema (001_init, 002_week4, …)
 ├── scripts/              # migrate, seed, smoke-week4
-├── tests/                # QA guides, env templates, test catalog
+├── ops/logs/             # smoke script output (app repo)
 ├── .github/workflows/    # CI + database migrate
 └── vercel.json           # Frontend deploy on Vercel
 ```
+
+**Documentation** lives in **this wiki repo** (`code/`, `operations/`, `specs/PRD/`) — not in the app repo.
 
 ---
 
 ## Environment variables
 
-Templates: `.env.example`, `apps/backend/.env.example`, `tests/vps-*.env.example`  
-**VPS / production guide:** [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md)
+Templates: `.env.example`, `apps/backend/.env.example`, [operations/vps-*.env.example](./operations/vps-backend.env.example)  
+**VPS / production guide:** [ENV-SETUP.md](./docs/ENV-SETUP.md)
 
 ### Backend (`apps/backend/.env`)
 
@@ -201,11 +203,11 @@ Payments use **Paystack** when `PAYSTACK_SECRET_KEY` is set; otherwise a **mock*
 
 | Doc | Contents |
 |-----|----------|
-| [`tests/TEST-CASES.md`](./tests/TEST-CASES.md) | Automated + manual test catalog |
-| [`tests/GUIDE.md`](./tests/GUIDE.md) | Manual QA workflow |
-| [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md) | VPS/production env setup (ID) |
-| [`tests/DOVA-STATUS-LENGKAP.md`](./tests/DOVA-STATUS-LENGKAP.md) | Dokumen status teknis lengkap (ID) |
-| [`tests/UAT-BUG-FIXES.md`](./tests/UAT-BUG-FIXES.md) | UAT defect log + verification |
+| [TEST-CASES.md](./docs/TEST-CASES.md) | Automated + manual test catalog |
+| [GUIDE.md](./docs/GUIDE.md) | Manual QA workflow |
+| [operations/RUNBOOK.md](./operations/RUNBOOK.md) | Deploy, rollback, incident response |
+| [ENV-SETUP.md](./docs/ENV-SETUP.md) | VPS/production env setup (ID) |
+| [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
 
 ---
 
@@ -220,7 +222,7 @@ npm run db:seed          # refresh catalog + demo data
 pm2 restart dova-backend dova-frontend --update-env
 ```
 
-Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [`tests/ENV-SETUP.md`](./tests/ENV-SETUP.md).
+Set `USE_IN_MEMORY=false`, `CROSS_SITE_COOKIES=true`, and production URLs — see [ENV-SETUP.md](./docs/ENV-SETUP.md).
 
 ### Vercel (frontend only)
 
