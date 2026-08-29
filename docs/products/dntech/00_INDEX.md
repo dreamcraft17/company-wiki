@@ -6,12 +6,12 @@
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD `da52085`; VPS seed 7 produk done; **open:** SMTP live test + frontend prod rebuild + post-deploy Lighthouse  
+**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD `8e3b8a7`; VPS seed 7 produk done; **open:** SMTP live test + post-deploy Lighthouse  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
 **UpdatedAt**: August 29, 2026  
-**Latest commit**: `da52085` — homepage below-fold stream + section layout (Aug 29)
+**Latest commit**: `8e3b8a7` — dashboard SEO/marketing copy reference (Aug 29)
 
 ---
 
@@ -51,6 +51,7 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/BUG_FIXES.md](./docs/BUG_FIXES.md) | Bug register (BF-013–BF-027) |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Release changelog (app repo mirror) |
 | [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
+| [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | **SEO & marketing copy** — field dashboard, PAGE_SEO, seed defaults |
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
 | [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS Postgres — **pointer**; SSOT `private-wiki/dntech/infra/` |
 | [docs/runbooks/vps-postgres-seed.md](./docs/runbooks/vps-postgres-seed.md) | Seed/tunnel dari laptop (tanpa password) |
@@ -92,7 +93,8 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/V2/INDEX-PRD-V2.md](./docs/V2/INDEX-PRD-V2.md) | V2 index |
 | [docs/V2/DN-TECH-PRD-V2.md](./docs/V2/DN-TECH-PRD-V2.md) | PRD v2 |
 | [docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md](./docs/V2/DN-TECH-DESIGN-SYSTEM-V2.md) | Design system |
-| [docs/V2/DN-TECH-SEO-GUIDE-V2.md](./docs/V2/DN-TECH-SEO-GUIDE-V2.md) | SEO guide |
+| [docs/V2/DN-TECH-SEO-GUIDE-V2.md](./docs/V2/DN-TECH-SEO-GUIDE-V2.md) | SEO guide (teknis) |
+| [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | Copy dashboard + meta defaults (marketing) |
 | [docs/V2/README-V2-CHANGES.md](./docs/V2/README-V2-CHANGES.md) | Changelog |
 
 ### V3 — UX Refinements
