@@ -10,43 +10,6 @@ Agricultural marketplace MVP — connects buyers with verified suppliers in Nige
 
 ---
 
-## Team (DOVA Chain)
-
-> **Author:** Dozer · **Updated:** 2026-08-29
-
-| Name | Role |
-|------|------|
-| Onyekachi Daniel | Founder & CEO |
-| Dozer Napitupulu | **CTO** |
-| Arthur Darwanto | Software Developer (Frontend) |
-| Kersie Karuma | QA Tester |
-| Nurul Husna Dini | Assistant Manager |
-
-**Onyekachi Daniel — Founder & CEO**  
-Visionary leader with a passion for agriculture and technology. Driving DOVA's mission to connect and empower.
-
-**Dozer Napitupulu — CTO**  
-Tech expert and problem solver building robust, scalable, and innovative solutions to power the DOVA platform.
-
-**Arthur Darwanto — Software Developer (Frontend)**  
-Frontend developer focused on building responsive, user-friendly, and high-performance interfaces for the DOVA platform.
-
-**Kersie Karuma — QA Tester**  
-Detail-oriented and quality-driven professional ensuring that DOVA delivers the best experience to every user.
-
-**Nurul Husna Dini — Assistant Manager**  
-Bridging user needs and business goals. Ensuring DOVA delivers real value to users and partners.
-
-### Infrastructure support
-
-**Infrastructure support by:** [dntech.id](https://dntech.id) — **Dozer Napitupulu Technology** (DN Tech)
-
-Production runs on DN Tech–provided infrastructure: storefront [dova.dntech.id](https://dova.dntech.id) and API [api.dova.dntech.id](https://api.dova.dntech.id) on VPS/subdomain under `*.dntech.id`.
-
-*DN Tech internal — team roster lives in `company-wiki` only (not mirrored to `dova-comp-wiki`).*
-
----
-
 ## What it does
 
 | Area | Capability |

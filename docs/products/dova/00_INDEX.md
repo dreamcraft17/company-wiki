@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-08-29 · **App HEAD:** `129ba96` · **Wiki HEAD:** `b3e8377` · **Tag:** `v0.5.4`
+> **Updated:** 2026-08-30 · **App HEAD:** `ebd71bd` · **Wiki HEAD:** `b3e8377` · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
@@ -46,6 +46,8 @@
 | [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Progress update (legacy) |
 | [REPLY-PAYSTACK-AND-MIN-ORDER.md](./docs/REPLY-PAYSTACK-AND-MIN-ORDER.md) | Stakeholder reply — Paystack |
 | [REPLY-SUPPLIER-VERIFICATION-DOCS.md](./docs/REPLY-SUPPLIER-VERIFICATION-DOCS.md) | Stakeholder reply — supplier docs |
+| [ENGINEERING-HEALTH-2026-08-30.md](./docs/ENGINEERING-HEALTH-2026-08-30.md) | Combined bug-triage / test-quality / API-design / CTO review |
+| [HANDOFF.md](./docs/HANDOFF.md) | Latest session handoff briefing |
 
 ### Code, QA & status
 
@@ -102,4 +104,4 @@ bash dova-comp-wiki/scripts/sync-to-company-wiki.sh  # dova-comp-wiki → this m
 
 ---
 
-*Last Updated: August 29, 2026 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)*
+*Last Updated: August 30, 2026 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)*

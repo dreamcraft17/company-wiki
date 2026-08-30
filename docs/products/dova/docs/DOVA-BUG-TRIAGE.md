@@ -1,12 +1,12 @@
 # DOVA — Bug Triage (Semua Fitur)
 
-> **Status:** Active · **Last updated:** 2026-08-28 · **Author:** Dozer  
-> **Repo HEAD:** `8fb5b5e` · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
+> **Status:** Active · **Last updated:** 2026-08-30 · **Author:** Dozer  
+> **Repo HEAD:** `ebd71bd` (**21 commits ahead** of the `8fb5b5e` this doc was last triaged against) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
 > **Metode:** AI bug triage pipeline — fingerprint deterministik + klasifikasi + routing QA
 
 Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomatis, gap manual UAT, fingerprint regression, dan backlog ticket yang perlu human approval sebelum dieksekusi.
 
-**Dokumen terkait:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](./DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
+**Dokumen terkait:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](../operations/DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
 
 ---
 
@@ -15,13 +15,13 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 | Metrik | Nilai |
 |--------|-------|
 | Fitur MVP | **10 modul** · ~67 API routes |
-| Unit tests | **146/146 pass** (`npm run test`, 2026-08-28) |
-| Coverage global | **~52%** (target QA: 80%) |
+| Unit tests | **160/160 pass** (`npm run test`, verified 2026-08-30 — up from 146) |
+| Coverage global | **~52%** (target QA: 80%, unverified against new tests) |
 | UAT bugs historis | **14 fixed** · **0 open P0/P1** |
-| Production smoke (log terakhir) | **PASS** — 23+7 neg (2026-08-27); smoke script **28+10** (deploy + re-run pending) |
+| Production smoke (log terakhir) | ⚠️ **No log found** — `ops/logs/` is empty (only `.gitkeep`); **TRI-001 was never actually closed** |
 | Manual UAT belum jalan | **Admin (ADM-01–07)**, **Feedback (FEED-01–10)**, **Mobile ops (OPS-04)** |
 
-**Verdict triage:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) **stabil**. Risiko utama: **gap QA manual**, **smoke belum di-update di prod**, dan **ketergantungan env** (SMTP Gmail App Password, Paystack live).
+**Verdict triage:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) **stabil**, unit suite grew and stays green. Risiko utama tidak berubah dari sebelumnya, plus satu regresi proses baru: **TRI-001 (post-deploy smoke re-run) was marked P0 on 2026-08-28 and still has no evidence of having run** — 21 commits, including the admin-delete feature it was gating, have since shipped without it.
 
 ---
 
@@ -198,7 +198,7 @@ Historis lengkap: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 
 | ID | Title | Category | Severity | Priority | Action |
 |----|-------|----------|----------|----------|--------|
-| **TRI-001** | Re-run `smoke:production` setelah deploy `8fb5b5e` | Test gap | Major | **P0** | Run + simpan log |
+| **TRI-001** | Re-run `smoke:production` setelah deploy `8fb5b5e` — **regression: still not run as of `ebd71bd` (21 commits later)** | Test gap | Major | **P0 (escalated — see Regression watch)** | Run + simpan log ke `ops/logs/smoke-production-latest.log` (currently missing) |
 | **TRI-002** | UAT Admin ADM-01–07 manual di production | Test gap | Major | **P1** | Checklist QA |
 | **TRI-003** | UAT Feedback FEED-01–10 | Test gap | Major | **P1** | Checklist QA |
 | **TRI-004** | Smoke: forgot-password + reset-password | Test gap | Minor | P2 | ✅ Done |
@@ -215,7 +215,7 @@ Historis lengkap: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 |-------|-------------|
 | SMTP `535 BadCredentials` | Set `SMTP_PASS` = Gmail App Password 16 char (bukan password login) |
 | User stuck pending register | Admin → Users → Delete account (shipped `5488101` / `8fb5b5e`) |
-| Smoke OTP gagal | Set `DOVA_QA_FIXED_OTP` di server + `SMOKE_OTP_CODE` lokal — lihat [ENV-SETUP.md](./ENV-SETUP.md) |
+| Smoke OTP gagal | Set `DOVA_QA_FIXED_OTP` di server + `SMOKE_OTP_CODE` lokal — lihat [ENV-SETUP.md](../operations/ENV-SETUP.md) |
 
 ---
 
@@ -301,4 +301,5 @@ Demo accounts: admin `admin@dova.local` / `admin1234` · supplier `supplier@dova
 
 | Date | Change |
 |------|--------|
+| 2026-08-30 | Re-triaged against current HEAD (`ebd71bd`, +21 commits since last pass). Unit suite verified 160/160 pass (was 146). **Flagged TRI-001 as an unresolved P0 regression** — no smoke log exists on disk, so the post-`8fb5b5e` re-run this doc called for on 2026-08-28 never happened; admin-delete and five auth/UX features have since shipped without it. No new application-code bugs found in the 21 commits (mix of auth UX, admin delete, docs). |
 | 2026-08-28 | TRI-004/005 closed — forgot/reset smoke + Postman; TEST-CASES count 146 |
