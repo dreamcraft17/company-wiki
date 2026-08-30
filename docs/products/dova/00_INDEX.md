@@ -53,6 +53,7 @@
 
 | File | Description |
 |------|-------------|
+| [ONBOARDING.md](./docs/ONBOARDING.md) | New engineer onboarding — repo shape, setup, common tasks |
 | [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Complete feature inventory (API/UI detail) |
 | [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
