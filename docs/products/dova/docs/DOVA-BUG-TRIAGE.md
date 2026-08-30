@@ -1,27 +1,27 @@
-# DOVA — Bug Triage (Semua Fitur)
+# DOVA — Bug Triage (All Features)
 
 > **Status:** Active · **Last updated:** 2026-08-30 · **Author:** Dozer  
 > **Repo HEAD:** `ebd71bd` (**21 commits ahead** of the `8fb5b5e` this doc was last triaged against) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
-> **Metode:** AI bug triage pipeline — fingerprint deterministik + klasifikasi + routing QA
+> **Method:** AI bug triage pipeline — deterministic fingerprinting + classification + QA routing
 
-Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomatis, gap manual UAT, fingerprint regression, dan backlog ticket yang perlu human approval sebelum dieksekusi.
+This document summarizes triage status across **all DOVA MVP modules**: automated coverage, manual UAT gaps, regression fingerprints, and the backlog of tickets awaiting human approval before execution.
 
-**Dokumen terkait:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](../operations/DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
+**Related docs:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](../operations/DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
 
 ---
 
 ## Summary
 
-| Metrik | Nilai |
+| Metric | Value |
 |--------|-------|
-| Fitur MVP | **10 modul** · ~67 API routes |
+| MVP features | **10 modules** · ~67 API routes |
 | Unit tests | **160/160 pass** (`npm run test`, verified 2026-08-30 — up from 146) |
-| Coverage global | **~52%** (target QA: 80%, unverified against new tests) |
-| UAT bugs historis | **14 fixed** · **0 open P0/P1** |
-| Production smoke (log terakhir) | ⚠️ **No log found** — `ops/logs/` is empty (only `.gitkeep`); **TRI-001 was never actually closed** |
-| Manual UAT belum jalan | **Admin (ADM-01–07)**, **Feedback (FEED-01–10)**, **Mobile ops (OPS-04)** |
+| Global coverage | **~52%** (QA target: 80%, unverified against new tests) |
+| Historical UAT bugs | **14 fixed** · **0 open P0/P1** |
+| Production smoke (last log) | ⚠️ **No log found** — `ops/logs/` is empty (only `.gitkeep`); **TRI-001 was never actually closed** |
+| Manual UAT not yet run | **Admin (ADM-01–07)**, **Feedback (FEED-01–10)**, **Mobile ops (OPS-04)** |
 
-**Verdict triage:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) **stabil**, unit suite grew and stays green. Risiko utama tidak berubah dari sebelumnya, plus satu regresi proses baru: **TRI-001 (post-deploy smoke re-run) was marked P0 on 2026-08-28 and still has no evidence of having run** — 21 commits, including the admin-delete feature it was gating, have since shipped without it.
+**Triage verdict:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) is **stable**, unit suite grew and stays green. Main risk is unchanged from before, plus one new process regression: **TRI-001 (post-deploy smoke re-run) was marked P0 on 2026-08-28 and still has no evidence of having run** — 21 commits, including the admin-delete feature it was gating, have since shipped without it.
 
 ---
 
@@ -35,11 +35,11 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 ---
 
-## Feature matrix — status triage
+## Feature matrix — triage status
 
-| Modul | Routes / pages | Auto test | Smoke | UAT manual | Status |
+| Module | Routes / pages | Auto test | Smoke | Manual UAT | Status |
 |-------|----------------|-----------|-------|------------|--------|
-| **1. Auth & roles** | 10 API + 6 pages | ✅ Kuat | ✅ Partial | ✅ PASS | 🟢 Low risk |
+| **1. Auth & roles** | 10 API + 6 pages | ✅ Strong | ✅ Partial | ✅ PASS | 🟢 Low risk |
 | **2. Catalog** | 3 API + 2 pages | ✅ | ✅ | ✅ PASS | 🟢 Low risk |
 | **3. Cart & slot** | 4 API + 1 page | ✅ + regressions | ✅ | ✅ PASS | 🟢 Low risk |
 | **4. Checkout & min order** | 1 API + 2 pages | ✅ | ✅ | ✅ PASS | 🟢 Low risk |
@@ -54,7 +54,7 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 ## Component ownership (routing)
 
-| Component | Path utama | Owner |
+| Component | Main path | Owner |
 |-----------|------------|-------|
 | Auth | `apps/backend/src/app.service.ts`, `apps/frontend/src/pages/auth/*` | Backend + Frontend |
 | Commerce | cart, orders, payments | Backend |
@@ -65,16 +65,16 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 ---
 
-## Per-modul — fingerprint & klasifikasi
+## Per-module — fingerprint & classification
 
 ### 1. Auth & roles
 
 | Fingerprint | Anchor | Category | Severity | Status |
 |-------------|--------|----------|----------|--------|
-| `a1b2-auth-401-unverified` | Login sebelum verify OTP | Application (by design) | Minor | ✅ Expected |
+| `a1b2-auth-401-unverified` | Login before OTP verification | Application (by design) | Minor | ✅ Expected |
 | `c3d4-auth-smtp-535` | `[Mail] SMTP send failed: auth failed` | Environment | Major | ⚠️ Ops — Gmail App Password |
-| `e5f6-auth-register-blocked` | Signup ditolak, email provider tidak configured | Environment | Critical | Guard prod OK |
-| `g7h8-auth-forgot-nosmoke` | `/auth/forgot-password` tidak ada di smoke | Test gap | Minor | ✅ Fixed — smoke 24–26 |
+| `e5f6-auth-register-blocked` | Signup rejected, email provider not configured | Environment | Critical | Guard prod OK |
+| `g7h8-auth-forgot-nosmoke` | `/auth/forgot-password` missing from smoke | Test gap | Minor | ✅ Fixed — smoke 24–26 |
 
 **Regression:** BUG-002/003 (Bearer token), forgot/reset password unit tests ✅
 
@@ -84,8 +84,8 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Status |
 |-------------|-------|--------|
-| `cat-001-meat-vegetables` | Chicken di filter Vegetables | ✅ Fixed BUG-001 |
-| `cat-006-wrong-image` | Gambar Farm Milk salah | ✅ Fixed BUG-006 |
+| `cat-001-meat-vegetables` | Chicken showing in Vegetables filter | ✅ Fixed BUG-001 |
+| `cat-006-wrong-image` | Wrong Farm Milk image | ✅ Fixed BUG-006 |
 | `cat-500-invalid-uuid` | Invalid product id → 500 | ✅ Fixed PROD-01 → 404 |
 
 ---
@@ -94,9 +94,9 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Status |
 |-------------|-------|--------|
-| `cart-004-no-slot` | Add tanpa delivery slot | ✅ Fixed BUG-CART-004 |
+| `cart-004-no-slot` | Add to cart without delivery slot | ✅ Fixed BUG-CART-004 |
 | `cart-005-over-stock` | Qty > stock | ✅ Fixed BUG-CART-005 |
-| `cart-011-badge-kg` | Badge cart hitung kg bukan line items | ✅ Fixed BUG-011 |
+| `cart-011-badge-kg` | Cart badge counting kg instead of line items | ✅ Fixed BUG-011 |
 
 ---
 
@@ -115,9 +115,9 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 | Fingerprint | Issue | Category | Priority |
 |-------------|-------|----------|----------|
 | `pay-002-dup-ref` | Duplicate payment reference | — | ✅ Fixed |
-| `pay-webhook-no-sig` | Webhook tanpa HMAC | Security | ✅ Rejected by design |
-| `pay-live-card-unverified` | PAY-03 kartu live belum UAT | Test gap | **P1** |
-| `pay-webhook-smoke-missing` | Webhook tidak di smoke script | Test gap | P2 |
+| `pay-webhook-no-sig` | Webhook without HMAC | Security | ✅ Rejected by design |
+| `pay-live-card-unverified` | PAY-03 live card not yet UAT'd | Test gap | **P1** |
+| `pay-webhook-smoke-missing` | Webhook not in smoke script | Test gap | P2 |
 
 ---
 
@@ -125,9 +125,9 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Status |
 |-------------|-------|--------|
-| `sup-008-all-products` | Lihat produk supplier lain | ✅ Fixed BUG-008 |
-| `sup-003-deleted-visible` | Produk deleted masih tampil | ✅ Fixed |
-| `sup-approve-42p08` | Postgres cast saat approve | ✅ Fixed BF-017 |
+| `sup-008-all-products` | Viewing another supplier's products | ✅ Fixed BUG-008 |
+| `sup-003-deleted-visible` | Deleted product still visible | ✅ Fixed |
+| `sup-approve-42p08` | Postgres cast error on approve | ✅ Fixed BF-017 |
 
 | `sup-upload-multipart-smoke` | Multipart product image upload | ✅ Smoke step 14b (`POST /suppliers/products`) |
 
@@ -137,11 +137,11 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Category | Priority |
 |-------------|-------|----------|----------|
-| `adm-not-uat` | ADM-01–07 belum manual UAT | Test gap | **P1** |
-| `adm-delete-new` | DELETE user (`8fb5b5e`) | Needs smoke re-run | P0 setelah deploy |
-| `adm-ui-no-rtl` | `AdminUserModal`, `admin.tsx` tanpa component test | Test gap | P2 |
+| `adm-not-uat` | ADM-01–07 not yet manually UAT'd | Test gap | **P1** |
+| `adm-delete-new` | DELETE user (`8fb5b5e`) | Needs smoke re-run | P0 after deploy |
+| `adm-ui-no-rtl` | `AdminUserModal`, `admin.tsx` have no component test | Test gap | P2 |
 
-**Smoke coverage (kode terbaru, belum verified di prod log):**
+**Smoke coverage (latest code, not yet verified in prod log):**
 
 - DELETE pending user (no orders) → 200
 - NEG-08: customer token → 403
@@ -153,8 +153,8 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Category | Priority |
 |-------------|-------|----------|----------|
-| `feed-not-uat` | FEED-01–10 belum manual | Test gap | **P1** |
-| `feed-smoke-get-only` | Smoke hanya `GET /feedback/posts` | Test gap | P2 |
+| `feed-not-uat` | FEED-01–10 not yet manual | Test gap | **P1** |
+| `feed-smoke-get-only` | Smoke only covers `GET /feedback/posts` | Test gap | P2 |
 | `feed-vote-dup` | Double vote | — | ✅ Unit tested |
 
 ---
@@ -164,7 +164,7 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 | Fingerprint | Status |
 |-------------|--------|
 | `contact-persist` | ✅ Smoke POST + admin GET |
-| `pub-mobile-layout` | ⚠️ OPS-04 belum | P2 |
+| `pub-mobile-layout` | ⚠️ OPS-04 not yet done | P2 |
 
 ---
 
@@ -172,25 +172,25 @@ Dokumen ini merangkum status triage **seluruh modul MVP DOVA**: coverage otomati
 
 | Fingerprint | Issue | Category | Priority |
 |-------------|-------|----------|----------|
-| `ops-smoke-stale` | Log smoke 23+7; kode 26+9 | Test gap | **P0** re-run |
-| `ops-migration-007` | Password reset migration | Ops | ✅ jika sudah migrate |
+| `ops-smoke-stale` | Smoke log 23+7; code 26+9 | Test gap | **P0** re-run |
+| `ops-migration-007` | Password reset migration | Ops | ✅ if already migrated |
 | `ops-doc-drift` | TEST-CASES.md test count | Docs | Trivial | ✅ Fixed |
 
 ---
 
 ## Regression watch — dedup registry
 
-Jika fingerprint match ticket yang sudah **closed**, **reopen sebagai regression** dan naikkan priority.
+If a fingerprint matches a ticket that's already **closed**, **reopen as a regression** and raise its priority.
 
-| Bug ID | Fingerprint prefix | Reopen jika |
+| Bug ID | Fingerprint prefix | Reopen if |
 |--------|-------------------|-------------|
-| BUG-002/003 | `auth-401-cart-crossorigin` | Cart/add 401 padahal sudah login |
-| BUG-007 | `checkout-order_items_pkey` | Duplicate key saat checkout |
-| BUG-008 | `supplier-wrong-product-list` | Supplier lihat SKU orang lain |
+| BUG-002/003 | `auth-401-cart-crossorigin` | Cart/add returns 401 despite being logged in |
+| BUG-007 | `checkout-order_items_pkey` | Duplicate key on checkout |
+| BUG-008 | `supplier-wrong-product-list` | Supplier sees another supplier's SKUs |
 | PROD-01 | `products-invalid-uuid-500` | `GET /products/not-uuid` → 500 |
-| BF-017 | `supplier-approve-42P08` | Approve supplier error Postgres |
+| BF-017 | `supplier-approve-42P08` | Postgres error approving supplier |
 
-Historis lengkap: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
+Full history: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 
 ---
 
@@ -198,24 +198,24 @@ Historis lengkap: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 
 | ID | Title | Category | Severity | Priority | Action |
 |----|-------|----------|----------|----------|--------|
-| **TRI-001** | Re-run `smoke:production` setelah deploy `8fb5b5e` — **regression: still not run as of `ebd71bd` (21 commits later)** | Test gap | Major | **P0 (escalated — see Regression watch)** | Run + simpan log ke `ops/logs/smoke-production-latest.log` (currently missing) |
-| **TRI-002** | UAT Admin ADM-01–07 manual di production | Test gap | Major | **P1** | Checklist QA |
-| **TRI-003** | UAT Feedback FEED-01–10 | Test gap | Major | **P1** | Checklist QA |
+| **TRI-001** | Re-run `smoke:production` after deploy `8fb5b5e` — **regression: still not run as of `ebd71bd` (21 commits later)** | Test gap | Major | **P0 (escalated — see Regression watch)** | Run + save log to `ops/logs/smoke-production-latest.log` (currently missing) |
+| **TRI-002** | Manual UAT for Admin ADM-01–07 in production | Test gap | Major | **P1** | QA checklist |
+| **TRI-003** | UAT Feedback FEED-01–10 | Test gap | Major | **P1** | QA checklist |
 | **TRI-004** | Smoke: forgot-password + reset-password | Test gap | Minor | P2 | ✅ Done |
 | **TRI-005** | Postman doc: `/auth/forgot-password`, `/auth/reset-password` | Docs | Trivial | P2 | ✅ Done |
-| **TRI-006** | Paystack live card PAY-03 | Test gap | Major | P1 | 1× transaksi manual |
+| **TRI-006** | Paystack live card PAY-03 | Test gap | Major | P1 | 1× manual transaction |
 | **TRI-007** | Mobile smoke OPS-04 | Test gap | Minor | P2 | Browser phone |
 | **TRI-008** | Playwright E2E checkout + admin (QA-GAP-05) | Test gap | Minor | P2 | Scaffold |
 | **TRI-009** | Frontend page RTL tests | Test gap | Minor | P3 | AdminUserModal, checkout |
 | **TRI-010** | Coverage 52% → 80% | Tech debt | Minor | P3 | Incremental |
 
-### Bukan bug kode (ops / env)
+### Not code bugs (ops / env)
 
 | Issue | Remediation |
 |-------|-------------|
-| SMTP `535 BadCredentials` | Set `SMTP_PASS` = Gmail App Password 16 char (bukan password login) |
-| User stuck pending register | Admin → Users → Delete account (shipped `5488101` / `8fb5b5e`) |
-| Smoke OTP gagal | Set `DOVA_QA_FIXED_OTP` di server + `SMOKE_OTP_CODE` lokal — lihat [ENV-SETUP.md](../operations/ENV-SETUP.md) |
+| SMTP `535 BadCredentials` | Set `SMTP_PASS` to a 16-char Gmail App Password (not the login password) |
+| User stuck at pending registration | Admin → Users → Delete account (shipped `5488101` / `8fb5b5e`) |
+| Smoke OTP failing | Set `DOVA_QA_FIXED_OTP` on the server + `SMOKE_OTP_CODE` locally — see [ENV-SETUP.md](../operations/ENV-SETUP.md) |
 
 ---
 
@@ -229,7 +229,7 @@ Historis lengkap: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 | Payment initialize | ✅ | ✅ | Partial |
 | Payment webhook | ✅ | ❌ | ❌ |
 | Supplier CRUD | ✅ | Partial | ✅ |
-| Admin CRUD + delete | ✅ | ✅ (kode baru) | ❌ |
+| Admin CRUD + delete | ✅ | ✅ (new code) | ❌ |
 | Feedback full CRUD | ✅ | GET only | ❌ |
 
 ```
@@ -240,56 +240,56 @@ Not covered     ░░░░░░░░░░░░░░░░████  E2
 
 ---
 
-## Severity × priority (referensi)
+## Severity × priority (reference)
 
-| Severity | Definisi | Contoh DOVA |
+| Severity | Definition | DOVA example |
 |----------|----------|-------------|
-| **Critical** | Sistem unusable, data loss, no workaround | Payment semua gagal, signup blocked tanpa SMTP |
-| **Major** | Core feature broken, workaround ada | Admin delete gagal, checkout error |
-| **Minor** | Non-core, cosmetic + functional | Sort tidak persist, tooltip clip |
-| **Trivial** | Cosmetic only | Typo label |
+| **Critical** | System unusable, data loss, no workaround | All payments failing, signup blocked without SMTP |
+| **Major** | Core feature broken, workaround exists | Admin delete fails, checkout error |
+| **Minor** | Non-core, cosmetic + functional | Sort doesn't persist, tooltip clipped |
+| **Trivial** | Cosmetic only | Typo in label |
 
-| Priority | SLA contoh |
+| Priority | Example SLA |
 |----------|------------|
 | **P0** | Same day — blocks release/prod |
-| **P1** | Sprint ini |
-| **P2** | Sprint berikutnya |
+| **P1** | This sprint |
+| **P2** | Next sprint |
 | **P3** | Backlog |
 
 ---
 
 ## Immediate actions (P0–P1)
 
-### P0 — Setelah deploy `8fb5b5e`
+### P0 — After deploy `8fb5b5e`
 
 ```bash
-# Lokal (butuh OTP env)
+# Local (needs OTP env)
 SMOKE_OTP_CODE=123456 npm run smoke:production
 
 # VPS deploy
 cd ~/dova && git pull && npm ci && npm run build && pm2 restart dova-api dova-web --update-env
 ```
 
-Log disimpan ke `ops/logs/smoke-production-latest.log` di app repo (saat menjalankan smoke dari clone `dova/`).
+Log saved to `ops/logs/smoke-production-latest.log` in the app repo (when running smoke from the `dova/` clone).
 
 ### P1 — Manual UAT
 
-| Modul | Test IDs | URL |
+| Module | Test IDs | URL |
 |-------|----------|-----|
 | Admin | ADM-01–07 | https://dova.dntech.id/admin |
 | Feedback | FEED-01–10 | https://dova.dntech.id/feedback |
 | Payment live | PAY-03 | Checkout → Paystack test/live card |
 
-Detail skenario: [TEST-CASES.md](./TEST-CASES.md)
+Scenario detail: [TEST-CASES.md](./TEST-CASES.md)
 
 ---
 
-## Menjalankan automated checks
+## Running automated checks
 
 ```bash
-npm run test              # 146 unit tests
+npm run test              # 160 unit tests
 npm run test:coverage     # coverage report (~52% global)
-npm run smoke:production  # production API (butuh SMOKE_OTP_CODE)
+npm run smoke:production  # production API (needs SMOKE_OTP_CODE)
 npm run smoke:week4       # health + contact persist
 ```
 
@@ -297,9 +297,9 @@ Demo accounts: admin `admin@dova.local` / `admin1234` · supplier `supplier@dova
 
 ---
 
-## Changelog dokumen
+## Document changelog
 
 | Date | Change |
 |------|--------|
-| 2026-08-30 | Re-triaged against current HEAD (`ebd71bd`, +21 commits since last pass). Unit suite verified 160/160 pass (was 146). **Flagged TRI-001 as an unresolved P0 regression** — no smoke log exists on disk, so the post-`8fb5b5e` re-run this doc called for on 2026-08-28 never happened; admin-delete and five auth/UX features have since shipped without it. No new application-code bugs found in the 21 commits (mix of auth UX, admin delete, docs). |
+| 2026-08-30 | Translated to English. Re-triaged against current HEAD (`ebd71bd`, +21 commits since last pass). Unit suite verified 160/160 pass (was 146). **Flagged TRI-001 as an unresolved P0 regression** — no smoke log exists on disk, so the post-`8fb5b5e` re-run this doc called for on 2026-08-28 never happened; admin-delete and five auth/UX features have since shipped without it. No new application-code bugs found in the 21 commits (mix of auth UX, admin delete, docs). |
 | 2026-08-28 | TRI-004/005 closed — forgot/reset smoke + Postman; TEST-CASES count 146 |
