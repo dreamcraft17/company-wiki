@@ -1,12 +1,13 @@
 # DOVA — Bug Triage (All Features)
 
-> **Status:** Active · **Last updated:** 2026-08-30 · **Author:** Dozer  
-> **Repo HEAD:** `ebd71bd` (**21 commits ahead** of the `8fb5b5e` this doc was last triaged against) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
-> **Method:** AI bug triage pipeline — deterministic fingerprinting + classification + QA routing
+> **Status:** Active · **Last updated:** 2026-09-01 · **Author:** Dozer  
+> **Repo HEAD:** `8c5f4ca` on **`stg`** (production may still be older until `stg` is deployed) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
+> **Method:** AI bug triage pipeline — deterministic fingerprinting + classification + QA routing  
+> **Companion:** [DOVA-QA-REVIEW-2026-09-01.md](./DOVA-QA-REVIEW-2026-09-01.md) (Jest 3× green, smell report)
 
 This document summarizes triage status across **all DOVA MVP modules**: automated coverage, manual UAT gaps, regression fingerprints, and the backlog of tickets awaiting human approval before execution.
 
-**Related docs:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](../operations/DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
+**Related docs:** [TEST-CASES.md](./TEST-CASES.md) · [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md) · [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md) · [DOVA-RELEASE-READINESS-AUDIT.md](./DOVA-RELEASE-READINESS-AUDIT.md) · [GUIDE.md](./GUIDE.md)
 
 ---
 
@@ -15,13 +16,14 @@ This document summarizes triage status across **all DOVA MVP modules**: automate
 | Metric | Value |
 |--------|-------|
 | MVP features | **10 modules** · ~67 API routes |
-| Unit tests | **160/160 pass** (`npm run test`, verified 2026-08-30 — up from 146) |
-| Global coverage | **~52%** (QA target: 80%, unverified against new tests) |
-| Historical UAT bugs | **14 fixed** · **0 open P0/P1** |
-| Production smoke (last log) | ⚠️ **No log found** — `ops/logs/` is empty (only `.gitkeep`); **TRI-001 was never actually closed** |
+| Unit tests | **160/160 pass** (`npx jest`, 3 consecutive runs 2026-09-01 — no flakes) |
+| Global coverage | **~52%** (QA target: 80%, still unverified) |
+| Historical UAT bugs | **14 fixed** · **0 new application defects from this pass** |
+| Production smoke (last log) | **Still missing** — `dova/ops/logs/` is `.gitkeep` only; **TRI-001 remains open** (fingerprint `f0ccd2cdaace6999`) |
 | Manual UAT not yet run | **Admin (ADM-01–07)**, **Feedback (FEED-01–10)**, **Mobile ops (OPS-04)** |
+| New since last triage | Integrator discovery (`GET /api/v1`, `GET /api/v1/openapi.json`) on `stg` — **no unit tests** (TRI-011) |
 
-**Triage verdict:** Core journey (register → OTP → cart → order → pay init → supplier → admin API) is **stable**, unit suite grew and stays green. Main risk is unchanged from before, plus one new process regression: **TRI-001 (post-deploy smoke re-run) was marked P0 on 2026-08-28 and still has no evidence of having run** — 21 commits, including the admin-delete feature it was gating, have since shipped without it.
+**Triage verdict:** No CI/Jest failures to classify (category N/A — suite green). Remaining work is **test-gap / ops**, not a red build. **TRI-001** is still the P0 process regression. New tickets TRI-011–013 need human approval before work.
 
 ---
 
@@ -48,7 +50,8 @@ This document summarizes triage status across **all DOVA MVP modules**: automate
 | **7. Admin** | 14 API + 1 page | ✅ incl. delete user | ✅ + DELETE | ❌ Not tested | 🟡 Medium |
 | **8. Feedback board** | 13 API + 5 pages | ✅ 6 unit | ✅ GET only | ❌ Not tested | 🟡 Medium |
 | **9. Public / contact** | 2 API + 4 pages | ✅ | ✅ | Partial | 🟢 Low risk |
-| **10. Ops / health** | health, migrate, PM2 | ✅ env-guard | ✅ | ⚠️ OPS-04 mobile | 🟡 Medium |
+| **10. Ops / health** | health, migrate, PM2 | ✅ env-guard | ⚠️ no saved log | ⚠️ OPS-04 mobile | 🟡 Medium |
+| **11. API discovery** | `GET /api/v1`, `openapi.json` | ❌ none | ❌ until `stg` deploy | — | 🟡 Medium |
 
 ---
 
@@ -198,7 +201,7 @@ Full history: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 
 | ID | Title | Category | Severity | Priority | Action |
 |----|-------|----------|----------|----------|--------|
-| **TRI-001** | Re-run `smoke:production` after deploy `8fb5b5e` — **regression: still not run as of `ebd71bd` (21 commits later)** | Test gap | Major | **P0 (escalated — see Regression watch)** | Run + save log to `ops/logs/smoke-production-latest.log` (currently missing) |
+| **TRI-001** | Re-run `smoke:production` after deploy — **still no log as of `8c5f4ca`** (`f0ccd2cdaace6999`) | Test gap | Major | **P0** | Run + save `ops/logs/smoke-production-latest.log`; include `GET /api/v1` after `stg` is live |
 | **TRI-002** | Manual UAT for Admin ADM-01–07 in production | Test gap | Major | **P1** | QA checklist |
 | **TRI-003** | UAT Feedback FEED-01–10 | Test gap | Major | **P1** | QA checklist |
 | **TRI-004** | Smoke: forgot-password + reset-password | Test gap | Minor | P2 | ✅ Done |
@@ -208,6 +211,9 @@ Full history: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 | **TRI-008** | Playwright E2E checkout + admin (QA-GAP-05) | Test gap | Minor | P2 | Scaffold |
 | **TRI-009** | Frontend page RTL tests | Test gap | Minor | P3 | AdminUserModal, checkout |
 | **TRI-010** | Coverage 52% → 80% | Tech debt | Minor | P3 | Incremental |
+| **TRI-011** | Unit tests for `GET /api/v1` + `openapi.json` (`0c59d3f96880ed1d`) | Test gap | Major | **P1** | `openapi-spec.spec.ts` + Nest controller test; deploy `stg` so prod matches docs |
+| **TRI-012** | Tests for `RegistrationSuccessModal` (`689e1864b960dc00`) | Test gap | Minor | P2 | Needs jsdom/RTL or extract keyboard/timer helpers |
+| **TRI-013** | Backend workspace `npm test` is compile-only (`87eb18b6ebe8f269`) | Test bug | Minor | P2 | Rename `test:compile`; document `test:unit` as the suite |
 
 ### Not code bugs (ops / env)
 
@@ -215,7 +221,7 @@ Full history: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 |-------|-------------|
 | SMTP `535 BadCredentials` | Set `SMTP_PASS` to a 16-char Gmail App Password (not the login password) |
 | User stuck at pending registration | Admin → Users → Delete account (shipped `5488101` / `8fb5b5e`) |
-| Smoke OTP failing | Set `DOVA_QA_FIXED_OTP` on the server + `SMOKE_OTP_CODE` locally — see [ENV-SETUP.md](../operations/ENV-SETUP.md) |
+| Smoke OTP failing | Set `DOVA_QA_FIXED_OTP` on the server + `SMOKE_OTP_CODE` locally — see [ENV-SETUP.md](./ENV-SETUP.md) |
 
 ---
 
@@ -301,5 +307,6 @@ Demo accounts: admin `admin@dova.local` / `admin1234` · supplier `supplier@dova
 
 | Date | Change |
 |------|--------|
+| 2026-09-01 | Re-triaged after integrator OpenAPI work (`8c5f4ca` on `stg`). Jest **160/160 × 3**. No new app bugs. Opened **TRI-011** (untested discovery routes), **TRI-012** (register success modal untested), **TRI-013** (backend `npm test` is nest build). **TRI-001 still P0** — smoke log still absent. |
 | 2026-08-30 | Translated to English. Re-triaged against current HEAD (`ebd71bd`, +21 commits since last pass). Unit suite verified 160/160 pass (was 146). **Flagged TRI-001 as an unresolved P0 regression** — no smoke log exists on disk, so the post-`8fb5b5e` re-run this doc called for on 2026-08-28 never happened; admin-delete and five auth/UX features have since shipped without it. No new application-code bugs found in the 21 commits (mix of auth UX, admin delete, docs). |
 | 2026-08-28 | TRI-004/005 closed — forgot/reset smoke + Postman; TEST-CASES count 146 |

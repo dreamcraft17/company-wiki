@@ -1,14 +1,14 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-08-29 · **App HEAD:** `129ba96` · **Wiki HEAD:** `32d19f3` · **Tag:** `v0.5.4`
+> **Updated:** 2026-09-01 · **App HEAD:** `8c5f4ca` (`stg`) · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
 **Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 158 unit · smoke **29+10** (`npm run smoke:production`)
+**Tests:** 160 unit (Jest, 2026-09-01) · smoke **not logged** (`ops/logs` empty)
 
-> **Start here:** [All-features.md](./All-features.md) · [code/FEATURE-CATALOG.md](./code/FEATURE-CATALOG.md) · [code/FULL-TECH-STATUS.md](./code/FULL-TECH-STATUS.md) · [operations/current-phase.md](./operations/current-phase.md)
+> **Start here:** [All-features.md](./All-features.md) · [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [code/FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) · [operations/current-phase.md](./docs/current-phase.md)
 
 ---
 
@@ -18,24 +18,24 @@ Deploy, environment, runbooks, release checks, and stakeholder operational updat
 
 | File | Description |
 |------|-------------|
-| [current-phase.md](./operations/current-phase.md) | Production phase snapshot |
-| [HANDOFF.md](./operations/HANDOFF.md) | Latest session handoff briefing |
-| [RUNBOOK.md](./operations/RUNBOOK.md) | Deploy, rollback, troubleshoot |
-| [Dova RunBook for localhost.md](./operations/Dova%20RunBook%20for%20localhost.md) | Run DOVA on localhost / dev machine · [PDF](./operations/Dova%20RunBook%20for%20Localhost.pdf) |
-| [VPS-DEPLOY.md](./operations/VPS-DEPLOY.md) | Single-server VPS deploy |
-| [ENV-SETUP.md](./operations/ENV-SETUP.md) | Production / VPS environment variables |
-| [vps-backend.env.example](./operations/vps-backend.env.example) | Backend env template (VPS) |
-| [vps-frontend.env.example](./operations/vps-frontend.env.example) | Frontend env template (VPS) |
-| [VERCEL-DEPLOYMENT-OVERRIDE.md](./operations/VERCEL-DEPLOYMENT-OVERRIDE.md) | Vercel vs VPS notes |
-| [STAGING-GO-LIVE.md](./operations/STAGING-GO-LIVE.md) | Go-live checklist (legacy) |
-| [SMOKE-PRODUCTION-RESULT.md](./operations/SMOKE-PRODUCTION-RESULT.md) | Latest production smoke log |
-| [DOVA-RELEASE-READINESS-AUDIT.md](./operations/DOVA-RELEASE-READINESS-AUDIT.md) | Release readiness audit |
-| [DEMO-ACCOUNTS.md](./operations/DEMO-ACCOUNTS.md) | Seed demo logins |
-| [PHASE-UPDATE-BD.md](./operations/PHASE-UPDATE-BD.md) | BD / non-technical update |
-| [MVP-STATUS.md](./operations/MVP-STATUS.md) | Stakeholder status (legacy) |
-| [MVP-PROGRESS-UPDATE.md](./operations/MVP-PROGRESS-UPDATE.md) | Progress update (legacy) |
-| [REPLY-PAYSTACK-AND-MIN-ORDER.md](./operations/REPLY-PAYSTACK-AND-MIN-ORDER.md) | Stakeholder reply — Paystack |
-| [REPLY-SUPPLIER-VERIFICATION-DOCS.md](./operations/REPLY-SUPPLIER-VERIFICATION-DOCS.md) | Stakeholder reply — supplier docs |
+| [current-phase.md](./docs/current-phase.md) | Production phase snapshot |
+| [HANDOFF.md](./docs/HANDOFF.md) | Latest session handoff briefing |
+| [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
+| [Dova RunBook for localhost.md](./docs/Dova%20RunBook%20for%20localhost.md) | Run DOVA on localhost / dev machine · [PDF](./docs/Dova%20RunBook%20for%20Localhost.pdf) |
+| [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Single-server VPS deploy |
+| [ENV-SETUP.md](./docs/ENV-SETUP.md) | Production / VPS environment variables |
+| [vps-backend.env.example](./docs/vps-backend.env.example) | Backend env template (VPS) |
+| [vps-frontend.env.example](./docs/vps-frontend.env.example) | Frontend env template (VPS) |
+| [VERCEL-DEPLOYMENT-OVERRIDE.md](./docs/VERCEL-DEPLOYMENT-OVERRIDE.md) | Vercel vs VPS notes |
+| [STAGING-GO-LIVE.md](./docs/STAGING-GO-LIVE.md) | Go-live checklist (legacy) |
+| [SMOKE-PRODUCTION-RESULT.md](./docs/SMOKE-PRODUCTION-RESULT.md) | Latest production smoke log |
+| [DOVA-RELEASE-READINESS-AUDIT.md](./docs/DOVA-RELEASE-READINESS-AUDIT.md) | Release readiness audit |
+| [DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Seed demo logins |
+| [PHASE-UPDATE-BD.md](./docs/PHASE-UPDATE-BD.md) | BD / non-technical update |
+| [MVP-STATUS.md](./docs/MVP-STATUS.md) | Stakeholder status (legacy) |
+| [MVP-PROGRESS-UPDATE.md](./docs/MVP-PROGRESS-UPDATE.md) | Progress update (legacy) |
+| [REPLY-PAYSTACK-AND-MIN-ORDER.md](./docs/REPLY-PAYSTACK-AND-MIN-ORDER.md) | Stakeholder reply — Paystack |
+| [REPLY-SUPPLIER-VERIFICATION-DOCS.md](./docs/REPLY-SUPPLIER-VERIFICATION-DOCS.md) | Stakeholder reply — supplier docs |
 
 ---
 
@@ -46,21 +46,22 @@ Features, implementation baseline, API reference, and test documentation.
 | File | Description |
 |------|-------------|
 | [All-features.md](./All-features.md) | **Master list of all 101 features** (by role + module) |
-| [ONBOARDING.md](./code/ONBOARDING.md) | New engineer onboarding — repo shape, setup, common tasks |
-| [FEATURE-CATALOG.md](./code/FEATURE-CATALOG.md) | Complete feature inventory (API/UI detail) |
-| [FULL-TECH-STATUS.md](./code/FULL-TECH-STATUS.md) | Full technical status |
-| [CURRENT-IMPLEMENTATION.md](./code/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
-| [API Documention.md](./code/API%20Documention.md) | Integrator REST guide (`/api/v1`) |
-| [DOVA-API-QA-POSTMAN.md](./code/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
-| [DOVA-SECURITY-CHECKLIST-ASSESSMENT.md](./code/DOVA-SECURITY-CHECKLIST-ASSESSMENT.md) | QA Security section — 4-item assessment |
-| [DOVA-BUG-TRIAGE.md](./code/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
-| [TEST-CASES.md](./code/TEST-CASES.md) | Manual UAT scenarios |
-| [GUIDE.md](./code/GUIDE.md) | QA workflow |
-| [SPEC-COMPLIANCE.md](./code/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
-| [CHANGELOG.md](./code/CHANGELOG.md) | Version history |
-| [BUG_FIXES.md](./code/BUG_FIXES.md) | Bugfix log |
-| [UAT-BUG-FIXES.md](./code/UAT-BUG-FIXES.md) | UAT defect log + verification |
-| [PAYSTACK-TEST-MODE.md](./operations/PAYSTACK-TEST-MODE.md) | Paystack test mode setup |
+| [ONBOARDING.md](./docs/ONBOARDING.md) | New engineer onboarding — repo shape, setup, common tasks |
+| [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Complete feature inventory (API/UI detail) |
+| [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
+| [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
+| [API Documention.md](./docs/API%20Documention.md) | Integrator REST guide (`/api/v1`) |
+| [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
+| [DOVA-SECURITY-CHECKLIST-ASSESSMENT.md](./docs/DOVA-SECURITY-CHECKLIST-ASSESSMENT.md) | QA Security section — 4-item assessment |
+| [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
+| [DOVA-QA-REVIEW-2026-09-01.md](./docs/DOVA-QA-REVIEW-2026-09-01.md) | Jest smell / testability review |
+| [TEST-CASES.md](./docs/TEST-CASES.md) | Manual UAT scenarios |
+| [GUIDE.md](./docs/GUIDE.md) | QA workflow |
+| [SPEC-COMPLIANCE.md](./docs/SPEC-COMPLIANCE.md) | PRD/SRS/SDD vs code |
+| [CHANGELOG.md](./docs/CHANGELOG.md) | Version history |
+| [BUG_FIXES.md](./docs/BUG_FIXES.md) | Bugfix log |
+| [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
+| [PAYSTACK-TEST-MODE.md](./docs/PAYSTACK-TEST-MODE.md) | Paystack test mode setup |
 
 ---
 
