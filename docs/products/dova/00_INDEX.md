@@ -6,7 +6,7 @@
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
 **Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 160 unit (Jest, 2026-09-01) · smoke **not logged** (`ops/logs` empty)
+**Tests:** 180 unit (Jest, 2026-09-01) · smoke **not logged** (`ops/logs` empty)
 
 > **Start here:** [All-features.md](./All-features.md) · [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [code/FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) · [operations/current-phase.md](./docs/current-phase.md)
 

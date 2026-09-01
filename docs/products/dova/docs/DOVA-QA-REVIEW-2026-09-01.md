@@ -3,7 +3,7 @@
 > **Author:** Dozer
 > **Date:** 2026-09-01
 > **Scope:** Whole Jest suite in `dova/` (not a single PR). App HEAD `8c5f4ca` on branch `stg`.
-> **Context:** No `.agents/qa-project-context.md`. Framework: Jest + ts-jest, `testEnvironment: node`. No Playwright. `npm test` = `test:unit` (Jest) then `test:backend` (Nest **compile**, not tests).
+> **Follow-up (same day):** Remediations landed on `dova` main — **180** Jest tests, ~5 s. TRI-011–013 done. TRI-001 still needs a saved production smoke log.
 
 ## Verification
 

@@ -1,7 +1,7 @@
 # DOVA — Bug Triage (All Features)
 
 > **Status:** Active · **Last updated:** 2026-09-01 · **Author:** Dozer  
-> **Repo HEAD:** `8c5f4ca` on **`stg`** (production may still be older until `stg` is deployed) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
+> **Repo HEAD:** `main` (OpenAPI cherry-picked from `8c5f4ca`; suite **180** tests) · **Environment:** Production (`dova.dntech.id` / `api.dova.dntech.id`)  
 > **Method:** AI bug triage pipeline — deterministic fingerprinting + classification + QA routing  
 > **Companion:** [DOVA-QA-REVIEW-2026-09-01.md](./DOVA-QA-REVIEW-2026-09-01.md) (Jest 3× green, smell report)
 
@@ -16,7 +16,7 @@ This document summarizes triage status across **all DOVA MVP modules**: automate
 | Metric | Value |
 |--------|-------|
 | MVP features | **10 modules** · ~67 API routes |
-| Unit tests | **160/160 pass** (`npx jest`, 3 consecutive runs 2026-09-01 — no flakes) |
+| Unit tests | **180/180 pass** (`npx jest`, ~5 s with `BCRYPT_ROUNDS=4` in jest.setup.js) |
 | Global coverage | **~52%** (QA target: 80%, still unverified) |
 | Historical UAT bugs | **14 fixed** · **0 new application defects from this pass** |
 | Production smoke (last log) | **Still missing** — `dova/ops/logs/` is `.gitkeep` only; **TRI-001 remains open** (fingerprint `f0ccd2cdaace6999`) |
@@ -51,7 +51,7 @@ This document summarizes triage status across **all DOVA MVP modules**: automate
 | **8. Feedback board** | 13 API + 5 pages | ✅ 6 unit | ✅ GET only | ❌ Not tested | 🟡 Medium |
 | **9. Public / contact** | 2 API + 4 pages | ✅ | ✅ | Partial | 🟢 Low risk |
 | **10. Ops / health** | health, migrate, PM2 | ✅ env-guard | ⚠️ no saved log | ⚠️ OPS-04 mobile | 🟡 Medium |
-| **11. API discovery** | `GET /api/v1`, `openapi.json` | ❌ none | ❌ until `stg` deploy | — | 🟡 Medium |
+| **11. API discovery** | `GET /api/v1`, `openapi.json` | ✅ unit | ❌ until main/stg deploy | — | 🟢 Low risk (code) |
 
 ---
 
@@ -211,9 +211,9 @@ Full history: [UAT-BUG-FIXES.md](./UAT-BUG-FIXES.md)
 | **TRI-008** | Playwright E2E checkout + admin (QA-GAP-05) | Test gap | Minor | P2 | Scaffold |
 | **TRI-009** | Frontend page RTL tests | Test gap | Minor | P3 | AdminUserModal, checkout |
 | **TRI-010** | Coverage 52% → 80% | Tech debt | Minor | P3 | Incremental |
-| **TRI-011** | Unit tests for `GET /api/v1` + `openapi.json` (`0c59d3f96880ed1d`) | Test gap | Major | **P1** | `openapi-spec.spec.ts` + Nest controller test; deploy `stg` so prod matches docs |
-| **TRI-012** | Tests for `RegistrationSuccessModal` (`689e1864b960dc00`) | Test gap | Minor | P2 | Needs jsdom/RTL or extract keyboard/timer helpers |
-| **TRI-013** | Backend workspace `npm test` is compile-only (`87eb18b6ebe8f269`) | Test bug | Minor | P2 | Rename `test:compile`; document `test:unit` as the suite |
+| **TRI-011** | Unit tests for `GET /api/v1` + `openapi.json` (`0c59d3f96880ed1d`) | Test gap | Major | **P1** | ✅ Done — `openapi-spec.spec.ts` + `app.controller.spec.ts` on main |
+| **TRI-012** | Tests for `RegistrationSuccessModal` (`689e1864b960dc00`) | Test gap | Minor | P2 | ✅ Done — `registration-success.spec.ts` helpers |
+| **TRI-013** | Backend workspace `npm test` is compile-only (`87eb18b6ebe8f269`) | Test bug | Minor | P2 | ✅ Done — workspace `test` is Jest; `test:compile` is nest build |
 
 ### Not code bugs (ops / env)
 
@@ -293,7 +293,7 @@ Scenario detail: [TEST-CASES.md](./TEST-CASES.md)
 ## Running automated checks
 
 ```bash
-npm run test              # 160 unit tests
+npm run test              # 180 unit tests + backend typecheck
 npm run test:coverage     # coverage report (~52% global)
 npm run smoke:production  # production API (needs SMOKE_OTP_CODE)
 npm run smoke:week4       # health + contact persist
@@ -307,6 +307,6 @@ Demo accounts: admin `admin@dova.local` / `admin1234` · supplier `supplier@dova
 
 | Date | Change |
 |------|--------|
-| 2026-09-01 | Re-triaged after integrator OpenAPI work (`8c5f4ca` on `stg`). Jest **160/160 × 3**. No new app bugs. Opened **TRI-011** (untested discovery routes), **TRI-012** (register success modal untested), **TRI-013** (backend `npm test` is nest build). **TRI-001 still P0** — smoke log still absent. |
+| 2026-09-01 | **Fixes:** TRI-011–013 closed in app code (Jest 180, bcrypt cost 4 in tests, discovery specs). TRI-001 still P0 — no production smoke log. Manual TRI-002/003/006 unchanged. |
 | 2026-08-30 | Translated to English. Re-triaged against current HEAD (`ebd71bd`, +21 commits since last pass). Unit suite verified 160/160 pass (was 146). **Flagged TRI-001 as an unresolved P0 regression** — no smoke log exists on disk, so the post-`8fb5b5e` re-run this doc called for on 2026-08-28 never happened; admin-delete and five auth/UX features have since shipped without it. No new application-code bugs found in the 21 commits (mix of auth UX, admin delete, docs). |
 | 2026-08-28 | TRI-004/005 closed — forgot/reset smoke + Postman; TEST-CASES count 146 |
