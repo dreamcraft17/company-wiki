@@ -5,7 +5,7 @@
 
 Master list of **every feature** shipped in DOVA as of 29 August 2026. For API paths, status codes, and QA notes see [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md).
 
-**Related:** [README.md](./README.md) · [code/API.md](./docs/API.md) · [operations/current-phase.md](./docs/current-phase.md)
+**Related:** [README.md](./README.md) · [code/API Documention.md](./docs/API%20Documention.md) · [operations/current-phase.md](./docs/current-phase.md)
 
 ---
 
@@ -290,7 +290,7 @@ Base: `{API}/api/v1` · Auth: JWT httpOnly cookies + Bearer header.
 | Feedback | `/feedback/posts` · `/feedback/roadmap` · `/feedback/changelog` |
 | Public | `/health` · `/contact` |
 
-Full endpoint list: [code/API.md](./docs/API.md) · [code/DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md)
+Full endpoint list: [code/API Documention.md](./docs/API%20Documention.md) · [code/DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md)
 
 ---
 

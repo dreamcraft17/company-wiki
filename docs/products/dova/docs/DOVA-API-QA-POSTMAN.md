@@ -603,7 +603,7 @@ curl -s -H "Authorization: Bearer $TOKEN" "$BASE/admin/dashboard"
 
 | Doc | Path |
 |-----|------|
-| API summary (wiki) | [API.md](./API.md) |
+| API summary (wiki) | [API Documention.md](./API%20Documention.md) |
 | UI test cases | [TEST-CASES.md](./TEST-CASES.md) |
 | QA workflow | [GUIDE.md](./GUIDE.md) |
 | Paystack test mode | [PAYSTACK-TEST-MODE.md](./PAYSTACK-TEST-MODE.md) |

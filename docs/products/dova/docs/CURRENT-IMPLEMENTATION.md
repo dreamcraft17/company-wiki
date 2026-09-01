@@ -90,5 +90,5 @@ Reviews API · wishlist · discounts · courier tracking · Playwright E2E · pr
 
 - [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) — **complete feature inventory**  
 - [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md)  
-- [API.md](./API.md) · [RUNBOOK.md](./RUNBOOK.md) · [VPS-DEPLOY.md](./VPS-DEPLOY.md)  
+- [API Documention.md](./API%20Documention.md) · [RUNBOOK.md](./RUNBOOK.md) · [VPS-DEPLOY.md](./VPS-DEPLOY.md)  
 - Specs: [../PRD/](../PRD/)

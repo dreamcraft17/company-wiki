@@ -333,7 +333,7 @@ Base URL: `/api/v1`
 | Contact | `POST /contact` |
 | Feedback | `/feedback/*` — posts, votes, comments, roadmap, changelog |
 
-Full API doc: [API.md](./API.md)
+Full API doc: [API Documention.md](./API%20Documention.md)
 
 ---
 
