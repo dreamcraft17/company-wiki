@@ -6,7 +6,7 @@
 
 This is the public contract. Import [OpenAPI](https://api.dova.dntech.id/api/v1/openapi.json) into Postman or Bruno. Storefront: [dova.dntech.id](https://dova.dntech.id).
 
-## Base URL
+## 01 — Base URL
 
 Every JSON endpoint is under **`/api/v1`**.
 
@@ -34,7 +34,7 @@ Product images are **not** under `/api/v1`. Use the `imageUrl` returned on a pro
 
 ---
 
-## What you can integrate
+## 02 — What you can integrate
 
 | You are | Typical flow |
 |---------|----------------|
@@ -46,7 +46,7 @@ There is **no API key** today. Customer, supplier, and admin use the same REST A
 
 ---
 
-## Authentication
+## 03 — Authentication
 
 1. `POST /api/v1/auth/login` (or register).
 2. Read `accessToken` from the JSON body.
@@ -107,7 +107,7 @@ Content-Type: application/json
 
 ---
 
-## Errors
+## 04 — Errors
 
 JSON (Nest):
 
@@ -140,7 +140,7 @@ JSON (Nest):
 
 ---
 
-## Catalog (no auth)
+## 05 — Catalog (no auth)
 
 ```http
 GET /api/v1/health
@@ -173,17 +173,17 @@ GET /api/v1/products/{id}
 
 ---
 
-## Customer checkout
+## 06 — Customer checkout
 
 All of these need `Authorization: Bearer`.
 
 | Method | Path | Body |
 |--------|------|------|
 | GET | `/api/v1/cart` | — |
-| POST | `/api/v1/cart/add` | `productId`, `quantity` (≥ 1), `deliverySlot`: `morning` \| `evening` |
+| POST | `/api/v1/cart/add` | `productId`, `quantity` (1 or more), `deliverySlot`: morning or evening |
 | PUT | `/api/v1/cart/items/{id}` | optional `quantity`, `deliverySlot` |
 | DELETE | `/api/v1/cart/items/{id}` | — |
-| POST | `/api/v1/orders` | `deliveryName`, `deliveryPhone`; optional `fulfillmentType` (`pickup` \| `delivery`), `deliveryAddress` |
+| POST | `/api/v1/orders` | `deliveryName`, `deliveryPhone`; optional `fulfillmentType` (pickup or delivery), `deliveryAddress` |
 | GET | `/api/v1/orders` | — |
 | GET | `/api/v1/orders/{id}` | — |
 | POST | `/api/v1/payments/initialize` | `orderId`, `amount` (must equal order total) |
@@ -207,7 +207,7 @@ Profile: `GET/PATCH /api/v1/auth/me`, `POST /api/v1/auth/change-password`.
 
 ---
 
-## Other routes (same API)
+## 07 — Other routes (same API)
 
 | Area | Prefix | Auth |
 |------|--------|------|
@@ -219,7 +219,7 @@ Profile: `GET/PATCH /api/v1/auth/me`, `POST /api/v1/auth/change-password`.
 
 ---
 
-## Copy-paste
+## 08 — Copy-paste
 
 ```bash
 BASE=https://api.dova.dntech.id/api/v1
@@ -234,7 +234,7 @@ curl -sf "$BASE/auth/me" -H "Authorization: Bearer $ACCESS_TOKEN"
 
 ---
 
-## Support
+## 09 — Support
 
 - Production health: `GET https://api.dova.dntech.id/api/v1/health`  
 - OpenAPI: `GET https://api.dova.dntech.id/api/v1/openapi.json`  

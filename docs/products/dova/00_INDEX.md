@@ -50,7 +50,7 @@ Features, implementation baseline, API reference, and test documentation.
 | [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Complete feature inventory (API/UI detail) |
 | [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
-| [API Documention.md](./docs/API%20Documention.md) | Integrator REST guide (`/api/v1`) |
+| [API Documention.md](./docs/API%20Documention.md) | Integrator REST guide (`/api/v1`) · [PDF](./docs/API%20Documention.pdf) |
 | [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
 | [DOVA-SECURITY-CHECKLIST-ASSESSMENT.md](./docs/DOVA-SECURITY-CHECKLIST-ASSESSMENT.md) | QA Security section — 4-item assessment |
 | [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
