@@ -2,6 +2,7 @@
 
 **dnShop Finance** — Financial Dashboard & Reporting Platform untuk Shopee Sellers Indonesia  
 **Owner:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Release:** **[v2.2.1](./docs/CHANGELOG.md)** (5 Sep 2026) · accounting depth **v2.2.0** (tag `v2.2.0` = `6b27974`)  
 **Specs shipped:** [`PRD/`](./PRD/) v1.0 + v2.0 · [`PRD/sopi/`](./PRD/sopi/) **v2.1 SOPI** · UI2 [`PRD/v2/…_Design.md`](./PRD/v2/dnShop_Finance_v2.1_Design.md) · **[`PRD/v2.2/`](./PRD/v2.2/) Accounting depth**  
 **PRD berikutnya:** **v3.0 Multi-marketplace** — lihat [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md)  
 **Posisi produk:** pembukuan = **bonus di akun seller**, bukan aplikasi akuntansi terpisah
@@ -68,7 +69,7 @@ CoA SAK EMKM · journal CRUD · auto-journal Shopee · GL · TB · P&L · BS · 
 ### v2.1 — SOPI go-live + UI2
 Live OAuth · order/income cron · webhook HMAC + DLQ · tier Free 100 / Starter 5000 · onboarding wizard · email + ops alerts · Socket.io · UI2 ops desk
 
-### v2.2 — Accounting depth (**Implemented** 10 Agu 2026)
+### v2.2 — Accounting depth (**Implemented** 10 Agu 2026 · patch **v2.2.1** 5 Sep 2026)
 | Fitur | UI | API (ringkas) |
 |-------|----|----------------|
 | Cash Flow (indirect) | `/journal/cf` | `GET …/journals/cash-flow` · export CSV/PDF |
@@ -104,6 +105,7 @@ Panduan: [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md) · [`docs/V22-PRODUCTION-C
 ```bash
 cd apps/backend && npm test && npm run build
 cd ../frontend && npm run build
+# opsional E2E: cd apps/frontend && npm run test:e2e
 curl -s http://127.0.0.1:6001/api/v1/auth/health
 curl -s http://127.0.0.1:6001/api/v1/health
 curl -s http://127.0.0.1:6001/api/v1/shopee/status
@@ -113,7 +115,7 @@ curl -s http://127.0.0.1:6001/api/v1/shopee/status
 
 | Area | Status |
 |------|--------|
-| MVP + v2.0 + UI2 + SOPI v2.1 + **v2.2 accounting** | **Done** di repo (`6b27974`+) |
+| MVP + v2.0 + UI2 + SOPI v2.1 + **v2.2 accounting** | **Done** · tag **v2.2.1** (`707b47e`) · ship v2.2.0 `6b27974` |
 | Live Shopee Open API | **Conditional ops** — `SHOPEE_PARTNER_ID` + webhook portal; kosong = mock |
 | Redis / SMTP / tier hard block | **Conditional ops** via env |
 | TypeORM migrations prod | **Done** — termasuk `172304…AddV22AccountingDepth` |
@@ -124,8 +126,9 @@ curl -s http://127.0.0.1:6001/api/v1/shopee/status
 
 | Dokumen | Isi |
 |---------|-----|
-| [`CHANGELOG.md`](./CHANGELOG.md) | Release notes |
+| [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) | Release notes (**v2.2.1**) |
 | [`docs/openapi-v1.yaml`](./docs/openapi-v1.yaml) | OpenAPI stub (critical routes) |
+| [`docs/CODE-REVIEW-BUNDLE-2026-09-05.md`](./docs/CODE-REVIEW-BUNDLE-2026-09-05.md) | Review engineering 5 Sep 2026 |
 | [`docs/STATUS.md`](./docs/STATUS.md) | Status implementasi living |
 | [`docs/docs.md`](./docs/docs.md) | Baseline + arah PRD |
 | [`docs/FEATURE-CATALOG.md`](./docs/FEATURE-CATALOG.md) | Katalog fitur |
