@@ -3,7 +3,7 @@
 > **Author:** Dozer  
 > **Date:** 2026-09-05
 
-**Document Version**: 1.14
+**Document Version**: 1.15
 **Last Updated**: September 5, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
@@ -29,15 +29,15 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **72** markdown | Production + **relaunch** · **v0.10.0** · HEAD `8e3b8a7` | `dntech` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **78** markdown | Production + **relaunch** · **v0.10.0** · HEAD `8e3b8a7` | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
-| **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog | **v2.2.1** shipped · next **v3.0** | `dnShopee` |
+| **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · HEAD `642b165` · register success modal · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
-| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF | MVP in repo · live publish Conditional | `auto` |
-| **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | 12 files | Go-live readiness | `tj` |
+| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) | MVP in repo · live publish Conditional | `auto` |
+| **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 
 **Total: markdown docs across products + 1 DOCX + archives**
@@ -48,7 +48,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
-| **dnShop Finance** | app `707b47e` / tag **v2.2.1** | Changelog 2.2.1; wiki mirror STATUS/catalog/v2.2 PRD; review bundle tim; next **v3.0** |
+| **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |
 | **DOVA** | app `642b165` / wiki sync | **Register success modal** (Bug-016) · **QA security checklist** (4/4 pass) · bcrypt + Paystack evidence doc |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
@@ -105,7 +105,8 @@ docs/products/
 ├── dntech/                    # Company Profile Website
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
-├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan)
+├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan) — v2.2.1
+├── aca/                       # Catat Duit — stub → private-wiki/aca/
 ├── dvs/                       # DuaVulnScanner (pentest platform)
 ├── dova/                      # DOVA marketplace — full docs + PRD (MVP → ops launch)
 ├── nearwork/                  # Nearwork Platform

@@ -26,16 +26,17 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**72** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `8e3b8a7`
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**78** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `8e3b8a7`
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
   - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · HEAD `642b165` · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
-  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)
-  - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (5 markdown)
+  - [Nearwork](./docs/products/nearwork/00_INDEX.md) (38 markdown)
+  - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (26 markdown)
   - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (17 markdown)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
+  - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer ke **private-wiki** (bukan produk tim)
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
 - [Careers PRD Summary](./products/11_CAREERS_PRD.md)
@@ -64,11 +65,12 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (296 markdown + 1 DOCX + 4 ZIP)
+│   └── products/          # Source docs per produk (427 markdown + 1 DOCX + 4 ZIP)
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
 │       ├── dnShopee/      # dnShop Finance (repo dnShopee) — v2.2.1
+│       ├── aca/            # Catat Duit — stub → private-wiki/aca/
 │       ├── dova/           # Marketplace (MVP → operations launch)
 │       ├── dvs/            # DuaVulnScanner (passive scanner MVP)
 │       ├── nearwork/
