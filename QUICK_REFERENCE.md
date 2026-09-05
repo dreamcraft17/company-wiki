@@ -279,6 +279,7 @@ company-wiki/
 │   │   ├── README.md      # product index
 │   │   ├── dnPeople/      # HRIS docs, PRD v6.1 status, current baseline mirror
 │   │   ├── dnShopee/      # dnShop Finance — SOPI v2.1 + UI2
+│   │   ├── porto/         # Personal portfolio — stub → private-wiki/porto/
 │   │   └── ...
 │   └── ...
 ├── products/
@@ -384,6 +385,19 @@ cp ../dnShopee/prd/sopi/*.md docs/products/dnShopee/PRD/sopi/
 
 # Fix STATUS links for wiki paths if needed, then update indexes
 code docs/products/dnShopee/00_INDEX.md docs/products/README.md docs/08_PRODUCTS.md README.md
+```
+
+### Update Porto (personal — do not mirror into company-wiki)
+
+Living docs go to **private-wiki**, not this repo:
+
+```bash
+# From dozer workspace (not from company-wiki/)
+cp ../porto/docs/*.md ../private-wiki/porto/docs/
+cp ../porto/DEPLOYMENT.md ../porto/SECURITY.md ../porto/AUDIT.md ../porto/LICENSE ../private-wiki/porto/docs/
+# Refresh HEAD/tests in private-wiki/porto/00_INDEX.md + current-implementation.md
+# Then only bump the pointer + indexes here:
+code docs/products/porto/README.md docs/products/porto/00_INDEX.md docs/products/README.md docs/08_PRODUCTS.md README.md
 ```
 
 ### Add New Documentation
@@ -577,4 +591,4 @@ git reset --soft HEAD~1 │ Undo last commit
 
 **Print this page or save as favorite for quick reference!** 📌
 
-*Last Updated: July 18, 2026*
+*Last Updated: September 5, 2026*

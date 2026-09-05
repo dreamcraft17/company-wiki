@@ -37,6 +37,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (17 markdown)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
   - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer ke **private-wiki** (bukan produk tim)
+  - [Porto](./docs/products/porto/README.md) — personal portfolio · pointer ke **private-wiki/porto/**
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
 - [Careers PRD Summary](./products/11_CAREERS_PRD.md)
@@ -71,6 +72,7 @@ company-wiki/
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
 │       ├── dnShopee/      # dnShop Finance (repo dnShopee) — v2.2.1
 │       ├── aca/            # Catat Duit — stub → private-wiki/aca/
+│       ├── porto/          # Personal portfolio — stub → private-wiki/porto/
 │       ├── dova/           # Marketplace (MVP → operations launch)
 │       ├── dvs/            # DuaVulnScanner (passive scanner MVP)
 │       ├── nearwork/

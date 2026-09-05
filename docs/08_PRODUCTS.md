@@ -3,7 +3,7 @@
 > **Author:** Dozer  
 > **Date:** 2026-09-05
 
-**Document Version**: 1.6  
+**Document Version**: 1.7  
 **Last Updated**: September 5, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
@@ -21,6 +21,7 @@
 - [Careers Module](#careers-module)
 - [dnPeople HRIS](#dnpeople-hris)
 - [Future Products / In Development](#future-products--in-development)
+- [Personal / Dozer-only](#personal--dozer-only)
 - [Product Lifecycle](#product-lifecycle)
 
 ---
@@ -349,6 +350,25 @@ DN Tech Products
 
 ---
 
+## Personal / Dozer-only
+
+Situs **personal** (bukan SKU penjualan DN Tech). Company-wiki hanya pointer; body di `private-wiki/`.
+
+### Porto
+
+| Aspek | Detail |
+|-------|--------|
+| Nama | Porto — personal portfolio + Laravel CMS |
+| Status | Live personal site · proprietary license |
+| Repository | `porto` (`dreamcraft17/porto`) |
+| Team wiki | Pointer [porto/](./products/porto/README.md) |
+| SSOT | `private-wiki/porto/` (Dozer-only) |
+| UpdatedAt | September 5, 2026 |
+
+Bukan company profile: compro tim tetap [dntech](./products/dntech/00_INDEX.md).
+
+---
+
 ## Product Lifecycle
 
 ### Stage Definitions
@@ -386,13 +406,13 @@ DN Tech Products
 
 ---
 
-*Last Updated: August 29, 2026*
+*Last Updated: September 5, 2026*
 
 | | |
 |---|---|
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DN Tech (DN Tech.id) |
-| UpdatedAt | July 18, 2026 |
+| UpdatedAt | September 5, 2026 |
 
 Property of DN Tech - PT. Dozer Napitupulu Technology . 2026

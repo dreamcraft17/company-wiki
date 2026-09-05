@@ -3,7 +3,7 @@
 > **Author:** Dozer  
 > **Date:** 2026-09-05
 
-**Document Version**: 1.15
+**Document Version**: 1.16
 **Last Updated**: September 5, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
@@ -39,6 +39,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
+| **Porto** (personal) | [porto/](./porto/00_INDEX.md) | Pointer only | Personal portfolio · **SSOT `private-wiki/porto/`** | `porto` |
 
 **Total: markdown docs across products + 1 DOCX + archives**
 
@@ -48,6 +49,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |
 | **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |
 | **DOVA** | app `642b165` / wiki sync | **Register success modal** (Bug-016) · **QA security checklist** (4/4 pass) · bcrypt + Paystack evidence doc |
@@ -107,6 +109,7 @@ docs/products/
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
 ├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan) — v2.2.1
 ├── aca/                       # Catat Duit — stub → private-wiki/aca/
+├── porto/                     # Personal portfolio — stub → private-wiki/porto/
 ├── dvs/                       # DuaVulnScanner (pentest platform)
 ├── dova/                      # DOVA marketplace — full docs + PRD (MVP → ops launch)
 ├── nearwork/                  # Nearwork Platform
