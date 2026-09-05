@@ -4,7 +4,7 @@
 
 ## Summary
 
-A combined bug-triage, test-quality, API-design, and CTO-strategy pass against DOVA at repo HEAD `ebd71bd`. No new application bugs were found in the 21 commits reviewed. The two risks that matter most right now are process (a declared P0 that was never verified) and coverage shape (the layer that talks to Postgres is almost untested, even though the suite around it looks healthy). Two small API design defects are cheap to fix now and more disruptive later. Related: [DOVA-BUG-TRIAGE.md](../code/DOVA-BUG-TRIAGE.md) · [current-phase.md](./current-phase.md) · [HANDOFF.md](./HANDOFF.md).
+A combined bug-triage, test-quality, API-design, and CTO-strategy pass against DOVA at repo HEAD `ebd71bd`. No new application bugs were found in the 21 commits reviewed. The two risks that matter most right now are process (a declared P0 that was never verified) and coverage shape (the layer that talks to Postgres is almost untested, even though the suite around it looks healthy). Two small API design defects are cheap to fix now and more disruptive later. Related: [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md) · [current-phase.md](./current-phase.md) · [HANDOFF.md](./HANDOFF.md).
 
 ---
 
@@ -18,7 +18,7 @@ A combined bug-triage, test-quality, API-design, and CTO-strategy pass against D
 | Unit suite grew from 146 → 160 tests, all passing, verified 2026-08-30. | — | — | ✅ Healthy |
 | No new application-code bugs found across the 21-commit range (mix of auth UX, admin delete, docs/CORS fixes). | — | — | ✅ Clean |
 
-**Action:** run `SMOKE_OTP_CODE=123456 npm run smoke:production`, save the log to `ops/logs/smoke-production-latest.log`, close TRI-001. Full detail in [DOVA-BUG-TRIAGE.md](../code/DOVA-BUG-TRIAGE.md) (updated 2026-08-30).
+**Action:** run `SMOKE_OTP_CODE=123456 npm run smoke:production`, save the log to `ops/logs/smoke-production-latest.log`, close TRI-001. Full detail in [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md) (updated 2026-08-30).
 
 ---
 
@@ -73,7 +73,7 @@ No OpenAPI/Swagger spec exists in the repo, so the automated linter/breaking-cha
 
 ## Sources
 
-- Bug triage: [DOVA-BUG-TRIAGE.md](../code/DOVA-BUG-TRIAGE.md)
+- Bug triage: [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md)
 - Test suite: `apps/backend/src/*.spec.ts`, `apps/frontend/src/lib/*.spec.ts`, `shared/src/*.spec.ts`
 - API surface: `apps/backend/src/app.controller.ts`, `apps/backend/src/main.ts`
 - Current phase: [current-phase.md](./current-phase.md)
