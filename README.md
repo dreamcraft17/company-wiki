@@ -1,7 +1,7 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29
+> **Date:** 2026-09-05
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
@@ -29,7 +29,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**72** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `8e3b8a7`
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · v15 Admin + Xendit PG · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
-  - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — **v2.1 SOPI + UI2 Implemented** · next v2.2
+  - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
   - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · HEAD `642b165` · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (34 markdown)
@@ -68,7 +68,7 @@ company-wiki/
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
-│       ├── dnShopee/      # dnShop Finance (repo dnShopee) — SOPI v2.1 + UI2
+│       ├── dnShopee/      # dnShop Finance (repo dnShopee) — v2.2.1
 │       ├── dova/           # Marketplace (MVP → operations launch)
 │       ├── dvs/            # DuaVulnScanner (passive scanner MVP)
 │       ├── nearwork/
@@ -93,4 +93,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: August 29, 2026 · Leadership: CEO + Tech Lead + PM (Dozer)*
+*Last Updated: September 5, 2026 · Leadership: CEO + Tech Lead + PM (Dozer)*

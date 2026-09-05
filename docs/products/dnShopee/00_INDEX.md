@@ -2,10 +2,10 @@
 
 **Product:** dnShop Finance — dashboard keuangan + pembukuan bonus untuk seller Shopee Indonesia  
 **Repository / path:** `dnShopee/`  
-**Status:** **v2.1 SOPI go-live + UI2 Implemented** (6 Agustus 2026) · next **v2.2 Accounting depth**  
+**Status:** **v2.2.1** accounting depth + QA contracts (5 Sep 2026) · next **v3.0 Multi-marketplace**  
 **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
 **Prod:** Web `https://shop.dntech.id` · API `https://api.shop.dntech.id`  
-**UpdatedAt:** 6 Agustus 2026  
+**UpdatedAt:** 5 September 2026  
 
 > **Canonical app docs:** workspace `dnShopee/docs/` + `dnShopee/prd/`  
 > **This folder:** company-wiki mirror — keep in sync when shipping.
@@ -18,7 +18,8 @@
 |-------|---------|
 | Status fitur | [docs/STATUS.md](./docs/STATUS.md) |
 | Baseline + next PRD | [docs/docs.md](./docs/docs.md) |
-| Briefing PRD berikutnya | [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) → **v2.2** |
+| Briefing PRD berikutnya | [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) → **v3.0** |
+| Changelog | [docs/CHANGELOG.md](./docs/CHANGELOG.md) |
 | Deploy VPS | [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md) |
 | Demo accounts | [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) |
 | UAT beta | [docs/UAT-PLAYBOOK-v2.1.md](./docs/UAT-PLAYBOOK-v2.1.md) |
@@ -31,7 +32,10 @@
 | [README.md](./README.md) | Overview + quick start |
 | [docs/STATUS.md](./docs/STATUS.md) | Implementation status |
 | [docs/docs.md](./docs/docs.md) | Living baseline |
-| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Brief PRD v2.2 |
+| [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Brief PRD **v3.0** |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Keep a Changelog · **v2.2.1** |
+| [docs/CODE-REVIEW-BUNDLE-2026-09-05.md](./docs/CODE-REVIEW-BUNDLE-2026-09-05.md) | Engineering review (tim) — bukan equity |
+| [docs/V22-PRODUCTION-CHECKLIST.md](./docs/V22-PRODUCTION-CHECKLIST.md) | v2.2 go-live checklist |
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Available / Conditional / Roadmap |
 | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | Snapshot stack & modules |
 | [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md) | Deploy tanpa Docker |
@@ -48,7 +52,7 @@
 | [PRD/dnShop_Finance_v2.1_PRD.md](./PRD/dnShop_Finance_v2.1_PRD.md) | PRD v2.1 (pointer → SOPI) |
 | [PRD/sopi/](./PRD/sopi/) | **Canonical v2.1** PRD / SRS / SDD (SOPI) — Implemented |
 | [PRD/v2/dnShop_Finance_v2.1_Design.md](./PRD/v2/dnShop_Finance_v2.1_Design.md) | **UI2 Design** — Implemented |
-| [PRD/v2/dnShop_Finance_v2.1_PRD.md](./PRD/v2/dnShop_Finance_v2.1_PRD.md) | PRD v2.1 (v2 folder) |
+| [PRD/v2.2/](./PRD/v2.2/) | **Canonical v2.2** PRD / SRS / SDD — Implemented |
 
 ---
 
@@ -62,8 +66,9 @@
 | Pembukuan | Bonus seller · nav Pembukuan · CoA SAK EMKM |
 | Tier | Free 100 lifetime · Starter 5000/mo |
 | Shopee | Mock tanpa key · live OAuth/webhook/cron dengan partner key |
-| Tests | Backend 26 pass |
-| Next | v2.2 cash flow / COGS / Accurate / e-Faktur |
+| Tests | Backend **65** pass (11 suites, 2026-09-05) |
+| Next | **v3.0** multi-marketplace |
+| HEAD | `dnShopee` **v2.2.1** / `707b47e` |
 
 ## Quick links
 
@@ -81,4 +86,4 @@
 
 ---
 
-*Last Updated: 6 Agustus 2026*
+*Last Updated: 5 September 2026*

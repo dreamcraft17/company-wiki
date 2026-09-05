@@ -3,28 +3,28 @@
 | | |
 |---|---|
 | **Dokumen** | Baseline living + briefing PRD berikutnya |
-| **Tanggal** | 6 Agustus 2026 |
+| **Tanggal** | 10 Agustus 2026 |
 | **Produk** | dnShop Finance — dashboard seller Shopee + **pembukuan sebagai bonus seller** |
-| **Baseline kode** | v1.0 + **v2.0 Pembukuan** + dashboard charts + **UI2 ops desk** + **SOPI go-live (v2.1)** |
-| **Spec shipped** | PRD / SRS / SDD **v1.0 + v2.0** di [`prd/`](../PRD/) · **v2.1 SOPI** di [`prd/sopi/`](../PRD/sopi/) · Design UI2 di [`prd/v2/…_Design.md`](../PRD/v2/dnShop_Finance_v2.1_Design.md) |
-| **Spec berikutnya** | **v2.2** Accounting depth — [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md) |
-| **Owner** | Dozer (CEO + Tech Lead + PM) · DN Tech |
+| **Baseline kode** | v1.0 + v2.0 + UI2 + SOPI v2.1 + **v2.2 Accounting depth** |
+| **Spec shipped** | [`prd/`](../PRD/) v1–v2.0 · [`prd/sopi/`](../PRD/sopi/) v2.1 · [`prd/v2/`](../PRD/v2/) UI2 · **[`prd/v2.2/`](../PRD/v2.2/) Accounting** |
+| **Spec berikutnya** | **v3.0** Multi-marketplace — [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md) |
+| **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
 | **Path** | `dnShopee/` |
-| **Prod (DN Tech)** | Web `https://shop.dntech.id` · API `https://api.shop.dntech.id` |
+| **Prod** | `https://shop.dntech.id` · `https://api.shop.dntech.id` |
 
-> **Cara pakai:** Jangan janjikan ulang §3 sebagai fitur baru. Tulis PRD berikutnya hanya dari §5–§6.
+> **Cara pakai:** Jangan janjikan ulang §3 sebagai fitur baru. Tulis PRD berikutnya hanya dari §5.
 
 ---
 
 ## 1. Keputusan singkat: PRD berikutnya tentang apa?
 
-| Jalur | Isi | Kapan |
+| Jalur | Isi | Status |
 |-------|-----|--------|
-| **A — Go-live ops (v2.1 / SOPI)** | Partner Shopee live, SMTP, Redis, onboarding, tier, observability | **Shipped** — 6 Agustus 2026 |
-| **B — Pembukuan Phase 3** | Cash flow statement, COGS inventory automation, MYOB/Jurnal/Accurate sync, e-Faktur dari jurnal | **Berikutnya → v2.2** |
-| **C — Multi-marketplace** | Tokopedia connector + unified orders | Setelah B atau cohort adopsi stabil |
+| **A — Go-live ops (v2.1 / SOPI)** | Partner Shopee live, SMTP, Redis, onboarding, tier, observability | **Shipped** |
+| **B — Accounting depth (v2.2)** | Cash flow, COGS, Accurate/Jurnal/MYOB, e-Faktur dari jurnal, tutup buku | **Shipped** 10 Agu 2026 |
+| **C — Multi-marketplace** | Tokopedia + unified orders | **P0 berikutnya → v3.0** |
 
-**Rekomendasi:** **Jalur B → v2.2**. Detail: [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md).
+**Rekomendasi:** **Jalur C → v3.0**. Detail: [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md).
 
 ---
 
@@ -33,54 +33,35 @@
 | Item | Nilai |
 |------|--------|
 | Frontend | Next.js 15 · React 19 · Tailwind · Recharts · port **6000** |
-| UI | **UI2 ops desk** — Syne + IBM Plex · signal orange · panel tajam · theme dark/light |
-| Backend | NestJS 10 · TypeORM · JWT · Socket.io `/realtime` · port **6001** |
-| Pembukuan API | `/api/v1/shops/:shopId/journals/...` |
-| Posisi fitur | Nav **Pembukuan** — **bonus seller**, bukan produk akuntansi terpisah |
-| Dashboard | KPI + tren + pie/bar · filter **7 hari / 30 hari / custom** |
-| Shopee | Mock jika key kosong · live OAuth + webhook + cron order/income jika key set |
-| Tier | Free **100 lifetime** · Starter **5000/bulan** · Pro/Ent unlimited (`TIER_ENFORCE`) |
-| Feature flag | `ENABLE_JOURNALING` (default true) |
-| DB prod | Supabase Postgres (`DB_SSL=true`) atau Postgres native |
-| Demo | Seed CoA + 100+ entries — [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) |
-| Tests | Backend **26** pass (tax · shopee · phase2 · journal · v21/SOPI) |
+| UI | UI2 ops desk · landing Plus Jakarta Sans headline · theme dark/light |
+| Backend | NestJS 10 · TypeORM · JWT · Socket.io · ExcelJS · port **6001** |
+| Pembukuan | `/journal/*` — bonus seller (bukan software akuntansi terpisah) |
+| v2.2 surfaces | `/journal/cf` · `/cogs` · `/export` · `/efaktur` · `/close` |
+| Shopee | Mock jika key kosong · live OAuth + webhook + cron jika key set |
+| Tier | Free **100 lifetime** · Starter **5000/bulan** |
+| Health publik | `GET /api/v1/health` · `GET /api/v1/shopee/status` |
+| Demo | [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) |
+| Go-live v2.2 | [V22-PRODUCTION-CHECKLIST.md](./V22-PRODUCTION-CHECKLIST.md) |
 
 ---
 
 ## 3. Yang sudah Done (jangan diulang)
 
-### 3.1 v1.0 (tetap)
-Auth · Shopee OAuth mock/live · sync · products/orders/payments · dashboard agregat · reports PDF · tax · bank CSV · team RBAC · notifications
+### 3.1–3.4
+v1.0 · v2.0 pembukuan · UI2 · SOPI v2.1 — lihat [`STATUS.md`](./STATUS.md)
 
-### 3.2 v2.0 Pembukuan seller (bukan modul terpisah)
-- **Posisi produk:** bonus di akun seller — Dashboard / Laporan / Pajak / Bank / menu **Pembukuan**
-- Chart of Accounts template **SAK EMKM 45 akun** + custom 4-digit
-- Manual journal · auto-journal Shopee · GL · TB · P&L · BS · audit PDF · bank match
-- Frontend `/journal/*` (label UI: **Pembukuan**) · permission `journal`
+### 3.5 v2.2 Accounting depth (10 Agustus 2026) — **shipped**
+- Cash Flow statement (indirect) + export CSV/PDF
+- Auto-COGS average (DR 5100 / CR 1300) · inventory costing · reverse · cron 4 jam WIB
+- Export GL Accurate / Jurnal / MYOB (XLSX/CSV) + mapping editable
+- e-Faktur XML dari journal posted
+- Tutup buku checklist + period lock enforce + unlock owner
+- Non-gangguan OpenAPI: hook COGS setelah order di DB; tidak rewrite OAuth/webhook
+- Spec: [`prd/v2.2/`](../PRD/v2.2/) · prep: [`PRD-v2.2-Accounting-Depth-PREP.md`](./PRD-v2.2-Accounting-Depth-PREP.md)
 
-### 3.3 Dashboard & UI2 ops desk (Agustus 2026)
-- Chart tren, komposisi, status, metode bayar, produk terlaris, per-toko
-- Filter periode unlimited · angka + % pada pie
-- Design system UI2: tokens dark ops desk, wizard, upsell, Shopee connect, theme toggle
-- Spec: [`prd/v2/dnShop_Finance_v2.1_Design.md`](../PRD/v2/dnShop_Finance_v2.1_Design.md)
-
-### 3.4 SOPI go-live / v2.1 (6 Agustus 2026) — **shipped**
-- Live Shopee OAuth (Redis/memory state TTL 10m) · `/auth/shopee-callback`
-- Order sync cursor ~06:00 WIB · income `get_income_detail` ~08:00 WIB + auto-journal
-- Webhook `POST /api/v1/webhooks/shopee` · HMAC SOPI · DLQ + admin replay
-- Tier Free 100 lifetime / Starter 5000/mo · `tier_enforcement_log`
-- Onboarding pembukuan step-1/2/3 + wizard UI
-- HTML email templates + `email_log` · bounce webhook · forgot rate-limit 3/jam
-- OTP verify UI · reset password
-- Ops alerts (email &lt;90%/1h, DLQ &gt;10, Redis, 5xx) · health extended
-- Socket.io realtime · beta invite + UAT checklist
-- Spec: [`prd/sopi/`](../PRD/sopi/) · status: [`STATUS.md`](./STATUS.md)
-
-### 3.5 Ops / deploy DN Tech
-- VPS **tanpa Docker** · pm2 `dnshop-api` / `dnshop-web`
-- Domain: `shop.dntech.id` · `api.shop.dntech.id`
-- Cloudflare: `api.shop.*` → **DNS only** + LE origin (bukan Proxied Universal SSL)
-- Health: `GET /api/v1/auth/health`
+### 3.6 Ops / deploy DN Tech
+- VPS tanpa Docker · pm2 · `shop.dntech.id` / `api.shop.dntech.id`
+- Migration prod termasuk `172304…AddV22AccountingDepth`
 
 ---
 
@@ -88,37 +69,29 @@ Auth · Shopee OAuth mock/live · sync · products/orders/payments · dashboard 
 
 | Item | Catatan |
 |------|---------|
-| Live Shopee partner | Butuh `SHOPEE_PARTNER_ID` / `KEY` + webhook di portal Shopee; kosong = mock |
-| SMTP | Kirim jika SMTP set; tanpa itu log + `email_log` status |
-| Redis | Queue/Bull jika `REDIS_HOST` set; fallback inline / memory state |
-| Beta cohort | Playbook siap — eksekusi 10–50 seller = ops, bukan coding |
+| Live Shopee partner | `SHOPEE_PARTNER_ID` / `KEY` + webhook portal; kosong = mock |
+| Partner verification | Ops — [`sopi/…remediation-plan…`](../sopi/dnshop-shopee-partner-remediation-plan-id.md) |
+| SMTP / Redis / TIER_ENFORCE | Via env |
+| UAT Accurate import / DJP XML | Manual — checklist V22 |
 
 ---
 
 ## 5. Greenfield PRD berikutnya
 
-> **Brief:** [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md)
+### 5.1 v3.0 — Multi-marketplace (Jalur C — **P0 berikutnya**)
+Tokopedia connector · unified order model · settlement lintas channel
 
-### 5.1 v2.2 — Accounting depth (Jalur B — **P0 berikutnya**)
-Cash Flow Statement · COGS dari inventori · sync MYOB/Jurnal/Accurate · e-Faktur dari posted journals
-
-### 5.2 v3.0 — Multi-marketplace (Jalur C)
-Tokopedia adapter · unified order model · settlement lintas channel
+### 5.2 Ops parallel (bukan epic coding v3.0)
+Partner Shopee profile + trial account + proof PDF
 
 ---
 
 ## 6. Checklist story (wajib)
 
-1. Acceptance Given/When/Then  
-2. RBAC toko + `journal` permission  
-3. Isolasi `shopId`  
-4. Audit pada mutasi finansial  
-5. Mock Shopee tetap jalan  
-6. Regresi seed `seller@dnshop.id`  
-7. Update STATUS.md  
+1. AC Given/When/Then · 2. RBAC + `shopId` · 3. Audit finansial · 4. Mock Shopee tetap jalan · 5. Regresi seed · 6. Update STATUS.md · 7. **Tidak merusak** OAuth/webhook/cron Shopee
 
 ---
 
 ## 7. Satu kalimat penutup
 
-> dnShop Finance **v2.0 pembukuan + UI2 ops desk + SOPI v2.1 go-live sudah di repo**. PRD berikutnya = **v2.2 accounting depth** — jangan ulangi OAuth/webhook/email/onboarding/tier/UI dasar.
+> dnShop Finance **v2.1 go-live + v2.2 accounting depth sudah di repo**. PRD berikutnya = **v3.0 multi-marketplace** — jangan ulangi cash flow / COGS / export / e-Faktur / OAuth sebagai fitur baru.

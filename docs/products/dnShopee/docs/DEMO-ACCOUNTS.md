@@ -20,6 +20,8 @@ Per toko (`Toko Demo Nusantara`, `Official Store Gayo`):
 - **Sync log** selesai
 - **v2.0 Pembukuan:** CoA SAK EMKM (45 akun), modal awal, auto-journal dari pesanan, beban operasional, 1+ PENDING approval, draft accountant
 - **v2.1 / SOPI:** toko default tier `free` (100 lifetime); wizard onboarding siap; Shopee mock sampai partner key diisi
+- **v2.2 Accounting:** setelah sync/delivered, COGS dapat di-generate via `/journal/cogs` → Sync Auto-COGS; coba `/journal/cf`, `/export`, `/efaktur`, `/close`
+- **Demo DB:** toko `isDemo=true` · order_sn / item_id / income `get_income_detail`-shaped · toggle **Demo DB** di header UI (`POST /shops/demo/enable`)
 
 Buka UI:
 
@@ -27,6 +29,7 @@ Buka UI:
 |---|---|---|
 | Login | http://localhost:6000/login | https://shop.dntech.id/login |
 | Pembukuan | http://localhost:6000/journal | https://shop.dntech.id/journal |
+| Arus kas / HPP / Ekspor | `/journal/cf` · `/cogs` · `/export` | sama |
 | Dashboard charts | filter 7 hari / 30 hari / custom | sama |
 
 ## Jalankan seed

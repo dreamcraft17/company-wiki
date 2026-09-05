@@ -1,10 +1,10 @@
 # Product Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29
+> **Date:** 2026-09-05
 
-**Document Version**: 1.13
-**Last Updated**: August 29, 2026
+**Document Version**: 1.14
+**Last Updated**: September 5, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -32,7 +32,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **72** markdown | Production + **relaunch** · **v0.10.0** · HEAD `8e3b8a7` | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
-| **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI PRD/SRS/SDD + UI2 Design | **v2.1 SOPI + UI2 Implemented** · next v2.2 | `dnShopee` |
+| **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog | **v2.2.1** shipped · next **v3.0** | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · HEAD `642b165` · register success modal · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
@@ -44,10 +44,11 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
-## 🔄 Latest Updates (August 29, 2026)
+## 🔄 Latest Updates (September 5, 2026)
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
+| **dnShop Finance** | app `707b47e` / tag **v2.2.1** | Changelog 2.2.1; wiki mirror STATUS/catalog/v2.2 PRD; review bundle tim; next **v3.0** |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |
 | **DOVA** | app `642b165` / wiki sync | **Register success modal** (Bug-016) · **QA security checklist** (4/4 pass) · bcrypt + Paystack evidence doc |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
@@ -128,4 +129,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: August 29, 2026*
+*Last Updated: September 5, 2026*

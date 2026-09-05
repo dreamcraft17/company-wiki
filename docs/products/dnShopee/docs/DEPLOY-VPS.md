@@ -13,6 +13,29 @@ Redis opsional — kosongkan `REDIS_HOST` maka sync/laporan jalan **inline**.
 | DB | Supabase pooler + `DB_SSL=true` |
 | `.env` | `apps/backend/.env` dan `apps/frontend/.env` (bukan root repo) |
 
+### Setelah pull v2.2 (Accounting depth)
+
+Migration `1723040000000-AddV22AccountingDepth` jalan otomatis saat `dnshop-api` boot (`migrationsRun` di production).  
+Checklist smoke: [`V22-PRODUCTION-CHECKLIST.md`](./V22-PRODUCTION-CHECKLIST.md).
+
+```bash
+cd /var/www/dntech/dnshopee   # sesuaikan path
+git pull
+cd apps/backend && npm ci && npm run build && pm2 restart dnshop-api
+cd ../frontend && npm ci && npm run build && pm2 restart dnshop-web
+curl -s https://shop.dntech.id/api/v1/health
+curl -s https://shop.dntech.id/api/v1/shopee/status
+```
+
+UI baru (login dulu): `/journal/cf` · `/journal/cogs` · `/journal/export` · `/journal/efaktur` · `/journal/close`
+
+Env opsional:
+
+```env
+COGS_CRON_DISABLED=false
+EFAKTUR_SCHEMA_VERSION=3.0
+```
+
 ---
 
 ## 1. Database
@@ -183,16 +206,29 @@ Kalau Proxied + Universal SSL: browser sering `ERR_SSL_VERSION_OR_CIPHER_MISMATC
 
 ## 6. Deploy update kode
 
+`git pull` **saja tidak cukup** — Nest/Next jalan dari `dist` / `.next`. Tanpa `build` + `pm2 restart`, tombol **Aktifkan Demo DB** dan API lain tetap pakai kode lama.
+
 ```bash
 cd /var/www/dntech/dnshopee
 git pull
 
-cd apps/backend && npm ci && npm run build && pm2 restart dnshop-api
-cd ../frontend && npm ci && npm run build && pm2 restart dnshop-web
+cd apps/backend && npm ci && npm run build && pm2 restart dnshop-api --update-env
+cd ../frontend && npm ci && npm run build && pm2 restart dnshop-web --update-env
 
-curl -s https://api.shop.dntech.id/api/v1/auth/health
-# {"ok":true,"service":"dnshop-finance-api"}
+curl -s http://127.0.0.1:6001/api/v1/auth/health
+# {"ok":true,...,"version":"..."}
 ```
+
+### Seed / Demo DB
+
+```bash
+cd /var/www/dntech/dnshopee/apps/backend
+npm run seed:force   # CLI — wipe + isi ulang semua demo shop
+```
+
+Atau di UI: **Aktifkan Demo DB** → `POST /shops/demo/enable` `{ "refresh": true }` (butuh API sudah di-rebuild).
+
+Kalau seed gagal skema SOPI (snake vs camel `shopId`), `seed.ts` drop tabel disposable lalu synchronize. Cek error: `pm2 logs dnshop-api --lines 40 --nostream`.
 
 ---
 

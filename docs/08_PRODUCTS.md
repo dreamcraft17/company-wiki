@@ -1,15 +1,15 @@
 # Product Portfolio
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29
+> **Date:** 2026-09-05
 
-**Document Version**: 1.5  
-**Last Updated**: August 29, 2026  
+**Document Version**: 1.6  
+**Last Updated**: September 5, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: August 29, 2026
+**UpdatedAt**: September 5, 2026
 
 ---
 
@@ -64,7 +64,7 @@ DN Tech Products
 │
 ├── 🛒 dnShop Finance                         → docs/products/dnShopee/
 │   ├── Shopee seller dashboard + pembukuan bonus
-│   ├── SOPI go-live v2.1 + UI2 ops desk
+│   ├── SOPI v2.1 + UI2 + **v2.2.1** accounting depth
 │   └── Repo: dnShopee · prod shop.dntech.id
 │
 ├── 📍 Nearwork                               → docs/products/nearwork/
@@ -257,18 +257,18 @@ DN Tech Products
 | Nama | dnShop Finance |
 | Brand | dnShop · DN Tech |
 | Owner | Dozer (CEO + Tech Lead + PM) |
-| Status | **v2.1 SOPI go-live + UI2 Implemented** (6 Agustus 2026) · next **v2.2 Accounting depth** |
+| Status | **v2.2.1** accounting depth shipped (5 Sep 2026) · next **v3.0 Multi-marketplace** |
 | Target | Seller UMKM Shopee Indonesia |
 | Stack | Next.js 15 + NestJS 10 + Postgres/Supabase · Redis opsional |
 | Prod | `https://shop.dntech.id` · API `https://api.shop.dntech.id` |
 | Repository | `dnShopee` |
 | Docs | [→](./products/dnShopee/00_INDEX.md) |
-| UpdatedAt | August 6, 2026 |
+| UpdatedAt | September 5, 2026 |
 
 ### Fitur (ringkas)
 
 - Dashboard Shopee + charts · orders/payments/tax/bank
-- **Pembukuan bonus seller** (CoA SAK EMKM, journal, GL, P&L)
+- **Pembukuan bonus seller** + **v2.2** cash flow, COGS, export, e-Faktur, tutup buku
 - Live OAuth / webhook / income sync (mock tanpa partner key)
 - Tier Free 100 lifetime / Starter 5000/mo · onboarding wizard · email OTP
 - UI2 ops desk (theme dark/light)
@@ -282,7 +282,9 @@ DN Tech Products
 | Feature catalog | [FEATURE-CATALOG.md](./products/dnShopee/docs/FEATURE-CATALOG.md) |
 | SOPI PRD | [PRD/sopi/](./products/dnShopee/PRD/sopi/) |
 | UI2 Design | [PRD/v2/…_Design.md](./products/dnShopee/PRD/v2/dnShop_Finance_v2.1_Design.md) |
-| Next PRD brief | [NEXT-PRD-BRIEF.md](./products/dnShopee/docs/NEXT-PRD-BRIEF.md) |
+| Changelog | [CHANGELOG.md](./products/dnShopee/docs/CHANGELOG.md) |
+| v2.2 spec | [PRD/v2.2/](./products/dnShopee/PRD/v2.2/) |
+| Next PRD brief | [NEXT-PRD-BRIEF.md](./products/dnShopee/docs/NEXT-PRD-BRIEF.md) → **v3.0** |
 
 ---
 

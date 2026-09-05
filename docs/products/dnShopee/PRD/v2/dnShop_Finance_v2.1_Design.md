@@ -3,7 +3,7 @@
 
 **Document:** Design PRD / SRS / SDD v2.1  
 **Date:** 5 Agustus 2026 · **Status:** **Implemented** (UI2 ops desk di frontend — 6 Agustus 2026)  
-**Owner:** Dozer (CEO + Tech Lead + PM), DN Tech  
+**Owner:** Dozer (CEO + Tech Lead), DN Tech  
 **Scope:** Design system baseline + spec layar (wizard, tier upsell, observability, onboarding)  
 **Audience:** Developer yang implement + siapapun yang review visual direction  
 **Living:** [`docs/STATUS.md`](../../docs/STATUS.md) · [`docs/docs.md`](../../docs/docs.md)

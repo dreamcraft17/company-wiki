@@ -3,7 +3,7 @@
 
 **Document:** PRD v2.1 (Phase A — Go-live ops)  
 **Date:** 5 Agustus 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM), DN Tech  
+**Owner:** Dozer (CEO + Tech Lead), DN Tech  
 **Product:** dnShop Finance — Shopee seller dashboard + pembukuan bonus  
 **Baseline:** v1.0 MVP + v2.0 Pembukuan + dashboard charts + ops desk UI  
 **Status:** **Implemented** (6 Agustus 2026) — SOPI go-live + UI2; lihat `docs/STATUS.md`. PRD berikutnya = **v2.2** (`docs/NEXT-PRD-BRIEF.md`).

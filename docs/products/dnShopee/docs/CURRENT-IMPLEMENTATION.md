@@ -1,48 +1,48 @@
 # dnShop Finance — Current Implementation
 
-**Updated:** 6 Agustus 2026  
+**Updated:** 10 Agustus 2026  
 **Path:** `dnShopee/`  
-**Status:** v1.0 + v2.0 pembukuan + UI2 + **SOPI v2.1.1 Local/CB 100%** shipped in repo
+**Status:** v1.0 + v2.0 + UI2 + SOPI v2.1 + **v2.2 Accounting depth** shipped
 
 ## Stack
 
 | Layer | Tech |
 |-------|------|
-| Frontend | Next.js 15 · React 19 · Tailwind · Recharts · Syne + IBM Plex · port 6000 |
-| Backend | NestJS 10 · TypeORM · JWT · Socket.io · port 6001 |
+| Frontend | Next.js 15 · React 19 · Tailwind · Recharts · Syne + Plus Jakarta Sans + IBM Plex · port 6000 |
+| Backend | NestJS 10 · TypeORM · JWT · Socket.io · ExcelJS · pdfkit · port 6001 |
 | DB | PostgreSQL 15 / Supabase (`DB_SSL=true`) |
-| Cache/queue | Redis optional (inline fallback) · dashboard in-process cache |
+| Cache/queue | Redis optional (inline fallback) |
 
 ## Layout repo
 
 ```
 dnShopee/
-├── apps/frontend/     # UI2 ops desk + pembukuan + auth OTP
-├── apps/backend/      # Nest API + SOPI sync/webhook/mail/tier
-├── docs/              # living STATUS, DEPLOY, NEXT-PRD-BRIEF
+├── apps/frontend/     # UI2 + pembukuan (+ v2.2 tabs) + auth
+├── apps/backend/      # Nest API + SOPI + v22-accounting
+├── docs/              # STATUS, DEPLOY, V22 checklist, NEXT-PRD
+├── sopi/              # partner remediation (ops)
 └── prd/
-    ├── sopi/          # canonical v2.1 / v2.1.1 PRD/SRS/SDD (Implemented)
-    └── v2/            # Design UI2 + related v2.1 drafts
+    ├── sopi/          # v2.1 (Implemented)
+    ├── v2/            # UI2 design
+    └── v2.2/          # Accounting depth (Implemented)
 ```
 
 ## Key modules (backend)
 
-- `auth.ts` — JWT, OTP, forgot rate-limit
-- `mail.ts` + `templates/` — HTML inject + unsubscribe + `email_log`
-- `shopee-client.ts` / `shopee-sync.ts` — OAuth, order/income/payout cron, auto-journal
-- `shopee-journal.ts` — Local (2-line) / CB (3-line + FX 5140) builders
-- `tier.ts` — Free 100 lifetime / Starter 5000
-- `v21.ts` — observability + ops alerts + backfill progress
-- journals / shops onboarding pembukuan · `PATCH /shops/:id/mode`
-- webhooks Shopee + email bounce
+- `auth.ts` — JWT, OTP, health
+- `sopi-public.ts` — `GET /health`, `/shopee/status`, `/shopee/orders`
+- `shopee-client.ts` / `shopee-sync.ts` — OAuth, order/income cron, COGS hook (non-breaking)
+- `journal.ts` — CoA, entries, FS, **period lock**, `postSystemEntry`
+- **`v22-accounting.ts`** — CashFlow · Cogs (+ 4h cron) · AccountingExport · e-Faktur · ClosePeriod
+- `tier.ts` · `v21.ts` — tier, observability, daily crons
+- Migration `1723040000000-AddV22AccountingDepth.ts`
 
 ## Key modules (frontend)
 
-- `app-shell.tsx` — nav Pembukuan + theme toggle + Demo DB
-- Settlements — Shopee payout reconcile + income + discrepancy summary
-- `journal.tsx` + `journal-onboarding.tsx` — wizard + quota remaining
-- `shopee-integration.tsx` — Local/CB toggle + auth status
-- `globals.css` — UI2 design tokens
+- `app-shell.tsx` — nav Pembukuan + theme
+- **`journal.tsx`** — tabs cf / cogs / export / efaktur / close + existing GL/P&L/…
+- `journal-onboarding.tsx` · `shopee-integration.tsx` · `brand-logo.tsx`
+- `globals.css` — UI2 tokens · landing
 
 ## Verification
 
@@ -59,4 +59,4 @@ cd ../frontend && npm run build
 | API | https://api.shop.dntech.id/api/v1 |
 | pm2 | `dnshop-web` · `dnshop-api` |
 
-Detail deploy: [DEPLOY-VPS.md](./DEPLOY-VPS.md)
+Deploy: [DEPLOY-VPS.md](./DEPLOY-VPS.md) · [V22-PRODUCTION-CHECKLIST.md](./V22-PRODUCTION-CHECKLIST.md)

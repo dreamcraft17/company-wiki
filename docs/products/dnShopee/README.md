@@ -1,17 +1,17 @@
 # dnShop Finance
 
 **dnShop Finance** — Financial Dashboard & Reporting Platform untuk Shopee Sellers Indonesia  
-**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
-**Specs shipped:** [`prd/`](./prd/) v1.0 + v2.0 · [`prd/sopi/`](./prd/sopi/) **v2.1 SOPI go-live** · UI2 [`prd/v2/…_Design.md`](./prd/v2/dnShop_Finance_v2.1_Design.md)  
-**PRD berikutnya:** [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md) → **v2.2 Accounting depth**  
-**Posisi v2.0:** pembukuan = **bonus di akun seller**, bukan aplikasi akuntansi terpisah
+**Owner:** DN Tech (PT. Dozer Napitupulu Technology)  
+**Specs shipped:** [`PRD/`](./PRD/) v1.0 + v2.0 · [`PRD/sopi/`](./PRD/sopi/) **v2.1 SOPI** · UI2 [`PRD/v2/…_Design.md`](./PRD/v2/dnShop_Finance_v2.1_Design.md) · **[`PRD/v2.2/`](./PRD/v2.2/) Accounting depth**  
+**PRD berikutnya:** **v3.0 Multi-marketplace** — lihat [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md)  
+**Posisi produk:** pembukuan = **bonus di akun seller**, bukan aplikasi akuntansi terpisah
 
 ## Stack
 
 | Layer | Tech |
 |-------|------|
-| Frontend | Next.js 15 · React 19 · Tailwind · Recharts · Syne + IBM Plex Sans · port **6000** |
-| Backend | NestJS 10 · TypeORM · Passport JWT · Socket.io · port **6001** |
+| Frontend | Next.js 15 · React 19 · Tailwind · Recharts · Syne + Plus Jakarta Sans (hero) + IBM Plex · port **6000** |
+| Backend | NestJS 10 · TypeORM · Passport JWT · Socket.io · ExcelJS · port **6001** |
 | Data | PostgreSQL 15 (native atau **Supabase**) · Redis 7 (opsional) |
 | Shopee | OAuth 2.0 + Open API live client · **mock mode** jika kredensial kosong |
 
@@ -37,60 +37,49 @@ npm install
 npm run dev                   # http://localhost:6000
 ```
 
-Opsional lokal dengan Docker Compose (hanya jika Anda memakai Docker):
+Opsional lokal dengan Docker Compose:
 
 ```bash
 docker compose up -d          # postgres (+ redis opsional)
 ```
 
-### Akun demo (data dummy)
+### Akun demo
 
 | | |
 |---|---|
 | Seller | `seller@dnshop.id` / `Seller123!` |
 | Accountant | `accountant@dnshop.id` / `Seller123!` |
 
-Seed mengisi **2 toko**, produk, pesanan, settlement, pajak, bank statement, rekonsiliasi, **dan pembukuan v2.0 (CoA + 100+ entries)**. Detail: [`docs/DEMO-ACCOUNTS.md`](./docs/DEMO-ACCOUNTS.md).
+Detail: [`docs/DEMO-ACCOUNTS.md`](./docs/DEMO-ACCOUNTS.md).
 
 ```bash
 npm run seed            # idempotent
 npm run seed:force      # refresh data demo
 ```
 
-## Modul MVP (Phase 1–2)
+## Modul (shipped)
 
-- Auth (register/login/refresh/logout/health) + JWT + OTP / reset password
-- Koneksi toko Shopee (OAuth / mock) + sync
-- Dashboard sales & financial summary + **charts** (7d / 30d / custom range)
-- Orders, returns, reconciliation
-- Products & inventory (low stock, CSV import)
-- Payments, settlements, payouts
-- Reports (sales / financial / tax / cash-flow / inventory) + CSV/PDF + async job
-- Tax engine PPh 21 + PPN + e-Faktur XML
-- Webhook Shopee terverifikasi, refresh token, dan sync live
-- Mutasi bank CSV + pencocokan otomatis (+ match ke pembukuan)
-- Dashboard agregat multi-toko
-- Tim owner/accountant/cashier/viewer dengan izin per fitur
-- Preferensi notifikasi + email templates (`email_log`)
-- TypeORM migrations untuk production
+### Phase 1–2 / v1.0
+Auth JWT + OTP/reset · Shopee OAuth/mock · sync · dashboard charts · orders/products/inventory · payments/settlements · reports CSV/PDF · tax PPh/PPN · bank CSV · team RBAC · notifications
 
-## Modul v2.0 — Pembukuan (bonus seller)
+### v2.0 — Pembukuan (bonus seller)
+CoA SAK EMKM · journal CRUD · auto-journal Shopee · GL · TB · P&L · BS · audit PDF · `/journal`
 
-- Chart of Accounts template SAK EMKM (45 akun) + custom
-- Entri jurnal manual (validasi debit=credit) · reverse · bulk CSV
-- Auto-journal dari pembayaran / income Shopee
-- Approval Draft → Pending → Approved → Posted
-- General Ledger · Trial Balance · P&L · Balance Sheet
-- Audit trail immutable + export PDF
-- UI: menu **Pembukuan** (`/journal`) + entry point di Dashboard / Laporan / Pajak / Bank
-- Flag: `ENABLE_JOURNALING=true`
+### v2.1 — SOPI go-live + UI2
+Live OAuth · order/income cron · webhook HMAC + DLQ · tier Free 100 / Starter 5000 · onboarding wizard · email + ops alerts · Socket.io · UI2 ops desk
 
-## Modul v2.1 — SOPI go-live + UI2
+### v2.2 — Accounting depth (**Implemented** 10 Agu 2026)
+| Fitur | UI | API (ringkas) |
+|-------|----|----------------|
+| Cash Flow (indirect) | `/journal/cf` | `GET …/journals/cash-flow` · export CSV/PDF |
+| Auto-COGS (average) | `/journal/cogs` | costing · `POST …/cogs/sync` · cron 4 jam WIB |
+| Export Accurate/Jurnal/MYOB | `/journal/export` | mapping + `POST …/accounting-export/export-gl` |
+| e-Faktur dari journal | `/journal/efaktur` | `POST …/tax/e-faktur/generate` |
+| Tutup buku + period lock | `/journal/close` | checklist · lock enforce pada mutasi jurnal |
 
-- Live OAuth (Redis/memory state) · order/income cron · webhook HMAC + DLQ
-- Tier Free **100 lifetime** / Starter **5000/mo** · onboarding wizard step-1/2/3
-- HTML email + bounce · ops alerts · Socket.io `/realtime` · beta UAT
-- UI2 ops desk (design tokens, wizard, upsell, theme toggle, OTP UI)
+Spec: [`PRD/v2.2/`](./PRD/v2.2/) · Go-live checklist: [`docs/V22-PRODUCTION-CHECKLIST.md`](./docs/V22-PRODUCTION-CHECKLIST.md)
+
+> v2.2 **tidak mengganggu** kontrak Shopee OpenAPI (OAuth/webhook/cron) — hanya mengolah data di DB.
 
 ## Production (DN Tech)
 
@@ -98,10 +87,17 @@ npm run seed:force      # refresh data demo
 |---|---|
 | Web | https://shop.dntech.id |
 | API | https://api.shop.dntech.id/api/v1 |
+| Health (reviewer) | https://shop.dntech.id/api/v1/health · `/api/v1/shopee/status` |
 | Proses | pm2 `dnshop-web` (6000) · `dnshop-api` (6001) |
-| DB | Supabase (SSL) |
+| DB | Supabase (SSL) · `migrationsRun` di prod |
 
-Panduan lengkap: [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md).
+```bash
+git pull
+cd apps/backend && npm ci && npm run build && pm2 restart dnshop-api
+cd ../frontend && npm ci && npm run build && pm2 restart dnshop-web
+```
+
+Panduan: [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md) · [`docs/V22-PRODUCTION-CHECKLIST.md`](./docs/V22-PRODUCTION-CHECKLIST.md)
 
 ## Verifikasi
 
@@ -109,17 +105,35 @@ Panduan lengkap: [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md).
 cd apps/backend && npm test && npm run build
 cd ../frontend && npm run build
 curl -s http://127.0.0.1:6001/api/v1/auth/health
+curl -s http://127.0.0.1:6001/api/v1/health
+curl -s http://127.0.0.1:6001/api/v1/shopee/status
 ```
 
-## Catatan jujur (bukan fake-100%)
+## Status jujur
 
 | Area | Status |
 |------|--------|
-| MVP + v2.0 pembukuan + UI2 + **SOPI v2.1** | **Done** di repo |
-| Live Shopee Open API | **Conditional ops** — butuh partner key + webhook portal; tanpa itu = mock |
-| Redis/Bull queue | **Conditional ops** — Redis jika `REDIS_HOST` set, fallback inline |
-| SMTP email | **Conditional ops** — kirim jika SMTP set, fallback log + `email_log` |
-| TypeORM migrations prod | **Done** — `synchronize:false` + migrations |
-| Accounting depth (cash flow / COGS / Accurate) | **Belum** — lihat PRD v2.2 brief |
+| MVP + v2.0 + UI2 + SOPI v2.1 + **v2.2 accounting** | **Done** di repo (`6b27974`+) |
+| Live Shopee Open API | **Conditional ops** — `SHOPEE_PARTNER_ID` + webhook portal; kosong = mock |
+| Redis / SMTP / tier hard block | **Conditional ops** via env |
+| TypeORM migrations prod | **Done** — termasuk `172304…AddV22AccountingDepth` |
+| UAT import Accurate / DJP XML | **Ops manual** — checklist di V22-PRODUCTION-CHECKLIST |
+| Multi-marketplace | **Belum** → v3.0 |
 
-Detail status: [`docs/STATUS.md`](./docs/STATUS.md) · baseline: [`docs/docs.md`](./docs/docs.md) · **PRD berikutnya:** [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md) · demo: [`docs/DEMO-ACCOUNTS.md`](./docs/DEMO-ACCOUNTS.md) · **VPS:** [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md)
+## Docs index
+
+| Dokumen | Isi |
+|---------|-----|
+| [`CHANGELOG.md`](./CHANGELOG.md) | Release notes |
+| [`docs/openapi-v1.yaml`](./docs/openapi-v1.yaml) | OpenAPI stub (critical routes) |
+| [`docs/STATUS.md`](./docs/STATUS.md) | Status implementasi living |
+| [`docs/docs.md`](./docs/docs.md) | Baseline + arah PRD |
+| [`docs/FEATURE-CATALOG.md`](./docs/FEATURE-CATALOG.md) | Katalog fitur |
+| [`docs/CURRENT-IMPLEMENTATION.md`](./docs/CURRENT-IMPLEMENTATION.md) | Modul kode |
+| [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md) | Brief PRD berikutnya (v3.0) |
+| [`docs/PRD-v2.2-Accounting-Depth-PREP.md`](./docs/PRD-v2.2-Accounting-Depth-PREP.md) | Prep v2.2 (arsip / non-gangguan OpenAPI) |
+| [`docs/V22-PRODUCTION-CHECKLIST.md`](./docs/V22-PRODUCTION-CHECKLIST.md) | Deploy + smoke v2.2 |
+| [`docs/DEMO-ACCOUNTS.md`](./docs/DEMO-ACCOUNTS.md) | Akun & data seed |
+| [`docs/DEPLOY-VPS.md`](./docs/DEPLOY-VPS.md) | Deploy VPS |
+| [`docs/UAT-PLAYBOOK-v2.1.md`](./docs/UAT-PLAYBOOK-v2.1.md) | UAT beta |
+| [`sopi/`](./sopi/) | Remedi partner Shopee (ops) |
