@@ -1,6 +1,6 @@
 # aca (Catat Duit) — relocated to private wiki
 
-> **Author:** Dozer · **Date:** 2026-09-05
+> **Author:** Dozer · **Date:** 2026-09-06
 
 Tracker pengeluaran personal (**bukan** produk komersial DN Tech). Docs **tidak lagi** di company-wiki.
 
