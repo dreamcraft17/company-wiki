@@ -104,6 +104,7 @@ Semua dokumentasi produk dikelompokkan per produk — lihat [Product Docs Index]
 | DOVA | [dova/](./products/dova/00_INDEX.md) | full | MVP core demoable |
 | DuaVulnScanner | [dvs/](./products/dvs/00_INDEX.md) | PRD+MVP | Week 1 scaffold |
 | Porto (personal) | [porto/](./products/porto/00_INDEX.md) | pointer | SSOT `private-wiki/porto/` |
+| aca / Catat Duit (personal) | [aca/](./products/aca/00_INDEX.md) | pointer | SSOT `private-wiki/aca/` · **bukan** SKU tim |
 
 ---
 

@@ -400,6 +400,19 @@ cp ../porto/DEPLOYMENT.md ../porto/SECURITY.md ../porto/AUDIT.md ../porto/LICENS
 code docs/products/porto/README.md docs/products/porto/00_INDEX.md docs/products/README.md docs/08_PRODUCTS.md README.md
 ```
 
+### Update aca / Catat Duit (personal — do not mirror into company-wiki)
+
+Living docs go to **private-wiki**, not this repo. **Do not** list aca in `08_PRODUCTS.md`.
+
+```bash
+# From dozer workspace (not from company-wiki/)
+cp ../aca/README.md ../private-wiki/aca/README.md
+cp ../aca/docs/*.md ../private-wiki/aca/docs/
+# Refresh HEAD/tests in private-wiki/aca/00_INDEX.md + current-implementation.md
+# Then only bump the pointer here:
+code docs/products/aca/README.md docs/products/aca/00_INDEX.md
+```
+
 ### Add New Documentation
 
 ```bash

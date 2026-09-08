@@ -1,6 +1,6 @@
 # aca (Catat Duit) — relocated to private wiki
 
-> **Author:** Dozer · **Date:** 2026-09-06
+> **Author:** Dozer · **Date:** 2026-09-08
 
 Tracker pengeluaran personal (**bukan** produk komersial DN Tech). Docs **tidak lagi** di company-wiki.
 
@@ -11,8 +11,8 @@ Tracker pengeluaran personal (**bukan** produk komersial DN Tech). Docs **tidak 
 | `00_INDEX.md` | Index |
 | `README.md` | Setup / API |
 | `current-implementation.md` | Snapshot MVP |
-| `docs/PRD.md` · `SRS.md` · `SDD.md` | Spec |
+| `docs/PRD.md` · `SRS.md` · `SDD.md` · `DEPLOY.md` · `UI_DESIGN_BRIEF.md` | Spec + ops + UI brief |
 
-Repo app: `aca/` · GitHub `dreamcraft17/aca`.
+Repo app: `aca/` · GitHub `dreamcraft17/aca` · HEAD `939e4eb` (8 Sep 2026).
 
-Portfolio tim (`docs/products/README.md`, `08_PRODUCTS.md`) **tidak** listing aca.
+Portfolio tim (`docs/products/README.md` product table, `08_PRODUCTS.md`) **tidak** listing aca.
