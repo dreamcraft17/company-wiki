@@ -1,12 +1,15 @@
 # dnPeople — Feature Catalog
 
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+> **Author:** Dozer  
+> **Date:** 2026-09-09
+
+**Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** August 10, 2026  
+**UpdatedAt:** September 9, 2026  
 
-**Snapshot:** 10 August 2026 · PRD **v15.0** Admin + **Xendit PG** + billing UI polish + grouped nav + **logo3** + v14 Tutorial + v13 Talent  
-**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 + Aug 2026 increments (complete in repo)  
+**Snapshot:** 9 September 2026 · PRD **v15.0** Admin + **Xendit PG** + **Legal v1.1** + **assistant v17** + v14 Tutorial + v13 Talent  
+**Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 + Aug–Sep 2026 increments  
 **Next PRD scope (recommended):** PRD **v16.0** = v4 **Module 4** (internal career marketplace)  
 **Production URL:** `https://hris.dntech.id`  
 **Latest audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) (P0/P1 remediated in v8.0)  
@@ -25,7 +28,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~96 halaman frontend**, **~60 modul route backend**, **129 model Prisma**, **81** backend unit tests, mobile-first web shell dengan **grouped sidebar nav** (default **light theme**), brand logo **`/logo3.png`**, marketing landing v11.1 + `/docs` hub, tier pricing SSOT, FREE hard **30** / STARTER hard **50**, **Xendit** payment checkout + invoice PDF export, **Legal ToS/PP** acceptance MVP, **PRD v13.0** 9-box/succession, **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console, nav tier-hide jujur, dan domain fitur dari core HR sampai talent + enterprise. Auth: httpOnly cookie `dnpeople_session`. Kontak: **info@dntech.id**.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~96 halaman frontend**, **~60 modul route backend**, **130 model Prisma**, **161** unit tests (`npm test` backend), mobile-first web shell dengan **grouped sidebar nav** (default **light theme**), brand logo **`/logo3.png`**, marketing landing v11.1 + `/docs` hub, tier pricing SSOT, FREE hard **30** / STARTER hard **50**, **Xendit** payment checkout + invoice PDF export, **Legal ToS/PP v1.1** (UU PDP/ITE, sticky TOC), **AI assistant** tools + lexical RAG, **PRD v13.0** 9-box/succession, **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console, nav tier-hide jujur, dan domain fitur dari core HR sampai talent + enterprise. Auth: httpOnly cookie `dnpeople_session`. Kontak: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 
@@ -231,7 +234,8 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Approval rules | Rule berdasarkan module, role, amount | Admin | `/approvals` | Available |
 | Custom workflow | Multi-step workflow CRUD dan activation | Enterprise admin | `/workflows` | Available |
 | Workflow resolution | Resolve workflow aktif per module/context | System/admin | Workflow API | Available |
-| AI HR assistant | Tanya jawab HR dengan LLM/rule fallback | Semua role | `/assistant` | Conditional — LLM untuk hasil generatif |
+| AI HR assistant | Intent router: Prisma self-scope facts atau FAQ/policy lexical RAG + sitasi; audit ASK; LLM opsional | Semua role (`ai:assistant`) | `/assistant` | Available — Enterprise flag |
+| AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
 | Test delivery | Menguji konfigurasi integration/webhook | Enterprise admin | `/integrations` | Available framework |
@@ -282,7 +286,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | OpenAPI / Swagger | Spec inti + Swagger UI CDN | Integrator | `/api/v1/openapi.json`, `/api/v1/docs` | Available — PRD v9.0 |
 | Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
 | Privacy / UU PDP export | Export data pribadi, deletion request, daftar processors | Employee/HR/Admin | `/privacy/*`, `docs/legal/` | Available — PRD v10.0 |
-| Legal ToS & Privacy Policy (MVP) | Versioned docs, signup consent modal, acceptance log, compliance banner, re-accept at `/settings/legal` | All users / admin | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — **not** full legal CMS |
+| Legal ToS & Privacy Policy | Versioned docs (v1.1 UU PDP/ITE), signup consent, acceptance log, compliance banner, re-accept, sticky TOC on public pages | All users / admin | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — **not** full legal CMS |
 | UI theme | Light / dark / system; default light | All users | AppShell header toggle | Available |
 | Public documentation hub | Getting started, modules, tiers, demo, API pointer | Publik | `/docs` | Available — Aug 2026 |
 | Ops observability | `/alive`, enriched `/health`/`/ready`, Prometheus histogram + rate_limit + payroll_jobs | Operations | `/metrics`, `ops/` | Available — PRD v10.0; Datadog account Conditional |
@@ -337,7 +341,7 @@ Jika catalog dan PRD berbeda, verifikasi code/API terbaru lalu perbarui catalog 
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | August 10, 2026 |

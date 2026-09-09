@@ -1,15 +1,18 @@
 # dnPeople HRIS — Documentation Index
 
+> **Author:** Dozer  
+> **Date:** 2026-09-09
+
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.0** (a11y, billing hardening, SUPER_ADMIN) · **Xendit PG** · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.0** · **Legal v1.1** · **assistant v17** · ops gates Conditional  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: August 22, 2026  
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1  
-**Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **123/123** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)** (`a51d839`)
+**UpdatedAt**: September 9, 2026  
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
+**Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **161/161** tests · **16** a11y (Playwright + axe)  
+**HEAD**: `dnpeople` main · **`cdccf89`** (living docs + legal TOC) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v16.0**)  
@@ -26,6 +29,7 @@
 | [PRD/dnpeople-srs.md](./PRD/dnpeople-srs.md) | **SRS** — Software Requirements Specification v3.1 |
 | [PRD/dnpeople-sdd.md](./PRD/dnpeople-sdd.md) | **SDD** — Software Design Document v3.1 |
 | [PRD/dnpeople-prd-v15.0-admin-dashboard.md](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | **PRD v15.0** — Internal admin console |
+| [docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md](./docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md) | **PRD v17.0** — HR assistant tools + RAG |
 | [PRD/dnpeople-prd-v14.0-tutorial-onboarding.md](./PRD/dnpeople-prd-v14.0-tutorial-onboarding.md) | **PRD v14.0** — In-app tutorial & onboarding (no video) |
 | [PRD/dnpeople-srs-v14.0-tutorial-requirements.md](./PRD/dnpeople-srs-v14.0-tutorial-requirements.md) | **SRS v14.0** — Tutorial/KB acceptance |
 | [PRD/dnpeople-sdd-v14.0-tutorial-implementation.md](./PRD/dnpeople-sdd-v14.0-tutorial-implementation.md) | **SDD v14.0** — Tutorial/KB technical |
@@ -59,7 +63,9 @@
 | [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed (FREE tier) |
 | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) | Go/no-go Agustus 2026 |
 | [docs/SLA-COMMITMENT-RPO-RTO.md](./docs/SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
-| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (**v1.1.0** latest) |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (**v1.1.0** + Unreleased Sep 2026) |
+| [docs/legal/PRIVACY-POLICY.md](./docs/legal/PRIVACY-POLICY.md) | Kebijakan privasi (ringkas; teks halaman di `legal2/`) |
+| [docs/legal/TERMS-OF-SERVICE.md](./docs/legal/TERMS-OF-SERVICE.md) | Syarat layanan (ringkas; teks halaman di `legal2/`) |
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
 | [docs/CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Chaos engineering (VPS/PM2) |
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
@@ -88,4 +94,4 @@ cp dnpeople/docs/CURRENT-IMPLEMENTATION.md company-wiki/docs/products/dnPeople/c
 
 ---
 
-*Last Updated: August 22, 2026*
+*Last Updated: September 9, 2026*

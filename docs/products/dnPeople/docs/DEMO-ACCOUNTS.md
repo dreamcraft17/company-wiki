@@ -7,6 +7,8 @@
 
 > **Public sandbox:** kredensial demo **ditampilkan** di `/login`, `/demo`, dan `/welcome` supaya pengunjung bisa mencoba. Set `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` hanya jika perlu disembunyikan.
 >
+> **Keamanan:** nilai `NEXT_PUBLIC_*` masuk ke client bundle — hanya untuk tenant sandbox publik; jangan pakai password produksi di sini.
+>
 > Seed tetap boleh berisi data sample payroll/rekrutmen untuk uji API, tetapi **UI & API tier gate** menyembunyikan modul berbayar sampai upgrade.
 
 Jalankan seed:

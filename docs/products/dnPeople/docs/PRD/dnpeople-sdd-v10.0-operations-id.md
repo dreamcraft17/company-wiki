@@ -3,7 +3,7 @@
 
 **Versi:** 10.0  
 **Tanggal:** 19 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Technical implementation guide
 
 ---

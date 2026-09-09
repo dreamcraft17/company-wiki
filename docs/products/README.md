@@ -30,7 +30,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **78** markdown | Production + **relaunch** · **v0.10.0** · HEAD `8e3b8a7` | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** | Production · **v1.1.0** shipped · ops gates Conditional | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** + legal v1.1 | Production · **v1.1.0** · HEAD `cdccf89` · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
@@ -45,11 +45,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
-## 🔄 Latest Updates (September 9, 2026)
-
-| Project | Commit / note | Perubahan |
-|---------|---------------|-----------|
-| **DOVA** | app `21eb77d` / `dova-comp-wiki` `f133722` | Partner `X-Api-Key` on catalog only · login/cart JWT · [integration guide](./dova/docs/DOVA-INTEGRATION-GUIDE.md) |
+| **dnPeople HRIS** | app `cdccf89` | **Legal v1.1** (UU PDP/ITE) + sticky TOC · assistant v17 tools/RAG · **161** tests · seed `db:seed:legal` |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |
 | **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |

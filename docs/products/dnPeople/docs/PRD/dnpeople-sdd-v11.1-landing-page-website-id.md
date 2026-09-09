@@ -3,7 +3,7 @@
 
 **Versi:** 11.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Technical implementation details (ready to build)
 
 ---

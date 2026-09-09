@@ -2,7 +2,7 @@
 ## Subscription Tier Consolidation & Enforcement
 
 **Versi:** 12.0  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Tanggal:** 22 Juli 2026  
 **Tujuan:** Seragamkan semua tier (employee limits, trial duration, features, billing)  
 **Status:** Standardization phase (untuk consistency di code, UI, marketing)

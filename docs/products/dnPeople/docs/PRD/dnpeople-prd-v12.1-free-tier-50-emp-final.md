@@ -3,9 +3,11 @@
 
 **Versi:** 12.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Final specification (LOCKED IN)  
 **Change from v12.0:** FREE tier = 50 employees (was 100)
+
+> **Product override — 25 July 2026:** Live FREE hard headcount is **30** employees (STARTER remains **50**). Code SSOT: `TIER_FREE_MAX_EMPLOYEES` / `TIER_HEADCOUNT_LIMIT.FREE`. Text below describing FREE = 50 is historical for v12.1 sign-off.
 
 ---
 

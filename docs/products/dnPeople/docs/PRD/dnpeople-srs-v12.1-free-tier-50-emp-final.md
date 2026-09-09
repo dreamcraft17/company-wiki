@@ -3,8 +3,10 @@
 
 **Versi:** 12.1  
 **Tanggal:** 22 Juli 2026  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Requirements ready to QA
+
+> **Product override — 25 July 2026:** Live FREE hard headcount is **30** (STARTER remains **50**). Acceptance numbers below that say 50 for FREE are historical.
 
 ---
 

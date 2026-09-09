@@ -1,9 +1,9 @@
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **10 Agustus 2026** (grouped nav, billing UI polish, logo3, invoice PDF + payment labels)  
-> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1** + Aug 2026 increments · Repo version **1.0.0**
+> Terakhir diperbarui: **9 September 2026** (legal v1.1 UU PDP/ITE, assistant v17, sticky TOC)  
+> Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1 / v17 assistant** + Aug–Sep 2026 increments · Repo version **1.0.0**
 >
-> **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** August 10, 2026  
+> **Author:** Dozer · **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** September 9, 2026  
 >
 > **Audit:** [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) · **Release:** [RELEASE-READY.md](./RELEASE-READY.md) · **Launch gate:** [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **Catalog:** [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) · **Baseline:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md)
 
@@ -30,7 +30,7 @@
 | PRD v14.0 | In-app tutorials (5 MVP) + knowledge base + Help menu; progress/tier gating; **no video library** | **Done** in repo |
 | PRD v15.0 | Internal admin console (`/admin`, SUPER_ADMIN): customers + impersonation banner, revenue/billing/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), system health alerts/logs, audit log, Admin MFA gate; seeded operator `dozer@dntech.id` (DN Tech tenant) | **Done** in repo; live API latency P50/P95/P99 (Prometheus/Datadog) Conditional |
 | **Xendit PG v1.0** | Hosted checkout (Invoice v2), webhook fail-closed, return sync, public invoice pay, refund admin, pay-during-trial | **Done** in repo on `hris.dntech.id`; **live E2E + production keys Conditional** |
-| **Legal ToS/PP MVP** | Signup consent, `/legal/terms` + `/legal/privacy`, acceptance middleware, `/settings/legal`, `ComplianceBanner` | **Done** in repo; full legal CMS (AUP/admin editor) **not** in scope |
+| **Legal ToS/PP** | Signup consent, `/legal/terms` + `/legal/privacy` (v1.1 UU PDP/ITE, sticky TOC), acceptance middleware, `/settings/legal`, `ComplianceBanner` | **Done** in repo; full legal CMS (AUP/admin editor) **not** in scope |
 | **UI theme** | Light/dark/system toggle; default **light** | **Done** |
 | **Grouped sidebar nav** | 8 section labels; flat mode ≤8 items; SSOT `navigationMenu.ts` | **Done** in repo — Aug 2026 |
 | **Billing UI polish** | Stat cards, tier feature bullets, invoice filters, trial preview toggle, mobile cards | **Done** in repo — Aug 2026 |
@@ -197,7 +197,7 @@ Frontend: `/recruitment` `/onboarding` `/performance` `/training` `/assets` `/of
 | Asset Management | `/assets` | `/assets` | ✅ Full |
 | Resignation & Offboarding | `/offboarding` | `/offboarding` | ✅ Full |
 | HR Helpdesk | `/helpdesk` | `/helpdesk` | ✅ Full |
-| AI HR Assistant | `/assistant/ask` | `/assistant` | ✅ Full |
+| AI HR Assistant | `/assistant/ask` | `/assistant` | ✅ Full (tools + lexical RAG + audit) |
 | Advanced Analytics | `/reports/analytics` | `/reports` | ✅ Full |
 
 **Kesimpulan MVP 3:** **Done (full)** — semua modul PRD punya API + halaman UI + alur CRUD/approval inti. Pinjaman/kasbon ada di MVP 2 (`/loans`).
@@ -347,7 +347,7 @@ Sumber: [AUDIT-FEATURE-BUG-PERFORMANCE.md](./AUDIT-FEATURE-BUG-PERFORMANCE.md) �
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 26, 2026 |

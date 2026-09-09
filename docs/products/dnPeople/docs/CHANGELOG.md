@@ -2,11 +2,61 @@
 
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
 
-SemVer: **1.0.0 → 1.1.0** (minor — `feat(auth)` SUPER_ADMIN routing + billing/a11y/ops batch)
+SemVer: **1.1.0 → 1.1.1** (patch — `fix(security)` payment concurrency + P0 audit; unreleased P1 dual-gateway billing)
 
 ---
 
 ## [Unreleased]
+
+### Added
+- Midtrans-aware `syncPaymentByOrderId` (return-url reconcile for SNAP, not only Xendit hosted checkout)
+- `paymentSync.ts` helper + unit tests (`resolvePaymentSyncGateway`, gateway invoice detection)
+- Public invoice pay page: Midtrans SNAP modal via `SnapCheckout` (parity with `/billing`)
+- Ops docs: [SLO.md](./SLO.md), [ADR 0001 dual payment gateway](./adr/0001-dual-payment-gateway.md), [CTO + focused-fix assessment](./CTO-FOCUSED-FIX-ASSESSMENT.md)
+- HR assistant v17: Prisma fact tools, FAQ/policy lexical RAG, citations, ASK audit
+- Legal ToS/PP **v1.1** (UU 27/2022, UU ITE / UU 1/2024) + sticky left table of contents on `/legal/*`
+
+### Changed
+- `initiatePayment({ provider })` — explicit Xendit/Midtrans override for subscription billing API
+- Admin Revenue & Billing: gateway-paid invoices link to **Payment Management** for refunds (not broken invoice refund modal)
+
+### Notes
+- **161** unit tests pass (`npm test` in backend, includes selected frontend lib tests)
+- Deploy migration `20260822100000_payment_pending_unique` if not yet applied on VPS
+- Production legal pages need `npm run db:seed:legal` to publish v1.1
+- Agent harness verified P1 locally (`.agent-harness/state.json` — internal)
+
+---
+
+## [1.1.1] — 2026-08-23
+
+### Added
+- Payment checkout reservation under PostgreSQL advisory lock + partial unique index on pending invoice/subscription (`20260822100000_payment_pending_unique`)
+- `transitionPaymentStatus()` — conditional payment update prevents duplicate `onSettled` on concurrent webhooks
+- `writeAuditLogRequired()` — strict audit for payroll finalize/mark-paid, admin login, role changes
+- Startup warning when `XENDIT_SECRET_KEY` set but `XENDIT_WEBHOOK_TOKEN` missing (`billingStartup.ts`)
+- CI job `dependency-audit` (`npm audit --audit-level=high` backend + frontend)
+- CI commit lint on push to `main` (last 20 commits)
+- Chaos script guard (`ALLOW_CHAOS=1`; blocks production hosts)
+- Authenticated a11y tests: `/dashboard`, `/billing` after demo login
+- Xendit webhook skip rules now compare transaction IDs (parity with Midtrans)
+
+### Changed
+- README v1.1.0 onboarding and ops refresh
+- `CURRENT-IMPLEMENTATION.md` test/model counts (125 tests, ~130 models); CI audit gate documented
+- Demo creds: client-bundle security note in `demoCredentials.ts` and `DEMO-ACCOUNTS.md`
+
+### Fixed
+- Concurrent payment webhooks could double-call `onSettled` (status-guarded update)
+- Duplicate PENDING checkout rows on concurrent `initiatePayment` (advisory lock + DB index)
+- Audit log FK failures silently dropped on P0 payroll/auth ops (now abort with 503)
+
+### Security
+- Payment concurrency hardening; P0 routes require durable audit writes
+
+### Notes
+- **Deploy:** `cd backend && npx prisma migrate deploy` on VPS
+- Tag: `git tag -a v1.1.1 -m "Release 1.1.1 — payment concurrency and audit strict mode"`
 
 ---
 

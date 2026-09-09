@@ -3,7 +3,7 @@
 
 **Tanggal:** 22 Juli 2026  
 **Version:** v12.0 (Subscription Tier Consolidation)  
-**Owner:** Dozer (CEO + Tech Lead + PM)  
+**Owner:** Dozer (CEO + Tech Lead)  
 **Status:** Ready for implementation
 
 ---

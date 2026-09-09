@@ -16,6 +16,10 @@ instances:
       - dnpeople_uptime_seconds
       - dnpeople_http_requests_total
       - dnpeople_http_errors_total
+      - payment_webhook_success_total
+      - payment_webhook_errors_total
+      - attendance_records_today
+      - postgresql_connections
     tags:
       - service:dnpeople-api
       - env:${DD_ENV:-dev}

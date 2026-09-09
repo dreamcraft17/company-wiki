@@ -1,17 +1,22 @@
 # dnPeople — Current Implementation Baseline
 
+> **Author:** Dozer  
+> **Date:** 2026-09-09
+
 | Metadata | Value |
 |----------|-------|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Snapshot date | 10 August 2026 |
-| HEAD | Post grouped nav + billing UI polish + logo3 (`main` @ `e462db7+`) |
-| Purpose | **Baseline** after PRD **v15.0** + August 2026 billing/legal increments — input for **PRD v16.0** |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **Xendit PG v1.0** + **Legal ToS/PP MVP** shipped Aug 2026; **v4 Module 4–8** = primary greenfield → **v16.0** |
+| Snapshot date | 9 September 2026 |
+| HEAD | `538d75a` on `dnpeople` main |
+| Purpose | **Baseline** after PRD **v15.0** + Aug–Sep 2026 billing, legal, assistant, and dashboard increments — input for **PRD v16.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **Xendit PG**; **Legal ToS/PP v1.1** (UU PDP + UU ITE); **v17 assistant** tools + lexical RAG; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Production (staging) | `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
-| Updated at | August 10, 2026 |
+| Updated at | September 9, 2026 |
 
+> **September 9, 2026:** Public `/legal/privacy` and `/legal/terms` seed **v1.1** (UU 27/2022 PDP, UU ITE as amended by UU 1/2024). Sticky left TOC on legal pages. HR assistant: Prisma self-scope tools, FAQ/policy lexical retrieve, citations, ASK audit (`docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md`). Automated evidence: **161/161** unit tests (backend + selected frontend lib tests). **130** Prisma models.
+>
 > **August 10, 2026 increments:** Grouped sidebar nav (8 sections, flat mode for short employee lists); billing page UI polish (stat cards, tier feature bullets, invoice filters, trial preview hide); brand logo **`/logo3.png`** site-wide; invoice PDF export + Xendit payment method on invoice history (same sprint).
 >
 > **August 2026 increments:** Xendit Invoice v2 hosted checkout (replaces Midtrans SNAP); webhook + return-url sync; public invoice pay; pay-during-trial + early pay clears trial; trial countdown badge; Legal ToS + Privacy Policy acceptance (signup + compliance banner); `/docs` hub; light/dark theme (default light). Specs: `docs/xendit/`, `docs/legal/`.
@@ -55,7 +60,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **47/47** unit tests; TypeScript clean |
+| Automated evidence | **161/161** unit tests (`npm test` in backend); TypeScript clean |
 
 ## Roles and access boundary
 
@@ -140,12 +145,13 @@ the attempted path in `next`.
 | Policy & discipline | Company policies, publication/acknowledgement-related records and disciplinary actions | `/policies` | `/policies` | Available |
 | Helpdesk | Employee ticket, assignment, status and resolution workflow | `/helpdesk` | `/helpdesk` | Available |
 | Communication | Announcements, surveys, polls, HR calendar/holidays, persistent/email/browser notifications | `/announcements`, `/surveys`, `/calendar`, `/notifications` | Matching pages + header notification center | Available |
-| AI helpers | HR assistant with LLM/rule fallback, HR document generation and recruitment screening | `/assistant`, `/ai` | `/assistant`, `/ai-docs`, `/recruitment` | Available with provider configuration |
+| AI helpers | HR assistant: intent router → Prisma tools (self leave/attendance/payroll; HR headcount/contracts) or FAQ/policy lexical RAG + citations; optional LLM synthesize; ASK audit | `/assistant` | `/assistant` | Available (`ai:assistant` Enterprise); LLM optional |
+| Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
 | Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
 | Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout**, pay-during-trial, trial badge, **invoice PDF export**, **payment method on invoice history**, polished `/billing` UI | `/subscription`, `/payments` | `/billing` | Available; **Xendit live E2E Conditional** |
-| Legal compliance (MVP) | ToS + Privacy Policy versions, signup consent, acceptance log, compliance banner, re-accept flow | `/legal-documents`, `/acceptances` | `/legal/*`, `/signup`, `/settings/legal` | Available — ToS/PP only; full legal CMS **not** implemented |
+| Legal compliance | Versioned ToS/PP (seed v1.1 UU PDP/ITE), signup consent, acceptance log, compliance banner, re-accept; public pages with sticky TOC | `/legal-documents`, `/acceptances` | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — AUP/admin CMS **not** implemented |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
@@ -247,9 +253,10 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Spreadsheet input/output must resist formula injection and known vulnerable parsers must not be reintroduced.
 - Liveness remains independent of database readiness; readiness verifies database connectivity.
 - Production dependency audit currently reports zero known runtime vulnerabilities.
-- CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
+- CI gates TypeScript, backend tests, clean migration, DB controls, load performance, and `npm audit --audit-level=high` (backend + frontend).
+- `/metrics` is open without auth when `NODE_ENV !== production` and `METRICS_TOKEN` is unset; production requires `METRICS_TOKEN` (see `metricsAccess.ts`).
 
-Current recorded automated evidence: **53/53** backend tests pass; frontend **~86** pages; backend **~56** route modules; Prisma **~120** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **125** backend tests pass; frontend **~86** pages; backend **~56** route modules; Prisma **~130** models. Re-run build and test suites before treating figures as release evidence.
 
 ## Suggested scope after PRD v15.0 (from this baseline)
 

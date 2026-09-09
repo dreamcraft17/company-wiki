@@ -1,16 +1,21 @@
 # dnPeople — Current Implementation Baseline
 
+> **Author:** Dozer  
+> **Date:** 2026-09-09
+
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 22 August 2026 |
-| HEAD | Release **v1.1.0** (`a51d839`) on `dnpeople` main |
-| Purpose | **Baseline** after release **v1.1.0** — billing/a11y/ops hardening on top of PRD **v15.0** |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1** complete in repo; **v4 Module 4–8** = primary greenfield → **v16.0** |
+| Snapshot date | 9 September 2026 |
+| HEAD | `cdccf89` on `dnpeople` main (post legal TOC; legal copy v1.1) |
+| Purpose | **Baseline** after **v1.1.0** plus Aug–Sep billing, legal, and assistant increments on PRD **v15.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **v4 Module 4–8** → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | August 22, 2026 |
+| Updated at | September 9, 2026 |
 
+> **9 Sep 2026:** Legal ToS/PP **v1.1** (UU 27/2022, UU ITE / UU 1/2024) on `/legal/privacy` and `/legal/terms` (seed `db:seed:legal`); sticky left TOC. HR assistant v17: Prisma tools + FAQ/policy lexical RAG + ASK audit. Unit tests **161/161**. Prisma **130** models. See [CHANGELOG.md](./docs/CHANGELOG.md).
+>
 > **Release v1.1.0 (22 Aug 2026):** Playwright + axe a11y CI (16 public pages); payment webhook idempotency + rate-limit exempt; `/metrics` gated by `METRICS_TOKEN` in production; `writeAuditLogSafe()`; SUPER_ADMIN routing fix; public demo creds on `/login`; WCAG contrast fixes; chaos engineering scaffold. See [CHANGELOG.md](./docs/CHANGELOG.md).
 >
 > **PRD v15.0 (26 Jul 2026):** Internal Admin Console `/admin` (SUPER_ADMIN): customers + impersonation, revenue/refunds, analytics, support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log, Admin MFA gate. Operator account seeded: DN Tech tenant + `dozer@dntech.id` (`SUPER_ADMIN_PASSWORD`, dev fallback `Admin123!`). Live latency P50/P95/P99 Conditional. Specs in `docs/PRD/*-v15.0-admin*`.
@@ -52,7 +57,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via `subscriptionCatalog.ts` (mirrors backend `TIER_PRICE_PER_EMPLOYEE` + PRD v5 headcount); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | Backend **123/123** unit tests; **16** a11y tests (Playwright + axe); TypeScript clean |
+| Automated evidence | **161/161** unit tests (`npm test` in backend); **16** a11y tests (Playwright + axe); TypeScript clean |
 
 ## Roles and access boundary
 
@@ -245,7 +250,7 @@ The next PRD must preserve these unless it supplies an explicit replacement and 
 - Production dependency audit currently reports zero known runtime vulnerabilities.
 - CI gates TypeScript, backend tests, clean migration, DB controls and load performance.
 
-Current recorded automated evidence: **123/123** backend tests pass; **16** a11y tests (public pages); frontend **~96** pages; backend **~60** route modules; Prisma **130** models. Re-run build and test suites before treating figures as release evidence.
+Current recorded automated evidence: **161/161** unit tests pass; **16** a11y tests (public pages); frontend **~96** pages; backend **~60** route modules; Prisma **130** models. Re-run build and test suites before treating figures as release evidence.
 
 ## Suggested scope after PRD v15.0 (from this baseline)
 

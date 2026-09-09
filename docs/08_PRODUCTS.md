@@ -4,12 +4,12 @@
 > **Date:** 2026-09-05
 
 **Document Version**: 1.7  
-**Last Updated**: September 5, 2026  
+**Last Updated**: September 9, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: September 5, 2026
+**UpdatedAt**: September 9, 2026
 
 ---
 
@@ -212,13 +212,13 @@ DN Tech Products
 | Brand | DnPeople |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** (Aug 2026) · production [hris.dntech.id](https://hris.dntech.id) |
+| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** · legal **v1.1** · assistant **v17** · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
 | Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
-| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **123/123** tests · **16** a11y |
+| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **161/161** tests · **16** a11y |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) |
-| UpdatedAt | August 22, 2026 |
+| UpdatedAt | September 9, 2026 |
 
 ### Fitur
 

@@ -6,8 +6,6 @@
 **Effective:** 9 September 2026  
 **Provider:** PT. Dozer Napitupulu Technology  
 
-Sumber halaman: repositori `dnpeople/docs/legal/legal2/dnpeople-terms-conditions-v1.0-id-seo.md`.
+Teks halaman publik: `docs/legal/legal2/dnpeople-terms-conditions-v1.0-id-seo.md` (di-seed ke `/legal/terms`).
 
-Ringkasan: kontrak elektronik dan bukti elektronik menurut UU ITE (perubahan terakhir UU 1/2024). Hukum Indonesia.
-
-Bukan nasihat hukum.
+Ringkasan: kontrak elektronik Pasal 18 UU ITE; bukti elektronik Pasal 5; klausula baku Pasal 18A (UU 1/2024). HRIS SaaS; pembayaran Xendit/Midtrans; SLA soft launch 99,5%. Hukum Indonesia. Bukan nasihat hukum.

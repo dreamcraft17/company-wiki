@@ -550,7 +550,7 @@ Endpoint SCIM menerima tenant-specific bearer token dan mengembalikan
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead + PM) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | UpdatedAt | July 18, 2026 |
