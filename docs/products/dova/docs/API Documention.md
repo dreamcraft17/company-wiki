@@ -231,11 +231,13 @@ Profile: `GET/PATCH /api/v1/auth/me`, `POST /api/v1/auth/change-password`.
 ```bash
 BASE=https://api.dova.dntech.id/api/v1
 
-curl -sf "$BASE/" 
+curl -sf "$BASE/"
 curl -sf "$BASE/health"
-curl -sf "$BASE/products?limit=5"
+# Catalog without a partner key must 401 once DOVA_INTEGRATION_KEYS is set:
+# curl -sf "$BASE/products?limit=5"
+curl -sf "$BASE/products?limit=5" -H "X-Api-Key: $DOVA_INTEGRATION_KEY"
 
-# After login, export ACCESS_TOKEN from the JSON
+# After login, export ACCESS_TOKEN from the JSON (no X-Api-Key required)
 curl -sf "$BASE/auth/me" -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
@@ -245,6 +247,7 @@ curl -sf "$BASE/auth/me" -H "Authorization: Bearer $ACCESS_TOKEN"
 
 - Production health: `GET https://api.dova.dntech.id/api/v1/health`  
 - OpenAPI: `GET https://api.dova.dntech.id/api/v1/openapi.json`  
+- QA **integration lock** (give this to testers): [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md)
 - QA Postman list (internal): [DOVA-API-QA-POSTMAN.md](./DOVA-API-QA-POSTMAN.md)
 
-*Author: Dozer · 2026-09-01*
+*Author: Dozer · 2026-09-09*

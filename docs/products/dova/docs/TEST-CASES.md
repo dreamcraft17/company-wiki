@@ -3,7 +3,7 @@
 **Author:** Dozer (@dreamraft17) - Software Engineer  
 **Updated:** August 2026  
 **Automated:** `npm run test:unit` — **158 tests** · `npm run smoke:production` (29 API steps + 10 negative) · `npm run smoke:week4`  
-**QA workflow:** see [GUIDE.md](./GUIDE.md)  
+**QA workflow:** see [GUIDE.md](./GUIDE.md) · **API catalog lock:** [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md)  
 **Demo accounts:** admin `admin@dova.local` / `admin1234` · supplier `supplier@dova.local` / `supplier1234`  
 **Local URLs:** storefront http://localhost:3001 · API http://localhost:3000/api/v1 · feedback http://localhost:3001/feedback
 

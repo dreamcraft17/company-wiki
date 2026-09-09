@@ -3,7 +3,7 @@
 **Author:** Dozer (@dreamraft17) - Software Engineer  
 **Audience:** QA Tester  
 **Updated:** August 2026  
-**Related docs:** [TEST-CASES.md](./TEST-CASES.md) · [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md) · [Readme.md](../Readme.md)
+**Related docs:** [TEST-CASES.md](./TEST-CASES.md) · [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md) (catalog `X-Api-Key` + storefront JWT) · [DOVA-BUG-TRIAGE.md](./DOVA-BUG-TRIAGE.md) · [Readme.md](../Readme.md)
 
 ---
 

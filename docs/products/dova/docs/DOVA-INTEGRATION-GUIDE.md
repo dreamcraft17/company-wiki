@@ -169,6 +169,7 @@ curl -sS "https://api.dova.dntech.id/api/v1/health"
 ## 09 — File terkait
 
 - [API Documention.md](./API%20Documention.md) — path REST
+- [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md) — checklist QA (storefront + curl)
 - [ENV-SETUP.md](./ENV-SETUP.md) — env VPS umum
 - [vps-backend.env.example](./vps-backend.env.example) · [vps-frontend.env.example](./vps-frontend.env.example)
 - Kode: `integration-key.guard.ts`, `chat.service.ts`

@@ -1,9 +1,9 @@
 # DOVA — API Endpoint List for QA (Postman / Insomnia)
 
-> **Status:** Active · **Last updated:** 2026-08-27 · **Author:** Dozer  
-> **Base path:** `/api/v1` · **Source:** `apps/backend/src/app.controller.ts` (HEAD `fc177d6`)
+> **Status:** Active · **Last updated:** 2026-09-09 · **Author:** Dozer  
+> **Base path:** `/api/v1` · **Source:** `apps/backend/src/app.controller.ts` (catalog lock: `21eb77d`+)
 
-This document is for **manual API testing** by QA — Postman, Insomnia, Bruno, or `curl`. For UI/UAT scenarios, see [TEST-CASES.md](./TEST-CASES.md).
+This document is for **manual API testing** by QA — Postman, Insomnia, Bruno, or `curl`. For UI/UAT scenarios, see [TEST-CASES.md](./TEST-CASES.md). **Partner catalog lock (P0):** [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md).
 
 ---
 
@@ -21,8 +21,9 @@ This document is for **manual API testing** by QA — Postman, Insomnia, Bruno, 
 | `baseUrl` | `https://api.dova.dntech.id/api/v1` |
 | `accessToken` | *(auto-fill after login)* |
 | `refreshToken` | *(auto-fill after login)* |
+| `productId` | *(from GET /products **with** `X-Api-Key` or storefront Origin)* |
 | `orderId` | *(set after create order)* |
-| `productId` | *(from GET /products)* |
+| `partnerKey` | *(QA-issued `X-Api-Key`, catalog/OpenAPI only)* |
 | `supplierProfileId` | *(from GET /admin/suppliers/pending)* |
 
 ### Auth in Postman
@@ -33,6 +34,7 @@ Production uses **separate subdomains** (frontend ≠ API). For API tests, use t
 2. Copy `accessToken` from the response → set `{{accessToken}}`.
 3. Collection auth type: **Bearer Token** = `{{accessToken}}`.
 4. Required header: `Content-Type: application/json` (except multipart).
+5. Do **not** set collection-wide `X-Api-Key`. Add it only on GET `/categories`, `/products`, `/products/:id`, `/openapi.json` (`{{partnerKey}}`), or run those from the storefront Origin. See [DOVA-INTEGRATION-QA.md](./DOVA-INTEGRATION-QA.md).
 
 **Demo accounts**
 
@@ -264,13 +266,15 @@ Expected: **201** — `{ "message": "Password updated. Please sign in again with
 
 ---
 
-## 3. Catalog (public)
+## 3. Catalog (partner key or storefront Origin)
 
 | # | Method | Path | Auth | QA priority |
 |---|--------|------|------|-------------|
-| 9 | GET | `/categories` | — | P0 |
-| 10 | GET | `/products` | — | **P0** |
-| 11 | GET | `/products/:id` | — | P0 |
+| 9 | GET | `/categories` | `X-Api-Key` **or** storefront `Origin` | P0 |
+| 10 | GET | `/products` | `X-Api-Key` **or** storefront `Origin` | **P0** |
+| 11 | GET | `/products/:id` | `X-Api-Key` **or** storefront `Origin` | P0 |
+
+Postman without Origin: header `X-Api-Key: {{partnerKey}}`. Curl without key → **401** `INTEGRATION_REQUIRED` when keys are configured.
 
 **Query — GET `/products`**
 
