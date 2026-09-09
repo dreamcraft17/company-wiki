@@ -3,7 +3,7 @@
 > **Author:** Dozer  
 > **Date:** 2026-09-09
 
-**Document Version**: 1.17
+**Document Version**: 1.18
 **Last Updated**: September 9, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
@@ -34,7 +34,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · app `fff674c` · API `X-Api-Key` (deploy VPS TBD) · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · app `21eb77d` · catalog `X-Api-Key` for partners · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) | MVP in repo · live publish Conditional | `auto` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
@@ -49,7 +49,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Project | Commit / note | Perubahan |
 |---------|---------------|-----------|
-| **DOVA** | app `fff674c` / `dova-comp-wiki` `8c8eb7b` | Official `X-Api-Key` + storefront `/api/gateway` · [integration guide](./dova/docs/DOVA-INTEGRATION-GUIDE.md) · VPS env templates |
+| **DOVA** | app `21eb77d` / `dova-comp-wiki` `f133722` | Partner `X-Api-Key` on catalog only · login/cart JWT · [integration guide](./dova/docs/DOVA-INTEGRATION-GUIDE.md) |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |
 | **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |

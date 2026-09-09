@@ -1,10 +1,10 @@
 # DOVA API — Integrator Guide
 
-> **Status:** Active · **Last updated:** 2026-09-06 · **Author:** Dozer  
-> **Audience:** official integrators (storefront BFF, issued partner keys)  
-> **Version:** `v1` (contract 1.1.0 — integration key required)
+> **Status:** Active · **Last updated:** 2026-09-09 · **Author:** Dozer  
+> **Audience:** issued partners (catalog tools, Botpress)  
+> **Version:** `v1` (contract 1.1.0 — partner key on catalog only)
 
-This is the **private** HTTP contract. Import [OpenAPI](https://api.dova.dntech.id/api/v1/openapi.json) only with `X-Api-Key`. Storefront: [dova.dntech.id](https://dova.dntech.id) (browser talks to `/api/gateway`, not the API host).
+This is the **private** HTTP contract. Partners import [OpenAPI](https://api.dova.dntech.id/api/v1/openapi.json) with `X-Api-Key`. Customers and suppliers use [dova.dntech.id](https://dova.dntech.id) with JWT; they do not send an integration key.
 
 ## 01 — Base URL
 
@@ -15,7 +15,7 @@ Every JSON endpoint is under **`/api/v1`**.
 | Production | `https://api.dova.dntech.id/api/v1` |
 | Local | `http://localhost:3000/api/v1` |
 
-Discover the API (requires `X-Api-Key` except `/health`):
+Discover the API (`GET /` has no partner key; OpenAPI and catalog do for external callers):
 
 ```http
 GET /api/v1
@@ -38,26 +38,25 @@ Product images are **not** under `/api/v1`. Use the `imageUrl` returned on a pro
 
 | You are | Typical flow |
 |---------|----------------|
-| **Official storefront** | Next.js `/api/gateway` adds the storefront integration key. Customers then use JWT for cart/checkout. |
-| **Issued partner (e.g. Botpress)** | Same REST host with a **separate** `X-Api-Key` Dozer issues. Then JWT for that customer. |
-| **Anonymous internet** | `401` on catalog, OpenAPI, auth, contact. `GET /health` and Paystack webhook only. |
+| **Storefront customer/supplier** | Browser Origin is trusted for catalog. Login and cart/product CRUD use **JWT only**. |
+| **Issued partner (e.g. Botpress)** | `X-Api-Key` on `GET /categories`, `/products`, `/products/:id`, `/openapi.json`. JWT only if acting as a logged-in user on cart/order. |
+| **Anonymous curl (no Origin, no key)** | `401` on those catalog/OpenAPI routes once `DOVA_INTEGRATION_KEYS` is set. Login still works (invalid password → 401 credentials, not integration). |
 
-Every JSON call except **GET `/health`** and **POST `/payments/webhook`** must send:
+Partner catalog calls send:
 
 ```
 X-Api-Key: <issued secret>
 ```
 
-Customer, supplier, and admin still use **JWT** (`Authorization: Bearer`) **in addition** to the integration key. Keys live in `DOVA_INTEGRATION_KEYS` (`name:secret,...`). Never put a key in `NEXT_PUBLIC_*`.
+Customer, supplier, and admin use **JWT** (`Authorization: Bearer`). Keys live in `DOVA_INTEGRATION_KEYS` (`name:secret,...`). Never put a key in `NEXT_PUBLIC_*`.
 
 ---
 
 ## 03 — Authentication
 
-1. Send `X-Api-Key` (official client).
-2. `POST /api/v1/auth/login` (or register).
-3. Read `accessToken` from the JSON body.
-4. Send both headers on private customer routes:
+1. `POST /api/v1/auth/login` (or register). No `X-Api-Key`.
+2. Read `accessToken` from the JSON body.
+3. Send this header on private customer/supplier routes:
 
 ```
 Authorization: Bearer <accessToken>
@@ -67,15 +66,15 @@ Access tokens last **15 minutes**. Refresh with `POST /api/v1/auth/refresh` and 
 
 **Roles**
 
-| Role | Can call (still need `X-Api-Key`) |
+| Role | Can call |
 |------|----------|
-| *(JWT none)* | Auth register/login/OTP, catalog, OpenAPI, contact, feedback reads — **with integration key** |
+| *(JWT none)* | Auth register/login/OTP, contact, feedback reads. Catalog/OpenAPI: storefront Origin **or** partner `X-Api-Key` |
 | Infra | `GET /health` (no key). Paystack `POST /payments/webhook` (HMAC, no key) |
 | `customer` | Cart, orders, payments initialize/verify, profile |
 | `supplier` | Own products and supplier orders (account must be **approved**) |
 | `admin` | `/api/v1/admin/*` |
 
-Missing integration key or JWT → **401**. Wrong role → **403**.
+Missing partner key on external catalog → **401** `INTEGRATION_REQUIRED`. Missing JWT on cart → **401**. Wrong role → **403**.
 
 ### Register a customer
 

@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-09-09 · **App HEAD:** `fff674c` (`main`) · **Tag:** `v0.5.4`
+> **Updated:** 2026-09-09 · **App HEAD:** `21eb77d` (`main`) · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
@@ -51,7 +51,7 @@ Features, implementation baseline, API reference, and test documentation.
 | [FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) | Full technical status |
 | [CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | PRD / ops baseline snapshot |
 | [API Documention.md](./docs/API%20Documention.md) | Integrator REST guide (`/api/v1`) · [PDF](./docs/API%20Documention.pdf) |
-| [DOVA-INTEGRATION-GUIDE.md](./docs/DOVA-INTEGRATION-GUIDE.md) | Masuk/keluar: X-Api-Key, gateway, Botpress, Paystack webhook |
+| [DOVA-INTEGRATION-GUIDE.md](./docs/DOVA-INTEGRATION-GUIDE.md) | Partner X-Api-Key on catalog only; storefront JWT for cart/login |
 | [DOVA-API-QA-POSTMAN.md](./docs/DOVA-API-QA-POSTMAN.md) | QA Postman endpoint list |
 | [DOVA-SECURITY-CHECKLIST-ASSESSMENT.md](./docs/DOVA-SECURITY-CHECKLIST-ASSESSMENT.md) | QA Security section — 4-item assessment |
 | [DOVA-BUG-TRIAGE.md](./docs/DOVA-BUG-TRIAGE.md) | Bug triage + fingerprints |
