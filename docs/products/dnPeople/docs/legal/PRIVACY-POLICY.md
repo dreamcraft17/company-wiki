@@ -1,30 +1,13 @@
 # Privacy Policy — dnPeople
 
-**Effective:** 19 Juli 2026  
-**Controller:** DN Tech (PT. Dozer Napitupulu Technology) — brand DnPeople  
+> **Author:** Dozer  
+> **Date:** 2026-09-09
 
-## Data yang kami proses
-Identitas karyawan, kontak, absensi, cuti, payroll/pajak (terenkripsi untuk field sensitif), dokumen HR, log audit.
+**Effective:** 9 September 2026  
+**Controller / processor:** PT. Dozer Napitupulu Technology (DN Tech) — merek dnPeople  
 
-## Tujuan
-Menyediakan layanan HRIS, kepatuhan pajak/BPJS, keamanan akun, dukungan pelanggan.
+Sumber halaman: repositori `dnpeople/docs/legal/legal2/dnpeople-privacy-policy-v1.0-id-seo.md`.
 
-## Dasar pemrosesan
-Kontrak dengan perusahaan pelanggan; kepentingan sah operasional HR; kewajiban hukum.
+Ringkasan: UU 27/2022 (PDP), UU ITE s.d. UU 1/2024. Pelanggan mengendalikan data karyawan; DN Tech memproses untuk HRIS. Kontak: privacy@dnpeople.id.
 
-## Retensi
-Default **5 tahun** sejak berakhirnya hubungan kerja/kontrak pelanggan (atau lebih lama bila wajib hukum). Diatur `DATA_RETENTION_YEARS`.
-
-## Hak subjek data
-Akses/koreksi via HR; export via `GET /api/v1/privacy/export`; permintaan hapus via `/api/v1/privacy/deletion-request` + offboarding.
-
-## Sub-processor
-SMTP, object storage, Sentry, payment gateway, IdP — lihat `GET /api/v1/privacy/processors`.
-
-## Keamanan
-TLS, enkripsi field, RBAC, audit trail, MFA opsional.
-
-## Kontak
-privacy@dnpeople.id · info@dnpeople.id
-
-Ini dokumen template produk; review counsel sebelum publikasi di dnpeople.id.
+Bukan nasihat hukum.

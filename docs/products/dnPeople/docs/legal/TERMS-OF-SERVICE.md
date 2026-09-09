@@ -1,23 +1,13 @@
 # Terms of Service — dnPeople
 
-**Effective:** 19 Juli 2026  
+> **Author:** Dozer  
+> **Date:** 2026-09-09
 
-## Layanan
-dnPeople adalah HRIS multi-tenant SaaS. Fitur mengikuti tier langganan.
+**Effective:** 9 September 2026  
+**Provider:** PT. Dozer Napitupulu Technology  
 
-## Akun
-Pelanggan bertanggung jawab atas kredensial admin dan data karyawan yang diunggah.
+Sumber halaman: repositori `dnpeople/docs/legal/legal2/dnpeople-terms-conditions-v1.0-id-seo.md`.
 
-## SLA
-Target uptime soft-launch 99.5%, publik 99.9% — lihat `docs/SLA-SUPPORT-POLICY.md`.
+Ringkasan: kontrak elektronik dan bukti elektronik menurut UU ITE (perubahan terakhir UU 1/2024). Hukum Indonesia.
 
-## Pembayaran
-Invoice via `/billing`; keterlambatan dapat memicu grace/freeze sesuai PRD v5.
-
-## Larangan
-Reverse engineering berbahaya, abuse API, bypass keamanan, menyimpan malware.
-
-## Hukum
-Hukum Republik Indonesia. Sengketa: musyawarah lalu pengadilan yang berwenang.
-
-Template — review counsel sebelum publikasi.
+Bukan nasihat hukum.
