@@ -10,7 +10,7 @@
 
 | Item | Where to get it |
 |------|-----------------|
-| Postgres URL | Neon, Supabase, or VPS |
+| Postgres URL | Neon, Supabase, or **Postgres on the VPS** — [VPS-POSTGRES-STAGING.md](./VPS-POSTGRES-STAGING.md) |
 | Redis URL | Upstash or VPS (recommended prod) |
 | `JWT_SECRET` | `openssl rand -hex 32` |
 | Paystack **test** keys | [Paystack Dashboard](https://dashboard.paystack.com) → Settings → API Keys |

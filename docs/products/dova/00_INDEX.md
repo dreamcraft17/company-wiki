@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-09-09 · **App HEAD:** `21eb77d` (`main`) · **Tag:** `v0.5.4`
+> **Updated:** 2026-09-12 · **App HEAD:** `21eb77d` (`main`) · **Tag:** `v0.5.4`
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
@@ -23,6 +23,8 @@ Deploy, environment, runbooks, release checks, and stakeholder operational updat
 | [RUNBOOK.md](./docs/RUNBOOK.md) | Deploy, rollback, troubleshoot |
 | [Dova RunBook for localhost.md](./docs/Dova%20RunBook%20for%20localhost.md) | Run DOVA on localhost / dev machine · [PDF](./docs/Dova%20RunBook%20for%20Localhost.pdf) |
 | [VPS-DEPLOY.md](./docs/VPS-DEPLOY.md) | Single-server VPS deploy |
+| [VPS-POSTGRES-STAGING.md](./docs/VPS-POSTGRES-STAGING.md) | **stg:** pasang Postgres di VPS, DB `dova_staging`, migrate/seed |
+| [VPS-PG-BACKUP-CLEAN-SEED.md](./docs/VPS-PG-BACKUP-CLEAN-SEED.md) | Prod: `pg_dump` 17, `psql`, wipe demo (keep admin + supplier **accounts** only) |
 | [ENV-SETUP.md](./docs/ENV-SETUP.md) | Production / VPS environment variables |
 | [vps-backend.env.example](./docs/vps-backend.env.example) | Backend env template (VPS) |
 | [vps-frontend.env.example](./docs/vps-frontend.env.example) | Frontend env template (VPS) |

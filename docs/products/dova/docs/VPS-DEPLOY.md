@@ -55,7 +55,7 @@ NEXT_PUBLIC_API_URL=https://your-domain.com/api/v1
 NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY=pk_xxx
 ```
 
-Create DB:
+Create DB (production on this VPS). **Staging** on the same host: use a separate database — [VPS-POSTGRES-STAGING.md](./VPS-POSTGRES-STAGING.md).
 
 ```bash
 sudo -u postgres psql -c "CREATE USER dova WITH PASSWORD 'PASSWORD';"
