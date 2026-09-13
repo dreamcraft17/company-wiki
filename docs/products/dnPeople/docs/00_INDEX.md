@@ -17,6 +17,8 @@
 
 | File | Deskripsi |
 |------|-----------|
+| [**DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md**](./DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales: ICP, demo, harga, handoff CS |
+| [**DNPEOPLE-BISNIS-FITUR-LAYANAN.md**](./DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | **Bisnis, paket, layanan ops, fitur per modul** (sales/onboarding) |
 | [**DNPEOPLE-HRIS-OVERVIEW.md**](./DNPEOPLE-HRIS-OVERVIEW.md) | **Penjelasan produk lengkap dalam 1 file** — mulai di sini |
 | [A11Y-TESTING.md](./A11Y-TESTING.md) | **Aksesibilitas WCAG 2.2 AA** — Playwright + axe, keyboard, manual checklist |
 | [CHAOS-ENGINEERING.md](./CHAOS-ENGINEERING.md) | **Chaos engineering** — hipotesis, 3 experiment awal, game day, VPS scripts |

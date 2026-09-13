@@ -10,7 +10,7 @@
 | Production | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
 | Release | **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)** — billing hardening, a11y CI, SUPER_ADMIN routing, ops |
 | Status | Active — v15 Admin + v14 Tutorial + v13 Talent + **Xendit PG** + billing UI + grouped nav; next **PRD v16.0** Module 4 |
-| Docs living | [docs/](./docs/) — **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
+| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
 | UpdatedAt | August 22, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.

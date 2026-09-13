@@ -1,7 +1,7 @@
 # dnPeople HRIS — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-09
+> **Date:** 2026-09-13
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
@@ -9,7 +9,7 @@
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 9, 2026  
+**UpdatedAt**: September 13, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
 **Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **161/161** tests · **16** a11y (Playwright + axe)  
 **HEAD**: `dnpeople` main · **`cdccf89`** (living docs + legal TOC) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
@@ -68,6 +68,8 @@
 | [docs/legal/TERMS-OF-SERVICE.md](./docs/legal/TERMS-OF-SERVICE.md) | Syarat layanan (ringkas; teks halaman di `legal2/`) |
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
 | [docs/CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Chaos engineering (VPS/PM2) |
+| [docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales (ICP, demo, handoff) |
+| [docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | Bisnis, paket, layanan, fitur per modul (rinci) |
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
 | [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
 
@@ -94,4 +96,4 @@ cp dnpeople/docs/CURRENT-IMPLEMENTATION.md company-wiki/docs/products/dnPeople/c
 
 ---
 
-*Last Updated: September 9, 2026*
+*Last Updated: September 13, 2026*

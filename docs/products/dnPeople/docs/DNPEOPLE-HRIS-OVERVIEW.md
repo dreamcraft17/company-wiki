@@ -4,11 +4,12 @@
 |---|---|
 | **Produk** | dnPeople — Human Resource Information System (HRIS) SaaS |
 | **Pemilik** | Dozer (CEO + Tech Lead) · **DN Tech** (PT. Dozer Napitupulu Technology) |
+| **Author** | Dozer |
 | **Brand** | DnPeople |
 | **Production** | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
 | **Marketing** | [dnpeople.id](https://dnpeople.id) (DNS go-live conditional) |
 | **Kontak** | info@dntech.id |
-| **Diperbarui** | 17 Agustus 2026 |
+| **Diperbarui** | 13 September 2026 |
 | **Repo** | `dnpeople/` — Express + Next.js (bukan `ERP/` NestJS) |
 
 > Dokumen ini merangkum **apa itu dnPeople**, **untuk siapa**, **fitur per paket**, **billing/admin**, dan **cara deploy** dalam satu file. Detail teknis panjang tetap di dokumen terpisah (lihat §12).
@@ -75,7 +76,7 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 - Helpdesk, help & tutorial dasar, MFA
 - Paket & billing (upsell), API quota dasar
 
-### STARTER — Operasi harian (+ trial 2 bulan)
+### STARTER — Operasi harian (+ trial 4 bulan, dapat diakhiri dnPeople)
 - Semua FREE +
 - Absensi (manual/GPS/QR/geofence sesuai config), koreksi, shift
 - Cuti & izin, approval, payroll **dasar**, laporan dasar
@@ -109,7 +110,7 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 | Tier | Harga default | Min. tagihan | Trial |
 |------|---------------|--------------|-------|
 | FREE | Rp 0 | — | 4 bulan |
-| STARTER | Rp 20.000/karyawan | Rp 20.000 | 2 bulan |
+| STARTER | Rp 20.000/karyawan | Rp 20.000 | 4 bulan (promo, dapat dimatikan) |
 | PROFESSIONAL | Rp 25.000/karyawan | Rp 25.000 | 2 bulan |
 | BUSINESS | Rp 20.000/karyawan (volume) | Rp 6.000.000 | 2 bulan |
 | ENTERPRISE | Harga khusus | — | — |
