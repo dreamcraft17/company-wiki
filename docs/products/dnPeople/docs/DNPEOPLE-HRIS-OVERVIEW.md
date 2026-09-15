@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Produk** | dnPeople — Human Resource Information System (HRIS) SaaS |
-| **Pemilik** | Dozer (CEO + Tech Lead) · **DN Tech** (PT. Dozer Napitupulu Technology) |
+| **Pemilik** | Dozer (CEO + Chief Engineer) · **DN Tech** (PT. Dozer Napitupulu Technology) |
 | **Author** | Dozer |
 | **Brand** | DnPeople |
 | **Production** | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
@@ -109,9 +109,9 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 
 | Tier | Harga default | Min. tagihan | Trial |
 |------|---------------|--------------|-------|
-| FREE | Rp 0 | — | 4 bulan |
-| STARTER | Rp 20.000/karyawan | Rp 20.000 | 4 bulan (promo, dapat dimatikan) |
-| PROFESSIONAL | Rp 25.000/karyawan | Rp 25.000 | 2 bulan |
+| FREE | Rp 0 | — | Selamanya |
+| STARTER | Rp 15.000/karyawan | Rp 150.000 | 4 bulan (promo, dapat dimatikan) |
+| PROFESSIONAL | Rp 20.000/karyawan | Rp 20.000 | 2 bulan |
 | BUSINESS | Rp 20.000/karyawan (volume) | Rp 6.000.000 | 2 bulan |
 | ENTERPRISE | Harga khusus | — | — |
 
