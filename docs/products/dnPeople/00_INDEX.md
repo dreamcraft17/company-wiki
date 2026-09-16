@@ -1,7 +1,7 @@
 # dnPeople HRIS — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-13
+> **Date:** 2026-09-16
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
@@ -9,15 +9,15 @@
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 13, 2026  
+**UpdatedAt**: September 16, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
-**Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **161/161** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · **`cdccf89`** (living docs + legal TOC) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
+**Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **165/165** tests · **16** a11y (Playwright + axe)  
+**HEAD**: `dnpeople` main · **`33bedda`** (DOKU payment gateway + default switch) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v16.0**)  
 > **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox **FREE** tier  
-> **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)
+> **Payment gateway (Xendit / Midtrans / DOKU, admin-switchable):** [docs/PG/README.md](./docs/PG/README.md) · **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)
 
 ---
 

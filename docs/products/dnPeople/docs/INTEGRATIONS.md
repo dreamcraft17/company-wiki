@@ -1,6 +1,14 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-16
+review_cadence: annual
+---
+
 # Integrations Guide
 
-**UpdatedAt:** 8 Agustus 2026  
+**UpdatedAt:** 16 September 2026  
 
 ## Public lead capture (PRD v11.0)
 
@@ -19,16 +27,18 @@ Env: `LEADS_NOTIFY_EMAIL`, `SMTP_HOST` for sales notifications.
 ## Webhooks
 Daftarkan URL; uji via “Test delivery”.
 
-### Xendit billing (subscription payments)
+### Payment gateway (subscription billing) — admin-switchable
+
+Tiga gateway aktif; admin memilih satu via `/admin/payment-gateway` (feature flag `platform:active-payment-provider`). Detail: [PG/README.md](./PG/README.md).
 
 | Method | Path | Auth | Purpose |
 |--------|------|------|---------|
 | POST | `/api/v1/webhooks/xendit` | `x-callback-token` header | Invoice paid / payment status updates |
+| POST | `/api/v1/webhooks/midtrans` | `signature_key` (SHA-512) | Transaction status notification |
+| POST | `/api/v1/webhooks/doku` | `Signature` header (HMACSHA256) | Checkout notification (non-SNAP) |
 
-Env: `XENDIT_SECRET_KEY`, `XENDIT_WEBHOOK_TOKEN`, `FRONTEND_URL`.  
+Env: `XENDIT_SECRET_KEY`, `XENDIT_WEBHOOK_TOKEN` (Xendit); `MIDTRANS_SERVER_KEY[_SANDBOX]`, `MIDTRANS_CLIENT_KEY[_SANDBOX]` (Midtrans); `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY` (DOKU); `FRONTEND_URL`.  
 Panduan lengkap: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
-
-Legacy Midtrans webhook (`/webhooks/midtrans`) **disabled** — lihat [PG/README.md](./PG/README.md).
 
 ## OpenAPI
 - UI: `/api/v1/docs`  

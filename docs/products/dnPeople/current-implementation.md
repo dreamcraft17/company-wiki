@@ -1,19 +1,21 @@
 # dnPeople — Current Implementation Baseline
 
 > **Author:** Dozer  
-> **Date:** 2026-09-09
+> **Date:** 2026-09-16
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 9 September 2026 |
-| HEAD | `cdccf89` on `dnpeople` main (post legal TOC; legal copy v1.1) |
+| Snapshot date | 16 September 2026 |
+| HEAD | `33bedda` on `dnpeople` main (DOKU payment gateway + default switch) |
 | Purpose | **Baseline** after **v1.1.0** plus Aug–Sep billing, legal, and assistant increments on PRD **v15.0** |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **v4 Module 4–8** → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | September 9, 2026 |
+| Updated at | September 16, 2026 |
 
+> **16 Sep 2026:** DOKU Checkout added as a third payment gateway (Xendit, Midtrans, DOKU — admin-switchable via `/admin/payment-gateway`); **DOKU is now the default** active provider. Verified against official DOKU API docs (endpoint, signature, enums all correct); no dedicated unit tests yet for `doku.ts` (known gap vs. Xendit/Midtrans coverage). See [PG/README.md](./docs/PG/README.md) for a precedence caveat: `PAYMENT_PROVIDER` env now overrides the admin's DB-flag choice, not the reverse.
+>
 > **9 Sep 2026:** Legal ToS/PP **v1.1** (UU 27/2022, UU ITE / UU 1/2024) on `/legal/privacy` and `/legal/terms` (seed `db:seed:legal`); sticky left TOC. HR assistant v17: Prisma tools + FAQ/policy lexical RAG + ASK audit. Unit tests **161/161**. Prisma **130** models. See [CHANGELOG.md](./docs/CHANGELOG.md).
 >
 > **Release v1.1.0 (22 Aug 2026):** Playwright + axe a11y CI (16 public pages); payment webhook idempotency + rate-limit exempt; `/metrics` gated by `METRICS_TOKEN` in production; `writeAuditLogSafe()`; SUPER_ADMIN routing fix; public demo creds on `/login`; WCAG contrast fixes; chaos engineering scaffold. See [CHANGELOG.md](./docs/CHANGELOG.md).
@@ -146,7 +148,7 @@ the attempted path in `next`.
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
 | Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
-| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout** + return sync | `/subscription`, `/payments` | `/billing` | Available; **Xendit sandbox E2E Conditional** |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **admin-switchable checkout (Xendit / Midtrans / DOKU, default DOKU)** + return sync | `/subscription`, `/payments` | `/billing` | Available; **Xendit sandbox E2E Conditional**, DOKU untested at unit level |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |

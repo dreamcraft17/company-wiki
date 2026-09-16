@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: monthly
+---
+
 # dnPeople — Current Implementation Baseline
 
 > **Author:** Dozer  
@@ -8,13 +16,15 @@
 | Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Snapshot date | 9 September 2026 |
-| HEAD | `538d75a` on `dnpeople` main |
+| Snapshot date | 16 September 2026 |
+| HEAD | `33bedda` on `dnpeople` main |
 | Purpose | **Baseline** after PRD **v15.0** + Aug–Sep 2026 billing, legal, assistant, and dashboard increments — input for **PRD v16.0** |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **Xendit PG**; **Legal ToS/PP v1.1** (UU PDP + UU ITE); **v17 assistant** tools + lexical RAG; **v4 Module 4–8** = primary greenfield → **v16.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **Xendit/Midtrans/DOKU PG (admin-switchable)**; **Legal ToS/PP v1.1** (UU PDP + UU ITE); **v17 assistant** tools + lexical RAG; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Production (staging) | `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
-| Updated at | September 9, 2026 |
+| Updated at | September 16, 2026 |
 
+> **September 16, 2026:** DOKU Checkout added as a third admin-switchable payment gateway alongside Xendit and Midtrans (`backend/src/lib/doku.ts`, non-SNAP HMAC-SHA256, QRIS default) — commits `772eb28`, `29cf306`. DOKU then set as the **default** active provider, and `PAYMENT_PROVIDER` env precedence flipped to win over the admin DB flag (commit `33bedda`) — see [PG/README.md](./PG/README.md) for the precedence caveat. **Known gap:** no dedicated unit tests yet for `doku.ts` (Xendit/Midtrans have signature + webhook idempotency coverage; DOKU does not). Test suite still **165/165** passing (Node `tsx --test` runner, not Jest).
+>
 > **September 9, 2026:** Public `/legal/privacy` and `/legal/terms` seed **v1.1** (UU 27/2022 PDP, UU ITE as amended by UU 1/2024). Sticky left TOC on legal pages. HR assistant: Prisma self-scope tools, FAQ/policy lexical retrieve, citations, ASK audit (`docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md`). Automated evidence: **161/161** unit tests (backend + selected frontend lib tests). **130** Prisma models.
 >
 > **August 10, 2026 increments:** Grouped sidebar nav (8 sections, flat mode for short employee lists); billing page UI polish (stat cards, tier feature bullets, invoice filters, trial preview hide); brand logo **`/logo3.png`** site-wide; invoice PDF export + Xendit payment method on invoice history (same sprint).

@@ -1,10 +1,10 @@
 # Product Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-09
+> **Date:** 2026-09-12
 
-**Document Version**: 1.18
-**Last Updated**: September 9, 2026
+**Document Version**: 1.19
+**Last Updated**: September 12, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -29,14 +29,14 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **78** markdown | Production + **relaunch** · **v0.10.0** · HEAD `8e3b8a7` | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** + legal v1.1 | Production · **v1.1.0** · HEAD `cdccf89` · ops gates Conditional | `dnpeople` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **78** markdown | Production + **relaunch** · **v0.10.0** · HEAD `84a2448` · Founded by on `/about` | `dntech` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** + legal v1.1 + DOKU PG | Production · **v1.1.0** · HEAD `33bedda` · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit | **v0.5.4** · **production live** · app `21eb77d` · catalog `X-Api-Key` for partners · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit + **Bundle Feature PRD/SDD** | **v0.5.4** production live (app `21eb77d`) · **product bundles backend on `stg`** (`5ce09c4`, unreleased) · catalog `X-Api-Key` for partners · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
-| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) | MVP in repo · live publish Conditional | `auto` |
+| **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) + **NestJS v3.2** subsection (separate repo) | MVP in repo · live publish Conditional · 2nd impl (NestJS/Next.js) backend+frontend done, review pending fixes | `auto` + `threads-automation` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 | **Porto** (personal) | [porto/](./porto/00_INDEX.md) | Pointer only | Personal portfolio · **SSOT `private-wiki/porto/`** | `porto` |
@@ -45,10 +45,14 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
+| **dnPeople HRIS** | app `33bedda` / wiki sync 2026-09-16 | **DOKU Checkout** added as third admin-switchable payment gateway (Xendit/Midtrans/DOKU), now the **default**; verified against official DOKU API docs; no unit tests yet for `doku.ts` (known gap) · **165/165** tests |
 | **dnPeople HRIS** | app `cdccf89` | **Legal v1.1** (UU PDP/ITE) + sticky TOC · assistant v17 tools/RAG · **161** tests · seed `db:seed:legal` |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |
 | **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
+| **DN Tech Compro** | app `84a2448` / wiki sync | `/about` **Founded by Dozer Napitupulu**; legal seed (privacy/terms); README test counts **206** |
+| **Threads Automation** | app `threads-automation` (separate repo) / wiki sync 2026-09-14 | New **NestJS v3.2** implementation (static-token Graph API, no Playwright) documented under `docs/nestjs-v3.2/`: backend+frontend done, 29/29 tests, six-lens engineering review with open Critical/High findings not yet fixed |
 | **DN Tech Compro** | app `8e3b8a7` / wiki sync | **Dashboard SEO/marketing copy** reference doc mirrored; hero deploy + CSS runbook on main |
+| **DOVA** | `stg` `5ce09c4` / wiki sync 2026-09-15 | **Product bundles (backend)** — bundle CRUD, discovery, add-to-cart, atomic bundle checkout expanding into per-component order_items; migration `009_bundles.sql`; 206/208 unit tests passing; not yet in production, no FE integration yet |
 | **DOVA** | app `642b165` / wiki sync | **Register success modal** (Bug-016) · **QA security checklist** (4/4 pass) · bcrypt + Paystack evidence doc |
 | **DOVA** | app `71225e3` / wiki sync | **Inline registration OTP** on register page · legacy Profile verify · auth UI split layout · **158** unit tests |
 | **DOVA** | app `972ffbc` | Admin user delete (cascade) · Customer copy in auth |

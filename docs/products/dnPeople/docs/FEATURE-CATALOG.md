@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Feature Catalog
 
 > **Author:** Dozer  
@@ -259,7 +267,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
 | Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
 | Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
-| Payment adapter | **Xendit** hosted checkout (primary); Bayar saat trial diperbolehkan; webhook `/webhooks/xendit` + return sync; early pay clears trial | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — live E2E Conditional |
+| Payment adapter | **Xendit / Midtrans / DOKU** admin-switchable checkout (default **DOKU** as of 16 Sep 2026), `/admin/payment-gateway`; Bayar saat trial diperbolehkan; webhook per gateway + return sync; early pay clears trial | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — live E2E Conditional; DOKU has no dedicated unit tests yet |
 | Trial UX | Countdown badge (sidebar/header); pratinjau invoice DRAFT (toggle tampil); optional early payment | Company admin | AppShell, `/billing` | Available |
 | Billing UI | Stat cards, tier cards dengan feature bullets dari `subscriptionCatalog`, mobile invoice cards | Company admin | `/billing` | Available — Aug 2026 |
 

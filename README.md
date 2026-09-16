@@ -1,10 +1,11 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-09-09
+> **Date:** 2026-09-12
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
+**Founded by:** Dozer Napitupulu  
 **Leadership (internal portfolio):** Dozer — **CEO + Tech Lead + PM**  
 **Owner wiki:** Dozer (CEO + Tech Lead + PM)
 
@@ -26,11 +27,11 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**78** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `8e3b8a7`
-  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · legal v1.1 + assistant v17 · next **PRD v16.0**
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**78** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `84a2448` · `/about` Founded by Dozer Napitupulu
+  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.0** · legal v1.1 + assistant v17 + DOKU payment gateway · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
-  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `21eb77d` · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
+  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `21eb77d` · product bundles backend on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (38 markdown)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (26 markdown)
@@ -66,7 +67,7 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (427 markdown + 1 DOCX + 4 ZIP)
+│   └── products/          # Source docs per produk (457 markdown + 1 DOCX + 4 ZIP)
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
@@ -97,4 +98,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: September 9, 2026 · Leadership: CEO + Tech Lead + PM (Dozer)*
+*Last Updated: September 16, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*
