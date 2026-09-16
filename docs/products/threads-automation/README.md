@@ -10,7 +10,7 @@
 | Status | **v3.0** AI Content · v2.0 live/media · LLM via env |
 | Spec | PRD **v3.0 AI** + v2.0 |
 | Docs | **[Cara pakai](./docs/USER-GUIDE.md)** · **[Cara kerja](./docs/HOW-IT-WORKS.md)** · [Deploy](./docs/DEPLOY.md) · [Index](./docs/00_INDEX.md) |
-| UpdatedAt | 25 Juli 2026 |
+| UpdatedAt | 16 September 2026 |
 | License | Private — internal use only |
 
 ---
@@ -139,3 +139,18 @@ v2.0 (live + media + tests) dan v3.0 (AI content) sudah di repo. Kandidat beriku
 | [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Katalog fitur |
 | [docs/PRD/](./docs/PRD/) | PRD · SRS · SDD |
 | Wiki | `company-wiki/docs/products/threads-automation/` |
+| Review | [Engineering review + 90-day operating plan](./docs/ENGINEERING-REVIEW-2026-09-16.md) |
+
+---
+
+## ⚠️ Second implementation: NestJS v3.2 (static token, official Graph API)
+
+There is a **separate, newer implementation** of Threads automation for `@dntech`, built in a different repo (`threads-automation/`, NestJS 10 + Next.js 14, static-token official Graph API — no Playwright, no browser login). It targets the same account but is not built on this Express/Playwright codebase.
+
+| | |
+|---|---|
+| Package | `threads-automation` (NestJS + Next.js monorepo, separate from `auto/`) |
+| Status | Backend + frontend implemented, 29/29 tests passing, build clean — engineering review completed 2026-09-14 with open Critical/High findings not yet fixed |
+| Docs | [docs/nestjs-v3.2/IMPLEMENTATION-STATUS.md](./docs/nestjs-v3.2/IMPLEMENTATION-STATUS.md) · [docs/nestjs-v3.2/ENGINEERING-REVIEW-2026-09-14.md](./docs/nestjs-v3.2/ENGINEERING-REVIEW-2026-09-14.md) · [docs/nestjs-v3.2/00_START_HERE_v3.2.md](./docs/nestjs-v3.2/00_START_HERE_v3.2.md) |
+
+Do not confuse this with the v2.0/v3.0 Playwright tool documented above — they are two different codebases automating the same account.

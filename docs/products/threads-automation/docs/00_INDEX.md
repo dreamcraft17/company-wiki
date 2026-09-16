@@ -4,7 +4,7 @@
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Product / package:** Threads Automation (`threads-automation`)  
 **Local path:** `auto/`  
-**UpdatedAt:** 25 Juli 2026  
+**UpdatedAt:** 16 September 2026
 **Status:** **v3.0 AI Content** (+ v2.0 Live Publish & Media) · live Conditional · LLM Configurable (`mock` default lokal)  
 **Spec baseline:** PRD/SRS/SDD **v3.0 AI** + **v2.0** (+ v1.0 Draft)
 
@@ -34,6 +34,7 @@
 | [API.md](./API.md) | Endpoint `/v1` |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Diagram komponen ringkas |
 | [CHANGELOG.md](./CHANGELOG.md) | Riwayat living docs / produk |
+| [ENGINEERING-REVIEW-2026-09-16.md](./ENGINEERING-REVIEW-2026-09-16.md) | CTO/API review + operating plan |
 | [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | Briefing PRD berikutnya (post-v2) |
 | [PRD/PRD-v3_0-AI-Content-Generation-INTERNAL.md](./PRD/PRD-v3_0-AI-Content-Generation-INTERNAL.md) | PRD v3.0 AI (internal) |
 | [PRD/IMPLEMENTATION-GUIDE-v3_0-INTERNAL.md](./PRD/IMPLEMENTATION-GUIDE-v3_0-INTERNAL.md) | Implementation guide v3.0 |

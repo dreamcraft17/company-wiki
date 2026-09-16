@@ -4,7 +4,7 @@
 **Repository / path:** `auto/` · package `threads-automation`  
 **Status:** **v2.0** Live Publish & Media · tanpa Docker · live Conditional  
 **Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech  
-**UpdatedAt:** 25 Juli 2026  
+**UpdatedAt:** 16 September 2026
 **Spec:** PRD/SRS/SDD v2.0 (+ v1.0 Draft)
 
 ---
@@ -36,6 +36,7 @@
 | [docs/API.md](./docs/API.md) | API ringkas |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Arsitektur |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Changelog |
+| [docs/ENGINEERING-REVIEW-2026-09-16.md](./docs/ENGINEERING-REVIEW-2026-09-16.md) | CTO/API review + 90-day operating plan |
 
 ## Specs
 
@@ -47,3 +48,17 @@
 | [THREADS_AUTOMATION_PRD.md](./THREADS_AUTOMATION_PRD.md) | PRD v1.0 |
 | [THREADS_AUTOMATION_SRS.md](./THREADS_AUTOMATION_SRS.md) | SRS v1.0 |
 | [THREADS_AUTOMATION_SDD.md](./THREADS_AUTOMATION_SDD.md) | SDD v1.0 |
+
+---
+
+## Second implementation: NestJS v3.2 (separate repo, official Graph API)
+
+A different codebase (`threads-automation/` — NestJS + Next.js, static-token Graph API, no Playwright) also automates `@dntech`. It is **not** part of this `auto/` repo's history. See:
+
+| File | Topic |
+|------|-------|
+| [docs/nestjs-v3.2/IMPLEMENTATION-STATUS.md](./docs/nestjs-v3.2/IMPLEMENTATION-STATUS.md) | Current build status, verified 2026-09-14 |
+| [docs/nestjs-v3.2/ENGINEERING-REVIEW-2026-09-14.md](./docs/nestjs-v3.2/ENGINEERING-REVIEW-2026-09-14.md) | Six-lens review: backend, frontend, fullstack, product, AI security, QA |
+| [docs/nestjs-v3.2/00_START_HERE_v3.2.md](./docs/nestjs-v3.2/00_START_HERE_v3.2.md) | Onboarding doc for that codebase |
+| [docs/nestjs-v3.2/THREADS_AUTOMATION_PRD_v3.1.md](./docs/nestjs-v3.2/THREADS_AUTOMATION_PRD_v3.1.md) · [SRS](./docs/nestjs-v3.2/THREADS_AUTOMATION_SRS_v3.1.md) · [SDD](./docs/nestjs-v3.2/THREADS_AUTOMATION_SDD_v3.1.md) | PRD/SRS/SDD v3.1 |
+| [docs/nestjs-v3.2/QUICK_REFERENCE_v3.2_STATIC_TOKEN.md](./docs/nestjs-v3.2/QUICK_REFERENCE_v3.2_STATIC_TOKEN.md) | Env vars, endpoints, cron jobs cheat sheet |
