@@ -73,6 +73,7 @@
 | [docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | Bisnis, paket, layanan, fitur per modul (rinci) |
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
 | [docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
+| [docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md](./docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md) | Riset SEO, market category, UX, copy, dan prioritas optimasi landing page `/welcome` |
 | [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
 
 ## Ops (`ops/`)
