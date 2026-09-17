@@ -72,6 +72,7 @@
 | [docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales (ICP, demo, handoff) |
 | [docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | Bisnis, paket, layanan, fitur per modul (rinci) |
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
+| [docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
 | [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
 
 ## Ops (`ops/`)
@@ -97,4 +98,4 @@ cp dnpeople/docs/CURRENT-IMPLEMENTATION.md company-wiki/docs/products/dnPeople/c
 
 ---
 
-*Last Updated: September 13, 2026*
+*Last Updated: September 17, 2026*
