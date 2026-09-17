@@ -4,14 +4,14 @@
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Tech Lead) |
+| Owner | Dozer (CEO + Chief Engineer) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Production | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
-| Release | **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)** — billing hardening, a11y CI, SUPER_ADMIN routing, ops |
+| Release | **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)** — latest verified tag; billing, admin, security, and operations increments |
 | Status | Active — v15 Admin + v14 Tutorial + v13 Talent + **Xendit PG** + billing UI + grouped nav; next **PRD v16.0** Module 4 |
-| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
-| UpdatedAt | August 22, 2026 |
+| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Product research & differentiation](./docs/PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
+| UpdatedAt | September 15, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.
 
@@ -94,14 +94,16 @@ Harga UI: `frontend/src/lib/subscriptionCatalog.ts` · gate server: `backend/src
 
 | Area | Angka |
 |------|-------|
-| Halaman frontend (app + marketing + admin) | ~**96** |
-| Modul route API | ~**60** (+ SCIM) |
-| Model Prisma | **130** |
-| Backend unit tests | **123/123** |
-| A11y tests (Playwright + axe) | **16** public pages |
+| Halaman frontend (app + marketing + admin) | **99** |
+| Modul route API | **61** (+ SCIM) |
+| Model Prisma | **131** |
+| Automated test suite | **165/165** passed |
+| A11y tests (Playwright + axe) | **10** public + **4** authenticated page checks, plus keyboard/interactive checks |
 | Baseline PRD | v3.1 → **v15.0** / v14.0 / v13.0 / v12.1 / v11.1 |
 
 Status implementasi: [IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · baseline PRD berikutnya: [NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md).
+
+Documentation governance: [00_INDEX.md](./docs/00_INDEX.md) · [GLOSSARY.md](./docs/GLOSSARY.md) · [Business Operations Knowledge Audit](./docs/BUSINESS-OPERATIONS-KNOWLEDGE-AUDIT.md).
 
 ---
 
@@ -211,7 +213,7 @@ dnpeople/
 ## Testing & verifikasi
 
 ```bash
-# Backend unit tests (123)
+# Backend and selected frontend unit tests (165)
 cd backend && npm test
 
 # Database constraints + audit immutability (butuh DATABASE_URL)

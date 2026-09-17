@@ -32,6 +32,7 @@
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP/PRD |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap |
+| [PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md](./PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md) | Riset positioning dan kategori fitur agar tidak head-on dengan HRIS generik |
 | [USER-GUIDE.md](./USER-GUIDE.md) | Panduan pengguna (launch) |
 | [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) | Panduan admin / implementer |
 | [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md) | FAQ & troubleshooting |
