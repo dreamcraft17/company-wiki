@@ -34,6 +34,8 @@
 | [EVIDENCE-TIMELINE-IMPLEMENTATION.md](./EVIDENCE-TIMELINE-IMPLEMENTATION.md) | **Evidence Timeline** (P0 exception & evidence layer, phase 1) — who/what/why/approved-by-whom per employee |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap |
 | [PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md](./PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md) | Riset positioning dan kategori fitur agar tidak head-on dengan HRIS generik |
+| [MARKETING-GTM-STRATEGY-2026-09-17.md](./MARKETING-GTM-STRATEGY-2026-09-17.md) | Positioning, ICP, channel GTM, sales motion, dan KPI pemasaran |
+| [PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md](./PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md) | Spec implementasi website: copy, CTA, SEO, analytics, dan acceptance |
 | [USER-GUIDE.md](./USER-GUIDE.md) | Panduan pengguna (launch) |
 | [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) | Panduan admin / implementer |
 | [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md) | FAQ & troubleshooting |

@@ -27,6 +27,7 @@
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | `[0.10.0]` relaunch + living docs |
 | [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | Copy CMS / SEO dashboard |
 | [docs/DN-TECH-PRODUCTS-PAGE-COPY.md](./docs/DN-TECH-PRODUCTS-PAGE-COPY.md) | Copy `/products` + tagline katalog |
+| [docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md](./docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md) | Execution plan pemasaran dnPeople: campaign, funnel, sales enablement, dan OKR |
 
 Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) (V1–V7 trail).
 
@@ -54,6 +55,7 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Release changelog (app repo mirror) |
 | [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
 | [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | **SEO & marketing copy** — field dashboard, PAGE_SEO, seed defaults |
+| [docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md](./docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md) | **GTM dnPeople** — campaign, channel, sales motion, OKR, dan guardrails |
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |
 | [docs/POSTGRES-VPS-ACCESS.md](./docs/POSTGRES-VPS-ACCESS.md) | VPS Postgres — **pointer**; SSOT `private-wiki/dntech/infra/` |
 | [docs/runbooks/vps-postgres-seed.md](./docs/runbooks/vps-postgres-seed.md) | Seed/tunnel dari laptop (tanpa password) |
