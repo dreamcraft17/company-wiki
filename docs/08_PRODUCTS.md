@@ -215,10 +215,10 @@ DN Tech Products
 | Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** · legal **v1.1** · assistant **v17** · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
 | Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
-| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **165/165** tests · **16** a11y |
+| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **191/191** tests · **16** a11y |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) |
-| UpdatedAt | September 16, 2026 |
+| UpdatedAt | September 17, 2026 |
 
 ### Fitur
 

@@ -30,7 +30,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
 | **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **78** markdown | Production + **relaunch** · **v0.10.0** · HEAD `84a2448` · Founded by on `/about` | `dntech` |
-| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** + legal v1.1 + DOKU PG | Production · **v1.1.0** · HEAD `33bedda` · ops gates Conditional | `dnpeople` |
+| **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.0** + legal v1.1 + DOKU PG + evidence timeline | Production · **v1.1.0** · HEAD `09eca19` · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
@@ -45,6 +45,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
+| **dnPeople HRIS** | app `09eca19` / wiki sync 2026-09-17 | **Evidence Timeline** (P0 "Exception & Evidence Layer" phase 1) — unified per-employee who/what/why/approved-by-whom view aggregating profile/attendance/leave/payroll audit trails; also fixed `/audit` to render before/after diffs it always had but never showed · **191/191** tests |
 | **dnPeople HRIS** | app `33bedda` / wiki sync 2026-09-16 | **DOKU Checkout** added as third admin-switchable payment gateway (Xendit/Midtrans/DOKU), now the **default**; verified against official DOKU API docs; no unit tests yet for `doku.ts` (known gap) · **165/165** tests |
 | **dnPeople HRIS** | app `cdccf89` | **Legal v1.1** (UU PDP/ITE) + sticky TOC · assistant v17 tools/RAG · **161** tests · seed `db:seed:legal` |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |

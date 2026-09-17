@@ -1,19 +1,21 @@
 # dnPeople — Current Implementation Baseline
 
 > **Author:** Dozer  
-> **Date:** 2026-09-16
+> **Date:** 2026-09-17
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 16 September 2026 |
-| HEAD | `33bedda` on `dnpeople` main (DOKU payment gateway + default switch) |
+| Snapshot date | 17 September 2026 |
+| HEAD | `09eca19` on `dnpeople` main (Evidence Timeline — P0 exception & evidence layer) |
 | Purpose | **Baseline** after **v1.1.0** plus Aug–Sep billing, legal, and assistant increments on PRD **v15.0** |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **v4 Module 4–8** → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | September 16, 2026 |
+| Updated at | September 17, 2026 |
 
+> **17 Sep 2026:** Evidence Timeline shipped — first slice of P0 "Exception & Evidence Layer" from `PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md`. Aggregates profile edits, attendance corrections, leave approvals, and payroll actions into one per-employee who/what/why/approved-by-whom view (`GET /employees/:id/evidence-timeline`), and fixes `/audit` to finally render the before/after diff it always had data for but never displayed. Policy versioning/acknowledgement (same P0 item) is not built yet — needs new schema. Unit tests **191/191**. See [EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md).
+>
 > **16 Sep 2026:** DOKU Checkout added as a third payment gateway (Xendit, Midtrans, DOKU — admin-switchable via `/admin/payment-gateway`); **DOKU is now the default** active provider. Verified against official DOKU API docs (endpoint, signature, enums all correct); no dedicated unit tests yet for `doku.ts` (known gap vs. Xendit/Midtrans coverage). See [PG/README.md](./docs/PG/README.md) for a precedence caveat: `PAYMENT_PROVIDER` env now overrides the admin's DB-flag choice, not the reverse.
 >
 > **9 Sep 2026:** Legal ToS/PP **v1.1** (UU 27/2022, UU ITE / UU 1/2024) on `/legal/privacy` and `/legal/terms` (seed `db:seed:legal`); sticky left TOC. HR assistant v17: Prisma tools + FAQ/policy lexical RAG + ASK audit. Unit tests **161/161**. Prisma **130** models. See [CHANGELOG.md](./docs/CHANGELOG.md).
