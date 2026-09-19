@@ -10,8 +10,8 @@
 | Production | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
 | Release | **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)** — latest verified tag; billing, admin, security, and operations increments |
 | Status | Active — v15 Admin + v14 Tutorial + v13 Talent + **Xendit PG** + billing UI + grouped nav; next **PRD v16.0** Module 4 |
-| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Product research & differentiation](./docs/PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
-| UpdatedAt | September 15, 2026 |
+| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Feature research decision brief](./docs/research/feature-research-2026-09-19/2026-09-19_decision.md)** · **[Product research & differentiation](./docs/PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
+| UpdatedAt | September 19, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.
 

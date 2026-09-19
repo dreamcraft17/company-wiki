@@ -4,7 +4,7 @@
 > **Date:** 2026-09-12
 
 **Document Version**: 1.19
-**Last Updated**: September 12, 2026
+**Last Updated**: September 19, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -46,6 +46,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 ---
 
 | **dnPeople HRIS** | app `09eca19` / wiki sync 2026-09-17 | **Evidence Timeline** (P0 "Exception & Evidence Layer" phase 1) — unified per-employee who/what/why/approved-by-whom view aggregating profile/attendance/leave/payroll audit trails; also fixed `/audit` to render before/after diffs it always had but never showed · **191/191** tests |
+| **dnPeople HRIS** | wiki sync 2026-09-19 | **Feature research evidence pack** — wedge, segment screening, competitor baseline, UX journey, product-research study plan, dan refresh targets; no customer insight/persona promoted without field evidence |
 | **dnPeople HRIS** | app `33bedda` / wiki sync 2026-09-16 | **DOKU Checkout** added as third admin-switchable payment gateway (Xendit/Midtrans/DOKU), now the **default**; verified against official DOKU API docs; no unit tests yet for `doku.ts` (known gap) · **165/165** tests |
 | **dnPeople HRIS** | app `cdccf89` | **Legal v1.1** (UU PDP/ITE) + sticky TOC · assistant v17 tools/RAG · **161** tests · seed `db:seed:legal` |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |

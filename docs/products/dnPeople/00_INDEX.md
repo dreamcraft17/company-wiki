@@ -9,7 +9,7 @@
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 17, 2026  
+**UpdatedAt**: September 19, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
 **Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **191/191** tests · **16** a11y (Playwright + axe)  
 **HEAD**: `dnpeople` main · **`09eca19`** (Evidence Timeline — P0 exception & evidence layer) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
@@ -74,6 +74,7 @@
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
 | [docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
 | [docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md](./docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md) | Riset SEO, market category, UX, copy, dan prioritas optimasi landing page `/welcome` |
+| [docs/research/feature-research-2026-09-19/2026-09-19_decision.md](./docs/research/feature-research-2026-09-19/2026-09-19_decision.md) | Evidence pack riset fitur: wedge, segmentasi, competitive evidence, UX journey, dan rencana validasi |
 | [docs/REST-API-OPENAPI-HARDENING-2026-09-18.md](./docs/REST-API-OPENAPI-HARDENING-2026-09-18.md) | REST API hardening — OpenAPI coverage 3% → ~100%, digenerate dari schema Zod, fix `POST /tenants/search` |
 | [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
 
