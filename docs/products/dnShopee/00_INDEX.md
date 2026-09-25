@@ -42,6 +42,7 @@
 | [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Seed demo |
 | [docs/UAT-PLAYBOOK-v2.1.md](./docs/UAT-PLAYBOOK-v2.1.md) | Beta UAT |
 | [docs/RUNBOOK-INCIDENT.md](./docs/RUNBOOK-INCIDENT.md) | Incident response |
+| [docs/reference/shopee-api-v2-order-get_order_list.md](./docs/reference/shopee-api-v2-order-get_order_list.md) | Shopee Open API notes (`get_order_list`) |
 
 ## Specs (`PRD/`)
 

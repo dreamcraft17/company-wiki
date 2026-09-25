@@ -62,3 +62,7 @@ A different codebase (`threads-automation/` — NestJS + Next.js, static-token G
 | [docs/nestjs-v3.2/00_START_HERE_v3.2.md](./docs/nestjs-v3.2/00_START_HERE_v3.2.md) | Onboarding doc for that codebase |
 | [docs/nestjs-v3.2/THREADS_AUTOMATION_PRD_v3.1.md](./docs/nestjs-v3.2/THREADS_AUTOMATION_PRD_v3.1.md) · [SRS](./docs/nestjs-v3.2/THREADS_AUTOMATION_SRS_v3.1.md) · [SDD](./docs/nestjs-v3.2/THREADS_AUTOMATION_SDD_v3.1.md) | PRD/SRS/SDD v3.1 |
 | [docs/nestjs-v3.2/QUICK_REFERENCE_v3.2_STATIC_TOKEN.md](./docs/nestjs-v3.2/QUICK_REFERENCE_v3.2_STATIC_TOKEN.md) | Env vars, endpoints, cron jobs cheat sheet |
+| [docs/nestjs-v3.2/NESTJS_IMPLEMENTATION_v3.2_STATIC_TOKEN.md](./docs/nestjs-v3.2/NESTJS_IMPLEMENTATION_v3.2_STATIC_TOKEN.md) | Implementation notes |
+| [docs/nestjs-v3.2/IMPLEMENTATION_CHECKLIST_v3.2_STATIC_TOKEN.md](./docs/nestjs-v3.2/IMPLEMENTATION_CHECKLIST_v3.2_STATIC_TOKEN.md) | Build checklist |
+| [docs/nestjs-v3.2/THREADS_API_BEST_PRACTICE.md](./docs/nestjs-v3.2/THREADS_API_BEST_PRACTICE.md) | Graph API practices |
+| [docs/nestjs-v3.2/TECH_STACK_MAPPING.md](./docs/nestjs-v3.2/TECH_STACK_MAPPING.md) · [TECH_STACK_UPDATE.md](./docs/nestjs-v3.2/TECH_STACK_UPDATE.md) | Stack mapping / updates |

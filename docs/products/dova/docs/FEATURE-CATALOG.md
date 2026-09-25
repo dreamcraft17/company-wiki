@@ -1,6 +1,6 @@
 # DOVA — Feature Catalog (Complete)
 
-> **Status:** Active · **Last updated:** 2026-08-29 · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **Status:** Active · **Last updated:** 2026-09-15 (bundles section added; rest of catalog last verified 2026-08-29) · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
 > **App HEAD:** `71225e3` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
 > **Spec baseline:** Aggressive 4W PRD/SRS/SDD · MVP + post-launch hardening
 
@@ -188,6 +188,20 @@ Replaces external FeedLog — full stack in monorepo.
 
 ---
 
+## 9b. Product bundles (backend, staged on `stg` — not yet in production)
+
+Admin-curated packages of existing products sold as one customer-facing offer, at a bundle price below the sum of components. See [bundles/](./bundles/README.md) (PRD/SRS/SDD).
+
+| Feature | Status | API / UI | Notes |
+|---------|--------|----------|-------|
+| Bundle CRUD | Conditional | `GET/POST /admin/bundles`, `GET/PUT /admin/bundles/:id`, `PUT /admin/bundles/:id/active`, `DELETE /admin/bundles/:id` | Backend only — no admin UI yet; requires ≥2 distinct products, rejects bundle price ≥ individual total |
+| Customer bundle discovery | Conditional | `GET /bundles`, `GET /bundles/:id` | Active bundles only; returns computed savings + availability |
+| Add bundle to cart | Conditional | `POST /cart/add-bundle` | One cart line per bundle; availability = min(floor(stock/qty)) across components |
+| Bundle checkout | Conditional | via existing `POST /orders` | Expands into one `order_items` row per component (tagged `bundle_id` + price/name snapshot) so supplier fulfillment and stock adjustments are unaffected |
+| Frontend integration | Out of MVP | — | Explicitly deferred to a separate FE contract-review step per the design docs |
+
+---
+
 ## 10. Public & contact
 
 | Feature | Status | API / UI | Notes |
@@ -247,6 +261,7 @@ Replaces external FeedLog — full stack in monorepo.
 
 | Date | Feature |
 |------|---------|
+| 2026-09-15 | Product bundles (backend) on `stg` — bundle CRUD, discovery, add-to-cart, atomic bundle checkout |
 | 2026-08-29 | Inline registration OTP on `/auth/register` · legacy Profile verify retained |
 | 2026-08-29 | Auth UI split layout (login + register) · Customer copy |
 | 2026-08-28 | Profile self-service (`PATCH /auth/me`, change password) |

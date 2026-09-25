@@ -1,12 +1,12 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-09-12 · **App HEAD:** `21eb77d` (`main`) · **Tag:** `v0.5.4`
+> **Updated:** 2026-09-15 · **App HEAD (`main`):** `21eb77d` · **Tag:** `v0.5.4` · **`stg` branch:** `5ce09c4` (bundles, unreleased)
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  
 **Production:** [dova.dntech.id](https://dova.dntech.id) · API [api.dova.dntech.id](https://api.dova.dntech.id/api/v1/health)  
-**Tests:** 180 unit (Jest, 2026-09-01) · smoke **not logged** (`ops/logs` empty)
+**Tests:** 206/208 unit passing on `stg` (Jest, 2026-09-15; 4 pre-existing unrelated failures) · smoke **not logged** (`ops/logs` empty)
 
 > **Start here:** [All-features.md](./All-features.md) · [code/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [code/FULL-TECH-STATUS.md](./docs/FULL-TECH-STATUS.md) · [operations/current-phase.md](./docs/current-phase.md)
 
@@ -66,6 +66,8 @@ Features, implementation baseline, API reference, and test documentation.
 | [BUG_FIXES.md](./docs/BUG_FIXES.md) | Bugfix log |
 | [UAT-BUG-FIXES.md](./docs/UAT-BUG-FIXES.md) | UAT defect log + verification |
 | [PAYSTACK-TEST-MODE.md](./docs/PAYSTACK-TEST-MODE.md) | Paystack test mode setup |
+| [DOVA_Chain_Technical_Integration_API_Handover.pdf](./docs/DOVA_Chain_Technical_Integration_API_Handover.pdf) | Client API handover (PDF) |
+| [bundles/](./docs/bundles/README.md) | Product bundle PRD/SRS/SDD (relocated from workspace root) |
 
 ---
 

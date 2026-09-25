@@ -1,7 +1,7 @@
 # DOVA — AI Backend Requirements (CTO Response)
 
 > **Status:** Draft · **Date:** 2026-09-03 · **Author:** Dozer  
-> **Source:** `DOVA_AI_Backend_Requirements-1 (1).docx` (owner: Egegieh Onyekachi Daniel / DOVA Chain)  
+> **Source:** `private-wiki/archive/dova-root/DOVA_AI_Backend_Requirements.docx` (owner: Egegieh Onyekachi Daniel / DOVA Chain)  
 > **Audience:** Botpress / DOVA AI build; marketplace engineering
 
 This fills the “LEAVE FOR BACKEND DEVELOPER” blanks in the intake form. It does **not** claim a DOVA AI backend exists today.
@@ -161,6 +161,6 @@ Do not put Botpress on a path that writes `orders.paid` without Paystack. Do not
 
 - [API Documention.md](./API%20Documention.md)
 - [DOVA-SHIP-GATE-PRODUCT-INPUT.md](./DOVA-SHIP-GATE-PRODUCT-INPUT.md)
-- Source Word file: workspace `DOVA_AI_Backend_Requirements-1 (1).docx`
+- Source Word file: `private-wiki/archive/dova-root/DOVA_AI_Backend_Requirements.docx` (Dozer-only repo)
 
 *Author: Dozer · 2026-09-03*

@@ -19,6 +19,8 @@ review_cadence: annual
 | DOKU | `backend/src/lib/doku.ts` | `/webhooks/doku` | Checkout Non-SNAP, QRIS | **Gateway aktif/default; production live** |
 | DOKU SNAP | `backend/src/lib/dokuSnap.ts` + `dokuSnapQris.ts` | `/webhooks/doku-snap` | Direct API — QRIS (Phase 1) | Jalur terpisah; status channel/env mengikuti konfigurasi SNAP |
 
+**Panduan integrasi SNAP (API, signature, checklist):** [DOKU-SNAP-IMPLEMENTATION.md](./DOKU-SNAP-IMPLEMENTATION.md)
+
 ### DOKU SNAP — beda arsitektur dari DOKU Checkout Non-SNAP
 
 **provider id `doku_snap`, terpisah dari `doku`.** Tidak ada hosted checkout page — tiap channel (QRIS, VA per bank, e-wallet per provider, direct debit) adalah API terpisah yang di-render sendiri di app (lihat `frontend/src/components/Payment/DokuQrisPayment.tsx`).
