@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Briefing Dasar PRD Berikutnya
 
 | | |
@@ -19,7 +27,7 @@
 
 | Jalur | Isi | Kapan |
 |-------|-----|--------|
-| **A — Ops go-live** | Xendit sandbox→live E2E, webhook prod, SMTP, rotate leaked keys, beta 10–20, Datadog/pen-test/DNS | **P0 bisnis** — ~68% launch ready |
+| **A — Ops go-live** | DOKU live reconciliation/webhook, SMTP, rotate leaked keys, beta 10–20, Datadog/pen-test/DNS | **P0 bisnis** |
 | **B — Produk greenfield** | **PRD v16.0 Module 4** — internal career marketplace | **P0 produk** setelah payment gate clear |
 
 **Rekomendasi produk P0:** **Module 4 — Internal career marketplace**  
@@ -40,10 +48,10 @@ Nomor versi PRD produk berikutnya: **v16.0** — subtitle *Career Mobility*.
 | Tests | Backend **81/81** pass · Prisma validate ✅ |
 | Tier | FREE hard **30** · STARTER hard **50** · Prof **300** · Business soft@1000 · Enterprise custom |
 | Trial | Countdown badge; fitur penuh selama trial; **bayar kapan saja** |
-| Payment | **Xendit Invoice v2** — test mode on VPS; live E2E ⬜ |
+| Payment | **DOKU Checkout** — production live; DOKU SNAP tersedia sebagai jalur terpisah |
 | Legal (MVP) | ToS + Privacy Policy: signup consent, `/legal/*`, `ComplianceBanner` |
 | Talent | competency / IDP / **matrix** / succession / LMS @ PROFESSIONAL+ |
-| Billing UX | Stat cards, filter invoice, metode bayar Xendit, **Unduh PDF** |
+| Billing UX | Stat cards, filter invoice, metode/channel DOKU, **Unduh PDF** |
 | Nav | **Grouped sidebar** (8 section); flat untuk employee short list |
 | Brand | Logo **`/logo3.png`** (AppShell, marketing, login, JSON-LD) |
 | Admin | `/admin` SUPER_ADMIN |
@@ -65,18 +73,18 @@ Semua seperti baseline — lihat [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENT
 
 | Deliverable | Catatan |
 |-------------|---------|
-| Xendit PG v1.0 | Hosted checkout, webhook fail-closed, pay-during-trial |
+| DOKU payment | Checkout production, webhook fail-closed, pay-during-trial |
 | Legal ToS/PP MVP | Bukan full legal CMS |
-| Invoice payment method | Xendit provider/method di `/billing` |
+| Invoice payment method | DOKU provider/channel di `/billing` |
 | Export invoice PDF | Logo dnPeople, footer same-page fix |
 | Auth/SSO hardening | Company search picker, directory leak fix, SAML fail-closed |
 | Grouped sidebar nav | `navigationMenu.ts` + `AppShell` section headers |
 | Billing UI polish | Stat cards, tier bullets, invoice filters, trial preview hide |
 | Brand logo | `/logo3.png` site-wide (replaces `logo1.png`) |
 
-**Out of honest 100% (ops):** Xendit live money, SMTP prod, secret key rotation, beta cohort, pen-test.
+**Out of honest 100% (ops):** SMTP prod, secret key rotation, beta cohort, pen-test, dan monitoring DOKU yang berkelanjutan.
 
-**Jangan rebuild:** 9-box, tutorials, admin console, Xendit checkout, grouped nav.
+**Jangan rebuild:** 9-box, tutorials, admin console, DOKU checkout, grouped nav.
 
 ---
 
@@ -84,10 +92,9 @@ Semua seperti baseline — lihat [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENT
 
 | Gate | Status Agustus 2026 |
 |------|---------------------|
-| Xendit test keys on VPS | ✅ |
-| Xendit webhook E2E (1× bayar → PAID) | ⬜ |
-| Xendit production keys + KYC | ⬜ |
-| Rotate key (`docs/xendit/secret_api_key.csv` in git) | 🔴 **urgent** |
+| DOKU production checkout/webhook | ✅ |
+| DOKU reconciliation monitoring | 🟡 |
+| Rotate legacy payment keys (`docs/xendit/secret_api_key.csv` in git) | 🔴 **urgent** |
 | SMTP production (forgot-password) | ⬜ |
 | `NEXT_PUBLIC_SHOW_DEMO_CREDS=false` prod | 🟡 recommended |
 | Datadog/PagerDuty live | ⬜ |
@@ -132,13 +139,13 @@ Full legal CMS · video library · Midtrans · Xendit payouts · native mobile �
 
 Pola v13/v14/v15: acceptance, RBAC, tenant isolation, audit, tier gate, mobile, export cap.
 
-Agustus 2026+: payment stories = Xendit; legal = no full CMS assumption.
+September 2026+: payment stories = DOKU; legal = no full CMS assumption.
 
 ---
 
 ## 8. Satu kalimat penutup
 
-> dnPeople punya talent matrix, admin console, Xendit billing + invoice PDF, grouped nav. **PRD berikutnya = v16.0 Module 4** + **ops go-live paralel** — lihat [prep doc](./PRD/dnpeople-prd-v16.0-prep-id.md) sebelum menulis PRD final.
+> dnPeople punya talent matrix, admin console, **DOKU billing live** + invoice PDF, grouped nav. **PRD berikutnya = v16.0 Module 4** + **ops go-live paralel** — lihat [prep doc](./PRD/dnpeople-prd-v16.0-prep-id.md) sebelum menulis PRD final.
 
 ---
 
@@ -150,5 +157,5 @@ Agustus 2026+: payment stories = Xendit; legal = no full CMS assumption.
 | Baseline panjang | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) |
 | Katalog fitur | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) |
 | Matrix status | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) |
-| Xendit setup | [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) |
+| DOKU setup/status | [PG/README.md](./PG/README.md) |
 | Launch gates | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) |

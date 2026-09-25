@@ -16,7 +16,7 @@ review_cadence: annual
 **Brand:** DnPeople  
 **UpdatedAt:** September 9, 2026  
 
-**Snapshot:** 9 September 2026 · PRD **v15.0** Admin + **Xendit PG** + **Legal v1.1** + **assistant v17** + v14 Tutorial + v13 Talent  
+**Snapshot:** 23 September 2026 · PRD **v15.0** Admin + **DOKU payment** + **Legal v1.2 AI clauses** + **assistant v17** + v14 Tutorial + v13 Talent
 **Specification baseline:** PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 + Aug–Sep 2026 increments  
 **Next PRD scope (recommended):** PRD **v16.0** = v4 **Module 4** (internal career marketplace)  
 **Production URL:** `https://hris.dntech.id`  
@@ -36,7 +36,7 @@ Role utama: `SUPER_ADMIN`, `COMPANY_ADMIN`, `HR`, `MANAGER`, `FINANCE`, dan `EMP
 
 ## Ringkasan produk
 
-dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~96 halaman frontend**, **~60 modul route backend**, **130 model Prisma**, **161** unit tests (`npm test` backend), mobile-first web shell dengan **grouped sidebar nav** (default **light theme**), brand logo **`/logo3.png`**, marketing landing v11.1 + `/docs` hub, tier pricing SSOT, FREE hard **30** / STARTER hard **50**, **Xendit** payment checkout + invoice PDF export, **Legal ToS/PP v1.1** (UU PDP/ITE, sticky TOC), **AI assistant** tools + lexical RAG, **PRD v13.0** 9-box/succession, **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console, nav tier-hide jujur, dan domain fitur dari core HR sampai talent + enterprise. Auth: httpOnly cookie `dnpeople_session`. Kontak: **info@dntech.id**.
+dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat ini memiliki **~96 halaman frontend**, **~60 modul route backend**, **130 model Prisma**, mobile-first web shell dengan **grouped sidebar nav** (default **light theme**), brand logo **`/logo3.png`**, marketing landing v11.1 + `/docs` hub, tier pricing SSOT, FREE hard **30** / STARTER hard **50**, **DOKU production payment** + invoice PDF export, **Legal ToS/PP v1.1** (UU PDP/ITE, sticky TOC), **AI assistant** tools + lexical RAG, **PRD v13.0** 9-box/succession, **PRD v14.0** tutorials/KB, **PRD v15.0** Admin Console, nav tier-hide jujur, dan domain fitur dari core HR sampai talent + enterprise. Auth: httpOnly cookie `dnpeople_session`. Kontak: **info@dntech.id**.
 
 ## 1. Identity, authentication, dan access control
 
@@ -242,7 +242,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Approval rules | Rule berdasarkan module, role, amount | Admin | `/approvals` | Available |
 | Custom workflow | Multi-step workflow CRUD dan activation | Enterprise admin | `/workflows` | Available |
 | Workflow resolution | Resolve workflow aktif per module/context | System/admin | Workflow API | Available |
-| AI HR assistant | Intent router: Prisma self-scope facts atau FAQ/policy lexical RAG + sitasi; audit ASK; LLM opsional | Semua role (`ai:assistant`) | `/assistant` | Available — Enterprise flag |
+| AI HR assistant | Intent router: Prisma self-scope facts atau FAQ/policy lexical RAG + sitasi; explicit AI disclosure; prompt-injection/PII guardrails; audit ASK; structured answer feedback; full-period admin quality analytics; LLM opsional | Semua role (`ai:assistant`) | `/assistant`, `/admin/analytics/assistant` | Available — Professional+ flag |
 | AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | AI document generator | Offer, SP, SK, resignation document | HR/admin | `/ai-docs` | Conditional — LLM provider |
 | Integration registry | Webhook/custom integration config dan status | Enterprise admin | `/integrations` | Available framework |
@@ -255,19 +255,19 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | Fitur | Kapabilitas | Pengguna utama | Surface | Status |
 |-------|-------------|----------------|---------|--------|
 | Current subscription | Tier, features, access mode, recent invoices | Company admin | `/billing`, `/subscription/current` | Available |
-| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — Gratis s/d 30, Starter s/d 50 @ Rp20.000, Professional s/d 300 @ Rp25.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/upgrade`, `/subscription/tiers` | Available |
+| Tier catalog | FREE / STARTER / PROFESSIONAL / BUSINESS / ENTERPRISE — Gratis s/d 30, Starter s/d 50 @ Rp10.000, Professional s/d 300 @ Rp15.000, Business 301+ @ Rp20.000, Enterprise 500+ custom | Company admin | `/billing`, `/upgrade`, `/subscription/tiers` | Available |
 | Headcount hard limit | FREE block at 30; STARTER at 50; capacity banner + email every 7d at 80%+ | Company admin | App shell, billing scheduler | Available |
 | Storage quota | FREE 5 GB hard-block on upload; TenantQuota synced from tier | All uploaders | `/uploads` | Available |
 | API daily quota | FREE 1.000 / STARTER 10.000 / PROF 50.000 per Jakarta day (API keys only) | API consumers | Auth + `X-RateLimit-*` | Available |
 | Marketing tier display | Same tier copy as billing via `frontend/src/lib/subscriptionCatalog.ts` | Publik | `/welcome`, `/pricing` | Available — PRD v11.1 |
 | Invoices | List/detail invoice subscription; filter Semua/Perlu bayar/Lunas; sembunyikan pratinjau trial Rp 0 | Company admin | `/billing` | Available |
 | Invoice PDF export | Unduh PDF invoice subscription (logo dnPeople, footer same-page) | Company admin | `/billing`, `GET /subscription/invoices/:id.pdf` | Available — Aug 2026 |
-| Invoice payment detail | Metode bayar Xendit (JeniusPay, QRIS, ShopeePay, dll.) + timestamp di riwayat | Company admin | `/billing` | Available — Aug 2026 |
+| Invoice payment detail | Metode/channel DOKU + timestamp di riwayat | Company admin | `/billing` | Available — production live |
 | Cancel / reactivate | Cancel atau reactivate subscription | Company admin | `/billing` | Available |
 | Feature gating | Server-side tier checks + UI nav hide + upgrade prompt | Semua role | Middleware `featureAccess`, AppShell | Available |
 | Grace / freeze | Read-only / freeze mode saat overdue | Company admin | Billing + middleware | Available |
 | Headcount sync | Enforce employee quota per tier | Company admin/HR | Employee create + subscription service | Available |
-| Payment adapter | **Xendit / Midtrans / DOKU** admin-switchable checkout (default **DOKU** as of 16 Sep 2026), `/admin/payment-gateway`; Bayar saat trial diperbolehkan; webhook per gateway + return sync; early pay clears trial | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Done** in repo — live E2E Conditional; DOKU has no dedicated unit tests yet |
+| Payment adapter | **DOKU** default/live; DOKU SNAP, Midtrans, dan Xendit admin-switchable; bayar saat trial, webhook, return sync, early pay | Company admin | `/billing`, `/payments`, `/payment/invoice/:id` | **Production live**; alternatif mengikuti konfigurasi/UAT |
 | Trial UX | Countdown badge (sidebar/header); pratinjau invoice DRAFT (toggle tampil); optional early payment | Company admin | AppShell, `/billing` | Available |
 | Billing UI | Stat cards, tier cards dengan feature bullets dari `subscriptionCatalog`, mobile invoice cards | Company admin | `/billing` | Available — Aug 2026 |
 
@@ -277,7 +277,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 |-------|-------------|----------------|---------|--------|
 | Multi-company console | Company listing dan platform visibility | Super admin | `/platform` | Available |
 | Organization links | Relasi/hierarchy antar-company | Super admin | `/platform` | Available |
-| Internal Admin Console | Customers, impersonation, revenue/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log; MFA gate | SUPER_ADMIN (DN Tech) | `/admin`, `/api/v1/admin/*` | Available — PRD v15.0; live latency P50/P95/P99 Conditional |
+| Internal Admin Console | Customers, impersonation, revenue/refunds, analytics (product funnel activation/value/revenue, feature usage, tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log; MFA gate | SUPER_ADMIN (DN Tech) | `/admin`, `/admin/analytics/product-funnel`, `/api/v1/admin/*` | Available — PRD v15.0; live latency P50/P95/P99 Conditional |
 | White-label branding | App name, logo, color dan public branding | Company admin | `/branding` | Available |
 | Custom tenant domain | Verified hostname, DNS CNAME metadata, tenant discovery, favicon/email/legal links | Enterprise admin | `/branding`, `/tenants/branding/domain` | Available; DNS/TLS operational |
 | Tenant quota | Employee, API/day, storage, concurrent users, query timeout dan request/minute limits | Enterprise admin | `/tenant-management`, `/tenants/quota` | Available |
@@ -294,7 +294,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 | OpenAPI / Swagger | Spec inti + Swagger UI CDN | Integrator | `/api/v1/openapi.json`, `/api/v1/docs` | Available — PRD v9.0 |
 | Tenant API quota | RPM + hard block 10.000 calls/hari | Semua API auth | `authenticate` middleware | Available — PRD v9.0 |
 | Privacy / UU PDP export | Export data pribadi, deletion request, daftar processors | Employee/HR/Admin | `/privacy/*`, `docs/legal/` | Available — PRD v10.0 |
-| Legal ToS & Privacy Policy | Versioned docs (v1.1 UU PDP/ITE), signup consent, acceptance log, compliance banner, re-accept, sticky TOC on public pages | All users / admin | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — **not** full legal CMS |
+| Legal ToS & Privacy Policy | Versioned docs (v1.2 UU PDP/ITE + AI processing/human review), signup consent, acceptance log, compliance banner, re-accept, sticky TOC on public pages | All users / admin | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — legal counsel publication review and full legal CMS **not** in scope |
 | UI theme | Light / dark / system; default light | All users | AppShell header toggle | Available |
 | Public documentation hub | Getting started, modules, tiers, demo, API pointer | Publik | `/docs` | Available — Aug 2026 |
 | Ops observability | `/alive`, enriched `/health`/`/ready`, Prometheus histogram + rate_limit + payroll_jobs | Operations | `/metrics`, `ops/` | Available — PRD v10.0; Datadog account Conditional |

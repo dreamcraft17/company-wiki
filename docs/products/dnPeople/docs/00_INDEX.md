@@ -1,10 +1,18 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: monthly
+---
+
 # dnPeople — Docs Index (repo)
 
 **Owner:** Dozer (CEO + Tech Lead)  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand:** DnPeople  
-**UpdatedAt:** August 10, 2026  
-**Status:** PRD v5–**v15.0** complete · **Xendit PG + billing UI + grouped nav + logo3** (Aug 2026) · next = **PRD v16.0 Module 4**  
+**UpdatedAt:** September 17, 2026
+**Status:** PRD v5–**v15.0** complete · **DOKU payment live + billing UI + grouped nav + logo3** (Sep 2026) · next = **PRD v16.0 Module 4**
 **Codebase:** ~96 pages · ~60 route modules · **129** models · **81** tests  
 **Production:** `https://hris.dntech.id` · API `https://api.hris.dntech.id`
 **Contact:** info@dntech.id  
@@ -15,11 +23,63 @@
 > **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8 → **v16.0**  
 > **Demo creds on UI:** ditampilkan by default (public sandbox **FREE** tier) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
 
+## Documentation governance
+
+| Document | Purpose |
+|----------|---------|
+| [BUSINESS-OPERATIONS-KNOWLEDGE-AUDIT.md](./BUSINESS-OPERATIONS-KNOWLEDGE-AUDIT.md) | Documentation-health findings and remediation plan |
+| [GLOSSARY.md](./GLOSSARY.md) | Canonical product, engineering, and operations terminology |
+| [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Source of truth for the implemented stack and current capabilities |
+
+Canonical operational documents must declare `owner`, `status`, `canonical`, `last_reviewed`, and `review_cadence` metadata. Documents under `docs/PRD/`, `docs/PG/`, `docs/xendit/`, and `docs/legal/legal2/` that describe superseded versions are historical references unless this index explicitly marks them current.
+
+## Reference and historical documents
+
+These pages are intentionally linked for discoverability. Their metadata marks them `canonical: false`; use them for context only and prefer the current implementation, Xendit, legal, and operational documents above.
+
+- [Midtrans comprehensive SDD](./PG/dnpeople-sdd-midtrans-comprehensive-v2.0-id.md)
+- [Midtrans comprehensive SRS](./PG/dnpeople-srs-midtrans-comprehensive-v2.0-id.md)
+- [Navigation visibility fix](./PRD/dnpeople-navigation-tier-visibility-fix-detailed.md)
+- [PRD v15.2 routing](./PRD/dnpeople-prd-v15.2-super-admin-routing-id.md)
+- [PRD v16 career marketplace](./PRD/dnpeople-prd-v16.0-career-marketplace-id.md)
+- [PRD v17 HR chatbot](./PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md)
+- [SDD v8 security](./PRD/dnpeople-sdd-v8.0-security-stability-id.md)
+- [SDD v10 operations](./PRD/dnpeople-sdd-v10.0-operations-id.md)
+- [SDD v11 go-live](./PRD/dnpeople-sdd-v11.0-go-live-execution-id.md)
+- [SDD v11.1 website](./PRD/dnpeople-sdd-v11.1-landing-page-website-id.md)
+- [SDD v12 tier consolidation](./PRD/dnpeople-sdd-v12.0-tier-consolidation-id.md)
+- [SDD v13 talent](./PRD/dnpeople-sdd-v13.0-talent-implementation.md)
+- [SDD v15.2 routing](./PRD/dnpeople-sdd-v15.2-super-admin-routing-id.md)
+- [SDD v16 career marketplace](./PRD/dnpeople-sdd-v16.0-career-marketplace-id.md)
+- [SRS v8 security](./PRD/dnpeople-srs-v8.0-security-stability-id.md)
+- [SRS v10 operations](./PRD/dnpeople-srs-v10.0-operations-id.md)
+- [SRS v11 go-live](./PRD/dnpeople-srs-v11.0-go-live-execution-id.md)
+- [SRS v11.1 website](./PRD/dnpeople-srs-v11.1-landing-page-website-id.md)
+- [SRS v12 tier consolidation](./PRD/dnpeople-srs-v12.0-tier-consolidation-id.md)
+- [SRS v13 talent](./PRD/dnpeople-srs-v13.0-talent-matrix-requirements.md)
+- [SRS v15.2 routing](./PRD/dnpeople-srs-v15.2-super-admin-routing-id.md)
+- [SRS v16 career marketplace](./PRD/dnpeople-srs-v16.0-career-marketplace-id.md)
+- [Tier consolidation summary](./PRD/dnpeople-v12.0-summary-and-changes.md)
+- [Next implementation planning](./Planning/dnpeople-next-implementation-steps-id.md)
+- [PRD v9 launch planning](./Planning/dnpeople-prd-v9.0-launch-readiness-checklist-id.md)
+- [Dashboard design system](./design/CUSTOMER-DASHBOARD-DESIGN-SYSTEM.md)
+- [DPA template](./legal/DPA-TEMPLATE.md)
+- [Current privacy policy](./legal/PRIVACY-POLICY.md)
+- [Current terms of service](./legal/TERMS-OF-SERVICE.md)
+- [Legacy legal PRD](./legal/legal2/dnpeople-prd-legal-docs-management-v1.0-id.md)
+- [Legacy privacy specification](./legal/legal2/dnpeople-privacy-policy-v1.0-id-seo.md)
+- [Legacy legal SDD](./legal/legal2/dnpeople-sdd-legal-docs-management-v1.0-id.md)
+- [Legacy legal SRS](./legal/legal2/dnpeople-srs-legal-docs-management-v1.0-id.md)
+- [Legacy terms specification](./legal/legal2/dnpeople-terms-conditions-v1.0-id-seo.md)
+
 | File | Deskripsi |
 |------|-----------|
 | [**DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md**](./DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales: ICP, demo, harga, handoff CS |
 | [**DNPEOPLE-BISNIS-FITUR-LAYANAN.md**](./DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | **Bisnis, paket, layanan ops, fitur per modul** (sales/onboarding) |
 | [**DNPEOPLE-HRIS-OVERVIEW.md**](./DNPEOPLE-HRIS-OVERVIEW.md) | **Penjelasan produk lengkap dalam 1 file** — mulai di sini |
+| [PRD/DNPEOPLE-TIER-PACKAGING-RECOMMENDATION-2026-09-19.md](./PRD/DNPEOPLE-TIER-PACKAGING-RECOMMENDATION-2026-09-19.md) | **Rekomendasi placement fitur per paket** — draft for review |
+| [PRD/DNPEOPLE-PAYROLL-REVIEW-EVIDENCE-DEMO-2026-09-19.md](./PRD/DNPEOPLE-PAYROLL-REVIEW-EVIDENCE-DEMO-2026-09-19.md) | **Script demo dan acceptance proof payroll review/evidence** — ready for demo |
+| [PRD/DNPEOPLE-TIER-PACKAGING-VALIDATION-2026-09-19.md](./PRD/DNPEOPLE-TIER-PACKAGING-VALIDATION-2026-09-19.md) | **Interview instrument dan decision rule pricing/roadmap** — ready for field validation |
 | [A11Y-TESTING.md](./A11Y-TESTING.md) | **Aksesibilitas WCAG 2.2 AA** — Playwright + axe, keyboard, manual checklist |
 | [CHAOS-ENGINEERING.md](./CHAOS-ENGINEERING.md) | **Chaos engineering** — hipotesis, 3 experiment awal, game day, VPS scripts |
 | [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | **Brief PRD v16.0** — baca ini dulu (1 halaman) |
@@ -31,11 +91,12 @@
 | [SUPABASE.md](./SUPABASE.md) | Koneksi database Supabase (PostgreSQL) |
 | [VPS.md](./VPS.md) | Instalasi di VPS (Nginx, PM2, TLS) |
 | [IMPLEMENTATION-STATUS.md](./IMPLEMENTATION-STATUS.md) | Matrix status fitur per MVP/PRD |
-| [EVIDENCE-TIMELINE-IMPLEMENTATION.md](./EVIDENCE-TIMELINE-IMPLEMENTATION.md) | **Evidence Timeline** (P0 exception & evidence layer, phase 1) — who/what/why/approved-by-whom per employee |
 | [FEATURE-CATALOG.md](./FEATURE-CATALOG.md) | Daftar lengkap fitur existing, conditional, dan roadmap |
-| [PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md](./PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md) | Riset positioning dan kategori fitur agar tidak head-on dengan HRIS generik |
-| [MARKETING-GTM-STRATEGY-2026-09-17.md](./MARKETING-GTM-STRATEGY-2026-09-17.md) | Positioning, ICP, channel GTM, sales motion, dan KPI pemasaran |
-| [PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md](./PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md) | Spec implementasi website: copy, CTA, SEO, analytics, dan acceptance |
+| [PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md](./PRD/DNPEOPLE-WEBSITE-MARKETING-IMPLEMENTATION-2026-09-17.md) | Spec implementasi positioning, copy, CTA, SEO, analytics, dan acceptance website |
+| [PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
+| [research/AI-ASSISTANT-VALUE-DECISION-2026-09-23.md](./research/AI-ASSISTANT-VALUE-DECISION-2026-09-23.md) | **Keputusan positioning AI Assistant** — bukti pasar, batas aman, MVP, metrik, dan decision rule 60 hari |
+| [PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md](./PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md) | Riset SEO, market category, UX, copy, dan prioritas optimasi landing page `/welcome` |
+| [EVIDENCE-TIMELINE-IMPLEMENTATION.md](./EVIDENCE-TIMELINE-IMPLEMENTATION.md) | **Evidence Timeline** (P0 exception & evidence layer, phase 1) — who/what/why/approved-by-whom per employee |
 | [USER-GUIDE.md](./USER-GUIDE.md) | Panduan pengguna (launch) |
 | [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) | Panduan admin / implementer |
 | [FAQ-KNOWLEDGE-BASE.md](./FAQ-KNOWLEDGE-BASE.md) | FAQ & troubleshooting |
@@ -54,8 +115,8 @@
 | [RELEASE-READY.md](./RELEASE-READY.md) | Soft-launch Agustus — apa yang sudah dikunci di kode vs ops |
 | [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
 | [legal/](./legal/) | Privacy, Terms, DPA templates |
-| [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) | **Xendit payment — setup test mode, webhook, troubleshooting** (primary PG) |
-| [xendit/dnpeople-prd-xendit-payment-v1.0-id.md](./xendit/dnpeople-prd-xendit-payment-v1.0-id.md) | **PRD Xendit v1.0** (+ [SRS](./xendit/dnpeople-srs-xendit-payment-v1.0-id.md) / [SDD](./xendit/dnpeople-sdd-xendit-payment-v1.0-id.md)) — **implemented**; sandbox E2E Conditional |
+| [PG/README.md](./PG/README.md) | **DOKU payment — gateway aktif/default, webhook, DOKU SNAP, dan alternatif gateway** |
+| [xendit/dnpeople-prd-xendit-payment-v1.0-id.md](./xendit/dnpeople-prd-xendit-payment-v1.0-id.md) | **PRD Xendit v1.0 legacy/alternative** (+ SRS/SDD) — dipertahankan sebagai histori implementasi |
 | [PG/README.md](./PG/README.md) | **Midtrans legacy** — spec historis; diganti Xendit Agustus 2026 |
 | [PRD/dnpeople-prd-v15.0-admin-dashboard.md](./PRD/dnpeople-prd-v15.0-admin-dashboard.md) | **PRD v15.0** Admin dashboard & control panel (internal, SUPER_ADMIN) |
 | [PRD/dnpeople-srs-v15.0-admin-requirements.md](./PRD/dnpeople-srs-v15.0-admin-requirements.md) | **SRS v15.0** admin acceptance criteria |
@@ -101,4 +162,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: August 9, 2026*
+*Last Updated: September 17, 2026*

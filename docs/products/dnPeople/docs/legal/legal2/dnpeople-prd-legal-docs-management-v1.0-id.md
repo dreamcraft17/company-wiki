@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Legal Documents Management System
 ## Product Requirements Document (PRD) v1.0
 
@@ -439,4 +447,3 @@ GET /api/v1/admin/documents/{id}/audit-log
 **Approved by:** Dozer Fernando Saroha Daniel Napitupulu (CEO)  
 **Version:** 1.0  
 **Last Updated:** 1 Agustus 2026
-

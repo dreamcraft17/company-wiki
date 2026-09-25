@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople SUPER_ADMIN Landing & Admin Console Routing
 ## Product Requirements Document (PRD) v15.2
 
@@ -383,4 +391,3 @@ Alternative (if tried to bypass):
 **Version:** 1.0 (Ready for SRS)  
 **Last Updated:** 10 Agustus 2026  
 **Next:** SRS v15.2 (detailed requirements + test cases)
-

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — PRD v8.0
 ## Security & Stability Fixes (Berdasarkan Audit 18 Juli 2026)
 

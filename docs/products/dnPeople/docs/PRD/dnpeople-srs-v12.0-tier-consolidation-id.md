@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — SRS v12.0
 ## Subscription Tier Consolidation - Requirements & Acceptance Criteria
 

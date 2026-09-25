@@ -19,13 +19,13 @@ review_cadence: monthly
 | Snapshot date | 16 September 2026 |
 | HEAD | `33bedda` on `dnpeople` main |
 | Purpose | **Baseline** after PRD **v15.0** + Aug–Sep 2026 billing, legal, assistant, and dashboard increments — input for **PRD v16.0** |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **Xendit/Midtrans/DOKU PG (admin-switchable)**; **Legal ToS/PP v1.1** (UU PDP + UU ITE); **v17 assistant** tools + lexical RAG; **v4 Module 4–8** = primary greenfield → **v16.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **Xendit/Midtrans/DOKU PG (admin-switchable)**; **Legal ToS/PP v1.2** (UU PDP + UU ITE + AI processing/human review); **v17 assistant** tools + lexical RAG + feedback analytics + prompt-injection/PII guardrails; **v4 Module 4–8** = primary greenfield → **v16.0** |
 | Production (staging) | `https://hris.dntech.id` · API `https://api.hris.dntech.id` |
 | Updated at | September 16, 2026 |
 
-> **September 16, 2026:** DOKU Checkout added as a third admin-switchable payment gateway alongside Xendit and Midtrans (`backend/src/lib/doku.ts`, non-SNAP HMAC-SHA256, QRIS default) — commits `772eb28`, `29cf306`. DOKU then set as the **default** active provider, and `PAYMENT_PROVIDER` env precedence flipped to win over the admin DB flag (commit `33bedda`) — see [PG/README.md](./PG/README.md) for the precedence caveat. **Known gap:** no dedicated unit tests yet for `doku.ts` (Xendit/Midtrans have signature + webhook idempotency coverage; DOKU does not). Test suite still **165/165** passing (Node `tsx --test` runner, not Jest).
+> **September 16–21, 2026:** DOKU Checkout and DOKU SNAP are the active/default payment paths alongside the switchable Xendit and Midtrans integrations. DOKU uses non-SNAP HMAC-SHA256; DOKU SNAP uses the separate QRIS/SNAP signing flow. `PAYMENT_PROVIDER` env precedence wins over the admin DB flag — see [PG/README.md](./PG/README.md). DOKU checkout and SNAP unit coverage exists; live payment status is tracked operationally, not inferred from local tests.
 >
-> **September 9, 2026:** Public `/legal/privacy` and `/legal/terms` seed **v1.1** (UU 27/2022 PDP, UU ITE as amended by UU 1/2024). Sticky left TOC on legal pages. HR assistant: Prisma self-scope tools, FAQ/policy lexical retrieve, citations, ASK audit (`docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md`). Automated evidence: **161/161** unit tests (backend + selected frontend lib tests). **130** Prisma models.
+> **September 23, 2026:** Public `/legal/privacy` and `/legal/terms` seed **v1.2** (UU 27/2022 PDP, UU ITE as amended by UU 1/2024, AI processing and human review clauses). Sticky left TOC on legal pages. HR assistant: Prisma self-scope tools, FAQ/policy lexical retrieve, citations, ASK audit, prompt-injection/PII guardrails (`docs/PRD/dnpeople-prd-v17.0-hr-chatbot-rag-id.md`).
 >
 > **August 10, 2026 increments:** Grouped sidebar nav (8 sections, flat mode for short employee lists); billing page UI polish (stat cards, tier feature bullets, invoice filters, trial preview hide); brand logo **`/logo3.png`** site-wide; invoice PDF export + Xendit payment method on invoice history (same sprint).
 >
@@ -41,7 +41,7 @@ review_cadence: monthly
 
 > **Release-ready (24 Jul 2026):** Soft-launch hardening shipped — secrets fail-closed, honest trial billing, expanded smoke, SEO robots/sitemap; **demo sandbox creds remain public** for product trial. See [RELEASE-READY.md](./RELEASE-READY.md). External gates (DNS, Datadog, pen-test, beta cohort) remain Conditional until Agustus go/no-go.
 
-> **PRD v11.1 (22 Jul 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Gratis, Rp20.000/25.000 per karyawan, Business 301+, Enterprise 500+ (PRD v5 tier matrix). External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
+> **Current packaging (19 Sep 2026):** Full marketing landing at `/welcome` (hero, features, pricing, FAQ, beta signup, JSON-LD, `/legal/dpa`). Pricing cards share `frontend/src/lib/subscriptionCatalog.ts` with in-app `/billing` — Starter Rp10.000, Professional Rp15.000, Business Rp20.000 per karyawan; multi-branch starts at Professional and API/webhooks at Business. External gates (Convertkit/Zapier, demo video URL, DNS, GA4) remain Conditional.
 
 > **PRD v11.0:** Marketing routes, lead capture API, Datadog-ready metrics, k6 suite, launch runbooks. Go-live gates (Datadog account, pen-test, DNS, beta UAT) remain Conditional until early August 2026 launch window.
 
@@ -155,13 +155,13 @@ the attempted path in `next`.
 | Policy & discipline | Company policies, publication/acknowledgement-related records and disciplinary actions | `/policies` | `/policies` | Available |
 | Helpdesk | Employee ticket, assignment, status and resolution workflow | `/helpdesk` | `/helpdesk` | Available |
 | Communication | Announcements, surveys, polls, HR calendar/holidays, persistent/email/browser notifications | `/announcements`, `/surveys`, `/calendar`, `/notifications` | Matching pages + header notification center | Available |
-| AI helpers | HR assistant: intent router → Prisma tools (self leave/attendance/payroll; HR headcount/contracts) or FAQ/policy lexical RAG + citations; optional LLM synthesize; ASK audit | `/assistant` | `/assistant` | Available (`ai:assistant` Enterprise); LLM optional |
+| AI helpers | HR assistant: intent router → Prisma tools (self leave/attendance/payroll; HR headcount/contracts) or FAQ/policy lexical RAG + citations; optional **OpenAI** synthesis (`gpt-4o-mini` default, same provider family as DN Tech blog generator); Gemini fallback; explicit AI disclosure; prompt-injection/PII guardrails; ASK audit; structured answer feedback + full-period admin quality analytics; DOKU-aligned payment FAQ; provider timeout/fallback | `/assistant`, `/admin/analytics/assistant` | `/assistant`, `/admin/analytics/assistant` | Available (`ai:assistant` Professional+); LLM optional |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Workflow engine | Module-specific multi-step workflows, approval rules, amount/role resolution and activation | `/workflows`, `/approvals/rules` | `/workflows`, `/approvals` | Available |
 | Multi-company platform | Company console, organization tree/links and platform visibility | `/platform` | `/platform` | Available |
 | Internal Admin Console | SUPER_ADMIN SaaS panel: customers/impersonation, billing/refunds, analytics, tickets+KB/CSAT, content CRUD, feature flags (+ runtime), health alerts/logs, audit; MFA gate; DN Tech `isPlatformOperator` tenant excluded from customer/MRR metrics | `/admin/*` | `/admin/*` | Available (PRD v15.0); live latency Conditional |
-| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **Xendit hosted checkout**, pay-during-trial, trial badge, **invoice PDF export**, **payment method on invoice history**, polished `/billing` UI | `/subscription`, `/payments` | `/billing` | Available; **Xendit live E2E Conditional** |
-| Legal compliance | Versioned ToS/PP (seed v1.1 UU PDP/ITE), signup consent, acceptance log, compliance banner, re-accept; public pages with sticky TOC | `/legal-documents`, `/acceptances` | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — AUP/admin CMS **not** implemented |
+| Subscription & billing | Tier catalog, invoices, upgrade/cancel/reactivate, feature gating, grace/freeze, **DOKU production checkout**, pay-during-trial, trial badge, **invoice PDF export**, **payment method on invoice history**, polished `/billing` UI | `/subscription`, `/payments` | `/billing` | **Production live**; DOKU SNAP/Midtrans/Xendit alternatif |
+| Legal compliance | Versioned ToS/PP (seed v1.2 UU PDP/ITE + AI clauses), signup consent, acceptance log, compliance banner, re-accept; public pages with sticky TOC | `/legal-documents`, `/acceptances` | `/legal/terms`, `/legal/privacy`, `/signup`, `/settings/legal` | Available — legal counsel publication review and AUP/admin CMS **not** implemented |
 | Tenant management | Isolation policy, org units, quota, SCIM tokens, tenant audit | `/tenants` | `/tenant-management` | Available |
 | Staff accounts | Standalone/linked login create, role, activate, password reset | `/staff-accounts` | `/staff-accounts` | Available |
 | Integrations | Scoped API keys, webhook/custom integrations, test delivery and synchronization status | `/integrations` | `/integrations` | Available framework |
@@ -272,7 +272,7 @@ Current recorded automated evidence: **125** backend tests pass; frontend **~86*
 
 | Priority | Theme | Source | Notes |
 |----------|-------|--------|-------|
-| **P0 ops** | Xendit sandbox E2E + webhook on `hris.dntech.id`; external go-live gates | [XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) · [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | Keys test on VPS; verify 1× payment E2E |
+| **P0 ops** | DOKU live webhook/reconciliation + external go-live gates | [PG/README.md](./PG/README.md) · [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) | DOKU adalah gateway aktif; monitoring webhook tetap wajib |
 | **P0 product** | PRD v4 Module 4 — internal career marketplace | PRD v4 · **v16.0** | Next greenfield |
 | **P1 product** | PRD v4 Modules 5–6 — EWA + salary benchmarking | PRD v4 | External data/providers Conditional |
 | **P2 product** | PRD v4 Modules 7–8 — manufacturing/retail verticals | PRD v4 | Configuration packages |

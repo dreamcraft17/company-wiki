@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Panduan Pengguna (User Guide)
 
 **Versi:** 14.0 tutorial & onboarding  

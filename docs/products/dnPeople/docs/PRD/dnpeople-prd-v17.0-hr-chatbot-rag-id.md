@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople HR Chatbot (RAG + tools)
 
 ## Document Info
@@ -20,7 +28,7 @@
 
 ### What problem are we solving?
 
-Karyawan dan HR menanyakan hal yang sama berulang: sisa cuti, jam clock-in, cara bayar invoice, isi SOP perusahaan. Jawaban tersebar di FAQ, tutorial, dan tabel Prisma. Asisten yang ada hari ini (`/assistant`, fitur `ai:assistant`, tier Enterprise) hanya keyword-match + satu panggilan LLM tanpa sitasi dan tanpa retrieval kebijakan tenant.
+Karyawan dan HR menanyakan hal yang sama berulang: sisa cuti, jam clock-in, cara bayar invoice, isi SOP perusahaan. Jawaban tersebar di FAQ, tutorial, dan tabel Prisma. Asisten (`/assistant`, fitur `ai:assistant`, tier Professional+) memakai router intent, tools Prisma, retrieval FAQ/policy dengan sitasi, optional LLM synthesis, fallback deterministik, feedback kualitas terstruktur, disclosure AI, dan guardrail prompt-injection/PII.
 
 ### Who is affected?
 
@@ -61,7 +69,7 @@ LLM mengarang angka gaji; HR tetap jadi helpdesk; tiket how-to tidak turun. Biay
 
 Perluas `/assistant` menjadi **satu agent** (bukan swarm): router aturan → tool Prisma read-only **atau** RAG chunk → jawaban ID singkat + sitasi. Fallback rule-based jika LLM down (sudah ada).
 
-`agent_planner.py` mengusulkan **swarm + web_search/code_executor**. Ditolak: skill table “single agent jika satu tugas terbatas, < ~5 tools”; tim 3 orang; search web membuka data HR ke internet.
+`agent_planner.py` mengusulkan **swarm + web_search/code_executor**. Ditolak: skill table “single agent jika satu tugas terbatas, < ~5 tools”; tim 3 orang; search web membuka data HR ke internet. Synthesis provider production mengikuti jalur OpenAI DN Tech: **OpenAI** via `OPENAI_API_KEY`, `OPENAI_BASE_URL`, dan `OPENAI_MODEL` (default `gpt-4o-mini`). Gemini dipertahankan sebagai fallback compatibility.
 
 ### Key User Flows
 
@@ -102,7 +110,7 @@ Event: `assistant_ask` {intent, mode, tokens_in, tokens_out, latency_ms, citatio
 
 ## RICE (capacity 8 person-months / kuartal)
 
-Script: `rice_prioritizer.py` (2026-08-31). Reach ≈ 80 pengguna aktif assistant (Enterprise + beta).
+Script: `rice_prioritizer.py` (2026-08-31). Reach ≈ 80 pengguna aktif assistant (Professional+ beta).
 
 | Rank | Feature | RICE | Effort |
 |------|---------|------|--------|

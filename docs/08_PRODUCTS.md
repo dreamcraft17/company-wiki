@@ -1,15 +1,15 @@
 # Product Portfolio
 
 > **Author:** Dozer  
-> **Date:** 2026-09-05
+> **Date:** 2026-09-25
 
-**Document Version**: 1.7  
-**Last Updated**: September 9, 2026  
+**Document Version**: 1.8  
+**Last Updated**: September 25, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: September 9, 2026
+**UpdatedAt**: September 25, 2026
 
 ---
 
@@ -212,13 +212,13 @@ DN Tech Products
 | Brand | DnPeople |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.0** · legal **v1.1** · assistant **v17** · production [hris.dntech.id](https://hris.dntech.id) |
+| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.2** · DOKU live/default · `/admin/health` · admin plan catalog + trial months · legal **v1.2** · assistant **v17** Professional+ · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
 | Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
-| Codebase | ~96 halaman · ~60 route modules · **130** model Prisma · **191/191** tests · **16** a11y |
+| Codebase | **108** halaman · **63** route modules · **138** model Prisma · **214/214** tests · **16** a11y |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) |
-| UpdatedAt | September 17, 2026 |
+| UpdatedAt | September 25, 2026 |
 
 ### Fitur
 

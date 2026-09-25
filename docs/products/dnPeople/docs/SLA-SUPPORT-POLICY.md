@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — SLA & Support Policy
 
 **UpdatedAt:** 19 Juli 2026  

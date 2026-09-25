@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # Xendit API Reference Mapping untuk dnPeople
 ## API Endpoints yang Diperlukan - Analysis & Recommendation
 
@@ -658,4 +666,3 @@ Response (200):
 - ✅ Bulk Payout / Batch Disbursement
 
 If ANY of these are missing, have a contingency plan!
-

@@ -1,6 +1,14 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople PRD v5 — Subscription Tier Implementation
 
-**Implemented:** 16 July 2026 · **Xendit primary PG:** August 2026
+**Implemented:** 16 July 2026 · **DOKU active PG:** September 2026
 **Specification:** `company-wiki/docs/products/dnPeople/PRD/v5/`
 
 ## Delivered
@@ -11,7 +19,7 @@
 - Subscription, invoice, and subscription-audit data models plus deployment migration.
 - Server-side feature enforcement, minimum-tier checks, manual feature overrides, read-only grace mode, and frozen mode.
 - Upgrade/downgrade pricing snapshots, prorated invoice creation, cancellation, suspension, and reactivation.
-- **Xendit Invoice v2** hosted checkout (primary, Aug 2026): `POST /payments/initiate-payment`, webhook `/webhooks/xendit`, return sync `/payments/sync`, public pay `/public/invoices/:id/pay`.
+- **DOKU Checkout** hosted checkout (active, Sep 2026): `POST /payments/initiate-payment`, webhook `/webhooks/doku`, return sync `/payments/sync`, public pay `/public/invoices/:id/pay`.
 - Stripe Payment Intent and manual bank-transfer payment request adapters (legacy).
 - Signed Stripe webhook handling; Xendit callback-token webhook for payment success/failure.
 - API-key Business-tier enforcement, 90-day default expiry, and persistent 1,000 request/hour limit.
@@ -22,7 +30,7 @@
 - Branch settings feed payroll calculation and annual leave allocation; reports accept `workLocationId` filtering.
 - Location-scoped row access for branch HR via `DataAccessRule.scopeType = location`.
 - Enterprise SSO and public branding enforcement, multi-company dashboard, and secure company-context switching for super admins.
-- Frontend subscription context, tier-aware navigation, direct-URL gate, upgrade prompt, read-only banner, **polished billing dashboard** (stat cards, invoice filters, PDF export, Xendit payment labels), invoices, cancellation/reactivation, branch configuration, and multi-company dashboard.
+- Frontend subscription context, tier-aware navigation, direct-URL gate, upgrade prompt, read-only banner, **polished billing dashboard** (stat cards, invoice filters, PDF export, DOKU payment labels), invoices, cancellation/reactivation, branch configuration, and multi-company dashboard.
 - **Invoice PDF (Aug 2026):** `GET /subscription/invoices/:id.pdf` — logo mark from `backend/src/assets/logo-mark.png`.
 - **Marketing pricing SSOT (Jul 2026):** `frontend/src/lib/subscriptionCatalog.ts` mirrors backend `TIER_PRICE_PER_EMPLOYEE` / PRD v5 headcount ranges; shared by `/billing` and public `/welcome` `/pricing`.
 
@@ -43,7 +51,7 @@ Base path: `/api/v1/subscription`
 | PUT | `/features` | Super-admin feature overrides |
 | POST | `/webhooks/stripe` | Signed Stripe billing event |
 
-**Xendit (primary):** see [API.md](./API.md#xendit-payments-primary--agustus-2026) and [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+**DOKU (active):** see [API.md](./API.md#doku-payments-activedefault--september-2026) and [PG/README.md](./PG/README.md).
 
 ## Deployment
 
@@ -61,7 +69,7 @@ baseline satu kali di [DEPLOYMENT.md](./DEPLOYMENT.md#database-migrations) sebel
 Migration v5 sudah melakukan backfill subscription secara idempotent. Jangan menjalankan `db:seed`
 pada update production.
 
-Configure **Xendit** in `backend/.env` (`XENDIT_SECRET_KEY`, `XENDIT_WEBHOOK_TOKEN`); test mode uses `xnd_development_…` keys. Without credentials, pay endpoints return `503 BILLING_NOT_CONFIGURED`. Manual bank-transfer fallback via `BILLING_BANK_INSTRUCTIONS` when Xendit is down.
+Configure **DOKU** in `backend/.env` (`DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_IS_PRODUCTION`, `DOKU_NOTIFICATION_URL`). Without credentials, pay endpoints return `503 BILLING_NOT_CONFIGURED`. Xendit/Midtrans remain optional alternatives.
 
 ## Verification
 

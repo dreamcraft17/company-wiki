@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Legal Documents Management System
 ## Software Requirements Specification (SRS) v1.0
 
@@ -666,4 +674,3 @@ model AcceptanceNotification {
 
 **Version:** 1.0  
 **Last Updated:** 1 Agustus 2026
-

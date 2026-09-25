@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-23
+review_cadence: annual
+---
+
 # dnPeople Changelog
 
 Format mengikuti [Keep a Changelog](https://keepachangelog.com/).
@@ -15,6 +23,7 @@ SemVer: **1.1.0 → 1.1.1** (patch — `fix(security)` payment concurrency + P0 
 - Ops docs: [SLO.md](./SLO.md), [ADR 0001 dual payment gateway](./adr/0001-dual-payment-gateway.md), [CTO + focused-fix assessment](./CTO-FOCUSED-FIX-ASSESSMENT.md)
 - HR assistant v17: Prisma fact tools, FAQ/policy lexical RAG, citations, ASK audit
 - Legal ToS/PP **v1.1** (UU 27/2022, UU ITE / UU 1/2024) + sticky left table of contents on `/legal/*`
+- Legal ToS/PP **v1.2**: AI Assistant processing, provider/sub-processor disclosure, human review, and no automated employment decisions
 
 ### Changed
 - `initiatePayment({ provider })` — explicit Xendit/Midtrans override for subscription billing API
@@ -23,7 +32,7 @@ SemVer: **1.1.0 → 1.1.1** (patch — `fix(security)` payment concurrency + P0 
 ### Notes
 - **161** unit tests pass (`npm test` in backend, includes selected frontend lib tests)
 - Deploy migration `20260822100000_payment_pending_unique` if not yet applied on VPS
-- Production legal pages need `npm run db:seed:legal` to publish v1.1
+- Production legal pages need `npm run db:seed:legal` to publish v1.2 and trigger re-acceptance for the major legal change
 - Agent harness verified P1 locally (`.agent-harness/state.json` — internal)
 
 ---

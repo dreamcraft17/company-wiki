@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Xendit Payment Integration
 ## Software Requirements Specification (SRS) v1.0
 
@@ -1137,4 +1145,3 @@ function verifyWebhookSignature(body, receivedToken) {
 
 **Version:** 1.0 (Complete)  
 **Last Updated:** 8 Agustus 2026
-

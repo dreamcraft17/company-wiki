@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Legal Documents Management System
 ## System Design Document (SDD) v1.0
 
@@ -655,4 +663,3 @@ describe('AuditService', () => {
 
 **Version:** 1.0  
 **Last Updated:** 1 Agustus 2026
-

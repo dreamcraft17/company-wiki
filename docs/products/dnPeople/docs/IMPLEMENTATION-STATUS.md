@@ -1,6 +1,14 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-23
+review_cadence: annual
+---
+
 # dnPeople — Implementation Status
 
-> Terakhir diperbarui: **9 September 2026** (legal v1.1 UU PDP/ITE, assistant v17, sticky TOC)  
+> Terakhir diperbarui: **23 September 2026** (legal v1.2 AI clauses, assistant v17 guardrails, sticky TOC)
 > Referensi: PRD/SRS/SDD **v3.1** + PRD **v4–v15.0 / v11.1 / v17 assistant** + Aug–Sep 2026 increments · Repo version **1.0.0**
 >
 > **Author:** Dozer · **Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** DnPeople · **UpdatedAt:** September 9, 2026  
@@ -29,18 +37,18 @@
 | PRD v13.0 | Module 3: 9-box talent matrix, session lock, succession/readiness, development proposals, Excel/PDF/HTML reports | **Done** in repo |
 | PRD v14.0 | In-app tutorials (5 MVP) + knowledge base + Help menu; progress/tier gating; **no video library** | **Done** in repo |
 | PRD v15.0 | Internal admin console (`/admin`, SUPER_ADMIN): customers + impersonation banner, revenue/billing/refunds, analytics (features/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), system health alerts/logs, audit log, Admin MFA gate; seeded operator `dozer@dntech.id` (DN Tech tenant) | **Done** in repo; live API latency P50/P95/P99 (Prometheus/Datadog) Conditional |
-| **Xendit PG v1.0** | Hosted checkout (Invoice v2), webhook fail-closed, return sync, public invoice pay, refund admin, pay-during-trial | **Done** in repo on `hris.dntech.id`; **live E2E + production keys Conditional** |
-| **Legal ToS/PP** | Signup consent, `/legal/terms` + `/legal/privacy` (v1.1 UU PDP/ITE, sticky TOC), acceptance middleware, `/settings/legal`, `ComplianceBanner` | **Done** in repo; full legal CMS (AUP/admin editor) **not** in scope |
+| **DOKU payment** | Checkout, webhook fail-closed, return sync, public invoice pay, refund admin, pay-during-trial | **Production live**; DOKU adalah gateway aktif/default |
+| **Legal ToS/PP** | Signup consent, `/legal/terms` + `/legal/privacy` (v1.2 UU PDP/ITE + AI processing/human review, sticky TOC), acceptance middleware, `/settings/legal`, `ComplianceBanner` | **Done** in repo; legal counsel publication review and full legal CMS (AUP/admin editor) **not** in scope |
 | **UI theme** | Light/dark/system toggle; default **light** | **Done** |
 | **Grouped sidebar nav** | 8 section labels; flat mode ≤8 items; SSOT `navigationMenu.ts` | **Done** in repo — Aug 2026 |
 | **Billing UI polish** | Stat cards, tier feature bullets, invoice filters, trial preview toggle, mobile cards | **Done** in repo — Aug 2026 |
-| **Invoice PDF + payment labels** | `GET /subscription/invoices/:id.pdf`; Xendit method on invoice history | **Done** in repo — Aug 2026 |
+| **Invoice PDF + payment labels** | `GET /subscription/invoices/:id.pdf`; gateway/method pada invoice history | **Done** in repo |
 | **Brand logo logo3** | `/logo3.png` site-wide (AppShell, marketing, login, careers, JSON-LD) | **Done** in repo — Aug 2026 |
 | PRD v4 Module 4–8 | Career marketplace, EWA, salary benchmarking, industry verticals | **Not started** → **PRD v16.0** recommended |
 
 **Inventory:** **~96** frontend pages · **~60** backend route modules · **129** Prisma models · **17** migrations  
 **Typecheck:** Backend ✅ · Frontend ✅ · Backend tests **81/81** ✅ · Prisma validate ✅  
-**Production:** Deployed `https://hris.dntech.id` — Xendit test mode configured; go-live gates (Datadog, pen-test, beta UAT, live payment) **Conditional**
+**Production:** Deployed `https://hris.dntech.id` — **DOKU live**; remaining go-live gates (Datadog, pen-test, beta UAT) remain **Conditional**
 
 ### Mulai PRD berikutnya
 

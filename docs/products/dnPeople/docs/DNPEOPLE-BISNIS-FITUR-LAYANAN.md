@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Bisnis, Fitur, dan Layanan
 
 > **Status:** Active · **Last updated:** 2026-09-13 · **Author:** Dozer  
@@ -41,7 +49,7 @@ Dokumen ini menjelaskan **model bisnis**, **siapa yang dilayani**, **paket & lay
 | Talent & suksesi informal | Kompetensi, IDP, LMS, **9-box**, succession |
 | User bingung | Help, 5 tutorial interaktif, knowledge base (tanpa video library) |
 | Fitur terlihat padahal belum bayar | Tier gating server + nav hanya paket aktif |
-| Bayar langganan ribet | `/billing`, invoice PDF, **Xendit** hosted checkout (Midtrans legacy / switch admin) |
+| Bayar langganan ribet | `/billing`, invoice PDF, **DOKU** checkout (Midtrans/Xendit alternatif) |
 | Vendor kelola banyak klien | Admin Console `/admin` (SUPER_ADMIN) |
 
 ---
@@ -70,10 +78,10 @@ Lima tier. Headcount **hard limit** FREE **30**, STARTER **50**, PROFESSIONAL **
 | Tier | Harga default (bisa diubah admin) | Inti nilai |
 |------|-----------------------------------|------------|
 | FREE | Rp 0 · trial 4 bulan (overview) | Core HR + helpdesk + MFA + billing upsell |
-| STARTER | Rp 20.000/karyawan · min Rp 20.000 · trial **4 bulan** (promo, dapat dimatikan dnPeople) | + absensi, cuti, shift, payroll dasar, laporan dasar |
-| PROFESSIONAL | Rp 25.000/karyawan · min Rp 25.000 · trial **2 bulan** | + OT/klaim/pinjaman, ATS, performance, talent 9-box |
-| BUSINESS | Rp 20.000/karyawan (volume) · min Rp 6.000.000 · trial 2 bulan | + API, workflow, aset, offboarding, audit, custom reports |
-| ENTERPRISE | Harga khusus | + SSO/SCIM, branding, multi-company, AI assistant |
+| STARTER | Rp 10.000/karyawan · min Rp 150.000 · trial **4 bulan** (promo, dapat dimatikan dnPeople) | + absensi basic, cuti, shift, payroll basic, laporan basic |
+| PROFESSIONAL | Rp 15.000/karyawan · min Rp 20.000 · trial **2 bulan** | + absensi/payroll advanced, review/evidence payroll, lokasi kerja & aturan per lokasi, OT/klaim/pinjaman, ATS, performance, talent 9-box |
+| BUSINESS | Rp 20.000/karyawan (volume) · min Rp 6.000.000 · trial 2 bulan | + workflow approval cuti/klaim per lokasi, API, aset, offboarding, audit, custom reports |
+| ENTERPRISE | Harga khusus | + SSO/SCIM, branding, multi-company, dedicated support |
 
 **SSOT harga runtime:** tabel `subscription_tier_plans` · `/admin/tier-pricing` · `GET /api/v1/subscription/plans` · fallback `subscriptionFeatures.ts` / `subscriptionCatalog.ts`.
 
@@ -81,7 +89,7 @@ Lima tier. Headcount **hard limit** FREE **30**, STARTER **50**, PROFESSIONAL **
 
 **Trial:** Starter **4 bulan** (promo — `STARTER_TRIAL_PROMO=false` atau `TIER_STARTER_TRIAL_MONTHS=0` mematikannya); Professional **2 bulan**; FREE 4 bulan overview; BUSINESS 2 bulan. Fitur tier penuh selama trial; bayar kapan saja dari `/billing`; reminder H-5/H-1. Admin vendor dapat **akhiri trial kapan saja** (`end_now`), freeze, atau ubah tanggal.
 
-**Alur bayar:** signup FREE (ToS + Privacy) → upgrade `/billing` → invoice pro-rata → Xendit (primary) → webhook → PAID. Recurring scheduler + email. Grace/freeze read-only jika overdue.
+**Alur bayar:** signup FREE (ToS + Privacy) → upgrade `/billing` → invoice pro-rata → **DOKU** → webhook → PAID. Recurring scheduler + email. Grace/freeze read-only jika overdue.
 
 ---
 
@@ -93,7 +101,7 @@ Lima tier. Headcount **hard limit** FREE **30**, STARTER **50**, PROFESSIONAL **
 | **API REST + OpenAPI** | `/api/v1`, Swagger `/api/v1/docs` | Kunci `dnp_…` scoped |
 | **SCIM 2.0** | Users/Groups per tenant | Enterprise; UAT IdP |
 | **SSO** | Google, Microsoft, SAML + JIT | Conditional kredensial IdP |
-| **Pembayaran langganan** | Xendit Invoice v2; Midtrans SNAP legacy/switch | Live E2E payment **Conditional** |
+| **Pembayaran langganan** | **DOKU Checkout live**; DOKU SNAP/Midtrans/Xendit sebagai jalur alternatif | Production live; rekonsiliasi dan monitoring tetap wajib |
 | **Legal** | ToS + Privacy v1.1 (UU PDP / ITE), DPA template, consent signup | Bukan CMS legal penuh |
 | **Privasi** | Export data, deletion request, daftar processor | PRD v10 |
 | **Support** | Email + helpdesk in-app; SLA draft | Soft launch 99.5% uptime target; Critical &lt;1 jam respons |
@@ -153,7 +161,7 @@ KPI role-aware, donut/bar SVG. Laporan absensi/cuti/payroll (cap 1000 baris), jo
 
 ### 6.10 Workflow, AI, integrasi
 
-Approval rules + custom workflow. **Assistant** (`/assistant`): tools Prisma self-scope + RAG FAQ/policy + sitasi; flag `ai:assistant` Enterprise; LLM opsional. Generator dokumen AI **Conditional**. Registry webhook. Upload local/S3 via auth file route. Email outbox retry.
+Approval rules + custom workflow. **Assistant** (`/assistant`): tools Prisma self-scope + RAG FAQ/policy + sitasi; flag `ai:assistant` Professional+; LLM opsional. Generator dokumen AI **Conditional**. Registry webhook. Upload local/S3 via auth file route. Email outbox retry.
 
 ### 6.11 Platform & pemasaran
 
@@ -179,7 +187,7 @@ White-label, custom domain (DNS/TLS ops). Quota & isolation audit. Audit trail i
 ## 8. Cara baca status ke pelanggan
 
 1. **Available** — boleh didemo di `hris.dntech.id` setelah UAT tenant; tetap butuh deploy & data.
-2. **Conditional** — sebutkan syarat (SMTP, IdP, Xendit live, biometric, Sentry, DNS `dnpeople.id`).
+2. **Conditional** — sebutkan syarat (SMTP, IdP, biometric, Sentry, DNS `dnpeople.id`, atau channel pembayaran alternatif).
 3. **Roadmap** — jangan masuk SOW tanpa PRD baru.
 
 Go-live eksternal (Datadog, pen-test, beta cohort, payment live E2E) tetap **Conditional** di [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md).

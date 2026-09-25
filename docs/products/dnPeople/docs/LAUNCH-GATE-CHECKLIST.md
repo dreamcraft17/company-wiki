@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: conditional
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: per-release
+---
+
 # Launch Gate Checklist — PRD v11.0 / soft launch Agustus 2026
 
 **Go/no-go target:** minggu pertama Agustus 2026  
@@ -5,6 +13,8 @@
 **Sign-off:** Dozer
 
 Legend: ✅ Done in repo · 🟡 Ready to execute (ops) · ⬜ External dependency
+
+This document is a release gate checklist, not an executable runbook. For state-changing actions, follow [DEPLOYMENT.md](./DEPLOYMENT.md), [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md), or the linked incident runbook and record evidence in the release ticket.
 
 ---
 
@@ -54,7 +64,7 @@ Legend: ✅ Done in repo · 🟡 Ready to execute (ops) · ⬜ External dependen
 | Gate | Status | Notes |
 |------|--------|-------|
 | Trial end without provider | ✅ | Creates **DRAFT** invoice — does not fake `lastChargedAt` |
-| Live Stripe/Xendit auto-charge | ⬜ | Needs provider keys + webhook |
+| DOKU live checkout/webhook | ✅ | Gateway aktif/default; pertahankan rekonsiliasi dan monitoring webhook |
 
 ## Beta
 

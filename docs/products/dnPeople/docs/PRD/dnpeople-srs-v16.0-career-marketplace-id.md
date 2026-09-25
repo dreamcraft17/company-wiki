@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Internal Career Marketplace
 ## Software Requirements Specification (SRS) v16.0
 
@@ -9,7 +17,7 @@
 
 ## 1. FUNCTIONAL REQUIREMENTS
 
-### FR1: Internal Job CRUD (HR)
+### FR1: HR internal job CRUD
 
 **Description:** HR create, edit, publish, close internal jobs
 
@@ -237,7 +245,7 @@ GET /api/v1/internal-applications/{id}/timeline
 
 ---
 
-### FR5: Pipeline Management (HR)
+### FR5: Pipeline Management — HR workflow
 
 **Description:** HR move applicants through pipeline stages
 
@@ -528,4 +536,3 @@ GET /api/v1/audit-log
 
 **Version:** 1.0 (Ready for SDD)  
 **Last Updated:** 10 Agustus 2026
-

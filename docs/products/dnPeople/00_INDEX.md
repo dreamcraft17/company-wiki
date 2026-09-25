@@ -1,24 +1,27 @@
 # dnPeople HRIS — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-17
+> **Date:** 2026-09-25
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.0** · **Legal v1.1** · **assistant v17** · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+) · admin catalog + trial months · ops gates Conditional  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 19, 2026  
+**UpdatedAt**: September 25, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
-**Codebase**: ~96 frontend pages · ~60 backend route modules · **130** Prisma models · **191/191** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · **`09eca19`** (Evidence Timeline — P0 exception & evidence layer) · tag **[v1.1.0](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.0)**
+**Codebase**: **108** frontend pages · **63** backend route modules · **138** Prisma models · **214/214** tests · **16** a11y (Playwright + axe)  
+**HEAD**: `dnpeople` main · **`55ec9ae`** (AI assistant Professional+; admin-editable plan catalog) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v16.0**)  
 > **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox **FREE** tier  
-> **Payment gateway (Xendit / Midtrans / DOKU, admin-switchable):** [docs/PG/README.md](./docs/PG/README.md) · **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)  
-> **Evidence timeline (P0 exception & evidence layer):** [docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md)
+> **Payment gateway:** **DOKU is active/default/live**; Xendit and Midtrans remain admin-switchable alternatives. See [docs/PG/README.md](./docs/PG/README.md) · **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)  
+> **Admin monitoring:** `/admin/health` tracks API errors/latency, DOKU webhooks, DB/queue health, and alert acknowledgement.  
+> **Plan catalog:** SUPER_ADMIN `/admin/tier-pricing` is SSOT for list prices, trial months (including FREE), and marketing copy; public `GET /subscription/plans`. Starter trial **4** months / Professional **2** months — revocable.  
+> **Evidence timeline (P0 exception & evidence layer):** [docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md)  
+> **INTERNAL PRD (Dozer-only):** Early Release program spec lives in `private-wiki/dnpeople/internal/` — not mirrored here.
 
 ---
 
@@ -64,7 +67,7 @@
 | [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) | Akun demo seed (FREE tier) |
 | [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md) | Go/no-go Agustus 2026 |
 | [docs/SLA-COMMITMENT-RPO-RTO.md](./docs/SLA-COMMITMENT-RPO-RTO.md) | RPO/RTO commitments |
-| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (**v1.1.0** + Unreleased Sep 2026) |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (**v1.1.1** + Unreleased Sep 2026; counts in Unreleased may lag `npm test`) |
 | [docs/legal/PRIVACY-POLICY.md](./docs/legal/PRIVACY-POLICY.md) | Kebijakan privasi (ringkas; teks halaman di `legal2/`) |
 | [docs/legal/TERMS-OF-SERVICE.md](./docs/legal/TERMS-OF-SERVICE.md) | Syarat layanan (ringkas; teks halaman di `legal2/`) |
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
@@ -95,10 +98,10 @@ cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/
 cp -R dnpeople/docs/xendit company-wiki/docs/products/dnPeople/docs/
 cp -R dnpeople/docs/PG company-wiki/docs/products/dnPeople/docs/
 cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
-cp dnpeople/docs/CURRENT-IMPLEMENTATION.md company-wiki/docs/products/dnPeople/current-implementation.md
+# Curated PRD baseline is product-root current-implementation.md — summarize, do not overwrite with full CURRENT-IMPLEMENTATION
 # Update 00_INDEX.md di wiki jika status berubah
 ```
 
 ---
 
-*Last Updated: September 18, 2026*
+*Last Updated: September 25, 2026*

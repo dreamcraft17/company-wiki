@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — SRS v13.0
 ## Talent Advancement: Requirements & Acceptance Criteria
 

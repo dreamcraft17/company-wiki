@@ -1,9 +1,17 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople HRIS — Penjelasan Produk (Satu Dokumen)
 
 | | |
 |---|---|
 | **Produk** | dnPeople — Human Resource Information System (HRIS) SaaS |
-| **Pemilik** | Dozer (CEO + Chief Engineer) · **DN Tech** (PT. Dozer Napitupulu Technology) |
+| **Pemilik** | Dozer (CEO + Tech Lead) · **DN Tech** (PT. Dozer Napitupulu Technology) |
 | **Author** | Dozer |
 | **Brand** | DnPeople |
 | **Production** | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
@@ -64,7 +72,7 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 | Talent & suksesi informal | Kompetensi, IDP, LMS, **9-box matrix**, succession |
 | User bingung pakai sistem | Help menu, tutorial interaktif, knowledge base |
 | Fitur tampil padahal belum bayar | **Tier gating jujur** — menu hanya fitur paket aktif |
-| Bayar subscription ribet | Billing in-app, invoice PDF, **Xendit** / **Midtrans SNAP** |
+| Bayar subscription ribet | Billing in-app, invoice PDF, **DOKU** production (DOKU SNAP/Midtrans/Xendit sebagai alternatif) |
 | Tim vendor kelola banyak client | Admin Console: customers, billing, trial, gateway, flags |
 
 ---
@@ -88,10 +96,11 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 - **Talent:** competency, gap analysis, IDP, LMS
 - **9-box talent matrix**, succession & readiness (PRD v13)
 - Survei, webhook, laporan lanjutan
+- **Lokasi kerja**, assignment employee, geofence/WiFi, dan aturan payroll per lokasi
 
 ### BUSINESS — Platform scale
 - Semua PROFESSIONAL +
-- Multi-cabang, API REST, workflow lanjutan, security advanced
+- Default aturan pusat, workflow approval cuti/klaim per lokasi, API REST, workflow lanjutan, security advanced
 - Custom reports, asset, offboarding, audit advanced
 
 ### ENTERPRISE — Kontrol penuh
@@ -109,9 +118,9 @@ Setiap **perusahaan (tenant)** punya data terisolasi. Satu instalasi platform me
 
 | Tier | Harga default | Min. tagihan | Trial |
 |------|---------------|--------------|-------|
-| FREE | Rp 0 | — | Selamanya |
-| STARTER | Rp 15.000/karyawan | Rp 150.000 | 4 bulan (promo, dapat dimatikan) |
-| PROFESSIONAL | Rp 20.000/karyawan | Rp 20.000 | 2 bulan |
+| FREE | Rp 0 | — | 4 bulan |
+| STARTER | Rp 10.000/karyawan | Rp 150.000 | 4 bulan (promo, dapat dimatikan) |
+| PROFESSIONAL | Rp 15.000/karyawan | Rp 20.000 | 2 bulan |
 | BUSINESS | Rp 20.000/karyawan (volume) | Rp 6.000.000 | 2 bulan |
 | ENTERPRISE | Harga khusus | — | — |
 
@@ -155,14 +164,16 @@ API: `PATCH /api/v1/admin/customers/:id/trial` · Audit: admin log + subscriptio
 ### Gateway yang didukung
 | Gateway | Mode | Admin switch |
 |---------|------|--------------|
-| **Xendit Invoice** | Hosted checkout page | `/admin/payment-gateway` |
+| **Xendit Invoice** | Hosted checkout page (alternatif) | `/admin/payment-gateway` |
 | **Midtrans SNAP** | Modal checkout | `/admin/payment-gateway` |
+| **DOKU Checkout** | Hosted checkout Non-SNAP | `/admin/payment-gateway` |
+| **DOKU SNAP** | Direct API/QRIS | `/admin/payment-gateway` |
 
 Satu gateway **aktif** untuk checkout baru (flag DB: `platform:active-payment-provider`).
 
 **Midtrans production:** `MIDTRANS_IS_PRODUCTION=true` + production keys · webhook: `POST /api/v1/webhooks/midtrans` · setup: [PG/MIDTRANS-PRODUCTION-SETUP.md](./PG/MIDTRANS-PRODUCTION-SETUP.md)
 
-**Xendit:** [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md)
+**DOKU:** [PG/README.md](./PG/README.md)
 
 ### Fitur billing UI
 - Stat cards paket, filter invoice (Semua / Perlu bayar / Lunas)
@@ -180,7 +191,7 @@ Hanya **`SUPER_ADMIN`** (tim DN Tech). Tenant operator DN Tech (`isPlatformOpera
 | Dashboard | `/admin` | Revenue summary, at-risk, health |
 | **Customers** | `/admin/customers` | Daftar client, detail, **kelola trial**, notes, block, impersonate |
 | **Harga Paket** | `/admin/tier-pricing` | Edit harga per tier, min charge, headcount limit |
-| **Payment Gateway** | `/admin/payment-gateway` | Switch Xendit ↔ Midtrans |
+| **Payment Gateway** | `/admin/payment-gateway` | DOKU aktif/default; switch ke DOKU SNAP, Midtrans, atau Xendit |
 | Revenue & Billing | `/admin/billing` | MRR/ARR, refunds |
 | Payment Management | `/admin/payments` | Transaksi payment |
 | Analytics | `/admin/analytics/*` | Feature usage, churn, cohort, support |
@@ -217,7 +228,7 @@ Detail: [SECURITY.md](./SECURITY.md) · [ARCHITECTURE.md](./ARCHITECTURE.md)
 | Backend | Express 5, TypeScript, Prisma 6 |
 | Database | PostgreSQL (Supabase Session pooler) |
 | Auth | JWT, RBAC, MFA, SSO/SAML, SCIM |
-| Payment | Xendit + Midtrans (switchable) |
+| Payment | **DOKU production** + DOKU SNAP; Midtrans/Xendit switchable |
 | Storage | Local disk atau S3-compatible |
 | Email | SMTP + outbox retry |
 | Deploy | VPS + Nginx + PM2 |
@@ -309,10 +320,10 @@ Verifikasi: `cd backend && npm test`
 | v13.0 | 9-box talent matrix & succession |
 | v14.0 | Tutorial interaktif + knowledge base |
 | v15.0 | Admin Console |
-| Agustus 2026 | Xendit PG, legal ToS/PP, grouped nav, invoice PDF, tier pricing admin, gateway switch, trial admin, Midtrans production path |
+| September 2026 | DOKU production, DOKU SNAP path, legal ToS/PP, grouped nav, invoice PDF, tier pricing admin, gateway switch |
 
 ### Conditional (ops / go-live)
-- Xendit/Midtrans **live money** E2E penuh
+- DOKU live money E2E dan webhook sudah aktif; channel alternatif tetap memerlukan konfigurasi/UAT masing-masing
 - SMTP production, rotate leaked keys
 - DNS `dnpeople.id`, beta cohort 10–20, pen-test sign-off
 
@@ -338,7 +349,7 @@ Brief: [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) · Prep: [PRD/dnpeople-prd-v16.0
 | Admin operasional | [ADMIN-GUIDE.md](./ADMIN-GUIDE.md) |
 | User guide | [USER-GUIDE.md](./USER-GUIDE.md) |
 | Midtrans production | [PG/MIDTRANS-PRODUCTION-SETUP.md](./PG/MIDTRANS-PRODUCTION-SETUP.md) |
-| Xendit setup | [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md) |
+| DOKU setup/status | [PG/README.md](./PG/README.md) |
 | Changelog | [CHANGELOG.md](./CHANGELOG.md) |
 | README repo | [../README.md](../README.md) |
 

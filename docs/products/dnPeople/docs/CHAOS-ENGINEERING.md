@@ -1,9 +1,17 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # Chaos Engineering — dnPeople
 
 **Target:** Staging / pre-production first · Production only with written approval  
 **Updated:** 21 Agustus 2026  
 **Stack:** Next.js :3001 · Express API :4100 · PostgreSQL (Supabase pooler) · PM2 · VPS (bukan K8s)  
-**Payment deps:** Xendit · Midtrans (retry 3×, idempotent webhooks)
+**Payment deps:** DOKU · DOKU SNAP · Midtrans · Xendit (retry 3×, idempotent webhooks)
 
 > Chaos bukan random break — setiap run punya **hipotesis**, **steady-state baseline**, **abort conditions**, dan **findings doc**.
 
@@ -93,7 +101,7 @@ Lihat `backend/scripts/chaos/README.md` untuk perintah runnable.
 | App | `pm2 logs dnpeople-api`, `/metrics` |
 | DB | Supabase dashboard — connections, latency |
 | Business | `/admin/payments`, subscription invoices |
-| Payment | Midtrans/Xendit sandbox dashboard |
+| Payment | DOKU production dashboard + provider sandbox dashboard untuk alternatif |
 
 ### Step 4 — Analyze
 

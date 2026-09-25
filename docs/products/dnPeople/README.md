@@ -4,13 +4,13 @@
 
 | | |
 |---|---|
-| Owner | Dozer (CEO + Chief Engineer) |
+| Owner | Dozer (CEO + Tech Lead) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
 | Production | App [hris.dntech.id](https://hris.dntech.id) · API [api.hris.dntech.id](https://api.hris.dntech.id) |
 | Release | **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)** — latest verified tag; billing, admin, security, and operations increments |
-| Status | Active — v15 Admin + v14 Tutorial + v13 Talent + **Xendit PG** + billing UI + grouped nav; next **PRD v16.0** Module 4 |
-| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Feature research decision brief](./docs/research/feature-research-2026-09-19/2026-09-19_decision.md)** · **[Product research & differentiation](./docs/PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
+| Status | Active — v15 Admin + v14 Tutorial + v13 Talent + **DOKU payment** + billing UI + grouped nav; next **PRD v16.0** Module 4 |
+| Docs living | [docs/](./docs/) — **[Panduan BD](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md)** · **[Bisnis & layanan](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md)** · **[Overview](./docs/DNPEOPLE-HRIS-OVERVIEW.md)** · [A11Y](./docs/A11Y-TESTING.md) · [Chaos](./docs/CHAOS-ENGINEERING.md) · [CHANGELOG](./docs/CHANGELOG.md) · [NEXT-PRD-BRIEF](./docs/NEXT-PRD-BRIEF.md) |
 | UpdatedAt | September 19, 2026 |
 
 > **Bukan** produk yang sama dengan repo `ERP/` (DN People ERP NestJS). dnPeople = HRIS SaaS (Express + Next.js) sesuai PRD/SRS/SDD di company-wiki.
@@ -29,11 +29,11 @@
 | User bingung mulai dari mana | Help menu + tutorial interaktif + knowledge base (tanpa video) |
 | Tim DN Tech kelola seluruh tenant | Admin Console `/admin` (customers, billing, flags, support, health) |
 | Fitur terlihat padahal belum dibayar | Tier gating jujur — nav hanya menampilkan fitur paket aktif |
-| Bayar subscription ribet | **Xendit** hosted checkout, riwayat metode bayar, **unduh invoice PDF** |
+| Bayar subscription ribet | **DOKU** checkout, riwayat metode bayar, **unduh invoice PDF** |
 | Menu aplikasi terlalu panjang | **Grouped sidebar** (8 section) + flat mode untuk karyawan |
 
 **Untuk siapa:** HR, manager, finance, karyawan, dan admin perusahaan (6 role RBAC).  
-**Untuk skala mana:** FREE hingga **30** karyawan; STARTER hingga **50**; Professional hingga **300**; Business/Enterprise untuk multi-cabang & kontrol lanjutan.
+**Untuk skala mana:** FREE hingga **30** karyawan; STARTER hingga **50**; Professional hingga **300** dengan lokasi kerja dan aturan per lokasi; Business/Enterprise untuk kontrol lanjutan.
 
 ---
 
@@ -68,8 +68,8 @@ Detail status Available / Conditional / Roadmap: **[FEATURE-CATALOG.md](./docs/F
 - AI assistant & AI dokumen (Enterprise)
 
 ### Billing, legal & go-live (Agustus 2026)
-- **Xendit Invoice v2** — bayar dari `/billing`, webhook + return sync, bayar saat trial
-- Invoice PDF export, metode bayar (JeniusPay, QRIS, ShopeePay, dll.) di riwayat
+- **DOKU Checkout** — bayar dari `/billing`, webhook + return sync, bayar saat trial
+- Invoice PDF export, metode bayar (QRIS, ShopeePay, dll.) di riwayat
 - ToS + Privacy Policy acceptance (signup + compliance banner)
 - Landing `/welcome`, `/docs` hub, pricing, FAQ, demo, lead/beta API
 - Demo sandbox publik (`@demo.dnpeople.id`) — tier FREE, nav jujur; kredensial tampil di `/login`
@@ -94,10 +94,10 @@ Harga UI: `frontend/src/lib/subscriptionCatalog.ts` · gate server: `backend/src
 
 | Area | Angka |
 |------|-------|
-| Halaman frontend (app + marketing + admin) | **99** |
+| Halaman frontend (app + marketing + admin) | **104** |
 | Modul route API | **61** (+ SCIM) |
-| Model Prisma | **131** |
-| Automated test suite | **165/165** passed |
+| Model Prisma | **135** |
+| Automated test suite | **207/207** passed |
 | A11y tests (Playwright + axe) | **10** public + **4** authenticated page checks, plus keyboard/interactive checks |
 | Baseline PRD | v3.1 → **v15.0** / v14.0 / v13.0 / v12.1 / v11.1 |
 
@@ -114,7 +114,7 @@ Documentation governance: [00_INDEX.md](./docs/00_INDEX.md) · [GLOSSARY.md](./d
 | Frontend | Next.js 16, React 19, TypeScript, Tailwind — mobile-first, light/dark theme |
 | Backend | Express 5, TypeScript, Prisma 6, PostgreSQL (Supabase) |
 | Auth | JWT httpOnly cookie, RBAC 6 roles, MFA TOTP, SSO/SAML |
-| Payment | Xendit Invoice v2 (primary) · Midtrans SNAP (legacy / admin switch) |
+| Payment | **DOKU Checkout (default/live)** · DOKU SNAP · Midtrans/Xendit (alternatif) |
 | Deploy | VPS + PM2 + Nginx — lihat [DEPLOYMENT.md](./docs/DEPLOYMENT.md) |
 | CI | GitHub Actions — schema migrate, typecheck, unit tests, load smoke, a11y |
 
@@ -157,7 +157,7 @@ npm run dev
 
 App: `http://localhost:3001` · Landing: `http://localhost:3001/welcome`
 
-Payment lokal: set `XENDIT_SECRET_KEY` di backend — [xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md).
+Payment lokal: set `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, dan `DOKU_IS_PRODUCTION=false` di backend — lihat [PG/README.md](./docs/PG/README.md).
 
 ---
 
@@ -181,8 +181,9 @@ Payment lokal: set `XENDIT_SECRET_KEY` di backend — [xendit/XENDIT-PAYMENT-SET
 | `FIELD_ENCRYPTION_KEYS` | Yes | Salary / sensitive field encryption |
 | `METRICS_TOKEN` | Yes | Bearer token for `/metrics` (503 if unset) |
 | `COOKIE_SECURE` | Yes | `true` behind HTTPS |
-| `XENDIT_SECRET_KEY` | For billing | Xendit API key |
-| `XENDIT_WEBHOOK_TOKEN` | For billing | Webhook verification |
+| `DOKU_CLIENT_ID` | For billing | DOKU client ID |
+| `DOKU_SECRET_KEY` | For billing | DOKU secret key |
+| `DOKU_IS_PRODUCTION` | For live billing | `true` untuk endpoint production |
 
 Lengkap: [backend/.env.example](./backend/.env.example) · [SECURITY.md](./docs/SECURITY.md)
 
@@ -219,7 +220,7 @@ cd backend && npm test
 # Database constraints + audit immutability (butuh DATABASE_URL)
 cd backend && npm run test:database
 
-# Frontend accessibility (Playwright + axe, 16 public pages)
+# Frontend accessibility (Playwright + axe, 10 public + 4 authenticated pages)
 cd frontend && npm run test:a11y
 
 # Post-deploy smoke
@@ -252,7 +253,7 @@ Lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
 
 | Dokumen | Isi |
 |---------|-----|
-| [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat release (**v1.1.0** latest) |
+| [CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat release (**v1.1.1** latest entry; `v1.1.2` git tag pending changelog entry) |
 | [NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | Brief PRD v16.0 (1 halaman) |
 | [PRD v16 prep](./docs/PRD/dnpeople-prd-v16.0-prep-id.md) | Persiapan Module 4 career marketplace |
 | [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) | Daftar fitur Available / Conditional / Roadmap |
@@ -262,7 +263,7 @@ Lengkap: [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md)
 | [ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [API.md](./docs/API.md) | Teknis |
 | [SUPABASE.md](./docs/SUPABASE.md) · [VPS.md](./docs/VPS.md) · [DEPLOYMENT.md](./docs/DEPLOYMENT.md) | Deploy |
 | [A11Y-TESTING.md](./docs/A11Y-TESTING.md) · [CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Quality & resilience |
-| [xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md) | Setup pembayaran Xendit |
+| [PG/README.md](./docs/PG/README.md) | Setup dan status gateway pembayaran DOKU |
 
 ---
 

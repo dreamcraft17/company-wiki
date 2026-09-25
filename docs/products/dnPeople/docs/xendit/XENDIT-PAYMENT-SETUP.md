@@ -1,13 +1,21 @@
-# Xendit Payment — Setup & Test Mode
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
 
-**Updated:** 10 Agustus 2026  
-**Status:** Implemented in repo (`commit 2776a08+`) — **sandbox verification Conditional** (butuh key test + 1× E2E bayar)
+# Xendit Payment — Legacy / Alternative Gateway
+
+**Updated:** 21 September 2026
+**Status:** Legacy/alternative gateway. **Bukan gateway aktif/default saat ini**; gateway aktif adalah DOKU. Dokumen ini dipertahankan untuk deployment yang masih memilih Xendit.
 
 ---
 
 ## Ringkasan
 
-dnPeople memakai **Xendit Invoice API v2** (hosted checkout) sebagai payment gateway **primary**. Midtrans SNAP (`docs/PG/`) diganti — kode legacy Midtrans di-comment, tidak di-mount.
+dnPeople masih memiliki integrasi **Xendit Invoice API v2** (hosted checkout), tetapi Xendit bukan provider aktif/default. Provider aktif saat ini adalah DOKU; lihat [PG/README.md](../PG/README.md).
 
 | Flow | UI | API |
 |------|-----|-----|

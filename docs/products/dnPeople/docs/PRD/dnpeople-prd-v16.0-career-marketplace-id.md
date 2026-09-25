@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Internal Career Marketplace
 ## Product Requirements Document (PRD) v16.0
 
@@ -59,7 +67,7 @@
 
 ## 3. User Personas & Workflows
 
-### 3.1 HR (Job Posting)
+### 3.1 HR job posting
 
 **Workflow:**
 1. Login → Career Marketplace → "Post Job"
@@ -160,7 +168,7 @@
 
 ---
 
-### 4.3 Pipeline Management (HR)
+### 4.3 Pipeline Management — HR workflow
 
 **Feature:** HR manage applicants + stage transitions
 
@@ -419,4 +427,3 @@ notes (optional)
 **Version:** 1.0 (Ready for SRS)  
 **Last Updated:** 10 Agustus 2026  
 **Next:** SRS v16.0 (detailed functional requirements + acceptance criteria)
-

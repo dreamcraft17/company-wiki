@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Tier Consolidation Summary
 ## v11.1 → v12.0: Key Changes & Standardization
 

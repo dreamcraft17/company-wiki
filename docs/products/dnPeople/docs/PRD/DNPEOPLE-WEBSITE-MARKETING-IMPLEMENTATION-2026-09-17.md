@@ -45,7 +45,7 @@ CTA harus membawa konteks pain, bukan hanya “Hubungi Sales”.
 
 Urutan section:
 
-1. **Hero:** headline, supporting promise, primary/secondary CTA, badge `Untuk perusahaan Indonesia 50–300 karyawan`.
+1. **Hero:** headline, supporting promise, primary/secondary CTA, badge `Untuk perusahaan multi-cabang`; detail ICP `50–300 karyawan` dan stakeholder HR/GA, finance/payroll, serta operasional tetap ada di supporting copy dan metadata.
 2. **Problem:** tiga situasi nyata—aturan cabang berbeda, payroll dibuka kembali, bukti approval tercecer.
 3. **Three outcome pillars:** Branch Operations Control, Payroll Confidence, People Evidence.
 4. **How it works:** Configure → Run → Review → Prove.

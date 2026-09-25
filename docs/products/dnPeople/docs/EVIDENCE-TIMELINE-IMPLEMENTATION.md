@@ -6,7 +6,7 @@ last_reviewed: 2026-09-17
 review_cadence: quarterly
 ---
 
-# dnPeople — Evidence Timeline Implementation (P0 Exception & Evidence Layer, Phase 1)
+# dnPeople — Evidence Timeline Implementation (P0 Exception & Evidence Layer)
 
 > **Author:** Dozer
 > **Date:** 2026-09-17
@@ -78,20 +78,86 @@ A related detail: `LeaveRequest.approvedById` and `AttendanceCorrection.approved
 
 Backend suite: **186 → 191 passing** (`npm test` in `backend/`).
 
-## Not done this phase
+## Not done in Phase 1 — closed in Phase 2
 
-Flagged as follow-up, not silently skipped:
+All 3 gaps flagged above are now built (same date, `20260917110000_reason_and_policy_versioning` + `20260917100000_normalize_entity_type_casing` migrations):
 
-- **Policy versioning + acknowledgement.** `CompanyPolicy` (schema.prisma) has only a free-text `version` string — edits overwrite content in place with no history, and there is no acknowledgement-per-employee model anywhere in the schema. This needs new Prisma models and a migration; it's the other half of the same P0 item and the natural next slice of this feature.
-- **Cross-cutting "reason required" enforcement.** Today it's ad hoc per-route Zod `.min()` validation (`corrections.ts`, `acceptances.ts`, `employees.ts`, `admin.ts`, `talentMatrix.ts`, `payments.ts`) — no shared mechanism guarantees a sensitive mutation always requires a reason.
-- **`entityType` naming normalization.** ~15 call sites write inconsistent casing/naming to `AuditLog` (e.g. lowercase `employee` vs. capitalized `Payroll`, `attendance_correction` vs. `Payslip`). Cosmetic tech debt today because the aggregation service already knows each exact string, but it will bite the next person adding a new audited entity.
+### 1. `entityType` naming normalization
+
+Exactly 4 outliers existed (confirmed via full-repo grep, not the ~15 originally estimated): `'Payroll'`, `'Payslip'`, `'AttendanceImport'`, `'PayslipFile'` (PascalCase, everything else was already `snake_case`). Renamed at every write site (`payroll.ts`, `signedPayslip.ts`, `attendance.ts`, `files.ts`, `evidenceTimeline.service.ts`) and every read-side filter (`attendance.ts` import-history queries). A migration backfills historical rows so past audit entries stay queryable:
+
+```sql
+UPDATE audit_logs SET entity_type = 'payroll' WHERE entity_type = 'Payroll';
+UPDATE audit_logs SET entity_type = 'payslip' WHERE entity_type = 'Payslip';
+UPDATE audit_logs SET entity_type = 'attendance_import' WHERE entity_type = 'AttendanceImport';
+UPDATE audit_logs SET entity_type = 'payslip_file' WHERE entity_type = 'PayslipFile';
+```
+
+This was a live bug, not cosmetic: `/audit`'s entityType filter dropdown had a hardcoded `<option value="payroll">` that matched **zero** rows before the rename (actual stored value was `'Payroll'`). The dropdown (`frontend/src/app/(app)/audit/page.tsx`) now lists the full, real set of ~22 entity types instead of 3 hardcoded guesses.
+
+### 2. Reason-required enforcement
+
+`AuditLog` gained a `reason String?` column. `evidenceTimeline.service.ts` no longer hardcodes `reason: null` for `AuditLog`-sourced entries — it reads `log.reason`.
+
+`backend/src/services/audit.service.ts` gained a `SENSITIVE_ACTIONS` registry (`entityType` → action names that must carry a reason) and `writeAuditLogRequired` now throws `AppError(400, 'REASON_REQUIRED', ...)` **before touching the database** when a registered action's reason is missing or blank:
+
+```ts
+const SENSITIVE_ACTIONS: Record<string, string[]> = {
+  employee: ['STATUS_TRANSITION'],
+  employee_access: ['UPDATE_ROLE'],
+  attendance_correction: ['REJECT'],
+};
+```
+
+Deliberately narrower than first planned — investigated each candidate before gating rather than guessing:
+- `employee` `DELETE` was left **out**: it has no reason field anywhere in its request today and uses `writeAuditLogSafe` (best-effort, never throws by design) — gating it would need a frontend change first, not just a flag flip.
+- `attendance_correction` `APPROVE` was left **out**: only `REJECT` genuinely needs justification; approving is self-explanatory, and neither previously collected a reason, so adding one only where the review requires it avoids inventing an unnecessary field.
+- `staffAccounts.ts` was left out entirely: its actions (`CREATE`/`UPDATE`/`RESET_PASSWORD`) aren't specific enough to gate without product input on which changes actually need a reason.
+
+`writeAuditLogSafe` was **not** modified to gate — its contract (never throws) is preserved.
+
+Call sites now thread a real reason into the audit call instead of dropping it on the floor: `employees.ts` (`PUT /:id/access` — new required `reason` field; `STATUS_TRANSITION` already required one via Zod but it was silently discarded before), `corrections.ts` (`POST /:id/reject` — reason already required by Zod, now passed through). Frontend: `EmployeeLifecyclePanel.tsx` has a required "Alasan perubahan akses" input; `corrections/page.tsx`'s reject action now prompts for a reason via `window.prompt` before submitting.
+
+### 3. Policy versioning + acknowledgement
+
+New models:
+
+```prisma
+model PolicyVersion {
+  id, policyId, version, title, content, publishedAt, publishedById, createdAt
+  // one row per published revision of a CompanyPolicy
+}
+model PolicyAcknowledgement {
+  id, policyVersionId, employeeId, acknowledgedAt
+  @@unique([policyVersionId, employeeId])  // idempotent — re-acknowledging is a no-op, not an error
+}
+```
+
+`backend/src/routes/policies.ts`:
+- `POST /` creates the first `PolicyVersion` snapshot alongside the `CompanyPolicy`.
+- `PATCH /:id` bumps `CompanyPolicy.version` (parse trailing numeric segment, increment — `bumpVersion()`) and inserts a new `PolicyVersion` row **only when `content` actually changes**; a title/category-only edit doesn't create a new version.
+- `GET /:id/versions` — version history (`policies:*`).
+- `POST /:id/acknowledge` — self-service, any authenticated employee, no special permission. Acknowledges the **latest** version via `upsert` on the unique constraint (idempotent).
+- `GET /:id/acknowledgements` — who has/hasn't acknowledged the latest version, with a completion count (`policies:*`).
+
+Existing `CompanyPolicy` rows got a backfilled `PolicyVersion` (their current `version`/`content`) as part of the migration, so version history isn't empty for policies that predate this feature.
+
+`evidenceTimeline.service.ts` gained a 5th category, `'policy'`, sourced from `PolicyAcknowledgement` joined through `PolicyVersion` for the title/version.
+
+`frontend/src/app/(app)/policies/page.tsx` — expanding a policy now shows an "Saya sudah membaca & memahami kebijakan ini" acknowledge button (any employee), plus a version-history list and per-version acknowledgement roster for admins.
+
+### Tests
+
+Suite grew **191 → 197**: `audit.service.test.ts` (+2: reason-required fail-fast, success paths), `evidenceTimeline.test.ts` (+1: policy category entry), `policyVersion.test.ts` (new: `bumpVersion` numeric/non-numeric cases, acknowledgement upsert idempotency).
 
 ## How to verify
 
 ```bash
-cd backend && npm test            # expect 191 passing
+cd backend && npm test            # expect 197 passing
 npx tsc --noEmit                  # backend
 cd ../frontend && npx tsc --noEmit
 ```
 
-Manual: open `/audit`, click any row — a before/after diff should expand below it. Open any employee's lifecycle panel from `/employees`, scroll to **"Riwayat & Bukti"** — an employee with at least one attendance correction and one profile edit should show both, merged chronologically with the correction showing one entry (not a duplicate for its approval).
+Manual: open `/audit`, confirm the entityType filter now returns rows for Payroll/Payslip/AttendanceImport. Edit a policy's content and confirm a new version appears in its history while the old content is still retrievable via `GET /:id/versions`. Acknowledge a policy twice as the same employee and confirm no error and no duplicate row. Try `PUT /employees/:id/access` without a `reason` and confirm a `400 REASON_REQUIRED`.
+
+**Deploy note:** this phase ships 2 new migrations (`20260917100000_normalize_entity_type_casing`, `20260917110000_reason_and_policy_versioning`) — run `npm run db:migrate` on the VPS deploy step.

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Panduan Business Development
 
 > **Status:** Active · **Last updated:** 2026-09-13 · **Author:** Dozer  
@@ -51,7 +59,7 @@ Email beta (template Jul 2026) menyebut SME **50–300** karyawan — itu rentan
 **Jangan katakan:**
 
 - “Sudah go-live penuh di dnpeople.id” — DNS Conditional
-- “Payment production sudah E2E” — Xendit **Done in repo**, live E2E Conditional
+- “Payment production sudah E2E” — **DOKU live**; jangan menyamakan status ini dengan gateway alternatif
 - “Ada app store Android/iOS”
 - “Kami setor pajak/BPJS ke pemerintah”
 - Fitur **Conditional** (SSO IdP, SMTP, biometric, LLM) tanpa menyebut syarat
@@ -66,10 +74,10 @@ Harga default (bisa diubah `/admin/tier-pricing`); SSOT UI `subscriptionCatalog.
 | Paket | Headcount | Harga default | Narasi BD |
 |-------|-----------|---------------|-----------|
 | FREE | 30 hard | Rp 0 | Masuk tanpa kartu; core HR + helpdesk; upsell jujur |
-| STARTER | 50 hard | Rp 20.000/karyawan | Absensi, cuti, shift, payroll dasar |
-| PROFESSIONAL | 300 hard | Rp 25.000/karyawan | ATS, talent 9-box, OT/klaim/pinjaman, LMS |
+| STARTER | 50 hard | Rp 10.000/karyawan; min Rp150.000 | Absensi/payroll basic, cuti, shift |
+| PROFESSIONAL | 300 hard | Rp 15.000/karyawan; min Rp20.000 | Review/evidence payroll, lokasi kerja & aturan per lokasi, ATS, talent, OT/klaim/pinjaman, LMS |
 | BUSINESS | ~1000 soft | Rp 20.000/karyawan, min Rp 6.000.000 | API, workflow, aset, audit |
-| ENTERPRISE | Custom | Deal | SSO/SCIM, branding, AI assistant |
+| ENTERPRISE | Custom | Deal | SSO/SCIM, branding, multi-company, dedicated support |
 
 Trial: FREE 4 bulan (overview); **STARTER 4 bulan** (promo, dnPeople bisa matikan kapan saja); **PROFESSIONAL 2 bulan**; BUSINESS 2 bulan; boleh bayar sebelum trial habis. Professional+ butuh headcount & modul yang jelas di discovery — jangan demo 9-box di akun FREE (nav disembunyikan).
 
@@ -145,7 +153,7 @@ Escalation outage: Dozer, &lt; 1 jam ([SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLI
 | “Harus transfer gaji otomatis” | Export/rekon; eksekusi transfer belum |
 | “Pesaing punya video training” | Tutorial in-app + KB; video out of v14 |
 | “SSO wajib minggu 1” | SAML/OAuth ada di kode; butuh UAT IdP (Conditional) |
-| “Bayar sekarang production” | Checkout Xendit di repo; pastikan ops confirm live keys sebelum janji invoice live |
+| “Bayar sekarang production” | Checkout **DOKU production**; jelaskan channel pembayaran mengikuti konfigurasi merchant |
 | “FREE untuk 100 orang” | Hard block **30**; upgrade STARTER/PROF |
 
 ---

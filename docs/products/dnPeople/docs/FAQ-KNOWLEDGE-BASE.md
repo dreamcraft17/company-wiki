@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — FAQ & Knowledge Base
 
 **UpdatedAt:** 25 Juli 2026  
@@ -43,7 +51,7 @@ A: Unduhan membutuhkan login. Link “Bagikan Link” hanya berlaku 24 jam.
 ## Billing
 
 **Q: Bagaimana bayar invoice?**  
-A: `/billing` → filter **Perlu bayar** (jika perlu) → tombol **Bayar** → redirect ke halaman pembayaran **Xendit** (hosted checkout). Butuh `XENDIT_SECRET_KEY` di env backend. Panduan: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+A: `/billing` → filter **Perlu bayar** (jika perlu) → tombol **Bayar** → checkout **DOKU**. Metode pembayaran mengikuti channel DOKU yang aktif. Panduan admin: [PG/README.md](./PG/README.md).
 
 **Q: Bagaimana unduh invoice PDF?**  
 A: `/billing` → kolom aksi → **PDF** (Unduh). File berisi logo dnPeople, detail periode, dan total.
@@ -52,7 +60,7 @@ A: `/billing` → kolom aksi → **PDF** (Unduh). File berisi logo dnPeople, det
 A: Itu pratinjau trial (DRAFT). Secara default disembunyikan — klik **Tampilkan pratinjau trial** jika perlu melihat semua.
 
 **Q: Berapa harga dnPeople?**  
-A: Starter ~Rp20.000/karyawan/bulan; Professional ~Rp25.000; Business/Enterprise sesuai paket — lihat `/billing` atau sales@dnpeople.id.
+A: Starter Rp10.000/karyawan/bulan (minimum Rp150.000); Professional Rp15.000 (minimum Rp20.000); Business Rp20.000 (minimum Rp6.000.000) — lihat `/billing` atau sales@dnpeople.id.
 
 **Q: Bisa ganti paket?**  
 A: Ya, upgrade/cancel/reactivate di `/billing`.

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Midtrans Payment Integration (Sandbox)
 ## Software Requirements Specification (SRS) v1.0
 
@@ -515,7 +523,7 @@ if (hash !== receivedSignature) throw new Error('Invalid signature');
 - Show QR code → scan with ShopeePay app
 - Simulator: `simulator.sandbox.midtrans.com/v2/qris/index`
 
-### 3.4 QRIS (Unified QR)
+### 3.4 QRIS (Indonesian QR standard)
 
 - Midtrans generate QR image (static per transaction)
 - Customer scan with any QRIS-compatible app (GoPay, OVO, LinkAja, etc)

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Midtrans Payment Integration (Sandbox)
 ## Product Requirements Document (PRD) v1.0
 
@@ -108,7 +116,7 @@ Flow:
 - **ShopeePay:** QR code image → use QRIS Simulator
 - Sandbox simulator: Web-based, no real app required
 
-#### QRIS (Unified QR Standard)
+#### QRIS (Indonesian QR standard)
 - Auto-generate QR image
 - Input ke QRIS Simulator: `simulator.sandbox.midtrans.com/v2/qris/index`
 - Sandbox test: Use any random QR-compatible app
@@ -418,7 +426,7 @@ midtrans_refund_id (string) → Midtrans refund transaction ID
 | **Settlement** | Payment cleared & safe (usually 1-2 days after customer pays) |
 | **Virtual Account (VA)** | Bank-specific account number untuk customer transfer (expires after order expires) |
 | **E-Wallet** | Digital payment (GoPay, OVO, ShopeePay, LinkAja, etc) |
-| **QRIS** | Unified QR code standard in Indonesia (works with GoPay, OVO, etc) |
+| **QRIS** | Indonesian national QR payment standard (works with GoPay, OVO, etc) |
 | **3DS** | 3-Domain Secure (OTP/security challenge for card payment) |
 | **FDS** | Midtrans Fraud Detection System (auto-detect suspicious transactions) |
 | **Webhook** | HTTP callback dari Midtrans ke our server after payment event |

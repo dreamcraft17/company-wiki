@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # Midtrans Production Setup — dnPeople
 
 **Updated:** 17 Agustus 2026  

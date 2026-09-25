@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: conditional
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: per-release
+---
+
 # dnPeople — Release Ready (Agustus 2026)
 
 | | |
@@ -10,7 +18,7 @@
 
 1. Production secrets **fail-closed** (`JWT_SECRET`, payslip, attendance QR, document HMAC).
 2. Kredensial **demo sandbox publik** ditampilkan di login/marketing (opt-out: `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`).
-3. Trial expiry **tidak** mengklaim charge tanpa Stripe/Xendit (invoice `DRAFT`).
+3. Trial expiry **tidak** mengklaim charge tanpa gateway aktif DOKU (invoice `DRAFT`).
 4. Smoke test diperluas (health + public leads + optional marketing URLs).
 5. `robots.ts` + `sitemap.ts` untuk SEO soft launch.
 6. Datadog scrape metrics diselaraskan dengan Prometheus exporter.
@@ -27,11 +35,11 @@
 | Ops | Restore drill bertanda tangan + isi runbook |
 | Security | Pen-test window + remediasi |
 | Growth | Beta 10–20 + GA4 / demo video URL |
-| Finance | RPO/RTO + billing provider keys jika auto-charge |
+| Finance | RPO/RTO + verifikasi rekonsiliasi DOKU jika auto-charge |
 
 ## Jangan klaim
 
-- “Pembayaran kartu live” sebelum Stripe/Xendit webhook verified  
+- “Pembayaran live” sebelum webhook dan rekonsiliasi **DOKU** verified
 - “99.9% SLA” sebelum monitoring + on-call live  
 - “Pen-test passed” sebelum report eksternal  
 

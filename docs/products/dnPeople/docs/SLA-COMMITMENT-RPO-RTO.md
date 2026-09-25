@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: quarterly
+---
+
 # SLA Commitment — RPO / RTO (PRD v11.0)
 
 **Product:** dnPeople  

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: quarterly
+---
+
 # dnPeople — Deployment Guide
 
 **Last Updated:** August 10, 2026  
@@ -78,14 +86,14 @@ APP_RELEASE="dnpeople@release-sha"
 HTTP_BACKLOG=2048
 CONTRACT_REMINDERS_ENABLED=true
 
-# Xendit billing (test mode = xnd_development_… key)
-XENDIT_SECRET_KEY=xnd_development_xxx
-XENDIT_WEBHOOK_TOKEN=your-callback-verification-token
-# Webhook URL: POST https://<domain>/api/v1/webhooks/xendit
-# BILLING_BANK_INSTRUCTIONS="Transfer manual jika Xendit down"
+# DOKU billing (production gunakan DOKU_IS_PRODUCTION=true)
+DOKU_CLIENT_ID=...
+DOKU_SECRET_KEY=...
+DOKU_IS_PRODUCTION=true
+DOKU_NOTIFICATION_URL=https://api.<domain>/api/v1/webhooks/doku
 ```
 
-Detail Xendit test mode & checklist: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+Detail DOKU dan DOKU SNAP: [PG/README.md](./PG/README.md).
 
 **Legacy Midtrans** env vars tidak dipakai (kode retained, webhook disabled). Lihat [PG/README.md](./PG/README.md).
 
@@ -133,7 +141,7 @@ Lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) untuk semua role (tier Professional
 - [ ] Workflow backup harian berhasil dan restore drill dilakukan berkala
 - [ ] API keys production: rotate & revoke unused (`/integrations/api-keys`)
 - [ ] SSO secrets tidak di-commit
-- [ ] **Xendit:** `XENDIT_SECRET_KEY` + `XENDIT_WEBHOOK_TOKEN`; migration `20260808100000_xendit_payment_fields`; webhook URL registered; 1× sandbox payment E2E ([XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md))
+- [x] **DOKU:** production credentials, `DOKU_IS_PRODUCTION=true`, webhook `/api/v1/webhooks/doku`, dan live checkout sudah aktif; cek rekonsiliasi webhook pada setiap release
 
 ### Contoh PM2 (ringkas)
 
@@ -235,7 +243,7 @@ Frontend routes: `/welcome`, `/pricing`, `/faq`, `/contact`, `/about`, `/demo`, 
 ```bash
 # Env opsional
 NEXT_PUBLIC_GA_ID=G-XXXXXXXX   # Google Analytics 4
-LEADS_NOTIFY_EMAIL=sales@dnpeople.id
+LEADS_NOTIFY_EMAIL=sales@dntech.id
 SMTP_HOST=...                  # untuk notifikasi lead
 
 # Migrasi MarketingLead

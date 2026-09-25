@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Midtrans Payment Integration (Comprehensive)
 ## Product Requirements Document (PRD) v2.0
 
@@ -132,7 +140,7 @@ ENTERPRISE:    Custom        → 500+ emp (SSO, white-label, dedicated AM)
 - **Tokenization:** Supported
 - **Tier Gating:** STARTER+
 
-#### QRIS (Unified QR)
+#### QRIS (Indonesian QR standard)
 - **Flow:** Single QR code, scannable by any QRIS-compatible app (GoPay, OVO, LinkAja, Dana, etc.)
 - **Sandbox Test:** QRIS Simulator
 - **Settlement:** Real-time
@@ -277,7 +285,7 @@ Response: {snap_token, redirect_url, transaction_id}
 
 ---
 
-### 5.2 Core API (Custom Checkout)
+### 5.2 Custom checkout API
 
 **Best For:** Full control of UI/UX, custom checkout flow, advanced features like installment
 
@@ -343,7 +351,7 @@ Send to customer → Customer clicks → SNAP modal → Pay → Settled
 
 ## 6. Advanced Features
 
-### 6.1 Recurring API (Native Subscription)
+### 6.1 Recurring subscription billing
 
 **Use Case:** Auto-charge subscription every 1st of month
 

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: quarterly
+---
+
 # dnPeople — Accessibility Testing (WCAG 2.2 AA)
 
 **Target:** WCAG 2.2 Level AA (practical default for Indonesia + EU EAA alignment)  

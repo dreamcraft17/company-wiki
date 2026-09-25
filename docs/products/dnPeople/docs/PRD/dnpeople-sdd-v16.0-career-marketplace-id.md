@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Internal Career Marketplace
 ## System Design Document (SDD) v16.0
 
@@ -1039,4 +1047,3 @@ test('HR move applicant to Screening', async ({ page }) => {
 
 **Version:** 1.0 (Ready for Engineering)  
 **Last Updated:** 10 Agustus 2026
-

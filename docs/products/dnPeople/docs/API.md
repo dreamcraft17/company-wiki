@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — API Reference
 
 **Base URL (dev):** `http://localhost:4100/api/v1`  
@@ -477,18 +485,18 @@ Base path: `/api/v1/subscription` · UI: `/billing`
 
 ---
 
-## Xendit Payments (primary — Agustus 2026)
+## DOKU Payments (active/default — September 2026)
 
 Base path: `/api/v1/payments` (authenticated) · Webhook: public · UI: `/billing`, `/payment/invoice/:id`
 
 | Method | Path | Auth | Deskripsi |
 |--------|------|------|-----------|
-| POST | `/payments/initiate-payment` | ✓ | Buat Xendit hosted checkout; body `{ invoice_id?, subscription_id?, gross_amount?, customer_details?, description? }` → `checkout_url`, `payment_id`, `order_id` |
-| POST | `/payments/sync` | ✓ | Poll Xendit setelah customer return; body `{ order_id }` → `{ status, synced }` |
+| POST | `/payments/initiate-payment` | ✓ | Buat DOKU checkout; body `{ invoice_id?, subscription_id?, gross_amount?, customer_details?, description? }` → `checkout_url`, `payment_id`, `order_id` |
+| POST | `/payments/sync` | ✓ | Sinkronkan status DOKU setelah customer return; body `{ order_id }` → `{ status, synced }` |
 | GET | `/payments` | FINANCE/SUPER_ADMIN | List payments (filter status, date, method) |
 | GET | `/payments/:payment_id` | ✓ | Payment detail |
 | POST | `/payments/:payment_id/refund` | FINANCE/SUPER_ADMIN | Refund manual |
-| POST | `/webhooks/xendit` | — | Xendit callback; header `x-callback-token` = `XENDIT_WEBHOOK_TOKEN` |
+| POST | `/webhooks/doku` | — | DOKU callback; signature HMAC-SHA256 pada header DOKU |
 
 ### Public invoice pay (no login)
 
@@ -500,7 +508,7 @@ Base: `/api/v1/public`
 | POST | `/public/invoices/:invoiceId/pay` | Body `{ token }` → `checkout_url` |
 | POST | `/public/invoices/:invoiceId/sync` | Body `{ token, order_id }` → sync status |
 
-Setup test mode: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+Setup/status gateway: [PG/README.md](./PG/README.md).
 
 ---
 

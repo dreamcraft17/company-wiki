@@ -37,8 +37,8 @@ Tiga gateway aktif; admin memilih satu via `/admin/payment-gateway` (feature fla
 | POST | `/api/v1/webhooks/midtrans` | `signature_key` (SHA-512) | Transaction status notification |
 | POST | `/api/v1/webhooks/doku` | `Signature` header (HMACSHA256) | Checkout notification (non-SNAP) |
 
-Env: `XENDIT_SECRET_KEY`, `XENDIT_WEBHOOK_TOKEN` (Xendit); `MIDTRANS_SERVER_KEY[_SANDBOX]`, `MIDTRANS_CLIENT_KEY[_SANDBOX]` (Midtrans); `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY` (DOKU); `FRONTEND_URL`.  
-Panduan lengkap: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
+Env utama: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_IS_PRODUCTION`, `DOKU_NOTIFICATION_URL`; `FRONTEND_URL`. Xendit dan Midtrans tetap tersedia sebagai alternatif/admin switch.
+Panduan lengkap: [PG/README.md](./PG/README.md).
 
 ## OpenAPI
 - UI: `/api/v1/docs`  

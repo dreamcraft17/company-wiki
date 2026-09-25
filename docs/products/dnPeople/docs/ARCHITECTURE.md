@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: active
+canonical: true
+last_reviewed: 2026-09-15
+review_cadence: quarterly
+---
+
 # dnPeople — Architecture
 
 **Version:** 11.0 (go-live execution)  

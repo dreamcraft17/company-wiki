@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Dokumen Persiapan PRD v16.0
 
 ## Internal Career Marketplace (PRD v4 Module 4) + Dual Track Ops Go-Live
@@ -25,7 +33,7 @@ Dua jalur paralel — pilih prioritas sprint, bukan mutually exclusive:
 
 | Track | PRD / tema | Outcome | Prioritas rekomendasi |
 |-------|------------|---------|------------------------|
-| **A — Ops go-live** | v11.0 gates + Xendit live | Uang masuk production, beta 10–20 tenant, monitoring | **P0 bisnis** jika target revenue Q3 2026 |
+| **A — Ops go-live** | v11.0 gates + DOKU live reconciliation | Uang masuk production, beta 10–20 tenant, monitoring | **P0 bisnis** jika target revenue Q3 2026 |
 | **B — Produk greenfield** | **v16.0 Module 4** | Internal career marketplace & mobility | **P0 produk** jika beta sudah jalan tanpa blocker payment |
 
 ### Rekomendasi sequencing
@@ -51,7 +59,7 @@ Minggu 2–4 (product) → Draft PRD v16.0 → review → SRS/SDD → implement
 | Tests | Backend **81/81** pass · Prisma validate ✅ · frontend build ✅ |
 | Tier | FREE hard **30** · STARTER hard **50** · PRO **300** · Business soft@1000 · Enterprise custom |
 | Trial | Countdown badge; fitur penuh; **bayar kapan saja** (early pay clears `trialEndsAt`) |
-| Payment | **Xendit Invoice v2** hosted checkout (test mode on VPS) |
+| Payment | **DOKU Checkout** hosted checkout (production live) |
 | Legal | ToS + Privacy MVP — signup consent, `/legal/*`, `ComplianceBanner` |
 | Talent | Competency · IDP · **9-box matrix** · succession · LMS @ PROFESSIONAL+ |
 | Help | 5 tutorials + KB via Help menu (`tutorials` @ FREE+) |
@@ -76,10 +84,10 @@ Lihat [CURRENT-IMPLEMENTATION.md](../CURRENT-IMPLEMENTATION.md) dan [FEATURE-CAT
 
 | Deliverable | Surface | Commit / catatan |
 |-------------|---------|------------------|
-| Xendit PG v1.0 | `/billing`, webhooks, public invoice pay | `7911ec9` fail-closed webhook |
+| DOKU payment | `/billing`, webhooks, public invoice pay | DOKU fail-closed webhook |
 | Trial early-pay + light theme | Billing UX, `ThemeToggle` | Aug 2026 |
 | Legal ToS/PP MVP | Signup, `/settings/legal` | Aug 2026 |
-| Invoice payment method | Kolom metode bayar Xendit di riwayat invoice | `83468f8` |
+| Invoice payment method | Kolom metode/channel DOKU di riwayat invoice | Current billing implementation |
 | Export invoice PDF | `GET /subscription/invoices/:id.pdf`, tombol **Unduh PDF** | `d770f0a`, footer fix `7397f1b` |
 | Auth hardening | Company picker search; no directory leak; SSO fail-closed | `943be30`–`f2ffda3` |
 | Grouped sidebar nav | `navigationMenu.ts` groups + `AppShell` section headers | `bd67414` |
@@ -106,7 +114,7 @@ Lihat [CURRENT-IMPLEMENTATION.md](../CURRENT-IMPLEMENTATION.md) dan [FEATURE-CAT
 | Area | Status | Blocker / action |
 |------|--------|------------------|
 | Core HRIS code | ✅ ~95% | Browser UAT signed masih perlu |
-| Subscription & billing UI | ✅ | Xendit **live** money belum verified |
+| Subscription & billing UI | ✅ | DOKU live money sudah aktif |
 | Xendit webhook E2E prod | ⬜ | 1× bayar test → invoice PAID → tier aktif |
 | Xendit production keys + KYC | ⬜ | Ganti test keys di VPS |
 | **Secret in git** | 🔴 | `docs/xendit/secret_api_key.csv` — **rotate key**, hapus dari repo |
@@ -418,7 +426,7 @@ PRD v16.0 → SRS v16.0 (acceptance) → SDD v16.0 (implementation) → sprint
 
 ## 18. Satu kalimat penutup
 
-> dnPeople **siap untuk PRD v16.0** (internal career marketplace) dengan baseline talent matrix, billing Xendit, admin console, dan nav grouped — **asalkan** ops go-live (webhook live, SMTP, secret rotation) dijalankan paralel agar pilot beta bisa monetize.
+> dnPeople **siap untuk PRD v16.0** (internal career marketplace) dengan baseline talent matrix, **billing DOKU live**, admin console, dan nav grouped — **asalkan** ops go-live (webhook monitoring, SMTP, secret rotation) dijalankan paralel agar pilot beta bisa monetize.
 
 ---
 

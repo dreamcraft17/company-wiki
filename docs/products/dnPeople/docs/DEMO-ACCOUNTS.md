@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Akun Demo (Seed)
 
 **Tier:** `FREE` (nav menampilkan hanya fitur FREE — honest demo)  

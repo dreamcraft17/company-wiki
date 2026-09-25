@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — SRS v8.0
 ## Security & Stability Requirements (Berdasarkan Audit)
 

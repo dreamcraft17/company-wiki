@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Xendit Payment Integration
 ## System Design Document (SDD) v1.0
 
@@ -664,4 +672,3 @@ describe('PaymentService', () => {
 
 **Version:** 1.0 (Complete)  
 **Last Updated:** 8 Agustus 2026
-

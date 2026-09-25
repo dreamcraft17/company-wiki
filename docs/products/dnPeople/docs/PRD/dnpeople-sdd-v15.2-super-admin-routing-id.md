@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople SUPER_ADMIN Landing & Admin Console Routing
 ## System Design Document (SDD) v15.2
 
@@ -700,4 +708,3 @@ test('Logout from /admin redirects to /login', async ({ page }) => {
 
 **Version:** 1.0 (Ready for Engineering)  
 **Last Updated:** 10 Agustus 2026
-

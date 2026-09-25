@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople Xendit Payment Integration
 ## Product Requirements Document (PRD) v1.0
 
@@ -173,7 +181,7 @@ ENTERPRISE:    Custom       → 500+ emp (with Xendit)
 
 ---
 
-### 4.4 Session API (Embedded Checkout)
+### 4.4 Embedded checkout session API
 
 **Feature:** Create checkout session untuk embedded (iframe) checkout
 
@@ -193,7 +201,7 @@ ENTERPRISE:    Custom       → 500+ emp (with Xendit)
 
 ---
 
-### 4.5 Subscriptions API (Recurring Billing)
+### 4.5 Subscription billing
 
 **Feature:** Monthly auto-charge untuk subscription (native Xendit recurring)
 

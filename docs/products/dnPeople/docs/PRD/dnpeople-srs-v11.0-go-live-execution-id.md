@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — SRS v11.0
 ## Go-Live Execution Requirements & Acceptance Criteria
 

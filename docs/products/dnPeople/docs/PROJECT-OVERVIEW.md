@@ -1,7 +1,15 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Project Overview
 
 **Product:** dnPeople HRIS  
-**Version:** PRD **v15.0** Admin + **Xendit PG** + **Legal ToS/PP MVP** (Aug 2026) + v14 Tutorial + v13 Talent  
+**Version:** PRD **v15.0** Admin + **DOKU payment** + **Legal ToS/PP MVP** (Sep 2026) + v14 Tutorial + v13 Talent
 **Status:** MVP 1–5 + PRD v5–**v15.0** **Done in repo**; deployed `https://hris.dntech.id`; go-live gates Conditional  
 **Repository:** [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
 **Owner:** Dozer (CEO + Tech Lead)  
@@ -22,7 +30,7 @@ dnPeople adalah **HRIS multi-tenant** untuk startup, UMKM, dan perusahaan meneng
 4. **Rekrutmen & siklus kerja** — ATS, onboarding, performance, training, offboarding, helpdesk  
 5. **Onboarding in-app** — Help menu, 5 interactive tutorials, knowledge base (PRD v14.0; no video library)  
 6. **Admin Console (internal)** — SUPER_ADMIN `/admin`: customers, billing, analytics, support, content, flags, health (PRD v15.0)  
-7. **Billing & payment** — tier gating, trial, **Xendit** hosted checkout, pay-during-trial, invoice PDF, polished `/billing` UI (Aug 2026)  
+7. **Billing & payment** — tier gating, trial, **DOKU** production checkout, pay-during-trial, invoice PDF, polished `/billing` UI
 8. **Legal compliance (MVP)** — ToS + Privacy Policy acceptance at signup (Aug 2026)  
 9. **Kontrol enterprise** — SSO/SCIM/multi-company, API keys, branding  
 10. **Navigation UX** — grouped sidebar (8 sections), tier-honest menu filtering (Aug 2026)
@@ -43,7 +51,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | Milestone | Target | Status |
 |-----------|--------|--------|
 | Code complete MVP 1–5 + v5–v15 | Jul 2026 | **Done** |
-| Xendit payment + legal ToS/PP | Aug 2026 | **Done in repo** |
+| DOKU payment + legal ToS/PP | Sep 2026 | **Production live / done in repo** |
 | Soft launch / beta | Aug 2026 | **In progress** — `hris.dntech.id` live |
 | PRD v16.0 Module 4 (career marketplace) | TBD | **Not started** |
 | Full go-live (dnpeople.id, live payment, beta cohort) | TBD | **Conditional** |
@@ -55,7 +63,7 @@ Menjadi platform HRIS terpercaya yang mempermudah perusahaan Indonesia mengelola
 | v13.0 | Talent matrix & succession | Done |
 | v14.0 | Tutorial & KB | Done |
 | v15.0 | Admin Console | Done |
-| Aug 2026 | Xendit PG, Legal ToS/PP, trial pay UX | Done in repo |
+| Sep 2026 | DOKU payment, Legal ToS/PP, trial pay UX | Production live / done in repo |
 | **v16.0** | **Module 4 — Internal career marketplace** | **Next PRD** |
 | v17+ | EWA, salary bench, verticals (Modules 5–8) | Roadmap |
 

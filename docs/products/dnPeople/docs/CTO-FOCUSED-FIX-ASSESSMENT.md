@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — CTO Assessment & Focused-Fix Report
 
 > **Author:** Dozer  
@@ -195,7 +203,7 @@ FEATURE SCOPE:
    cd backend && npx prisma migrate deploy
    ```
 2. **Set** `XENDIT_WEBHOOK_TOKEN` — verifikasi startup warning hilang
-3. **1× E2E payment** Xendit di staging/prod (initiate → pay → webhook → invoice PAID)
+3. **1× E2E payment** DOKU di staging/prod (initiate → pay → webhook → invoice PAID); gateway alternatif diuji terpisah bila diaktifkan
 4. ~~**Fix C2**~~ — `provider` override di `initiatePayment` + billing.service
 
 ### P1 — sprint billing hardening ✅ (2026-08-23)

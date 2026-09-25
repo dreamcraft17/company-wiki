@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople PRD v6 — Enterprise Multi-Tenant Implementation
 
 **Implemented:** 17 July 2026  

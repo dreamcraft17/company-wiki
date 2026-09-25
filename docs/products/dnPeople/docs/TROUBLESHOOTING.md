@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # Troubleshooting Guide
 
 **UpdatedAt:** 10 Agustus 2026  
@@ -29,7 +37,7 @@ Pakai job async di `/reports` (bukan download sinkron besar).
 1. Cek `XENDIT_SECRET_KEY` di backend — test mode pakai `xnd_development_…`
 2. Cek email billing perusahaan valid (`400 BILLING_EMAIL_REQUIRED`)
 3. Status invoice di `/billing` — refresh halaman setelah bayar (auto-sync)
-4. Panduan setup: [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md)
+4. Gateway aktif saat ini DOKU; lihat [PG/README.md](./PG/README.md). Xendit setup hanya untuk gateway alternatif.
 
 ### Webhook
 - URL production/staging: `POST https://<domain>/api/v1/webhooks/xendit`

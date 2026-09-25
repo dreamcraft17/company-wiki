@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople PRD/SRS/SDD Compliance Matrix
 
 > Living implementation gate. A row is `Done` only when data model, API/service, UI, authorization/audit, and automated verification exist.

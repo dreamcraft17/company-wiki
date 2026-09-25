@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople SUPER_ADMIN Landing & Admin Console Routing
 ## Software Requirements Specification (SRS) v15.2
 
@@ -414,4 +422,3 @@ GET /api/v1/admin/*
 
 **Version:** 1.0 (Ready for SDD)  
 **Last Updated:** 10 Agustus 2026
-

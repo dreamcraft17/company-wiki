@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — Panduan Admin
 
 **Versi:** 15.0 Admin Console + 14.0 tutorial & onboarding  
@@ -66,10 +74,10 @@ Checklist IdP: Okta · Azure AD · Google Workspace — uji satu user + JIT + de
 ## 5. Billing
 
 - `/billing` — stat cards paket/status/karyawan/estimasi; pilih tier; riwayat invoice dengan filter **Semua / Perlu bayar / Lunas**; pratinjau trial Rp 0 disembunyikan default.
-- Bayar invoice: tombol **Bayar** → redirect Xendit test/live. Metode bayar (JeniusPay, QRIS, ShopeePay, dll.) tampil setelah lunas.
+- Bayar invoice: tombol **Bayar** → checkout **DOKU production**. Metode bayar mengikuti channel yang aktif di DOKU.
 - **Unduh PDF** per invoice — `GET /api/v1/subscription/invoices/:id.pdf`.
-- Butuh `XENDIT_SECRET_KEY` + email billing valid. Lihat [xendit/XENDIT-PAYMENT-SETUP.md](./xendit/XENDIT-PAYMENT-SETUP.md).
-- Webhook: `POST /api/v1/webhooks/xendit` (bukan legacy Stripe path).
+- Butuh `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_IS_PRODUCTION=true`, dan email billing valid. Lihat [PG/README.md](./PG/README.md).
+- Webhook utama: `POST /api/v1/webhooks/doku`.
 
 ## 6. Keamanan production
 

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — PRD v13.0
 ## Talent Advancement: 9-Box Matrix & Succession Planning (Module 3)
 

@@ -1,3 +1,11 @@
+---
+owner: Dozer
+status: review-required
+canonical: false
+last_reviewed: 2026-09-15
+review_cadence: annual
+---
+
 # dnPeople — PRD v14.0
 ## In-App Tutorial & Onboarding: Interactive Guides & Knowledge Base
 
@@ -110,7 +118,7 @@ Journey:
 ```
 5 Core Tutorials (MVP):
 
-1. EMPLOYEE CREATION (HR)
+1. Employee creation — HR tutorial
    Steps:
      - Step 1: Navigate to Employees
      - Step 2: Click "Add Employee" button
