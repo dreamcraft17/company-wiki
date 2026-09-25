@@ -2,9 +2,9 @@
 
 **Updated:** 10 Agustus 2026  
 **Baseline specs (shipped):** PRD / SRS / SDD **v1.0 + v2.0** di `prd/`  
-**Go-live Shopee (SOPI v2.1):** [`prd/sopi/`](../PRD/sopi/) — **Implemented**  
-**UI2 ops desk:** [`prd/v2/dnShop_Finance_v2.1_Design.md`](../PRD/v2/dnShop_Finance_v2.1_Design.md) — **Implemented**  
-**Accounting depth (v2.2):** [`prd/v2.2/`](../PRD/v2.2/) — **Implemented** (commit `6b27974`+)  
+**Go-live Shopee (SOPI v2.1):** [`prd/sopi/`](../prd/sopi/) — **Implemented**  
+**UI2 ops desk:** [`prd/v2/dnShop_Finance_v2.1_Design.md`](../prd/v2/dnShop_Finance_v2.1_Design.md) — **Implemented**  
+**Accounting depth (v2.2):** [`prd/v2.2/`](../prd/v2.2/) — **Implemented** (commit `6b27974`+)  
 **Living brief:** [docs.md](./docs.md) · **PRD berikutnya (v3.0):** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md)  
 **Deploy:** [DEPLOY-VPS.md](./DEPLOY-VPS.md) · **v2.2 go-live:** [V22-PRODUCTION-CHECKLIST.md](./V22-PRODUCTION-CHECKLIST.md)  
 **Prep arsip v2.2:** [PRD-v2.2-Accounting-Depth-PREP.md](./PRD-v2.2-Accounting-Depth-PREP.md)

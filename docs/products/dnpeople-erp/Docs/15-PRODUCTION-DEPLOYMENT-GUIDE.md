@@ -1,4 +1,6 @@
 # PRODUCTION DEPLOYMENT GUIDE
+
+> **dnCore note (July 2026):** The primary deployment target for this repository is a native VPS using PM2 + Nginx. This AWS/Kubernetes runbook is an optional alternative. For the standard VPS procedure, use [`PM2-NGINX-DEPLOYMENT.md`](PM2-NGINX-DEPLOYMENT.md).
 ## dnPeople — AWS + Kubernetes + Helm Deployment
 
 **Version:** 1.1 Deployment Runbook  
@@ -937,4 +939,3 @@ POST-DEPLOYMENT:
 **Owner:** DevOps Engineer  
 **Status:** Ready for production deployment  
 **Last Updated:** 3 July 2026
-

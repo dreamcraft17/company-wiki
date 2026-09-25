@@ -4,10 +4,10 @@
 **HEAD:** `e6e1ccf`  
 **Purpose:** source baseline after TypeORM column-type hardening + mobile-first web complete + Phase 8 (Expo on hold)  
 **Specification:** [`Docs/prd/01-PRD-dnCore-v1.md`](./prd/01-PRD-dnCore-v1.md) · [`02-SDD`](./prd/02-SDD-dnCore-v1.md) · [`03-SRS`](./prd/03-SRS-dnCore-v1.md)  
-**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** dnCore  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **UpdatedAt:** July 19, 2026  
 
-> Komplementer ke **dnPeople** (HRIS). Repo ini = NestJS ERP monolit modular di [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp).
+> Komplementer ke **dnPeople** (HRIS). Repo ini = dnCore ERP dengan Express native API dan Remix SSR di [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp). Referensi NestJS/SPA pada bagian historis tidak menggambarkan runtime production saat ini.
 
 ## How to use
 
@@ -21,8 +21,8 @@
 | Area | Current implementation |
 |------|------------------------|
 | Product | **dnCore** — multi-tenant SaaS ERP (GL, sales, supply chain, HR/payroll subset, manufacturing, CRM, workflow, reporting) |
-| Frontend | React 19 + Vite + Redux Toolkit + MUI + Tailwind; **31** pages; hub `/enterprise` |
-| Backend | NestJS 10 + TypeORM + PostgreSQL 15; **27** domain modules + `platform/` |
+| Frontend | Remix SSR + React 19 + Redux Toolkit + MUI + Tailwind; hub `/enterprise` |
+| Backend | Express 5 native + TypeORM + PostgreSQL 15; domain services + `platform/` |
 | Data | **86** TypeORM entities; **18** migrations (`0000`–`0017`); **explicit column `type` on all columns** (no Object metadata) |
 | Auth | JWT access/refresh, 2FA TOTP (issuer `dnCore`), Google SSO, portal JWT, throttling |
 | Plans | **FREE / STARTER / PROFESSIONAL / ENTERPRISE** (+ legacy `STARTUP` alias) — module + storage quota enforced |

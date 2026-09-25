@@ -5,7 +5,7 @@
 | **Dokumen** | Brief untuk menulis PRD / SRS / SDD **berikutnya** |
 | **Tanggal** | 10 Agustus 2026 |
 | **Baseline kode** | v1.0 + v2.0 + UI2 + SOPI v2.1 + **v2.2 Accounting depth** |
-| **Spec terakhir (shipped)** | [`prd/v2.2/`](../PRD/v2.2/) · [`prd/sopi/`](../PRD/sopi/) · [`prd/`](../PRD/) |
+| **Spec terakhir (shipped)** | [`prd/v2.2/`](../prd/v2.2/) · [`prd/sopi/`](../prd/sopi/) · [`prd/`](../prd/) |
 | **Spec berikutnya** | **v3.0 Multi-marketplace** (belum ada draft formal) |
 | **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
 | **Prod** | `https://shop.dntech.id` · `https://api.shop.dntech.id` |

@@ -6,7 +6,7 @@
 | **Tanggal** | 10 Agustus 2026 |
 | **Produk** | dnShop Finance — dashboard seller Shopee + **pembukuan sebagai bonus seller** |
 | **Baseline kode** | v1.0 + v2.0 + UI2 + SOPI v2.1 + **v2.2 Accounting depth** |
-| **Spec shipped** | [`prd/`](../PRD/) v1–v2.0 · [`prd/sopi/`](../PRD/sopi/) v2.1 · [`prd/v2/`](../PRD/v2/) UI2 · **[`prd/v2.2/`](../PRD/v2.2/) Accounting** |
+| **Spec shipped** | [`prd/`](../prd/) v1–v2.0 · [`prd/sopi/`](../prd/sopi/) v2.1 · [`prd/v2/`](../prd/v2/) UI2 · **[`prd/v2.2/`](../prd/v2.2/) Accounting** |
 | **Spec berikutnya** | **v3.0** Multi-marketplace — [`NEXT-PRD-BRIEF.md`](./NEXT-PRD-BRIEF.md) |
 | **Owner** | Dozer (CEO + Tech Lead) · DN Tech |
 | **Path** | `dnShopee/` |
@@ -57,7 +57,7 @@ v1.0 · v2.0 pembukuan · UI2 · SOPI v2.1 — lihat [`STATUS.md`](./STATUS.md)
 - e-Faktur XML dari journal posted
 - Tutup buku checklist + period lock enforce + unlock owner
 - Non-gangguan OpenAPI: hook COGS setelah order di DB; tidak rewrite OAuth/webhook
-- Spec: [`prd/v2.2/`](../PRD/v2.2/) · prep: [`PRD-v2.2-Accounting-Depth-PREP.md`](./PRD-v2.2-Accounting-Depth-PREP.md)
+- Spec: [`prd/v2.2/`](../prd/v2.2/) · prep: [`PRD-v2.2-Accounting-Depth-PREP.md`](./PRD-v2.2-Accounting-Depth-PREP.md)
 
 ### 3.6 Ops / deploy DN Tech
 - VPS tanpa Docker · pm2 · `shop.dntech.id` / `api.shop.dntech.id`

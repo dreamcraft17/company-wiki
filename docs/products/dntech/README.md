@@ -1,22 +1,25 @@
 # DN Tech Company Profile
 
 > **Author:** Dozer  
-> **Updated:** 2026-08-29
+> **Updated:** 2026-09-18
 
 Production company profile for **DN Tech** (PT. Dozer Napitupulu Technology): public marketing site, admin CMS, lead capture, email notifications, and SEO foundations.
+
+**Founded by:** Dozer Napitupulu (Founder & Tech Lead) — credited on `/about`.
 
 | | |
 |---|---|
 | Live | https://www.dntech.id · https://api.dntech.id |
 | Repo | [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech) |
-| Latest | `1da8191` |
+| Latest | `84a2448` |
 
 ## What it does
 
-- **Public site** — Homepage, services, products (dnPeople + first-party catalog), blog, about, contact, FAQ, careers, portfolio/case studies. Content is admin-driven; empty states are honest (no fake testimonials or client counts).
+- **Public site** — Homepage, services, products (dnPeople + first-party catalog), blog, about (Founded by Dozer Napitupulu), contact, FAQ, careers, portfolio/case studies, privacy, terms. Content is admin-driven; empty states are honest (no fake testimonials or client counts).
 - **Admin CMS** — JWT + RBAC. CRUD for content, leads, media, analytics, branding, email logs, settings, users.
 - **Leads & email** — Contact form, newsletter, transactional SMTP (nodemailer), retry/logging.
 - **SEO** — Sitemap, robots, canonical metadata, JSON-LD, Indonesian copy.
+- **Content positioning** — Problem-led messaging for MVP, workflow/integration, and first-party product proof; see [`docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md`](docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md).
 
 Detailed history: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · bug register: [`docs/BUG_FIXES.md`](docs/BUG_FIXES.md)
 
@@ -26,11 +29,13 @@ Detailed history: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · bug register: [`do
 |------|--------|
 | Public + admin | Implemented |
 | Public SSR API resolver | Implemented (`server-api.ts`, BF-016–BF-020) |
-| Product module (V6/V7) | Implemented; production seed may still be pending on VPS |
+| Product module (V6/V7) | Implemented; 7 first-party products seeded on VPS |
+| About — Founded by | Implemented (`DEFAULT_FOUNDER` + CMS `aboutContent.founder`) |
+| Legal pages | Implemented — Kebijakan Privasi + Syarat & Ketentuan (`db:seed-legal`) |
 | Relaunch anti-slop pass | Implemented (Aug 2026) — honest copy, skip link, CSP headers, deferred third-party JS |
-| Unit tests | **99 passing** (50 backend + 49 frontend) |
+| Unit tests | **206 passing** (102 backend + 104 frontend) — verified 2026-09-12 |
 | CI | Lint + test + build on `main` (`.github/workflows/ci.yml`) |
-| Frontend build | Passing (Next.js 16.2.9, React 19.2.4, standalone output) |
+| Frontend build | Passing (Next.js 16.3.4, React 19.2.4, standalone output) |
 | Lighthouse baseline | Recorded — see [`docs/frontend/LIGHTHOUSE-BASELINE.md`](docs/frontend/LIGHTHOUSE-BASELINE.md) |
 
 ## Tech stack
@@ -112,6 +117,8 @@ npm run dev
 | `npm run lint` | ESLint |
 | `npm run db:push` | Push Prisma schema |
 | `npm run db:seed` | Base seed |
+| `npm run db:seed-branding` | About/brand copy including Founded by |
+| `npm run db:seed-legal` | Kebijakan Privasi + Syarat & Ketentuan (UU PDP / UU ITE) |
 | `npm run db:seed-products` | Seed 7 first-party products |
 | `npm run db:vps:seed` | VPS seed helper (see runbook) |
 | `npm run validate:env` | Check required env vars |
@@ -128,7 +135,7 @@ npm run dev
 | `npm run test` | Jest unit tests |
 | `npm run test:e2e` | Playwright smoke tests |
 | `npm run lighthouse` | Lighthouse on `/`, `/products/dnpeople`, `/contact` |
-| `npm run storybook` | Component docs (Button, Card, SectionHeading) |
+| `npm run storybook` | Component docs (Button, Card, SectionHeading, HomeProducts) |
 
 ## Configuration
 
@@ -152,6 +159,7 @@ From `backend/.env.example`:
 | `SMTP_USER` / `SMTP_PASSWORD` | SMTP credentials |
 | `SMTP_FROM_NAME` / `SMTP_FROM_EMAIL` | Sender identity |
 | `EMAIL_RETRY_ATTEMPTS` / `EMAIL_RATE_LIMIT` | Mail queue tuning |
+| `SENTRY_DSN` | Optional error monitoring (no-op if unset) |
 
 Legacy SendGrid vars exist but SMTP is preferred.
 
@@ -164,8 +172,9 @@ From `frontend/.env.example`:
 | `NEXT_PUBLIC_API_URL` | Public API base (browser + SSR fallback) |
 | `NEXT_PUBLIC_SITE_URL` | Public site URL (required for build + sitemap) |
 | `API_INTERNAL_URL` | **Production SSR:** loopback to PM2 API, e.g. `http://127.0.0.1:4000/api/v1` |
-| `NEXT_PUBLIC_ENABLE_EXIT_MODAL` | Set `false` to disable exit-intent modal |
+| `NEXT_PUBLIC_ENABLE_EXIT_MODAL` | Set `false` to disable exit-intent modal (code-supported; not in `.env.example`) |
 | `NEXT_PUBLIC_CRISP_WEBSITE_ID` | Optional Crisp chat ID |
+| `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` | Optional error monitoring (no-op if unset) |
 
 `NEXT_PUBLIC_*` values are baked in at build time — rebuild after changing them.
 
@@ -195,12 +204,16 @@ dntech/
 │   ├── src/app/(public)/   # Marketing pages
 │   ├── src/app/admin/      # CMS
 │   ├── src/components/
+│   ├── lighthouse-reports/ # Lighthouse JSON (local/CI artifact)
 │   └── e2e/                # Playwright
-├── docs/              # PRDs, deployment, testing, launch checklists
-├── scripts/           # VPS DB helpers
+├── scripts/           # VPS DB helpers + deploy.sh
+├── legal/             # Privacy + terms HTML (seeded via db:seed-legal)
+├── DOCS.md            # Pointer → this wiki folder (no docs/ in the app repo)
 ├── docker-compose.yml
 └── README.md
 ```
+
+Living docs for this product live **here** (`company-wiki/docs/products/dntech/`), not in the app repo.
 
 ## Testing
 
@@ -222,7 +235,9 @@ CI runs backend lint/test/build, frontend lint/test/build, and Playwright smoke 
 **Full guide:** [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md)  
 **VPS Postgres seed:** [`docs/runbooks/vps-postgres-seed.md`](docs/runbooks/vps-postgres-seed.md)
 
-PM2-style update on VPS:
+**Recommended:** on the VPS, run `./scripts/deploy.sh` — it does `git pull`, rebuilds backend + frontend, and restarts both PM2 processes, aborting on the first failure.
+
+Under the hood (what `scripts/deploy.sh` runs), for reference / manual fallback:
 
 ```bash
 git pull --rebase origin main
@@ -268,10 +283,12 @@ Admin routes: `/admin/*` (Bearer token required).
 
 | Document | Purpose |
 |----------|---------|
+| [`00_INDEX.md`](00_INDEX.md) | Wiki doc index |
+| [`docs/CURRENT-IMPLEMENTATION.md`](docs/CURRENT-IMPLEMENTATION.md) | Living snapshot |
 | [`docs/PROJECT-OVERVIEW.md`](docs/PROJECT-OVERVIEW.md) | Technical overview |
 | [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md) | VPS deploy steps |
 | [`docs/TESTING.md`](docs/TESTING.md) | Test layers and CI |
-| [`docs/IMPLEMENTATION-STATUS.md`](docs/IMPLEMENTATION-STATUS.md) | Feature status |
+| [`docs/IMPLEMENTATION-STATUS.md`](docs/IMPLEMENTATION-STATUS.md) | Historical V1–V7 trail |
 | [`docs/frontend/LIGHTHOUSE-BASELINE.md`](docs/frontend/LIGHTHOUSE-BASELINE.md) | Perf/a11y baseline |
 | [`docs/launch/`](docs/launch/) | Relaunch checklists and plans |
 | [`docs/QA-CHECKLIST-V8.md`](docs/QA-CHECKLIST-V8.md) | Pre/post deploy QA |

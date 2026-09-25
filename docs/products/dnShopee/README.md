@@ -2,8 +2,8 @@
 
 **dnShop Finance** — Financial Dashboard & Reporting Platform untuk Shopee Sellers Indonesia  
 **Owner:** DN Tech (PT. Dozer Napitupulu Technology)  
-**Release:** **[v2.2.1](./docs/CHANGELOG.md)** (5 Sep 2026) · accounting depth **v2.2.0** (tag `v2.2.0` = `6b27974`)  
-**Specs shipped:** [`PRD/`](./PRD/) v1.0 + v2.0 · [`PRD/sopi/`](./PRD/sopi/) **v2.1 SOPI** · UI2 [`PRD/v2/…_Design.md`](./PRD/v2/dnShop_Finance_v2.1_Design.md) · **[`PRD/v2.2/`](./PRD/v2.2/) Accounting depth**  
+**Release:** **[v2.2.1](./CHANGELOG.md)** (5 Sep 2026) · accounting depth **v2.2.0** (tag `v2.2.0` = `6b27974`)  
+**Specs shipped:** [`prd/`](./prd/) v1.0 + v2.0 · [`prd/sopi/`](./prd/sopi/) **v2.1 SOPI** · UI2 [`prd/v2/…_Design.md`](./prd/v2/dnShop_Finance_v2.1_Design.md) · **[`prd/v2.2/`](./prd/v2.2/) Accounting depth**  
 **PRD berikutnya:** **v3.0 Multi-marketplace** — lihat [`docs/NEXT-PRD-BRIEF.md`](./docs/NEXT-PRD-BRIEF.md)  
 **Posisi produk:** pembukuan = **bonus di akun seller**, bukan aplikasi akuntansi terpisah
 
@@ -78,7 +78,7 @@ Live OAuth · order/income cron · webhook HMAC + DLQ · tier Free 100 / Starter
 | e-Faktur dari journal | `/journal/efaktur` | `POST …/tax/e-faktur/generate` |
 | Tutup buku + period lock | `/journal/close` | checklist · lock enforce pada mutasi jurnal |
 
-Spec: [`PRD/v2.2/`](./PRD/v2.2/) · Go-live checklist: [`docs/V22-PRODUCTION-CHECKLIST.md`](./docs/V22-PRODUCTION-CHECKLIST.md)
+Spec: [`prd/v2.2/`](./prd/v2.2/) · Go-live checklist: [`docs/V22-PRODUCTION-CHECKLIST.md`](./docs/V22-PRODUCTION-CHECKLIST.md)
 
 > v2.2 **tidak mengganggu** kontrak Shopee OpenAPI (OAuth/webhook/cron) — hanya mengolah data di DB.
 
@@ -126,7 +126,7 @@ curl -s http://127.0.0.1:6001/api/v1/shopee/status
 
 | Dokumen | Isi |
 |---------|-----|
-| [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) | Release notes (**v2.2.1**) |
+| [`CHANGELOG.md`](./CHANGELOG.md) | Release notes (**v2.2.1**) |
 | [`docs/openapi-v1.yaml`](./docs/openapi-v1.yaml) | OpenAPI stub (critical routes) |
 | [`docs/CODE-REVIEW-BUNDLE-2026-09-05.md`](./docs/CODE-REVIEW-BUNDLE-2026-09-05.md) | Review engineering 5 Sep 2026 |
 | [`docs/STATUS.md`](./docs/STATUS.md) | Status implementasi living |

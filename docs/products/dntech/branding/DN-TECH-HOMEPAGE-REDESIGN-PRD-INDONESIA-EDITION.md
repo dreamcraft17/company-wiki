@@ -250,7 +250,7 @@ SIAPA YANG HANDLE PROJECT ANDA
 
 Dozer Napitupulu
 Founder & Tech Lead
-15+ tahun develop software
+Mengembangkan aplikasi dan situs web sejak 2017
 Langsung involved di project strategy & code review
 [LinkedIn]
 

@@ -1,6 +1,8 @@
 # dnCore — Docs Index (repo)
 
-**Product:** dnCore (NestJS modular monolith ERP)  
+**Product:** dnCore (Express native + Remix SSR ERP)
+
+> Runtime refactor status: Express + Remix implemented. Production VPS deployment uses PM2 + Nginx; historical NestJS/Docker/Kubernetes references below are retained as legacy or optional alternatives.
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
 **Brand:** dnCore · **Company:** DN Tech  
 **UpdatedAt:** July 19, 2026  

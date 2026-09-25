@@ -1,23 +1,23 @@
 # dnCore
 
-Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 ~85% MVP+ · dnCore PRD v1.0 implemented** (Juli 2026).
+Enterprise multi-tenant SaaS ERP — **Express + Remix refactor complete** (Juli 2026).
 
 **Repository:** [github.com/dreamcraft17/erp](https://github.com/dreamcraft17/erp)  
-**Owner:** Dozer (CEO + Tech Lead + PM) · **Company:** DN Tech · **Brand:** dnCore  
+**Owner:** Dozer (CEO + Tech Lead) · **Company:** DN Tech · **Brand:** dnCore  
 **Messaging:** "dnPeople for your people · dnCore for your business."  
-**UpdatedAt:** July 19, 2026 · **HEAD:** `fdc12c2`
+**UpdatedAt:** July 19, 2026 · **HEAD:** `e6e1ccf`
 
 | Metrik | Nilai |
 |--------|-------|
 | Backend modules | **27** domain + `platform/` |
-| Frontend pages | **30** halaman React SPA (+ `/enterprise` V3) |
+| Frontend pages | Remix SSR routes (+ `/enterprise` V3) |
 | Unit tests | **408** (88 suites) · coverage **≥60%** |
-| TypeORM entities | **86** |
+| TypeORM entities | **86** (all columns: explicit DB `type`) |
 | DB migrations | `0000`–`0017` (**18** files) |
 | Locales | **15** languages |
 | Mobile web | Responsive SPA (drawer &lt;md, scroll tables) · Expo native **on hold** |
 
-> **Bukan** produk HRIS `dnPeople` (Express/Next). Spec: [`Docs/prd/`](./Docs/prd/) · Baseline: [`Docs/CURRENT-IMPLEMENTATION.md`](./Docs/CURRENT-IMPLEMENTATION.md) · [`Docs/FEATURE-CATALOG.md`](./Docs/FEATURE-CATALOG.md)
+> **Bukan** produk HRIS `dnPeople`. Dokumen refactor: [`Docs/refactor/`](./Docs/refactor/) · Deployment VPS: [`Docs/PM2-NGINX-DEPLOYMENT.md`](./Docs/PM2-NGINX-DEPLOYMENT.md)
 
 ---
 
@@ -25,8 +25,8 @@ Enterprise multi-tenant SaaS ERP — **Phase 0–4 ~95% coded · V3 Phase 5–8 
 
 | Layer | Teknologi |
 |-------|-----------|
-| Backend | NestJS 10, TypeScript, PostgreSQL 15, TypeORM, JWT |
-| Frontend | React 19, Vite, Redux Toolkit, MUI, Tailwind, **Recharts** |
+| Backend | Express 5 runtime, TypeScript, PostgreSQL 15, TypeORM, JWT |
+| Frontend | Remix SSR, React 19, Redux Toolkit, MUI, Tailwind, **Recharts** |
 | Mobile web | MUI responsive breakpoints · Expo `/mobile` **on hold** |
 | Cache | Redis |
 | Queue | RabbitMQ (event-driven GL integration) |
@@ -79,7 +79,7 @@ Setiap modul di-commit terpisah di git history.
 
 ## Frontend
 
-**30** halaman React SPA di `frontend/src/pages/`:
+Route production didefinisikan di `frontend/app/routes/` sebagai Remix SSR. Komponen UI legacy di `frontend/src/pages/` masih dipakai oleh route adapter selama migrasi bertahap.
 
 | Halaman | Route | Keterangan |
 |---------|-------|------------|
@@ -136,11 +136,8 @@ Set `EXPO_PUBLIC_API_URL` ke API backend (default `http://localhost:3000/api/v1`
 ### Prasyarat
 
 - Node.js 20+
-- Docker Desktop (PostgreSQL, Redis, RabbitMQ, Elasticsearch, Prometheus, Grafana)
-
-```bash
-docker --version && docker compose version
-```
+- PostgreSQL 15 untuk mode persistent
+- Redis/RabbitMQ/Elasticsearch hanya jika fitur terkait digunakan
 
 ### 1. Clone & install
 
@@ -152,7 +149,7 @@ cd backend && npm install && cp .env.example .env.development
 cd ../frontend && npm install
 ```
 
-### 2. Jalankan infrastructure
+### 2. Jalankan infrastructure (opsional)
 
 ```bash
 # dari root project
@@ -177,9 +174,8 @@ npm run dev:backend
 # atau: cd backend && npm run start:dev
 ```
 
-- API: http://localhost:3000/api/v1
-- Swagger: http://localhost:3000/api/docs
-- Metrics: http://localhost:3000/metrics
+- API: http://localhost:3001/api/v1
+- Metrics: http://localhost:3001/api/v1/metrics
 
 ### 4. Frontend (terminal 2)
 
@@ -188,7 +184,7 @@ npm run dev:frontend
 # atau: cd frontend && npm run dev
 ```
 
-- App: http://localhost:5173
+- App: http://localhost:3000
 
 ### 5. Migrate & seed demo data
 
@@ -206,9 +202,9 @@ npm run db:seed
 
 Tenant slug: `demo-company`
 
-Atau register manual di http://localhost:5173/register — Chart of Accounts otomatis ter-seed.
+Atau register manual di http://localhost:3000/register — Chart of Accounts otomatis ter-seed.
 
-### Full stack via Docker
+### Full stack via Docker (opsional)
 
 ```bash
 npm run infra:all    # build & run semua services
@@ -229,8 +225,8 @@ npm run dev:mem      # backend dengan SQLite in-memory
 npm run infra:up        # start postgres, redis, rabbitmq, elasticsearch
 npm run infra:down      # stop containers
 npm run infra:all       # full docker compose up --build
-npm run dev:backend     # nest start --watch
-npm run dev:frontend    # vite dev server
+npm run dev:backend     # Express + ts-node
+npm run dev:frontend    # Remix Vite dev server
 npm run dev:mem         # backend in-memory (no Docker)
 npm run build           # build backend + frontend
 npm run test            # backend unit tests
@@ -239,7 +235,7 @@ npm run smoke           # staging smoke script
 npm run smoke:prod      # production smoke (health + login + metrics)
 npm run backup:db       # pg_dump backup
 npm run checklist:prod  # verify production readiness
-npm run infra:prod      # docker compose production stack
+npm run infra:prod      # optional Docker production stack
 npm run load-test       # k6 load test
 ```
 
@@ -252,6 +248,19 @@ npm run db:seed         # seed demo tenant + users
 ```
 
 ---
+
+## Production VPS: PM2 + Nginx
+
+Deployment production utama tidak membutuhkan Docker:
+
+```bash
+npm install
+npm run build
+pm2 start ecosystem.config.cjs
+pm2 save
+```
+
+PM2 menjalankan Express API di port `3001` dan Remix SSR di port `3000`. Nginx meneruskan `/api/*` ke API dan route lain ke Remix. Detail lengkap ada di [`Docs/PM2-NGINX-DEPLOYMENT.md`](./Docs/PM2-NGINX-DEPLOYMENT.md).
 
 ## API Highlights
 
@@ -378,8 +387,8 @@ REDIS_PORT=6379
 JWT_SECRET=your-secret-key-min-32-characters-long
 JWT_EXPIRY=3600
 
-CORS_ORIGIN=http://localhost:5173
-PORTAL_URL=http://localhost:5173/portal/reset-password
+CORS_ORIGIN=http://localhost:3000
+PORTAL_URL=http://localhost:3000/portal/reset-password
 
 # Optional — Stripe (kosongkan = dev mode)
 STRIPE_SECRET_KEY=

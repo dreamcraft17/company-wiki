@@ -1,10 +1,10 @@
 # DOVA — Current Implementation Baseline
 
-> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · **Last updated:** 2026-08-29
+> **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17) · **Last updated:** 2026-09-15
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 29 August 2026 |
+| Snapshot date | 15 September 2026 (bundles addendum; rest of baseline last verified 29 August 2026) |
 | App HEAD | **`71225e3`** (post v0.5.4) |
 | Last tag | **v0.5.4** (email OTP production) |
 | Purpose | PRD baseline + ops truth setelah soft launch |
@@ -35,8 +35,9 @@
 | Payments | Paystack NGN (+ mock when secret unset) |
 | Email | Resend SMTP — verification OTP + password reset |
 | UI | DOVA-Startup (Poppins, `#0F6B43`, `#D8B24A`) · mobile-first |
-| Migrations | `001`–`006`+ (cart, feedback Postgres, OTP columns active) |
-| QA | 158 unit · `smoke:production` · Postman guide · bug triage doc |
+| Migrations | `001`–`009` (cart, feedback Postgres, OTP columns, AI chat, **bundles** active) |
+| QA | 206/208 unit passing (`npm run test:unit`; 4 pre-existing unrelated failures) · `smoke:production` · Postman guide · bug triage doc |
+| Bundles | Admin-curated product bundles — backend on `stg`, not yet in production; see [FEATURE-CATALOG.md § 9b](./FEATURE-CATALOG.md#9b-product-bundles-backend-staged-on-stg--not-yet-in-production) |
 | Feedback | Native board `/feedback` (FeedLog replaced v0.4.0) |
 
 ---

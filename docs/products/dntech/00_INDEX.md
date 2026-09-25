@@ -27,6 +27,7 @@
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | `[0.10.0]` relaunch + living docs |
 | [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | Copy CMS / SEO dashboard |
 | [docs/DN-TECH-PRODUCTS-PAGE-COPY.md](./docs/DN-TECH-PRODUCTS-PAGE-COPY.md) | Copy `/products` + tagline katalog |
+| [docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md](./docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md) | Messaging homepage, About, audience, content pillars, CTA, dan rencana 90 hari |
 | [docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md](./docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md) | Execution plan pemasaran dnPeople: campaign, funnel, sales enablement, dan OKR |
 
 Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) (V1–V7 trail).
