@@ -277,7 +277,7 @@ dnPeople adalah HRIS multi-tenant untuk perusahaan Indonesia. Implementasi saat 
 |-------|-------------|----------------|---------|--------|
 | Multi-company console | Company listing dan platform visibility | Super admin | `/platform` | Available |
 | Organization links | Relasi/hierarchy antar-company | Super admin | `/platform` | Available |
-| Internal Admin Console | Customers, impersonation, revenue/refunds, analytics (product funnel activation/value/revenue, feature usage, tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log; MFA gate | SUPER_ADMIN (DN Tech) | `/admin`, `/admin/analytics/product-funnel`, `/api/v1/admin/*` | Available — PRD v15.0; live latency P50/P95/P99 Conditional |
+| Internal Admin Console | Customers, impersonation, revenue/refunds, analytics (product funnel, **marketing web traffic per page**, feature usage, assistant/tutorials/churn/support/cohort), support tickets + KB/CSAT, content CRUD, feature flags (+ runtime gating), health alerts/logs, audit log; MFA gate | SUPER_ADMIN (DN Tech) | `/admin`, `/admin/analytics/web-traffic`, `/api/v1/admin/*` | Available — PRD v15.0; live latency P50/P95/P99 Conditional |
 | White-label branding | App name, logo, color dan public branding | Company admin | `/branding` | Available |
 | Custom tenant domain | Verified hostname, DNS CNAME metadata, tenant discovery, favicon/email/legal links | Enterprise admin | `/branding`, `/tenants/branding/domain` | Available; DNS/TLS operational |
 | Tenant quota | Employee, API/day, storage, concurrent users, query timeout dan request/minute limits | Enterprise admin | `/tenant-management`, `/tenants/quota` | Available |

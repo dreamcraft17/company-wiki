@@ -1,18 +1,18 @@
 # dnPeople HRIS — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-25
+> **Date:** 2026-09-26
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+) · admin catalog + trial months · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+, Gemini primary) · admin catalog + **web traffic analytics** · ops gates Conditional  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 25, 2026  
+**UpdatedAt**: September 26, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
-**Codebase**: **108** frontend pages · **63** backend route modules · **138** Prisma models · **214/214** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · **`55ec9ae`** (AI assistant Professional+; admin-editable plan catalog) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
+**Codebase**: **109** frontend pages · **63** backend route modules · **139** Prisma models · **216/216** tests · **16** a11y (Playwright + axe)  
+**HEAD**: `dnpeople` main · **`c54fa5a`** (web traffic analytics + Gemini assistant primary) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v16.0**)  
@@ -20,6 +20,7 @@
 > **Payment gateway:** **DOKU is active/default/live**; Xendit and Midtrans remain admin-switchable alternatives. See [docs/PG/README.md](./docs/PG/README.md) · **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)  
 > **Admin monitoring:** `/admin/health` tracks API errors/latency, DOKU webhooks, DB/queue health, and alert acknowledgement.  
 > **Plan catalog:** SUPER_ADMIN `/admin/tier-pricing` is SSOT for list prices, trial months (including FREE), and marketing copy; public `GET /subscription/plans`. Starter trial **4** months / Professional **2** months — revocable.  
+> **Web traffic:** First-party marketing page views (`POST /public/page-views`) · admin **Kunjungan Web** at `/admin/analytics/web-traffic` · summary on admin dashboard.  
 > **Evidence timeline (P0 exception & evidence layer):** [docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md)  
 > **INTERNAL PRD (Dozer-only):** Early Release program spec lives in `private-wiki/dnpeople/internal/` — not mirrored here.
 
@@ -78,6 +79,7 @@
 | [docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
 | [docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md](./docs/PRD/DNPEOPLE-WELCOME-SEO-UX-RESEARCH-2026-09-17.md) | Riset SEO, market category, UX, copy, dan prioritas optimasi landing page `/welcome` |
 | [docs/research/feature-research-2026-09-19/2026-09-19_decision.md](./docs/research/feature-research-2026-09-19/2026-09-19_decision.md) | Evidence pack riset fitur: wedge, segmentasi, competitive evidence, UX journey, dan rencana validasi |
+| [docs/research/anti-ai-ui-design-2026-09-26/2026-09-26_decision.md](./docs/research/anti-ai-ui-design-2026-09-26/2026-09-26_decision.md) | Riset anti–AI-slop UI: specificity, pola lama yang dipertahankan, audit dnPeople, rekomendasi refresh |
 | [docs/REST-API-OPENAPI-HARDENING-2026-09-18.md](./docs/REST-API-OPENAPI-HARDENING-2026-09-18.md) | REST API hardening — OpenAPI coverage 3% → ~100%, digenerate dari schema Zod, fix `POST /tenants/search` |
 | [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
 
@@ -104,4 +106,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: September 25, 2026*
+*Last Updated: September 26, 2026*

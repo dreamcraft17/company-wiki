@@ -212,13 +212,13 @@ DN Tech Products
 | Brand | DnPeople |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
-| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.2** · DOKU live/default · `/admin/health` · admin plan catalog + trial months · legal **v1.2** · assistant **v17** Professional+ · production [hris.dntech.id](https://hris.dntech.id) |
+| Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.2** · DOKU live/default · `/admin/health` · plan catalog + **web traffic analytics** · legal **v1.2** · assistant **v17** (Gemini primary) · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | Startup & UMKM Indonesia (FREE 30 → Enterprise) |
 | Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
-| Codebase | **108** halaman · **63** route modules · **138** model Prisma · **214/214** tests · **16** a11y |
+| Codebase | **109** halaman · **63** route modules · **139** model Prisma · **216/216** tests · **16** a11y · HEAD `c54fa5a` |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) |
-| UpdatedAt | September 25, 2026 |
+| UpdatedAt | September 26, 2026 |
 
 ### Fitur
 
@@ -230,6 +230,7 @@ DN Tech Products
 - **PRD v5–v6:** Subscription/billing (`/billing`), tenant policy, SCIM, quota, staff-accounts, seamless login discovery
 - **PRD v7.0:** Attendance Excel manual import (template, dry-run, confirm, history); admin UI Excel-first
 - **Ops extras:** MFA TOTP, employee Excel import, offline attendance sync, admin payslip preview
+- **Admin analytics:** First-party marketing page views (`POST /public/page-views`) · report `/admin/analytics/web-traffic`
 
 ### Dokumentasi
 

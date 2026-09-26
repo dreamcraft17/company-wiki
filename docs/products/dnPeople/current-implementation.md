@@ -1,20 +1,22 @@
 # dnPeople — Current Implementation Baseline
 
 > **Author:** Dozer  
-> **Date:** 2026-09-25
+> **Date:** 2026-09-26
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 25 September 2026 |
-| HEAD | `55ec9ae` on `dnpeople` main (AI assistant Professional+; admin-editable plan catalog) |
-| Purpose | **Baseline** after **v1.1.2** plus Aug–Sep billing, legal, assistant, catalog, and monitoring increments on PRD **v15.0** |
+| Snapshot date | 26 September 2026 |
+| HEAD | `c54fa5a` on `dnpeople` main (marketing web traffic analytics; Gemini-primary assistant) |
+| Purpose | **Baseline** after **v1.1.2** plus Aug–Sep billing, legal, assistant, catalog, monitoring, and admin web analytics on PRD **v15.0** |
 | Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **v4 Module 4–8** → **v16.0** |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | September 25, 2026 |
+| Updated at | September 26, 2026 |
 
-> **25 Sep 2026:** HR assistant gated **Professional+**. SUPER_ADMIN `/admin/tier-pricing` edits list prices, trial months (including FREE), and catalog wording; pricing cards read `GET /subscription/plans`. Default trials: Starter **4** months, Professional **2** months (revocable). Do not copy Early Release INTERNAL PRD into this wiki — SSOT `private-wiki/dnpeople/internal/`. Unit tests **214/214**. Prisma **138** models. **108** frontend pages · **63** route modules · **40** deployment migrations.
+> **26 Sep 2026:** Admin **Kunjungan Web** — first-party page views on public marketing routes (`POST /api/v1/public/page-views`, table `marketing_page_views`); per-path report at `/admin/analytics/web-traffic` + dashboard summary. HR assistant LLM: **Gemini primary**, OpenAI-compatible fallback. Unit tests **216/216**. Prisma **139** models. **109** frontend pages · **63** route modules · **41** migrations. Deploy: `npx prisma migrate deploy` for `20260926120000_marketing_page_views`.
+>
+> **25 Sep 2026:** HR assistant gated **Professional+**. SUPER_ADMIN `/admin/tier-pricing` edits list prices, trial months (including FREE), and catalog wording; pricing cards read `GET /subscription/plans`. Default trials: Starter **4** months, Professional **2** months (revocable). Do not copy Early Release INTERNAL PRD into this wiki — SSOT `private-wiki/dnpeople/internal/`.
 >
 > **17 Sep 2026:** Evidence Timeline shipped — first slice of P0 "Exception & Evidence Layer" from `PRODUCT-RESEARCH-DIFFERENTIATION-2026-09-17.md`. Aggregates profile edits, attendance corrections, leave approvals, and payroll actions into one per-employee who/what/why/approved-by-whom view (`GET /employees/:id/evidence-timeline`), and fixes `/audit` to finally render the before/after diff it always had data for but never displayed. Policy versioning/acknowledgement (same P0 item) is not built yet — needs new schema. Unit tests **191/191**. See [EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md).
 >
@@ -54,9 +56,9 @@ When writing the next PRD:
 | Area | Current implementation |
 |------|------------------------|
 | Product | Multi-tenant Indonesian HRIS covering employee lifecycle, HR operations, payroll, recruitment, strategic HR, and enterprise controls |
-| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **108** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
+| Frontend | Next.js 16.2.9, React 19.2.4, TypeScript, Tailwind; **109** production routes (marketing + app + `/admin/*` + help/tutorials + talent matrix); mobile-first shell |
 | Backend | Express 5 + TypeScript REST API under `/api/v1`; **63** route modules plus tenant-scoped SCIM `/scim/v2` |
-| Data | PostgreSQL 16 + Prisma 6 with **138** models; **40** deployment migrations |
+| Data | PostgreSQL 16 + Prisma 6 with **139** models; **41** deployment migrations |
 | Authentication | JWT via httpOnly cookie `dnpeople_session` (+ sessionStorage Bearer); API key enforced scopes; TOTP MFA; tenant discovery; SSO cookie (no JWT in URL); frontend auto-redirects expired/invalid sessions to `/login`; **forgot/reset password (1h)** |
 | Storage | Local or S3; files via authenticated `GET /api/v1/files/...`; upload magic-byte + MIME |
 | Email | SMTP + email outbox retry queue |
@@ -65,7 +67,7 @@ When writing the next PRD:
 | Privacy | `GET /api/v1/privacy/export`, deletion-request, processors list |
 | Marketing | Public site at `/welcome` (LandingPage sections, sticky mobile CTA, FAQ accordion) + `/pricing` `/faq` `/contact` `/about` `/demo` `/blog` `/legal/dpa`; tier pricing via **`GET /subscription/plans`** (admin `/admin/tier-pricing` SSOT; fallback `subscriptionCatalog.ts`); `POST /api/v1/public/leads` and `/beta-interest`; optional GA4 (`NEXT_PUBLIC_GA_ID`), Zapier webhook, Calendly, demo video env |
 | Deployment | VPS/container; Redis removed; `/` redirects to `/welcome` for anonymous visitors |
-| Automated evidence | **214/214** unit tests (`npm test` in backend); **16** a11y tests (Playwright + axe); TypeScript clean |
+| Automated evidence | **216/216** unit tests (`npm test` in backend); **16** a11y tests (Playwright + axe); TypeScript clean |
 
 ## Roles and access boundary
 
