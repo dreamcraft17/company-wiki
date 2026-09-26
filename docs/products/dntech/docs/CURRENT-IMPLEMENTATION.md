@@ -1,8 +1,8 @@
 # DN Tech — Current Implementation
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29  
-> **Snapshot:** HEAD `91c6551` · v0.10.0 living docs + homepage SSR trim · Ops gates partial
+> **Date:** 2026-09-26  
+> **Snapshot:** HEAD `922b571` · design v1 + hero `hero_bg.png` · security review doc · Ops gates partial
 
 Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). Indonesian marketing site, lead capture, first-party product catalog — honest empty states (0 paying clients).
 
@@ -15,18 +15,20 @@ Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). I
 
 ---
 
-## Codebase snapshot (verified 2026-08-29)
+## Codebase snapshot (verified 2026-09-26)
 
 | Metric | Value | How verified |
 |--------|-------|--------------|
-| Git HEAD | `91c6551` | `git log -1` |
-| Backend unit tests | **50** pass | `cd backend && npm test` |
-| Frontend unit tests | **49** pass | `cd frontend && npm test` |
-| Prisma models | **24** | `grep -c '^model ' backend/prisma/schema.prisma` |
+| Git HEAD | `922b571` | `git log -1` |
+| Backend unit tests | **127** pass | `cd backend && npm test --ci` |
+| Frontend unit tests | **109** pass | `cd frontend && npm test --ci` |
+| Prisma models | **25** | `grep -c '^model ' backend/prisma/schema.prisma` |
 | Public/admin pages | **45** | `find frontend/src/app -name page.tsx` |
 | Backend route modules | **20** | `backend/src/routes/*.ts` |
-| CI | Lint + test + build | `.github/workflows/ci.yml` |
+| CI | Lint + test + build + SSR smoke | `.github/workflows/ci.yml` |
 | Frontend build | Passing | `npm run build` (standalone) |
+
+> **26 Sep 2026:** Homepage hero memakai **`/hero_bg.png`** (CSS background + overlay) di `HomeHero.tsx`. Internal security pass + manual Git secret scan: [`SECURITY-REVIEW-2026-09-26.md`](./SECURITY-REVIEW-2026-09-26.md). Blog AI worker scaffold (`blog-content.worker.ts`) — verify deploy env before prod.
 
 Historical deep-dive (V1–V7): [`IMPLEMENTATION-STATUS.md`](./IMPLEMENTATION-STATUS.md) — **legacy length**; prefer this file + [`FEATURE-CATALOG.md`](./FEATURE-CATALOG.md) for PRD baseline.
 
@@ -49,7 +51,7 @@ dntech/
 
 | Area | Routes | Status |
 |------|--------|--------|
-| Homepage Indonesia Edition | `/` | Done — CMS `homeContent`, honest fallbacks; portfolio/testimonials **off** `/` (dedicated routes only) |
+| Homepage Indonesia Edition | `/` | Done — CMS `homeContent`, **`hero_bg.png`** hero background, honest fallbacks; portfolio/testimonials **off** `/` (dedicated routes only) |
 | Layanan | `/services`, `/services/[slug]` | Done — active services from admin |
 | Produk (V6/V7) | `/products`, `/products/[slug]` | Done — 7 seed products (excl. DOVA) |
 | Blog, About, Team, Contact, FAQ | ✅ | Done — SSR + CMS |

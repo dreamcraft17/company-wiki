@@ -90,7 +90,7 @@ DN Tech Products
 |-------|--------|
 | Nama | DN Tech Company Profile Website |
 | URL | https://dntech.id · https://api.dntech.id |
-| Status | **Production** + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD `da52085`; VPS branding + products seeded; homepage below-fold stream; SMTP + admin rotate + frontend rebuild pending |
+| Status | **Production** + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD **`922b571`**; hero **`hero_bg.png`**; security review 2026-09-26; **127+109** tests; SMTP live **Conditional** |
 | Version | v7 + relaunch gate (see [launch pack](./products/dntech/docs/launch/README.md)) |
 | Stack | Next.js 16.2.9 + React 19.2.4 + Express 5 + PostgreSQL |
 | Owner | Dozer (CEO + Tech Lead + PM) |

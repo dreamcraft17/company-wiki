@@ -1,17 +1,18 @@
 # DN Tech Compro — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29
+> **Date:** 2026-09-26
 
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production (v5) + v6/v7 Produk + **Relaunch (Aug 2026)** — **v0.10.0** living docs · HEAD `8e3b8a7`; VPS seed 7 produk done; **open:** SMTP live test + post-deploy Lighthouse  
-**Owner**: Dozer (CEO + Tech Lead + PM)  
+**Status**: Production + **Relaunch (Aug 2026)** · **v0.10.0** living docs · HEAD **`922b571`** (design v1, hero_bg, blog worker) · **open:** SMTP live test · security backlog P0 in security review  
+**Owner**: Dozer (CEO + Product Engineering + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: August 29, 2026  
-**Latest commit**: `8e3b8a7` — dashboard SEO/marketing copy reference (Aug 29)
+**UpdatedAt**: September 26, 2026  
+**Latest commit**: `922b571` — restore hero background; blog content worker scaffold  
+**Codebase**: **127** backend + **109** frontend tests · **25** Prisma models · **45** pages
 
 ---
 
@@ -29,6 +30,7 @@
 | [docs/DN-TECH-PRODUCTS-PAGE-COPY.md](./docs/DN-TECH-PRODUCTS-PAGE-COPY.md) | Copy `/products` + tagline katalog |
 | [docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md](./docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md) | Messaging homepage, About, audience, content pillars, CTA, dan rencana 90 hari |
 | [docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md](./docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md) | Execution plan pemasaran dnPeople: campaign, funnel, sales enablement, dan OKR |
+| [docs/SECURITY-REVIEW-2026-09-26.md](./docs/SECURITY-REVIEW-2026-09-26.md) | Security review + secret scan Git (manual, no Gitleaks local) · OWASP + backlog P0 |
 
 Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) (V1–V7 trail).
 
@@ -55,6 +57,7 @@ Historical audit: [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.m
 | [docs/BUG_FIXES.md](./docs/BUG_FIXES.md) | Bug register (BF-013–BF-027) |
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Release changelog (app repo mirror) |
 | [docs/QA-CHECKLIST-V8.md](./docs/QA-CHECKLIST-V8.md) | QA checklist v8 (pre-launch gates) |
+| [docs/SECURITY-REVIEW-2026-09-26.md](./docs/SECURITY-REVIEW-2026-09-26.md) | Security + secret scan 2026-09-26 |
 | [docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md](./docs/DN-TECH-DASHBOARD-SEO-MARKETING-COPY.md) | **SEO & marketing copy** — field dashboard, PAGE_SEO, seed defaults |
 | [docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md](./docs/DNPEOPLE-MARKETING-EXECUTION-PLAN-2026-09-17.md) | **GTM dnPeople** — campaign, channel, sales motion, OKR, dan guardrails |
 | [docs/MULTI-PRODUCT-PLAYBOOK.md](./docs/MULTI-PRODUCT-PLAYBOOK.md) | Multi-product seed & catalog playbook |

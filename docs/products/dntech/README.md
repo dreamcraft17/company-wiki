@@ -1,7 +1,7 @@
 # DN Tech Company Profile
 
 > **Author:** Dozer  
-> **Updated:** 2026-09-18
+> **Updated:** 2026-09-12
 
 Production company profile for **DN Tech** (PT. Dozer Napitupulu Technology): public marketing site, admin CMS, lead capture, email notifications, and SEO foundations.
 
@@ -19,9 +19,8 @@ Production company profile for **DN Tech** (PT. Dozer Napitupulu Technology): pu
 - **Admin CMS** — JWT + RBAC. CRUD for content, leads, media, analytics, branding, email logs, settings, users.
 - **Leads & email** — Contact form, newsletter, transactional SMTP (nodemailer), retry/logging.
 - **SEO** — Sitemap, robots, canonical metadata, JSON-LD, Indonesian copy.
-- **Content positioning** — Problem-led messaging for MVP, workflow/integration, and first-party product proof; see [`docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md`](docs/content/DNTECH-CONTENT-MESSAGING-REVIEW-2026-09-18.md).
 
-Detailed history: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · bug register: [`docs/BUG_FIXES.md`](docs/BUG_FIXES.md)
+Detailed history: [`CHANGELOG.md`](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/CHANGELOG.md) · bug register: [`BUG_FIXES.md`](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/BUG_FIXES.md) · **all docs:** [`DOCS.md`](./DOCS.md)
 
 ## Current status
 
@@ -36,7 +35,7 @@ Detailed history: [`docs/CHANGELOG.md`](docs/CHANGELOG.md) · bug register: [`do
 | Unit tests | **206 passing** (102 backend + 104 frontend) — verified 2026-09-12 |
 | CI | Lint + test + build on `main` (`.github/workflows/ci.yml`) |
 | Frontend build | Passing (Next.js 16.3.4, React 19.2.4, standalone output) |
-| Lighthouse baseline | Recorded — see [`docs/frontend/LIGHTHOUSE-BASELINE.md`](docs/frontend/LIGHTHOUSE-BASELINE.md) |
+| Lighthouse baseline | Recorded — see [wiki LIGHTHOUSE-BASELINE](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/frontend/LIGHTHOUSE-BASELINE.md) |
 
 ## Tech stack
 
@@ -111,6 +110,7 @@ npm run dev
 | `npm run dev` | API with hot reload |
 | `npm run build` | TypeScript compile (+ `prisma generate`) |
 | `npm run start` | Run compiled API |
+| `npm run worker:blog` | Run the opt-in daily blog content worker |
 | `npm run test` | All Jest tests |
 | `npm run test:unit` | Unit tests only |
 | `npm run test:integration` | Integration tests (needs Postgres) |
@@ -161,6 +161,10 @@ From `backend/.env.example`:
 | `EMAIL_RETRY_ATTEMPTS` / `EMAIL_RATE_LIMIT` | Mail queue tuning |
 | `SENTRY_DSN` | Optional error monitoring (no-op if unset) |
 
+Blog automation is intentionally opt-in. Set `BLOG_AUTOMATION_ENABLED=true` only after configuring an active admin author and an AI provider. The worker creates up to four useful, structured articles per day at the configured slots, rejects short/placeholder drafts, avoids AI-generated cover images, and defaults to `scheduled` status. Run it as a separate PM2 process with `npm run worker:blog`; use `BLOG_AUTOMATION_DRY_RUN=true` to validate generation without writing posts.
+
+On the VPS, after the first backend build, register the process once: `pm2 start backend/dist/workers/blog-content.worker.js --name dntech-blog-worker --cwd backend`. Future `scripts/deploy.sh` runs restart it automatically when registered.
+
 Legacy SendGrid vars exist but SMTP is preferred.
 
 ### Frontend (`.env.local`)
@@ -208,12 +212,10 @@ dntech/
 │   └── e2e/                # Playwright
 ├── scripts/           # VPS DB helpers + deploy.sh
 ├── legal/             # Privacy + terms HTML (seeded via db:seed-legal)
-├── DOCS.md            # Pointer → this wiki folder (no docs/ in the app repo)
+├── DOCS.md            # Pointer → company-wiki (no docs/ in this repo)
 ├── docker-compose.yml
 └── README.md
 ```
-
-Living docs for this product live **here** (`company-wiki/docs/products/dntech/`), not in the app repo.
 
 ## Testing
 
@@ -228,12 +230,12 @@ cd frontend && npm run test
 cd frontend && npm run test:e2e
 ```
 
-CI runs backend lint/test/build, frontend lint/test/build, and Playwright smoke tests. See [`docs/TESTING.md`](docs/TESTING.md).
+CI runs backend lint/test/build, frontend lint/test/build, and Playwright smoke tests. See [TESTING.md (wiki)](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/TESTING.md).
 
 ## Deployment
 
-**Full guide:** [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md)  
-**VPS Postgres seed:** [`docs/runbooks/vps-postgres-seed.md`](docs/runbooks/vps-postgres-seed.md)
+**Full guide:** [DEPLOYMENT-PRODUCTION.md (wiki)](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/DEPLOYMENT-PRODUCTION.md)  
+**VPS Postgres seed:** [vps-postgres-seed.md (wiki)](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/runbooks/vps-postgres-seed.md)
 
 **Recommended:** on the VPS, run `./scripts/deploy.sh` — it does `git pull`, rebuilds backend + frontend, and restarts both PM2 processes, aborting on the first failure.
 
@@ -251,7 +253,7 @@ Production frontend env (in `frontend/.env.local` on server):
 
 ```env
 NEXT_PUBLIC_API_URL=https://api.dntech.id/api/v1
-NEXT_PUBLIC_SITE_URL=https://www.dntech.id
+NEXT_PUBLIC_SITE_URL=https://dntech.id
 API_INTERNAL_URL=http://127.0.0.1:4000/api/v1
 ```
 
@@ -281,17 +283,17 @@ Admin routes: `/admin/*` (Bearer token required).
 
 ## Documentation
 
+All product documentation lives in **[company-wiki](https://github.com/dreamcraft17/company-wiki/tree/main/docs/products/dntech)** — see [`DOCS.md`](./DOCS.md).
+
 | Document | Purpose |
 |----------|---------|
-| [`00_INDEX.md`](00_INDEX.md) | Wiki doc index |
-| [`docs/CURRENT-IMPLEMENTATION.md`](docs/CURRENT-IMPLEMENTATION.md) | Living snapshot |
-| [`docs/PROJECT-OVERVIEW.md`](docs/PROJECT-OVERVIEW.md) | Technical overview |
-| [`docs/DEPLOYMENT-PRODUCTION.md`](docs/DEPLOYMENT-PRODUCTION.md) | VPS deploy steps |
-| [`docs/TESTING.md`](docs/TESTING.md) | Test layers and CI |
-| [`docs/IMPLEMENTATION-STATUS.md`](docs/IMPLEMENTATION-STATUS.md) | Historical V1–V7 trail |
-| [`docs/frontend/LIGHTHOUSE-BASELINE.md`](docs/frontend/LIGHTHOUSE-BASELINE.md) | Perf/a11y baseline |
-| [`docs/launch/`](docs/launch/) | Relaunch checklists and plans |
-| [`docs/QA-CHECKLIST-V8.md`](docs/QA-CHECKLIST-V8.md) | Pre/post deploy QA |
+| [00_INDEX](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/00_INDEX.md) | Wiki doc index |
+| [PROJECT-OVERVIEW](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/PROJECT-OVERVIEW.md) | Technical overview |
+| [DEPLOYMENT-PRODUCTION](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/DEPLOYMENT-PRODUCTION.md) | VPS deploy steps |
+| [TESTING](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/TESTING.md) | Test layers and CI |
+| [CURRENT-IMPLEMENTATION](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/CURRENT-IMPLEMENTATION.md) | Living snapshot |
+| [LIGHTHOUSE-BASELINE](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/frontend/LIGHTHOUSE-BASELINE.md) | Perf/a11y baseline |
+| [launch/](https://github.com/dreamcraft17/company-wiki/tree/main/docs/products/dntech/docs/launch) | Relaunch checklists and plans |
 
 ## License
 
