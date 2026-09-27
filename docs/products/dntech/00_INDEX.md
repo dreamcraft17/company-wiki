@@ -1,17 +1,17 @@
 # DN Tech Compro — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-26
+> **Date:** 2026-09-27
 
 **Product**: DN Tech Company Profile Website  
 **Repository**: `dntech` → [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech)  
 **URL**: https://dntech.id · https://api.dntech.id  
-**Status**: Production + **Relaunch (Aug 2026)** · **v0.10.0** living docs · HEAD **`922b571`** (design v1, hero_bg, blog worker) · **open:** SMTP live test · security backlog P0 in security review  
+**Status**: Production + **Relaunch (Aug 2026)** · **v0.10.0** living docs · HEAD **`ab11862`** (blog AI cover size fix, blog hero UX) · **open:** SMTP live test · security backlog P0 in security review  
 **Owner**: Dozer (CEO + Product Engineering + Tech Lead)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: September 26, 2026  
-**Latest commit**: `922b571` — restore hero background; blog content worker scaffold  
+**UpdatedAt**: September 27, 2026  
+**Latest commit**: `ab11862` — OpenAI blog cover `1536x1024` + Gemini image fallback  
 **Codebase**: **127** backend + **109** frontend tests · **25** Prisma models · **45** pages
 
 ---

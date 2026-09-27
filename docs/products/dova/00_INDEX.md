@@ -1,7 +1,7 @@
 # DOVA — Documentation Index
 
 > **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **Updated:** 2026-09-15 · **App HEAD (`main`):** `21eb77d` · **Tag:** `v0.5.4` · **`stg` branch:** `5ce09c4` (bundles, unreleased)
+> **Updated:** 2026-09-27 · **App HEAD (`main`):** `f10c79f` · **Tag:** `v0.5.4` · **`stg` branch:** `5ce09c4` (bundles, unreleased)
 
 **Product:** DOVA — agricultural / food supply marketplace (Nigeria · NGN · Paystack)  
 **Repository:** [`dreamcraft17/dova`](https://github.com/dreamcraft17/dova)  

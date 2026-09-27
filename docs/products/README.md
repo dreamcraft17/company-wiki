@@ -1,10 +1,10 @@
 # Product Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-25
+> **Date:** 2026-09-27
 
-**Document Version**: 1.20
-**Last Updated**: September 26, 2026
+**Document Version**: 1.21
+**Last Updated**: September 27, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -29,12 +29,12 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **79** markdown | Production + **relaunch** · **v0.10.0** · HEAD `922b571` · hero_bg + security review | `dntech` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **79** markdown | Production + **relaunch** · **v0.10.0** · HEAD `ab11862` · blog AI cover fix | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.2** + legal v1.2 + DOKU PG + plan catalog + **web traffic** + assistant (Gemini) | Production · **v1.1.2** · HEAD `c54fa5a` · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
-| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit + **Bundle Feature PRD/SDD** | **v0.5.4** production live (app `21eb77d`) · **product bundles backend on `stg`** (`5ce09c4`, unreleased) · catalog `X-Api-Key` for partners · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
+| **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit + **Bundle Feature PRD/SDD** | **v0.5.4** production live (app `f10c79f`) · DOVA AI widget UX fix · bundles on `stg` (`5ce09c4`) · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) + **NestJS v3.2** subsection (separate repo) | MVP in repo · live publish Conditional · 2nd impl (NestJS/Next.js) backend+frontend done, review pending fixes | `auto` + `threads-automation` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
@@ -45,6 +45,8 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
+| **DN Tech Compro** | app `ab11862` / wiki sync 2026-09-27 | **Blog AI cover** — OpenAI size `1536x1024` (not `1536x864`) + Gemini image fallback; blog detail hero cover tidak crop |
+| **DOVA** | app `f10c79f` / wiki sync 2026-09-27 | **DOVA AI widget UX** — user bubble white text on green; send button centered |
 | **DN Tech Compro** | app `922b571` / wiki sync 2026-09-26 | **Hero + security review** — `hero_bg.png` on homepage; [`SECURITY-REVIEW-2026-09-26.md`](./dntech/docs/SECURITY-REVIEW-2026-09-26.md) (manual Git secret scan); **127+109** tests · blog content worker scaffold |
 | **dnPeople HRIS** | app `c54fa5a` / wiki sync 2026-09-26 | **Web traffic analytics + Gemini assistant** — first-party marketing page views (`POST /public/page-views`, `/admin/analytics/web-traffic`); assistant synthesis Gemini-primary with OpenAI-compatible fallback · **216/216** tests · **139** Prisma models · **41** migrations |
 | **dnPeople HRIS** | app `55ec9ae` / wiki sync 2026-09-25 | **Plan catalog + assistant Professional+** — `/admin/tier-pricing` edits prices, trial months (Starter 4 / Professional 2, revocable), and catalog copy; `GET /subscription/plans`; HR assistant Professional+ · **214/214** tests · **138** Prisma models |

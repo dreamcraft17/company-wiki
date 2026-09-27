@@ -1,7 +1,7 @@
 # DOVA — Feature Catalog (Complete)
 
-> **Status:** Active · **Last updated:** 2026-09-15 (bundles section added; rest of catalog last verified 2026-08-29) · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
-> **App HEAD:** `71225e3` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
+> **Status:** Active · **Last updated:** 2026-09-27 (DOVA AI widget UX) · **Author:** Dozer · [@dreamcraft17](https://github.com/dreamcraft17)  
+> **App HEAD:** `f10c79f` · **Production:** [dova.dntech.id](https://dova.dntech.id)  
 > **Spec baseline:** Aggressive 4W PRD/SRS/SDD · MVP + post-launch hardening
 
 This document is the **actual feature inventory** in the codebase and production as of **28 August 2026**. Use it for QA, stakeholder review, and future PRD writing.
@@ -209,6 +209,17 @@ Admin-curated packages of existing products sold as one customer-facing offer, a
 | Contact form | Available | `POST /contact` · `/contact` | Persisted · admin inbox |
 | Health check | Available | `GET /health` | PM2 / smoke |
 | Public catalog (no auth) | Available | categories + products | |
+| DOVA AI Help widget | Available | `DovaAiHelpWidget` · homepage + sitewide trigger | Guest quick help + logged-in chat; `/chat` full page |
+| DOVA AI chat (authenticated) | Available | `POST /chat/messages` · `/chat` | History + Gemini/OpenAI backend (env) |
+
+---
+
+## 10b. DOVA AI UX (Sep 2026)
+
+| Item | Status | Notes |
+|------|--------|-------|
+| User message contrast (green bubble) | **Available** | White text on `#087b4f` (widget + `/chat` user bubble) |
+| Send button alignment | **Available** | Composer send icon centered in circular button |
 
 ---
 
@@ -261,6 +272,7 @@ Admin-curated packages of existing products sold as one customer-facing offer, a
 
 | Date | Feature |
 |------|---------|
+| 2026-09-27 | DOVA AI widget — user bubble white text; send button centered (HEAD `f10c79f`) |
 | 2026-09-15 | Product bundles (backend) on `stg` — bundle CRUD, discovery, add-to-cart, atomic bundle checkout |
 | 2026-08-29 | Inline registration OTP on `/auth/register` · legacy Profile verify retained |
 | 2026-08-29 | Auth UI split layout (login + register) · Customer copy |

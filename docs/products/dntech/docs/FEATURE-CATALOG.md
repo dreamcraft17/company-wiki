@@ -1,8 +1,8 @@
 # DN Tech — Feature Catalog
 
 > **Author:** Dozer  
-> **Date:** 2026-08-29  
-> **Baseline:** HEAD `1da8191`
+> **Date:** 2026-09-27  
+> **Baseline:** HEAD `ab11862`
 
 Module-level status for PRD/SRS/SDD writers. **Done** = shipped in codebase. **Conditional** = code exists but ops/env/legal gate open. **Planned** = not in code.
 
@@ -16,7 +16,9 @@ Module-level status for PRD/SRS/SDD writers. **Done** = shipped in codebase. **C
 | Honest empty states (testimonials, portfolio, careers, case studies) | **Done** | Aug 2026 relaunch — no fake social proof |
 | Services listing + detail | **Done** | SSR `fetchPublicApi*` · active only |
 | Products listing + detail (V6/V7) | **Done** | dnPeople flagship fields; status badges honest |
-| Blog + categories | **Done** | SSR BF-019 |
+| Blog + categories | **Done** | SSR BF-019 · hero cover `object-contain` (Sep 2026) |
+| Blog AI draft + cover (admin) | **Done** | OpenAI text + OpenAI/Gemini cover · `OPENAI_IMAGE_SIZE` default `1536x1024` |
+| Blog automation worker | **Conditional** | `BLOG_AUTOMATION_ENABLED` · dry-run · verify PM2 deploy |
 | About (CMS + branding merge) | **Done** | BF-021 dual-write |
 | Contact multi-step form | **Done** | RHF + Zod + honeypot |
 | FAQ, team, resources, quiz | **Done** | CMS-driven |

@@ -1,7 +1,7 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-09-25
+> **Date:** 2026-09-27
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
@@ -27,11 +27,11 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**79** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `922b571` · hero_bg + [security review](./docs/products/dntech/docs/SECURITY-REVIEW-2026-09-26.md)
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**79** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `ab11862` · blog AI cover fix + [security review](./docs/products/dntech/docs/SECURITY-REVIEW-2026-09-26.md)
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · HEAD `c54fa5a` · DOKU + `/admin/health` + **Kunjungan Web** analytics + plan catalog/trials + legal v1.2 + assistant v17 (Gemini) · next **PRD v16.0**
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
-  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `21eb77d` · product bundles backend on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
+  - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `f10c79f` · DOVA AI widget UX · bundles on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (38 markdown)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (26 markdown)
@@ -98,4 +98,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: September 26, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*
+*Last Updated: September 27, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*

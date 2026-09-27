@@ -6,6 +6,10 @@ All notable changes to the DN Tech company profile website (`dntech.id`).
 
 ### Changed
 - Copy halaman `/products` dan section produk beranda: keyword HRIS/ERP/pembukuan, tagline ID, tanpa klaim 10x atau trial semu di header katalog.
+- Halaman detail blog (`/blog/[slug]`): cover hero menampilkan gambar penuh (`object-contain`), grid hero tidak distretch.
+
+### Fixed
+- **Blog AI cover (OpenAI):** ukuran gambar dari preset invalid `1536x864` → **`1536x1024`** (supported gpt-image-1); env `OPENAI_IMAGE_SIZE` + mapping legacy; fallback **Gemini** image jika OpenAI gagal (`GeminiContentService.ts`, HEAD `ab11862`).
 
 ---
 

@@ -1,8 +1,8 @@
 # DN Tech — Current Implementation
 
 > **Author:** Dozer  
-> **Date:** 2026-09-26  
-> **Snapshot:** HEAD `922b571` · design v1 + hero `hero_bg.png` · security review doc · Ops gates partial
+> **Date:** 2026-09-27  
+> **Snapshot:** HEAD `ab11862` · design v1 + hero `hero_bg.png` · blog AI cover size fix · Ops gates partial
 
 Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). Indonesian marketing site, lead capture, first-party product catalog — honest empty states (0 paying clients).
 
@@ -15,11 +15,11 @@ Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). I
 
 ---
 
-## Codebase snapshot (verified 2026-09-26)
+## Codebase snapshot (verified 2026-09-27)
 
 | Metric | Value | How verified |
 |--------|-------|--------------|
-| Git HEAD | `922b571` | `git log -1` |
+| Git HEAD | `ab11862` | `git log -1` |
 | Backend unit tests | **127** pass | `cd backend && npm test --ci` |
 | Frontend unit tests | **109** pass | `cd frontend && npm test --ci` |
 | Prisma models | **25** | `grep -c '^model ' backend/prisma/schema.prisma` |
@@ -28,7 +28,8 @@ Company profile + admin CMS for **DN Tech** (PT. Dozer Napitupulu Technology). I
 | CI | Lint + test + build + SSR smoke | `.github/workflows/ci.yml` |
 | Frontend build | Passing | `npm run build` (standalone) |
 
-> **26 Sep 2026:** Homepage hero memakai **`/hero_bg.png`** (CSS background + overlay) di `HomeHero.tsx`. Internal security pass + manual Git secret scan: [`SECURITY-REVIEW-2026-09-26.md`](./SECURITY-REVIEW-2026-09-26.md). Blog AI worker scaffold (`blog-content.worker.ts`) — verify deploy env before prod.
+> **27 Sep 2026:** Blog AI cover — OpenAI image size **`1536x1024`** (bukan `1536x864`); optional `OPENAI_IMAGE_SIZE`; Gemini image fallback. Deploy backend + restart PM2 setelah pull.  
+> **26 Sep 2026:** Homepage hero **`/hero_bg.png`**; security review [`SECURITY-REVIEW-2026-09-26.md`](./SECURITY-REVIEW-2026-09-26.md); blog content worker scaffold.
 
 Historical deep-dive (V1–V7): [`IMPLEMENTATION-STATUS.md`](./IMPLEMENTATION-STATUS.md) — **legacy length**; prefer this file + [`FEATURE-CATALOG.md`](./FEATURE-CATALOG.md) for PRD baseline.
 
