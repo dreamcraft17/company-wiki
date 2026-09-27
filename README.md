@@ -38,7 +38,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (17 markdown)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
   - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer ke **private-wiki** (bukan produk tim)
-  - [Porto](./docs/products/porto/README.md) — personal portfolio · pointer ke **private-wiki/porto/**
+  - [Porto](./docs/products/porto/README.md) — personal portfolio (Studio Ledger UI) · pointer ke **private-wiki/porto/**
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
 - [Careers PRD Summary](./products/11_CAREERS_PRD.md)

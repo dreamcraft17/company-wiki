@@ -1,15 +1,15 @@
 # Product Portfolio
 
 > **Author:** Dozer  
-> **Date:** 2026-09-25
+> **Date:** 2026-09-27
 
 **Document Version**: 1.8  
-**Last Updated**: September 25, 2026  
+**Last Updated**: September 27, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: September 25, 2026
+**UpdatedAt**: September 27, 2026
 
 ---
 
@@ -360,11 +360,11 @@ Situs **personal** (bukan SKU penjualan DN Tech). Company-wiki hanya pointer; bo
 | Aspek | Detail |
 |-------|--------|
 | Nama | Porto — personal portfolio + Laravel CMS |
-| Status | Live personal site · proprietary license |
-| Repository | `porto` (`dreamcraft17/porto`) |
+| Status | Live personal site · **Studio Ledger** public UI (Sep 2026) · proprietary license |
+| Repository | `porto` (`dreamcraft17/porto`) · HEAD `5944230` |
 | Team wiki | Pointer [porto/](./products/porto/README.md) |
 | SSOT | `private-wiki/porto/` (Dozer-only) |
-| UpdatedAt | September 5, 2026 |
+| UpdatedAt | September 27, 2026 |
 
 Bukan company profile: compro tim tetap [dntech](./products/dntech/00_INDEX.md).
 

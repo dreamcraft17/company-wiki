@@ -39,7 +39,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **Threads Automation** | [threads-automation/](./threads-automation/00_INDEX.md) | Living docs + PRD/SRS/SDD + NEXT-PRD-BRIEF (**26** markdown) + **NestJS v3.2** subsection (separate repo) | MVP in repo · live publish Conditional · 2nd impl (NestJS/Next.js) backend+frontend done, review pending fixes | `auto` + `threads-automation` |
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
-| **Porto** (personal) | [porto/](./porto/00_INDEX.md) | Pointer only | Personal portfolio · **SSOT `private-wiki/porto/`** | `porto` |
+| **Porto** (personal) | [porto/](./porto/00_INDEX.md) | Pointer only | Personal portfolio · Studio Ledger UI · **SSOT `private-wiki/porto/`** | `porto` |
 
 **Total: markdown docs across products + 1 DOCX + archives**
 
@@ -55,6 +55,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **dnPeople HRIS** | app `083edf8` / wiki sync 2026-09-21 | **Admin monitoring/alerting** — `/admin/health` now shows API errors and latency, DOKU webhook outcomes, DB/queue health, and threshold alerts; DOKU is the active/default payment gateway |
 | **dnPeople HRIS** | app `33bedda` / wiki sync 2026-09-16 | **DOKU Checkout** added as third admin-switchable payment gateway (Xendit/Midtrans/DOKU), now the **default**; verified against official DOKU API docs; no unit tests yet for `doku.ts` (known gap) · **165/165** tests |
 | **dnPeople HRIS** | app `cdccf89` | **Legal v1.1** (UU PDP/ITE) + sticky TOC · assistant v17 tools/RAG · **161** tests · seed `db:seed:legal` |
+| **Porto** | app `5944230` / private-wiki sync 2026-09-27 | **Studio Ledger** public UI + case pages; deploy troubleshooting (`pdo_mysql`); living docs **not** mirrored here → `private-wiki/porto/` |
 | **Porto** | app `7b041e6` · pointer | Personal portfolio indexed; living docs **not** mirrored here → `private-wiki/porto/` |
 | **dnShop Finance** | app `576021c` / wiki `8fa99c9` | README **v2.2.1** + review bundle; tag **v2.2.1** |
 | **DN Tech Compro** | app `84a2448` / wiki sync | `/about` **Founded by Dozer Napitupulu**; legal seed (privacy/terms); README test counts **206** |
