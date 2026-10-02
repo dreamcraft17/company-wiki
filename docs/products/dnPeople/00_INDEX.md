@@ -61,6 +61,7 @@
 
 | File | Deskripsi |
 |------|-----------|
+| [docs/DAFTAR-FITUR.md](./docs/DAFTAR-FITUR.md) | **List fitur satu halaman** — scan cepat modul & paket |
 | [docs/NEXT-PRD-BRIEF.md](./docs/NEXT-PRD-BRIEF.md) | **Dasar utuh PRD berikutnya** (v16.0 Module 4) |
 | [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) | **Baseline kanonik** — setelah v15.0 + Xendit |
 | [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) | Soft-launch Agustus — kode vs ops |

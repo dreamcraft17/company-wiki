@@ -13,6 +13,7 @@ Dokumentasi operasional dnPeople (**canonical di company-wiki**). Kode aplikasi:
 
 | Dokumen | Isi |
 |---------|-----|
+| [DAFTAR-FITUR.md](./DAFTAR-FITUR.md) | **List fitur** — satu halaman, modul per modul |
 | [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | Brief PRD berikutnya (1 halaman) |
 | [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md) | Prep lengkap Module 4 |
 | [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) | Baseline implementasi |
