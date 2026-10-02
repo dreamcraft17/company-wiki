@@ -5,14 +5,14 @@
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v15.0** shipped · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+, Gemini primary) · **GTM: 90-day design-partner motion** (retail/F&B 50–300 HC) · **freeze PRD v16+** until 2 pilots · ops gates Conditional · **0 paying clients** (Oct 2026)  
+**Status**: MVP 1–5 + PRD v5–**v15.0** shipped · **Release v1.1.2** · **GTM engineering shipped** (north star admin, WhatsApp motion, checklist, design-partner onboarding) · **freeze PRD v16+** until 2 pilots · ops gates Conditional · **0 paying clients** (Oct 2026)  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
 **UpdatedAt**: October 2, 2026  
 **Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant · next product PRD **v16.0 frozen** (GTM gate)  
-**Codebase**: **109** frontend pages · **63** backend route modules · **139** Prisma models · **216/216** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · **`4235ae5`** (GTM docs + WhatsApp workflow-audit CTA) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
+**Codebase**: **109** frontend pages · **63** backend route modules · **139** Prisma models · **223/223** tests · **16** a11y (Playwright + axe)  
+**HEAD**: `dnpeople` main · **`208fde2`** (GTM north star + marketing leads + full motion) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
 > **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — product PRD **v16.0** on hold until GTM pilots · [docs/GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md)  
@@ -21,6 +21,7 @@
 > **Admin monitoring:** `/admin/health` tracks API errors/latency, DOKU webhooks, DB/queue health, and alert acknowledgement.  
 > **Plan catalog:** SUPER_ADMIN `/admin/tier-pricing` is SSOT for list prices, trial months (including FREE), and marketing copy; public `GET /subscription/plans`. Starter trial **4** months / Professional **2** months — revocable.  
 > **Web traffic:** First-party marketing page views (`POST /public/page-views`) · admin **Kunjungan Web** at `/admin/analytics/web-traffic` · summary on admin dashboard.  
+> **GTM ops:** `/admin/analytics/north-star` · `/admin/marketing/leads` · public checklist `/resources/payroll-evidence-checklist` (app)  
 > **Evidence timeline (P0 exception & evidence layer):** [docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md](./docs/EVIDENCE-TIMELINE-IMPLEMENTATION.md)  
 > **INTERNAL PRD (Dozer-only):** Early Release program spec lives in `private-wiki/dnpeople/internal/` — not mirrored here.
 
@@ -74,6 +75,8 @@
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
 | [docs/CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Chaos engineering (VPS/PM2) |
 | [docs/GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md) | **GTM 90 hari** — design partner motion, north star, kill criteria |
+| [docs/GTM-ENGINEERING-STATUS.md](./docs/GTM-ENGINEERING-STATUS.md) | **GTM engineering 100%** — repo scope checklist |
+| [docs/GTM-EARLY-RELEASE-FEEDBACK-EMAIL-TEMPLATE.md](./docs/GTM-EARLY-RELEASE-FEEDBACK-EMAIL-TEMPLATE.md) | Template email feedback design partner (~2x/bulan) |
 | [docs/research/product-market-reset-2026-10-02/2026-10-02_decision.md](./docs/research/product-market-reset-2026-10-02/2026-10-02_decision.md) | **PM/market reset** — freeze v16+, wedge retail/F&B, evidence pack |
 | [docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales (ICP, demo, handoff) — links GTM plan |
 | [docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | Bisnis, paket, layanan, fitur per modul (rinci) |

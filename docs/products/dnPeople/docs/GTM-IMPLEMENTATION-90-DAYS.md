@@ -12,7 +12,7 @@ Stop treating dnPeople seperti produk matang. Treat sebagai **design partner pro
 
 **Weekly active tenants completing:** import karyawan + ≥1 payroll preview **or** ≥10 attendance approvals with audit trail.
 
-Instrument di `/admin` analytics jika belum — minimum spreadsheet manual mingguan.
+Instrument di **`/admin/analytics/north-star`** (+ export manual dari tabel mingguan). Leads audit: **`/admin/marketing/leads?kind=AUDIT`**.
 
 ## Minggu 1–2 — Motion
 
@@ -21,7 +21,7 @@ Instrument di `/admin` analytics jika belum — minimum spreadsheet manual mingg
 | WhatsApp workflow audit live (site + contact) | Eng ✅ | `contact-links.ts`, `/contact` |
 | List 50 target accounts (retail/F&B Jakarta+Bali) | Founder | Sheet dengan HR contact |
 | Script audit 30 menit (BD panduan §5–6) | Founder | Dipakai 5x |
-| Early release: syarat feedback 2x/bulan | Founder | Email template |
+| Early release: syarat feedback 2x/bulan | Founder + Eng ✅ | [GTM-EARLY-RELEASE-FEEDBACK-EMAIL-TEMPLATE.md](GTM-EARLY-RELEASE-FEEDBACK-EMAIL-TEMPLATE.md) · form di `/billing` |
 
 ## Minggu 3–6 — Discovery
 
@@ -42,7 +42,7 @@ Instrument di `/admin` analytics jika belum — minimum spreadsheet manual mingg
 ## Marketing ideas (curated — jangan scatter)
 
 1. **Founder-led WhatsApp audit** 🟢 — primary CTA channel.
-2. **Workflow checklist PDF** 🟢 — lead magnet "5 bukti sebelum payroll finalize".
+2. **Workflow checklist PDF** 🟢 — [`/resources/payroll-evidence-checklist`](/resources/payroll-evidence-checklist) (print-to-PDF).
 3. **LinkedIn posts** 🟢 — 1/minggu: masalah WA approval (bukan fitur list).
 4. **Comparison page Talenta** 🟡 — only after pilot proof.
 5. **Google Ads HRIS** 🔴 — pause until message validated.
@@ -58,6 +58,10 @@ Instrument di `/admin` analytics jika belum — minimum spreadsheet manual mingg
 - **Green:** 2+ pilots active, payroll preview used monthly.
 - **Yellow:** pipeline tapi no paid — extend 60 hari, tighten ICP.
 - **Red:** 0 pilot after 30 audits — pivot to services-led or single-module wedge.
+
+## Engineering
+
+Status **100%** untuk scope repo: [GTM-ENGINEERING-STATUS.md](./GTM-ENGINEERING-STATUS.md)
 
 ## Links
 

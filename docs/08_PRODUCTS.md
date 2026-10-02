@@ -215,7 +215,7 @@ DN Tech Products
 | Status | **MVP 1–5 + PRD v5–v15.0** implemented · **Release v1.1.2** · **90-day GTM** (design partners, retail/F&B) · **PRD v16+ frozen** · DOKU live/default · `/admin/health` · plan catalog + **web traffic analytics** · legal **v1.2** · assistant **v17** (Gemini primary) · production [hris.dntech.id](https://hris.dntech.id) |
 | Target | **ICP (Oct 2026):** retail/F&B multi-outlet **50–300** HC · broader tiers remain in product |
 | Stack | Next.js 16 + Express 5 + Prisma 6 + PostgreSQL (Supabase) |
-| Codebase | **109** halaman · **63** route modules · **139** model Prisma · **216/216** tests · **16** a11y · HEAD `4235ae5` |
+| Codebase | **109** halaman · **63** route modules · **139** model Prisma · **223/223** tests · **16** a11y · HEAD `208fde2` |
 | Repository | `dnpeople` |
 | Docs | [→](./products/dnPeople/00_INDEX.md) · [GTM 90d](./products/dnPeople/docs/GTM-IMPLEMENTATION-90-DAYS.md) |
 | UpdatedAt | October 2, 2026 |
