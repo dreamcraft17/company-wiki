@@ -28,7 +28,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
   - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**79** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `ab11862` · blog AI cover fix + [security review](./docs/products/dntech/docs/SECURITY-REVIEW-2026-09-26.md)
-  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · HEAD `c54fa5a` · DOKU + `/admin/health` + **Kunjungan Web** analytics + plan catalog/trials + legal v1.2 + assistant v17 (Gemini) · next **PRD v16.0**
+  - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · **GTM 90d** · **v16+ frozen** · HEAD `4235ae5` · DOKU + `/admin/health` + **Kunjungan Web** + plan catalog + legal v1.2 + assistant v17 (Gemini)
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
   - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `f10c79f` · DOVA AI widget UX · bundles on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
@@ -98,4 +98,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: September 27, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*
+*Last Updated: October 2, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*

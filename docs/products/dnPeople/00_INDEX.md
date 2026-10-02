@@ -1,21 +1,21 @@
 # dnPeople HRIS — Documentation Index
 
 > **Author:** Dozer  
-> **Date:** 2026-09-26
+> **Date:** 2026-10-02
 
 **Product**: dnPeople — Human Resource Information System  
 **Repository**: `dnpeople` → [github.com/dreamcraft17/dnpeople](https://github.com/dreamcraft17/dnpeople)  
-**Status**: MVP 1–5 + PRD v5–**v15.0** / v14.0 / v13.0 / v12.1 / v11.1 complete · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+, Gemini primary) · admin catalog + **web traffic analytics** · ops gates Conditional  
+**Status**: MVP 1–5 + PRD v5–**v15.0** shipped · **Release v1.1.2** · **Legal v1.2** · **assistant v17** (Professional+, Gemini primary) · **GTM: 90-day design-partner motion** (retail/F&B 50–300 HC) · **freeze PRD v16+** until 2 pilots · ops gates Conditional · **0 paying clients** (Oct 2026)  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DnPeople  
-**UpdatedAt**: September 26, 2026  
-**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant  
+**UpdatedAt**: October 2, 2026  
+**Spec Version**: PRD/SRS/SDD v3.1 + PRD v4–**v15.0** / v11.1 / v17 assistant · next product PRD **v16.0 frozen** (GTM gate)  
 **Codebase**: **109** frontend pages · **63** backend route modules · **139** Prisma models · **216/216** tests · **16** a11y (Playwright + axe)  
-**HEAD**: `dnpeople` main · **`c54fa5a`** (web traffic analytics + Gemini assistant primary) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
+**HEAD**: `dnpeople` main · **`4235ae5`** (GTM docs + WhatsApp workflow-audit CTA) · tag **[v1.1.2](https://github.com/dreamcraft17/dnpeople/releases/tag/v1.1.2)**
 
 > **Soft launch:** [docs/RELEASE-READY.md](./docs/RELEASE-READY.md) · [docs/LAUNCH-GATE-CHECKLIST.md](./docs/LAUNCH-GATE-CHECKLIST.md)  
-> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — next product scope PRD v4 Module 4–8 (product PRD **v16.0**)  
+> **Baseline:** [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md) — product PRD **v16.0** on hold until GTM pilots · [docs/GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md)  
 > **Demo accounts:** [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) — public demo sandbox **FREE** tier  
 > **Payment gateway:** **DOKU is active/default/live**; Xendit and Midtrans remain admin-switchable alternatives. See [docs/PG/README.md](./docs/PG/README.md) · **Xendit setup (test mode):** [docs/xendit/XENDIT-PAYMENT-SETUP.md](./docs/xendit/XENDIT-PAYMENT-SETUP.md)  
 > **Admin monitoring:** `/admin/health` tracks API errors/latency, DOKU webhooks, DB/queue health, and alert acknowledgement.  
@@ -73,7 +73,9 @@
 | [docs/legal/TERMS-OF-SERVICE.md](./docs/legal/TERMS-OF-SERVICE.md) | Syarat layanan (ringkas; teks halaman di `legal2/`) |
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
 | [docs/CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Chaos engineering (VPS/PM2) |
-| [docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales (ICP, demo, handoff) |
+| [docs/GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md) | **GTM 90 hari** — design partner motion, north star, kill criteria |
+| [docs/research/product-market-reset-2026-10-02/2026-10-02_decision.md](./docs/research/product-market-reset-2026-10-02/2026-10-02_decision.md) | **PM/market reset** — freeze v16+, wedge retail/F&B, evidence pack |
+| [docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md](./docs/DNPEOPLE-PANDUAN-BUSINESS-DEVELOPMENT.md) | Panduan BD/sales (ICP, demo, handoff) — links GTM plan |
 | [docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md](./docs/DNPEOPLE-BISNIS-FITUR-LAYANAN.md) | Bisnis, paket, layanan, fitur per modul (rinci) |
 | [docs/DNPEOPLE-HRIS-OVERVIEW.md](./docs/DNPEOPLE-HRIS-OVERVIEW.md) | HRIS overview konsolidasi |
 | [docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md](./docs/PRD/MARKET-FEATURE-OPPORTUNITY-2026-09-17.md) | Review fitur implementasi terbaru, kategori pasar, segmen prioritas, dan rencana validasi |
@@ -99,6 +101,7 @@
 cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/
 cp -R dnpeople/docs/xendit company-wiki/docs/products/dnPeople/docs/
 cp -R dnpeople/docs/PG company-wiki/docs/products/dnPeople/docs/
+cp -R dnpeople/docs/research/product-market-reset-2026-10-02 company-wiki/docs/products/dnPeople/docs/research/
 cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 # Curated PRD baseline is product-root current-implementation.md — summarize, do not overwrite with full CURRENT-IMPLEMENTATION
 # Update 00_INDEX.md di wiki jika status berubah
@@ -106,4 +109,4 @@ cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
 
 ---
 
-*Last Updated: September 26, 2026*
+*Last Updated: October 2, 2026*

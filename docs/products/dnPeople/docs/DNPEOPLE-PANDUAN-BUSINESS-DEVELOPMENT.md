@@ -14,6 +14,8 @@ review_cadence: annual
 
 Panduan kerja BD: siapa yang dikejar, apa yang boleh dijanjikan, alur demo, kualifikasi, harga, handoff ke implementasi. **Jangan** jual item **Roadmap** atau **Conditional** sebagai fitur sudah live tanpa syarat.
 
+> **PMF / belum ada klien:** baca dulu [GTM-IMPLEMENTATION-90-DAYS.md](./GTM-IMPLEMENTATION-90-DAYS.md) dan [research/product-market-reset-2026-10-02/2026-10-02_decision.md](./research/product-market-reset-2026-10-02/2026-10-02_decision.md) — fokus design partner retail/F&B, bukan breadth fitur baru.
+
 ---
 
 ## 1. Tujuan BD

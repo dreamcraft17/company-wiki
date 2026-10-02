@@ -1,19 +1,21 @@
 # dnPeople — Current Implementation Baseline
 
 > **Author:** Dozer  
-> **Date:** 2026-09-26
+> **Date:** 2026-10-02
 
 | Metadata | Value |
 |----------|-------|
-| Snapshot date | 26 September 2026 |
-| HEAD | `c54fa5a` on `dnpeople` main (marketing web traffic analytics; Gemini-primary assistant) |
+| Snapshot date | 2 October 2026 |
+| HEAD | `4235ae5` on `dnpeople` main (release tag **v1.1.2** unchanged; GTM docs + marketing WhatsApp CTA) |
 | Purpose | **Baseline** after **v1.1.2** plus Aug–Sep billing, legal, assistant, catalog, monitoring, and admin web analytics on PRD **v15.0** |
-| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **v4 Module 4–8** → **v16.0** |
+| Specification baseline | PRD/SRS/SDD v3.1 through **v15.0 / v14.0 / v13.0 / v12.1 / v11.1**; **PRD v16.0 frozen** until GTM pilots (see GTM doc) |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Company | DN Tech (PT. Dozer Napitupulu Technology) |
 | Brand | DnPeople |
-| Updated at | September 26, 2026 |
+| Updated at | October 2, 2026 |
 
+> **2 Oct 2026 (GTM — no new product release):** Product/market reset — **not wrong product, wrong motion**. **90-day** founder-led **workflow audit** → **2 design partners** (retail/F&B multi-outlet **50–300** HC). **Freeze PRD v16+** feature breadth. North star: weekly tenants completing import + payroll preview **or** ≥10 attendance approvals with audit trail. Team SSOT: [GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md) · [2026-10-02_decision.md](./docs/research/product-market-reset-2026-10-02/2026-10-02_decision.md). CEO kill criteria: `private-wiki/dnpeople/internal/PMF-GTM-EXEC-2026-10-02.md`.
+>
 > **26 Sep 2026:** Admin **Kunjungan Web** — first-party page views on public marketing routes (`POST /api/v1/public/page-views`, table `marketing_page_views`); per-path report at `/admin/analytics/web-traffic` + dashboard summary. HR assistant LLM: **Gemini primary**, OpenAI-compatible fallback. Unit tests **216/216**. Prisma **139** models. **109** frontend pages · **63** route modules · **41** migrations. Deploy: `npx prisma migrate deploy` for `20260926120000_marketing_page_views`.
 >
 > **25 Sep 2026:** HR assistant gated **Professional+**. SUPER_ADMIN `/admin/tier-pricing` edits list prices, trial months (including FREE), and catalog wording; pricing cards read `GET /subscription/plans`. Default trials: Starter **4** months, Professional **2** months (revocable). Do not copy Early Release INTERNAL PRD into this wiki — SSOT `private-wiki/dnpeople/internal/`.
