@@ -2,7 +2,7 @@
 owner: Dozer
 status: review-required
 canonical: false
-last_reviewed: 2026-09-15
+last_reviewed: 2026-09-23
 review_cadence: annual
 ---
 
@@ -10,9 +10,9 @@ review_cadence: annual
 
 > **Author:** Dozer  
 > **Date:** 2026-09-09  
-> **Versi dokumen sumber:** 1.1
+> **Versi dokumen sumber:** 1.2
 
-**Berlaku mulai:** 9 September 2026  
+**Berlaku mulai:** 23 September 2026
 **Pengendali / prosesor:** PT. Dozer Napitupulu Technology (“DN Tech”, “kami”) untuk merek dnPeople  
 **Produk:** HRIS dnPeople (antara lain https://hris.dntech.id dan domain terkait)
 
@@ -113,6 +113,10 @@ Kami tidak menjual data pribadi. Data terbatas pada yang diperlukan untuk HRIS, 
 
 **5.6 Data yang tidak kami cari dari formulir publik.** Data pribadi spesifik Pasal 4 ayat (2) UU PDP (kesehatan, biometrik skala identifikasi, data genetik, dan sejenisnya) tidak diminta melalui situs pemasaran. Jika pelanggan mengunggah data semacam itu ke HRIS, pelanggan wajib memiliki dasar hukum sendiri.
 
+**5.7 Fitur AI.** Jika AI HR Assistant atau fitur AI lain diaktifkan, kami dapat memproses pertanyaan pengguna, potongan FAQ/kebijakan yang relevan, metadata sumber atau sitasi, hasil jawaban, event audit, dan feedback kualitas. Untuk mode sintesis LLM, pertanyaan dan konteks yang relevan dikirim ke provider model AI yang dikonfigurasi; kami menerapkan pembatasan tenant, minimisasi konteks, redaksi identifier langsung yang terdeteksi, dan fallback tanpa LLM bila provider tidak tersedia. Data fakta HR yang dijawab langsung oleh tool ter-scope diproses di sistem dnPeople dan tidak dikirim ke LLM untuk sintesis.
+
+Fitur AI tidak digunakan oleh DN Tech untuk melatih model umum milik kami. Retensi, lokasi pemrosesan, dan penggunaan data oleh provider model mengikuti konfigurasi layanan, perjanjian pemrosesan, dan daftar prosesor yang berlaku; pelanggan dapat meminta informasi sub-processor melalui kanal privasi. Feedback AI bersifat opsional, tetapi event keamanan dan audit dapat tetap dicatat untuk akuntabilitas layanan.
+
 ## 6. Tujuan dan dasar pemrosesan
 
 - menyediakan HRIS (master data, absensi, cuti, payroll, dokumen, audit);
@@ -121,8 +125,11 @@ Kami tidak menjual data pribadi. Data terbatas pada yang diperlukan untuk HRIS, 
 - dukungan pelanggan atas permintaan akun yang sah;
 - memenuhi kewajiban hukum dan sengketa;
 - analitik agregat penggunaan produk (bukan penjualan daftar karyawan).
+- menyediakan dan mengamankan fitur AI, termasuk menjawab pertanyaan, menampilkan sitasi, mendeteksi penyalahgunaan, mengukur kualitas jawaban, dan menyediakan audit trail.
 
 Kami tidak menggunakan data karyawan untuk pengambilan keputusan otomatis yang menimbulkan akibat hukum bagi individu di luar logika yang pelanggan konfigurasi (misalnya alur persetujuan cuti). Pasal 10 UU PDP tentang pemrosesan otomatis dihormati: tidak ada skor “PHK otomatis” dari kami.
+
+Output AI adalah bantuan yang dapat keliru dan bukan keputusan employment. Pelanggan tetap menjadi pihak yang bertanggung jawab atas review manusia, keputusan HR, dan pemberitahuan kepada karyawan mengenai penggunaan fitur AI di tenant-nya.
 
 ## 7. Retensi
 
@@ -132,7 +139,7 @@ Default retensi data operasional HR adalah **5 tahun** setelah berakhirnya hubun
 |----------|---------|
 | Data karyawan dalam tenant | Selama langganan aktif + retensi di atas, kecuali pelanggan menghapus/offboarding |
 | Invoice dan pajak langganan | Sesuai kewajiban pembukuan (umumnya hingga 5–10 tahun sesuai peraturan pajak yang berlaku) |
-| Log teknis / error | Umumnya hingga 90 hari, kecuali insiden keamanan |
+| Log teknis / error / AI audit | Umumnya hingga 90 hari, kecuali insiden keamanan, kewajiban hukum, atau kebutuhan audit yang sah |
 | Permintaan ekspor/hapus | Dicatat di audit log |
 
 Setelah terminasi, data dapat diunduh oleh admin dalam jendela yang diumumkan di Syarat Layanan, lalu dihapus atau dianonimkan kecuali ada kewajiban simpan.
@@ -146,6 +153,7 @@ Data dapat diakses oleh karyawan DN Tech yang terikat kerahasiaan, sebatas tugas
 - email transaksional (SMTP);
 - Sentry untuk galat (dengan redaksi yang kami terapkan);
 - gerbang pembayaran Xendit dan/atau Midtrans;
+- provider model AI/LLM yang diaktifkan untuk fitur AI, hanya untuk pertanyaan dan konteks yang diperlukan untuk menghasilkan jawaban;
 - penyedia identitas (Google, Microsoft, SAML) jika SSO diaktifkan.
 
 Daftar yang berlaku di lingkungan Anda: `GET /api/v1/privacy/processors` (peran yang berwenang).

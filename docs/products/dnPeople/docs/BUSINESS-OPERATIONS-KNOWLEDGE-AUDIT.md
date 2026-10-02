@@ -12,7 +12,7 @@ review_cadence: quarterly
 **Project:** dnPeople  
 **Reviewed:** 2026-09-15  
 **Method:** `business-operations-skills` → `knowledge-ops`  
-**Scope:** `dnpeople/docs/`
+**Scope:** `company-wiki/docs/products/dnPeople/docs/`
 
 ## Executive summary
 
@@ -117,7 +117,7 @@ The documentation tree contains `docs/xendit/secret_api_key.csv`. Do not commit,
 | Who | Dozer is the current accountable owner; assign named functional owners and on-call rotations |
 | What | Maintain canonical product, architecture, integration, deployment, compliance, support, and incident documents |
 | When | Review critical runbooks at least quarterly and after material system changes; review general docs on a defined cadence |
-| Where | Keep canonical Markdown under `dnpeople/docs/`; link operational runbooks from `00_INDEX.md` and the relevant service pages |
+| Where | Keep canonical Markdown under `company-wiki/docs/products/dnPeople/`; link operational runbooks from `00_INDEX.md` and the relevant service pages |
 | Why | Reduce time-to-find, prevent conflicting implementation guidance, and make incident execution safer |
 | How | Add metadata, curate the index, normalize runbook fields, classify legacy pages, and enforce checks in CI |
 | How much | Treat the first cleanup as a focused documentation sprint; measure progress using the KPIs below rather than page count alone |

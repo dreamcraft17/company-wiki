@@ -86,7 +86,7 @@
 | [docs/research/feature-research-2026-09-19/2026-09-19_decision.md](./docs/research/feature-research-2026-09-19/2026-09-19_decision.md) | Evidence pack riset fitur: wedge, segmentasi, competitive evidence, UX journey, dan rencana validasi |
 | [docs/research/anti-ai-ui-design-2026-09-26/2026-09-26_decision.md](./docs/research/anti-ai-ui-design-2026-09-26/2026-09-26_decision.md) | Riset anti–AI-slop UI: specificity, pola lama yang dipertahankan, audit dnPeople, rekomendasi refresh |
 | [docs/REST-API-OPENAPI-HARDENING-2026-09-18.md](./docs/REST-API-OPENAPI-HARDENING-2026-09-18.md) | REST API hardening — OpenAPI coverage 3% → ~100%, digenerate dari schema Zod, fix `POST /tenants/search` |
-| [docs/00_INDEX.md](./docs/00_INDEX.md) | Index mirror repo `dnpeople/docs/` |
+| [docs/00_INDEX.md](./docs/00_INDEX.md) | Index dokumen produk (SSOT wiki; repo app hanya stub `dnpeople/docs/README.md`) |
 
 ## Ops (`ops/`)
 
@@ -97,17 +97,15 @@
 | [ops/alerting/alert-rules.yaml](./ops/alerting/alert-rules.yaml) | Alert monitor stubs |
 | [ops/pen-test-staging-prep.md](./ops/pen-test-staging-prep.md) | Persiapan pen-test |
 
-## Sync dari repo
+## SSOT & sync
+
+**Edit di folder ini** (`company-wiki/docs/products/dnPeople/`). Repo `dnpeople/` tidak menyimpan salinan Markdown produk (kecuali stub pointer + `backend/content/legal/` untuk seed halaman `/legal/*`).
+
+Setelah rilis besar, salin **README** engineering ke wiki jika perlu:
 
 ```bash
-# Dari root monorepo / sibling folders:
-cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/
-cp -R dnpeople/docs/xendit company-wiki/docs/products/dnPeople/docs/
-cp -R dnpeople/docs/PG company-wiki/docs/products/dnPeople/docs/
-cp -R dnpeople/docs/research/product-market-reset-2026-10-02 company-wiki/docs/products/dnPeople/docs/research/
 cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
-# Curated PRD baseline is product-root current-implementation.md — summarize, do not overwrite with full CURRENT-IMPLEMENTATION
-# Update 00_INDEX.md di wiki jika status berubah
+# Curated PRD baseline: product-root current-implementation.md — summarize, jangan overwrite penuh dari CURRENT-IMPLEMENTATION
 ```
 
 ---

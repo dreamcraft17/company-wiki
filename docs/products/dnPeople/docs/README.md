@@ -1,6 +1,6 @@
-# dnPeople — Living docs (mirror)
+# dnPeople — Living docs (SSOT)
 
-Dokumentasi operasional dnPeople yang di-mirror dari repo [`dnpeople`](https://github.com/dreamcraft17/dnpeople). Untuk overview produk, mulai dari **[README parent](../README.md)**.
+Dokumentasi operasional dnPeople (**canonical di company-wiki**). Kode aplikasi: repo [`dnpeople`](https://github.com/dreamcraft17/dnpeople). Mulai dari **[README parent](../README.md)**.
 
 | | |
 |---|---|
@@ -31,4 +31,4 @@ Dokumentasi operasional dnPeople yang di-mirror dari repo [`dnpeople`](https://g
 
 Spec historis PRD/SRS/SDD: [../00_INDEX.md](../00_INDEX.md) · [../PRD/](../PRD/)
 
-> Sync source of truth: repo `dnpeople/docs/` — update wiki mirror saat release/sign-off.
+> SSOT: folder ini. Halaman `/legal/*` di-seed dari `dnpeople/backend/content/legal/` (bukan duplikat PRD di app repo).

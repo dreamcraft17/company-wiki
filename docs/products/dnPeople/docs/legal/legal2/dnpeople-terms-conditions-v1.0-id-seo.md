@@ -2,7 +2,7 @@
 owner: Dozer
 status: review-required
 canonical: false
-last_reviewed: 2026-09-15
+last_reviewed: 2026-09-23
 review_cadence: annual
 ---
 
@@ -10,9 +10,9 @@ review_cadence: annual
 
 > **Author:** Dozer  
 > **Date:** 2026-09-09  
-> **Versi dokumen sumber:** 1.1
+> **Versi dokumen sumber:** 1.2
 
-**Berlaku mulai:** 9 September 2026  
+**Berlaku mulai:** 23 September 2026
 **Penyelenggara:** PT. Dozer Napitupulu Technology (“DN Tech”, “kami”)  
 **Layanan:** HRIS dnPeople (SaaS multi-tenant)
 
@@ -76,6 +76,14 @@ Kami dapat mengubah, menunda, atau menghentikan fitur beta. Status produksi vs s
 
 Anda bertanggung jawab atas keakuratan data yang diunggah, perhitungan yang Anda setujui sebelum pembayaran gaji, dan kepatuhan ketenagakerjaan/pajak perusahaan Anda. dnPeople adalah alat; kami bukan konsultan pajak atau kuasa hukum.
 
+### Fitur AI
+
+Jika diaktifkan pada paket atau tenant Anda, dnPeople dapat menyediakan AI HR Assistant dan fitur AI lain yang membantu pencarian kebijakan, cara penggunaan produk, atau ringkasan data yang memang boleh diakses oleh pengguna tersebut. Fitur ini dapat menggunakan penyedia model AI pihak ketiga yang dikonfigurasi DN Tech. Pertanyaan, konteks kebijakan yang relevan, metadata sitasi, dan feedback dapat diproses untuk menghasilkan jawaban serta menjaga keamanan dan mutu layanan.
+
+Jawaban AI bersifat bantuan, dapat keliru, tidak menggantikan keputusan atau nasihat HR, hukum, pajak, medis, atau ketenagakerjaan, dan harus diverifikasi oleh pengguna yang berwenang. AI dnPeople tidak dimaksudkan untuk mengambil keputusan otomatis mengenai perekrutan, promosi, kompensasi, evaluasi, disiplin, atau pemutusan hubungan kerja. Pelanggan wajib menyediakan pengawasan manusia dan tidak boleh menjadikan output AI sebagai satu-satunya dasar keputusan employment.
+
+Pelanggan wajib memastikan dasar hukum dan pemberitahuan kepada karyawan atau subjek data, membatasi input pada data yang diperlukan, dan tidak memasukkan rahasia, kredensial, atau data pribadi yang tidak diperlukan ke dalam pertanyaan AI. Pengguna dilarang menggunakan prompt atau konten kebijakan untuk membypass kontrol akses, mengambil data pihak lain, mengeksfiltrasi instruksi sistem, atau menyalahgunakan provider AI.
+
 ## 4. Akun dan keamanan
 
 Admin pelanggan menunjuk pengguna dan peran. Aktivitas melalui kredensial yang sah dianggap dilakukan pemegang akun, kecuali Anda segera memberitahu kami tentang penyalahgunaan.
@@ -94,7 +102,7 @@ Anda menjamin memiliki dasar hukum untuk memasukkan data pekerja dan pihak ketig
 
 ## 6. Langganan dan pembayaran
 
-Tagihan diterbitkan di dalam aplikasi (`/billing`). Pembayaran melalui gerbang yang kami aktifkan (Xendit dan/atau Midtrans): virtual account, e-wallet, QRIS, atau metode lain yang ditawarkan penyedia pada saat checkout. Pajak mengikuti peraturan Indonesia.
+Tagihan diterbitkan di dalam aplikasi (`/billing`). Pembayaran melalui gerbang yang kami aktifkan, termasuk DOKU dan channel yang ditampilkan saat checkout. Pajak mengikuti peraturan Indonesia.
 
 Keterlambatan dapat memicu peringatan, pembatasan fitur, atau pembekuan sesuai kebijakan operasional yang berlaku pada saat itu. Uang muka atau periode yang sudah berjalan umumnya tidak dikembalikan, kecuali wajib hukum atau kami setujui tertulis.
 

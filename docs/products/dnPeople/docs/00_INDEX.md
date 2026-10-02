@@ -152,13 +152,11 @@ These pages are intentionally linked for discoverability. Their metadata marks t
 | PRD v8.0 | `company-wiki/docs/products/dnPeople/PRD/dnpeople-prd-v8.0-security-stability-fixes-id.md` |
 | Wiki Index | `company-wiki/docs/products/dnPeople/00_INDEX.md` |
 
-## Sync ke wiki
+## SSOT
 
-```bash
-cp dnpeople/docs/*.md company-wiki/docs/products/dnPeople/docs/
-cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md
-# Update 00_INDEX.md di wiki jika status berubah
-```
+Edit langsung di folder ini. Repo `dnpeople/` hanya stub `docs/README.md` + seed legal di `backend/content/legal/`.
+
+Opsional setelah rilis: `cp dnpeople/README.md company-wiki/docs/products/dnPeople/README.md`
 
 ---
 

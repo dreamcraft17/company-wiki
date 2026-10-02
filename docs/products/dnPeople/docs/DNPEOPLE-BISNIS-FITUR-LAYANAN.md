@@ -10,7 +10,7 @@ review_cadence: annual
 
 > **Status:** Active · **Last updated:** 2026-09-13 · **Author:** Dozer  
 > **Audience:** sales, partner, onboarding, PM  
-> **Sumber:** katalog & baseline wiki `company-wiki/docs/products/dnPeople/` (mirror `dnpeople/docs/`)  
+> **Sumber:** katalog & baseline wiki `company-wiki/docs/products/dnPeople/` (SSOT; repo app tanpa salinan Markdown)  
 > **Bukan janji go-live:** status **Available** = ada di codebase; **Conditional** = butuh provider/UAT; **Roadmap** = jangan dijual sebagai existing
 
 Dokumen ini menjelaskan **model bisnis**, **siapa yang dilayani**, **paket & layanan operasional**, dan **fitur per modul** secara rinci. Tabel baris-per-baris (surface API, role, status): [FEATURE-CATALOG.md](./FEATURE-CATALOG.md). Baseline teknik: [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md). Ringkas satu file lama: [DNPEOPLE-HRIS-OVERVIEW.md](./DNPEOPLE-HRIS-OVERVIEW.md).
