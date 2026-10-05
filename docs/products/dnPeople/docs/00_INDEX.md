@@ -18,7 +18,7 @@ review_cadence: monthly
 **Contact:** info@dntech.id  
 **Wiki mirror:** `company-wiki/docs/products/dnPeople/`
 
-> **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md)  
+> **Soft launch:** [RELEASE-READY.md](./RELEASE-READY.md) + [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) · **GTM compliance (Oct 2026):** [GTM-SOFT-LAUNCH-COMPLIANCE-POSITIONING.md](./GTM-SOFT-LAUNCH-COMPLIANCE-POSITIONING.md)  
 > **Dasar PRD berikutnya:** [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) · **Prep lengkap v16.0:** [PRD/dnpeople-prd-v16.0-prep-id.md](./PRD/dnpeople-prd-v16.0-prep-id.md)  
 > **Baseline panjang:** [CURRENT-IMPLEMENTATION.md](./CURRENT-IMPLEMENTATION.md) — next greenfield Module 4–8 → **v16.0**  
 > **Demo creds on UI:** ditampilkan by default (public sandbox **FREE** tier) — lihat [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md); sembunyikan dengan `NEXT_PUBLIC_SHOW_DEMO_CREDS=false`
