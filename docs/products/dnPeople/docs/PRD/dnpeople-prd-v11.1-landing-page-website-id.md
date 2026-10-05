@@ -507,7 +507,7 @@ A: Compliant dengan UU Perlindungan Data Pribadi (UU PDP).
 
 SUPPORT & TRAINING:
 Q: Apakah ada support lokal?
-A: Ya, info@dnpeople.id (email + chat).
+A: Ya, info@dntech.id (email + chat).
 
 Q: Bagaimana jika ada issue saat setup?
 A: Free onboarding call + training video provided.
@@ -566,7 +566,7 @@ Row 1 (Top):
 
 Row 2 (Bottom):
   Copyright: "© 2026 PT. Dozer Napitupulu Technology"
-  Contact email: info@dnpeople.id
+  Contact email: info@dntech.id
   Address: Jakarta, Indonesia
 ```
 
@@ -1019,7 +1019,7 @@ Launch Day (28 Jul):
   [ ] Analytics tracking confirmed (test event)
   [ ] Monitoring/uptime alert active (Datadog or Uptime Robot)
   [ ] Backup of website configured
-  [ ] Contact email monitored (info@dnpeople.id)
+  [ ] Contact email monitored (info@dntech.id)
   [ ] Slack alert setup (if page down)
 
 Post-launch (29-30 Jul):

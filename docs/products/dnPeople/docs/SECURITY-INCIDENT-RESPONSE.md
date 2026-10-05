@@ -59,7 +59,7 @@ review_cadence: quarterly
 
 ## Contacts
 - Primary: Dozer
-- Support: info@dnpeople.id
+- Support: info@dntech.id
 - Escalation: on-call (PagerDuty)
 
 ## Related

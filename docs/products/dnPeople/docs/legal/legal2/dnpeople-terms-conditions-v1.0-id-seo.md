@@ -130,7 +130,7 @@ Data dan merek pelanggan tetap milik pelanggan. Masukan (feedback) dapat kami gu
 
 Target ketersediaan pada soft launch: **99,5%** per bulan kalender, di luar pemeliharaan terencana. Target publik 99,9% adalah sasaran operasional, bukan jaminan ganti rugi otomatis kecuali SLA tertulis Enterprise.
 
-Dukungan: info@dnpeople.id pada hari kerja. Target respons mengikuti kebijakan dukungan internal (bukan ganti rugi).
+Dukungan: info@dntech.id pada hari kerja. Target respons mengikuti kebijakan dukungan internal (bukan ganti rugi).
 
 Layanan disediakan “sebagaimana adanya” untuk situs dan fitur non-Enterprise. Gangguan gerbang bayar, DNS, atau pusat data pihak ketiga di luar kendali wajar kami.
 
@@ -166,6 +166,6 @@ Jika suatu klausul tidak sah, klausul lain tetap berlaku. Kegagalan menegakkan h
 
 PT. Dozer Napitupulu Technology  
 Jakarta, Indonesia  
-info@dnpeople.id · info@dntech.id · legal@dnpeople.id (jika diaktifkan)
+info@dntech.id · info@dntech.id · legal@dnpeople.id (jika diaktifkan)
 
 **Dokumen terkait:** [Kebijakan Privasi](/legal/privacy) · [DPA](/legal/dpa)

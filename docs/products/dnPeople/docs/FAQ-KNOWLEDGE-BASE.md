@@ -60,7 +60,7 @@ A: `/billing` → kolom aksi → **PDF** (Unduh). File berisi logo dnPeople, det
 A: Itu pratinjau trial (DRAFT). Secara default disembunyikan — klik **Tampilkan pratinjau trial** jika perlu melihat semua.
 
 **Q: Berapa harga dnPeople?**  
-A: Starter Rp10.000/karyawan/bulan (minimum Rp150.000); Professional Rp15.000 (minimum Rp20.000); Business Rp20.000 (minimum Rp6.000.000) — lihat `/billing` atau sales@dnpeople.id.
+A: Starter Rp10.000/karyawan/bulan (minimum Rp150.000); Professional Rp15.000 (minimum Rp20.000); Business Rp20.000 (minimum Rp6.000.000) — lihat `/billing` atau sales@dntech.id.
 
 **Q: Bisa ganti paket?**  
 A: Ya, upgrade/cancel/reactivate di `/billing`.
@@ -92,7 +92,7 @@ A: Data HR operasional; field sensitif dienkripsi. Privacy: `docs/legal/PRIVACY-
 ## Support
 
 **Q: Bagaimana hubungi support?**  
-A: info@dnpeople.id — SLA di `docs/SLA-SUPPORT-POLICY.md` (target respons < 24 jam bisnis).
+A: info@dntech.id — SLA di `docs/SLA-SUPPORT-POLICY.md` (target respons < 24 jam bisnis).
 
 **Q: Bagaimana data dilindungi?**  
 A: RBAC, enkripsi, audit, MFA, file ber-auth — lihat `docs/SECURITY.md`.

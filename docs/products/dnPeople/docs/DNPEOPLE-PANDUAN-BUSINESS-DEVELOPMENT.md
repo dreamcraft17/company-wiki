@@ -27,7 +27,7 @@ Panduan kerja BD: siapa yang dikejar, apa yang boleh dijanjikan, alur demo, kual
 | Soft launch / beta: 10–20 customer (PRD v11.0) | [LAUNCH-GATE-CHECKLIST.md](./LAUNCH-GATE-CHECKLIST.md) — status **Conditional** |
 | Handoff bersih ke CS (10 langkah onboarding) | [CUSTOMER-ONBOARDING-PLAYBOOK.md](./CUSTOMER-ONBOARDING-PLAYBOOK.md) |
 
-Kontak: **sales@dnpeople.id** (sales/demo) · **info@dntech.id** / **info@dnpeople.id** (support — lihat SLA). App: [hris.dntech.id](https://hris.dntech.id). Landing: `/welcome`. Domain **dnpeople.id** DNS masih **Conditional**.
+Kontak: **sales@dntech.id** (sales/demo) · **info@dntech.id** / **info@dntech.id** (support — lihat SLA). App: [hris.dntech.id](https://hris.dntech.id). Landing: `/welcome`. Domain **dnpeople.id** DNS masih **Conditional**.
 
 ---
 

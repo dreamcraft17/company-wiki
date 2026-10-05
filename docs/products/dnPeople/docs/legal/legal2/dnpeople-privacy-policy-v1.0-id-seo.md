@@ -92,7 +92,7 @@ Perjanjian pemrosesan data (DPA) tersedia sebagai kerangka Enterprise/Business; 
 - **Nama:** PT. Dozer Napitupulu Technology  
 - **Merek produk:** dnPeople  
 - **Email privasi:** privacy@dnpeople.id  
-- **Email umum:** info@dnpeople.id dan info@dntech.id  
+- **Email umum:** info@dntech.id dan info@dntech.id  
 - **Permintaan hak subjek data:** kirim ke privacy@dnpeople.id dengan subjek “Permintaan Data Pribadi”, atau gunakan fitur ekspor/hapus di dalam aplikasi jika tersedia untuk peran Anda  
 
 Alamat korespondensi: Jakarta, Indonesia (lihat halaman kontak produk). Kami belum menunjuk pejabat pelindungan data terpublikasi dengan nama pribadi; permintaan dialihkan ke alamat di atas.
@@ -207,7 +207,7 @@ Perubahan material diumumkan di halaman ini dengan tanggal berlaku baru. Perubah
 ## 16. Pengaduan dan kontak
 
 PT. Dozer Napitupulu Technology  
-privacy@dnpeople.id · info@dnpeople.id · info@dntech.id  
+privacy@dnpeople.id · info@dntech.id · info@dntech.id  
 
 Anda dapat menempuh upaya hukum sesuai UU PDP, termasuk pengaduan kepada instansi yang berwenang di bidang pelindungan data pribadi dan/atau pengadilan di Indonesia. Kementerian Komunikasi dan Digital: https://www.komdigi.go.id (saluran pengaduan mengikuti pengumuman resmi lembaga).
 

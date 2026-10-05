@@ -26,4 +26,4 @@ Tidak ada public `/uploads`. Unduh via auth; signed payslip 24 jam.
 Perubahan sensitif tercatat; export audit di `/audit` (role sesuai).
 
 ## Incident
-Lihat `SECURITY-INCIDENT-RESPONSE.md`. Laporkan ke info@dnpeople.id.
+Lihat `SECURITY-INCIDENT-RESPONSE.md`. Laporkan ke info@dntech.id.

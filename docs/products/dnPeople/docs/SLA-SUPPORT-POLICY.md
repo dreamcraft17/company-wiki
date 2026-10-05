@@ -19,8 +19,8 @@ review_cadence: annual
 
 | Channel | Alamat / sistem | Catatan |
 |---------|-----------------|--------|
-| Support email | info@dnpeople.id | Harus dimonitor bisnis hours |
-| Sales | sales@dnpeople.id | Demo & kontrak |
+| Support email | info@dntech.id | Harus dimonitor bisnis hours |
+| Sales | sales@dntech.id | Demo & kontrak |
 | Ticketing | Helpscout / Zendesk / Jira Service (pilih satu) | Email-to-ticket |
 
 ## SLA respons

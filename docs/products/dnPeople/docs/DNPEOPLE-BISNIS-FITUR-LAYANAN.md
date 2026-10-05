@@ -28,7 +28,7 @@ Dokumen ini menjelaskan **model bisnis**, **siapa yang dilayani**, **paket & lay
 | **API** | [api.hris.dntech.id](https://api.hris.dntech.id) |
 | **Marketing in-app** | `/welcome`, `/pricing`, `/docs`, `/faq`, `/demo` |
 | **Domain pemasaran** | [dnpeople.id](https://dnpeople.id) — DNS go-live **Conditional** |
-| **Kontak** | info@dntech.id · sales: sales@dnpeople.id (kebijakan support) |
+| **Kontak** | info@dntech.id · sales: sales@dntech.id (kebijakan support) |
 | **Release** | Tag **v1.1.0** · PRD v5–**v15.0** + v13 talent + v14 tutorial + v17 assistant di repo |
 | **Bukan** | Repo `ERP/` (DN People ERP NestJS). dnPeople = Express + Next.js |
 

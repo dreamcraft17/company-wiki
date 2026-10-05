@@ -50,7 +50,7 @@ document_type: customer-contract-attachment
 | Medium (Fitur sekunder, UI glitch) | < 8 jam | 24 jam | 08:00–18:00 WIB |
 | Low (Enhancement request, minor documentation) | < 24 jam | 72 jam | Jam kerja |
 
-**Channel:** info@dnpeople.id · sales@dnpeople.id (kontrak) — detail di [SLA-SUPPORT-POLICY.md](../SLA-SUPPORT-POLICY.md).
+**Channel:** info@dntech.id · sales@dntech.id (kontrak) — detail di [SLA-SUPPORT-POLICY.md](../SLA-SUPPORT-POLICY.md).
 
 ---
 

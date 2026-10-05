@@ -551,7 +551,7 @@ Belum yakin mana tier yang cocok?
 ```
 Pertanyaan lain? Hubungi kami.
 
-[Email: sales@dnpeople.id] [Chat: Start Chat] [Call: 0812-XXXX-XXXX]
+[Email: sales@dntech.id] [Chat: Start Chat] [Call: 0812-XXXX-XXXX]
 ```
 
 ---
@@ -591,7 +591,7 @@ Col 1: Punya Pertanyaan?
 - FAQ
 - Hubungi Sales
 - Chat Support
-- Email: sales@dnpeople.id
+- Email: sales@dntech.id
 
 Col 2: Dokumentasi & Resources
 - Knowledge Base
