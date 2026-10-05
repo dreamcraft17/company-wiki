@@ -13,6 +13,8 @@ review_cadence: annual
 
 **Lampiran kontrak pelanggan (tier, service credit, add-on):** [legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md](./legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md) — draft; selaraskan dengan [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) sebelum ditandatangani.
 
+**Ringkasan publik (web):** https://dnpeople.id/legal/support — tanpa service credit; selaras dengan tabel respons di bawah.
+
 ## Channel
 
 | Channel | Alamat / sistem | Catatan |
