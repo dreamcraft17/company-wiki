@@ -108,6 +108,7 @@ These pages are intentionally linked for discoverability. Their metadata marks t
 | [PENTEST-SCOPE.md](./PENTEST-SCOPE.md) | Scope pen-test eksternal |
 | [CUSTOMER-ONBOARDING-PLAYBOOK.md](./CUSTOMER-ONBOARDING-PLAYBOOK.md) | Onboarding 10 langkah |
 | [SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md) | SLA & support |
+| [legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md](./legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md) | Lampiran SLA kontrak pelanggan (draft) |
 | [UU-PDP-COMPLIANCE-CHECKLIST.md](./UU-PDP-COMPLIANCE-CHECKLIST.md) | Checklist UU PDP |
 | [RESTORE-DRILL-RUNBOOK.md](./RESTORE-DRILL-RUNBOOK.md) | Drill restore backup |
 | [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo seed (tier FREE — honest nav) |

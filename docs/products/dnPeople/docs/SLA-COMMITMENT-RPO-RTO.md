@@ -30,4 +30,5 @@ review_cadence: quarterly
 | Finance / Risk | __________ | __________ |
 
 ## Customer-facing
-Publish summary on `/legal/terms` and support SLA doc (`docs/SLA-SUPPORT-POLICY.md`).
+
+Publish summary on `/legal/terms` and support SLA doc ([SLA-SUPPORT-POLICY.md](./SLA-SUPPORT-POLICY.md)). Kontrak berbayar dengan lampiran tier/credit: [legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md](./legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md) (draft — selaraskan backup window & uptime dengan tabel di atas sebelum eksekusi).

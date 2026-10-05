@@ -73,6 +73,7 @@
 | [docs/CHANGELOG.md](./docs/CHANGELOG.md) | Riwayat versi (**v1.1.1** + Unreleased Sep 2026; counts in Unreleased may lag `npm test`) |
 | [docs/legal/PRIVACY-POLICY.md](./docs/legal/PRIVACY-POLICY.md) | Kebijakan privasi (ringkas; teks halaman di `legal2/`) |
 | [docs/legal/TERMS-OF-SERVICE.md](./docs/legal/TERMS-OF-SERVICE.md) | Syarat layanan (ringkas; teks halaman di `legal2/`) |
+| [docs/legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md](./docs/legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md) | Lampiran SLA kontrak pelanggan (draft) |
 | [docs/A11Y-TESTING.md](./docs/A11Y-TESTING.md) | WCAG 2.2 AA — Playwright + axe CI |
 | [docs/CHAOS-ENGINEERING.md](./docs/CHAOS-ENGINEERING.md) | Chaos engineering (VPS/PM2) |
 | [docs/GTM-IMPLEMENTATION-90-DAYS.md](./docs/GTM-IMPLEMENTATION-90-DAYS.md) | **GTM 90 hari** — design partner motion, north star, kill criteria |

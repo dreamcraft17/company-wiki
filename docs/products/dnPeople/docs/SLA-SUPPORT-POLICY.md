@@ -11,6 +11,8 @@ review_cadence: annual
 **UpdatedAt:** 19 Juli 2026  
 **Status:** Draft operasional untuk soft launch  
 
+**Lampiran kontrak pelanggan (tier, service credit, add-on):** [legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md](./legal/SLA-SERVICE-LEVEL-AGREEMENT-TEMPLATE.md) — draft; selaraskan dengan [SLA-COMMITMENT-RPO-RTO.md](./SLA-COMMITMENT-RPO-RTO.md) sebelum ditandatangani.
+
 ## Channel
 
 | Channel | Alamat / sistem | Catatan |
