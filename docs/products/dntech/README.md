@@ -1,7 +1,7 @@
 # DN Tech Company Profile
 
 > **Author:** Dozer  
-> **Updated:** 2026-09-12
+> **Updated:** 2026-09-27
 
 Production company profile for **DN Tech** (PT. Dozer Napitupulu Technology): public marketing site, admin CMS, lead capture, email notifications, and SEO foundations.
 
@@ -11,7 +11,7 @@ Production company profile for **DN Tech** (PT. Dozer Napitupulu Technology): pu
 |---|---|
 | Live | https://www.dntech.id · https://api.dntech.id |
 | Repo | [github.com/dreamcraft17/dntech](https://github.com/dreamcraft17/dntech) |
-| Latest | `84a2448` |
+| Latest | `9c69cf3` |
 
 ## What it does
 
@@ -32,9 +32,13 @@ Detailed history: [`CHANGELOG.md`](https://github.com/dreamcraft17/company-wiki/
 | About — Founded by | Implemented (`DEFAULT_FOUNDER` + CMS `aboutContent.founder`) |
 | Legal pages | Implemented — Kebijakan Privasi + Syarat & Ketentuan (`db:seed-legal`) |
 | Relaunch anti-slop pass | Implemented (Aug 2026) — honest copy, skip link, CSP headers, deferred third-party JS |
-| Unit tests | **206 passing** (102 backend + 104 frontend) — verified 2026-09-12 |
+| Homepage visual refresh | Implemented — hero asset retained; project brief, workflow register, and pricing register added |
+| Site-wide visual system | Implemented — editorial surfaces, compact controls, shared public/admin shells, and route-wide legacy class normalization |
+| Mekari-inspired information architecture | Implemented — solution-led navigation, modular product catalog, proof/resources grouping, and package decision surfaces; see `docs/research/mekari-inspired-design-2026/` |
+| Blog automation | Implemented — scheduled generation queue, max 4 publishes/day, random Indonesian/English/Mandarin output |
+| Targeted worker tests | **5 passing** — verified 2026-09-27 |
 | CI | Lint + test + build on `main` (`.github/workflows/ci.yml`) |
-| Frontend build | Passing (Next.js 16.3.4, React 19.2.4, standalone output) |
+| Frontend build | Passing locally (Next.js 16.3.4, React 19.2.4, standalone output) — verified 2026-09-27 |
 | Lighthouse baseline | Recorded — see [wiki LIGHTHOUSE-BASELINE](https://github.com/dreamcraft17/company-wiki/blob/main/docs/products/dntech/docs/frontend/LIGHTHOUSE-BASELINE.md) |
 
 ## Tech stack
@@ -110,7 +114,9 @@ npm run dev
 | `npm run dev` | API with hot reload |
 | `npm run build` | TypeScript compile (+ `prisma generate`) |
 | `npm run start` | Run compiled API |
-| `npm run worker:blog` | Run the opt-in daily blog content worker |
+| `npm run worker:blog` | Run the opt-in blog generation queue and daily publish worker |
+| `npm run blog:backfill-translations` | Add the missing id/en version to existing blog posts (run `-- --dry-run` first) |
+| `npm run services:backfill-translations` | Add the missing id/en version to existing services (run `-- --dry-run` first) |
 | `npm run test` | All Jest tests |
 | `npm run test:unit` | Unit tests only |
 | `npm run test:integration` | Integration tests (needs Postgres) |
@@ -137,6 +143,42 @@ npm run dev
 | `npm run lighthouse` | Lighthouse on `/`, `/products/dnpeople`, `/contact` |
 | `npm run storybook` | Component docs (Button, Card, SectionHeading, HomeProducts) |
 
+## Languages (`/id` and `/en`)
+
+The public site is served under a locale prefix; `/admin` is not prefixed and stays Indonesian.
+
+**Which language a visitor gets.** `frontend/src/proxy.ts` redirects an unprefixed URL to a locale, in this order: the `NEXT_LOCALE` cookie (a manual choice in the navbar switcher), then the country header from the edge (`cf-ipcountry` on Cloudflare, with the Vercel/Netlify equivalents as fallbacks) — Indonesia gets `id`, everywhere else gets `en` — then `Accept-Language`, then `id`. **If production traffic stops going through Cloudflare, geo detection silently degrades to `Accept-Language`.**
+
+**UI copy** lives in `frontend/src/messages/{id,en}/*.json` (next-intl). Metadata emits a per-locale canonical plus `hreflang` alternates, and the sitemap lists both variants of every route.
+
+**Blog posts and services are bilingual.** Each is one base row written in its own `locale` column (`BlogPost.locale` / `Service.locale`), plus a `*Translation` row per other language (its own title/name, slug, body/description and SEO fields — services also carry `features`). Public endpoints take `?locale=`, resolve either language's slug, and fall back to the original language when a translation is missing — the blog page then shows a notice. Automated blog posts are written in Indonesian and translated to English in the same run; if translation fails the Indonesian post still publishes. Editors can review, fix, regenerate or delete a translation from the admin blog/services screen, and a human-edited translation (`isMachine: false`) is never overwritten by automation.
+
+**Deploying this change.** Push the schema, then backfill the existing content:
+
+```bash
+cd backend
+npm run db:push
+npm run blog:backfill-translations -- --dry-run       # check the plan first
+npm run blog:backfill-translations
+npm run services:backfill-translations -- --dry-run
+npm run services:backfill-translations
+```
+
+The blog script's first pass repairs `BlogPost.locale` from the old `language:<code>` tag — automation used to write posts in Indonesian, English or Mandarin at random — so posts are translated from their real language. Services have no such history (every one was written by an admin in Indonesian), so the services script skips straight to translating. Both need `OPENAI_API_KEY` or `GEMINI_API_KEY`; without one, content stays single-language.
+
+**Running a backfill on the VPS**, where the backend is installed without dev dependencies (`tsx` is missing and the npm script fails with `tsx: not found`):
+
+```bash
+cd ~/dntech/backend
+npm i tsx --no-save        # installs tsx into backend/node_modules
+npx prisma generate        # regenerate the client npm just reset
+npx tsx scripts/backfill-blog-translations.ts --dry-run
+```
+
+Do **not** use `npx -y tsx` — it resolves packages from npm's own cache directory rather than `backend/node_modules`, so `dotenv` and `@prisma/client` are not reachable from there and the script crashes before it can even report `DATABASE_URL` as missing. Installing `tsx` locally (above) is what makes `dotenv/config` pick up `.env` automatically. Afterwards, restore the production-only install and restart: `npm ci --omit=dev && pm2 restart dntech-api`.
+
+**Never run `prisma migrate dev` or `migrate deploy` in this repo** — there is no `prisma/migrations/` directory, so Prisma treats the whole production database as drift and offers to reset it (data loss). Schema changes always go through `prisma db push`, which `scripts/deploy.sh` already runs before restarting the API.
+
 ## Configuration
 
 Copy examples — never commit real secrets.
@@ -160,8 +202,16 @@ From `backend/.env.example`:
 | `SMTP_FROM_NAME` / `SMTP_FROM_EMAIL` | Sender identity |
 | `EMAIL_RETRY_ATTEMPTS` / `EMAIL_RATE_LIMIT` | Mail queue tuning |
 | `SENTRY_DSN` | Optional error monitoring (no-op if unset) |
+| `GEMINI_API_KEY` | Blog/service text generation and translation (primary) |
+| `OPENAI_API_KEY` | Blog cover images (required for covers); optional text fallback |
+| `BLOG_AUTOMATION_ENABLED` | Set `true` to run the blog worker |
+| `BLOG_AUTOMATION_POSTS_PER_DAY` | Maximum automation articles published per local day; default `4` |
+| `BLOG_AUTOMATION_QUEUE_TARGET` | Scheduled automation queue target; default `12` |
+| `BLOG_AUTOMATION_SLOTS` / `BLOG_AUTOMATION_TIMEZONE` | Publish slots and local timezone; defaults to `09:00,12:00,15:00,18:00` / `Asia/Jakarta` |
+| `BLOG_AUTOMATION_PUBLISH_MODE` / `BLOG_AUTOMATION_DRY_RUN` | Scheduled/direct mode and validation-only mode |
+| `BLOG_AUTOMATION_AUTHOR_EMAIL` | Optional active admin/content author for generated posts |
 
-Blog automation is intentionally opt-in. Set `BLOG_AUTOMATION_ENABLED=true` only after configuring an active admin author and an AI provider. The worker creates up to four useful, structured articles per day at the configured slots, rejects short/placeholder drafts, avoids AI-generated cover images, and defaults to `scheduled` status. Run it as a separate PM2 process with `npm run worker:blog`; use `BLOG_AUTOMATION_DRY_RUN=true` to validate generation without writing posts.
+Blog automation is intentionally opt-in. Set `BLOG_AUTOMATION_ENABLED=true` only after configuring an active admin author, `GEMINI_API_KEY` (drafts/translations), and `OPENAI_API_KEY` (cover images). The worker keeps a scheduled generation queue (default target: 12 articles), randomly writes each article in Bahasa Indonesia, English, or Mandarin, and publishes no more than four automation articles per local calendar day at the configured slots. It retries drafts that fail the quality guard or do not receive an OpenAI cover image, skips a topic for the current day after all retries fail so it cannot block the remaining queue, rejects short/placeholder drafts, creates a context-aware cover image with OpenAI only, and defaults to `scheduled` status. If OpenAI image generation is unavailable, the worker does not create the article without a cover and will retry/skip the topic. `BLOG_AUTOMATION_DRY_RUN=true` validates content without writing posts or generating images. Run it as a separate PM2 process with `npm run worker:blog`.
 
 On the VPS, after the first backend build, register the process once: `pm2 start backend/dist/workers/blog-content.worker.js --name dntech-blog-worker --cwd backend`. Future `scripts/deploy.sh` runs restart it automatically when registered.
 

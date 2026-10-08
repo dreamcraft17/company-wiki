@@ -1,7 +1,7 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-09-27
+> **Date:** 2026-10-08
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
@@ -27,7 +27,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
 ### Products
 - [Product Portfolio](./docs/08_PRODUCTS.md)
 - [Product Docs Index](./docs/products/README.md) — product folders under `docs/products/`
-  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**79** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `ab11862` · blog AI cover fix + [security review](./docs/products/dntech/docs/SECURITY-REVIEW-2026-09-26.md)
+  - [DN Tech Compro](./docs/products/dntech/00_INDEX.md) (**79** markdown) · [dntech.id](https://dntech.id) · **v0.10.0** · HEAD `95ca50e` · blog AI Gemini teks + OpenAI cover + [security review](./docs/products/dntech/docs/SECURITY-REVIEW-2026-09-26.md)
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · **GTM eng shipped** · **v16+ frozen** · HEAD `208fde2` · north star admin · DOKU + `/admin/health` + **Kunjungan Web** + assistant v17 (Gemini)
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
@@ -98,4 +98,4 @@ Confidential — DN Tech Internal Documentation
 
 ---
 
-*Last Updated: October 2, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*
+*Last Updated: October 8, 2026 · Founded by Dozer Napitupulu · Leadership: CEO + Tech Lead + PM (Dozer)*

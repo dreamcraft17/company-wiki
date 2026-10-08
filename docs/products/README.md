@@ -29,7 +29,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 | Product | Folder | Docs | Status | Repository |
 |---------|--------|------|--------|------------|
-| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **79** markdown | Production + **relaunch** · **v0.10.0** · HEAD `ab11862` · blog AI cover fix | `dntech` |
+| **DN Tech Compro** | [dntech/](./dntech/00_INDEX.md) | **79** markdown | Production + **relaunch** · **v0.10.0** · HEAD `95ca50e` · blog AI Gemini teks + OpenAI cover | `dntech` |
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.2** + **GTM eng shipped** + DOKU PG + plan catalog + **web traffic** + assistant (Gemini) | Production · **GTM motion live** · **v16+ frozen** · HEAD `208fde2` · **223/223** tests · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
@@ -45,7 +45,8 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
-| **DN Tech Compro** | app `ab11862` / wiki sync 2026-09-27 | **Blog AI cover** — OpenAI size `1536x1024` (not `1536x864`) + Gemini image fallback; blog detail hero cover tidak crop |
+| **DN Tech Compro** | app `95ca50e` / wiki sync 2026-10-08 | **Blog AI providers** — Gemini primary untuk teks (draft/translate); cover blog **OpenAI only**; worker butuh `GEMINI_API_KEY` + `OPENAI_API_KEY` |
+| **DN Tech Compro** | app `ab11862` / wiki sync 2026-09-27 | **Blog AI cover** — OpenAI size `1536x1024` (not `1536x864`); blog detail hero cover tidak crop |
 | **DOVA** | app `f10c79f` / wiki sync 2026-09-27 | **DOVA AI widget UX** — user bubble white text on green; send button centered |
 | **DN Tech Compro** | app `922b571` / wiki sync 2026-09-26 | **Hero + security review** — `hero_bg.png` on homepage; [`SECURITY-REVIEW-2026-09-26.md`](./dntech/docs/SECURITY-REVIEW-2026-09-26.md) (manual Git secret scan); **127+109** tests · blog content worker scaffold |
 | **dnPeople HRIS** | app `208fde2` / wiki sync 2026-10-02 | **GTM engineering 100%** — north star admin + CSV, marketing leads, WhatsApp motion, checklist, design-partner onboarding · **223/223** tests |
