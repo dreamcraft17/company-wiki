@@ -4,12 +4,12 @@
 > **Date:** 2026-09-27
 
 **Document Version**: 1.8  
-**Last Updated**: September 27, 2026  
+**Last Updated**: October 14, 2026  
 **Status**: Published  
 **Owner**: Dozer (CEO + Tech Lead + PM)  
 **Company**: DN Tech (PT. Dozer Napitupulu Technology)  
 **Brand**: DN Tech (DN Tech.id)  
-**UpdatedAt**: September 27, 2026
+**UpdatedAt**: October 14, 2026
 
 ---
 
@@ -325,6 +325,19 @@ DN Tech Products
 - [V2 SDD](./products/nearwork/docs/NEARWORK_V2_SDD.md)
 - [Design System](./products/nearwork/docs/NEARWORK_V2_DESIGN_SYSTEM.md)
 - [Security Audit 2026-07-08](./products/nearwork/SECURITY_AUDIT_2026-07-08.md)
+
+### PacaRent
+
+| Aspek | Detail |
+|-------|--------|
+| Nama | PacaRent — sewa pacar / teman kencan (booking + escrow) |
+| Owner | Dozer (CEO + Tech Lead + PM) |
+| Status | **MVP testing** — hybrid API VPS + web Vercel |
+| API | `https://api.pacarent.dntech.id` (PM2, Postgres) |
+| Stack | ASP.NET Core 8 · React/Vite · PostgreSQL |
+| Repository | `pacarent` |
+| Docs | [→](./products/pacarent/00_INDEX.md) |
+| UpdatedAt | October 14, 2026 |
 
 ### Threads Automation
 

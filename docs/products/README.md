@@ -4,7 +4,7 @@
 > **Date:** 2026-09-27
 
 **Document Version**: 1.21
-**Last Updated**: October 2, 2026
+**Last Updated**: October 14, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -40,11 +40,13 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **Trusted Jurist (TJ)** | [tj/](./tj/00_INDEX.md) | **17** markdown | Go-live readiness | `tj` |
 | **Propose (Entro LY)** | [propose/](./propose/00_INDEX.md) | 1 DOCX | Proposal | `propose` |
 | **Porto** (personal) | [porto/](./porto/00_INDEX.md) | Pointer only | Personal portfolio · Studio Ledger UI · **SSOT `private-wiki/porto/`** | `porto` |
+| **PacaRent** | [pacarent/](./pacarent/00_INDEX.md) | **12** markdown | MVP testing · API **api.pacarent.dntech.id** (VPS PM2) · web Vercel · HEAD `8bda7c9` | `pacarent` |
 
 **Total: markdown docs across products + 1 DOCX + archives**
 
 ---
 
+| **PacaRent** | app `8bda7c9` / wiki sync 2026-10-14 | **Hybrid prod testing** — VPS API + Vercel web · `git pull` auto-deploy · skip OTP testing · visitor GPS filter · mirror + [VPS cheat sheet](./pacarent/docs/guides/VPS-DEPLOY-CHEATSHEET.md) |
 | **DN Tech Compro** | app `95ca50e` / wiki sync 2026-10-08 | **Blog AI providers** — Gemini primary untuk teks (draft/translate); cover blog **OpenAI only**; worker butuh `GEMINI_API_KEY` + `OPENAI_API_KEY` |
 | **DN Tech Compro** | app `ab11862` / wiki sync 2026-09-27 | **Blog AI cover** — OpenAI size `1536x1024` (not `1536x864`); blog detail hero cover tidak crop |
 | **DOVA** | app `f10c79f` / wiki sync 2026-09-27 | **DOVA AI widget UX** — user bubble white text on green; send button centered |
