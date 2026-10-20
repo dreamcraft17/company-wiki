@@ -1,7 +1,7 @@
 # Status Implementasi vs PRD / SRS / SDD
 
 > **Author:** Dozer  
-> **Date:** 2026-10-12
+> **Date:** 2026-10-18
 
 ## FR (SRS §3)
 
@@ -10,7 +10,7 @@
 | FR-01 Autentikasi (register, OTP, lockout, S&K) | ✅ | `AuthController`, `OtpService`, `BusinessRules` |
 | FR-02 Profil pengguna | ✅ | `ProfileController`, `web/src/pages/ProfilePage.tsx` |
 | FR-03 Pendaftaran & verifikasi mitra | ✅ | `PartnersController`, `AdminController`, enkripsi dokumen |
-| FR-04 Pencarian mitra | ✅ | `PartnersController` GET, `HomePage` |
+| FR-04 Pencarian mitra | ✅ | `PartnersController` GET, `BrowseListPage` (grid v3) |
 | FR-05 Booking | ✅ | `BookingsController`, validasi lokasi (min. 3 karakter) |
 | FR-06 Pembayaran (held, fee, release) | ✅ mock DOKU | `PaymentsController`, `PacaRentBackgroundService`, admin release |
 | FR-07 Selesai & pembatalan | ✅ | `BookingsController`, kebijakan refund |
@@ -18,6 +18,7 @@
 | FR-09 Pelaporan & moderasi | ✅ | `ReportsController`, `AdminController` |
 | FR-10 Panel admin | ✅ | `AdminController`, `AdminPage.tsx` |
 | FR-11 Notifikasi | ✅ | `NotificationService`, email mock + in-app API |
+| FR-12 Membership (Plus/Pro/Pendamping Pro) | ✅ mock | `SubscriptionsController`, `/membership`, migrasi `AddMembershipSubscriptions` |
 
 ## NFR
 
@@ -43,7 +44,7 @@
 
 ## PRD non-goals
 
-Mobile native, chat media, subscription, kategori fase 2 — **sengaja tidak diimplementasi** (sesuai PRD §3).
+Mobile native, chat media, recurring billing DOKU live, kategori fase 2 — belum / partial. **Membership UI + tier gating** (cap booking gratis, Pro prioritas, Pendamping Pro boost) — shipped 2026-10-17 (mock checkout).
 
 ## Produksi (checklist)
 

@@ -1,7 +1,7 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-10-14
+> **Date:** 2026-10-18
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
@@ -39,7 +39,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
   - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer ke **private-wiki** (bukan produk tim)
   - [Porto](./docs/products/porto/README.md) — personal portfolio (Studio Ledger UI) · pointer ke **private-wiki/porto/**
-  - [PacaRent](./docs/products/pacarent/00_INDEX.md) — MVP testing · API `api.pacarent.dntech.id` · Vercel web · HEAD `8bda7c9`
+  - [PacaRent](./docs/products/pacarent/00_INDEX.md) — MVP testing · UI v3 · membership mock · API `api.pacarent.dntech.id` · HEAD `ca1769e`
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
 - [Compro Spec Summary](./products/10_COMPRO_SPEC.md)
 - [Careers PRD Summary](./products/11_CAREERS_PRD.md)

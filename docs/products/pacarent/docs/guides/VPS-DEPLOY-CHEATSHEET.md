@@ -6,7 +6,7 @@
 
 ## Summary
 
-Panduan singkat copy-paste untuk server DN Tech (`~/pacarent`, PM2, Nginx `api.pacarent.dntech.id`). Frontend tetap di **Vercel**. Panduan lengkap: [`VPS-DEPLOY-NO-DOCKER.md`](VPS-DEPLOY-NO-DOCKER.md).
+Panduan singkat copy-paste untuk VPS (`~/pacarent`, PM2, Nginx `api.pacarent.dntech.id`). Frontend tetap di **Vercel**. Panduan lengkap: [`VPS-DEPLOY-NO-DOCKER.md`](VPS-DEPLOY-NO-DOCKER.md).
 
 ---
 
@@ -194,7 +194,6 @@ Set env **Production + Preview**, lalu **redeploy** (env `VITE_*` dibaca saat bu
 | Key | Contoh |
 |-----|--------|
 | `VITE_API_BASE` | `https://api.pacarent.dntech.id` |
-| `VITE_GOOGLE_MAPS_API_KEY` | opsional (reverse geocode; tanpa ini pakai OSM) |
 
 Quickstart: [`VERCEL-QUICKSTART.md`](VERCEL-QUICKSTART.md).
 

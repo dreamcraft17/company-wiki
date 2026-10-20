@@ -330,14 +330,14 @@ DN Tech Products
 
 | Aspek | Detail |
 |-------|--------|
-| Nama | PacaRent — sewa pacar / teman kencan (booking + escrow) |
+| Nama | PacaRent — plus one / teman kencan (booking + langganan Plus/Pro) |
 | Owner | Dozer (CEO + Tech Lead + PM) |
-| Status | **MVP testing** — hybrid API VPS + web Vercel |
+| Status | **MVP testing** — UI v3 · membership mock shipped · hybrid API VPS + web Vercel |
 | API | `https://api.pacarent.dntech.id` (PM2, Postgres) |
 | Stack | ASP.NET Core 8 · React/Vite · PostgreSQL |
-| Repository | `pacarent` |
-| Docs | [→](./products/pacarent/00_INDEX.md) |
-| UpdatedAt | October 14, 2026 |
+| Repository | `pacarent` · HEAD `ca1769e` |
+| Docs | [→](./products/pacarent/00_INDEX.md) · [monetization](./products/pacarent/docs/MONETIZATION-SUBSCRIPTION.md) |
+| UpdatedAt | October 18, 2026 |
 
 ### Threads Automation
 
