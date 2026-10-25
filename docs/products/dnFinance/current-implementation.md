@@ -6,7 +6,7 @@
 | Field | Value |
 |-------|--------|
 | Snapshot date | October 25, 2026 |
-| HEAD | `44b4242` (`main`) |
+| HEAD | `3dfb2d1` (`main`) — product docs SSOT: this wiki folder |
 | Updated at | October 25, 2026 |
 | Tests | **224** passing (Jest, `npm run test`) |
 | Product | Multi-tenant cloud accounting — Indonesia SME |
@@ -28,8 +28,8 @@
 
 ## Docs SSOT
 
-- **Living:** `dnFinance/docs2/` → mirrored to [./docs/](./docs/00_INDEX.md)
-- **V1 spek (local):** `dnFinance/docs/` → wiki [./docs/v1/](./docs/v1/PRD.md)
+- **Product docs:** edit only under [./docs/](./docs/00_INDEX.md) (this wiki folder). App repo `dnFinance/` = code + root README — no tracked PRD/docs.
+- **V1 spek:** [./docs/v1/](./docs/v1/PRD.md)
 - **Competitive research:** [./docs/research/accurate-comparison/](./docs/research/accurate-comparison/plan.md)
 
 Detail: [FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md) · [FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) · [REPO-SNAPSHOT.md](./docs/REPO-SNAPSHOT.md)

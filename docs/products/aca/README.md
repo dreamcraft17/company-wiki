@@ -13,6 +13,6 @@ Tracker pengeluaran personal (**bukan** produk komersial DN Tech). Docs **tidak*
 | `current-implementation.md` | Snapshot MVP+ |
 | `docs/PRD.md` · `SRS.md` · `SDD.md` · `DEPLOY.md` · `UI_DESIGN_BRIEF.md` | Spec + ops + UI (pink–blue theme) |
 
-Repo app: `aca/` · GitHub `dreamcraft17/aca` · HEAD `78149a1` (25 Oct 2026) · **134** tests.
+Repo app: `aca/` · GitHub `dreamcraft17/aca` · HEAD `d68ad35` (25 Oct 2026) · **134** tests.
 
 Portfolio tim (`docs/products/README.md`, `08_PRODUCTS.md`) **tidak** listing aca.

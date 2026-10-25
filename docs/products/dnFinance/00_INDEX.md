@@ -7,7 +7,7 @@
 **Remote:** https://github.com/dreamcraft17/dnfinance.git  
 **Owner:** Dozer · **Company:** DN Tech  
 **UpdatedAt:** 25 October 2026  
-**HEAD:** `44b4242` (`main`)  
+**HEAD:** `3dfb2d1` (`main`, app repo — docs live only in wiki)  
 **Status:** V2 Phase 2 ~78% · MVP **demo-ready** · **224/224** tests  
 **Prod (target):** `finance.dntech.id` / `api.finance.dntech.id` — see [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md)
 

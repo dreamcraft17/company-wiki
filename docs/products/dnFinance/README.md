@@ -9,7 +9,7 @@ Cloud accounting SaaS for Indonesian SME. Engineering onboarding: [00_INDEX.md](
 | Layer | Tech |
 |-------|------|
 | Backend | NestJS 11 · JWT · multi-tenant in-memory store (Postgres-ready) |
-| Frontend | React 19 · Vite 5 · Redux Toolkit · Tailwind CSS 3.4 |
+| Frontend | React 19 · Vite 6 · Redux Toolkit · Tailwind CSS 3.4 |
 | Shared | Tax (PPN 11%, PPh 23), COA templates, validators |
 
 ## Quick start (no Docker)
@@ -73,20 +73,22 @@ npm run test:coverage
 cd apps/backend && npm run test   # smoke after build
 ```
 
-Manual UAT matrix: [`tests/TEST-CASES.md`](./tests/TEST-CASES.md)
+Manual UAT matrix: [`docs/TEST-CASES.md`](./docs/TEST-CASES.md)
 
-## Docs
+**App repo:** https://github.com/dreamcraft17/dnfinance (kode + [README singkat](https://github.com/dreamcraft17/dnfinance/blob/main/README.md) saja — jangan commit PRD di sana).
 
-- [`docs/PRD.md`](./docs/PRD.md) — MVP v1.0
-- [`docs/STATUS.md`](./docs/STATUS.md) — MVP status (~92%)
-- [`docs2/00_INDEX.md`](./docs2/00_INDEX.md) — **V2 living docs hub**
-- [`docs2/IMPLEMENTATION-STATUS.md`](./docs2/IMPLEMENTATION-STATUS.md) — V2 status (~78%)
-- [`DEMO.md`](./DEMO.md) — client demo script
-- Spek V2: [`docs/PRD_V2.md`](./docs/PRD_V2.md) · [`docs/SRS_V2.md`](./docs/SRS_V2.md) · [`docs/SDD_V2.md`](./docs/SDD_V2.md)
+## Docs (SSOT — folder ini)
+
+- [00_INDEX.md](./00_INDEX.md) — hub navigasi
+- [DEMO.md](./DEMO.md) — script demo client
+- [docs/FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) · [docs/REPO-SNAPSHOT.md](./docs/REPO-SNAPSHOT.md)
+- [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) · [docs/FEATURE-CATALOG.md](./docs/FEATURE-CATALOG.md)
+- Spek V2: [docs/PRD/PRD-V2.md](./docs/PRD/PRD-V2.md) · [SRS-V2.md](./docs/PRD/SRS-V2.md) · [SDD-V2.md](./docs/PRD/SDD-V2.md)
+- Spek V1: [docs/v1/PRD.md](./docs/v1/PRD.md) · [docs/v1/STATUS.md](./docs/v1/STATUS.md)
+- Riset Accurate: [docs/research/accurate-comparison/plan.md](./docs/research/accurate-comparison/plan.md)
 
 ## Deployment notes
 
 - **No Docker required** for local dev (same as DOVA path).
 - Production: Node host (PM2) + managed PostgreSQL + Vercel/Cloudflare for frontend.
 - Phase 2 (production): TypeORM + managed PostgreSQL, Redis, Bull email queue, real Gmail delivery.
-# dnfinance

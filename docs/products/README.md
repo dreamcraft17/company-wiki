@@ -47,7 +47,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
-| **dnAccounting** | app `44b4242` / wiki sync 2026-10-25 | **New product folder** — mirror `dnFinance/docs2/` + V1 `docs/v1/` · [FITUR-LENGKAP](./dnFinance/docs/FITUR-LENGKAP.md) · Accurate comparison research · **224/224** tests |
+| **dnAccounting** | app `3dfb2d1` / wiki sync 2026-10-25 | **SSOT wiki** — living docs in [dnFinance/docs/](./dnFinance/docs/00_INDEX.md) + V1 `docs/v1/` · [FITUR-LENGKAP](./dnFinance/docs/FITUR-LENGKAP.md) · Accurate research · **224/224** tests |
 | **PacaRent** | app `ca1769e` / wiki sync 2026-10-18 | **UI v3 + membership (mock)** — Plus/Pro/Pendamping Pro · `/membership` · tier cap booking · [MONETIZATION](./pacarent/docs/MONETIZATION-SUBSCRIPTION.md) · [membership research](./pacarent/docs/research/dating-app-membership-patterns-2026-10-17.md) |
 | **PacaRent** | app `8bda7c9` / wiki sync 2026-10-14 | Hybrid prod testing — VPS API + Vercel · `git pull` auto-deploy · visitor GPS filter |
 | **DN Tech Compro** | app `95ca50e` / wiki sync 2026-10-08 | **Blog AI providers** — Gemini primary untuk teks (draft/translate); cover blog **OpenAI only**; worker butuh `GEMINI_API_KEY` + `OPENAI_API_KEY` |
@@ -126,7 +126,7 @@ docs/products/
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
 ├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan) — v2.2.1
-├── dnFinance/                 # dnAccounting (cloud accounting UKM) — docs2 mirror
+├── dnFinance/                 # dnAccounting — wiki SSOT (app repo README + code only)
 ├── aca/                       # Catat Duit — stub → private-wiki/aca/
 ├── porto/                     # Personal portfolio — stub → private-wiki/porto/
 ├── dvs/                       # DuaVulnScanner (pentest platform)

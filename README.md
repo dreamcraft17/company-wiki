@@ -1,7 +1,7 @@
 # DN Tech Company Wiki
 
 > **Author:** Dozer  
-> **Date:** 2026-10-18
+> **Date:** 2026-10-25
 
 Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology (DN Tech)**.
 
@@ -31,14 +31,14 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · **GTM eng shipped** · **v16+ frozen** · HEAD `208fde2` · north star admin · DOKU + `/admin/health` + **Kunjungan Web** + assistant v17 (Gemini)
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
-  - [dnAccounting (dnFinance)](./docs/products/dnFinance/00_INDEX.md) — cloud accounting UKM · MVP demo-ready · HEAD `44b4242` · **224** tests · vs Accurate research
+  - [dnAccounting (dnFinance)](./docs/products/dnFinance/00_INDEX.md) — **doc SSOT di wiki** · app repo README-only · MVP demo-ready · **224** tests · [Accurate research](./docs/products/dnFinance/docs/research/accurate-comparison/plan.md)
   - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `f10c79f` · DOVA AI widget UX · bundles on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (38 markdown)
   - [Threads Automation](./docs/products/threads-automation/00_INDEX.md) (26 markdown)
   - [Trusted Jurist (TJ)](./docs/products/tj/00_INDEX.md) (17 markdown)
   - [Propose / Entro LY](./docs/products/propose/00_INDEX.md) (1 markdown + 1 DOCX)
-  - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer ke **private-wiki** (bukan produk tim)
+  - [aca (Catat Duit)](./docs/products/aca/README.md) — pointer → **private-wiki/aca/** (app `d68ad35`)
   - [Porto](./docs/products/porto/README.md) — personal portfolio (Studio Ledger UI) · pointer ke **private-wiki/porto/**
   - [PacaRent](./docs/products/pacarent/00_INDEX.md) — MVP testing · UI v3 · membership mock · API `api.pacarent.dntech.id` · HEAD `ca1769e`
 - [Compro PRD Summary](./products/09_COMPRO_PRD.md)
@@ -69,11 +69,12 @@ company-wiki/
 ├── QUICK_REFERENCE.md     # Cheat sheet git & VS Code
 ├── docs/                  # Dokumentasi perusahaan & teknis
 │   ├── 01-08...           # Company & technical docs
-│   └── products/          # Source docs per produk (457 markdown + 1 DOCX + 4 ZIP)
+│   └── products/          # Source docs per produk (~500+ markdown + 1 DOCX + archives)
 │       ├── dntech/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
 │       ├── dnShopee/      # dnShop Finance (repo dnShopee) — v2.2.1
+│       ├── dnFinance/     # dnAccounting — SSOT wiki; app repo code + README only
 │       ├── aca/            # Catat Duit — stub → private-wiki/aca/
 │       ├── porto/          # Personal portfolio — stub → private-wiki/porto/
 │       ├── dova/           # Marketplace (MVP → operations launch)
