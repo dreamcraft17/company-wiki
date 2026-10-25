@@ -4,7 +4,7 @@
 > **Date:** 2026-09-27
 
 **Document Version**: 1.21
-**Last Updated**: October 18, 2026
+**Last Updated**: October 25, 2026
 **Status**: Published
 **Owner**: Dozer (CEO + Tech Lead + PM)
 
@@ -33,6 +33,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 | **dnPeople HRIS** | [dnPeople/](./dnPeople/00_INDEX.md) | Living + PRD v15 + **v1.1.2** + **GTM eng shipped** + DOKU PG + plan catalog + **web traffic** + assistant (Gemini) | Production · **GTM motion live** · **v16+ frozen** · HEAD `208fde2` · **223/223** tests · ops gates Conditional | `dnpeople` |
 | **dnCore (ERP)** | [dnpeople-erp/](./dnpeople-erp/00_INDEX.md) | PRD/SDD/SRS + refactor + deployment | Express + Remix · PM2/Nginx · 408/88 | `ERP` |
 | **dnShop Finance** | [dnShopee/](./dnShopee/00_INDEX.md) | Living + SOPI + **v2.2** PRD/SRS/SDD + changelog + review bundle | **v2.2.1** shipped · next **v3.0** · app `576021c` | `dnShopee` |
+| **dnAccounting** | [dnFinance/](./dnFinance/00_INDEX.md) | **42+** markdown · living docs2 + Accurate research + PRD V2 | MVP demo-ready · V2 ~78% · HEAD `44b4242` · **224/224** tests | `dnFinance` |
 | **DuaVulnScanner** | [dvs/](./dvs/00_INDEX.md) | PRD/SRS/SDD + MVP scaffold | Week 1 scaffold · passive scanner | `dvs` |
 | **DOVA** | [dova/](./dova/00_INDEX.md) | Full docs + PRD/SRS/SDD + **All-features** (101) + QA/release audit + **Bundle Feature PRD/SDD** | **v0.5.4** production live (app `f10c79f`) · DOVA AI widget UX fix · bundles on `stg` (`5ce09c4`) · [dova.dntech.id](https://dova.dntech.id) | `dova` + **`dova-comp-wiki`** |
 | **Nearwork (NextWork)** | [nearwork/](./nearwork/00_INDEX.md) | Living + **BUSINESS-MODEL** + **FEATURE-CATALOG** | **V2 + v2.1 DoD Done** · PSP GA Conditional · HEAD `3983ddf` | `nextwork` |
@@ -46,6 +47,7 @@ Posisi CTO / VP Product (formal) / Head of Design / COO masih **vacant** — fun
 
 ---
 
+| **dnAccounting** | app `44b4242` / wiki sync 2026-10-25 | **New product folder** — mirror `dnFinance/docs2/` + V1 `docs/v1/` · [FITUR-LENGKAP](./dnFinance/docs/FITUR-LENGKAP.md) · Accurate comparison research · **224/224** tests |
 | **PacaRent** | app `ca1769e` / wiki sync 2026-10-18 | **UI v3 + membership (mock)** — Plus/Pro/Pendamping Pro · `/membership` · tier cap booking · [MONETIZATION](./pacarent/docs/MONETIZATION-SUBSCRIPTION.md) · [membership research](./pacarent/docs/research/dating-app-membership-patterns-2026-10-17.md) |
 | **PacaRent** | app `8bda7c9` / wiki sync 2026-10-14 | Hybrid prod testing — VPS API + Vercel · `git pull` auto-deploy · visitor GPS filter |
 | **DN Tech Compro** | app `95ca50e` / wiki sync 2026-10-08 | **Blog AI providers** — Gemini primary untuk teks (draft/translate); cover blog **OpenAI only**; worker butuh `GEMINI_API_KEY` + `OPENAI_API_KEY` |
@@ -124,6 +126,7 @@ docs/products/
 ├── dnPeople/                  # dnPeople HRIS (Express + Next.js)
 ├── dnpeople-erp/              # dnCore ERP (Express + Remix) — path legacy; brand dnCore
 ├── dnShopee/                  # dnShop Finance (Shopee seller + pembukuan) — v2.2.1
+├── dnFinance/                 # dnAccounting (cloud accounting UKM) — docs2 mirror
 ├── aca/                       # Catat Duit — stub → private-wiki/aca/
 ├── porto/                     # Personal portfolio — stub → private-wiki/porto/
 ├── dvs/                       # DuaVulnScanner (pentest platform)
@@ -149,4 +152,4 @@ images/                        # Logo & assets per produk
 
 ---
 
-*Last Updated: September 26, 2026*
+*Last Updated: October 25, 2026*

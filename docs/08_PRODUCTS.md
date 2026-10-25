@@ -68,6 +68,11 @@ DN Tech Products
 │   ├── SOPI v2.1 + UI2 + **v2.2.1** accounting depth
 │   └── Repo: dnShopee · prod shop.dntech.id
 │
+├── 📒 dnAccounting (dnFinance)               → docs/products/dnFinance/
+│   ├── Cloud accounting UKM (vs Accurate/Jurnal)
+│   ├── NestJS + React · demo-ready · V2 hardening ~78%
+│   └── Repo: dnFinance · github.com/dreamcraft17/dnfinance
+│
 ├── 📍 Nearwork                               → docs/products/nearwork/
 │   ├── Location-based platform
 │   ├── Billing & subscriptions
@@ -287,6 +292,32 @@ DN Tech Products
 | Changelog | [CHANGELOG.md](./products/dnShopee/docs/CHANGELOG.md) |
 | v2.2 spec | [PRD/v2.2/](./products/dnShopee/PRD/v2.2/) |
 | Next PRD brief | [NEXT-PRD-BRIEF.md](./products/dnShopee/docs/NEXT-PRD-BRIEF.md) → **v3.0** |
+
+---
+
+### dnAccounting (dnFinance)
+
+| Aspek | Detail |
+|-------|--------|
+| Nama | dnAccounting (package `dnfinance`) |
+| Brand | DN Tech first-party |
+| Owner | Dozer (CEO + Tech Lead + PM) |
+| Status | MVP **demo-ready** · V2 production hardening **~78%** · **224/224** tests |
+| Target | UKM Indonesia — positioning vs Accurate (see research pack) |
+| Stack | NestJS 11 + React 19/Vite · monorepo |
+| Repository | `dnFinance` · https://github.com/dreamcraft17/dnfinance |
+| Docs | [→](./products/dnFinance/00_INDEX.md) |
+| UpdatedAt | October 25, 2026 |
+
+### Dokumentasi
+
+| Dokumen | File |
+|---------|------|
+| Index | [dnFinance/00_INDEX.md](./products/dnFinance/00_INDEX.md) |
+| Fitur lengkap | [FITUR-LENGKAP.md](./products/dnFinance/docs/FITUR-LENGKAP.md) |
+| Repo snapshot | [REPO-SNAPSHOT.md](./products/dnFinance/docs/REPO-SNAPSHOT.md) |
+| Accurate research | [research/accurate-comparison/](./products/dnFinance/docs/research/accurate-comparison/plan.md) |
+| PRD V2 | [PRD/PRD-V2.md](./products/dnFinance/docs/PRD/PRD-V2.md) |
 
 ---
 
