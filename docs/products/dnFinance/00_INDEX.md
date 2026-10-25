@@ -11,8 +11,8 @@
 **Status:** V2 Phase 2 ~78% · MVP **demo-ready** · **224/224** tests  
 **Prod (target):** `finance.dntech.id` / `api.finance.dntech.id` — see [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md)
 
-> **Canonical app docs:** workspace `dnFinance/docs2/` (+ V1 spek lokal `dnFinance/docs/`, tidak di-track git)  
-> **This folder:** company-wiki mirror — sync setelah ship / doc refresh.
+> **SSOT:** folder ini — repo app `dnFinance/` hanya berisi **README.md** + kode.  
+> **App repo:** https://github.com/dreamcraft17/dnfinance
 
 ---
 
@@ -41,17 +41,8 @@ Index lengkap: [docs/00_INDEX.md](./docs/00_INDEX.md)
 | Spek V2 | [PRD/PRD-V2.md](./docs/PRD/PRD-V2.md) · [SRS-V2.md](./docs/PRD/SRS-V2.md) · [SDD-V2.md](./docs/PRD/SDD-V2.md) |
 | Spek V1 (mirror) | [docs/v1/](./docs/v1/PRD.md) |
 
-## Sync from app repo
+## Edit workflow
 
-```bash
-# From dozer workspace root
-APP=dnFinance
-WIKI=company-wiki/docs/products/dnFinance
-cp $APP/README.md $WIKI/README.md
-cp $APP/DEMO.md $WIKI/DEMO.md 2>/dev/null || true
-cp $APP/docs2/*.md $WIKI/docs/
-cp -R $APP/docs2/PRD $WIKI/docs/
-cp -R $APP/docs2/research $WIKI/docs/
-cp $APP/docs/*.md $WIKI/docs/v1/
-# Then refresh this 00_INDEX + current-implementation.md + portfolio indexes
-```
+1. Ubah dokumen **di folder wiki ini** (bukan di repo `dnFinance/`).  
+2. Commit **company-wiki**.  
+3. Repo app: hanya update `README.md` jika quick start / link berubah.

@@ -5,7 +5,7 @@
 **Product / package:** dnAccounting (`dnfinance`)  
 **Local path:** `dnFinance/`  
 **UpdatedAt:** 25 October 2026  
-**Wiki mirror:** `company-wiki/docs/products/dnFinance/` · App HEAD `44b4242` · **224** tests  
+**SSOT:** `company-wiki/docs/products/dnFinance/` · App repo: README only · **224** tests  
 **Status:** **V2 Phase 2** — production hardening (~78% ready) · MVP demo-ready  
 **Spec baseline:** PRD/SRS/SDD **V2.0** (+ V1.0 MVP baseline)
 
@@ -37,6 +37,7 @@
 | [DEPLOY-VPS.md](./DEPLOY-VPS.md) | VPS deploy: Nginx + PM2, finance.dntech.id / api.finance.dntech.id |
 | [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md) | Akun demo & seed data |
 | [CHANGELOG.md](./CHANGELOG.md) | Riwayat V1 → V2 |
+| [TEST-CASES.md](./TEST-CASES.md) | Matriks UAT manual |
 | [NEXT-PRD-BRIEF.md](./NEXT-PRD-BRIEF.md) | Briefing Phase 3 |
 | [PRD/PRD-V2.md](./PRD/PRD-V2.md) | Product requirements V2 |
 | [PRD/SRS-V2.md](./PRD/SRS-V2.md) | Software requirements V2 |
