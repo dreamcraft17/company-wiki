@@ -6,9 +6,9 @@
 **Repository / path:** `dnFinance/` · package `dnfinance`  
 **Remote:** https://github.com/dreamcraft17/dnfinance.git  
 **Owner:** Dozer · **Company:** DN Tech  
-**UpdatedAt:** 25 October 2026  
-**HEAD:** `3dfb2d1` (`main`, app repo — docs live only in wiki)  
-**Status:** V2 Phase 2 ~78% · MVP **demo-ready** · **224/224** tests  
+**UpdatedAt:** 27 October 2026  
+**HEAD:** `4bd2cd2` (`main`, app repo — docs live only in wiki)  
+**Status:** MVP **demo-ready** · Langganan & Tagihan (deposit DOKU) dibangun, belum diuji di sandbox · **458** tests (448 lolos penuh 27 Okt + 10 tes billing lolos terpisah)  
 **Prod (target):** `finance.dntech.id` / `api.finance.dntech.id` — see [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md)
 
 > **SSOT:** folder ini — repo app `dnFinance/` hanya berisi **README.md** + kode.  
@@ -22,6 +22,7 @@
 |-------|---------|
 | Overview produk | [README.md](./README.md) · [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) |
 | Fitur lengkap | [docs/FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) · per modul & status: [docs/FITUR-PER-MODUL.md](./docs/FITUR-PER-MODUL.md) |
+| Harga, paket & pembayaran | [docs/Rancangan_Harga_dan_Paket_dnFinance.md](./docs/Rancangan_Harga_dan_Paket_dnFinance.md) (hipotesis harga + billing deposit DOKU) |
 | Snapshot repo & git | [docs/REPO-SNAPSHOT.md](./docs/REPO-SNAPSHOT.md) |
 | Status vs spek V2 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
 | Demo / BD | [docs/USER-GUIDE.md](./docs/USER-GUIDE.md) · [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) |

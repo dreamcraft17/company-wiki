@@ -180,18 +180,21 @@ Pembayaran langganan memakai **DOKU**, sama seperti DnPeople. Pola yang sudah be
 - Mode sandbox dan production dipisah lewat konfigurasi lingkungan; kredensial hanya di server, tidak masuk repositori.
 - Kode acuan: `dnpeople/backend/src/lib/doku.ts`, `dokuSnapQris.ts`, `paymentProviderConfig.ts`, dan `src/routes/payments.ts`.
 
-**Alur yang diusulkan untuk dnFinance:**
-1. Pelanggan memilih paket dan periode (bulanan/tahunan) di halaman Tagihan.
-2. Sistem membuat invoice langganan (harga incl. PPN) dan transaksi DOKU.
-3. Pelanggan membayar lewat kanal yang aktif di akun DOKU DN Tech.
-4. Webhook DOKU mengonfirmasi, status invoice menjadi lunas, masa aktif paket diperpanjang.
-5. Bukti pembayaran dan notifikasi dikirim ke email admin data usaha.
+**Yang sudah dibangun di dnFinance (model deposit, `main` @ `4bd2cd2`, 27 Okt 2026):**
+
+Model mengikuti cara kerja penagihan Accurate (saldo deposit dipotong per periode), dengan nama menu dan tampilan dnFinance sendiri.
+
+1. Admin membuka **Langganan & Tagihan** › usaha › **Tambah deposit**, memilih nominal (min Rp50.000), lalu dibawa ke DOKU Checkout. Nomor transaksi `TRXDNFINANCE-YYYYMMDD-XXXXXXXX` (beda dari dnPeople `DNP-…`, aman dipakai di satu akun merchant).
+2. Webhook DOKU (tanda tangan diverifikasi) atau Check Status menambah saldo dan mencatat mutasi.
+3. Cron harian menerbitkan faktur bulanan `FBDNF-…` (paket + slot pengguna tambahan, harga incl. PPN) dan membayarnya dari saldo; masa aktif maju 1 bulan.
+4. Saldo kurang → faktur Belum lunas; lunas otomatis saat deposit berikutnya masuk.
 
 **Catatan penting:**
-- Kanal bayar yang tampil (QRIS, virtual account, kartu, dan lainnya) mengikuti kanal yang **diaktifkan di DOKU Back Office**, bukan yang kita tulis di kode. Daftar final menunggu aktivasi dan persetujuan DOKU untuk akun dnFinance (pakai akun merchant DN Tech yang sudah ada atau akun baru: perlu diputuskan).
-- Jalur DOKU yang dipakai di DnPeople adalah pembayaran per invoice. Perpanjangan otomatis tanpa aksi pelanggan (debit berulang) belum terverifikasi didukung; tahap awal dirancang sebagai **invoice baru tiap periode** dengan pengingat sebelum jatuh tempo.
-- Di dnFinance saat ini **belum ada modul billing**. Tombol "Tagihan" di menu Data Usaha masih nonaktif. Semua alur di atas masih rencana.
-- Jangan klaim metode bayar tertentu atau perpanjangan otomatis di halaman harga sebelum diuji di sandbox dan kanalnya aktif di production.
+- Kanal bayar yang tampil (QRIS, virtual account, kartu, dan lainnya) mengikuti kanal yang **diaktifkan di DOKU Back Office**, bukan yang kita tulis di kode. Masih perlu diputuskan: pakai akun merchant DN Tech yang sama dengan dnPeople atau akun baru.
+- Skema **tahunan** di atas belum dibangun; kode saat ini hanya menagih per bulan dari deposit.
+- Belum ada: redeem voucher, VA tetap, email bukti bayar, pembatasan akses saat tagihan menunggak.
+- Batas pengguna per paket di kode masih Starter 1 / Growth 3 (bukan 2 / 5 seperti tabel di atas); slot tambahan menambah batas itu.
+- Belum diuji di sandbox DOKU. Jangan klaim metode bayar tertentu di halaman harga sebelum diuji dan kanalnya aktif di production.
 
 ---
 

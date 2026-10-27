@@ -1,14 +1,14 @@
 # dnAccounting — current implementation (PRD baseline)
 
 > **Author:** Dozer  
-> **Date:** 2026-10-25
+> **Date:** 2026-10-27
 
 | Field | Value |
 |-------|--------|
-| Snapshot date | October 25, 2026 |
-| HEAD | `3dfb2d1` (`main`) — product docs SSOT: this wiki folder |
-| Updated at | October 25, 2026 |
-| Tests | **224** passing (Jest, `npm run test`) |
+| Snapshot date | October 27, 2026 |
+| HEAD | `4bd2cd2` (`main`) — product docs SSOT: this wiki folder |
+| Updated at | October 27, 2026 |
+| Tests | **458** (Jest, `npm run test`): 448 passed in full run Oct 27 + 10 billing specs passed separately |
 | Product | Multi-tenant cloud accounting — Indonesia SME |
 | Stack | NestJS 11 + React 19/Vite · monorepo `dnfinance` |
 | Persistence | JSON file store dev · optional Postgres JSONB snapshot |
@@ -19,6 +19,7 @@
 - COA templates (5 industries), journal/GL, AR/AP, inventory, tax (PPN/PPh), reports, e-Faktur CSV export
 - Bill & journal approval (UI + email token), scheduled reports, departments on P&L
 - Demo tenant seed · Swagger `/api/docs`
+- Langganan & Tagihan (Oct 27): deposit top-up via DOKU Checkout (`TRXDNFINANCE-…`), monthly invoices paid from deposit, extra user slots, billing profile — not yet tested against DOKU sandbox (see [FITUR-PER-MODUL](./docs/FITUR-PER-MODUL.md))
 - UI: unified module pages (header, tabs, badges, stat cards) — per recent app commits
 
 ## Production gates (open)

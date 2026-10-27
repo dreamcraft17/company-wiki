@@ -1,5 +1,25 @@
 # dnAccounting — Changelog (living docs)
 
+## 2026-10-27 — Langganan & Tagihan (deposit via DOKU)
+
+App repo `main`: `2541aa6` → `6ce7673` → `4bd2cd2`.
+
+### Added
+- Modul backend `billing/`: DOKU Checkout (port dari dnPeople), top-up deposit `TRXDNFINANCE-…`, webhook `POST /api/v1/webhooks/doku` (raw body + verifikasi tanda tangan), Check Status, faktur bulanan `FBDNF-…` dipotong dari saldo (cron 01.00 WIB), mutasi saldo, profil penagihan, ganti paket, slot pengguna tambahan
+- Frontend: menu profil Data Usaha › **Langganan & Tagihan** (`/langganan`) dan **Pusat Tagihan** per usaha (`/langganan/:tenantId`)
+- `billing.service.spec.ts` (10 tes; DOKU dan storage di-mock)
+- Env: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_IS_PRODUCTION`, `DOKU_NOTIFICATION_URL`, `API_PUBLIC_URL`, `DOKU_PAYMENT_METHOD_TYPES`
+
+### Changed
+- `Tenant.extraUsers`: batas pengguna = batas tier + slot tambahan (createUser, aktifkan ulang user, tambah administrator)
+- `main.ts`: `rawBody: true`
+
+### Notes
+- Harga paket masih hipotesis (lihat [Rancangan_Harga_dan_Paket_dnFinance.md](./Rancangan_Harga_dan_Paket_dnFinance.md))
+- Belum diuji end-to-end di sandbox DOKU; tampilan belum dicek di browser
+
+---
+
 ## 2026-08-02 — V2 Phase 2 implementation
 
 ### Added

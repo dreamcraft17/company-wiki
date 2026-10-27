@@ -1,7 +1,7 @@
 # dnAccounting — Fitur Lengkap per Modul
 
 > **Status:** Active · **Last updated:** 2026-10-27 · **Author:** Dozer
-> **Produk:** dnAccounting · **Repo:** `dnFinance/` (`main` @ `2e17444`) · **Sumber:** audit kode per layar (frontend + backend)
+> **Produk:** dnAccounting · **Repo:** `dnFinance/` (`main` @ `4bd2cd2`) · **Sumber:** audit kode per layar (frontend + backend)
 
 ## Ringkasan
 
@@ -25,7 +25,26 @@ Untuk penjelasan cara kerja fitur inti (registrasi, RBAC, alur jurnal), lihat [F
 
 - Satu email bisa mengelola beberapa perusahaan. Setelah login, pengguna memilih usaha di layar **Data Usaha**.
 - Aksi per usaha: Buka, Edit Info, Tambah/Cabut Administrator, Nonaktifkan (dengan alasan) / Aktifkan Kembali, Wajibkan 2FA, Ganti password.
-- Belum tersedia: Tagihan, Daftar Persetujuan Akses, bahasa English/简体中文, Riwayat Login.
+- Belum tersedia: menu "Tagihan" di kartu usaha (pakai menu profil › Langganan & Tagihan), Daftar Persetujuan Akses, bahasa English/简体中文, Riwayat Login.
+
+### Langganan & Tagihan (Pusat Tagihan) — 🟡 Sebagian
+
+Dibuka dari menu profil di layar Data Usaha › **Langganan & Tagihan** › pilih usaha. Model **deposit**: saldo diisi lewat DOKU, tagihan bulanan dipotong otomatis dari saldo.
+
+| Menu | Isi |
+|------|-----|
+| Ringkasan | Kode tagihan (`DNF…`, bisa disalin), aktif hingga, periode berjalan, saldo deposit, tombol Tambah deposit, perkiraan tagihan berikutnya (rincian, PPN di dalam harga, dipotong saldo, sisa yang perlu ditambah) |
+| Profil Penagihan | Nama, email, telepon, NPWP, alamat (dipakai di faktur dan sebagai kontak DOKU) |
+| Faktur Tagihan | Faktur bulanan `FBDNF-YYYYMM-…`, status Lunas / Belum lunas, rincian |
+| Paket & Pengguna | Ganti paket (berlaku periode berikutnya), slot pengguna tambahan Rp22.000/orang/bulan (langsung menaikkan batas pengguna) |
+| Mutasi Saldo | Uang masuk (deposit) dan keluar (tagihan) dengan saldo akhir |
+| Riwayat Deposit | Transaksi DOKU `TRXDNFINANCE-YYYYMMDD-…`, Lanjutkan bayar, Cek status |
+
+- Pembayaran: DOKU Checkout (port dari dnPeople). Webhook `POST /api/v1/webhooks/doku` dengan verifikasi tanda tangan + Check Status saat pelanggan kembali dari DOKU. Idempoten (webhook dobel tidak menambah saldo dua kali).
+- Cron harian 01.00 WIB menerbitkan faktur periode yang jatuh tempo dan membayarnya dari saldo; saldo kurang → faktur Belum lunas, lunas otomatis saat deposit berikutnya masuk.
+- Hanya Administrator yang bisa deposit, ganti paket, ubah slot, dan ubah profil penagihan.
+- Tombol bayar nonaktif selama `DOKU_CLIENT_ID` / `DOKU_SECRET_KEY` belum diisi di server.
+- Belum ada: redeem voucher, nomor VA tetap, biaya penggunaan data, pembatasan akses saat tagihan menunggak, email bukti bayar. Belum diuji end-to-end di sandbox DOKU.
 
 ### Penomoran dokumen
 
