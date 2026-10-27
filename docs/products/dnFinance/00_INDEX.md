@@ -21,7 +21,7 @@
 | Peran | Dokumen |
 |-------|---------|
 | Overview produk | [README.md](./README.md) · [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) |
-| Fitur lengkap | [docs/FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) |
+| Fitur lengkap | [docs/FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) · per modul & status: [docs/FITUR-PER-MODUL.md](./docs/FITUR-PER-MODUL.md) |
 | Snapshot repo & git | [docs/REPO-SNAPSHOT.md](./docs/REPO-SNAPSHOT.md) |
 | Status vs spek V2 | [docs/IMPLEMENTATION-STATUS.md](./docs/IMPLEMENTATION-STATUS.md) |
 | Demo / BD | [docs/USER-GUIDE.md](./docs/USER-GUIDE.md) · [docs/DEMO-ACCOUNTS.md](./docs/DEMO-ACCOUNTS.md) |
