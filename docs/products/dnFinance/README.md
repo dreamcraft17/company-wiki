@@ -1,8 +1,8 @@
 # dnAccounting — MVP Implementation
 
-> **Author:** Dozer · **SSOT:** folder ini · **App repo:** `dnFinance/` (README + code only) · **UpdatedAt:** 2026-10-25
+> **Author:** Dozer · **SSOT:** folder ini · **App repo:** `dnFinance/` (README + code only) · **UpdatedAt:** 2026-10-28
 
-Cloud accounting SaaS for Indonesian SME. Engineering onboarding: [00_INDEX.md](./00_INDEX.md).
+Cloud accounting SaaS for Indonesian businesses of every type and size — from sole proprietors and SMEs to multi-branch companies. Engineering onboarding: [00_INDEX.md](./00_INDEX.md).
 
 ## Stack
 

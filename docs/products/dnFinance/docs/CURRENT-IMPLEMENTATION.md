@@ -16,7 +16,7 @@
 
 | Area | Implementation |
 |------|----------------|
-| Product | Multi-tenant cloud accounting (Indonesia SME) |
+| Product | Multi-tenant cloud accounting (semua jenis & skala bisnis di Indonesia) |
 | Frontend | React 19 + Vite + Redux + Tailwind (`apps/frontend`, :5173) |
 | Backend | NestJS 11 API (`apps/backend`, :3000 `/api/v1`) |
 | Shared | COA templates, PPN/PPh helpers (`shared/`) |

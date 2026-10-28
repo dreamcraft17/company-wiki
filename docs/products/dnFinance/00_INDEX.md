@@ -2,11 +2,11 @@
 
 > **Author:** Dozer · **Date:** 2026-10-25
 
-**Product:** dnAccounting — cloud accounting SaaS for Indonesian SME (positioning vs Accurate/Jurnal)  
+**Product:** dnAccounting — cloud accounting SaaS for Indonesian businesses of every type and size (positioning vs Accurate/Jurnal)  
 **Repository / path:** `dnFinance/` · package `dnfinance`  
 **Remote:** https://github.com/dreamcraft17/dnfinance.git  
 **Owner:** Dozer · **Company:** DN Tech  
-**UpdatedAt:** 27 October 2026  
+**UpdatedAt:** 28 October 2026  
 **HEAD:** `4bd2cd2` (`main`, app repo — docs live only in wiki)  
 **Status:** MVP **demo-ready** · Langganan & Tagihan (deposit DOKU) dibangun, belum diuji di sandbox · **458** tests (448 lolos penuh 27 Okt + 10 tes billing lolos terpisah)  
 **Prod (target):** `finance.dntech.id` / `api.finance.dntech.id` — see [docs/DEPLOY-VPS.md](./docs/DEPLOY-VPS.md)

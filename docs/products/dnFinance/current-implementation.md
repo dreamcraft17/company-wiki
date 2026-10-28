@@ -9,7 +9,7 @@
 | HEAD | `4bd2cd2` (`main`) — product docs SSOT: this wiki folder |
 | Updated at | October 27, 2026 |
 | Tests | **458** (Jest, `npm run test`): 448 passed in full run Oct 27 + 10 billing specs passed separately |
-| Product | Multi-tenant cloud accounting — Indonesia SME |
+| Product | Multi-tenant cloud accounting — semua jenis & skala bisnis di Indonesia |
 | Stack | NestJS 11 + React 19/Vite · monorepo `dnfinance` |
 | Persistence | JSON file store dev · optional Postgres JSONB snapshot |
 | Status | MVP ~92% features · V2 production hardening ~78% · **demo-ready** |

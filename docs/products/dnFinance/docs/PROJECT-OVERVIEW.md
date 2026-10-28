@@ -2,11 +2,11 @@
 
 | | |
 |---|---|
-| **Product** | dnAccounting — Cloud Accounting SaaS for Indonesian SME |
+| **Product** | dnAccounting — Cloud Accounting SaaS for Indonesian businesses of every type and size |
 | **Folder / package** | `dnFinance/` · `dnfinance` |
 | **Owner** | Dozer Fernando Saroha Daniel Napitupulu |
 | **Company** | DN Tech (PT. Dozer Napitupulu Technology) |
-| **UpdatedAt** | 2 August 2026 |
+| **UpdatedAt** | 28 October 2026 |
 | **Spec** | PRD/SRS/SDD **V2.0** (Phase 2 production hardening) |
 | **License** | Private — commercial SaaS |
 
@@ -14,9 +14,9 @@
 
 ## Apa itu dnAccounting?
 
-Multi-tenant **cloud accounting** untuk UMKM Indonesia: Chart of Accounts, General Ledger, AR/AP, inventory, PPN/PPh, laporan keuangan, dan workflow approval — dengan UI modern dan API-first.
+Multi-tenant **cloud accounting** untuk semua jenis dan skala bisnis di Indonesia — usaha perorangan, UMKM, hingga perusahaan multi-cabang/multi-gudang di bidang dagang, jasa, manufaktur, dan F&B: Chart of Accounts, General Ledger, AR/AP, inventory, PPN/PPh, laporan keuangan, dan workflow approval — dengan UI modern dan API-first.
 
-**Masalah:** UMKM pakai Excel/spreadsheet; PPN/PPh manual; tidak ada audit trail; sulit scale ke beberapa user.  
+**Masalah:** banyak bisnis — kecil maupun besar — masih pakai Excel/spreadsheet atau sistem terpisah per divisi; PPN/PPh manual; tidak ada audit trail; sulit scale ke beberapa user.  
 **Jawaban:** SaaS accounting dengan COA template per industri, auto-posting GL, e-Faktur export, approval bills/journal via email, dan laporan real-time.
 
 ## Visi
@@ -31,7 +31,7 @@ Multi-tenant **cloud accounting** untuk UMKM Indonesia: Chart of Accounts, Gener
 
 | Persona | Kebutuhan | Baca |
 |---------|-----------|------|
-| Owner UMKM | Dashboard KPI, laporan P&L, cash position | [USER-GUIDE.md](./USER-GUIDE.md) |
+| Pemilik / direksi | Dashboard KPI, laporan P&L, cash position | [USER-GUIDE.md](./USER-GUIDE.md) |
 | Accountant | Journal, invoice, bill, import COA, e-Faktur | [USER-GUIDE.md](./USER-GUIDE.md) |
 | Manager | Approve bills & journal entries | [USER-GUIDE.md](./USER-GUIDE.md) |
 | Ops / engineer | Deploy staging, env, monitoring | [DEPLOY.md](./DEPLOY.md) |

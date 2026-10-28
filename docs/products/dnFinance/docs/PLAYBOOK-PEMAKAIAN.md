@@ -13,7 +13,7 @@ Satu dokumen pegangan untuk tim DN Tech (onboarding pelanggan, CS, operasional) 
 
 | Item | Nilai |
 |------|-------|
-| Produk | dnAccounting (nama repo/package: `dnfinance`) — akuntansi cloud multi-perusahaan untuk UMKM Indonesia |
+| Produk | dnAccounting (nama repo/package: `dnfinance`) — akuntansi cloud multi-perusahaan untuk semua jenis dan skala bisnis di Indonesia |
 | Pemilik | PT. Dozer Napitupulu Technology (DN Tech) · kontak `info@dntech.id` |
 | Web | `https://finance.dntech.id` (beranda publik `/home`, login `/login`, daftar `/register`) |
 | API | `https://api.finance.dntech.id/api/v1` · Swagger lokal `http://localhost:3000/api/docs` |
