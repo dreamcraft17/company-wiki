@@ -1,7 +1,7 @@
-# dnAccounting — Snapshot Repo, Fitur & Keadaan
+# dnFinance — Snapshot Repo, Fitur & Keadaan
 
 > **Status:** Active · **Last updated:** 2026-10-24 · **Author:** Dozer  
-> **Produk:** dnAccounting (cloud accounting UKM Indonesia) · **Folder:** `dnFinance/`  
+> **Produk:** dnFinance (cloud accounting UKM Indonesia) · **Folder:** `dnFinance/`  
 > **Remote:** https://github.com/dreamcraft17/dnfinance.git · **Branch:** `main` · **HEAD:** `d563991`
 
 ## Summary

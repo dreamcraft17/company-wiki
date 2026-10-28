@@ -1,8 +1,8 @@
-# dnAccounting — Docs Index (V2)
+# dnFinance — Docs Index (V2)
 
 **Owner:** Dozer Fernando Saroha Daniel Napitupulu  
 **Company:** DN Tech (PT. Dozer Napitupulu Technology)  
-**Product / package:** dnAccounting (`dnfinance`)  
+**Product / package:** dnFinance (`dnfinance`)  
 **Local path:** `dnFinance/`  
 **UpdatedAt:** 25 October 2026  
 **SSOT:** `company-wiki/docs/products/dnFinance/` · App repo: README only · **224** tests  

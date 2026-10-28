@@ -31,7 +31,7 @@ Knowledge base dan dokumentasi internal untuk **PT. Dozer Napitupulu Technology 
   - [dnPeople HRIS](./docs/products/dnPeople/README.md) — [hris.dntech.id](https://hris.dntech.id) · **v1.1.2** · **GTM eng shipped** · **v16+ frozen** · HEAD `208fde2` · north star admin · DOKU + `/admin/health` + **Kunjungan Web** + assistant v17 (Gemini)
   - [DN Core ERP](./docs/products/dnpeople-erp/00_INDEX.md) (56 markdown)
   - [dnShop Finance](./docs/products/dnShopee/00_INDEX.md) — [shop.dntech.id](https://shop.dntech.id) · **v2.2.1** · next **v3.0**
-  - [dnAccounting (dnFinance)](./docs/products/dnFinance/00_INDEX.md) — **doc SSOT di wiki** · app repo README-only · MVP demo-ready · **224** tests · [Accurate research](./docs/products/dnFinance/docs/research/accurate-comparison/plan.md)
+  - [dnFinance](./docs/products/dnFinance/00_INDEX.md) — **doc SSOT di wiki** · app repo README-only · MVP demo-ready · **224** tests · [Accurate research](./docs/products/dnFinance/docs/research/accurate-comparison/plan.md)
   - [DOVA](./docs/products/dova/00_INDEX.md) — [dova.dntech.id](https://dova.dntech.id) · **v0.5.4** · **production live** · app `f10c79f` · DOVA AI widget UX · bundles on `stg` (unreleased) · [integration](./docs/products/dova/docs/DOVA-INTEGRATION-GUIDE.md) · [All-features](./docs/products/dova/All-features.md) · [FEATURE-CATALOG](./docs/products/dova/docs/FEATURE-CATALOG.md)
   - [DuaVulnScanner](./docs/products/dvs/00_INDEX.md) (6 markdown) — Passive vulnerability scanner MVP
   - [Nearwork](./docs/products/nearwork/00_INDEX.md) (38 markdown)
@@ -74,7 +74,7 @@ company-wiki/
 │       ├── dnPeople/      # HRIS (repo dnpeople)
 │       ├── dnpeople-erp/  # Full ERP (repo ERP) — terpisah
 │       ├── dnShopee/      # dnShop Finance (repo dnShopee) — v2.2.1
-│       ├── dnFinance/     # dnAccounting — SSOT wiki; app repo code + README only
+│       ├── dnFinance/     # dnFinance — SSOT wiki; app repo code + README only
 │       ├── aca/            # Catat Duit — stub → private-wiki/aca/
 │       ├── porto/          # Personal portfolio — stub → private-wiki/porto/
 │       ├── dova/           # Marketplace (MVP → operations launch)

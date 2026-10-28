@@ -1,4 +1,4 @@
-# dnAccounting — Current Implementation Baseline
+# dnFinance — Current Implementation Baseline
 
 | Metadata | Value |
 |----------|-------|

@@ -1056,7 +1056,7 @@ npm run db:seed-dnpeople
 
 ## 📊 Future Products Template
 
-Template ini reusable untuk produk DN Tech di masa depan (misal: **dnInvoicing**, **dnAccounting**, dll).
+Template ini reusable untuk produk DN Tech di masa depan (misal: **dnInvoicing**, **dnFinance**, dll).
 
 **Yang akan sama:**
 - Pricing tiers structure

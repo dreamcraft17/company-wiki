@@ -1,4 +1,4 @@
-# dnAccounting — current implementation (PRD baseline)
+# dnFinance — current implementation (PRD baseline)
 
 > **Author:** Dozer  
 > **Date:** 2026-10-27

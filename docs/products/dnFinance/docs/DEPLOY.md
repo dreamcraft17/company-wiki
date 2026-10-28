@@ -1,4 +1,4 @@
-# dnAccounting — Deploy Guide
+# dnFinance — Deploy Guide
 
 **UpdatedAt:** 2 August 2026
 

@@ -1,11 +1,11 @@
-# dnAccounting — Fitur Lengkap per Modul
+# dnFinance — Fitur Lengkap per Modul
 
 > **Status:** Active · **Last updated:** 2026-10-27 · **Author:** Dozer
-> **Produk:** dnAccounting · **Repo:** `dnFinance/` (`main` @ `4bd2cd2`) · **Sumber:** audit kode per layar (frontend + backend)
+> **Produk:** dnFinance · **Repo:** `dnFinance/` (`main` @ `4bd2cd2`) · **Sumber:** audit kode per layar (frontend + backend)
 
 ## Ringkasan
 
-Dokumen ini mencatat apa yang **benar-benar bisa dilakukan** di setiap menu sidebar dnAccounting, mengikuti urutan menu di aplikasi. Setiap menu diberi status:
+Dokumen ini mencatat apa yang **benar-benar bisa dilakukan** di setiap menu sidebar dnFinance, mengikuti urutan menu di aplikasi. Setiap menu diberi status:
 
 | Status | Arti |
 |--------|------|

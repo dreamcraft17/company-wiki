@@ -1,4 +1,4 @@
-# dnAccounting Product Requirements Document (PRD) — Phase 2
+# dnFinance Product Requirements Document (PRD) — Phase 2
 **Version:** 2.0  
 **Date:** August 2026  
 **Author:** Dozer Fernando Saroha Daniel Napitupulu  

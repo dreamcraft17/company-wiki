@@ -1,4 +1,4 @@
-# dnAccounting — Demo Accounts
+# dnFinance — Demo Accounts
 
 **Tenant:** PT Toko Sejahtera Nusantara (retail)  
 **Auto-seed:** on backend startup via `demo-seed.ts`

@@ -1,4 +1,4 @@
-# dnAccounting — MVP Implementation
+# dnFinance — MVP Implementation
 
 > **Author:** Dozer · **SSOT:** folder ini · **App repo:** `dnFinance/` (README + code only) · **UpdatedAt:** 2026-10-28
 

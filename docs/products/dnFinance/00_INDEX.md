@@ -1,8 +1,8 @@
-# dnAccounting (dnFinance) — Documentation Index
+# dnFinance — Documentation Index
 
 > **Author:** Dozer · **Date:** 2026-10-25
 
-**Product:** dnAccounting — cloud accounting SaaS for Indonesian businesses of every type and size (positioning vs Accurate/Jurnal)  
+**Product:** dnFinance — cloud accounting SaaS for Indonesian businesses of every type and size (positioning vs Accurate/Jurnal)  
 **Repository / path:** `dnFinance/` · package `dnfinance`  
 **Remote:** https://github.com/dreamcraft17/dnfinance.git  
 **Owner:** Dozer · **Company:** DN Tech  

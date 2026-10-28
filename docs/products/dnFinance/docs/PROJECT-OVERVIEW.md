@@ -1,8 +1,8 @@
-# dnAccounting — Project Overview
+# dnFinance — Project Overview
 
 | | |
 |---|---|
-| **Product** | dnAccounting — Cloud Accounting SaaS for Indonesian businesses of every type and size |
+| **Product** | dnFinance — Cloud Accounting SaaS for Indonesian businesses of every type and size |
 | **Folder / package** | `dnFinance/` · `dnfinance` |
 | **Owner** | Dozer Fernando Saroha Daniel Napitupulu |
 | **Company** | DN Tech (PT. Dozer Napitupulu Technology) |
@@ -12,7 +12,7 @@
 
 ---
 
-## Apa itu dnAccounting?
+## Apa itu dnFinance?
 
 Multi-tenant **cloud accounting** untuk semua jenis dan skala bisnis di Indonesia — usaha perorangan, UMKM, hingga perusahaan multi-cabang/multi-gudang di bidang dagang, jasa, manufaktur, dan F&B: Chart of Accounts, General Ledger, AR/AP, inventory, PPN/PPh, laporan keuangan, dan workflow approval — dengan UI modern dan API-first.
 

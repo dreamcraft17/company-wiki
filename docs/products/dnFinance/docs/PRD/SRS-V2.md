@@ -1,4 +1,4 @@
-# dnAccounting Software Requirements Specification (SRS) — Phase 2
+# dnFinance Software Requirements Specification (SRS) — Phase 2
 **Version:** 2.0  
 **Date:** August 2026  
 **Sprint Duration:** 2 weeks × 16 sprints = 32 weeks (Q4 2026 → Q1 2027)
@@ -187,7 +187,7 @@ async sendEmailRealGmail(template: EmailTemplate, recipient: string) {
 - [ ] Templates: Invoice sent, bill approval request, overdue reminder, scheduled report, user invitation, password reset
 - [ ] Handlebars templating: Variables like {{invoice_number}}, {{amount_formatted}}
 - [ ] Attachments: PDF invoices + reports embedded
-- [ ] Branding: dnAccounting logo, colors, footer
+- [ ] Branding: dnFinance logo, colors, footer
 - [ ] Testing: Email preview page (dev only)
 - [ ] i18n: Template support for Indonesian/English (Phase 3)
 

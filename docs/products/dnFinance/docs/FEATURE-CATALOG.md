@@ -1,4 +1,4 @@
-# dnAccounting — Feature Catalog (V2)
+# dnFinance — Feature Catalog (V2)
 
 **Owner:** Dozer · **Company:** DN Tech  
 **UpdatedAt:** 2 August 2026  

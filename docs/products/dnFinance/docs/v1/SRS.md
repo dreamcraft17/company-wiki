@@ -1,4 +1,4 @@
-# dnAccounting Software Requirements Specification (SRS)
+# dnFinance Software Requirements Specification (SRS)
 **Version:** 1.0  
 **Date:** August 2026  
 **Sprint Duration:** 2 weeks (8 sprints total = 16 weeks MVP)  
@@ -346,7 +346,7 @@ GET /api/v1/reports/p-and-l?from_date=2024-01-01&to_date=2024-12-31
 **Estimated:** 10 hours  
 **Acceptance Criteria:**
 - [ ] Export report to PDF (P&L, balance sheet, trial balance)
-- [ ] PDF styling matches brand (dnAccounting logo, colors)
+- [ ] PDF styling matches brand (dnFinance logo, colors)
 - [ ] Schedule report email (daily, weekly, monthly)
 - [ ] Email contains PDF attachment + summary table
 - [ ] Scheduled jobs run via Bull queue

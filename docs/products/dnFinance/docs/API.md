@@ -1,4 +1,4 @@
-# dnAccounting — API Reference (summary)
+# dnFinance — API Reference (summary)
 
 **Base URL:** `http://localhost:3000/api/v1` (dev)  
 **Swagger:** `http://localhost:3000/api/docs` (interactive, v2.0)  

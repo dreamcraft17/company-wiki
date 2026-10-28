@@ -1,4 +1,4 @@
-# dnAccounting — User Guide
+# dnFinance — User Guide
 
 Panduan singkat + demo client 15 menit. Detail akun: [DEMO-ACCOUNTS.md](./DEMO-ACCOUNTS.md).
 

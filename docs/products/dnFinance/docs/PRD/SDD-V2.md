@@ -1,4 +1,4 @@
-# dnAccounting System Design Document (SDD) — Phase 2
+# dnFinance System Design Document (SDD) — Phase 2
 **Version:** 2.0  
 **Date:** August 2026  
 **Author:** Dozer Fernando Saroha Daniel Napitupulu  
@@ -250,7 +250,7 @@ export class EmailService {
     
     try {
       const result = await this.transporter.sendMail({
-        from: `dnAccounting <${process.env.GMAIL_FROM_EMAIL}>`,
+        from: `dnFinance <${process.env.GMAIL_FROM_EMAIL}>`,
         to: recipient,
         subject: template.subject,
         html: html,

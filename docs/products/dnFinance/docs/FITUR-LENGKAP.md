@@ -1,11 +1,11 @@
-# dnAccounting — Penjelasan Lengkap Fitur
+# dnFinance — Penjelasan Lengkap Fitur
 
 > **Status:** Active · **Last updated:** 2026-10-24 · **Author:** Dozer  
-> **Produk:** dnAccounting · **Repo:** `dnFinance/` · **API:** `/api/v1` · **Spek:** PRD/SRS/SDD V2.0
+> **Produk:** dnFinance · **Repo:** `dnFinance/` · **API:** `/api/v1` · **Spek:** PRD/SRS/SDD V2.0
 
 ## Summary
 
-Dokumen ini menjelaskan **cara kerja setiap fitur** di dnAccounting — bukan sekadar daftar checkbox. Untuk status implementasi (Available / Conditional / Roadmap) gunakan [FEATURE-CATALOG.md](./FEATURE-CATALOG.md). Untuk endpoint ringkas: [API.md](./API.md) dan Swagger `/api/docs`.
+Dokumen ini menjelaskan **cara kerja setiap fitur** di dnFinance — bukan sekadar daftar checkbox. Untuk status implementasi (Available / Conditional / Roadmap) gunakan [FEATURE-CATALOG.md](./FEATURE-CATALOG.md). Untuk endpoint ringkas: [API.md](./API.md) dan Swagger `/api/docs`.
 
 Semua data bisnis **terisolasi per tenant** (perusahaan). Satu user hanya melihat COA, jurnal, invoice, dan laporan milik `tenantId`-nya sendiri.
 

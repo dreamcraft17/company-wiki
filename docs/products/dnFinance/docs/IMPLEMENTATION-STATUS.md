@@ -1,4 +1,4 @@
-# dnAccounting — Implementation Status (V2)
+# dnFinance — Implementation Status (V2)
 
 > Terakhir diperbarui: **2 August 2026**  
 > Referensi: PRD/SRS/SDD **V2.0** (+ V1 MVP baseline)  

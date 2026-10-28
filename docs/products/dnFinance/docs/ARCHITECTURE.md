@@ -1,4 +1,4 @@
-# dnAccounting — Architecture (V2)
+# dnFinance — Architecture (V2)
 
 **UpdatedAt:** 2 August 2026
 

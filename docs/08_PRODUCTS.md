@@ -68,7 +68,7 @@ DN Tech Products
 │   ├── SOPI v2.1 + UI2 + **v2.2.1** accounting depth
 │   └── Repo: dnShopee · prod shop.dntech.id
 │
-├── 📒 dnAccounting (dnFinance)               → docs/products/dnFinance/
+├── 📒 dnFinance               → docs/products/dnFinance/
 │   ├── Cloud accounting UKM (vs Accurate/Jurnal)
 │   ├── NestJS + React · demo-ready · V2 hardening ~78%
 │   └── Repo: dnFinance · github.com/dreamcraft17/dnfinance
@@ -295,11 +295,11 @@ DN Tech Products
 
 ---
 
-### dnAccounting (dnFinance)
+### dnFinance
 
 | Aspek | Detail |
 |-------|--------|
-| Nama | dnAccounting (package `dnfinance`) |
+| Nama | dnFinance (package `dnfinance`) |
 | Brand | DN Tech first-party |
 | Owner | Dozer (CEO + Tech Lead + PM) |
 | Status | MVP **demo-ready** · V2 production hardening **~78%** · **224/224** tests |

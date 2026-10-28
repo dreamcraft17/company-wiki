@@ -1,7 +1,7 @@
 # Rancangan Harga dan Paket dnFinance
 
 - **Author:** Dozer
-- **Produk:** dnFinance (dnAccounting), produk DN Tech
+- **Produk:** dnFinance, produk DN Tech
 - **Jenis dokumen:** Rekomendasi pricing SaaS
 - **Status:** Hipotesis awal untuk validasi, bukan harga final
 - **Tanggal:** 27 Oktober 2026

@@ -1,4 +1,4 @@
-# dnAccounting — Test Cases (MVP)
+# dnFinance — Test Cases (MVP)
 
 **Automated:** `npm run test` · `apps/backend` smoke  
 **Register flow:** creates tenant + COA template automatically

@@ -1,4 +1,4 @@
-# dnAccounting System Design Document (SDD)
+# dnFinance System Design Document (SDD)
 **Version:** 1.0  
 **Date:** August 2026  
 **Author:** Dozer Fernando Saroha Daniel Napitupulu  
@@ -86,7 +86,7 @@ Backup: Automated daily snapshots to Cloud Storage
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         Frontend (React 19)                         │
-│  Web App (dnAccounting.app) + Mobile Web (responsive)              │
+│  Web App (dnFinance.app) + Mobile Web (responsive)              │
 └─────────────────────────────────────────┬───────────────────────────┘
                                           │
                     ┌─────────────────────▼──────────────────────┐
@@ -928,7 +928,7 @@ Manual export available in V1.0 (user downloads CSV, uploads to DJP portal)
 │   └── jest.config.ts (90% reuse)
 └── infra/
     ├── google-cloud.config.ts (95% reuse)
-    ├── terraform/ (70% reuse - adapt for dnAccounting resources)
+    ├── terraform/ (70% reuse - adapt for dnFinance resources)
     └── docker-compose.yml (90% reuse)
 ```
 

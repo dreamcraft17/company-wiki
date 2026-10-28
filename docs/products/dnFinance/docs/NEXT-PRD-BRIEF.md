@@ -1,4 +1,4 @@
-# dnAccounting — Next PRD Brief (Phase 3)
+# dnFinance — Next PRD Brief (Phase 3)
 
 **Date:** August 2026  
 **After:** V2 production launch (Q1 2027 target)  

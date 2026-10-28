@@ -1,4 +1,4 @@
-# dnAccounting — Changelog (living docs)
+# dnFinance — Changelog (living docs)
 
 ## 2026-10-27 — Langganan & Tagihan (deposit via DOKU)
 

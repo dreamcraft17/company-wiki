@@ -1,4 +1,4 @@
-# dnAccounting — Status Report
+# dnFinance — Status Report
 
 **Date:** 2 August 2026  
 **Repo:** `dnFinance/`  

@@ -1,4 +1,4 @@
-# dnAccounting Product Requirements Document (PRD)
+# dnFinance Product Requirements Document (PRD)
 **Version:** 1.0  
 **Date:** August 2026  
 **Author:** Dozer Fernando Saroha Daniel Napitupulu  
@@ -8,7 +8,7 @@
 
 ## 1. EXECUTIVE SUMMARY
 
-**Produk:** dnAccounting - Cloud-based accounting software untuk SME Indonesia  
+**Produk:** dnFinance - Cloud-based accounting software untuk SME Indonesia  
 **Target Market:** UKM dengan revenue Rp 1M-20M/tahun, frustasi dengan Accurate's limited features + high multi-user cost  
 **MVP Launch:** Q4 2026 (16 minggu development)  
 **Revenue Model:** Freemium SaaS (Starter free, Growth/Pro/Plus tiers)  
@@ -24,7 +24,7 @@
 - **Target Y1 market share:** 2.5% = 1250 users = Rp 300M+ ARR
 
 ### Competitive Positioning
-| Faktor | Accurate | Business Central | Mekari Jurnal | **dnAccounting** |
+| Faktor | Accurate | Business Central | Mekari Jurnal | **dnFinance** |
 |--------|----------|------------------|---------------|-----------------|
 | Harga (1 user) | Rp 333k | $70/user (Rp 1.1M) | Rp 200k | **Rp 199k** |
 | Harga (3 user) | Rp 999k | Rp 3.3M | Rp 600k | **Rp 199k** |
@@ -188,13 +188,13 @@
 - Accurate: Rp 333k/mo
 - Business Central: Rp 1.1M/mo
 - Mekari Jurnal: Rp 200k/mo (accounting only)
-- dnAccounting Growth: Rp 199k/mo (accounting + AR/AP + inventory)
+- dnFinance Growth: Rp 199k/mo (accounting + AR/AP + inventory)
   → 40% cheaper than Accurate, same as Mekari but 10x more features
 
 3-user scenario (growing SME):
 - Accurate: Rp 999k/mo (Rp 333k x 3)
 - Business Central: Rp 3.3M/mo
-- dnAccounting Growth: Rp 199k/mo (all 3 users included!)
+- dnFinance Growth: Rp 199k/mo (all 3 users included!)
   → 80% cheaper than Accurate
 ```
 

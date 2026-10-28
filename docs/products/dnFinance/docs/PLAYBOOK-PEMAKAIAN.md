@@ -1,11 +1,11 @@
-# dnAccounting (dnFinance) — Playbook Pemakaian & Runbook Operasional
+# dnFinance — Playbook Pemakaian & Runbook Operasional
 
 > **Status:** Active · **Last updated:** 2026-10-28 · **Author:** Dozer
 > **Repo app:** `dnFinance/` (HEAD `0423933`, `main`) · **Prod:** https://finance.dntech.id · API https://api.finance.dntech.id/api/v1
 
 ## Ringkasan
 
-Satu dokumen pegangan untuk tim DN Tech (onboarding pelanggan, CS, operasional) dan pengguna kunci di sisi pelanggan. Isinya: cara pelanggan mulai memakai dnAccounting, alur kerja harian per modul, langganan & tagihan, tugas admin DN Tech di Konsol Provider, serta runbook deploy & troubleshooting. Detail teknis deploy ada di [DEPLOY-VPS.md](./DEPLOY-VPS.md); status fitur per modul di [FITUR-PER-MODUL.md](./FITUR-PER-MODUL.md).
+Satu dokumen pegangan untuk tim DN Tech (onboarding pelanggan, CS, operasional) dan pengguna kunci di sisi pelanggan. Isinya: cara pelanggan mulai memakai dnFinance, alur kerja harian per modul, langganan & tagihan, tugas admin DN Tech di Konsol Provider, serta runbook deploy & troubleshooting. Detail teknis deploy ada di [DEPLOY-VPS.md](./DEPLOY-VPS.md); status fitur per modul di [FITUR-PER-MODUL.md](./FITUR-PER-MODUL.md).
 
 ---
 
@@ -13,7 +13,7 @@ Satu dokumen pegangan untuk tim DN Tech (onboarding pelanggan, CS, operasional) 
 
 | Item | Nilai |
 |------|-------|
-| Produk | dnAccounting (nama repo/package: `dnfinance`) — akuntansi cloud multi-perusahaan untuk semua jenis dan skala bisnis di Indonesia |
+| Produk | dnFinance (nama repo/package: `dnfinance`) — akuntansi cloud multi-perusahaan untuk semua jenis dan skala bisnis di Indonesia |
 | Pemilik | PT. Dozer Napitupulu Technology (DN Tech) · kontak `info@dntech.id` |
 | Web | `https://finance.dntech.id` (beranda publik `/home`, login `/login`, daftar `/register`) |
 | API | `https://api.finance.dntech.id/api/v1` · Swagger lokal `http://localhost:3000/api/docs` |

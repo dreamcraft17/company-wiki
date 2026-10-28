@@ -1,4 +1,4 @@
-# dnAccounting — Phase 2 Implementation Status
+# dnFinance — Phase 2 Implementation Status
 
 **Date:** August 2026  
 **Baseline:** MVP V1 (~92% PRD must-haves)  
