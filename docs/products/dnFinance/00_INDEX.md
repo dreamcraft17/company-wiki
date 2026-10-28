@@ -21,6 +21,7 @@
 | Peran | Dokumen |
 |-------|---------|
 | Overview produk | [README.md](./README.md) · [docs/PROJECT-OVERVIEW.md](./docs/PROJECT-OVERVIEW.md) |
+| **Playbook pemakaian & runbook ops** | [docs/PLAYBOOK-PEMAKAIAN.md](./docs/PLAYBOOK-PEMAKAIAN.md) — onboarding pelanggan, alur harian per modul, langganan, `/admin`, deploy & troubleshooting |
 | Fitur lengkap | [docs/FITUR-LENGKAP.md](./docs/FITUR-LENGKAP.md) · per modul & status: [docs/FITUR-PER-MODUL.md](./docs/FITUR-PER-MODUL.md) |
 | Harga, paket & pembayaran | [docs/Rancangan_Harga_dan_Paket_dnFinance.md](./docs/Rancangan_Harga_dan_Paket_dnFinance.md) (hipotesis harga + billing deposit DOKU) |
 | Snapshot repo & git | [docs/REPO-SNAPSHOT.md](./docs/REPO-SNAPSHOT.md) |
